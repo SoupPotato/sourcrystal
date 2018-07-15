@@ -529,8 +529,8 @@ SubmissionDescription:
 	next "so hurts the user.@"
 
 LowKickDescription:
-	db   "An attack that may"
-	next "cause flinching.@"
+	db   "More powerful on"
+	next "heavier foes.@"
 
 CounterDescription:
 	db   "Returns a physical"

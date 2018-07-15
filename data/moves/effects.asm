@@ -2045,6 +2045,7 @@ BeatUp:
 	critical
 	beatup
 	damagecalc
+	stab
 	damagevariation
 	clearmissdamage
 	moveanimnosub
@@ -2052,7 +2053,7 @@ BeatUp:
 	applydamage
 	criticaltext
 	cleartext
-	supereffectivetext
+	supereffectivelooptext
 	checkdestinybond
 	buildopponentrage
 	endloop
@@ -2073,3 +2074,24 @@ DefenseCurl:
 	statupmessage
 	statupfailtext
 	endmove
+	
+WeightDamage:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	weightdamage
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkdestinybond
+	buildopponentrage
+	kingsrock
+	endmove
+

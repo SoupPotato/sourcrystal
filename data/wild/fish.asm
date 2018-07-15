@@ -197,7 +197,7 @@ FishGroups:
 	db  35 percent,     MAGIKARP,   20
 	db  70 percent,     POLIWAG,    20
 	db  90 percent + 1, POLIWAG,    20
-	db 100 percent,     time_group 6
+	db 100 percent,     REMORAID,   20
 .Remoraid_Super:
 	db  40 percent,     POLIWAG,    40
 	db  70 percent,     time_group 7

@@ -349,6 +349,9 @@ IlexForestCharcoalMasterScript:
 	iftrue .AlreadyGotCut
 	writetext Text_CharcoalMasterIntro
 	buttonsound
+	verbosegiveitem CUT_PAGER
+	writetext Text_CharcoalMasterMid
+	buttonsound
 	verbosegiveitem HM_CUT
 	setevent EVENT_GOT_HM01_CUT
 	writetext Text_CharcoalMasterOutro
@@ -795,18 +798,31 @@ Text_CharcoalMasterIntro:
 	line "this."
 	done
 
-Text_CharcoalMasterOutro:
-	text "That's the CUT HM."
-	line "Teach that to a"
+Text_CharcoalMasterMid:
+	text "That's the"
+	line "CUT PAGER."
 
-	para "#MON to clear"
-	line "small trees."
+	para "It lets you"
+	line "summon a #MON"
+	cont "to cut small "
+    cont "trees."
 
 	para "Of course, you"
 	line "have to have the"
 
 	para "GYM BADGE from"
 	line "AZALEA to use it."
+	
+	para "Oh here take this"
+	line "too!"
+	done
+	
+Text_CharcoalMasterOutro:
+	text "That's the CUT HM."
+	line "Teach that to a"
+
+	para "#MON to use"
+	line "CUT in battle."
 	done
 
 Text_CharcoalMasterTalkAfter:

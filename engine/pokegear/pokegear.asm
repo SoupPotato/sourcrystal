@@ -2805,7 +2805,7 @@ TownMapMon:
 	ld [wd265], a
 ; Get FlyMon icon
 	ld e, $08 ; starting tile in VRAM
-	farcall GetSpeciesIcon
+	farcall GetFlyIcon
 ; Animation/palette
 	depixel 0, 0
 	ld a, SPRITE_ANIM_INDEX_PARTY_MON

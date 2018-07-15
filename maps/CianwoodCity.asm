@@ -97,10 +97,13 @@ CianwoodCityChucksWife:
 .BeatChuck:
 	writetext ChucksWifeGiveHMText
 	buttonsound
+	verbosegiveitem FLY_PAGER
+	writetext ChucksWifeFlySpeechText
+	buttonsound
 	verbosegiveitem HM_FLY
 	iffalse .Done
 	setevent EVENT_GOT_HM02_FLY
-	writetext ChucksWifeFlySpeechText
+	writetext UnknownText_0x1a021d
 	buttonsound
 .GotFly:
 	writetext ChucksWifeChubbyText
@@ -212,18 +215,30 @@ ChucksWifeGiveHMText:
 	line "GYM BADGE!"
 
 	para "Then you should"
-	line "take this HM."
+	line "take this PAGER."
 	done
 
 ChucksWifeFlySpeechText:
-	text "Teach FLY to your"
-	line "#MON."
+	text "With the"
+	line "FLY PAGER,"
 
 	para "You will be able"
 	line "to FLY instantly"
 
-	para "to anywhere you "
+	para "to anywhere you"
 	line "have visited."
+	
+	para "You should take"
+	line "this too!"
+    done
+	
+UnknownText_0x1a021d:
+	text "That HM will"
+	line "teach FLY to your"
+	cont "#MON."
+
+	para "It is a graceful"
+	line "yet powerful move."
 	done
 
 ChucksWifeChubbyText:

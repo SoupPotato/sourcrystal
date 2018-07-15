@@ -116,8 +116,8 @@ PrintTempMonStats:
 .StatNames:
 	db   "ATTACK"
 	next "DEFENSE"
-	next "SPCL.ATK"
-	next "SPCL.DEF"
+	next "SP.ATK"
+	next "SP.DEF"
 	next "SPEED"
 	next "@"
 

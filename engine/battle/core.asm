@@ -1684,10 +1684,11 @@ HandleWeather:
 
 	ld hl, wWeatherCount
 	dec [hl]
-	jr z, .ended
+	jp z, .ended
 
 	ld hl, .WeatherMessages
 	call .PrintWeatherMessage
+	call .PlayWeatherAnimation
 
 	ld a, [wBattleWeather]
 	cp WEATHER_SANDSTORM
@@ -1708,6 +1709,25 @@ HandleWeather:
 	call .SandstormDamage
 	call SetPlayerTurn
 
+.PlayWeatherAnimation:
+    xor a ; uses one byte of ROM, compared to two for "ld a, 1"
+    ld [wNumHits], a
+    call SetPlayerTurn
+    ld hl, .WeatherAnimations
+	ld a, [wBattleWeather]
+	dec a
+	ld b, 0
+	ld c, a
+	add hl, bc
+	ld d, 0
+	ld e, [hl]
+	jp Call_PlayBattleAnim
+	
+.WeatherAnimations:
+    db RAIN_DANCE
+	db SUNNY_DAY
+	db SANDSTORM
+	
 .SandstormDamage:
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVar
@@ -1739,7 +1759,6 @@ HandleWeather:
 	call SwitchTurnCore
 	xor a
 	ld [wNumHits], a
-	ld de, ANIM_IN_SANDSTORM
 	call Call_PlayBattleAnim
 	call SwitchTurnCore
 	call GetEighthMaxHP

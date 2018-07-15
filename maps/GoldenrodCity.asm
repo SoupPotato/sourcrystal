@@ -32,13 +32,18 @@ GoldenrodCity_MapScripts:
 	return
 
 .MoveTutor:
-	checkevent EVENT_BEAT_ELITE_FOUR
+	checkevent EVENT_CLEARED_RADIO_TOWER
 	iffalse .MoveTutorDone
 	checkitem COIN_CASE
 	iffalse .MoveTutorDisappear
 	checkcode VAR_WEEKDAY
+	ifequal MONDAY, .MoveTutorAppear
+	ifequal TUESDAY, .MoveTutorAppear
 	ifequal WEDNESDAY, .MoveTutorAppear
+	ifequal THURSDAY, .MoveTutorAppear
+	ifequal FRIDAY, .MoveTutorAppear
 	ifequal SATURDAY, .MoveTutorAppear
+	ifequal SUNDAY, .MoveTutorAppear
 .MoveTutorDisappear:
 	disappear GOLDENRODCITY_POKEFAN_M2
 	return
@@ -60,7 +65,7 @@ MoveTutorScript:
 	writetext UnknownText_0x199090
 	yesorno
 	iffalse .Refused2
-	checkcoins 4000
+	checkcoins 3000
 	ifequal HAVE_LESS, .NotEnoughMoney
 	writetext UnknownText_0x1990ce
 	loadmenu .MoveMenuHeader

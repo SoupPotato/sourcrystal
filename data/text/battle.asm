@@ -133,17 +133,17 @@ BattleText_MonsReflectFaded:
 BattleText_RainContinuesToFall:
 	text "Rain continues to"
 	line "fall."
-	prompt
+	done
 
 BattleText_TheSunlightIsStrong:
 	text "The sunlight is"
 	line "strong."
-	prompt
+	done
 
 BattleText_TheSandstormRages:
 	text "The SANDSTORM"
 	line "rages."
-	prompt
+	done
 
 BattleText_TheRainStopped:
 	text "The rain stopped."
@@ -872,7 +872,7 @@ TransformedText:
 
 LightScreenEffectText:
 	text "<USER>'s"
-	line "SPCL.DEF rose!"
+	line "SP.DEF rose!"
 	prompt
 
 ReflectEffectText:
@@ -1050,13 +1050,13 @@ BlewSpikesText:
 	prompt
 
 DownpourText:
-	text "A downpour"
-	line "started!"
+	text "It started to"
+	line "rain!"
 	prompt
 
 SunGotBrightText:
-	text "The sunlight got"
-	line "bright!"
+	text "The sunlight"
+	line "turned harsh!"
 	prompt
 
 BellyDrumText:

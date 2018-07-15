@@ -105,6 +105,9 @@ DanceTheaterSurfGuy:
 .GetSurf:
 	writetext SurfGuyLikeADanceText
 	buttonsound
+	verbosegiveitem SURF_PAGER
+	writetext UnknownText_0x9999b
+	buttonsound
 	verbosegiveitem HM_SURF
 	setevent EVENT_GOT_HM03_SURF
 	writetext SurfGuySurfExplanationText
@@ -276,13 +279,25 @@ SurfGuyLikeADanceText:
 	line "this. Don't worry"
 	cont "--take it!"
 	done
+	
+UnknownText_0x9999b:
+    text "That's a "
+    line "SURF PAGER."
+	
+	para "It summons a"
+	line "#MON to ferry"
+	cont "you across water."
+	
+	para "Please have this"
+	line "as well."
+	done
 
 SurfGuySurfExplanationText:
 	text "That's SURF."
 
 	para "It's a move that"
-	line "lets #MON swim"
-	cont "across water."
+	line "sends a giant wave"
+	cont "crashing down."
 	done
 
 SurfGuyElegantKimonoGirlsText:

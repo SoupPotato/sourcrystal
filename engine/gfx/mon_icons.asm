@@ -263,11 +263,22 @@ GetSpeciesIcon:
 	call GetIconGFX
 	ret
 
+GetFlyIcon: ; 8e9ac
+; Load species icon into VRAM at tile a
+	push de
+	ld a, [wd265]
+	call FlyMonMenuIcon
+	ld [wCurIcon], a
+	pop de
+	ld a, e
+	call GetIconGFX
+	ret
+; 8e9bc
 
 FlyFunction_GetMonIcon:
 	push de
 	ld a, [wd265]
-	call ReadMonMenuIcon
+	call FlyMonMenuIcon
 	ld [wCurIcon], a
 	pop de
 	ld a, e
@@ -447,6 +458,19 @@ ReadMonMenuIcon:
 	ret
 .egg
 	ld a, ICON_EGG
+	ret
+	
+FlyMonMenuIcon: ; 8eab3
+	jr z, .bird
+	dec a
+	ld hl, MonMenuIcons
+	ld e, a
+	ld d, 0
+	add hl, de
+	ld a, [hl]
+	ret
+.bird
+	ld a, ICON_BIRD
 	ret
 
 

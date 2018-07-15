@@ -183,7 +183,7 @@ MoveNames::
 	db "PROTECT@"
 	db "MACH PUNCH@"
 	db "SCARY FACE@"
-	db "FAINT ATTACK@"
+	db "FEINT ATTACK@"
 	db "SWEET KISS@"
 	db "BELLY DRUM@"
 	db "SLUDGE BOMB@"

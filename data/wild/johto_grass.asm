@@ -302,29 +302,29 @@ JohtoGrassWildMons:
 	map_id BURNED_TOWER_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 14, RATTATA
-	db 14, KOFFING
-	db 16, KOFFING
-	db 15, ZUBAT
-	db 12, KOFFING
-	db 16, KOFFING
-	db 16, WEEZING
+	db 14,RATTATA
+	db 14,KOFFING
+	db 16,KOFFING
+	db 16,RATTATA
+	db 15,ZUBAT
+	db 14,MAGMAR
+	db 14,MAGMAR
 	; day
-	db 14, RATTATA
-	db 14, KOFFING
-	db 16, KOFFING
-	db 15, ZUBAT
-	db 12, KOFFING
-	db 16, KOFFING
-	db 16, WEEZING
+	db 14,RATTATA
+	db 14,KOFFING
+	db 16,KOFFING
+	db 16,MAGMAR
+	db 15,ZUBAT
+	db 14,RATTATA
+	db 14,RATTATA
 	; nite
-	db 14, RATTATA
-	db 14, KOFFING
-	db 16, KOFFING
-	db 15, ZUBAT
-	db 12, KOFFING
-	db 16, KOFFING
-	db 16, WEEZING
+	db 14,RATTATA
+	db 14,KOFFING
+	db 16,KOFFING
+	db 16,RATTATA
+	db 15,ZUBAT
+	db 14,MAGMAR
+	db 14,MAGMAR
 
 	map_id NATIONAL_PARK
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
@@ -575,24 +575,24 @@ JohtoGrassWildMons:
 	db 14, RATTATA
 	db 13, ZUBAT
 	db 14, MACHOP
-	db 13, GOLBAT
-	db 14, GEODUDE
+	db 13, GEODUDE
+	db 14, DIGLETT
 	db 16, RATICATE
 	db 16, RATICATE
 	; day
 	db 14, RATTATA
 	db 13, ZUBAT
 	db 14, MACHOP
-	db 13, GOLBAT
-	db 14, GEODUDE
+	db 13, GEODUDE
+	db 14, DIGLETT
 	db 16, RATICATE
 	db 16, RATICATE
 	; nite
 	db 14, RATTATA
 	db 13, ZUBAT
 	db 14, MARILL
-	db 13, GOLBAT
-	db 14, GEODUDE
+	db 13, GEODUDE
+	db 14, DIGLETT
 	db 16, RATICATE
 	db 16, RATICATE
 
@@ -604,76 +604,76 @@ JohtoGrassWildMons:
 	db 15, MACHOP
 	db 14, RATICATE
 	db 15, ZUBAT
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 15, DIGLETT
+	db 15, DIGLETT
 	; day
 	db 13, GEODUDE
 	db 14, RATTATA
 	db 15, MACHOP
 	db 14, RATICATE
 	db 15, ZUBAT
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 15, DIGLETT
+	db 15, DIGLETT
 	; nite
 	db 13, GEODUDE
 	db 14, RATTATA
 	db 15, RATICATE
 	db 14, ZUBAT
 	db 15, MARILL
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 15, DIGLETT
+	db 15, DIGLETT
 
 	map_id MOUNT_MORTAR_2F_INSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 31, GRAVELER
 	db 32, MACHOKE
-	db 31, GEODUDE
-	db 30, RATICATE
+	db 31, RATICATE
+	db 30, GOLBAT
 	db 28, MACHOP
-	db 30, GOLBAT
-	db 30, GOLBAT
+	db 30, DIGLETT
+	db 30, DUGTRIO
 	; day
 	db 31, GRAVELER
 	db 32, MACHOKE
-	db 31, GEODUDE
-	db 30, RATICATE
+	db 31, RATICATE
+	db 30, GOLBAT
 	db 28, MACHOP
-	db 30, GOLBAT
-	db 30, GOLBAT
+	db 30, DIGLETT
+	db 30, DUGTRIO
 	; nite
 	db 31, GRAVELER
-	db 31, GEODUDE
-	db 30, RATICATE
+	db 31, RATICATE
+	db 30, GOLBAT
 	db 30, GOLBAT
 	db 28, MARILL
-	db 32, GOLBAT
-	db 32, GOLBAT
+	db 32, DIGLETT
+	db 32, DUGTRIO
 
 	map_id MOUNT_MORTAR_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 15, ZUBAT
-	db 17, ZUBAT
+	db 17, GEODUDE
 	db 17, GOLBAT
 	db 16, MACHOP
-	db 16, GEODUDE
+	db 16, DIGLETT
 	db 18, RATICATE
 	db 18, RATICATE
 	; day
 	db 15, ZUBAT
-	db 17, ZUBAT
+	db 17, GEODUDE
 	db 17, GOLBAT
 	db 16, MACHOP
-	db 16, GEODUDE
+	db 16, DIGLETT
 	db 18, RATICATE
 	db 18, RATICATE
 	; nite
 	db 15, ZUBAT
-	db 17, ZUBAT
+	db 17, GEODUDE
 	db 17, GOLBAT
 	db 16, MARILL
-	db 16, GEODUDE
+	db 16, DIGLETT
 	db 18, RATICATE
 	db 18, RATICATE
 
@@ -1275,25 +1275,25 @@ JohtoGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 4, EKANS
-	db 5, RATTATA
 	db 7, BELLSPROUT
+	db 6, MAREEP
 	db 6, HOPPIP
 	db 7, PIDGEY
-	db 7, HOPPIP
-	db 7, HOPPIP
+	db 6, RATTATA
+	db 6, RATTATA
 	; day
 	db 4, EKANS
-	db 5, RATTATA
 	db 7, BELLSPROUT
+	db 6, MAREEP
 	db 6, HOPPIP
 	db 7, PIDGEY
-	db 7, HOPPIP
-	db 7, HOPPIP
+	db 6, RATTATA
+	db 6, RATTATA
 	; nite
-	db 4, WOOPER
-	db 5, RATTATA
+	db 5, WOOPER
+	db 6, RATTATA
 	db 7, BELLSPROUT
-	db 6, ZUBAT
+	db 6, MAREEP
 	db 7, HOOTHOOT
 	db 7, GASTLY
 	db 7, GASTLY
@@ -1357,7 +1357,7 @@ JohtoGrassWildMons:
 	; morn
 	db 12, SNUBBULL
 	db 14, PIDGEY
-	db 13, GROWLITHE
+	db 13, RATTATA
 	db 10, ABRA
 	db 12, JIGGLYPUFF
 	db 10, DITTO
@@ -1365,7 +1365,7 @@ JohtoGrassWildMons:
 	; day
 	db 12, SNUBBULL
 	db 14, PIDGEY
-	db 13, GROWLITHE
+	db 13, RATTATA
 	db 10, ABRA
 	db 12, JIGGLYPUFF
 	db 10, DITTO
@@ -1386,7 +1386,7 @@ JohtoGrassWildMons:
 	db 4, PIDGEY
 	db 5, BELLSPROUT
 	db 5, GROWLITHE
-	db 5, PIDGEY
+	db 5, VULPIX
 	db 6, PIDGEY
 	db 6, PIDGEY
 	; day
@@ -1394,7 +1394,7 @@ JohtoGrassWildMons:
 	db 4, PIDGEY
 	db 5, BELLSPROUT
 	db 5, GROWLITHE
-	db 5, PIDGEY
+	db 5, VULPIX
 	db 6, PIDGEY
 	db 6, PIDGEY
 	; nite
@@ -1410,7 +1410,7 @@ JohtoGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 13, LEDYBA
-	db 14, GROWLITHE
+	db 14, VULPIX
 	db 15, PIDGEY
 	db 16, GROWLITHE
 	db 15, PIDGEOTTO
@@ -1420,7 +1420,7 @@ JohtoGrassWildMons:
 	db 13, PIDGEY
 	db 14, GROWLITHE
 	db 15, PIDGEY
-	db 16, GROWLITHE
+	db 16, VULPIX
 	db 15, PIDGEOTTO
 	db 15, PIDGEY
 	db 15, PIDGEY
@@ -1490,54 +1490,54 @@ JohtoGrassWildMons:
 	map_id ROUTE_42
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 13, EKANS
+	db 15, MANKEY
 	db 14, SPEAROW
-	db 15, RATTATA
-	db 16, RATICATE
+	db 15, EKANS
+	db 16, MAREEP
 	db 15, ARBOK
 	db 16, FEAROW
-	db 16, FEAROW
+	db 17, FLAAFFY
 	; day
-	db 13, EKANS
+	db 15, MANKEY
 	db 14, SPEAROW
-	db 15, RATTATA
-	db 16, RATICATE
+	db 15, EKANS
+	db 16, MAREEP
 	db 15, ARBOK
 	db 16, FEAROW
-	db 16, FEAROW
+	db 17, FLAAFFY
 	; nite
-	db 13, RATTATA
+	db 15, MANKEY
 	db 14, ZUBAT
 	db 15, RATICATE
-	db 16, GOLBAT
+	db 16, MAREEP
 	db 15, MARILL
 	db 16, GOLBAT
-	db 16, GOLBAT
+	db 17, FLAAFFY
 
 	map_id ROUTE_43
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 15, SENTRET
+	db 15, GIRAFARIG
+	db 15, FLAAFFY
 	db 16, PIDGEOTTO
 	db 16, FARFETCH_D
-	db 15, FURRET
-	db 17, RATICATE
+	db 15, MAREEP
 	db 17, FURRET
 	db 17, FURRET
 	; day
-	db 15, SENTRET
+	db 15, GIRAFARIG
+	db 15, FLAAFFY
 	db 16, PIDGEOTTO
 	db 16, FARFETCH_D
-	db 15, FURRET
-	db 17, RATICATE
+	db 15, MAREEP
 	db 17, FURRET
 	db 17, FURRET
 	; nite
-	db 15, VENONAT
+	db 15, GIRAFARIG
+	db 15, FLAAFFY
 	db 16, NOCTOWL
-	db 16, RATICATE
-	db 17, VENONAT
-	db 17, RATICATE
+	db 16, VENONAT
+	db 15, MAREEP
 	db 17, VENOMOTH
 	db 17, VENOMOTH
 

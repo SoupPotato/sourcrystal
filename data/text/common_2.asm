@@ -292,9 +292,9 @@ UnknownText_0x1c05c8::
 	prompt
 
 UnknownText_0x1c05dd::
-	text_from_ram wStringBuffer2
-	text " used"
-	line "CUT!"
+	text "<PLAYER> summoned"
+	line "a SCYTHER to"
+	cont "use CUT!"
 	prompt
 
 UnknownText_0x1c05ec::
@@ -303,15 +303,15 @@ UnknownText_0x1c05ec::
 	prompt
 
 UnknownText_0x1c0609::
-	text "A blinding FLASH"
-	line "lights the area!@"
-	text_waitbutton
+	text "<PLAYER> summoned"
+	line "a MAREEP to"
+	cont "use FLASH!"
 	db "@@"
 
 _UsedSurfText::
-	text_from_ram wStringBuffer2
-	text " used"
-	line "SURF!"
+	text "<PLAYER> summoned"
+	line "a LAPRAS to"
+	cont "use SURF!"
 	done
 
 _CantSurfText::
@@ -326,12 +326,18 @@ _AlreadySurfingText::
 
 _AskSurfText::
 	text "The water is calm."
-	line "Want to SURF?"
+	line "Want to use the"
+	cont "SURF PAGER?"
+	done
+	
+_UsedFlyText::
+	text "<PLAYER> summoned"
+	line "a PIDGEOTTO to"
+	cont "use FLY!"
 	done
 
 UnknownText_0x1c068e::
-	text_from_ram wStringBuffer2
-	text " used"
+	text "LAPRAS used"
 	line "WATERFALL!"
 	done
 
@@ -379,14 +385,13 @@ UnknownText_0x1c0751::
 	prompt
 
 UnknownText_0x1c0774::
-	text_from_ram wStringBuffer2
-	text " used"
-	line "STRENGTH!"
+	text "<PLAYER> summoned"
+	line "a MACHOKE to"
+	cont "use STRENGTH!"
 	done
 
 UnknownText_0x1c0788::
-	text_from_ram wStringBuffer1
-	text " can"
+	text "MACHOKE can"
 	line "move boulders."
 	prompt
 
@@ -394,8 +399,8 @@ UnknownText_0x1c07a0::
 	text "A #MON may be"
 	line "able to move this."
 
-	para "Want to use"
-	line "STRENGTH?"
+	para "Want to use the"
+	line "STRNGTHPAGER?"
 	done
 
 UnknownText_0x1c07d8::
@@ -409,9 +414,9 @@ UnknownText_0x1c07f4::
 	done
 
 UnknownText_0x1c0816::
-	text_from_ram wStringBuffer2
-	text " used"
-	line "WHIRLPOOL!"
+	text "<PLAYER> summoned"
+	line "a REMORAID to"
+	cont "use WHIRLPOOL!"
 	prompt
 
 UnknownText_0x1c082b::
@@ -426,8 +431,8 @@ UnknownText_0x1c0864::
 	text "A whirlpool is in"
 	line "the way."
 
-	para "Want to use"
-	line "WHIRLPOOL?"
+	para "Want to use the"
+	line "WRLPOOLPAGER?"
 	done
 
 UnknownText_0x1c0897::
@@ -504,7 +509,8 @@ UnknownText_0x1c09dd::
 	text "This tree can be"
 	line "CUT!"
 
-	para "Want to use CUT?"
+	para "Want to use the"
+	line "CUT PAGER?"
 	done
 
 UnknownText_0x1c0a05::
@@ -662,11 +668,11 @@ UnknownText_0x1c0cc6::
 
 UnknownText_0x1c0cd0::
 	interpret_data
-	text "<SCROLL>went way up!"
+	text "<SCROLL>sharply rose!"
 	prompt
 
 UnknownText_0x1c0ce0::
-	text " went up!"
+	text " rose!"
 	prompt
 
 UnknownText_0x1c0ceb::
@@ -677,7 +683,7 @@ UnknownText_0x1c0ceb::
 
 UnknownText_0x1c0cf5::
 	interpret_data
-	text "<SCROLL>sharply fell!"
+	text "<SCROLL>harshly fell!"
 	prompt
 
 UnknownText_0x1c0d06::

@@ -38,7 +38,7 @@ ItemEffects:
 	dw EvoStoneEffect      ; FIRE_STONE
 	dw EvoStoneEffect      ; THUNDERSTONE
 	dw EvoStoneEffect      ; WATER_STONE
-	dw NoEffect            ; ITEM_19
+	dw CutPager            ; CUT_PAGER
 	dw VitaminEffect       ; HP_UP
 	dw VitaminEffect       ; PROTEIN
 	dw VitaminEffect       ; IRON
@@ -58,12 +58,12 @@ ItemEffects:
 	dw SuperRepelEffect    ; SUPER_REPEL
 	dw MaxRepelEffect      ; MAX_REPEL
 	dw DireHitEffect       ; DIRE_HIT
-	dw NoEffect            ; ITEM_2D
+	dw FlashPager          ; FLASH_PAGER
 	dw RestoreHPEffect     ; FRESH_WATER
 	dw RestoreHPEffect     ; SODA_POP
 	dw RestoreHPEffect     ; LEMONADE
 	dw XItemEffect         ; X_ATTACK
-	dw NoEffect            ; ITEM_32
+	dw SurfPager           ; SURF_PAGER
 	dw XItemEffect         ; X_DEFEND
 	dw XItemEffect         ; X_SPEED
 	dw XItemEffect         ; X_SPECIAL
@@ -95,7 +95,7 @@ ItemEffects:
 	dw StatusHealingEffect ; BURNT_BERRY
 	dw StatusHealingEffect ; ICE_BERRY
 	dw NoEffect            ; POISON_BARB
-	dw NoEffect            ; KINGS_ROCK
+	dw EvoStoneEffect      ; KINGS_ROCK
 	dw BitterBerryEffect   ; BITTER_BERRY
 	dw StatusHealingEffect ; MINT_BERRY
 	dw NoEffect            ; RED_APRICORN
@@ -103,7 +103,7 @@ ItemEffects:
 	dw NoEffect            ; BIG_MUSHROOM
 	dw NoEffect            ; SILVERPOWDER
 	dw NoEffect            ; BLU_APRICORN
-	dw NoEffect            ; ITEM_5A
+	dw StrngthPager        ; STRNGTHPAGER
 	dw NoEffect            ; AMULET_COIN
 	dw NoEffect            ; YLW_APRICORN
 	dw NoEffect            ; GRN_APRICORN
@@ -113,7 +113,7 @@ ItemEffects:
 	dw NoEffect            ; WHT_APRICORN
 	dw NoEffect            ; BLACKBELT
 	dw NoEffect            ; BLK_APRICORN
-	dw NoEffect            ; ITEM_64
+	dw FlyPager            ; FLY_PAGER
 	dw NoEffect            ; PNK_APRICORN
 	dw NoEffect            ; BLACKGLASSES
 	dw NoEffect            ; SLOWPOKETAIL
@@ -133,7 +133,7 @@ ItemEffects:
 	dw NoEffect            ; MIRACLE_SEED
 	dw NoEffect            ; THICK_CLUB
 	dw NoEffect            ; FOCUS_BAND
-	dw NoEffect            ; ITEM_78
+	dw WrlPoolPager        ; WRLPOOLPAGER
 	dw EnergypowderEffect  ; ENERGYPOWDER
 	dw EnergyRootEffect    ; ENERGY_ROOT
 	dw HealPowderEffect    ; HEAL_POWDER
@@ -156,7 +156,7 @@ ItemEffects:
 	dw NoEffect            ; SCOPE_LENS
 	dw NoEffect            ; ITEM_8D
 	dw NoEffect            ; ITEM_8E
-	dw NoEffect            ; METAL_COAT
+	dw EvoStoneEffect      ; METAL_COAT
 	dw NoEffect            ; DRAGON_FANG
 	dw NoEffect            ; ITEM_91
 	dw NoEffect            ; LEFTOVERS
@@ -164,7 +164,7 @@ ItemEffects:
 	dw NoEffect            ; ITEM_94
 	dw NoEffect            ; ITEM_95
 	dw RestorePPEffect     ; MYSTERYBERRY
-	dw NoEffect            ; DRAGON_SCALE
+	dw EvoStoneEffect      ; DRAGON_SCALE
 	dw NoEffect            ; BERSERK_GENE
 	dw NoEffect            ; ITEM_99
 	dw NoEffect            ; ITEM_9A
@@ -185,7 +185,7 @@ ItemEffects:
 	dw EvoStoneEffect      ; SUN_STONE
 	dw NoEffect            ; POLKADOT_BOW
 	dw NoEffect            ; ITEM_AB
-	dw NoEffect            ; UP_GRADE
+	dw EvoStoneEffect      ; UP_GRADE
 	dw RestoreHPEffect     ; BERRY
 	dw RestoreHPEffect     ; GOLD_BERRY
 	dw SquirtbottleEffect  ; SQUIRTBOTTLE
@@ -193,6 +193,42 @@ ItemEffects:
 	dw PokeBallEffect      ; PARK_BALL
 	dw NoEffect            ; RAINBOW_WING
 	dw NoEffect            ; ITEM_B3
+
+FlashPager:
+    farcall OWFlash
+	ret
+	
+CutPager:
+    farcall MonMenu_Cut
+	ret
+	
+SurfPager:
+    farcall SurfFunction
+	ret
+	
+StrngthPager:
+    farcall StrengthFunction
+	ret
+	
+FlyPager:
+  call GetMapEnvironment
+  call CheckOutdoorMap
+  jp nz, CantUseMessage
+  call FadeToMenu
+  farcall FlyFunction
+  bit B_BUTTON_F, [hl]
+  ret z
+  call Call_ExitMenu
+  xor a
+  ld [hBGMapMode], a
+  farcall Pack_InitGFX
+  farcall WaitBGMap_DrawPackGFX
+  farcall Pack_InitColors
+  ret
+  
+WrlPoolPager:
+    farcall WhirlpoolFunction
+	ret
 
 
 PokeBallEffect:
@@ -2121,6 +2157,8 @@ UseRepel:
 
 	ld a, b
 	ld [wRepelEffect], a
+	ld a, [wCurItem]
+	ld [wRepelType], a
 	jp UseItemText
 
 
@@ -2709,6 +2747,10 @@ CantUseOnEggMessage:
 IsntTheTimeMessage:
 	ld hl, IsntTheTimeText
 	jr CantUseItemMessage
+	
+CantUseMessage: ; f7ed
+	ld hl, CantUseText
+	jr CantUseItemMessage
 
 WontHaveAnyEffectMessage:
 	ld hl, WontHaveAnyEffectText
@@ -2744,6 +2786,11 @@ CantUseOnEggText:
 IsntTheTimeText:
 	; OAK:  ! This isn't the time to use that!
 	text_jump UnknownText_0x1c5d6e
+	db "@"
+	
+CantUseText: ; 0xccb6
+	; Can't use that here.
+	text_jump UnknownText_0x1c073b
 	db "@"
 
 BelongsToSomeoneElseText:

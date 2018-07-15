@@ -557,7 +557,7 @@ LeechSeedDescription:
 	next "foe on every turn.@"
 
 GrowthDescription:
-	db   "Raises the SPCL."
+	db   "Raises the SP."
 	next "ATK rating.@"
 
 RazorLeafDescription:
@@ -638,7 +638,7 @@ ConfusionDescription:
 
 PsychicMDescription:
 	db   "An attack that may"
-	next "lower SPCL.DEF.@"
+	next "lower SP.DEF.@"
 
 HypnosisDescription:
 	db   "May put the foe to"
@@ -713,7 +713,7 @@ BarrierDescription:
 	next "user's DEFENSE.@"
 
 LightScreenDescription:
-	db   "Ups SPCL.DEF with"
+	db   "Ups SP.DEF with"
 	next "a wall of light.@"
 
 HazeDescription:
@@ -794,7 +794,7 @@ ConstrictDescription:
 
 AmnesiaDescription:
 	db   "Sharply raises the"
-	next "user's SPCL.DEF.@"
+	next "user's SP.DEF.@"
 
 KinesisDescription:
 	db   "Reduces the foe's"
@@ -1230,10 +1230,10 @@ SunnyDayDescription:
 
 CrunchDescription:
 	db   "An attack that may"
-	next "lower SPCL.DEF.@"
+	next "lower SP.DEF.@"
 
 MirrorCoatDescription:
-	db   "Counters a SPCL."
+	db   "Counters a SP."
 	next "ATK move double.@"
 
 PsychUpDescription:
@@ -1250,7 +1250,7 @@ AncientpowerDescription:
 
 ShadowBallDescription:
 	db   "An attack that may"
-	next "lower SPCL.DEF.@"
+	next "lower SP.DEF.@"
 
 FutureSightDescription:
 	db   "An attack that"

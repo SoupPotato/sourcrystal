@@ -74,6 +74,9 @@ SageLiScript:
 	startbattle
 	reloadmapafterbattle
 	opentext
+	writetext SageLiPagerText
+	buttonsound
+	verbosegiveitem FLASH_PAGER
 	writetext SageLiTakeThisFlashText
 	buttonsound
 	verbosegiveitem HM_FLASH
@@ -229,16 +232,29 @@ SageLiSeenText:
 SageLiBeatenText:
 	text "Ah, excellent!"
 	done
+	
+SageLiPagerText:
+	text "The trust between"
+	line "you and your #-"
+	cont "MON is strong."
+	
+	para "You deserve this,"
+	line "please take it."
+	done
 
 SageLiTakeThisFlashText:
-	text "You and your #-"
-	line "MON should have"
+	text "That is a"
+	line "FLASH PAGER."
 
-	para "no problem using"
-	line "this move."
+	para "A PAGER lets you"
+	line "summon a #MON"
+	
+	para "that will use a "
+	line "certain move out"
+	cont "of battle."
 
-	para "Take this FLASH"
-	line "HM."
+	para "Please take this"
+	line "FLASH HM too."
 	done
 
 SageLiFlashExplanationText:

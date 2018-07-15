@@ -117,7 +117,7 @@ FieldMoveFailed:
 	text_jump UnknownText_0x1c05c8
 	db "@"
 
-CutFunction:
+CutFunction: ; c785
 	call FieldMoveJumptableReset
 .loop
 	ld hl, .Jumptable
@@ -127,12 +127,13 @@ CutFunction:
 	ld [wFieldMoveSucceeded], a
 	ret
 
-.Jumptable:
+.Jumptable: ; c796 (3:4796)
+
 	dw .CheckAble
 	dw .DoCut
 	dw .FailCut
 
-.CheckAble:
+.CheckAble: ; c79c (3:479c)
 	ld de, ENGINE_HIVEBADGE
 	call CheckBadge
 	jr c, .nohivebadge
@@ -140,6 +141,7 @@ CutFunction:
 	jr c, .nothingtocut
 	ld a, $1
 	ret
+	
 
 .nohivebadge
 	ld a, $80
@@ -149,37 +151,37 @@ CutFunction:
 	ld a, $2
 	ret
 
-.DoCut:
+.DoCut: ; c7b2 (3:47b2)
 	ld hl, Script_CutFromMenu
 	call QueueScript
 	ld a, $81
 	ret
 
-.FailCut:
+.FailCut: ; c7bb (3:47bb)
 	ld hl, Text_NothingToCut
 	call MenuTextBoxBackup
 	ld a, $80
 	ret
 
-Text_UsedCut:
+Text_UsedCut: ; 0xc7c4
 	; used CUT!
 	text_jump UnknownText_0x1c05dd
 	db "@"
 
-Text_NothingToCut:
+Text_NothingToCut: ; 0xc7c9
 	; There's nothing to CUT here.
 	text_jump UnknownText_0x1c05ec
 	db "@"
 
-CheckMapForSomethingToCut:
+CheckMapForSomethingToCut: ; c7ce
 	; Does the collision data of the facing tile permit cutting?
 	call GetFacingTileCoord
 	ld c, a
 	push de
-	farcall CheckCutCollision
+	callba CheckCutCollision
 	pop de
 	jr nc, .fail
-	; Get the location of the current block in wOverworldMapBlocks.
+	; Get the location of the current block in OverworldMap.
 	call GetBlockLocation
 	ld c, [hl]
 	; See if that block contains something that can be cut.
@@ -188,15 +190,15 @@ CheckMapForSomethingToCut:
 	call CheckOverworldTileArrays
 	pop hl
 	jr nc, .fail
-	; Back up the wOverworldMapBlocks address to wBuffer3
+	; Back up the OverworldMap address to Buffer3
 	ld a, l
 	ld [wBuffer3], a
 	ld a, h
 	ld [wBuffer4], a
-	; Back up the replacement tile to wBuffer5
+	; Back up the replacement tile to Buffer5
 	ld a, b
 	ld [wBuffer5], a
-	; Back up the animation index to wBuffer6
+	; Back up the animation index to Buffer6
 	ld a, c
 	ld [wBuffer6], a
 	xor a
@@ -206,13 +208,14 @@ CheckMapForSomethingToCut:
 	scf
 	ret
 
-Script_CutFromMenu:
+Script_CutFromMenu: ; c7fe
 	reloadmappart
 	special UpdateTimePals
 
-Script_Cut:
-	callasm GetPartyNick
+Script_Cut: ; 0xc802
 	writetext Text_UsedCut
+	cry 123
+	waitbutton
 	reloadmappart
 	callasm CutDownTreeOrGrass
 	closetext
@@ -320,6 +323,8 @@ Script_UseFlash:
 	reloadmappart
 	special UpdateTimePals
 	writetext UnknownText_0xc8f3
+	cry 179
+	waitbutton
 	callasm BlindingFlash
 	closetext
 	end
@@ -363,7 +368,7 @@ SurfFunction:
 	ld a, [wPlayerState]
 	cp PLAYER_SURF
 	jr z, .alreadyfail
-	cp PLAYER_SURF_PIKA
+	cp PLAYER_SURF
 	jr z, .alreadyfail
 	call GetFacingTileCoord
 	call GetTileCollision
@@ -388,7 +393,6 @@ SurfFunction:
 .DoSurf:
 	call GetSurfType
 	ld [wBuffer2], a
-	call GetPartyNick
 	ld hl, SurfFromMenuScript
 	call QueueScript
 	ld a, $81
@@ -411,6 +415,7 @@ SurfFromMenuScript:
 
 UsedSurfScript:
 	writetext UsedSurfText ; "used SURF!"
+	cry 131
 	waitbutton
 	closetext
 
@@ -454,7 +459,7 @@ GetSurfType:
 
 	ld a, [hl]
 	cp PIKACHU
-	ld a, PLAYER_SURF_PIKA
+	ld a, PLAYER_SURF
 	ret z
 	ld a, PLAYER_SURF
 	ret
@@ -496,7 +501,7 @@ TrySurfOW::
 
 ; Don't ask to surf if already fail.
 	ld a, [wPlayerState]
-	cp PLAYER_SURF_PIKA
+	cp PLAYER_SURF
 	jr z, .quit
 	cp PLAYER_SURF
 	jr z, .quit
@@ -515,9 +520,11 @@ TrySurfOW::
 	call CheckEngineFlag
 	jr c, .quit
 
-	ld d, SURF
-	call CheckPartyMove
-	jr c, .quit
+	ld a, SURF_PAGER
+    ld [wCurItem], a ; might be CurItem on your repo
+    ld hl, wNumItems ; might be NumItems on your repo
+    call CheckItem
+    jr nc, .quit
 
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
@@ -549,7 +556,11 @@ AskSurfScript:
 AskSurfText:
 	text_jump _AskSurfText ; The water is calm.
 	db "@"              ; Want to SURF?
-
+	
+UsedFlyText: ; c9a9
+	text_jump _UsedFlyText
+	db "@"
+	
 FlyFunction:
 	call FieldMoveJumptableReset
 .loop
@@ -567,9 +578,6 @@ FlyFunction:
 
 .TryFly:
 ; Fly
-	ld de, ENGINE_STORMBADGE
-	call CheckBadge
-	jr c, .nostormbadge
 	call GetMapEnvironment
 	call CheckOutdoorMap
 	jr z, .outdoors
@@ -590,10 +598,6 @@ FlyFunction:
 	ld [wDefaultSpawnpoint], a
 	call CloseWindow
 	ld a, $1
-	ret
-
-.nostormbadge
-	ld a, $82
 	ret
 
 .indoors
@@ -619,6 +623,10 @@ FlyFunction:
 
 .FlyScript:
 	reloadmappart
+	writetext UsedFlyText ; "used FLY!"
+	cry 17
+	waitbutton
+	closetext
 	callasm HideSprites
 	special UpdateTimePals
 	callasm FlyFromAnim
@@ -632,6 +640,7 @@ FlyFunction:
 	callasm .ReturnFromFly
 	end
 
+	
 .ReturnFromFly:
 	farcall Function561d
 	call DelayFrame
@@ -683,8 +692,8 @@ Script_WaterfallFromMenu:
 	special UpdateTimePals
 
 Script_UsedWaterfall:
-	callasm GetPartyNick
 	writetext .Text_UsedWaterfall
+	cry 131
 	waitbutton
 	closetext
 	playsound SFX_BUBBLEBEAM
@@ -715,9 +724,6 @@ Script_UsedWaterfall:
 	db "@"
 
 TryWaterfallOW::
-	ld d, WATERFALL
-	call CheckPartyMove
-	jr c, .failed
 	ld de, ENGINE_RISINGBADGE
 	call CheckEngineFlag
 	jr c, .failed
@@ -1027,8 +1033,7 @@ Script_UsedStrength:
 	callasm SetStrengthFlag
 	writetext .UsedStrength
 	copybytetovar wBuffer6
-	cry 0
-	pause 3
+	cry 67
 	writetext .StrengthAllowedItToMoveBoulders
 	closetext
 	end
@@ -1077,9 +1082,11 @@ UnknownText_0xcd73:
 	db "@"
 
 TryStrengthOW:
-	ld d, STRENGTH
-	call CheckPartyMove
-	jr c, .nope
+	ld a, STRNGTHPAGER
+    ld [wCurItem], a ; might be CurItem on your repo
+    ld hl, wNumItems ; might be NumItems on your repo
+    call CheckItem
+    jr nc, .nope
 
 	ld de, ENGINE_PLAINBADGE
 	call CheckEngineFlag
@@ -1186,8 +1193,9 @@ Script_WhirlpoolFromMenu:
 	special UpdateTimePals
 
 Script_UsedWhirlpool:
-	callasm GetPartyNick
 	writetext Text_UsedWhirlpool
+	cry 223
+	waitbutton
 	reloadmappart
 	callasm DisappearWhirlpool
 	closetext
@@ -1211,9 +1219,12 @@ DisappearWhirlpool:
 	ret
 
 TryWhirlpoolOW::
-	ld d, WHIRLPOOL
-	call CheckPartyMove
-	jr c, .failed
+	ld a, WRLPOOLPAGER
+    ld [wCurItem], a ; might be CurItem on your repo
+    ld hl, wNumItems ; might be NumItems on your repo
+    call CheckItem
+    jr nc, .failed
+	
 	ld de, ENGINE_GLACIERBADGE
 	call CheckEngineFlag
 	jr c, .failed
@@ -1792,13 +1803,15 @@ GotOffTheBikeText:
 	db "@"
 
 TryCutOW::
-	ld d, CUT
-	call CheckPartyMove
-	jr c, .cant_cut
-
 	ld de, ENGINE_HIVEBADGE
 	call CheckEngineFlag
 	jr c, .cant_cut
+	
+	ld a, CUT_PAGER
+    ld [wCurItem], a ; might be CurItem on your repo
+    ld hl, wNumItems ; might be NumItems on your repo
+    call CheckItem
+    jr nc, .cant_cut
 
 	ld a, BANK(AskCutScript)
 	ld hl, AskCutScript
@@ -1813,7 +1826,7 @@ TryCutOW::
 	scf
 	ret
 
-AskCutScript:
+AskCutScript: ; 0xd1a9
 	opentext
 	writetext UnknownText_0xd1c8
 	yesorno
@@ -1824,7 +1837,7 @@ AskCutScript:
 	closetext
 	end
 
-.CheckMap:
+.CheckMap: ; d1ba
 	xor a
 	ld [wScriptVar], a
 	call CheckMapForSomethingToCut
@@ -1833,13 +1846,13 @@ AskCutScript:
 	ld [wScriptVar], a
 	ret
 
-UnknownText_0xd1c8:
+UnknownText_0xd1c8: ; 0xd1c8
 	text_jump UnknownText_0x1c09dd
 	db "@"
 
-CantCutScript:
+CantCutScript: ; 0xd1cd
 	jumptext UnknownText_0xd1d0
 
-UnknownText_0xd1d0:
+UnknownText_0xd1d0: ; 0xd1d0
 	text_jump UnknownText_0x1c0a05
 	db "@"

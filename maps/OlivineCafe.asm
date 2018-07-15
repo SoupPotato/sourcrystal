@@ -15,6 +15,9 @@ OlivineCafeStrengthSailorScript:
 	iftrue .GotStrength
 	writetext OlivineCafeStrengthSailorText
 	buttonsound
+	verbosegiveitem STRNGTHPAGER
+	writetext UnknownText_STR
+	buttonsound
 	verbosegiveitem HM_STRENGTH
 	setevent EVENT_GOT_HM04_STRENGTH
 .GotStrength:
@@ -39,8 +42,15 @@ OlivineCafeStrengthSailorText:
 	cont "boulders aside."
 
 	para "Here, use this"
-	line "and teach them"
-	cont "STRENGTH!"
+	line "and gain some"
+	cont "muscle!"
+	done
+	
+UnknownText_STR:
+	text "You can use this"
+	line "to teach your"
+	cont "#MON STRENGTH"
+	cont "too!"
 	done
 
 OlivineCafeStrengthSailorText_GotStrength:

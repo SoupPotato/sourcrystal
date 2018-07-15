@@ -3,8 +3,8 @@ StatNames:
 	db "ATTACK@"
 	db "DEFENSE@"
 	db "SPEED@"
-	db "SPCL.ATK@"
-	db "SPCL.DEF@"
+	db "SP.ATK@"
+	db "SP.DEF@"
 	db "ACCURACY@"
 	db "EVASION@"
 	db "ABILITY@" ; used for BattleCommand_Curse

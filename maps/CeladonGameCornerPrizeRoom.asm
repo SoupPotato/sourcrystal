@@ -32,6 +32,8 @@ CeladonPrizeRoom_tmcounterloop:
 	jump CeladonPrizeRoom_cancel
 
 .doubleteam
+    checkitem TM_DOUBLE_TEAM
+	iftrue CeladonPrizeRoom_alreadyhavetm
 	checkcoins 1500
 	ifequal HAVE_LESS, CeladonPrizeRoom_notenoughcoins
 	itemtotext TM_DOUBLE_TEAM, MEM_BUFFER_0
@@ -43,17 +45,21 @@ CeladonPrizeRoom_tmcounterloop:
 	jump CeladonPrizeRoom_purchased
 
 .psychic
-	checkcoins 3500
+    checkitem TM_PSYCHIC_M
+	iftrue CeladonPrizeRoom_alreadyhavetm
+	checkcoins 4500
 	ifequal HAVE_LESS, CeladonPrizeRoom_notenoughcoins
 	itemtotext TM_PSYCHIC_M, MEM_BUFFER_0
 	scall CeladonPrizeRoom_askbuy
 	iffalse CeladonPrizeRoom_cancel
 	giveitem TM_PSYCHIC_M
 	iffalse CeladonPrizeRoom_notenoughroom
-	takecoins 3500
+	takecoins 4500
 	jump CeladonPrizeRoom_purchased
 
 .hyperbeam
+    checkitem TM_HYPER_BEAM
+	iftrue CeladonPrizeRoom_alreadyhavetm
 	checkcoins 7500
 	ifequal HAVE_LESS, CeladonPrizeRoom_notenoughcoins
 	itemtotext TM_HYPER_BEAM, MEM_BUFFER_0
@@ -73,6 +79,11 @@ CeladonPrizeRoom_purchased:
 	waitsfx
 	playsound SFX_TRANSACTION
 	writetext CeladonPrizeRoom_HereYouGoText
+	waitbutton
+	jump CeladonPrizeRoom_tmcounterloop
+	
+CeladonPrizeRoom_alreadyhavetm:
+	writetext CeladonPrizeRoom_AlreadyHaveTMText
 	waitbutton
 	jump CeladonPrizeRoom_tmcounterloop
 
@@ -110,7 +121,7 @@ CeladonPrizeRoom_TMMenuHeader:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
 	db "TM32    1500@"
-	db "TM29    3500@"
+	db "TM29    4500@"
 	db "TM15    7500@"
 	db "CANCEL@"
 
@@ -239,6 +250,11 @@ CeladonPrizeRoom_ConfirmPurchaseText:
 
 CeladonPrizeRoom_HereYouGoText:
 	text "Here you go!"
+	done
+	
+CeladonPrizeRoom_AlreadyHaveTMText:
+	text "You already have"
+	line "that TM."
 	done
 
 CeladonPrizeRoom_NotEnoughCoinsText:

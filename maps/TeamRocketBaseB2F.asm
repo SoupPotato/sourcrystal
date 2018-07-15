@@ -285,9 +285,12 @@ RocketBaseElectrodeScript:
 	opentext
 	writetext UnknownText_0x6d809
 	buttonsound
+	verbosegiveitem WRLPOOLPAGER
+	writetext UnknownText_0x6d8f8
+	buttonsound
 	verbosegiveitem HM_WHIRLPOOL
 	setevent EVENT_GOT_HM06_WHIRLPOOL
-	writetext UnknownText_0x6d8f8
+	writetext UnknownText_0x6d8e6
 	waitbutton
 	closetext
 	turnobject TEAMROCKETBASEB2F_LANCE, DOWN
@@ -724,33 +727,39 @@ UnknownText_0x6d809:
 	line "the #MON."
 
 	para "Oh, yes. You"
-	line "should take this."
+	line "should take these."
 
-	para "I found it here,"
+	para "I found them here,"
 	line "but I don't have"
-	cont "any need for it."
+	cont "any need for them."
 	done
 
 UnknownText_0x6d8e6:
-	text "<PLAYER> received"
-	line "HM06."
+	text "That HM teaches"
+	line "WHIRLPOOL."
+	
+	para "It's a move that"
+	line "traps the foe"
+	para "in a raging"
+	line "WHIRLPOOL."
 	done
 
 UnknownText_0x6d8f8:
-	text "That's WHIRLPOOL."
-	line "Teach it to a"
+	text "That's a"
+	line "WRLPOOLPAGER."
 
-	para "#MON to get"
-	line "across wild water."
+	para "It summons a"
+	line "#MON to get"
+	cont "across wild water."
 
 	para "But keep this in"
 	line "mind."
 
-	para "You can use that"
-	line "out of battle only"
-
-	para "with the BADGE"
-	line "from MAHOGANY GYM."
+	para "You can only use"
+	line "that with the"
+	
+	para "BADGE from"
+	line "MAHOGANY GYM."
 	done
 
 UnknownText_0x6d994:

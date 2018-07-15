@@ -253,7 +253,7 @@ MortyText_ShadowBallSpeech:
 	line "It causes damage"
 
 	para "and may reduce"
-	line "SPCL.DEF."
+	line "SP.DEF."
 
 	para "Use it if it"
 	line "appeals to you."

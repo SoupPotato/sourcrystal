@@ -16,8 +16,7 @@ AI_SwitchOrTryItem:
 	bit SUBSTATUS_CANT_RUN, a
 	jr nz, DontSwitch
 
-	ld a, [wEnemyWrapCount]
-	and a
+	farcall CheckTrappedEnemy
 	jr nz, DontSwitch
 
 	ld hl, TrainerClassAttributes + TRNATTR_AI_ITEM_SWITCH

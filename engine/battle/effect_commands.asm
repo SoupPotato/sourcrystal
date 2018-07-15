@@ -5923,11 +5923,9 @@ BattleCommand_TrapTarget:
 	bit SUBSTATUS_SUBSTITUTE, a
 	ret nz
 	call BattleRandom
-	; trapped for 2-5 turns
-	and %11
-	inc a
-	inc a
-	inc a
+	; trapped for 4-5 turns
+	and %1
+	add 4
 	ld [hl], a
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
@@ -6945,6 +6943,22 @@ BattleCommand_SkipSunCharge:
 INCLUDE "engine/battle/move_effects/future_sight.asm"
 
 INCLUDE "engine/battle/move_effects/thunder.asm"
+
+
+
+BattleCommand_DefrostTarget:
+; defrosttarget
+
+; Thaw target if it's a fire-type move
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar
+	cp FIRE
+	ret nz
+
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVarAddr
+	jp Defrost
+
 
 
 CheckHiddenOpponent:

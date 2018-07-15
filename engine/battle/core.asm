@@ -760,8 +760,7 @@ TryEnemyFlee:
 	bit SUBSTATUS_CANT_RUN, a
 	jr nz, .Stay
 
-	ld a, [wEnemyWrapCount]
-	and a
+	call CheckTrappedEnemy
 	jr nz, .Stay
 
 	ld a, [wEnemyMonStatus]
@@ -1254,7 +1253,7 @@ HandleWrap:
 	call SwitchTurnCore
 
 .skip_anim
-	call GetSixteenthMaxHP
+	call GetEighthMaxHP
 	call SubtractHPFromUser
 	ld hl, BattleText_UsersHurtByStringBuffer1
 	jr .print_text
@@ -1264,6 +1263,36 @@ HandleWrap:
 
 .print_text
 	jp StdBattleTextBox
+	
+CheckTrappedPlayer:
+	ld a, [wPlayerWrapCount]
+	and a
+	ret z
+	ld hl, wBattleMonType
+	ld de, wPlayerTrappingMove
+	jr _CheckTrapped
+
+CheckTrappedEnemy:
+	ld a, [wEnemyWrapCount]
+	and a
+	ret z
+	ld hl, wEnemyMonType
+	ld de, wEnemyTrappingMove
+
+_CheckTrapped:
+	; Both of these functions return nz if the mon is trapped
+
+	; Ghost types can escape from fire spin
+	ld a, [de]
+	cp FIRE_SPIN
+	ret nz
+	ld a, [hli]
+	cp GHOST
+	ret z
+	ld a, [hl]
+	cp GHOST
+	ret nz
+
 
 SwitchTurnCore:
 	ld a, [hBattleTurn]
@@ -3707,8 +3736,7 @@ TryToRunAwayFromBattle:
 	bit SUBSTATUS_CANT_RUN, a
 	jp nz, .cant_escape
 
-	ld a, [wPlayerWrapCount]
-	and a
+	call CheckTrappedPlayer
 	jp nz, .cant_escape
 
 	push hl
@@ -5159,9 +5187,9 @@ TryPlayerSwitch:
 	jp BattleMenuPKMN_Loop
 
 .check_trapped
-	ld a, [wPlayerWrapCount]
-	and a
+	call CheckTrappedPlayer
 	jr nz, .trapped
+	
 	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
 	jr z, .try_switch

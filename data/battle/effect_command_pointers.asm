@@ -179,4 +179,5 @@ BattleCommandPointers:
 	dw BattleCommand_SuperEffectiveLoopText
 	dw BattleCommand_StartLoop
 	dw BattleCommand_Curl
+	dw BattleCommand_DefrostTarget
 	dw BattleCommand_WeightDamage

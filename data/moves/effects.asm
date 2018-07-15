@@ -1227,6 +1227,7 @@ TrapTarget:
 	supereffectivetext
 	checkdestinybond
 	buildopponentrage
+	defrosttarget
 	traptarget
 	endmove
 
@@ -1801,6 +1802,7 @@ HiddenPower:
 	supereffectivetext
 	checkdestinybond
 	buildopponentrage
+	defrosttarget
 	kingsrock
 	endmove
 

@@ -1737,6 +1737,7 @@ HandleWeather:
 	call SetEnemyTurn
 	call .SandstormDamage
 	call SetPlayerTurn
+	jr .SandstormDamage
 
 .PlayWeatherAnimation:
     xor a ; uses one byte of ROM, compared to two for "ld a, 1"
@@ -1786,11 +1787,8 @@ HandleWeather:
 	ret z
 
 	call SwitchTurnCore
-	xor a
-	ld [wNumHits], a
-	call Call_PlayBattleAnim
 	call SwitchTurnCore
-	call GetEighthMaxHP
+	call GetSixteenthMaxHP
 	call SubtractHPFromUser
 
 	ld hl, SandstormHitsText

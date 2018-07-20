@@ -497,12 +497,14 @@ VulpixEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, EMBER
 	db 1, TAIL_WHIP
-	db 7, QUICK_ATTACK
-	db 13, ROAR
-	db 19, CONFUSE_RAY
-	db 25, SAFEGUARD
-	db 31, FLAMETHROWER
-	db 37, FIRE_SPIN
+	db 7, ROAR
+	db 11, QUICK_ATTACK
+	db 15, CONFUSE_RAY
+	db 19, FIRE_SPIN
+	db 25, FAINT_ATTACK
+	db 33, FLAMETHROWER
+	db 41, SAFEGUARD
+	db 49, FIRE_BLAST
 	db 0 ; no more level-up moves
 
 NinetalesEvosAttacks:
@@ -511,7 +513,7 @@ NinetalesEvosAttacks:
 	db 1, QUICK_ATTACK
 	db 1, CONFUSE_RAY
 	db 1, SAFEGUARD
-	db 43, FIRE_SPIN
+	db 41, FLAMETHROWER
 	db 0 ; no more level-up moves
 
 JigglypuffEvosAttacks:
@@ -786,11 +788,12 @@ GrowlitheEvosAttacks:
 	db 1, ROAR
 	db 8, EMBER
 	db 12, LEER
-	db 18, REVERSAL
-	db 26, FLAME_WHEEL
-	db 34, TAKE_DOWN
-	db 42, FLAMETHROWER
-	db 50, AGILITY
+	db 16, FLAME_WHEEL
+	db 20, REVERSAL
+	db 26, TAKE_DOWN
+	db 34, FLAMETHROWER
+	db 42, AGILITY
+	db 50, CRUNCH
 	db 0 ; no more level-up moves
 
 ArcanineEvosAttacks:
@@ -1045,31 +1048,30 @@ PonytaEvosAttacks:
 	db EVOLVE_LEVEL, 40, RAPIDASH
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 4, GROWL
-	db 8, TAIL_WHIP
-	db 13, EMBER
+	db 1, GROWL
+	db 6, TAIL_WHIP
+	db 10, EMBER
+	db 15, FLAME_WHEEL
 	db 19, STOMP
-	db 26, FIRE_SPIN
-	db 34, TAKE_DOWN
-	db 43, AGILITY
-	db 53, FIRE_BLAST
+	db 25, FIRE_SPIN
+	db 31, TAKE_DOWN
+	db 36, AGILITY
+	db 42, FIRE_BLAST
 	db 0 ; no more level-up moves
 
 RapidashEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 1, TAIL_WHIP
-	db 1, EMBER
-	db 4, GROWL
-	db 8, TAIL_WHIP
-	db 13, EMBER
+	db 6, TAIL_WHIP
+	db 10, EMBER
+	db 15, FLAME_WHEEL
 	db 19, STOMP
-	db 26, FIRE_SPIN
-	db 34, TAKE_DOWN
+	db 25, FIRE_SPIN
+	db 31, TAKE_DOWN
+	db 36, AGILITY
 	db 40, FURY_ATTACK
-	db 47, AGILITY
-	db 61, FIRE_BLAST
+	db 48, FIRE_BLAST
 	db 0 ; no more level-up moves
 
 SlowpokeEvosAttacks:
@@ -1747,10 +1749,11 @@ ElectabuzzEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, QUICK_ATTACK
 	db 1, LEER
-	db 1, THUNDERSHOCK
+	db 6, THUNDERSHOCK
 	db 10, LOW_KICK
-	db 16, THUNDERPUNCH
-	db 23, SWIFT
+	db 14, SWIFT
+	db 19, THUNDER_WAVE
+	db 25, THUNDERPUNCH
 	db 32, LIGHT_SCREEN 
 	db 41, THUNDERBOLT
 	db 47, SCREECH
@@ -1761,10 +1764,11 @@ MagmarEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SMOG
 	db 1, LEER
-	db 1, EMBER
+	db 6, EMBER
 	db 10, SMOKESCREEN
-	db 16, FIRE_PUNCH
-	db 23, FAINT_ATTACK
+	db 14, FAINT_ATTACK
+	db 19, FIRE_SPIN
+	db 25, FIRE_PUNCH
 	db 32, CONFUSE_RAY
 	db 41, FLAMETHROWER
 	db 47, SUNNY_DAY
@@ -3272,14 +3276,15 @@ ElekidEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, QUICK_ATTACK
 	db 1, LEER
-	db 7, THUNDERSHOCK
+	db 6, THUNDERSHOCK
 	db 10, LOW_KICK
-	db 16, THUNDERPUNCH
-	db 23, SWIFT
-	db 31, LIGHT_SCREEN
-	db 37, THUNDERBOLT
-	db 43, SCREECH
-	db 48, THUNDER
+	db 14, SWIFT
+	db 19, THUNDER_WAVE
+	db 25, THUNDERPUNCH
+	db 30, LIGHT_SCREEN
+	db 36, THUNDERBOLT
+	db 41, SCREECH
+	db 47, THUNDER
 	db 0 ; no more level-up moves
 
 MagbyEvosAttacks:
@@ -3287,14 +3292,15 @@ MagbyEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SMOG
 	db 1, LEER
-	db 7, EMBER
+	db 6, EMBER
 	db 10, SMOKESCREEN
-	db 16, FIRE_PUNCH
-	db 23, FAINT_ATTACK
-	db 31, CONFUSE_RAY
-	db 37, FLAMETHROWER
-	db 43, SUNNY_DAY
-	db 48, FIRE_BLAST
+	db 14, FAINT_ATTACK
+	db 19, FIRE_SPIN
+	db 25, FIRE_PUNCH
+	db 30, CONFUSE_RAY
+	db 36, FLAMETHROWER
+	db 41, SUNNY_DAY
+	db 47, FIRE_BLAST
 	db 0 ; no more level-up moves
 
 MiltankEvosAttacks:

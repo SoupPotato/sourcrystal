@@ -2335,9 +2335,9 @@ SpinarakEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_STING
 	db 1, STRING_SHOT
-	db 5, SCARY_FACE
-	db 9, CONSTRICT
-	db 13, LEECH_LIFE
+	db 5, CONSTRICT
+	db 9, LEECH_LIFE
+	db 13, SCARY_FACE
 	db 17, NIGHT_SHADE
 	db 23, FURY_SWIPES
 	db 28, SPIDER_WEB
@@ -2354,11 +2354,11 @@ AriadosEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_STING
 	db 1, STRING_SHOT
-	db 1, SCARY_FACE
 	db 1, CONSTRICT
-	db 5, SCARY_FACE
-	db 9, CONSTRICT
-	db 13, LEECH_LIFE
+	db 1, LEECH_LIFE
+	db 5, CONSTRICT
+	db 9, LEECH_LIFE
+	db 13, SCARY_FACE
 	db 17, NIGHT_SHADE
 	db 23, FURY_SWIPES
 	db 29, SPIDER_WEB

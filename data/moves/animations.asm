@@ -2689,11 +2689,25 @@ BattleAnim_DreamEater:
 	anim_ret
 
 BattleAnim_LeechLife:
-	anim_1gfx ANIM_GFX_BUBBLE
+	anim_2gfx ANIM_GFX_HORN, ANIM_GFX_HIT
+	anim_obj ANIM_OBJ_60, 64, 92, $14
+	anim_wait 16
+	anim_sound 0, 1, SFX_POISON_STING
+	anim_obj ANIM_OBJ_05, 136, 56, $0
+	anim_wait 12
+	anim_1gfx ANIM_GFX_CHARGE
+.loop
 	anim_sound 6, 3, SFX_WATER_GUN
-	anim_call BattleAnim_LeechLife_branch_cbab3
-	anim_wait 128
-	anim_wait 48
+	anim_obj ANIM_OBJ_LEECH_LIFE, 128, 48, $2
+	anim_wait 6
+	anim_sound 6, 3, SFX_WATER_GUN
+	anim_obj ANIM_OBJ_LEECH_LIFE, 136, 64, $3
+	anim_wait 6
+	anim_sound 6, 3, SFX_WATER_GUN
+	anim_obj ANIM_OBJ_LEECH_LIFE, 136, 32, $4
+	anim_wait 6
+	anim_loop 4, .loop
+	anim_wait 28
 	anim_ret
 
 BattleAnim_Harden:

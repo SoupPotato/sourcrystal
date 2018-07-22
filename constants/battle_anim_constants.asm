@@ -216,6 +216,7 @@ BATTLEANIMSTRUCT_LENGTH EQU const_value
 	const ANIM_OBJ_ENEMYFEETFOLLOW
 	const ANIM_OBJ_PLAYERHEADFOLLOW
 	const ANIM_OBJ_ENEMYHEADFOLLOW
+	const ANIM_OBJ_LEECH_LIFE
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
 	const_def

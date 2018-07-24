@@ -13,7 +13,7 @@ BattleCommand_BeatUp:
 	xor a
 	ld [wPlayerRolloutCount], a
 	ld [wd002], a
-	ld [wBeatUpHitAtLeastOnce], a
+	ld [wBeatUpHits], a
 	jr .got_mon
 
 .next_mon
@@ -42,7 +42,7 @@ BattleCommand_BeatUp:
 	xor a
 	ld [wEnemyRolloutCount], a
 	ld [wd002], a
-	ld [wBeatUpHitAtLeastOnce], a
+	ld [wBeatUpHits], a
 	jr .enemy_got_mon
 
 .enemy_next_mon
@@ -109,11 +109,10 @@ BattleCommand_BeatUp:
 	push af
 	call BattleCommand_DamageStats
 	pop af
-
-	ld d, a
+    ld d, a
 	
-	ld a, 1
-	ld [wBeatUpHitAtLeastOnce], a
+	ld hl, wBeatUpHits
+	inc [hl]
 	ret
 
 
@@ -127,7 +126,7 @@ BattleCommand_BeatUp:
 BattleCommand_BeatUpFailText:
 ; beatupfailtext
 
-	ld a, [wBeatUpHitAtLeastOnce]
+	ld a, [wBeatUpHits]
 	and a
 	ret nz
 

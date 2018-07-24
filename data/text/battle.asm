@@ -760,14 +760,21 @@ BlownAwayText:
 	prompt
 
 PlayerHitTimesText:
-	text "Hit @"
-	deciram wPlayerDamageTaken, 1, 1
-	text " times!"
-	prompt
-
 EnemyHitTimesText:
 	text "Hit @"
-	deciram wEnemyDamageTaken, 1, 1
+	deciram wPlayerDamageTaken, 1, 1
+	start_asm
+	ld a, [wPlayerDamageTaken]
+	dec a
+	ld hl, .singular
+	ret z
+	ld hl, .plural
+	ret
+
+.singular
+	text " time!"
+	prompt
+.plural
 	text " times!"
 	prompt
 

@@ -5509,25 +5509,19 @@ BattleCommand_EndLoop:
 	jr nz, .check_ot_beat_up
 	ld a, [wPartyCount]
 	cp 1
-	jp z, .only_one_beatup
+	jp z, .done_loop
 	dec a
 	jr .double_hit
 
 .check_ot_beat_up
 	ld a, [wBattleMode]
 	cp WILD_BATTLE
-	jp z, .only_one_beatup
+	jp z, .done_loop
 	ld a, [wOTPartyCount]
 	cp 1
-	jp z, .only_one_beatup
+	jp z, .done_loop
 	dec a
 	jr .double_hit
-
-.only_one_beatup
-	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
-	res SUBSTATUS_IN_LOOP, [hl]
-	ret
 
 .not_triple_kick
 	call BattleRandom
@@ -5565,15 +5559,21 @@ BattleCommand_EndLoop:
 	ld hl, EnemyHitTimesText
 .got_hit_n_times_text
 
-	push bc
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_BEAT_UP
-	jr z, .beat_up_2
+    jr nz, .not_beat_up
+	ld a, [wBeatUpHits]
+	and a
+	jr z, .end
+	ld [bc], a
+.not_beat_up
+	push bc
 	call StdBattleTextBox
-.beat_up_2
 
 	pop bc
+	
+.end
 	xor a
 	ld [bc], a
 	ret

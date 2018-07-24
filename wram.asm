@@ -712,7 +712,7 @@ wEnemyFutureSightDamage:: dw ; c729
 wPlayerRageCounter:: db ; c72b
 wEnemyRageCounter:: db ; c72c
 
-wBeatUpHitAtLeastOnce:: db ; c72d
+wBeatUpHits:: db ; c72d
 
 wPlayerTrappingMove:: db ; c72e
 wEnemyTrappingMove:: db ; c72f

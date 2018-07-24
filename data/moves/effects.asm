@@ -2039,7 +2039,6 @@ Teleport:
 BeatUp:
 	checkobedience
 	usedmovetext
-	movedelay
 	doturn
 	startloop
 	lowersub

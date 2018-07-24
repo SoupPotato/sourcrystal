@@ -1231,6 +1231,7 @@ BattleAnim_Solarbeam:
 .FireSolarBeam
 	anim_1gfx ANIM_GFX_BEAM
 	anim_bgeffect ANIM_BG_06, $0, $2, $0
+	anim_bgp $90
 	anim_call BattleAnim_Solarbeam_branch_cbb39
 	anim_wait 48
 	anim_ret
@@ -2679,13 +2680,22 @@ BattleAnim_Psybeam:
 	anim_ret
 
 BattleAnim_DreamEater:
-	anim_1gfx ANIM_GFX_BUBBLE
+	anim_1gfx ANIM_GFX_CHARGE
 	anim_bgp $1b
 	anim_obp0 $27
-	anim_sound 6, 3, SFX_WATER_GUN
-	anim_call BattleAnim_DreamEater_branch_cbab3
-	anim_wait 128
-	anim_wait 48
+	
+.loop
+	anim_sound 6, 3, SFX_WARP_TO
+	anim_obj ANIM_OBJ_DREAM_EATER, 128, 48, $2
+	anim_wait 5
+	anim_sound 6, 3, SFX_WARP_TO
+	anim_obj ANIM_OBJ_DREAM_EATER, 136, 64, $3
+	anim_wait 5
+	anim_sound 6, 3, SFX_WARP_TO
+	anim_obj ANIM_OBJ_DREAM_EATER, 136, 32, $4
+	anim_wait 5
+	anim_loop 7, .loop
+	anim_wait 32
 	anim_ret
 
 BattleAnim_LeechLife:
@@ -3713,19 +3723,32 @@ BattleAnim_Sandstorm:
 	anim_ret
 
 BattleAnim_GigaDrain:
-	anim_2gfx ANIM_GFX_BUBBLE, ANIM_GFX_CHARGE
+	anim_2gfx ANIM_GFX_CHARGE, ANIM_GFX_SHINE
 	anim_call BattleAnim_FollowEnemyFeet_0
 	anim_bgeffect ANIM_BG_1C, $0, $0, $10
+	anim_setvar $0
 	anim_sound 6, 3, SFX_GIGA_DRAIN
-	anim_call BattleAnim_GigaDrain_branch_cbab3
-	anim_wait 48
-	anim_wait 128
+.loop
+	anim_obj ANIM_OBJ_ABSORB, 128, 48, $2
+	anim_wait 3
+	anim_obj ANIM_OBJ_ABSORB, 136, 64, $3
+	anim_wait 4
+	anim_obj ANIM_OBJ_ABSORB, 136, 32, $4
+	anim_wait 3
+	anim_incvar
+	anim_if_var_equal $d, .done
+	anim_if_var_equal $4, .spawn
+	anim_jump .loop
+
+.spawn
+	anim_obj ANIM_OBJ_3D, 44, 88, $0
+	anim_jump .loop
+
+.done
+	anim_wait 32
 	anim_incbgeffect ANIM_BG_1C
 	anim_call BattleAnim_ShowMon_0
-	anim_wait 1
-	anim_1gfx ANIM_GFX_SHINE
-	anim_bgeffect ANIM_BG_07, $0, $0, $0
-.loop
+.loop2
 	anim_sound 0, 0, SFX_METRONOME
 	anim_obj ANIM_OBJ_GLIMMER, 24, 64, $0
 	anim_wait 5
@@ -3737,7 +3760,7 @@ BattleAnim_GigaDrain:
 	anim_wait 5
 	anim_obj ANIM_OBJ_GLIMMER, 40, 84, $0
 	anim_wait 5
-	anim_loop 2, .loop
+	anim_loop 2, .loop2
 	anim_wait 32
 	anim_ret
 
@@ -4593,25 +4616,16 @@ BattleAnim_Whirlpool:
 	anim_ret
 
 BattleAnim_BeatUp:
-	anim_if_param_equal $0, .current_mon
-	anim_sound 0, 0, SFX_BALL_POOF
-	anim_bgeffect ANIM_BG_RETURN_MON, $0, $1, $0
-	anim_wait 16
-	anim_beatup
-	anim_sound 0, 0, SFX_BALL_POOF
-	anim_bgeffect ANIM_BG_ENTER_MON, $0, $1, $0
-	anim_wait 16
-.current_mon
 	anim_1gfx ANIM_GFX_HIT
-	anim_call BattleAnim_FollowEnemyFeet_0
-	anim_bgeffect ANIM_BG_TACKLE, $0, $1, $0
-	anim_wait 4
 	anim_sound 0, 1, SFX_BEAT_UP
-	anim_obj ANIM_OBJ_06, 136, 48, $0
+	anim_obj ANIM_OBJ_06, 120, 40, $0
 	anim_wait 6
-	anim_obj ANIM_OBJ_04, 136, 48, $0
+	anim_obj ANIM_OBJ_01, 120, 40, $0
+	anim_wait 4
+	anim_obj ANIM_OBJ_06, 144, 56, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_01, 144, 56, $0
 	anim_wait 8
-	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
 BattleAnim_DreamEater_branch_cbab3:

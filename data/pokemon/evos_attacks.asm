@@ -1681,14 +1681,17 @@ StaryuEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, HARDEN
-	db 7, WATER_GUN
-	db 13, RAPID_SPIN
-	db 19, RECOVER
-	db 25, SWIFT
-	db 31, BUBBLEBEAM
-	db 37, MINIMIZE
-	db 43, LIGHT_SCREEN
-	db 50, HYDRO_PUMP
+	db 6, WATER_GUN
+	db 10, RAPID_SPIN
+	db 15, RECOVER
+	db 19, PSYWAVE
+	db 24, SWIFT
+	db 28, BUBBLEBEAM
+	db 33, MINIMIZE
+	db 37, CONFUSE_RAY
+	db 42, LIGHT_SCREEN
+	db 46, PSYCHIC_M
+	db 51, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 StarmieEvosAttacks:
@@ -1697,20 +1700,23 @@ StarmieEvosAttacks:
 	db 1, RAPID_SPIN
 	db 1, RECOVER
 	db 1, BUBBLEBEAM
-	db 37, CONFUSE_RAY
+	db 33, CONFUSE_RAY
 	db 0 ; no more level-up moves
 
 MrMimeEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BARRIER
-	db 6, CONFUSION
-	db 11, SUBSTITUTE
-	db 16, MEDITATE
-	db 21, DOUBLESLAP
-	db 26, LIGHT_SCREEN
-	db 26, REFLECT
-	db 31, ENCORE
-	db 36, PSYBEAM
+	db 5, CONFUSION
+	db 9, MEDITATE
+	db 13, DOUBLESLAP
+	db 17, MIMIC
+    db 17, PSYWAVE
+	db 21, LIGHT_SCREEN
+	db 21, REFLECT
+	db 25, PSYBEAM
+	db 29, ENCORE
+	db 33, SUBSTITUTE
+	db 37, PSYCHIC_M
 	db 41, BATON_PASS
 	db 46, SAFEGUARD
 	db 0 ; no more level-up moves

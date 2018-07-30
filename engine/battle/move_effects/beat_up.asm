@@ -26,7 +26,7 @@ BattleCommand_BeatUp:
 .got_mon
 	ld c, a
 	ld a, [wCurBattleMon]
-		cp c
+	cp c
 	jr nz, .mon_not_in_battle
 	ld a, [wBattleMonStatus]
 	and a

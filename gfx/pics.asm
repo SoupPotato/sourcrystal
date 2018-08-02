@@ -33,6 +33,7 @@ VenusaurFrontpic:    INCBIN "gfx/pokemon/venusaur/front.animated.2bpp.lz"
 EnteiFrontpic:       INCBIN "gfx/pokemon/entei/front.animated.2bpp.lz"
 SuicuneFrontpic:     INCBIN "gfx/pokemon/suicune/front.animated.2bpp.lz"
 TyphlosionFrontpic:  INCBIN "gfx/pokemon/typhlosion/front.animated.2bpp.lz"
+ChinchouFrontpic:    INCBIN "gfx/pokemon/chinchou/front.animated.2bpp.lz"
 
 
 SECTION "Pics 2", ROMX
@@ -217,7 +218,6 @@ TotodileFrontpic:    INCBIN "gfx/pokemon/totodile/front.animated.2bpp.lz"
 CorsolaFrontpic:     INCBIN "gfx/pokemon/corsola/front.animated.2bpp.lz"
 FirebreatherPic:     INCBIN "gfx/trainers/firebreather.2bpp.lz"
 MachopFrontpic:      INCBIN "gfx/pokemon/machop/front.animated.2bpp.lz"
-ChinchouFrontpic:    INCBIN "gfx/pokemon/chinchou/front.animated.2bpp.lz"
 RattataFrontpic:     INCBIN "gfx/pokemon/rattata/front.animated.2bpp.lz"
 ChampionPic:         INCBIN "gfx/trainers/champion.2bpp.lz"
 SpearowFrontpic:     INCBIN "gfx/pokemon/spearow/front.animated.2bpp.lz"

@@ -2398,28 +2398,30 @@ ChinchouEvosAttacks:
 	db EVOLVE_LEVEL, 27, LANTURN
 	db 0 ; no more evolutions
 	db 1, BUBBLE
-	db 1, THUNDER_WAVE
-	db 5, SUPERSONIC
-	db 13, FLAIL
-	db 17, WATER_GUN
-	db 25, SPARK
-	db 29, CONFUSE_RAY
-	db 37, TAKE_DOWN
-	db 41, HYDRO_PUMP
+	db 1, SUPERSONIC
+	db 6, THUNDER_WAVE
+	db 12, WATER_GUN
+	db 17, CONFUSE_RAY
+	db 23, SPARK
+	db 28, BUBBLEBEAM
+	db 34, FLAIL
+	db 39, TAKE_DOWN
+	db 45, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 LanturnEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BUBBLE
-	db 1, THUNDER_WAVE
 	db 1, SUPERSONIC
-	db 5, SUPERSONIC
-	db 13, FLAIL
-	db 17, WATER_GUN
-	db 25, SPARK
-	db 33, CONFUSE_RAY
-	db 45, TAKE_DOWN
-	db 53, HYDRO_PUMP
+	db 1, THUNDER_WAVE
+	db 6, THUNDER_WAVE
+	db 12, WATER_GUN
+	db 17, CONFUSE_RAY
+	db 23, SPARK
+	db 30, BUBBLEBEAM
+	db 36, FLAIL
+	db 43, TAKE_DOWN
+	db 50, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 PichuEvosAttacks:

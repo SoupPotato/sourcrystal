@@ -2937,13 +2937,15 @@ if _CRYSTAL
 endc
 	db 1, TACKLE
 	db 1, POISON_STING
-	db 10, HARDEN
-	db 10, MINIMIZE
-	db 19, WATER_GUN
-	db 28, PIN_MISSILE
-	db 35, TAKE_DOWN
-	db 42, DESTINY_BOND
-	db 49, HYDRO_PUMP
+	db 1, BUBBLE
+	db 9, HARDEN
+	db 9, MINIMIZE
+	db 13, WATER_GUN
+	db 21, ROLLOUT
+	db 25, PIN_MISSILE
+	db 33, TAKE_DOWN
+	db 37, DESTINY_BOND
+	db 45, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 ScizorEvosAttacks:

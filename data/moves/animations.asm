@@ -2594,7 +2594,9 @@ BattleAnim_Minimize:
 .loop
     anim_sound 0, 1, SFX_SLUDGE_BOMB
     anim_bgeffect ANIM_BG_RETURN_MON, $0, $1, $0
-    anim_wait 20
+    anim_wait 12
+	anim_obj ANIM_OBJ_MINIMIZE, 48, 110, $0
+	anim_wait 6
 	anim_obj ANIM_OBJ_MINIMIZE, 48, 110, $0
 	anim_wait 6
     anim_loop 2, .loop

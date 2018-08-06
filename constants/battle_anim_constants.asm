@@ -218,6 +218,7 @@ BATTLEANIMSTRUCT_LENGTH EQU const_value
 	const ANIM_OBJ_ENEMYHEADFOLLOW
 	const ANIM_OBJ_LEECH_LIFE
 	const ANIM_OBJ_DREAM_EATER
+	const ANIM_OBJ_MINIMIZE
 
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -805,7 +806,7 @@ BATTLEANIMSTRUCT_LENGTH EQU const_value
 	const ANIM_GFX_OBJECTS
 	const ANIM_GFX_SHINE
 	const ANIM_GFX_ANGELS
-	const ANIM_GFX_WAVE
+	const ANIM_GFX_MINI
 	const ANIM_GFX_AEROBLAST
 
 ; battle_bg_effect struct members (see macros/wram.asm)

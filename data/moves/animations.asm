@@ -1028,10 +1028,10 @@ BattleAnim_Blizzard:
 BattleAnim_Bubble:
 	anim_1gfx ANIM_GFX_BUBBLE
 	anim_sound 32, 2, SFX_WATER_GUN
-	anim_obj ANIM_OBJ_BUBBLE, 64, 92, $c1
+	anim_obj ANIM_OBJ_BUBBLE, 64, 92, $e1
 	anim_wait 6
 	anim_sound 32, 2, SFX_WATER_GUN
-	anim_obj ANIM_OBJ_BUBBLE, 64, 92, $e1
+	anim_obj ANIM_OBJ_BUBBLE, 64, 92, $c1
 	anim_wait 6
 	anim_sound 32, 2, SFX_WATER_GUN
 	anim_obj ANIM_OBJ_BUBBLE, 64, 92, $d1
@@ -1136,15 +1136,16 @@ BattleAnim_Surf:
 	anim_ret
 
 BattleAnim_VineWhip:
-	anim_1gfx ANIM_GFX_WHIP
+	anim_2gfx ANIM_GFX_WHIP, ANIM_GFX_HIT
 	anim_sound 0, 1, SFX_VINE_WHIP
-	anim_obj ANIM_OBJ_40, 116, 52, $80
+	anim_obj ANIM_OBJ_40, 116, 48, $80
 	anim_wait 4
 	anim_sound 0, 1, SFX_VINE_WHIP
-	anim_obj ANIM_OBJ_3F, 128, 60, $0
-	anim_wait 4
+	anim_obj ANIM_OBJ_3F, 128, 54, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_01, 136, 56, $0
 	anim_incobj  1
-	anim_wait 4
+	anim_wait 16
 	anim_ret
 
 BattleAnim_LeechSeed:

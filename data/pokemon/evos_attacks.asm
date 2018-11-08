@@ -24,11 +24,13 @@ BulbasaurEvosAttacks:
 	db 4, GROWL
 	db 7, LEECH_SEED
 	db 10, VINE_WHIP
-	db 15, POISONPOWDER
-	db 15, SLEEP_POWDER
+	db 13, POISONPOWDER
+	db 13, SLEEP_POWDER
+	db 15, TAKE_DOWN
 	db 20, RAZOR_LEAF
-	db 25, SWEET_SCENT
-	db 32, GROWTH
+	db 23, SWEET_SCENT
+	db 28, GROWTH
+	db 34, DOUBLE_EDGE
 	db 39, SYNTHESIS
 	db 46, SOLARBEAM
 	db 0 ; no more level-up moves
@@ -42,11 +44,13 @@ IvysaurEvosAttacks:
 	db 4, GROWL
 	db 7, LEECH_SEED
 	db 10, VINE_WHIP
-	db 15, POISONPOWDER
-	db 15, SLEEP_POWDER
+	db 13, POISONPOWDER
+	db 13, SLEEP_POWDER
+	db 15, TAKE_DOWN
 	db 22, RAZOR_LEAF
-	db 29, SWEET_SCENT
-	db 38, GROWTH
+	db 26, SWEET_SCENT
+	db 31, GROWTH
+	db 38, DOUBLE_EDGE
 	db 47, SYNTHESIS
 	db 56, SOLARBEAM
 	db 0 ; no more level-up moves
@@ -60,11 +64,14 @@ VenusaurEvosAttacks:
 	db 4, GROWL
 	db 7, LEECH_SEED
 	db 10, VINE_WHIP
-	db 15, POISONPOWDER
-	db 15, SLEEP_POWDER
+	db 13, POISONPOWDER
+	db 13, SLEEP_POWDER
+	db 15, TAKE_DOWN
 	db 22, RAZOR_LEAF
-	db 29, SWEET_SCENT
-	db 41, GROWTH
+	db 26, SWEET_SCENT
+	db 31, GROWTH
+	db 32, PETAL_DANCE
+	db 41, DOUBLE_EDGE
 	db 53, SYNTHESIS
 	db 65, SOLARBEAM
 	db 0 ; no more level-up moves
@@ -2459,22 +2466,26 @@ TogepiEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, GROWL
 	db 1, CHARM
-	db 7, METRONOME
-	db 18, SWEET_KISS
-	db 25, ENCORE
-	db 31, SAFEGUARD
-	db 38, DOUBLE_EDGE
+	db 6, METRONOME
+	db 13, SWEET_KISS
+	db 18, ENCORE
+	db 25, ANCIENTPOWER
+	db 30, SAFEGUARD
+	db 37, DOUBLE_EDGE
+	db 42, BATON_PASS
 	db 0 ; no more level-up moves
 
 TogeticEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, GROWL
 	db 1, CHARM
-	db 7, METRONOME
-	db 18, SWEET_KISS
-	db 25, ENCORE
-	db 31, SAFEGUARD
-	db 38, DOUBLE_EDGE
+	db 6, METRONOME
+	db 13, SWEET_KISS
+	db 18, ENCORE
+	db 25, ANCIENTPOWER
+	db 30, SAFEGUARD
+	db 37, DOUBLE_EDGE
+	db 42, BATON_PASS
 	db 0 ; no more level-up moves
 
 NatuEvosAttacks:

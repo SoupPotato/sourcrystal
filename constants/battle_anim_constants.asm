@@ -219,7 +219,7 @@ BATTLEANIMSTRUCT_LENGTH EQU const_value
 	const ANIM_OBJ_LEECH_LIFE
 	const ANIM_OBJ_DREAM_EATER
 	const ANIM_OBJ_MINIMIZE
-
+	
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
 	const_def

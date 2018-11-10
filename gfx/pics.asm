@@ -228,7 +228,6 @@ BikerPic:            INCBIN "gfx/trainers/biker.2bpp.lz"
 NidoranMFrontpic:    INCBIN "gfx/pokemon/nidoran_m/front.animated.2bpp.lz"
 PorygonFrontpic:     INCBIN "gfx/pokemon/porygon/front.animated.2bpp.lz"
 BrunoPic:            INCBIN "gfx/trainers/bruno.2bpp.lz"
-GrimerFrontpic:      INCBIN "gfx/pokemon/grimer/front.animated.2bpp.lz"
 StaryuFrontpic:      INCBIN "gfx/pokemon/staryu/front.animated.2bpp.lz"
 HikerPic:            INCBIN "gfx/trainers/hiker.2bpp.lz"
 MeowthFrontpic:      INCBIN "gfx/pokemon/meowth/front.animated.2bpp.lz"
@@ -695,6 +694,7 @@ ParasFrontpic:       INCBIN "gfx/pokemon/paras/front.animated.2bpp.lz"
 PoliwhirlFrontpic:   INCBIN "gfx/pokemon/poliwhirl/front.animated.2bpp.lz"
 ScytherFrontpic:     INCBIN "gfx/pokemon/scyther/front.animated.2bpp.lz"
 XatuFrontpic:        INCBIN "gfx/pokemon/xatu/front.animated.2bpp.lz"
+GrimerFrontpic:      INCBIN "gfx/pokemon/grimer/front.animated.2bpp.lz"
 
 
 SECTION "Pics 19", ROMX

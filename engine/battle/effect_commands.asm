@@ -4577,7 +4577,7 @@ BattleCommand_StatDown:
 	and $f0
 	jr z, .GotAmountToLower
 	dec b
-	jr z, .GotAmountToLower
+	jr nz, .GotAmountToLower
 	inc b
 
 .GotAmountToLower:

@@ -1163,7 +1163,7 @@ TitleScreenMain:
 ; Hold Down + B + Select to initiate the sequence.
 	ld a, [hClockResetTrigger]
 	cp $34
-	jr z, .check_clock_reset
+	jr z, .clock_reset
 
 	ld a, [hl]
 	and D_DOWN + B_BUTTON + SELECT
@@ -1173,20 +1173,6 @@ TitleScreenMain:
 	ld a, $34
 	ld [hClockResetTrigger], a
 	jr .check_start
-
-; Keep Select pressed, and hold Left + Up.
-; Then let go of Select.
-.check_clock_reset
-	bit SELECT_F, [hl]
-	jr nz, .check_start
-
-	xor a
-	ld [hClockResetTrigger], a
-
-	ld a, [hl]
-	and D_LEFT + D_UP
-	cp  D_LEFT + D_UP
-	jr z, .clock_reset
 
 ; Press Start or A to start the game.
 .check_start

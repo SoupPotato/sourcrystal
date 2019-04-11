@@ -1460,11 +1460,15 @@ ScriptCall:
 ; of the script address can then be overwritten by modifications
 ; to wScriptDelay, causing the script to return to the rst/interrupt
 ; space.
+; SOUP UPDATE: Bug has been fixed.
 
+    ld hl, wScriptStackSize
+	ld a, [hl]
+	cp 5
+	ret nc
 	push de
-	ld hl, wScriptStackSize
-	ld e, [hl]
 	inc [hl]
+	ld e, a
 	ld d, $0
 	ld hl, wScriptStack
 	add hl, de

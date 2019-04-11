@@ -25,6 +25,7 @@
 	const BATTLEANIMSTRUCT_16
 	const BATTLEANIMSTRUCT_17
 BATTLEANIMSTRUCT_LENGTH EQU const_value
+NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 
 ; BattleAnimObjects indexes (see data/battle_anims/objects.asm)
 	const_def

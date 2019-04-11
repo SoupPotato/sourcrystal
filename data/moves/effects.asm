@@ -1,3 +1,5 @@
+INCLUDE "data/moves/effects_pointers.asm"
+
 MoveEffects: ; used only for BANK(MoveEffects)
 
 NormalHit:
@@ -573,7 +575,6 @@ DefenseDownHit:
 	supereffectivetext
 	checkdestinybond
 	buildopponentrage
-	effectchance ; bug: duplicate effectchance shouldn't be here
 	defensedown
 	statdownmessage
 	endmove

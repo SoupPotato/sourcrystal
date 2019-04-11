@@ -655,8 +655,10 @@ BattleAnimCmd_ResetObp0:
 	ret
 
 BattleAnimCmd_ClearObjs:
+; BUG: This function only clears the first 6⅔ objects
+; SOUP UPDATE: Issue Fixed
 	ld hl, wActiveAnimObjects
-	ld a, $a0
+	ld a, NUM_ANIM_OBJECTS * BATTLEANIMSTRUCT_LENGTH
 .loop
 	ld [hl], $0
 	inc hl

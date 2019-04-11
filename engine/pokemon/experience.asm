@@ -32,6 +32,19 @@ CalcLevel:
 
 CalcExpAtLevel:
 ; (a/b)*n**3 + c*n**2 + d*n - e
+    ld a, d
+	cp 1
+	jr nz, .UseExpFormula
+; Pokémon have 0 experience at level 1
+	xor a
+	ld hl, hProduct
+	ld [hli], a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	ret
+
+.UseExpFormula
 	ld a, [wBaseGrowthRate]
 	add a
 	add a

@@ -537,7 +537,7 @@ CheckEnemyTurn:
 	ld hl, HurtItselfText
 	call StdBattleTextBox
 	call HitSelfInConfusion
-	call BattleCommand_DamageCalc
+	call ConfusionDamageCalc
 	call BattleCommand_LowerSub
 	xor a
 	ld [wNumHits], a
@@ -649,7 +649,7 @@ HitConfusion:
 	ld [wCriticalHit], a
 
 	call HitSelfInConfusion
-	call BattleCommand_DamageCalc
+	call ConfusionDamageCalc
 	call BattleCommand_LowerSub
 
 	xor a
@@ -1972,7 +1972,11 @@ BattleCommand_EffectChance:
 	ld hl, wEnemyMoveStruct + MOVE_CHANCE
 .got_move_chance
 
-	call BattleRandom
+    ld a, [hl]
+	sub 100 percent
+	; If chance was 100%, RNG won't be called (carry not set)
+	; Thus chance will be subtracted from 0, guaranteeing a carry
+	call c, BattleRandom
 	cp [hl]
 	pop hl
 	ret c
@@ -2688,6 +2692,17 @@ DittoMetalPowder:
 .done
 	scf
 	rr c
+	
+	ld a, HIGH(MAX_STAT_VALUE)
+	cp b
+	jr c, .cap
+	ret nz
+	ld a, LOW(MAX_STAT_VALUE)
+	cp c
+	ret nc
+
+.cap
+	ld bc, MAX_STAT_VALUE
 	ret
 
 
@@ -2817,17 +2832,11 @@ TruncateHL_BC:
 	inc l
 
 .finish
-	ld a, [wLinkMode]
-	cp 3
-	jr z, .done
-; If we go back to the loop point,
-; it's the same as doing this exact
-; same check twice.
+
 	ld a, h
 	or b
 	jr nz, .loop
 
-.done
 	ld b, l
 	ret
 
@@ -2958,6 +2967,16 @@ SpeciesItemBoost:
 ; Double the stat
 	sla l
 	rl h
+	ld a, HIGH(MAX_STAT_VALUE)
+	cp h
+	jr c, .cap
+	ret nz
+	ld a, LOW(MAX_STAT_VALUE)
+	cp l
+	ret nc
+
+.cap
+	ld hl, MAX_STAT_VALUE
 	ret
 
 
@@ -3089,6 +3108,8 @@ HitSelfInConfusion:
 	ld d, 40
 	pop af
 	ld e, a
+	ld a, TRUE
+	ldh [hIsConfusionDamage], a
 	ret
 
 
@@ -3126,6 +3147,11 @@ BattleCommand_DamageCalc:
 	ret z
 
 .skip_zero_damage_check
+    xor a ; Not confusion damage
+	ldh [hIsConfusionDamage], a
+	; fallthrough
+
+ConfusionDamageCalc:
 ; Minimum defense value is 1.
 	ld a, c
 	and a
@@ -3180,6 +3206,12 @@ BattleCommand_DamageCalc:
 	call Divide
 
 ; Item boosts
+
+; Item boosts don't apply to confusion damage
+	ldh a, [hIsConfusionDamage]
+	and a
+	jr nz, .DoneItem
+
 	call GetUserItem
 
 	ld a, b
@@ -6962,10 +6994,7 @@ BattleCommand_DefrostTarget:
 
 
 CheckHiddenOpponent:
-; BUG: This routine should account for Lock-On and Mind Reader.
-	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+    xor a
 	ret
 
 

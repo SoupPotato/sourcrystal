@@ -250,8 +250,8 @@ PokeBallEffect:
 .room_in_party
 	xor a
 	ld [wWildMon], a
-	ld a, [wCurItem]
-	cp PARK_BALL
+	ld a, [wBattleType]
+	cp BATTLETYPE_CONTEST
 	call nz, ReturnToBattle_UseBall
 
 	ld hl, wOptions
@@ -361,7 +361,7 @@ PokeBallEffect:
 ; no status effect at all. But instead, it makes BRN/PSN/PAR provide no
 ; benefit.
 ; Uncomment the line below to fix this.
-; UPDATE: Bug has been fixed.
+; SOUP UPDATE: Bug has been fixed.
 	ld b, a
 	ld a, [wEnemyMonStatus]
 	and 1 << FRZ | SLP
@@ -382,11 +382,11 @@ PokeBallEffect:
 	; BUG: farcall overwrites a, and GetItemHeldEffect takes b anyway.
 	; This is probably the reason the HELD_CATCH_CHANCE effect is never used.
 	; Uncomment the line below to fix.
-	; UPDATE: Bug has been fixed.
+	; SOUP UPDATE: Bug has been fixed.
 	ld d, a
 	push de
 	ld a, [wBattleMonItem]
-	ld b, a ;original commented line
+	ld b, a 
 	farcall GetItemHeldEffect
 	ld a, b
 	cp HELD_CATCH_CHANCE
@@ -473,17 +473,10 @@ PokeBallEffect:
 ; This code is buggy. Any wild Pokémon that has Transformed will be
 ; caught as a Ditto, even if it was something else like Mew.
 ; To fix, do not set [wTempEnemyMonSpecies] to DITTO.
+; SOUP UPDATE: Bug has been fixed.
 	bit SUBSTATUS_TRANSFORMED, a
-	jr nz, .ditto
-	jr .not_ditto
+	jr nz, .load_data
 
-.ditto
-	ld a, DITTO
-	ld [wTempEnemyMonSpecies], a
-	jr .load_data
-
-.not_ditto
-	set SUBSTATUS_TRANSFORMED, [hl]
 	ld hl, wEnemyBackupDVs
 	ld a, [wEnemyMonDVs]
 	ld [hli], a

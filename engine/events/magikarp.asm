@@ -280,12 +280,9 @@ CalcMagikarpLength:
 	ret
 
 .BCLessThanDE:
-; Intention: Return bc < de.
-; Reality: Return b < d.
 	ld a, b
 	cp d
 	ret c
-	ret nc ; whoops
 	ld a, c
 	cp e
 	ret

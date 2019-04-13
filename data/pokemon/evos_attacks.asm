@@ -2124,11 +2124,14 @@ MewtwoEvosAttacks:
 MewEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POUND
-	db 10, TRANSFORM
-	db 20, MEGA_PUNCH
-	db 30, METRONOME
-	db 40, PSYCHIC_M
+	db 1, TRANSFORM
+	db 10, MEGA_PUNCH
+	db 20, METRONOME
+	db 30, PSYCHIC_M
+	db 40, BARRIER
 	db 50, ANCIENTPOWER
+	db 60, AMNESIA
+	db 70, BATON_PASS
 	db 0 ; no more level-up moves
 
 ChikoritaEvosAttacks:
@@ -3025,11 +3028,9 @@ SneaselEvosAttacks:
 	db 21, FURY_SWIPES
 	db 27, ICY_WIND
 	db 32, AGILITY
-	db 38, SLASH
+	db 38, METAL_CLAW
 	db 42, BEAT_UP
-if _CRYSTAL
-	db 49, METAL_CLAW
-endc
+	db 49, SLASH
 	db 0 ; no more level-up moves
 
 TeddiursaEvosAttacks:
@@ -3521,8 +3522,10 @@ CelebiEvosAttacks:
 	db 1, RECOVER
 	db 1, HEAL_BELL
 	db 10, SAFEGUARD
-	db 20, ANCIENTPOWER
-	db 30, FUTURE_SIGHT
-	db 40, BATON_PASS
-	db 50, PERISH_SONG
+	db 19, RAZOR_LEAF
+	db 28, ANCIENTPOWER
+	db 37, BATON_PASS
+	db 46, FUTURE_SIGHT
+	db 55, GIGA_DRAIN
+	db 64, PERISH_SONG
 	db 0 ; no more level-up moves

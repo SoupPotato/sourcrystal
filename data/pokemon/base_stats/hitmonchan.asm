@@ -10,7 +10,7 @@
 	db GENDER_F0 ; gender ratio
 	db 100 ; unknown 1
 	db 25 ; step cycles to hatch
-	db 5 ; unknown 2
+	db 6 ; unknown 2
 	INCBIN "gfx/pokemon/hitmonchan/front.dimensions"
 	db 0, 0, 0, 0 ; padding
 	db GROWTH_MEDIUM_FAST ; growth rate

@@ -4,5 +4,4 @@
 	frame 3, 02
 	dorepeat 2
 	frame 0, 08
-	frame 4, 08
 	endanim

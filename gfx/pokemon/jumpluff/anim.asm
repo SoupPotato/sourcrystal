@@ -8,6 +8,6 @@
 	frame 0, 06
 	setrepeat 2
 	frame 7, 08
-	frame 8, 08
+	frame 0, 08
 	dorepeat 9
 	endanim

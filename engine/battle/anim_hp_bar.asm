@@ -376,7 +376,6 @@ ShortHPBar_CalcPixelFrame:
 ; This routine is buggy. If [wCurHPAnimMaxHP] * [wCurHPBarPixels] is
 ; divisible by HP_BAR_LENGTH_PX, the loop runs one extra time.
 ; To fix, uncomment the line below.
-; SOUP UPDATE: Issue fixed
 .loop
 	ld a, l
 	sub HP_BAR_LENGTH_PX

@@ -384,7 +384,7 @@ ShortHPBar_CalcPixelFrame:
 	ld a, h
 	sbc $0
 	ld h, a
-    jr z, .done
+    ;jr z, .done
 	jr c, .done
 	inc b
 	jr .loop

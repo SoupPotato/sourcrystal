@@ -195,20 +195,16 @@ ItemEffects:
 	dw NoEffect            ; ITEM_B3
 
 FlashPager:
-    farcall OWFlash
-	ret
+    farjp OWFlash
 	
 CutPager:
-    farcall MonMenu_Cut
-	ret
+    farjp MonMenu_Cut
 	
 SurfPager:
-    farcall SurfFunction
-	ret
+    farjp SurfFunction
 	
 StrngthPager:
-    farcall StrengthFunction
-	ret
+    farjp StrengthFunction
 	
 FlyPager:
   call GetMapEnvironment
@@ -223,12 +219,10 @@ FlyPager:
   ld [hBGMapMode], a
   farcall Pack_InitGFX
   farcall WaitBGMap_DrawPackGFX
-  farcall Pack_InitColors
-  ret
+  farjp Pack_InitColors
   
 WrlPoolPager:
-    farcall WhirlpoolFunction
-	ret
+    farjp WhirlpoolFunction
 
 
 PokeBallEffect:
@@ -1164,17 +1158,14 @@ Text_AskNicknameNewlyCaughtMon:
 	db "@"
 
 ReturnToBattle_UseBall:
-	farcall _ReturnToBattle_UseBall
-	ret
+	farjp _ReturnToBattle_UseBall
 
 TownMapEffect:
-	farcall PokegearMap
-	ret
+	farjp PokegearMap
 
 
 BicycleEffect:
-	farcall BikeFunction
-	ret
+	farjp BikeFunction
 
 
 EvoStoneEffect:
@@ -1801,8 +1792,7 @@ ChooseMonToUseItemOn:
 	call WaitBGMap
 	call SetPalettes
 	call DelayFrame
-	farcall PartyMenuSelect
-	ret
+	farjp PartyMenuSelect
 
 ItemActionText:
 	ld [wPartyMenuActionText], a
@@ -2237,8 +2227,7 @@ XItemEffect:
 	ld a, [wCurBattleMon]
 	ld [wCurPartyMon], a
 	ld c, HAPPINESS_USEDXITEM
-	farcall ChangeHappiness
-	ret
+	farjp ChangeHappiness
 
 INCLUDE "data/items/x_stats.asm"
 
@@ -2368,13 +2357,11 @@ SuperRodEffect:
 	jr UseRod
 
 UseRod:
-	farcall FishFunction
-	ret
+	farjp FishFunction
 
 
 ItemfinderEffect:
-	farcall ItemFinder
-	ret
+	farjp ItemFinder
 
 
 RestorePPEffect:
@@ -2634,18 +2621,15 @@ UnknownText_0xf739:
 
 
 SquirtbottleEffect:
-	farcall _Squirtbottle
-	ret
+	farjp _Squirtbottle
 
 
 CardKeyEffect:
-	farcall _CardKey
-	ret
+	farjp _CardKey
 
 
 BasementKeyEffect:
-	farcall _BasementKey
-	ret
+	farjp _BasementKey
 
 
 SacredAshEffect:

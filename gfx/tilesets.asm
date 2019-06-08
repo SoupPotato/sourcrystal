@@ -15,18 +15,6 @@ INCBIN "data/tilesets/kanto_metatiles.bin"
 TilesetKantoColl:
 INCLUDE "data/tilesets/kanto_collision.asm"
 
-Tileset0GFX:
-TilesetJohtoGFX:
-INCBIN "gfx/tilesets/johto.2bpp.lz"
-
-Tileset0Meta:
-TilesetJohtoMeta:
-INCBIN "data/tilesets/johto_metatiles.bin"
-
-Tileset0Coll:
-TilesetJohtoColl:
-INCLUDE "data/tilesets/johto_collision.asm"
-
 TilesetIcePathGFX:
 INCBIN "gfx/tilesets/ice_path.2bpp.lz"
 
@@ -84,17 +72,6 @@ INCBIN "data/tilesets/mansion_metatiles.bin"
 TilesetMansionColl:
 INCLUDE "data/tilesets/mansion_collision.asm"
 
-TilesetCaveGFX:
-INCBIN "gfx/tilesets/cave.2bpp.lz"
-
-TilesetCaveMeta:
-TilesetDarkCaveMeta:
-INCBIN "data/tilesets/cave_metatiles.bin"
-
-TilesetCaveColl:
-TilesetDarkCaveColl:
-INCLUDE "data/tilesets/cave_collision.asm"
-
 
 SECTION "Tileset Data 3", ROMX
 
@@ -142,9 +119,6 @@ INCBIN "data/tilesets/train_station_metatiles.bin"
 
 TilesetTrainStationColl:
 INCLUDE "data/tilesets/train_station_collision.asm"
-
-TilesetForestMeta:
-INCBIN "data/tilesets/forest_metatiles.bin"
 
 
 SECTION "Tileset Data 4", ROMX
@@ -246,9 +220,6 @@ INCLUDE "data/tilesets/traditional_house_collision.asm"
 
 SECTION "Tileset Data 6", ROMX
 
-TilesetForestGFX:
-INCBIN "gfx/tilesets/forest.2bpp.lz"
-
 TilesetChampionsRoomGFX:
 INCBIN "gfx/tilesets/champions_room.2bpp.lz"
 
@@ -275,9 +246,6 @@ INCBIN "data/tilesets/lighthouse_metatiles.bin"
 
 TilesetLighthouseColl:
 INCLUDE "data/tilesets/lighthouse_collision.asm"
-
-TilesetForestColl:
-INCLUDE "data/tilesets/forest_collision.asm"
 
 TilesetFacilityGFX:
 INCBIN "gfx/tilesets/facility.2bpp.lz"
@@ -335,3 +303,41 @@ INCBIN "data/tilesets/omanyte_word_room_metatiles.bin"
 
 TilesetAerodactylWordRoomMeta:
 INCBIN "data/tilesets/aerodactyl_word_room_metatiles.bin"
+
+
+SECTION "Tileset Data 8", ROMX
+
+Tileset0GFX:
+TilesetJohtoGFX:
+INCBIN "gfx/tilesets/johto.2bpp.lz"
+
+Tileset0Meta:
+TilesetJohtoMeta:
+INCBIN "data/tilesets/johto_metatiles.bin"
+
+Tileset0Coll:
+TilesetJohtoColl:
+INCLUDE "data/tilesets/johto_collision.asm"
+
+
+SECTION "Tileset Data 9", ROMX
+
+TilesetForestGFX:
+INCBIN "gfx/tilesets/forest.2bpp.lz"
+
+TilesetForestMeta:
+INCBIN "data/tilesets/forest_metatiles.bin"
+
+TilesetForestColl:
+INCLUDE "data/tilesets/forest_collision.asm"
+
+TilesetCaveGFX:
+INCBIN "gfx/tilesets/cave.2bpp.lz"
+
+TilesetCaveMeta:
+TilesetDarkCaveMeta:
+INCBIN "data/tilesets/cave_metatiles.bin"
+
+TilesetCaveColl:
+TilesetDarkCaveColl:
+INCLUDE "data/tilesets/cave_collision.asm"

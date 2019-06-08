@@ -484,3 +484,13 @@ SECTION "Map Scripts 25", ROMX
 
 INCLUDE "maps/SilverCaveOutside.asm"
 INCLUDE "maps/Route10North.asm"
+
+
+SECTION "Map Scripts 25", ROMX
+
+INCLUDE "maps/Route47.asm"
+INCLUDE "maps/Route48.asm"
+INCLUDE "maps/CliffEdgeGate.asm"
+INCLUDE "maps/CliffCave.asm"
+INCLUDE "maps/YellowForest.asm"
+INCLUDE "maps/YellowForestGate.asm"

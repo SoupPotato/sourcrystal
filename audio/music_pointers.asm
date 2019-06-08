@@ -109,3 +109,6 @@ Music:
 	dba Music_SuicuneBattle
 	dba Music_BattleTowerLobby
 	dba Music_MobileCenter
+
+	dba Music_Route47HGSS
+	dba Music_SafariZoneGateHGSS

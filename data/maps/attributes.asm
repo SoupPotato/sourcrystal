@@ -196,6 +196,12 @@ ENDM
 	connection south, Route29, ROUTE_29, -3, 7, 16
 	connection east, Route45, ROUTE_45, -3, 33, 12
 
+	map_attributes Route47, ROUTE_47, $35, NORTH
+	connection north, Route48, ROUTE_48, 0, 0, 36
+
+	map_attributes Route48, ROUTE_48, $35, SOUTH
+	connection south, Route47, ROUTE_47, 0, 0, 36
+
 	map_attributes PewterCity, PEWTER_CITY, $0f, SOUTH | EAST
 	connection south, Route2, ROUTE_2, 5, 0, 10
 	connection east, Route3, ROUTE_3, 5, 0, 9
@@ -662,3 +668,7 @@ ENDM
 	map_attributes Route30BerryHouse, ROUTE_30_BERRY_HOUSE, $00, 0
 	map_attributes MrPokemonsHouse, MR_POKEMONS_HOUSE, $00, 0
 	map_attributes Route31VioletGate, ROUTE_31_VIOLET_GATE, $00, 0
+	map_attributes CliffEdgeGate, CLIFF_EDGE_GATE, $09, 0
+	map_attributes CliffCave, CLIFF_CAVE, $09, 0
+	map_attributes YellowForest, YELLOW_FOREST, $38, 0
+	map_attributes YellowForestGate, YELLOW_FOREST_GATE, $00, 0

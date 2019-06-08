@@ -675,6 +675,9 @@ CheckMapCanWaterfall:
 	and $c
 	cp FACE_UP
 	jr nz, .failed
+	ld a, [wTilePermissions]
+	and FACE_UP
+	jr nz, .failed
 	ld a, [wTileUp]
 	call CheckWaterfallTile
 	jr nz, .failed

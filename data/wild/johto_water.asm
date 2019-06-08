@@ -44,6 +44,12 @@ JohtoWaterWildMons:
 	db 10, PSYDUCK
 	db 15, GOLDUCK
 
+	map_id YELLOW_FOREST
+	db 6 percent ; encounter rate
+	db 20, MAGIKARP
+	db 20, GOLDEEN
+	db 20, MARILL
+
 	map_id MOUNT_MORTAR_1F_OUTSIDE
 	db 4 percent ; encounter rate
 	db 15, GOLDEEN
@@ -103,6 +109,12 @@ JohtoWaterWildMons:
 	db 15, MAGIKARP
 	db 10, MAGIKARP
 	db 10, DRATINI
+
+	map_id CLIFF_EDGE_GATE
+	db 2 percent ; encounter rate
+	db 20, WOOPER
+	db 20, WOOPER
+	db 25, QUAGSIRE
 
 	map_id OLIVINE_PORT
 	db 2 percent ; encounter rate
@@ -175,6 +187,12 @@ JohtoWaterWildMons:
 	db 20, MAGIKARP
 	db 15, MAGIKARP
 	db 5, MAGIKARP
+
+	map_id ROUTE_47
+	db 2 percent ; encounter rate
+	db 20, TENTACOOL
+	db 20, SEEL
+	db 25, STARYU
 
 	map_id NEW_BARK_TOWN
 	db 6 percent ; encounter rate

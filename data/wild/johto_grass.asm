@@ -569,6 +569,33 @@ JohtoGrassWildMons:
 	db 6, PARAS
 	db 6, PARAS
 
+	map_id YELLOW_FOREST
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 22, SENTRET
+	db 24, SNUBBULL
+	db 20, PIKACHU
+	db 22, LEDYBA
+	db 20, MARILL
+	db 21, MARILL
+	db 10, PICHU
+	; day
+	db 22, SENTRET
+	db 24, SNUBBULL
+	db 20, PIKACHU
+	db 22, PARAS
+	db 20, MARILL
+	db 21, MARILL
+	db 10, PICHU
+	; nite
+	db 23, HOOTHOOT
+	db 20, MEOWTH
+	db 22, PARAS
+	db 23, SPINARAK
+	db 24, PSYDUCK
+	db 25, NOCTOWL
+	db 25, NOCTOWL
+
 	map_id MOUNT_MORTAR_1F_OUTSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
@@ -1190,6 +1217,33 @@ JohtoGrassWildMons:
 	db 23, GOLBAT
 	db 23, GOLBAT
 
+	map_id CLIFF_CAVE
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 22, GOLBAT
+	db 19, GEODUDE
+	db 22, MACHOKE
+	db 20, KRABBY
+	db 18, WOOPER
+	db 20, GRAVELER
+	db 23, STEELIX
+	; day
+	db 22, GOLBAT
+	db 19, GEODUDE
+	db 19, MACHOP
+	db 22, KINGLER
+	db 20, QUAGSIRE
+	db 20, ONIX
+	db 23, STEELIX
+	; nite
+	db 18, ZUBAT
+	db 22, GOLBAT
+	db 22, KINGLER
+	db 22, MACHOKE
+	db 20, ONIX
+	db 20, MISDREAVUS
+	db 23, STEELIX
+
 	map_id ROUTE_29
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
@@ -1621,6 +1675,60 @@ JohtoGrassWildMons:
 	db 2, RATTATA
 	db 2, RATTATA
 	db 2, RATTATA
+
+	map_id ROUTE_47
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 25, DITTO
+	db 25, MILTANK
+	db 24, FARFETCH_D
+	db 21, SPEAROW
+	db 23, RATICATE
+	db 24, FEAROW
+	db 22, GLOOM
+	; day
+	db 25, DITTO
+	db 25, MILTANK
+	db 24, FARFETCH_D
+	db 21, SPEAROW
+	db 23, RATICATE
+	db 24, FEAROW
+	db 22, GLOOM
+	; nite
+	db 25, DITTO
+	db 25, MILTANK
+	db 24, FARFETCH_D
+	db 21, SPEAROW
+	db 23, RATICATE
+	db 24, NOCTOWL
+	db 22, GLOOM
+
+	map_id ROUTE_48
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 24, TAUROS
+	db 24, GLOOM
+	db 21, FEAROW
+	db 22, HOPPIP
+	db 21, FARFETCH_D
+	db 20, GROWLITHE
+	db 20, GIRAFARIG
+	; day
+	db 24, TAUROS
+	db 24, GLOOM
+	db 21, FEAROW
+	db 22, DIGLETT
+	db 21, FARFETCH_D
+	db 20, GROWLITHE
+	db 20, GIRAFARIG
+	; nite
+	db 24, TAUROS
+	db 24, GLOOM
+	db 21, NOCTOWL
+	db 22, SPINARAK
+	db 21, FARFETCH_D
+	db 20, VULPIX
+	db 20, GIRAFARIG
 
 	map_id SILVER_CAVE_OUTSIDE
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite

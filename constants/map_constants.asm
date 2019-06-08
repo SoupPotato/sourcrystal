@@ -146,6 +146,8 @@ ENDM
 	map_const SAFARI_ZONE_FUCHSIA_GATE_BETA,                5,  4 ; 89
 	map_const SAFARI_ZONE_BETA,                            10, 18 ; 90
 	map_const VICTORY_ROAD,                                10, 36 ; 91
+	map_const CLIFF_EDGE_GATE,                             10, 11 ; 92
+	map_const CLIFF_CAVE,                                   7, 20 ; 93
 
 	newgroup                                                      ;  4
 
@@ -491,3 +493,10 @@ ENDM
 	map_const ROUTE_30_BERRY_HOUSE,                         4,  4 ;  9
 	map_const MR_POKEMONS_HOUSE,                            4,  4 ; 10
 	map_const ROUTE_31_VIOLET_GATE,                         5,  4 ; 11
+
+	newgroup                                                      ; 27
+
+	map_const ROUTE_47,                                    39, 19 ;  1
+	map_const ROUTE_48,                                    18, 11 ;  2
+	map_const YELLOW_FOREST,                               29, 25 ;  3
+	map_const YELLOW_FOREST_GATE,                           5,  4 ;  4

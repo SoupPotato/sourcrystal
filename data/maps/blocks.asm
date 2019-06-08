@@ -212,6 +212,7 @@ Route40BattleTowerGate_Blocks:
 Route2Gate_Blocks:
 Route29Route46Gate_Blocks:
 Route5SaffronGate_Blocks:
+YellowForestGate_Blocks:
 	INCBIN "maps/NorthSouthGate.blk"
 
 BetaEcruteakCity_Blocks:
@@ -1045,3 +1046,21 @@ BetaBlank_Blocks:
 
 GoldenrodDeptStoreRoof_Blocks:
 	INCBIN "maps/GoldenrodDeptStoreRoof.blk"
+
+
+SECTION "Map Blocks 4", ROMX
+
+Route47_Blocks:
+	INCBIN "maps/Route47.blk"
+
+Route48_Blocks:
+	INCBIN "maps/Route48.blk"
+
+YellowForest_Blocks:
+	INCBIN "maps/YellowForest.blk"
+
+CliffCave_Blocks:
+	INCBIN "maps/CliffCave.blk"
+
+CliffEdgeGate_Blocks:
+	INCBIN "maps/CliffEdgeGate.blk"

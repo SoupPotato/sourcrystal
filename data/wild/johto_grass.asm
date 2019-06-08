@@ -659,7 +659,7 @@ JohtoGrassWildMons:
 	db 16, MACHOP
 	db 16, DIGLETT
 	db 18, RATICATE
-	db 18, RATICATE
+	db 16, LARVITAR
 	; day
 	db 15, ZUBAT
 	db 17, GEODUDE
@@ -667,7 +667,7 @@ JohtoGrassWildMons:
 	db 16, MACHOP
 	db 16, DIGLETT
 	db 18, RATICATE
-	db 18, RATICATE
+	db 16, LARVITAR
 	; nite
 	db 15, ZUBAT
 	db 17, GEODUDE
@@ -675,7 +675,7 @@ JohtoGrassWildMons:
 	db 16, MARILL
 	db 16, DIGLETT
 	db 18, RATICATE
-	db 18, RATICATE
+	db 16, MISDREAVUS
 
 	map_id ICE_PATH_1F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
@@ -1458,23 +1458,23 @@ JohtoGrassWildMons:
 	db 16, NOCTOWL
 	db 16, MEOWTH
 	db 16, MEOWTH
-	db 16, MEOWTH
+	db 14, HOUNDOUR
 
 	map_id ROUTE_39
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 16, RATTATA
 	db 16, RATICATE
 	db 16, MAGNEMITE
-	db 16, PIDGEOTTO
 	db 15, MILTANK
 	db 15, TAUROS
-	db 15, TAUROS
+	db 14, ELECTABUZZ
+	db 14, ELECTABUZZ
 	; day
 	db 16, RATTATA
 	db 16, RATICATE
 	db 16, MAGNEMITE
-	db 16, PIDGEOTTO
+	db 16, ELECTABUZZ
 	db 15, MILTANK
 	db 15, TAUROS
 	db 15, TAUROS
@@ -1482,11 +1482,11 @@ JohtoGrassWildMons:
 	db 16, MEOWTH
 	db 16, RATICATE
 	db 16, MAGNEMITE
-	db 16, NOCTOWL
 	db 18, MEOWTH
-	db 18, MEOWTH
-	db 18, MEOWTH
-
+	db 15, MURKROW
+	db 14, ELECTABUZZ
+	db 14, ELECTABUZZ
+	
 	map_id ROUTE_42
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn

@@ -410,26 +410,28 @@ NidoranFEvosAttacks:
 	db EVOLVE_LEVEL, 16, NIDORINA
 	db 0 ; no more evolutions
 	db 1, GROWL
-	db 1, TACKLE
-	db 8, SCRATCH
+	db 1, SCRATCH
+	db 8, TAIL_WHIP
 	db 12, DOUBLE_KICK
 	db 17, POISON_STING
-	db 23, TAIL_WHIP
-	db 30, BITE
-	db 38, FURY_SWIPES
+	db 20, BITE
+	db 23, FURY_SWIPES
+	db 30, CHARM
+	db 38, CRUNCH
 	db 0 ; no more level-up moves
 
 NidorinaEvosAttacks:
 	db EVOLVE_ITEM, MOON_STONE, NIDOQUEEN
 	db 0 ; no more evolutions
 	db 1, GROWL
-	db 1, TACKLE
-	db 8, SCRATCH
+	db 1, SCRATCH
+	db 8, TAIL_WHIP
 	db 12, DOUBLE_KICK
-	db 19, POISON_STING
-	db 27, TAIL_WHIP
-	db 36, BITE
-	db 46, FURY_SWIPES
+	db 18, POISON_STING
+	db 22, BITE
+	db 26, FURY_SWIPES
+	db 34, CHARM
+	db 43, CRUNCH
 	db 0 ; no more level-up moves
 
 NidoqueenEvosAttacks:
@@ -438,19 +440,21 @@ NidoqueenEvosAttacks:
 	db 1, SCRATCH
 	db 1, DOUBLE_KICK
 	db 1, TAIL_WHIP
-	db 23, BODY_SLAM
+	db 34, BODY_SLAM
+	db 45, SUBMISSION
 	db 0 ; no more level-up moves
 
 NidoranMEvosAttacks:
 	db EVOLVE_LEVEL, 16, NIDORINO
 	db 0 ; no more evolutions
 	db 1, LEER
-	db 1, TACKLE
-	db 8, HORN_ATTACK
+	db 1, PECK
+	db 8, FOCUS_ENERGY
 	db 12, DOUBLE_KICK
 	db 17, POISON_STING
-	db 23, FOCUS_ENERGY
-	db 30, FURY_ATTACK
+	db 20, HORN_ATTACK
+	db 23, FURY_ATTACK
+	db 30, SWAGGER
 	db 38, HORN_DRILL
 	db 0 ; no more level-up moves
 
@@ -458,13 +462,14 @@ NidorinoEvosAttacks:
 	db EVOLVE_ITEM, MOON_STONE, NIDOKING
 	db 0 ; no more evolutions
 	db 1, LEER
-	db 1, TACKLE
-	db 8, HORN_ATTACK
+	db 1, PECK
+	db 8, FOCUS_ENERGY
 	db 12, DOUBLE_KICK
-	db 19, POISON_STING
-	db 27, FOCUS_ENERGY
-	db 36, FURY_ATTACK
-	db 46, HORN_DRILL
+	db 18, POISON_STING
+	db 22, HORN_ATTACK
+	db 26, FURY_ATTACK
+	db 34, SWAGGER
+	db 43, HORN_DRILL
 	db 0 ; no more level-up moves
 
 NidokingEvosAttacks:
@@ -473,7 +478,8 @@ NidokingEvosAttacks:
 	db 1, HORN_ATTACK
 	db 1, DOUBLE_KICK
 	db 1, POISON_STING
-	db 23, THRASH
+	db 34, THRASH
+	db 45, MEGAHORN
 	db 0 ; no more level-up moves
 
 ClefairyEvosAttacks:

@@ -6,7 +6,7 @@ DragonsDen1F_MapScripts:
 
 .UnsetClairScene:
 	setmapscene DRAGONS_DEN_B1F, SCENE_DRAGONSDENB1F_NOTHING
-	end
+	return
 
 DragonsDen1F_MapEvents:
 	db 0, 0 ; filler

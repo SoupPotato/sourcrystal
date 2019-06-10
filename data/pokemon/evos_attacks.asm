@@ -2583,6 +2583,7 @@ BellossomEvosAttacks:
 	db 1, SWEET_SCENT
 	db 1, STUN_SPORE
 	db 1, PETAL_DANCE
+	db 47, PETAL_DANCE
 	db 55, SOLARBEAM
 	db 0 ; no more level-up moves
 
@@ -3045,7 +3046,7 @@ SneaselEvosAttacks:
 	db 27, ICY_WIND
 	db 32, AGILITY
 	db 38, METAL_CLAW
-	db 42, BEAT_UP
+	db 44, BEAT_UP
 	db 49, SLASH
 	db 0 ; no more level-up moves
 
@@ -3058,9 +3059,9 @@ TeddiursaEvosAttacks:
 	db 15, FURY_SWIPES
 	db 22, FAINT_ATTACK
 	db 29, REST
-	db 36, SLASH
-	db 43, SNORE
-	db 50, THRASH
+	db 35, SLASH
+	db 41, SNORE
+	db 46, THRASH
 	db 0 ; no more level-up moves
 
 UrsaringEvosAttacks:
@@ -3072,10 +3073,11 @@ UrsaringEvosAttacks:
 	db 8, LICK
 	db 15, FURY_SWIPES
 	db 22, FAINT_ATTACK
-	db 29, REST
-	db 39, SLASH
-	db 49, SNORE
-	db 59, THRASH
+	db 31, REST
+	db 37, SLASH
+	db 43, SNORE
+	db 50, THRASH
+	db 58, CROSS_CHOP
 	db 0 ; no more level-up moves
 
 SlugmaEvosAttacks:

@@ -19,7 +19,8 @@ Route48YellowForestSignText:
 Route48_MapEvents:
 	db 0, 0 ; filler
 
-	db 1 ; warp events
+	db 2 ; warp events
+	warp_event 11,  5, YELLOW_FOREST_GATE, 3
 	warp_event 11,  5, YELLOW_FOREST_GATE, 3
 
 	db 0 ; coord events

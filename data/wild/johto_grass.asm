@@ -572,29 +572,29 @@ JohtoGrassWildMons:
 	map_id YELLOW_FOREST
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 22, SENTRET
-	db 24, SNUBBULL
+	db 22, PIKACHU
+	db 22, DODUO
+	db 20, PONYTA
 	db 20, PIKACHU
-	db 22, LEDYBA
 	db 20, MARILL
-	db 21, MARILL
-	db 10, PICHU
+	db 21, MR__MIME
+	db 23, KANGASKHAN
 	; day
-	db 22, SENTRET
-	db 24, SNUBBULL
+	db 22, PIKACHU
+	db 22, DODUO
+	db 20, PONYTA
 	db 20, PIKACHU
-	db 22, PARAS
 	db 20, MARILL
-	db 21, MARILL
-	db 10, PICHU
+	db 21, MR__MIME
+	db 23, KANGASKHAN
 	; nite
-	db 23, HOOTHOOT
-	db 20, MEOWTH
-	db 22, PARAS
-	db 23, SPINARAK
-	db 24, PSYDUCK
-	db 25, NOCTOWL
-	db 25, NOCTOWL
+	db 22, CLEFAIRY
+	db 22, MURKROW
+	db 20, MARILL
+	db 20, CLEFAIRY
+	db 20, HOUNDOUR
+	db 21, MISDREAVUS
+	db 23, WOBBUFFET
 
 	map_id MOUNT_MORTAR_1F_OUTSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
@@ -602,24 +602,24 @@ JohtoGrassWildMons:
 	db 14, RATTATA
 	db 13, ZUBAT
 	db 14, MACHOP
-	db 13, GEODUDE
-	db 14, DIGLETT
+	db 13, GOLBAT
+	db 14, GEODUDE
 	db 16, RATICATE
 	db 16, RATICATE
 	; day
 	db 14, RATTATA
 	db 13, ZUBAT
 	db 14, MACHOP
-	db 13, GEODUDE
-	db 14, DIGLETT
+	db 13, GOLBAT
+	db 14, GEODUDE
 	db 16, RATICATE
 	db 16, RATICATE
 	; nite
 	db 14, RATTATA
 	db 13, ZUBAT
 	db 14, MARILL
-	db 13, GEODUDE
-	db 14, DIGLETT
+	db 13, GOLBAT
+	db 14, GEODUDE
 	db 16, RATICATE
 	db 16, RATICATE
 
@@ -631,78 +631,78 @@ JohtoGrassWildMons:
 	db 15, MACHOP
 	db 14, RATICATE
 	db 15, ZUBAT
-	db 15, DIGLETT
-	db 15, DIGLETT
+	db 15, GOLBAT
+	db 15, GOLBAT
 	; day
 	db 13, GEODUDE
 	db 14, RATTATA
 	db 15, MACHOP
 	db 14, RATICATE
 	db 15, ZUBAT
-	db 15, DIGLETT
-	db 15, DIGLETT
+	db 15, GOLBAT
+	db 15, GOLBAT
 	; nite
 	db 13, GEODUDE
 	db 14, RATTATA
 	db 15, RATICATE
 	db 14, ZUBAT
 	db 15, MARILL
-	db 15, DIGLETT
-	db 15, DIGLETT
+	db 15, GOLBAT
+	db 15, GOLBAT
 
 	map_id MOUNT_MORTAR_2F_INSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 31, GRAVELER
 	db 32, MACHOKE
-	db 31, RATICATE
-	db 30, GOLBAT
+	db 31, GEODUDE
+	db 30, RATICATE
 	db 28, MACHOP
-	db 30, DIGLETT
-	db 30, DUGTRIO
+	db 30, GOLBAT
+	db 25, LARVITAR
 	; day
 	db 31, GRAVELER
 	db 32, MACHOKE
-	db 31, RATICATE
-	db 30, GOLBAT
+	db 31, GEODUDE
+	db 30, RATICATE
 	db 28, MACHOP
-	db 30, DIGLETT
-	db 30, DUGTRIO
+	db 30, GOLBAT
+	db 25, LARVITAR
 	; nite
 	db 31, GRAVELER
-	db 31, RATICATE
-	db 30, GOLBAT
+	db 31, GEODUDE
+	db 30, RATICATE
 	db 30, GOLBAT
 	db 28, MARILL
-	db 32, DIGLETT
-	db 32, DUGTRIO
+	db 32, GOLBAT
+	db 25, LARVITAR
 
 	map_id MOUNT_MORTAR_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 15, ZUBAT
-	db 17, GEODUDE
+	db 17, ZUBAT
 	db 17, GOLBAT
 	db 16, MACHOP
-	db 16, DIGLETT
+	db 16, GEODUDE
 	db 18, RATICATE
-	db 16, LARVITAR
+	db 18, LARVITAR
 	; day
 	db 15, ZUBAT
-	db 17, GEODUDE
+	db 17, ZUBAT
 	db 17, GOLBAT
 	db 16, MACHOP
-	db 16, DIGLETT
+	db 16, GEODUDE
 	db 18, RATICATE
-	db 16, LARVITAR
+	db 18, LARVITAR
 	; nite
 	db 15, ZUBAT
-	db 17, GEODUDE
+	db 17, ZUBAT
 	db 17, GOLBAT
 	db 16, MARILL
-	db 16, DIGLETT
+	db 16, GEODUDE
 	db 18, RATICATE
-	db 16, MISDREAVUS
+	db 18, LARVITAR
 
 	map_id ICE_PATH_1F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
@@ -1220,26 +1220,26 @@ JohtoGrassWildMons:
 	map_id CLIFF_CAVE
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 22, GOLBAT
-	db 19, GEODUDE
-	db 22, MACHOKE
+	db 18, GEODUDE
+	db 19, MACHOP
 	db 20, KRABBY
-	db 18, WOOPER
-	db 20, GRAVELER
+	db 22, GRAVELER
+	db 20, ONIX
+	db 22, MACHOKE
 	db 23, STEELIX
 	; day
-	db 22, GOLBAT
-	db 19, GEODUDE
+	db 18, GEODUDE
 	db 19, MACHOP
-	db 22, KINGLER
-	db 20, QUAGSIRE
+	db 20, KRABBY
+	db 22, GRAVELER
 	db 20, ONIX
+	db 22, MACHOKE
 	db 23, STEELIX
 	; nite
 	db 18, ZUBAT
-	db 22, GOLBAT
+	db 19, MACHOP
+	db 20, KRABBY
 	db 22, KINGLER
-	db 22, MACHOKE
 	db 20, ONIX
 	db 20, MISDREAVUS
 	db 23, STEELIX
@@ -1512,7 +1512,7 @@ JohtoGrassWildMons:
 	db 16, NOCTOWL
 	db 16, MEOWTH
 	db 16, MEOWTH
-	db 14, HOUNDOUR
+	db 16, MEOWTH
 
 	map_id ROUTE_39
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
@@ -1536,8 +1536,8 @@ JohtoGrassWildMons:
 	db 16, MEOWTH
 	db 16, RATICATE
 	db 16, MAGNEMITE
-	db 18, MEOWTH
-	db 15, MURKROW
+	db 16, MEOWTH
+	db 15, MEOWTH
 	db 14, ELECTABUZZ
 	db 14, ELECTABUZZ
 	
@@ -1682,15 +1682,15 @@ JohtoGrassWildMons:
 	db 25, DITTO
 	db 25, MILTANK
 	db 24, FARFETCH_D
-	db 21, SPEAROW
-	db 23, RATICATE
+	db 21, RATICATE
+	db 20, SLUGMA
 	db 24, FEAROW
 	db 22, GLOOM
 	; day
 	db 25, DITTO
 	db 25, MILTANK
 	db 24, FARFETCH_D
-	db 21, SPEAROW
+	db 22, SLUGMA
 	db 23, RATICATE
 	db 24, FEAROW
 	db 22, GLOOM
@@ -1698,8 +1698,8 @@ JohtoGrassWildMons:
 	db 25, DITTO
 	db 25, MILTANK
 	db 24, FARFETCH_D
-	db 21, SPEAROW
-	db 23, RATICATE
+	db 21, RATICATE
+	db 20, SLUGMA
 	db 24, NOCTOWL
 	db 22, GLOOM
 
@@ -1711,23 +1711,23 @@ JohtoGrassWildMons:
 	db 21, FEAROW
 	db 22, HOPPIP
 	db 21, FARFETCH_D
-	db 20, GROWLITHE
+	db 20, DIGLETT
 	db 20, GIRAFARIG
 	; day
 	db 24, TAUROS
 	db 24, GLOOM
 	db 21, FEAROW
-	db 22, DIGLETT
+	db 22, HOPPIP
 	db 21, FARFETCH_D
-	db 20, GROWLITHE
+	db 20, DIGLETT
 	db 20, GIRAFARIG
 	; nite
 	db 24, TAUROS
 	db 24, GLOOM
 	db 21, NOCTOWL
 	db 22, SPINARAK
-	db 21, FARFETCH_D
-	db 20, VULPIX
+	db 20, DIGLETT
+	db 20, HOUNDOUR
 	db 20, GIRAFARIG
 
 	map_id SILVER_CAVE_OUTSIDE

@@ -188,6 +188,8 @@ KRIS EQU __enum__
 	const DANA3
 	const DANA4
 	const DANA5
+	const SARAH
+	const ISABEL
 
 	trainerclass JANINE ; 1a
 	const JANINE1
@@ -236,6 +238,7 @@ KRIS EQU __enum__
 	const REENA2
 	const REENA3
 	const CARA
+	const SOPHIE
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
@@ -321,6 +324,7 @@ KRIS EQU __enum__
 	const COLETTE
 	const HILLARY
 	const SHIRLEY
+	const KATHRYN
 
 	trainerclass SABRINA ; 23
 	const SABRINA1
@@ -483,6 +487,7 @@ KRIS EQU __enum__
 	const PARRY3
 	const ANTHONY4
 	const ANTHONY5
+	const DEVIN
 
 	trainerclass BIKER ; 2d
 	const BIKER_BENNY
@@ -603,6 +608,7 @@ KRIS EQU __enum__
 	const TODD4
 	const TODD5
 	const QUENTIN
+	const GRANT
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1
@@ -699,5 +705,13 @@ KRIS EQU __enum__
 
 	trainerclass MYSTICALMAN ; 43
 	const EUSINE
+	
+	trainerclass COUPLE ; 44
+	const DUFFANDEDA1
+	const DUFFANDEDA2
+	
+	trainerclass COOL_DUO ; 45
+	const THOMANDKAE1
+	const THOMANDKAE2
 
 NUM_TRAINER_CLASSES EQU __enum__

@@ -82,8 +82,8 @@ ReturnFromMapSetupScript::
 	ret z
 	cp POWER_PLANT
 	ret z
-	cp CLIFF_EDGE_GATE
-	ret z
+;	cp CLIFF_EDGE_GATE
+;	ret z
 	ld a, 1
 	and a
 	ret

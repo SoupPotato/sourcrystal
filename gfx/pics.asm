@@ -722,6 +722,8 @@ WigglytuffFrontpic:  INCBIN "gfx/pokemon/wigglytuff/front.animated.2bpp.lz"
 
 SECTION "Pics 20", ROMX
 UrsaringFrontpic:    INCBIN "gfx/pokemon/ursaring/front.animated.2bpp.lz"
+CouplePic:           INCBIN "gfx/trainers/couple.2bpp.lz"
+CoolduoPic:          INCBIN "gfx/trainers/cool_duo.2bpp.lz"
 
 
 SECTION "Pics 21", ROMX

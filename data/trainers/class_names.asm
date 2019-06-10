@@ -67,3 +67,5 @@ TrainerClassNames::
 	db "OFFICER@"
 	db "ROCKET@"
 	db "MYSTICALMAN@"
+	db "COUPLE@"
+	db "COOLDUO@"

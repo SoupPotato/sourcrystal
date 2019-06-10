@@ -192,7 +192,7 @@ JohtoWaterWildMons:
 	db 2 percent ; encounter rate
 	db 20, TENTACOOL
 	db 20, SEEL
-	db 25, STARYU
+	db 20, STARYU
 
 	map_id NEW_BARK_TOWN
 	db 6 percent ; encounter rate

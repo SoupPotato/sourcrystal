@@ -25,4 +25,28 @@ CliffCave_MapEvents:
 	db 1 ; bg events
 	bg_event 11,  9, BGEVENT_ITEM, CliffCaveHiddenUltraBall
 
-	db 0 ; object events
+	db 1 ; object events
+	object_event 7, 19, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, PERSONTYPE_SCRIPT, 0, CliffCaveManScript, -1
+	
+CliffCaveManScript:
+	jumptextfaceplayer CliffCaveManText
+
+
+CliffCaveManText:
+	text "If you see a fork"
+	line "in the road"
+	cont "inside a cave,"
+
+	para "most likely one"
+	line "way is right and"
+	cont "the other leads"
+	cont "to a dead end."
+	
+	para "But people can't"
+	line "help trying both."
+	
+	para "Do you want to"
+	line "go up the ladder"
+	cont "or go down the"
+	cont "ladder?"
+	done

@@ -15,6 +15,7 @@ Flypoints:
 	flypoint ECRUTEAK,     ECRUTEAK_CITY
 	flypoint OLIVINE,      OLIVINE_CITY
 	flypoint CIANWOOD,     CIANWOOD_CITY
+	flypoint ROUTE_48,     YELLOW_FOREST
 	flypoint MAHOGANY,     MAHOGANY_TOWN
 	flypoint LAKE_OF_RAGE, LAKE_OF_RAGE
 	flypoint BLACKTHORN,   BLACKTHORN_CITY

@@ -46,9 +46,9 @@ JohtoWaterWildMons:
 
 	map_id YELLOW_FOREST
 	db 6 percent ; encounter rate
-	db 20, MAGIKARP
-	db 20, GOLDEEN
+	db 20, POLIWAG
 	db 20, MARILL
+	db 20, GRIMER
 
 	map_id MOUNT_MORTAR_1F_OUTSIDE
 	db 4 percent ; encounter rate

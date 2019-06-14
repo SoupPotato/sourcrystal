@@ -1179,13 +1179,17 @@ MagnetonEvosAttacks:
 FarfetchDEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PECK
-	db 7, SAND_ATTACK
-	db 13, LEER
-	db 19, FURY_ATTACK
-	db 25, SWORDS_DANCE
-	db 31, AGILITY
-	db 37, SLASH
-	db 44, FALSE_SWIPE
+	db 1, SAND_ATTACK
+	db 4, LEER
+	db 9, FURY_CUTTER
+	db 13, FURY_ATTACK
+	db 19, WING_ATTACK
+	db 25, THIEF
+	db 31, SLASH
+	db 37, SWORDS_DANCE
+	db 43, AGILITY
+	db 49, FALSE_SWIPE
+	db 55, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 DoduoEvosAttacks:
@@ -1193,51 +1197,64 @@ DoduoEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PECK
 	db 1, GROWL
-	db 9, PURSUIT
-	db 13, FURY_ATTACK
-	db 21, TRI_ATTACK
-	db 25, RAGE
-	db 33, DRILL_PECK
-	db 37, AGILITY
+	db 5, QUICK_ATTACK
+	db 10, RAGE
+	db 14, FURY_ATTACK
+	db 19, PURSUIT
+	db 25, AGILITY
+	db 31, SWORDS_DANCE
+	db 36, DRILL_PECK
+	db 42, JUMP_KICK
+	db 47, THRASH
 	db 0 ; no more level-up moves
 
 DodrioEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PECK
 	db 1, GROWL
-	db 1, PURSUIT
-	db 1, FURY_ATTACK
-	db 9, PURSUIT
-	db 13, FURY_ATTACK
-	db 21, TRI_ATTACK
-	db 25, RAGE
-	db 38, DRILL_PECK
-	db 47, AGILITY
+	db 5, QUICK_ATTACK
+	db 10, RAGE
+	db 14, FURY_ATTACK
+	db 19, PURSUIT
+	db 25, AGILITY
+	db 31, TRI_ATTACK
+	db 33, SWORDS_DANCE
+	db 39, DRILL_PECK
+	db 46, JUMP_KICK
+	db 52, THRASH
 	db 0 ; no more level-up moves
 
 SeelEvosAttacks:
 	db EVOLVE_LEVEL, 34, DEWGONG
 	db 0 ; no more evolutions
 	db 1, HEADBUTT
-	db 5, GROWL
-	db 16, AURORA_BEAM
-	db 21, REST
+	db 4, GROWL
+	db 8, ENCORE
+	db 12, ICY_WIND
+	db 16, REST
+	db 20, AURORA_BEAM
+	db 26, WATERFALL
 	db 32, TAKE_DOWN
-	db 37, ICE_BEAM
-	db 48, SAFEGUARD
+	db 38, ICE_BEAM
+	db 44, SAFEGUARD
+	db 50, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 DewgongEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, HEADBUTT
 	db 1, GROWL
-	db 1, AURORA_BEAM
-	db 5, GROWL
-	db 16, AURORA_BEAM
-	db 21, REST
+	db 1, ENCORE
+	db 1, ICY_WIND
+	db 8, ENCORE
+	db 12, ICY_WIND
+	db 16, REST
+	db 20, AURORA_BEAM
+	db 26, WATERFALL
 	db 32, TAKE_DOWN
-	db 43, ICE_BEAM
-	db 60, SAFEGUARD
+	db 40, ICE_BEAM
+	db 48, SAFEGUARD
+	db 56, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 GrimerEvosAttacks:
@@ -1245,27 +1262,30 @@ GrimerEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_GAS
 	db 1, POUND
-	db 5, HARDEN
-	db 10, DISABLE
-	db 16, SLUDGE
-	db 23, MINIMIZE
-	db 31, SCREECH
-	db 40, ACID_ARMOR
-	db 50, SLUDGE_BOMB
+	db 7, HARDEN
+	db 11, MUD_SLAP
+	db 15, DISABLE
+	db 21, SLUDGE
+	db 25, MINIMIZE
+	db 30, SCREECH
+	db 36, ACID_ARMOR
+	db 40, SLUDGE_BOMB
+	db 45, TOXIC
 	db 0 ; no more level-up moves
-
+	
 MukEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_GAS
 	db 1, POUND
-	db 1, HARDEN
-	db 33, HARDEN
-	db 37, DISABLE
-	db 45, SLUDGE
-	db 23, MINIMIZE
-	db 31, SCREECH
-	db 45, ACID_ARMOR
-	db 60, SLUDGE_BOMB
+	db 7, HARDEN
+	db 11, MUD_SLAP
+	db 15, DISABLE
+	db 21, SLUDGE
+	db 25, MINIMIZE
+	db 30, SCREECH
+	db 36, ACID_ARMOR
+	db 44, SLUDGE_BOMB
+	db 52, TOXIC
 	db 0 ; no more level-up moves
 
 ShellderEvosAttacks:
@@ -1559,14 +1579,16 @@ KoffingEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_GAS
 	db 1, TACKLE
-	db 9, SMOG
-	db 17, SELFDESTRUCT
-	db 21, SLUDGE
-	db 25, SMOKESCREEN
-	db 33, HAZE
-	db 38, EXPLOSION
+	db 6, SMOG
+	db 10, SMOKESCREEN
+	db 15, THIEF
+	db 20, SELFDESTRUCT
+	db 24, SLUDGE
+	db 30, HAZE
+	db 35, SLUDGE_BOMB
+	db 39, EXPLOSION
 	db 45, DESTINY_BOND
-	db 51, SLUDGE_BOMB
+	db 50, TOXIC
 	db 0 ; no more level-up moves
 
 WeezingEvosAttacks:
@@ -1574,15 +1596,16 @@ WeezingEvosAttacks:
 	db 1, POISON_GAS
 	db 1, TACKLE
 	db 1, SMOG
-	db 1, SELFDESTRUCT
-	db 9, SMOG
-	db 17, SELFDESTRUCT
-	db 21, SLUDGE
-	db 25, SMOKESCREEN
-	db 33, HAZE
-	db 40, EXPLOSION
-	db 47, DESTINY_BOND
-	db 54, SLUDGE_BOMB
+	db 6, SMOG
+	db 10, SMOKESCREEN
+	db 15, THIEF
+	db 20, SELFDESTRUCT
+	db 24, SLUDGE
+	db 30, HAZE
+	db 35, SLUDGE_BOMB
+	db 44, EXPLOSION
+	db 50, DESTINY_BOND
+	db 54, TOXIC
 	db 0 ; no more level-up moves
 
 RhyhornEvosAttacks:

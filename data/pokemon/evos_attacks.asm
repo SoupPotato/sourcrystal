@@ -1700,13 +1700,15 @@ HorseaEvosAttacks:
 	db EVOLVE_LEVEL, 32, SEADRA
 	db 0 ; no more evolutions
 	db 1, BUBBLE
-	db 8, SMOKESCREEN
+	db 6, SMOKESCREEN
+	db 9, WATER_GUN
 	db 15, LEER
-	db 22, WATER_GUN
-	db 29, TWISTER
-	db 36, AGILITY
-	db 43, DRAGONBREATH
-	db 50, HYDRO_PUMP
+	db 18, FOCUS_ENERGY
+	db 24, BUBBLEBEAM
+	db 27, TWISTER
+	db 33, AGILITY
+	db 36, DRAGONBREATH
+	db 42, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 SeadraEvosAttacks:
@@ -1716,13 +1718,15 @@ SeadraEvosAttacks:
     db 1, BUBBLE
 	db 1, SMOKESCREEN
 	db 1, LEER
-	db 1, WATER_GUN
-	db 8, SMOKESCREEN
+	db 1, BUBBLE
+	db 6, SMOKESCREEN
+	db 9, WATER_GUN
 	db 15, LEER
-	db 22, WATER_GUN
-	db 29, TWISTER
-	db 37, AGILITY
-	db 44, DRAGONBREATH
+	db 18, FOCUS_ENERGY
+	db 24, BUBBLEBEAM
+	db 27, TWISTER
+	db 36, AGILITY
+	db 42, DRAGONBREATH
 	db 51, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -3308,11 +3312,14 @@ KingdraEvosAttacks:
 	db 1, SMOKESCREEN
 	db 1, LEER
 	db 1, WATER_GUN
-	db 8, SMOKESCREEN
+	db 6, SMOKESCREEN
+	db 9, WATER_GUN
 	db 15, LEER
-	db 22, WATER_GUN
-	db 29, TWISTER
-	db 40, AGILITY
+	db 18, FOCUS_ENERGY
+	db 24, BUBBLEBEAM
+	db 27, TWISTER
+	db 36, AGILITY
+	db 42, DRAGONBREATH
 	db 51, HYDRO_PUMP
 	db 0 ; no more level-up moves
 

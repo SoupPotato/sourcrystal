@@ -1170,10 +1170,11 @@ MagnemiteEvosAttacks:
 	db 16, SONICBOOM
 	db 21, THUNDER_WAVE
 	db 26, SPARK
-	db 31, LOCK_ON
-	db 37, SWIFT
-	db 44, SCREECH
-	db 50, ZAP_CANNON
+	db 31, SWIFT
+	db 37, SCREECH
+	db 43, THUNDERBOLT
+	db 49, LOCK_ON
+	db 55, ZAP_CANNON
 	db 0 ; no more level-up moves
 
 MagnetonEvosAttacks:
@@ -1187,10 +1188,11 @@ MagnetonEvosAttacks:
 	db 16, SONICBOOM
 	db 21, THUNDER_WAVE
 	db 27, SPARK
-	db 32, LOCK_ON
-	db 38, TRI_ATTACK
-	db 46, SCREECH
-	db 52, ZAP_CANNON
+	db 32, TRI_ATTACK
+	db 38, SCREECH
+	db 45, THUNDERBOLT
+	db 52, LOCK_ON
+	db 58, ZAP_CANNON
 	db 0 ; no more level-up moves
 
 FarfetchDEvosAttacks:
@@ -1469,9 +1471,10 @@ VoltorbEvosAttacks:
 	db 25, SELFDESTRUCT
 	db 29, ROLLOUT
 	db 33, LIGHT_SCREEN
-	db 37, SWIFT
-	db 39, EXPLOSION
-	db 41, MIRROR_COAT
+	db 36, SWIFT
+	db 40, THUNDERBOLT
+	db 44, EXPLOSION
+	db 48, MIRROR_COAT
 	db 0 ; no more level-up moves
 
 ElectrodeEvosAttacks:
@@ -1486,9 +1489,10 @@ ElectrodeEvosAttacks:
 	db 25, SELFDESTRUCT
 	db 29, ROLLOUT
 	db 34, LIGHT_SCREEN
-	db 40, SWIFT
-	db 44, EXPLOSION
-	db 48, MIRROR_COAT
+	db 38, SWIFT
+	db 43, THUNDERBOLT
+	db 48, EXPLOSION
+	db 53, MIRROR_COAT
 	db 0 ; no more level-up moves
 
 ExeggcuteEvosAttacks:
@@ -1630,26 +1634,35 @@ RhyhornEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, HORN_ATTACK
 	db 1, TAIL_WHIP
-	db 13, STOMP
-	db 19, FURY_ATTACK
-	db 31, SCARY_FACE
-	db 37, HORN_DRILL
-	db 49, TAKE_DOWN
-	db 55, EARTHQUAKE
+	db 8, FURY_ATTACK
+	db 12, SCARY_FACE
+	db 19, STOMP
+	db 23, MAGNITUDE
+	db 30, ROLLOUT
+	db 34, TAKE_DOWN
+	db 41, HORN_DRILL
+	db 45, ROCK_SLIDE
+	db 52, EARTHQUAKE
+	db 56, MEGAHORN
 	db 0 ; no more level-up moves
 
 RhydonEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, HORN_ATTACK
 	db 1, TAIL_WHIP
-	db 1, STOMP
 	db 1, FURY_ATTACK
-	db 13, STOMP
-	db 19, FURY_ATTACK
-	db 31, SCARY_FACE
-	db 37, HORN_DRILL
-	db 54, TAKE_DOWN
-	db 65, EARTHQUAKE
+	db 1, SCARY_FACE
+	db 8, FURY_ATTACK
+	db 12, SCARY_FACE
+	db 19, STOMP
+	db 23, MAGNITUDE
+	db 30, ROLLOUT
+	db 34, TAKE_DOWN
+	db 41, HORN_DRILL
+	db 42, REVERSAL
+	db 47, ROCK_SLIDE
+	db 56, EARTHQUAKE
+	db 62, MEGAHORN
 	db 0 ; no more level-up moves
 
 ChanseyEvosAttacks:
@@ -2098,35 +2111,44 @@ ArticunoEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, GUST
 	db 1, POWDER_SNOW
-	db 13, MIST
-	db 25, AGILITY
-	db 37, MIND_READER
+	db 8, MIST
+	db 17, ICY_WIND
+	db 24, MIND_READER
+	db 33, ANCIENTPOWER
+	db 40, AGILITY
 	db 49, ICE_BEAM
-	db 61, REFLECT
-	db 73, BLIZZARD
+	db 56, REFLECT
+	db 65, BLIZZARD
+	db 73, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 ZapdosEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PECK
 	db 1, THUNDERSHOCK
-	db 13, THUNDER_WAVE
-	db 25, AGILITY
-	db 37, DETECT
-	db 49, DRILL_PECK
-	db 61, LIGHT_SCREEN
-	db 73, THUNDER
+	db 8, DETECT
+	db 17, SPARK
+	db 24, THUNDER_WAVE
+	db 33, ANCIENTPOWER
+	db 40, AGILITY
+	db 49, THUNDERBOLT
+	db 56, LIGHT_SCREEN
+	db 65, THUNDER
+	db 73, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 MoltresEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, WING_ATTACK
 	db 1, EMBER
-	db 13, FIRE_SPIN
-	db 25, AGILITY
-	db 37, ENDURE
+	db 8, ENDURE
+	db 17, FIRE_SPIN
+	db 24, SAFEGUARD
+	db 33, ANCIENTPOWER
+	db 40, AGILITY
 	db 49, FLAMETHROWER
-	db 61, SAFEGUARD
+	db 56, SUNNY_DAY
+	db 65, SOLARBEAM
 	db 73, SKY_ATTACK
 	db 0 ; no more level-up moves
 

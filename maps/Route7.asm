@@ -42,7 +42,7 @@ Route7_MapEvents:
 	db 0 ; coord events
 
 	db 2 ; bg events
-	bg_event  5, 11, BGEVENT_READ, Route7UndergroundPathSign
-	bg_event  6,  9, BGEVENT_READ, Route7LockedDoor
+	bg_event  9, 11, BGEVENT_READ, Route7UndergroundPathSign
+	bg_event  7,  9, BGEVENT_READ, Route7LockedDoor
 
 	db 0 ; object events

@@ -1,5 +1,7 @@
 	const_def 2 ; object constants
 	const ROUTE24_ROCKET
+	const ROUTE24_SUPER_NERD
+	const ROUTE24_BUENA1
 
 Route24_MapScripts:
 	db 0 ; scene scripts
@@ -33,6 +35,42 @@ Route24RocketScript:
 	special FadeInQuickly
 	playmapmusic
 	end
+
+CoupleMaleScript:
+	faceplayer
+	opentext
+	writetext CoupleMaleText
+	waitbutton
+	closetext
+	turnobject ROUTE24_SUPER_NERD, LEFT
+	end
+	
+CoupleFemaleScript:
+	faceplayer
+	opentext
+	writetext CoupleFemaleText
+	waitbutton
+	closetext
+	turnobject ROUTE24_BUENA1, LEFT
+	end
+	
+CoupleMaleText:
+	text "Can you leave"
+	line "us alone?"
+
+	para "I am building a"
+	line "chemistry between"
+	cont "us, and it's"
+	cont "finally working."
+	done
+	
+CoupleFemaleText:
+	text "Just keep on"
+	line "going. Thank you."
+
+	para "No need to spoil"
+	line "this chemistry."
+	done
 
 UnknownText_0x1adc2e:
 	text "Hey, kid! Me am a"
@@ -125,5 +163,7 @@ Route24_MapEvents:
 
 	db 0 ; bg events
 
-	db 1 ; object events
+	db 3 ; object events
 	object_event  8,  7, SPRITE_ROCKET, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route24RocketScript, EVENT_ROUTE_24_ROCKET
+	object_event 8, 8, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CoupleMaleScript, -1
+	object_event 8, 9, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, PAL_NPC_BLUE,OBJECTTYPE_SCRIPT, 0, CoupleFemaleScript, -1

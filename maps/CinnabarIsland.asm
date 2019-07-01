@@ -34,6 +34,12 @@ CinnabarIslandPokecenterSign:
 
 CinnabarIslandHiddenRareCandy:
 	hiddenitem RARE_CANDY, EVENT_CINNABAR_ISLAND_HIDDEN_RARE_CANDY
+	
+CinnabarIslandHiddenStarPiece:
+	hiddenitem STAR_PIECE, EVENT_CINNABAR_ISLAND_HIDDEN_STAR_PIECE
+	
+CinnabarIslandHiddenIron:
+	hiddenitem IRON, EVENT_CINNABAR_ISLAND_HIDDEN_IRON
 
 CinnabarIslandBlueTeleport:
 	teleport_from
@@ -129,15 +135,17 @@ CinnabarIsland_MapEvents:
 	db 0, 0 ; filler
 
 	db 1 ; warp events
-	warp_event 11, 11, CINNABAR_POKECENTER_1F, 1
+	warp_event 11, 15, CINNABAR_POKECENTER_1F, 1
 
 	db 0 ; coord events
 
-	db 4 ; bg events
-	bg_event 12, 11, BGEVENT_READ, CinnabarIslandPokecenterSign
-	bg_event  9, 11, BGEVENT_READ, CinnabarIslandGymSign
-	bg_event  7,  7, BGEVENT_READ, CinnabarIslandSign
-	bg_event  9,  1, BGEVENT_ITEM, CinnabarIslandHiddenRareCandy
-
+	db 6 ; bg events
+	bg_event 12, 15, BGEVENT_READ, CinnabarIslandPokecenterSign
+	bg_event  9, 15, BGEVENT_READ, CinnabarIslandGymSign
+	bg_event  7, 11, BGEVENT_READ, CinnabarIslandSign
+	bg_event 11,  4, BGEVENT_ITEM, CinnabarIslandHiddenRareCandy
+	bg_event 21,  4, BGEVENT_ITEM, CinnabarIslandHiddenStarPiece
+	bg_event 20, 11, BGEVENT_ITEM, CinnabarIslandHiddenIron
+	
 	db 1 ; object events
-	object_event  9,  6, SPRITE_BLUE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandBlue, EVENT_BLUE_IN_CINNABAR
+	object_event  9, 10, SPRITE_BLUE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandBlue, EVENT_BLUE_IN_CINNABAR

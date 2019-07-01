@@ -451,7 +451,6 @@ INCLUDE "maps/Route9.asm"
 INCLUDE "maps/CinnabarPokecenter1F.asm"
 INCLUDE "maps/CinnabarPokecenter2FBeta.asm"
 INCLUDE "maps/Route19FuchsiaGate.asm"
-INCLUDE "maps/SeafoamGym.asm"
 
 
 SECTION "Map Scripts 24", ROMX
@@ -460,7 +459,6 @@ INCLUDE "maps/Route33.asm"
 INCLUDE "maps/Route2.asm"
 INCLUDE "maps/Route1.asm"
 INCLUDE "maps/PalletTown.asm"
-INCLUDE "maps/Route21.asm"
 INCLUDE "maps/CinnabarIsland.asm"
 INCLUDE "maps/Route20.asm"
 INCLUDE "maps/Route18.asm"
@@ -484,13 +482,24 @@ SECTION "Map Scripts 25", ROMX
 
 INCLUDE "maps/SilverCaveOutside.asm"
 INCLUDE "maps/Route10North.asm"
-
-
-SECTION "Map Scripts 25", ROMX
-
 INCLUDE "maps/Route47.asm"
 INCLUDE "maps/Route48.asm"
 INCLUDE "maps/CliffEdgeGate.asm"
 INCLUDE "maps/CliffCave.asm"
 INCLUDE "maps/YellowForest.asm"
 INCLUDE "maps/YellowForestGate.asm"
+INCLUDE "maps/ViridianForest.asm"
+INCLUDE "maps/ViridianForestGateN.asm"
+INCLUDE "maps/ViridianForestGateS.asm"
+INCLUDE "maps/MountMoonPokecenter1F.asm"
+INCLUDE "maps/SeafoamIslands.asm"
+INCLUDE "maps/SeafoamIslandsB1F.asm"
+INCLUDE "maps/SeafoamIslandsB2F.asm"
+INCLUDE "maps/SeafoamIslandsB3F.asm"
+INCLUDE "maps/SeafoamIslandsB4F.asm"
+INCLUDE "maps/Route11Gate.asm"
+INCLUDE "maps/Route21.asm"
+
+SECTION "Map Scripts 26", ROMX
+
+INCLUDE "maps/SeafoamGym.asm"

@@ -15,6 +15,83 @@ Route17_MapScripts:
 	setflag ENGINE_DOWNHILL
 	return
 
+TrainerBikerReese:
+	trainer BIKER, REESE, EVENT_BEAT_BIKER_REESE, BikerReeseSeenText, BikerReeseBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext BikerReeseAfterBattleText
+	waitbutton
+	closetext
+	end
+	
+TrainerBikerJoseph:
+	trainer BIKER, JOSEPH, EVENT_BEAT_BIKER_JOSEPH, BikerJosephSeenText, BikerJosephBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext BikerJosephAfterBattleText
+	waitbutton
+	closetext
+	end
+	
+TrainerBikerEoin:
+	trainer BIKER, EOIN, EVENT_BEAT_BIKER_EOIN, BikerEoinSeenText, BikerEoinBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext BikerEoinAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerBikerAiden:
+	trainer BIKER, AIDEN, EVENT_BEAT_BIKER_AIDEN, BikerAidenSeenText, BikerAidenBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext BikerAidenAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerBikerTheron:
+	trainer BIKER, THERON, EVENT_BEAT_BIKER_THERON, BikerTheronSeenText, BikerTheronBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext BikerTheronAfterBattleText
+	waitbutton
+	closetext
+	end
+	
+TrainerBikerTeddy:
+	trainer BIKER, TEDDY, EVENT_BEAT_BIKER_TEDDY, BikerTeddySeenText, BikerTeddyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext BikerTeddyAfterBattleText
+	waitbutton
+	closetext
+	end
+	
+TrainerBikerMarkey:
+	trainer BIKER, MARKEY, EVENT_BEAT_BIKER_MARKEY, BikerMarkeySeenText, BikerMarkeyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext BikerMarkeyAfterBattleText
+	waitbutton
+	closetext
+	end
+
 TrainerBikerCharles:
 	trainer BIKER, CHARLES, EVENT_BEAT_BIKER_CHARLES, BikerCharlesSeenText, BikerCharlesBeatenText, 0, .Script
 
@@ -58,6 +135,17 @@ TrainerBikerGlenn:
 	waitbutton
 	closetext
 	end
+	
+TrainerBikerDan:
+	trainer BIKER, DAN, EVENT_BEAT_BIKER_DAN, BikerDanSeenText, BikerDanBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext BikerDanAfterBattleText
+	waitbutton
+	closetext
+	end
 
 Route17HiddenMaxEther:
 	hiddenitem MAX_ETHER, EVENT_ROUTE_17_HIDDEN_MAX_ETHER
@@ -65,18 +153,170 @@ Route17HiddenMaxEther:
 Route17HiddenMaxElixer:
 	hiddenitem MAX_ELIXER, EVENT_ROUTE_17_HIDDEN_MAX_ELIXER
 
-BikerRileySeenText:
+BikerReeseSeenText:
 	text "Hey, you! You're"
 	line "from JOHTO, huh?"
 	done
 
-BikerRileyBeatenText:
+BikerReeseBeatenText:
 	text "Whoa, you kick!"
 	done
 
-BikerRileyAfterBattleText:
+BikerReeseAfterBattleText:
 	text "Don't get cocky,"
 	line "you JOHTO punk!"
+	done
+	
+BikerJosephSeenText:
+	text "Modding my Bike"
+	line "costs a bunch of"
+	cont "money!"
+	
+	para "I need a job!"
+	done
+
+BikerJosephBeatenText:
+	text "Argh. I failed!"
+	done
+
+BikerJosephAfterBattleText:
+	text "Bike?"
+	
+	para "Oh, I was talking"
+	line "about my BICYCLE!"
+	done
+	
+BikerEoinSeenText:
+	text "Vroom vroom!"
+	line "Baribaribaribari!"
+	
+	para "What do you think"
+	line "of my engine"
+	cont "imitation?"
+	done
+
+BikerEoinBeatenText:
+	text "Hnnff...hnnff..."
+	line "I'm out of"
+	cont "breath..."
+	done
+
+BikerEoinAfterBattleText:
+	text "We don't put out"
+	line "any exhaust fumes."
+	
+	para "We're a biker club"
+	line "that's kind to"
+	cont "nature!"
+	done
+	
+BikerAidenSeenText:
+	text "Hey, who told you"
+	line "you could ride up"
+	cont "and down this"
+	cont "road?"
+	done
+
+BikerAidenBeatenText:
+	text "Crash!"
+	done
+
+BikerAidenAfterBattleText:
+	text "See you later!"
+	line "Come back anytime!"
+	done
+
+BikerDanSeenText:
+	text "Parara parapara"
+	line "para-parara!"
+	
+	para "My horn's got a"
+	line "great melody to"
+	cont "it, don't you"
+	cont "think?"
+	done
+
+BikerDanBeatenText:
+	text "Paaraaraaaaa..."
+	done
+
+BikerDanAfterBattleText:
+	text "I love this melan-"
+	line "choly melody."
+	
+	para "It really suits"
+	line "me well..."
+	done
+
+BikerTheronSeenText:
+	text "I'll toughen you"
+	line "up."
+	
+	para "Now, you come"
+	line "along with me."
+	done
+
+BikerTheronBeatenText:
+	text "All right, thanks!"
+	done
+
+BikerTheronAfterBattleText:
+	text "All right! That"
+	line "fighting yell was"
+	cont "great!"
+	done
+	
+BikerTeddySeenText:
+	text "Hey, that's a"
+	line "cool Bike you're"
+	cont "riding!"
+	done
+
+BikerTeddyBeatenText:
+	text "Great job."
+	done
+
+BikerTeddyAfterBattleText:
+	text "I love the way you"
+	line "do battle, too!"
+	
+	para "Consider me a fan!"
+	done
+	
+BikerMarkeySeenText:
+	text "Hey hey hey!"
+	line "You're in my way!"
+	
+	para "IN MY WAY!"
+	done
+
+BikerMarkeyBeatenText:
+	text "I lost. I lost!"
+	done
+
+BikerMarkeyAfterBattleText:
+	text "Won't you give it"
+	line "a try?"
+	
+	para "Would you like to"
+	line "join my team?"
+	done
+	
+BikerRileySeenText:
+	text "You're gonna lose!"
+	line "I've got a hunch!"
+	done
+
+BikerRileyBeatenText:
+	text "Maybe my hunch was"
+	line "a little off..."
+	done
+
+BikerRileyAfterBattleText:
+	text "You're so cool!"
+	
+	para "You don't do any-"
+	line "thing halfway!"
 	done
 
 BikerJoelSeenText:
@@ -140,11 +380,19 @@ Route17_MapEvents:
 	db 0 ; coord events
 
 	db 2 ; bg events
-	bg_event  9, 54, BGEVENT_ITEM, Route17HiddenMaxEther
+	bg_event 14, 10, BGEVENT_ITEM, Route17HiddenMaxEther
 	bg_event  8, 77, BGEVENT_ITEM, Route17HiddenMaxElixer
 
-	db 4 ; object events
-	object_event  4, 17, SPRITE_BIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBikerRiley, -1
-	object_event  9, 68, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerBikerJoel, -1
-	object_event  3, 53, SPRITE_BIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBikerGlenn, -1
-	object_event  6, 80, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBikerCharles, -1
+	db 12 ; object events
+	object_event  8,  9, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerBikerRiley, -1
+	object_event 18, 19, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerBikerJoel, -1
+	object_event  3, 62, SPRITE_BIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerBikerGlenn, -1
+	object_event  7, 79, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerBikerCharles, -1
+	object_event  6, 15, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerBikerReese, -1
+	object_event 14, 22, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerBikerJoseph, -1
+	object_event 13, 68, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerBikerEoin, -1
+	object_event  2, 37, SPRITE_BIKER, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE,  0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBikerAiden, -1
+	object_event  5, 55, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBikerTheron, -1
+	object_event  5, 70, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBikerTeddy, -1
+	object_event  2, 72, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerBikerMarkey, -1
+	object_event  1, 55, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBikerDan, -1

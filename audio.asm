@@ -147,6 +147,12 @@ SECTION "Extra Songs 3", ROMX
 
 INCLUDE "audio/music/route47.asm"
 INCLUDE "audio/music/safarizonegate.asm"
+INCLUDE "audio/music/ceruleancity.asm"
+INCLUDE "audio/music/nuggetbridge.asm"
+INCLUDE "audio/music/cinnabarisland.asm"
+INCLUDE "audio/music/hoohbattle.asm"
+INCLUDE "audio/music/lugiabattle.asm"
+INCLUDE "audio/music/kantolegendbattle.asm"
 
 
 SECTION "Sound Effects", ROMX

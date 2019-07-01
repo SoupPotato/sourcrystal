@@ -109,6 +109,168 @@ KantoGrassWildMons:
 	db 15, HAUNTER
 	db 15, GOLBAT
 	db 15, GOLBAT
+	
+	map_id VIRIDIAN_FOREST
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 3, CATERPIE
+	db 3, WEEDLE
+	db 4, PIDGEY
+	db 6, PIKACHU
+	db 7, BUTTERFREE
+	db 7, BEEDRILL
+	db 7, PIDGEOTTO
+	; day
+	db 3, CATERPIE
+	db 3, WEEDLE
+	db 4, PIDGEY
+	db 6, PIKACHU
+	db 7, BUTTERFREE
+	db 7, BEEDRILL
+	db 7, PIDGEOTTO
+	; nite
+	db 3, HOOTHOOT
+	db 3, HOOTHOOT
+	db 4, HOOTHOOT
+	db 6, NOCTOWL
+	db 7, PIKACHU
+	db 7, NOCTOWL
+	db 7, NOCTOWL
+	
+	map_id SEAFOAM_ISLANDS
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 28, ZUBAT
+	db 32, GOLBAT
+	db 29, PSYDUCK
+	db 28, PSYDUCK
+	db 26, ZUBAT
+	db 32, GOLDUCK
+	db 32, GOLDUCK
+	; day
+	db 28, ZUBAT
+	db 32, GOLBAT
+	db 29, PSYDUCK
+	db 28, PSYDUCK
+	db 26, ZUBAT
+	db 32, GOLDUCK
+	db 32, GOLDUCK
+	; nite
+	db 28, ZUBAT
+	db 32, GOLBAT
+	db 29, PSYDUCK
+	db 28, PSYDUCK
+	db 26, ZUBAT
+	db 32, GOLDUCK
+	db 32, GOLDUCK
+	
+	map_id SEAFOAM_ISLANDS_B1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 32, SEEL
+	db 34, GOLBAT
+	db 34, SEEL
+	db 28, PSYDUCK
+	db 34, GOLDUCK
+	db 28, ZUBAT
+	db 29, ZUBAT
+	; day
+	db 32, SEEL
+	db 34, GOLBAT
+	db 34, SEEL
+	db 28, PSYDUCK
+	db 34, GOLDUCK
+	db 28, ZUBAT
+	db 29, ZUBAT
+	; nite
+	db 32, SEEL
+	db 34, GOLBAT
+	db 34, SEEL
+	db 28, PSYDUCK
+	db 34, GOLDUCK
+	db 28, ZUBAT
+	db 29, ZUBAT
+	
+	map_id SEAFOAM_ISLANDS_B2F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 33, SEEL
+	db 35, GOLBAT
+	db 35, SEEL
+	db 30, PSYDUCK
+	db 35, GOLDUCK
+	db 29, ZUBAT
+	db 30, ZUBAT
+	; day
+	db 33, SEEL
+	db 35, GOLBAT
+	db 35, SEEL
+	db 30, PSYDUCK
+	db 35, GOLDUCK
+	db 29, ZUBAT
+	db 30, ZUBAT
+	; nite
+	db 33, SEEL
+	db 35, GOLBAT
+	db 35, SEEL
+	db 30, PSYDUCK
+	db 35, GOLDUCK
+	db 29, ZUBAT
+	db 30, ZUBAT
+	
+	map_id SEAFOAM_ISLANDS_B3F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 36, GOLBAT
+	db 36, DEWGONG
+	db 36, GOLDUCK
+	db 32, PSYDUCK
+	db 34, SEEL
+	db 32, ZUBAT
+	db 32, ZUBAT
+	; day
+	db 36, GOLBAT
+	db 36, DEWGONG
+	db 36, GOLDUCK
+	db 32, PSYDUCK
+	db 34, SEEL
+	db 32, ZUBAT
+	db 32, ZUBAT
+	; nite
+	db 36, GOLBAT
+	db 36, DEWGONG
+	db 36, GOLDUCK
+	db 32, PSYDUCK
+	db 34, SEEL
+	db 32, ZUBAT
+	db 32, ZUBAT
+	
+	map_id SEAFOAM_ISLANDS_B4F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 40, GOLBAT
+	db 38, DEWGONG
+	db 38, GOLDUCK
+	db 34, PSYDUCK
+	db 34, SEEL
+	db 40, JYNX
+	db 40, JYNX
+	; day
+	db 40, GOLBAT
+	db 38, DEWGONG
+	db 38, GOLDUCK
+	db 34, PSYDUCK
+	db 34, SEEL
+	db 40, JYNX
+	db 40, JYNX
+	; nite
+	db 40, GOLBAT
+	db 38, DEWGONG
+	db 38, GOLDUCK
+	db 34, PSYDUCK
+	db 34, SEEL
+	db 40, JYNX
+	db 40, JYNX
 
 	map_id VICTORY_ROAD
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite

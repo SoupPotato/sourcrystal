@@ -9,6 +9,72 @@ Route13_MapScripts:
 	db 0 ; scene scripts
 
 	db 0 ; callbacks
+	
+TrainerCoupleTimandSue1:
+	trainer COUPLE, TIMANDSUE1, EVENT_BEAT_COUPLE_TIMANDSUE, CoupleTimandSueSeenText, CoupleTimandSueBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CoupleTimandSueAfterBattleText1
+	waitbutton
+	closetext
+	end
+	
+TrainerCoupleTimandSue2:
+	trainer COUPLE, TIMANDSUE2, EVENT_BEAT_COUPLE_TIMANDSUE, CoupleTimandSueSeenText, CoupleTimandSueBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CoupleTimandSueAfterBattleText2
+	waitbutton
+	closetext
+	end
+	
+TrainerPicnickerPiper:
+	trainer PICNICKER, PIPER, EVENT_BEAT_PICNICKER_PIPER, PicnickerPiperSeenText, PicnickerPiperBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext PicnickerPiperAfterBattleText
+	waitbutton
+	closetext
+	end
+	
+TrainerPicnickerGinger:
+	trainer PICNICKER, GINGER, EVENT_BEAT_PICNICKER_GINGER, PicnickerGingerSeenText, PicnickerGingerBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext PicnickerGingerAfterBattleText
+	waitbutton
+	closetext
+	end
+	
+TrainerCamperTanner:
+	trainer CAMPER, TANNER, EVENT_BEAT_CAMPER_TANNER, CamperTannerSeenText, CamperTannerBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CamperTannerAfterBattleText
+	waitbutton
+	closetext
+	end
+	
+TrainerCamperClark:
+	trainer CAMPER, CLARK, EVENT_BEAT_CAMPER_CLARK, CamperClarkSeenText, CamperClarkBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CamperClarkAfterBattleText
+	waitbutton
+	closetext
+	end
 
 TrainerPokefanmAlex:
 	trainer POKEFANM, ALEX, EVENT_BEAT_POKEFANM_ALEX, PokefanmAlexSeenText, PokefanmAlexBeatenText, 0, .Script
@@ -76,6 +142,137 @@ Route13DirectionsSign:
 
 Route13HiddenCalcium:
 	hiddenitem CALCIUM, EVENT_ROUTE_13_HIDDEN_CALCIUM
+
+PicnickerPiperSeenText:
+	text "Hey, hey, how"
+	line "about we bring out"
+	
+	para "your #MON and"
+	line "mine for a battle?"
+	done
+
+PicnickerPiperBeatenText:
+	text "Oh, that's"
+	line "too bad..."
+	done
+
+PicnickerPiperAfterBattleText:
+	text "The way you were"
+	line "walking with your"
+	
+	para "#MON made me"
+	line "think that I could"
+	cont "win."
+	done
+	
+PicnickerGingerSeenText:
+	text "Why is it I always"
+	line "get the urge to"
+	
+	para "whistle when"
+	line "walking through"
+	cont "nature?"
+	done
+
+PicnickerGingerBeatenText:
+	text "Tweeee!"
+	done
+
+PicnickerGingerAfterBattleText:
+	text "Instead of comm-"
+	line "unicating with"
+	cont "#MON with"
+	cont "words,"
+	
+	para "you can comm-"
+	line "unicate with them"
+	cont "through whistling!"
+	done
+	
+CoupleTimandSueSeenText:
+	text "TIM: I'll give you"
+	line "a little hint."
+	
+	para "Don't you think my"
+	line "girlfriend's much"
+	
+	para "stronger than"
+	line "I am?"
+	
+	para "SUE: Women who"
+	line "don't take love"
+	
+	para "seriously and who"
+	line "are reckless might"
+	cont "get hurt."
+	done
+
+CoupleTimandSueBeatenText:
+	text "TIM: You're the"
+	line "strongest!"
+	
+	para "SUE: Wa ha..."
+	done
+
+CoupleTimandSueAfterBattleText1:
+	text "TIM: If you've"
+	line "beaten her, you"
+	cont "must be strong!"
+	done
+	
+CoupleTimandSueAfterBattleText2:
+	text "SUE: That strength"
+	line "of yours..."
+	
+	para "I've got it!"
+	line "Are you in love?"
+	done
+
+CamperTannerSeenText:
+	text "I can fit in a"
+	line "quick battle while"
+	
+	para "I'm in the midst"
+	line "of preparing a"
+	cont "meal!"
+	done
+
+CamperTannerBeatenText:
+	text "Oh, I'm hungry..."
+	done
+
+CamperTannerAfterBattleText:
+	text "I figured it would"
+	line "be easy to knock"
+	cont "you out..."
+	done
+	
+CamperClarkSeenText:
+	text "Collect water!"
+	line "Don't let the fire"
+	cont "go out!"
+	
+	para "Look out for wild"
+	line "#MON!"
+	
+	para "Let's go,"
+	line "Campfire!"
+
+	done
+
+CamperClarkBeatenText:
+	text "Pfuuuuhh..."
+	done
+
+CamperClarkAfterBattleText:
+	text "It doesn't matter"
+	line "what kind of prep-"
+	cont "aration you've"
+	cont "done."
+	
+	para "If you lose,"
+	line "you lose."
+	done
 
 PokefanmAlexSeenText:
 	text "Bow down before my"
@@ -197,14 +394,20 @@ Route13_MapEvents:
 	db 0 ; coord events
 
 	db 4 ; bg events
-	bg_event 29, 13, BGEVENT_READ, Route13TrainerTips
-	bg_event 41, 11, BGEVENT_READ, Route13Sign
+	bg_event 35, 13, BGEVENT_READ, Route13TrainerTips
+	bg_event 51, 11, BGEVENT_READ, Route13Sign
 	bg_event 17, 13, BGEVENT_READ, Route13DirectionsSign
-	bg_event 30, 13, BGEVENT_ITEM, Route13HiddenCalcium
+	bg_event 36, 13, BGEVENT_ITEM, Route13HiddenCalcium
 
-	db 5 ; object events
-	object_event 42,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdKeeperPerry, -1
-	object_event 43,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdKeeperBret, -1
-	object_event 32,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmJoshua, -1
-	object_event 14, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerHikerKenny, -1
-	object_event 25,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerPokefanmAlex, -1
+	db 11 ; object events
+	object_event 63, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperPerry, -1
+	object_event 70,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdKeeperBret, -1
+	object_event 47,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerPokefanmJoshua, -1
+	object_event  6, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerHikerKenny, -1
+	object_event 35,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmAlex, -1
+	object_event 27, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperTanner, -1
+	object_event  5,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerCamperClark, -1
+	object_event 69, 10, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerPiper, -1
+	object_event 16,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerGinger, -1
+	object_event 52,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerCoupleTimandSue1, -1
+	object_event 53,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerCoupleTimandSue2, -1

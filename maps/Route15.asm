@@ -11,6 +11,50 @@ Route15_MapScripts:
 	db 0 ; scene scripts
 
 	db 0 ; callbacks
+	
+TrainerTwinsKayandTia1:
+	trainer TWINS, KAYANDTIA1, EVENT_BEAT_TWINS_KAYANDTIA, TwinsKayandTiaSeenText, TwinsKayandTiaBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext TwinsKayandTiaAfterBattleText1
+	waitbutton
+	closetext
+	end
+	
+TrainerTwinsKayandTia2:
+	trainer TWINS, KAYANDTIA2, EVENT_BEAT_TWINS_KAYANDTIA, TwinsKayandTiaSeenText, TwinsKayandTiaBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext TwinsKayandTiaAfterBattleText2
+	waitbutton
+	closetext
+	end
+	
+TrainerPokefanEleanor:
+	trainer POKEFANF, ELEANOR, EVENT_BEAT_POKEFANF_ELEANOR, PokefanEleanorSeenText, PokefanEleanorBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext PokefanEleanorAfterBattleText
+	waitbutton
+	closetext
+	end
+	
+TrainerPokefanBoone:
+	trainer POKEFANM, BOONE, EVENT_BEAT_POKEFANM_BOONE, PokefanBooneSeenText, PokefanBooneBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext PokefanBooneAfterBattleText
+	waitbutton
+	closetext
+	end
 
 TrainerTeacherColette:
 	trainer TEACHER, COLETTE, EVENT_BEAT_TEACHER_COLETTE, TeacherColetteSeenText, TeacherColetteBeatenText, 0, .Script
@@ -83,6 +127,84 @@ Route15Sign:
 
 Route15PPUp:
 	itemball PP_UP
+
+TwinsKayandTiaSeenText:
+	text "We're the twins"
+	line "KAY and TIA!"
+	
+	para "Do you know which"
+	line "one I am?"
+	
+	para "We're the twins"
+	line "KAY and TIA!"
+	
+	para "Do you know which"
+	line "one I am?"
+	done
+
+TwinsKayandTiaBeatenText:
+	text "TIA and KAY"
+	line "both lost..."
+	
+	para "KAY and TIA"
+	line "both lost..."
+	done
+
+TwinsKayandTiaAfterBattleText1:
+	text "Maybe truth--"
+	line "I'm TIA!"
+	cont "Absolutely!"
+	done
+	
+TwinsKayandTiaAfterBattleText2:
+	text "Absolute truth--"
+	line "I'm KAY!"
+	cont "Maybe..."
+	done
+	
+PokefanBooneSeenText:
+	text "Hey, your"
+	line "#MON..."
+	
+	para "Show me. Show me."
+	line "Show me!"
+	done
+
+PokefanBooneBeatenText:
+	text "Yay!"
+	line "That was great!"
+	done
+
+PokefanBooneAfterBattleText:
+	text "When you battle"
+	line "#MON,"
+
+	para "you get to see a"
+	line "bunch of #MON"
+	cont "you've never seen"
+	cont "before."
+	
+	para "It's so great!"
+	done
+
+PokefanEleanorSeenText:
+	text "All right,"
+	line "#MON, time for"
+	cont "battle!"
+	done
+
+PokefanEleanorBeatenText:
+	text "Oh, well..."
+	done
+
+PokefanEleanorAfterBattleText:
+	text "It's not that my"
+	line "#MON are weak!"
+
+	para "It's that your"
+	line "#MON are too"
+	cont "strong!"
+	done
 
 TeacherColetteSeenText:
 	text "Have you forgotten"
@@ -203,19 +325,23 @@ Route15_MapEvents:
 	db 0, 0 ; filler
 
 	db 2 ; warp events
-	warp_event  2,  4, ROUTE_15_FUCHSIA_GATE, 3
-	warp_event  2,  5, ROUTE_15_FUCHSIA_GATE, 4
+	warp_event  2,  8, ROUTE_15_FUCHSIA_GATE, 3
+	warp_event  2,  9, ROUTE_15_FUCHSIA_GATE, 4
 
 	db 0 ; coord events
 
 	db 1 ; bg events
-	bg_event 19,  9, BGEVENT_READ, Route15Sign
+	bg_event 33,  9, BGEVENT_READ, Route15Sign
 
-	db 7 ; object events
+	db 11 ; object events
 	object_event 10, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSchoolboyKipp, -1
-	object_event 15, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyTommy, -1
-	object_event 33, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyJohnny, -1
-	object_event 27, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyBilly, -1
-	object_event 30, 12, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerTeacherColette, -1
-	object_event 20, 10, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerTeacherHillary, -1
+	object_event 20, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyTommy, -1
+	object_event 48, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyJohnny, -1
+	object_event 39, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyBilly, -1
+	object_event 38,  5, SPRITE_TEACHER, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerTeacherColette, -1
+	object_event 20,  5, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsKayandTia1, -1
+	object_event 21,  5, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsKayandTia2, -1
+	object_event 16,  4, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanEleanor, -1
+	object_event 44, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerPokefanBoone, -1
+	object_event 32, 10, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerTeacherHillary, -1
 	object_event 12,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route15PPUp, EVENT_ROUTE_15_PP_UP

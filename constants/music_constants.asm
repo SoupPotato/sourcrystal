@@ -110,6 +110,12 @@
 
 	const MUSIC_ROUTE_47_HGSS                ; 67
 	const MUSIC_SAFARI_ZONE_GATE_HGSS        ; 68
+	const MUSIC_CERULEAN_CITY_HGSS           ; 69
+	const MUSIC_NUGGET_BRIDGE_HGSS           ; 70
+	const MUSIC_CINNABAR_ISLAND_HGSS         ; 71
+	const MUSIC_HO_OH_BATTLE_HGSS            ; 72
+	const MUSIC_LUGIA_BATTLE_HGSS            ; 73
+	const MUSIC_MEWTWO_BATTLE                ; 74
 
 ; GetMapMusic picks music for this value (see home/map.asm)
 MUSIC_MAHOGANY_MART EQU $64

@@ -145,5 +145,11 @@ KantoWaterWildMons:
 	db 35, TENTACOOL
 	db 30, TENTACOOL
 	db 35, TENTACRUEL
+	
+	map_id SEAFOAM_ISLANDS_B4F
+	db 6 percent ; encounter rate
+	db 35, SEEL
+	db 35, HORSEA
+	db 40, SLOWBRO
 
 	db -1 ; end

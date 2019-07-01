@@ -4,6 +4,7 @@
 	const ROUTE11_YOUNGSTER3
 	const ROUTE11_YOUNGSTER4
 	const ROUTE11_FRUIT_TREE
+	const ROUTE11_BIG_SNORLAX
 
 Route11_MapScripts:
 	db 0 ; scene scripts
@@ -19,6 +20,31 @@ TrainerYoungsterOwen:
 	writetext YoungsterOwenAfterBattleText
 	waitbutton
 	closetext
+	end
+
+Route11DiglettsCaveSign:
+	jumptext Route11DiglettsCaveSignText
+
+Route11Snorlax:
+	opentext
+	special SnorlaxAwake
+	iftrue .Awake
+	writetext UnknownText_0x1aab64
+	waitbutton
+	closetext
+	end
+
+.Awake:
+	writetext UnknownText_0x1aab84
+	pause 15
+	cry SNORLAX
+	closetext
+	writecode VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
+	loadwildmon SNORLAX, 50
+	startbattle
+	disappear ROUTE11_BIG_SNORLAX
+	setevent EVENT_FOUGHT_SNORLAX
+	reloadmapafterbattle
 	end
 
 TrainerYoungsterJason:
@@ -142,21 +168,45 @@ PsychicFidelAfterBattleText:
 Route11SignText:
 	text "ROUTE 11"
 	done
+	
+UnknownText_0x1aab64:
+	text "SNORLAX is snoring"
+	line "peacefully…"
+	done
+
+UnknownText_0x1aab84:
+	text "The #GEAR was"
+	line "placed near the"
+	cont "sleeping SNORLAX…"
+
+	para "…"
+
+	para "SNORLAX woke up!"
+	done
+	
+Route11DiglettsCaveSignText:
+	text "DIGLETT'S CAVE"
+	done
 
 Route11_MapEvents:
 	db 0, 0 ; filler
 
-	db 0 ; warp events
+	db 3 ; warp events
+	warp_event  8,  5, DIGLETTS_CAVE, 1
+	warp_event 53,  8, ROUTE_11_GATE, 1
+	warp_event 53,  9, ROUTE_11_GATE, 2
 
 	db 0 ; coord events
 
-	db 2 ; bg events
-	bg_event  3,  7, BGEVENT_READ, Route11Sign
-	bg_event 32,  5, BGEVENT_ITEM, Route11HiddenRevive
+	db 3 ; bg events
+	bg_event 13,  5, BGEVENT_READ, Route11Sign
+	bg_event 52,  5, BGEVENT_ITEM, Route11HiddenRevive
+	bg_event  5,  5, BGEVENT_READ, Route11DiglettsCaveSign
 
-	db 5 ; object events
-	object_event 22, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterOwen, -1
-	object_event 20,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterJason, -1
-	object_event 28,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPsychicHerman, -1
-	object_event  8,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicFidel, -1
-	object_event 32,  2, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route11FruitTree, -1
+	db 6 ; object events
+	object_event 40, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterOwen, -1
+	object_event 38,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterJason, -1
+	object_event 48,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPsychicHerman, -1
+	object_event 20,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicFidel, -1
+	object_event 52,  2, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route11FruitTree, -1
+	object_event  8,  6, SPRITE_BIG_SNORLAX, SPRITEMOVEDATA_BIGDOLLSYM, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route11Snorlax, EVENT_ROUTE11_SNORLAX

@@ -62,6 +62,7 @@ Landmarks:
 	landmark  60, 108, Route1Name
 	landmark  60,  92, ViridianCityName
 	landmark  60,  80, Route2Name
+	landmark  60,  76, ViridianForestName
 	landmark  60,  68, PewterCityName
 	landmark  72,  68, Route3Name
 	landmark  84,  68, MtMoonName

@@ -5,9 +5,6 @@ SometimesFleeMons:
 	db -1
 
 OftenFleeMons:
-	db ARTICUNO
-	db ZAPDOS
-	db MOLTRES
 	db -1
 
 AlwaysFleeMons:

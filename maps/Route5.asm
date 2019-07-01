@@ -41,16 +41,16 @@ Route5_MapEvents:
 	db 0, 0 ; filler
 
 	db 4 ; warp events
-	warp_event 17, 15, ROUTE_5_UNDERGROUND_PATH_ENTRANCE, 1
-	warp_event  8, 17, ROUTE_5_SAFFRON_GATE, 1
-	warp_event  9, 17, ROUTE_5_SAFFRON_GATE, 2
-	warp_event 10, 11, ROUTE_5_CLEANSE_TAG_HOUSE, 1
+	warp_event 17, 27, ROUTE_5_UNDERGROUND_PATH_ENTRANCE, 1
+	warp_event  8, 29, ROUTE_5_SAFFRON_GATE, 1
+	warp_event  9, 29, ROUTE_5_SAFFRON_GATE, 2
+	warp_event 10, 21, ROUTE_5_CLEANSE_TAG_HOUSE, 1
 
 	db 0 ; coord events
 
 	db 2 ; bg events
-	bg_event 17, 17, BGEVENT_READ, Route5UndergroundPathSign
-	bg_event 10, 11, BGEVENT_READ, HouseForSaleSign
+	bg_event 17, 29, BGEVENT_READ, Route5UndergroundPathSign
+	bg_event 10, 21, BGEVENT_READ, HouseForSaleSign
 
 	db 1 ; object events
-	object_event 17, 16, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route5PokefanMScript, EVENT_ROUTE_5_6_POKEFAN_M_BLOCKS_UNDERGROUND_PATH
+	object_event 17, 28, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route5PokefanMScript, EVENT_ROUTE_5_6_POKEFAN_M_BLOCKS_UNDERGROUND_PATH

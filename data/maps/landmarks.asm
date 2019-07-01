@@ -68,6 +68,7 @@ Landmarks:
 	landmark  84,  68, MtMoonName
 	landmark  96,  68, Route4Name
 	landmark 108,  68, CeruleanCityName
+	landmark 108,  68, CeruleanCaveName
 	landmark 108,  60, Route24Name
 	landmark 116,  52, Route25Name
 	landmark 108,  76, Route5Name
@@ -139,6 +140,7 @@ PalletTownName:      db "PALLET TOWN@"
 ViridianCityName:    db "VIRIDIAN¯CITY@"
 PewterCityName:      db "PEWTER CITY@"
 CeruleanCityName:    db "CERULEAN¯CITY@"
+CeruleanCaveName:    db "CERULEAN¯CAVE@"
 LavenderTownName:    db "LAVENDER¯TOWN@"
 VermilionCityName:   db "VERMILION¯CITY@"
 CeladonCityName:     db "CELADON¯CITY@"
@@ -154,7 +156,6 @@ SilphCoName:         db "SILPH CO.@"
 SafariZoneName:      db "SAFARI ZONE@"
 SeafoamIslandsName:  db "SEAFOAM¯ISLANDS@"
 PokemonMansionName:  db "#MON¯MANSION@"
-CeruleanCaveName:    db "CERULEAN¯CAVE@"
 Route1Name:          db "ROUTE 1@"
 Route2Name:          db "ROUTE 2@"
 Route3Name:          db "ROUTE 3@"

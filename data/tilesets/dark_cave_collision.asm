@@ -62,3 +62,16 @@
 	tilecoll WATER, WATER, WATER, WATER ; 3d
 	tilecoll WATER, WATER, WATER, WATER ; 3e
 	tilecoll FLOOR, FLOOR, PIT, FLOOR ; 3f
+	tilecoll WALL, FLOOR, WALL, FLOOR ; 40
+	tilecoll WALL, HOP_DOWN, WALL, FLOOR ; 41
+	tilecoll HOP_DOWN, HOP_DOWN, FLOOR, FLOOR ; 42
+	tilecoll HOP_DOWN, WALL, FLOOR, WALL ; 43
+	tilecoll UP_WALL, WALL, LADDER, WALL ; 44
+	tilecoll UP_WALL, WALL, LADDER, WALL ; 45
+	tilecoll HOP_DOWN, HOP_DOWN, WALL, WALL ; 46
+	tilecoll UP_WALL, UP_WALL, WALL, FLOOR ; 47
+	tilecoll FLOOR, WALL, FLOOR, WALL ; 48
+	tilecoll UP_WALL, WALL, FLOOR, WALL ; 49
+	tilecoll WALL, FLOOR, WALL, LADDER ; 4a
+	tilecoll LADDER, FLOOR, WALL, WALL ; 4b
+	tilecoll FLOOR, WALL, WALL, WALL ; 4c

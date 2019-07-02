@@ -110,6 +110,60 @@ KantoGrassWildMons:
 	db 15, GOLBAT
 	db 15, GOLBAT
 	
+	map_id CERULEAN_CAVE_1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 40, MACHOKE
+	db 38, PARASECT
+	db 39, PRIMEAPE
+	db 40, MAGNETON
+	db 40, DITTO
+	db 40, ELECTRODE
+	db 37, WOBBUFFET
+	; day
+	db 40, MACHOKE
+	db 38, PARASECT
+	db 39, PRIMEAPE
+	db 40, MAGNETON
+	db 40, DITTO
+	db 40, ELECTRODE
+	db 37, WOBBUFFET
+	; nite
+	db 40, GOLBAT
+	db 38, PARASECT
+	db 39, PERSIAN
+	db 40, MAGNETON
+	db 40, DITTO
+	db 40, ELECTRODE
+	db 37, WOBBUFFET
+	
+	map_id CERULEAN_CAVE_2F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 42, MACHOKE
+	db 40, PARASECT
+	db 42, KADABRA
+	db 41, MAGNETON
+	db 42, DITTO
+	db 41, ELECTRODE
+	db 42, WOBBUFFET
+	; day
+	db 42, MACHOKE
+	db 40, PARASECT
+	db 42, KADABRA
+	db 41, MAGNETON
+	db 42, DITTO
+	db 41, ELECTRODE
+	db 42, WOBBUFFET
+	; nite
+	db 42, GOLBAT
+	db 40, PARASECT
+	db 42, KADABRA
+	db 41, MAGNETON
+	db 42, DITTO
+	db 41, ELECTRODE
+	db 42, WOBBUFFET
+	
 	map_id VIRIDIAN_FOREST
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn

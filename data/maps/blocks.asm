@@ -1018,5 +1018,8 @@ SeafoamIslandsB3F_Blocks:
 SeafoamIslandsB4F_Blocks:
 	INCBIN "maps/SeafoamIslandsB4F.blk"
 	
-CeruleanCave_Blocks:
-	INCBIN "maps/CeruleanCave.blk"
+CeruleanCave1F_Blocks:
+	INCBIN "maps/CeruleanCave1F.blk"
+	
+CeruleanCave2F_Blocks:
+	INCBIN "maps/CeruleanCave2F.blk"

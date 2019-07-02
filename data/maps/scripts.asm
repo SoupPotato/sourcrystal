@@ -503,4 +503,5 @@ INCLUDE "maps/Route21.asm"
 SECTION "Map Scripts 26", ROMX
 
 INCLUDE "maps/SeafoamGym.asm"
-INCLUDE "maps/CeruleanCave.asm"
+INCLUDE "maps/CeruleanCave1F.asm"
+INCLUDE "maps/CeruleanCave2F.asm"

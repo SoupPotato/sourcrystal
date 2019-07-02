@@ -5,16 +5,36 @@
 	const CERULEANCITY_COOLTRAINER_F
 	const CERULEANCITY_FISHER
 	const CERULEANCITY_YOUNGSTER
+	const CERULEANCITY_CAVE_COOLTRAINER_M
 
 CeruleanCity_MapScripts:
 	db 0 ; scene scripts
 
-	db 1 ; callbacks
+	db 2 ; callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
+	callback MAPCALLBACK_OBJECTS, .CaveCooltrainerCaveBlock
+	
+.CaveCooltrainerCaveBlock:
+	checkcode VAR_BADGES
+	ifequal NUM_BADGES, .CaveCooltrainerDissapear
+	appear CERULEANCITY_CAVE_COOLTRAINER_M
+	return
+	
+.CaveCooltrainerDissapear:
+	disappear CERULEANCITY_CAVE_COOLTRAINER_M
+	return
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_CERULEAN
 	return
+	
+CeruleanCaveCooltrainerMScript
+    faceplayer
+	opentext
+	writetext CeruleanCaveCooltrainerMText
+	waitbutton
+	closetext
+	end
 
 CeruleanCityCooltrainerMScript:
 	faceplayer
@@ -272,6 +292,24 @@ CeruleanCapeSignText:
 CeruleanLockedDoorText:
 	text "It's locked…"
 	done
+	
+CeruleanCaveCooltrainerMText:
+    text "This is..."
+	line "The notorious"
+	cont "CERULEAN CAVE!"
+	
+	para "Horribly powerful"
+	line "#MON live here."
+	
+	para "Only those who"
+	line "have defeated all"
+	
+	para "eight KANTO"
+	line "GYM LEADERS"
+	cont "are allowed to"
+	cont "challenge it."
+	done
+	
 
 CeruleanCity_MapEvents:
 	db 0, 0 ; filler
@@ -283,7 +321,7 @@ CeruleanCity_MapEvents:
 	warp_event 19, 17, CERULEAN_POKECENTER_1F, 1
 	warp_event 30, 19, CERULEAN_GYM, 1
 	warp_event 25, 25, CERULEAN_MART, 2
-	warp_event  4, 11, CERULEAN_CAVE, 1
+	warp_event  4, 11, CERULEAN_CAVE_1F, 1
 
 	db 0 ; coord events
 
@@ -298,10 +336,12 @@ CeruleanCity_MapEvents:
 	bg_event 26, 25, BGEVENT_READ, CeruleanCityMartSign
 	bg_event  6, 11, BGEVENT_ITEM, CeruleanCityHiddenBerserkGene
 
-	db 6 ; object events
+	db 7 ; object events
 	object_event 15, 19, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityCooltrainerMScript, -1
 	object_event 23, 11, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySuperNerdScript, -1
 	object_event 20, 20, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCitySlowbro, -1
 	object_event 21, 20, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeruleanCityCooltrainerFScript, -1
 	object_event 30, 22, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCityFisherScript, -1
 	object_event  8,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCityYoungsterScript, -1
+	object_event  4, 12, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCaveCooltrainerMScript, 0
+	

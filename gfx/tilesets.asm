@@ -162,11 +162,11 @@ INCLUDE "data/tilesets/underground_collision.asm"
 TilesetDarkCaveGFX:
 INCBIN "gfx/tilesets/dark_cave.2bpp.lz"
 
-UnusedTilesetDarkCaveMeta:
-INCBIN "data/tilesets/unused_dark_cave_metatiles.bin"
+TilesetDarkCaveMeta:
+INCBIN "data/tilesets/dark_cave_metatiles.bin"
 
-UnusedTilesetDarkCaveColl:
-INCLUDE "data/tilesets/unused_dark_cave_collision.asm"
+TilesetDarkCaveColl:
+INCLUDE "data/tilesets/dark_cave_collision.asm"
 
 
 SECTION "Tileset Data 5", ROMX
@@ -335,9 +335,7 @@ TilesetCaveGFX:
 INCBIN "gfx/tilesets/cave.2bpp.lz"
 
 TilesetCaveMeta:
-TilesetDarkCaveMeta:
 INCBIN "data/tilesets/cave_metatiles.bin"
 
 TilesetCaveColl:
-TilesetDarkCaveColl:
 INCLUDE "data/tilesets/cave_collision.asm"

@@ -39,7 +39,7 @@ CeruleanCave1FRock:
 CeruleanCave1F_MapEvents:
 	db 0, 0 ; filler
 
-	db 10 ; warp events
+	db 12 ; warp events
 	warp_event 31, 25, CERULEAN_CITY, 7
 	warp_event 26, 15, CERULEAN_CAVE_2F, 1
 	warp_event 24,  9, CERULEAN_CAVE_2F, 2
@@ -50,6 +50,10 @@ CeruleanCave1F_MapEvents:
 	warp_event  9,  5, CERULEAN_CAVE_2F, 7
 	warp_event  5,  7, CERULEAN_CAVE_2F, 8
 	warp_event 34,  7, CERULEAN_CAVE_2F, 9
+	warp_event  3, 11, CERULEAN_CAVE_B1F, 1
+	warp_event 34, 13, CERULEAN_CAVE_B1F, 2
+	
+	
 
 	db 0 ; coord events
 

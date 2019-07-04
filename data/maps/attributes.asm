@@ -716,3 +716,4 @@ ENDM
 	map_attributes Route11Gate, ROUTE_11_GATE, $00, 0
 	map_attributes CeruleanCave1F, CERULEAN_CAVE_1F, $09, 0
 	map_attributes CeruleanCave2F, CERULEAN_CAVE_2F, $09, 0
+	map_attributes CeruleanCaveB1F, CERULEAN_CAVE_B1F, $09, 0

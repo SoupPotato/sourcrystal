@@ -1023,3 +1023,6 @@ CeruleanCave1F_Blocks:
 	
 CeruleanCave2F_Blocks:
 	INCBIN "maps/CeruleanCave2F.blk"
+	
+CeruleanCaveB1F_Blocks:
+	INCBIN "maps/CeruleanCaveB1F.blk"

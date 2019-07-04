@@ -157,5 +157,11 @@ KantoWaterWildMons:
 	db 40, PSYDUCK
 	db 40, GOLDUCK
 	db 40, GYARADOS
+	
+	map_id CERULEAN_CAVE_B1F
+	db 4 percent ; encounter rate
+	db 40, PSYDUCK
+	db 40, GOLDUCK
+	db 40, GYARADOS
 
 	db -1 ; end

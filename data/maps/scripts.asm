@@ -505,3 +505,4 @@ SECTION "Map Scripts 26", ROMX
 INCLUDE "maps/SeafoamGym.asm"
 INCLUDE "maps/CeruleanCave1F.asm"
 INCLUDE "maps/CeruleanCave2F.asm"
+INCLUDE "maps/CeruleanCaveB1F.asm"

@@ -1075,18 +1075,18 @@ JohtoGrassWildMons:
 	db 15, LARVITAR
 	; nite
 	db 43, GRAVELER
-	db 44, GOLBAT
+	db 44, URSARING
 	db 42, ONIX
 	db 42, GOLBAT
 	db 45, GOLDUCK
-	db 46, GOLBAT
-	db 46, GOLBAT
+	db 46, LARVITAR
+	db 46, LARVITAR
 
 	map_id SILVER_CAVE_ROOM_2
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 48, GOLBAT
-	db 48, MACHOKE
+	db 48, GOLDUCK
 	db 47, URSARING
 	db 46, PARASECT
 	db 48, PARASECT
@@ -1094,7 +1094,7 @@ JohtoGrassWildMons:
 	db 20, LARVITAR
 	; day
 	db 48, GOLBAT
-	db 48, MACHOKE
+	db 48, GOLDUCK
 	db 47, URSARING
 	db 46, PARASECT
 	db 48, PARASECT
@@ -1103,9 +1103,9 @@ JohtoGrassWildMons:
 	; nite
 	db 48, GOLBAT
 	db 48, GOLDUCK
-	db 46, GOLBAT
+	db 46, URSARING
 	db 46, PARASECT
-	db 48, PARASECT
+	db 48, MISDREAVUS
 	db 45, MISDREAVUS
 	db 45, MISDREAVUS
 
@@ -1131,7 +1131,7 @@ JohtoGrassWildMons:
 	db 51, GOLBAT
 	db 48, ONIX
 	db 48, GRAVELER
-	db 49, GOLBAT
+	db 50, URSARING
 	db 45, GOLDUCK
 	db 53, GOLBAT
 	db 53, GOLBAT
@@ -1141,24 +1141,24 @@ JohtoGrassWildMons:
 	; morn
 	db 48, GOLBAT
 	db 46, GOLBAT
-	db 50, GOLBAT
-	db 46, PARASECT
+	db 48, GOLDUCK
+	db 46, GOLDUCK
 	db 48, PARASECT
 	db 50, PARASECT
-	db 52, PARASECT
+	db 20, LARVITAR
 	; day
 	db 48, GOLBAT
 	db 46, GOLBAT
-	db 50, GOLBAT
-	db 46, PARASECT
+	db 48, GOLDUCK
+	db 46, GOLDUCK
 	db 48, PARASECT
 	db 50, PARASECT
-	db 52, PARASECT
+	db 20, LARVITAR
 	; nite
 	db 45, MISDREAVUS
 	db 48, GOLBAT
-	db 50, GOLBAT
-	db 46, PARASECT
+	db 48, GOLDUCK
+	db 46, GOLDUCK
 	db 48, PARASECT
 	db 50, PARASECT
 	db 52, PARASECT
@@ -1735,7 +1735,7 @@ JohtoGrassWildMons:
 	; morn
 	db 41, TANGELA
 	db 42, PONYTA
-	db 42, ARBOK
+	db 40, DONPHAN
 	db 44, RAPIDASH
 	db 41, DODUO
 	db 43, DODRIO
@@ -1743,7 +1743,7 @@ JohtoGrassWildMons:
 	; day
 	db 41, TANGELA
 	db 42, PONYTA
-	db 42, ARBOK
+	db 40, DONPHAN
 	db 44, RAPIDASH
 	db 41, DODUO
 	db 43, DODRIO
@@ -1751,10 +1751,10 @@ JohtoGrassWildMons:
 	; nite
 	db 41, TANGELA
 	db 42, POLIWHIRL
-	db 42, GOLBAT
+	db 40, DONPHAN
 	db 44, POLIWHIRL
-	db 40, GOLBAT
-	db 44, GOLBAT
-	db 44, GOLBAT
+	db 38, SNEASEL
+	db 42, SNEASEL
+	db 42, SNEASEL
 
 	db -1 ; end

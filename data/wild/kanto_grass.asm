@@ -1033,26 +1033,26 @@ KantoGrassWildMons:
 	; morn
 	db 39, TANGELA
 	db 40, PONYTA
-	db 40, RAPIDASH
-	db 42, ARBOK
+	db 40, DONPHAN
+	db 42, RAPIDASH
 	db 41, DODUO
 	db 43, DODRIO
 	db 43, DODRIO
 	; day
 	db 39, TANGELA
 	db 40, PONYTA
-	db 40, RAPIDASH
-	db 42, ARBOK
+	db 40, DONPHAN
+	db 42, RAPIDASH
 	db 41, DODUO
 	db 43, DODRIO
 	db 43, DODRIO
 	; nite
 	db 39, TANGELA
 	db 40, POLIWHIRL
-	db 40, GOLBAT
+	db 40, DONPHAN
 	db 40, POLIWHIRL
-	db 42, GOLBAT
-	db 42, GOLBAT
-	db 42, GOLBAT
+	db 42, SNEASEL
+	db 42, SNEASEL
+	db 42, SNEASEL
 
 	db -1 ; end

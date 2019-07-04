@@ -1714,13 +1714,13 @@ HorseaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BUBBLE
 	db 6, SMOKESCREEN
-	db 9, WATER_GUN
-	db 15, LEER
+	db 9, LEER
+	db 15, WATER_GUN
 	db 18, FOCUS_ENERGY
 	db 24, BUBBLEBEAM
 	db 27, TWISTER
-	db 33, AGILITY
-	db 36, DRAGONBREATH
+	db 32, AGILITY
+	db 37, DRAGONBREATH
 	db 42, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -1731,16 +1731,16 @@ SeadraEvosAttacks:
     db 1, BUBBLE
 	db 1, SMOKESCREEN
 	db 1, LEER
-	db 1, BUBBLE
+	db 1, WATER_GUN
 	db 6, SMOKESCREEN
-	db 9, WATER_GUN
-	db 15, LEER
+	db 9, LEER
+	db 15, WATER_GUN
 	db 18, FOCUS_ENERGY
 	db 24, BUBBLEBEAM
 	db 27, TWISTER
-	db 36, AGILITY
-	db 42, DRAGONBREATH
-	db 51, HYDRO_PUMP
+	db 34, AGILITY
+	db 40, DRAGONBREATH
+	db 48, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 GoldeenEvosAttacks:
@@ -3335,14 +3335,14 @@ KingdraEvosAttacks:
 	db 1, LEER
 	db 1, WATER_GUN
 	db 6, SMOKESCREEN
-	db 9, WATER_GUN
-	db 15, LEER
+	db 9, LEER
+	db 15, WATER_GUN
 	db 18, FOCUS_ENERGY
 	db 24, BUBBLEBEAM
 	db 27, TWISTER
-	db 36, AGILITY
-	db 42, DRAGONBREATH
-	db 51, HYDRO_PUMP
+	db 34, AGILITY
+	db 40, DRAGONBREATH
+	db 48, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 PhanpyEvosAttacks:

@@ -36,7 +36,7 @@ SeafoamIslandsArticuno:
 	cry ARTICUNO
 	pause 15
 	closetext
-	writecode VAR_BATTLETYPE, BATTLETYPE_SUICUNE
+	writecode VAR_BATTLETYPE, BATTLETYPE_KANTO_LEGEND
 	loadwildmon ARTICUNO, 50
 	startbattle
 	disappear SEAFOAM_ISLANDS_B4F_ARTICUNO

@@ -26,7 +26,7 @@ Route10Zapdos:
 	cry ZAPDOS
 	pause 15
 	closetext
-	writecode VAR_BATTLETYPE, BATTLETYPE_SUICUNE
+	writecode VAR_BATTLETYPE, BATTLETYPE_KANTO_LEGEND
 	loadwildmon ZAPDOS, 50
 	startbattle
 	disappear ROUTE10_ZAPDOS

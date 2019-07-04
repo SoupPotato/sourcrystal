@@ -97,7 +97,7 @@ SPDSPCDV_SHINY EQU $AA
 	const BATTLETYPE_SUICUNE
 	const BATTLETYPE_HO_OH
 	const BATTLETYPE_LUGIA
-	const BATTLETYPE_MEWTWO
+	const BATTLETYPE_KANTO_LEGEND
 
 ; BattleVarPairs indexes (see home/battle.asm)
 	const_def

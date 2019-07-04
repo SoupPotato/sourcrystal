@@ -39,7 +39,7 @@ SilverCaveItemRoomsMoltres:
 	cry MOLTRES
 	pause 15
 	closetext
-	writecode VAR_BATTLETYPE, BATTLETYPE_SUICUNE
+	writecode VAR_BATTLETYPE, BATTLETYPE_KANTO_LEGEND
 	loadwildmon MOLTRES, 50
 	startbattle
 	disappear SILVERCAVEITEMROOMS_MOLTRES

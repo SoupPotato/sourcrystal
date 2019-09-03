@@ -49,4 +49,6 @@ RockMonMaps:
 	treemon_map ROUTE_40,                  TREEMON_SET_ROCK
 	treemon_map DARK_CAVE_VIOLET_ENTRANCE, TREEMON_SET_ROCK
 	treemon_map SLOWPOKE_WELL_B1F,         TREEMON_SET_ROCK
+	treemon_map BURNED_TOWER_1F,           TREEMON_SET_BURNED_TOWER
+	treemon_map BURNED_TOWER_B1F,          TREEMON_SET_BURNED_TOWER
 	db -1

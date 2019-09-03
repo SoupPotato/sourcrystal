@@ -8,6 +8,11 @@
 	const BURNEDTOWERB1F_SUICUNE2
 	const BURNEDTOWERB1F_POKE_BALL
 	const BURNEDTOWERB1F_EUSINE
+	const BURNEDTOWERB1F_ROCK1
+	const BURNEDTOWERB1F_ROCK2
+	const BURNEDTOWERB1F_ROCK3
+	const BURNEDTOWERB1F_ROCK4
+	const BURNEDTOWERB1F_ROCK5
 
 BurnedTowerB1F_MapScripts:
 	db 2 ; scene scripts
@@ -96,6 +101,9 @@ ReleaseTheBeasts:
 	closetext
 	setscene SCENE_FINISHED
 	end
+
+BurnedTowerB1FRock:
+	jumpstd smashrock
 
 BurnedTowerB1FEusine:
 	faceplayer
@@ -237,20 +245,16 @@ BurnedTowerB1FEusineText:
 BurnedTowerB1F_MapEvents:
 	db 0, 0 ; filler
 
-	db 6 ; warp events
+	db 2 ; warp events
 	warp_event 10,  9, BURNED_TOWER_1F, 3
-	warp_event 17,  7, BURNED_TOWER_1F, 7
-	warp_event 10,  8, BURNED_TOWER_1F, 9
-	warp_event  3, 13, BURNED_TOWER_1F, 10
-	warp_event 17, 14, BURNED_TOWER_1F, 12
-	warp_event  7, 15, BURNED_TOWER_1F, 14
+	warp_event  7, 15, BURNED_TOWER_1F, 4
 
 	db 1 ; coord events
 	coord_event 10,  6, SCENE_DEFAULT, ReleaseTheBeasts
 
 	db 0 ; bg events
 
-	db 9 ; object events
+	db 14 ; object events
 	object_event 17,  8, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BurnedTowerB1FBoulder, -1
 	object_event  7,  3, SPRITE_RAIKOU, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_1
 	object_event 12,  3, SPRITE_ENTEI, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_1
@@ -260,3 +264,8 @@ BurnedTowerB1F_MapEvents:
 	object_event 10,  4, SPRITE_SUICUNE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_2
 	object_event 16,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, BurnedTowerB1FTMEndure, EVENT_BURNED_TOWER_B1F_TM_ENDURE
 	object_event 10, 12, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BurnedTowerB1FEusine, EVENT_EUSINE_IN_BURNED_TOWER
+	object_event  6, 13, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BurnedTowerB1FRock, -1
+	object_event 14, 12, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BurnedTowerB1FRock, -1
+	object_event  8, 10, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BurnedTowerB1FRock, -1
+	object_event 14,  7, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BurnedTowerB1FRock, -1
+	object_event  5,  6, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BurnedTowerB1FRock, -1

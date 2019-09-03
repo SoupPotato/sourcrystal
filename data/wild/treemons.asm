@@ -8,6 +8,7 @@ TreeMons:
 	dw TreeMonSet_Lake
 	dw TreeMonSet_Forest
 	dw TreeMonSet_Rock
+	dw TreeMonSet_BurnedTower
 	dw TreeMonSet_City
 
 ; Two tables each (common, rare).
@@ -126,4 +127,9 @@ TreeMonSet_Forest:
 TreeMonSet_Rock:
 	db 90, KRABBY,     15
 	db 10, SHUCKLE,    15
+	db -1
+	
+TreeMonSet_BurnedTower:
+	db 90, GEODUDE,     15
+	db 10, SLUGMA,      15
 	db -1

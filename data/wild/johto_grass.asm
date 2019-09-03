@@ -1683,14 +1683,14 @@ JohtoGrassWildMons:
 	db 25, MILTANK
 	db 24, FARFETCH_D
 	db 21, RATICATE
-	db 20, SLUGMA
+	db 20, SPEAROW
 	db 24, FEAROW
 	db 22, GLOOM
 	; day
 	db 25, DITTO
 	db 25, MILTANK
 	db 24, FARFETCH_D
-	db 22, SLUGMA
+	db 22, SPEAROW
 	db 23, RATICATE
 	db 24, FEAROW
 	db 22, GLOOM
@@ -1699,7 +1699,7 @@ JohtoGrassWildMons:
 	db 25, MILTANK
 	db 24, FARFETCH_D
 	db 21, RATICATE
-	db 20, SLUGMA
+	db 20, SPEAROW
 	db 24, NOCTOWL
 	db 22, GLOOM
 

@@ -24,8 +24,11 @@ CeladonCity_Blocks:
 SaffronCity_Blocks:
 	INCBIN "maps/SaffronCity.blk"
 
-Route2_Blocks:
-	INCBIN "maps/Route2.blk"
+Route2South_Blocks:
+	INCBIN "maps/Route2South.blk"
+	
+Route2North_Blocks:
+	INCBIN "maps/Route2North.blk"
 
 ElmsHouse_Blocks:
 	INCBIN "maps/ElmsHouse.blk"

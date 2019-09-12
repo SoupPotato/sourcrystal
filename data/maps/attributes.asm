@@ -235,15 +235,19 @@ ENDM
 	connection south, Route47, ROUTE_47, 0
 
 	map_attributes PewterCity, PEWTER_CITY, $0f, SOUTH | EAST
-	connection south, Route2, ROUTE_2, 5
+	connection south, Route2North, ROUTE_2_NORTH, 5
 	connection east, Route3, ROUTE_3, -6
 
-	map_attributes Route2, ROUTE_2, $0f, NORTH | SOUTH
-	connection north, PewterCity, PEWTER_CITY, -5
+	map_attributes Route2South, ROUTE_2_SOUTH, $0f, NORTH | SOUTH
+	connection north, Route2North, ROUTE_2_NORTH, 0
 	connection south, ViridianCity, VIRIDIAN_CITY, -5
+	
+	map_attributes Route2North, ROUTE_2_NORTH, $0f, NORTH | SOUTH
+	connection north, PewterCity, PEWTER_CITY, -5
+	connection south, Route2South, ROUTE_2_SOUTH, 0
 
 	map_attributes ViridianCity, VIRIDIAN_CITY, $0f, NORTH | SOUTH | WEST
-	connection north, Route2, ROUTE_2, 5
+	connection north, Route2South, ROUTE_2_SOUTH, 5
 	connection south, Route1, ROUTE_1, 5
 	connection west, Route22, ROUTE_22, 4
 
@@ -704,7 +708,7 @@ ENDM
 	map_attributes CliffCave, CLIFF_CAVE, $09, 0
 	map_attributes YellowForest, YELLOW_FOREST, $38, 0
 	map_attributes YellowForestGate, YELLOW_FOREST_GATE, $00, 0
-    map_attributes ViridianForest, VIRIDIAN_FOREST, $00, 0
+    map_attributes ViridianForest, VIRIDIAN_FOREST, $58, 0
 	map_attributes ViridianForestGateN, VIRIDIAN_FOREST_GATE_N, $00, 0
 	map_attributes ViridianForestGateS, VIRIDIAN_FOREST_GATE_S, $00, 0
 	map_attributes MountMoonPokecenter1F, MOUNT_MOON_POKECENTER_1F, $00, 0

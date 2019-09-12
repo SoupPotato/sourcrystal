@@ -33,7 +33,7 @@ OutdoorSprites:
 
 
 ; Route1 and ViridianCity are connected
-; Route2 and PewterCity are connected
+; Route2North and PewterCity are connected
 ; PalletTown and Route21 are connected
 PewterGroupSprites:
 ; Route3, PewterCity
@@ -51,7 +51,7 @@ PewterGroupSprites:
 	db SPRITE_FRUIT_TREE
 	db 0 ; end
 ViridianGroupSprites:
-; Route2, Route22, ViridianCity
+; Route2South, Route22, ViridianCity
 PalletGroupSprites:
 ; Route1, PalletTown
 CinnabarGroupSprites:

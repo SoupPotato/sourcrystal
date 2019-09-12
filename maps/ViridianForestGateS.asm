@@ -24,8 +24,8 @@ ViridianForestGateS_MapEvents:
 	db 4 ; warp events
 	warp_event  4,  0, VIRIDIAN_FOREST, 2
 	warp_event  5,  0, VIRIDIAN_FOREST, 3
-	warp_event  4,  7, ROUTE_2, 6
-	warp_event  5,  7, ROUTE_2, 6
+	warp_event  4,  7, ROUTE_2_SOUTH, 2
+	warp_event  5,  7, ROUTE_2_SOUTH, 2
 
 	db 0 ; coord events
 

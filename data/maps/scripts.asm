@@ -456,7 +456,7 @@ INCLUDE "maps/Route19FuchsiaGate.asm"
 SECTION "Map Scripts 24", ROMX
 
 INCLUDE "maps/Route33.asm"
-INCLUDE "maps/Route2.asm"
+INCLUDE "maps/Route2South.asm"
 INCLUDE "maps/Route1.asm"
 INCLUDE "maps/PalletTown.asm"
 INCLUDE "maps/CinnabarIsland.asm"
@@ -506,3 +506,4 @@ INCLUDE "maps/SeafoamGym.asm"
 INCLUDE "maps/CeruleanCave1F.asm"
 INCLUDE "maps/CeruleanCave2F.asm"
 INCLUDE "maps/CeruleanCaveB1F.asm"
+INCLUDE "maps/Route2North.asm"

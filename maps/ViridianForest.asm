@@ -111,7 +111,7 @@ BugCatcherAbnerAfterBattleText:
 	text "Doesn't matter what"
 	line "kind of #MON--"
 	
-	para "as long as you like"
+	para "as long as you"
 	line "like them, they"
 	cont "all look cute."
 	done

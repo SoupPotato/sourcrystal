@@ -433,8 +433,35 @@ KantoGrassWildMons:
 	db 6, RATICATE
 	db 4, HOOTHOOT
 	db 4, HOOTHOOT
+	
+	map_id ROUTE_2_NORTH
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 3, CATERPIE
+	db 3, LEDYBA
+	db 5, PIDGEY
+	db 7, BUTTERFREE
+	db 7, LEDIAN
+	db 4, PIKACHU
+	db 4, PIKACHU
+	; day
+	db 3, CATERPIE
+	db 3, PIDGEY
+	db 5, PIDGEY
+	db 7, BUTTERFREE
+	db 7, PIDGEOTTO
+	db 4, PIKACHU
+	db 4, PIKACHU
+	; nite
+	db 3, HOOTHOOT
+	db 3, SPINARAK
+	db 5, HOOTHOOT
+	db 7, NOCTOWL
+	db 7, ARIADOS
+	db 4, NOCTOWL
+	db 4, NOCTOWL
 
-	map_id ROUTE_2
+	map_id ROUTE_2_SOUTH
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 3, CATERPIE

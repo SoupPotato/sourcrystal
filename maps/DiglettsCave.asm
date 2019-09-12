@@ -26,7 +26,7 @@ DiglettsCave_MapEvents:
 	db 6 ; warp events
 	warp_event  3, 33, ROUTE_11, 1
 	warp_event  5, 31, DIGLETTS_CAVE, 5
-	warp_event 15,  5, ROUTE_2, 5
+	warp_event 15,  5, ROUTE_2_NORTH, 4
 	warp_event 17,  3, DIGLETTS_CAVE, 6
 	warp_event 17, 33, DIGLETTS_CAVE, 2
 	warp_event  3,  3, DIGLETTS_CAVE, 4

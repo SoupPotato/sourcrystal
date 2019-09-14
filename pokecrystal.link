@@ -47,9 +47,9 @@ ROMX $07
 ROMX $08
 	"Clock Reset"
 	"Tileset Data 3"
-	"Egg Moves"
 ROMX $09
 	"bank9"
+	"Egg Moves"
 ROMX $0a
 	"bankA"
 ROMX $0b

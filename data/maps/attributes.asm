@@ -330,12 +330,12 @@ ENDM
 	connection west, Route8, ROUTE_8, 0
 
 	map_attributes VermilionCity, VERMILION_CITY, $43, NORTH | EAST
-	connection north, Route6, ROUTE_6, 4
+	connection north, Route6, ROUTE_6, 5
 	connection east, Route11, ROUTE_11, 5
 
 	map_attributes Route6, ROUTE_6, $0f, NORTH | SOUTH
 	connection north, SaffronCity, SAFFRON_CITY, -3
-	connection south, VermilionCity, VERMILION_CITY, -4
+	connection south, VermilionCity, VERMILION_CITY, -5
 
 	map_attributes SaffronCity, SAFFRON_CITY, $0f, NORTH | SOUTH | WEST | EAST
 	connection north, Route5, ROUTE_5, 5

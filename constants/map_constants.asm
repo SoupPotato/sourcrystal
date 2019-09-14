@@ -283,7 +283,7 @@ ENDM
 
 	map_const ROUTE_6,                                     10, 15 ;  1
 	map_const ROUTE_11,                                    28,  9 ;  2
-	map_const VERMILION_CITY,                              19, 20 ;  3
+	map_const VERMILION_CITY,                              20, 20 ;  3
 	map_const VERMILION_FISHING_SPEECH_HOUSE,               4,  4 ;  4
 	map_const VERMILION_POKECENTER_1F,                      5,  4 ;  5
 	map_const VERMILION_POKECENTER_2F_BETA,                 8,  4 ;  6
@@ -446,7 +446,7 @@ ENDM
 	map_const ROUTE_2_SOUTH,                               10, 17 ;  1
 	map_const ROUTE_22,                                    20,  9 ;  2
 	map_const VIRIDIAN_CITY,                               20, 18 ;  3
-	map_const VIRIDIAN_GYM,                                 5,  9 ;  4
+	map_const VIRIDIAN_GYM,                                 5, 20 ;  4
 	map_const VIRIDIAN_NICKNAME_SPEECH_HOUSE,               4,  4 ;  5
 	map_const TRAINER_HOUSE_1F,                             5,  7 ;  6
 	map_const TRAINER_HOUSE_B1F,                            5,  8 ;  7

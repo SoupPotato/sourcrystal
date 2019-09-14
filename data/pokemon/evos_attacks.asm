@@ -1137,12 +1137,14 @@ SlowpokeEvosAttacks:
 	db 1, CURSE
 	db 1, TACKLE
 	db 6, GROWL
-	db 15, WATER_GUN
-	db 20, CONFUSION
-	db 29, DISABLE
-	db 34, HEADBUTT
-	db 43, AMNESIA
-	db 48, PSYCHIC_M
+	db 11, WATER_GUN
+	db 17, CONFUSION
+	db 22, DISABLE
+	db 27, HEADBUTT
+	db 33, AMNESIA
+	db 38, PSYCHIC_M
+	db 43, RAIN_DANCE
+	db 49, PSYCH_UP
 	db 0 ; no more level-up moves
 
 SlowbroEvosAttacks:
@@ -1152,13 +1154,15 @@ SlowbroEvosAttacks:
 	db 1, GROWL
 	db 1, WATER_GUN
 	db 6, GROWL
-	db 15, WATER_GUN
-	db 20, CONFUSION
-	db 29, DISABLE
-	db 34, HEADBUTT
+	db 12, WATER_GUN
+	db 17, CONFUSION
+	db 23, DISABLE
+	db 28, HEADBUTT
+	db 34, AMNESIA
 	db 37, WITHDRAW
-	db 46, AMNESIA
-	db 54, PSYCHIC_M
+	db 43, PSYCHIC_M
+	db 49, RAIN_DANCE
+	db 55, PSYCH_UP
 	db 0 ; no more level-up moves
 
 MagnemiteEvosAttacks:
@@ -1586,13 +1590,16 @@ HitmonchanEvosAttacks:
 LickitungEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, LICK
-	db 7, SUPERSONIC
-	db 13, DEFENSE_CURL
-	db 19, STOMP
-	db 25, WRAP
-	db 31, DISABLE
-	db 37, SLAM
-	db 43, SCREECH
+	db 6, SUPERSONIC
+	db 10, DEFENSE_CURL
+	db 15, STOMP
+	db 19, WRAP
+	db 24, DISABLE
+	db 28, SLAM
+	db 33, ROLLOUT
+	db 37, SCREECH
+	db 42, THRASH
+	db 46, AMNESIA
 	db 0 ; no more level-up moves
 
 KoffingEvosAttacks:
@@ -2904,13 +2911,17 @@ SlowkingEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, CURSE
 	db 1, TACKLE
+	db 1, GROWL
+	db 1, WATER_GUN
 	db 6, GROWL
-	db 15, WATER_GUN
-	db 20, CONFUSION
-	db 29, DISABLE
-	db 34, HEADBUTT
-	db 43, SWAGGER
-	db 48, PSYCHIC_M
+	db 11, WATER_GUN
+	db 17, CONFUSION
+	db 22, DISABLE
+	db 27, HEADBUTT
+	db 33, SWAGGER
+	db 38, PSYCHIC_M
+	db 43, RAIN_DANCE
+	db 49, PSYCH_UP
 	db 0 ; no more level-up moves
 
 MisdreavusEvosAttacks:

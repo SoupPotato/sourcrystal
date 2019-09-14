@@ -3093,3 +3093,6 @@ wWindowStackBottom:: ds 1
 
 
 INCLUDE "sram.asm"
+
+SECTION "Spinners", WRAMX
+wSpinning:: ds 1

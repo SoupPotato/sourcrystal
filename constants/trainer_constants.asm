@@ -231,6 +231,8 @@ KRIS EQU __enum__
 	const ALLEN
 	const DARIN
 	const FRENCH
+	const ARWIN
+	const BONITA
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN
@@ -255,6 +257,7 @@ KRIS EQU __enum__
 	const REENA3
 	const CARA
 	const SOPHIE
+	const SALMA
 
 	trainerclass BEAUTY ; 1d
 	const VICTORIA
@@ -790,5 +793,7 @@ KRIS EQU __enum__
 	const THOMANDKAE2
 	const ZACANDJEN1
 	const ZACANDJEN2
+	const ELANANDIDA1
+	const ELANANDIDA2
 
 NUM_TRAINER_CLASSES EQU __enum__

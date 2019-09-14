@@ -294,3 +294,4 @@ NUM_SPRITEMOVEDATA EQU const_value
 	const STEP_TURN          ; 5
 	const STEP_BACK_LEDGE    ; 6
 	const STEP_WALK_IN_PLACE ; 7
+	const STEP_SPIN          ; 7

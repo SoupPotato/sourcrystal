@@ -79,6 +79,11 @@ COLL_WARP_PANEL        EQU $7c
 COLL_DOOR_7D           EQU $7d ; unused
 COLL_WARP_CARPET_RIGHT EQU $7e
 COLL_WARP_7F           EQU $7f ; unused
+COLL_STOP_SPIN         EQU $80
+COLL_SPIN_UP           EQU $81
+COLL_SPIN_DOWN         EQU $82
+COLL_SPIN_LEFT         EQU $83
+COLL_SPIN_RIGHT        EQU $84
 COLL_COUNTER           EQU $90
 COLL_BOOKSHELF         EQU $91
 COLL_PC                EQU $93

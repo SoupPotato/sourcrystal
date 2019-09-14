@@ -32,13 +32,13 @@ TrainerSchoolboySherman:
 	closetext
 	end
 
-TrainerCooltrainerfFrench:
-	trainer COOLTRAINERM, FRENCH, EVENT_BEAT_COOLTRAINERM_FRENCH, CooltrainerfFrenchSeenText, CooltrainerfFrenchBeatenText, 0, .Script
+TrainerCooltrainermFrench:
+	trainer COOLTRAINERM, FRENCH, EVENT_BEAT_COOLTRAINERM_FRENCH, CooltrainermFrenchSeenText, CooltrainermFrenchBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext CooltrainerfFrenchAfterBattleText
+	writetext CooltrainermFrenchAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -101,7 +101,7 @@ SchoolboyShermanAfterBattleText:
 	line "in a notebook!"
 	done
 	
-CooltrainerfFrenchSeenText:
+CooltrainermFrenchSeenText:
 	text "You!"
 	line "I've been waiting"
 	
@@ -109,13 +109,13 @@ CooltrainerfFrenchSeenText:
 	line "you!"
 	done
 
-CooltrainerfFrenchBeatenText:
+CooltrainermFrenchBeatenText:
 	text "Yep, just as"
 	line "strong as"
 	cont "expected!"
 	done
 
-CooltrainerfFrenchAfterBattleText:
+CooltrainermFrenchAfterBattleText:
 	text "That was a great"
 	line "fight!"
 
@@ -157,7 +157,7 @@ Route1_MapEvents:
 
 	db 5 ; object events
 	object_event  9, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSchoolboyDanny, -1
-	object_event 10, 21, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainerfFrench, -1
+	object_event 10, 21, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainermFrench, -1
 	object_event 13,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSchoolboySherman, -1
 	object_event 11, 25, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCooltrainerfQuinn, -1
 	object_event  5,  7, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route1FruitTree, -1

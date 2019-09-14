@@ -224,30 +224,30 @@ VermilionCity_MapEvents:
 	db 0, 0 ; filler
 
 	db 9 ; warp events
-	warp_event  5,  5, VERMILION_FISHING_SPEECH_HOUSE, 1
-	warp_event  9,  5, VERMILION_POKECENTER_1F, 1
-	warp_event  7, 15, POKEMON_FAN_CLUB, 1
-	warp_event 13, 15, VERMILION_MAGNET_TRAIN_SPEECH_HOUSE, 1
-	warp_event 21, 15, VERMILION_MART, 2
-	warp_event 21, 21, VERMILION_DIGLETTS_CAVE_SPEECH_HOUSE, 1
-	warp_event 10, 21, VERMILION_GYM, 1
-	warp_event 19, 35, VERMILION_PORT_PASSAGE, 1
-	warp_event 20, 35, VERMILION_PORT_PASSAGE, 2
+	warp_event  7,  5, VERMILION_FISHING_SPEECH_HOUSE, 1
+	warp_event 11,  5, VERMILION_POKECENTER_1F, 1
+	warp_event  9, 15, POKEMON_FAN_CLUB, 1
+	warp_event 15, 15, VERMILION_MAGNET_TRAIN_SPEECH_HOUSE, 1
+	warp_event 23, 15, VERMILION_MART, 2
+	warp_event 23, 21, VERMILION_DIGLETTS_CAVE_SPEECH_HOUSE, 1
+	warp_event 12, 21, VERMILION_GYM, 1
+	warp_event 21, 35, VERMILION_PORT_PASSAGE, 1
+	warp_event 22, 35, VERMILION_PORT_PASSAGE, 2
 
 	db 0 ; coord events
 
 	db 7 ; bg events
-	bg_event 25,  5, BGEVENT_READ, VermilionCitySign
-	bg_event  5, 21, BGEVENT_READ, VermilionGymSign
-	bg_event  5, 15, BGEVENT_READ, PokemonFanClubSign
-	bg_event 27, 17, BGEVENT_READ, VermilionCityPortSign
-	bg_event 10,  5, BGEVENT_READ, VermilionCityPokecenterSign
-	bg_event 22, 15, BGEVENT_READ, VermilionCityMartSign
-	bg_event 12, 21, BGEVENT_ITEM, VermilionCityHiddenFullHeal
+	bg_event 27,  5, BGEVENT_READ, VermilionCitySign
+	bg_event  7, 21, BGEVENT_READ, VermilionGymSign
+	bg_event  7, 15, BGEVENT_READ, PokemonFanClubSign
+	bg_event 29, 17, BGEVENT_READ, VermilionCityPortSign
+	bg_event 12,  5, BGEVENT_READ, VermilionCityPokecenterSign
+	bg_event 24, 15, BGEVENT_READ, VermilionCityMartSign
+	bg_event 14, 21, BGEVENT_ITEM, VermilionCityHiddenFullHeal
 
 	db 5 ; object events
-	object_event 18,  9, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionCityTeacherScript, -1
-	object_event 25,  8, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionMachopOwner, -1
-	object_event 28,  9, SPRITE_MACHOP, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VermilionMachop, -1
-	object_event 14, 18, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VermilionCitySuperNerdScript, -1
-	object_event 32, 16, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VermilionGymBadgeGuy, -1
+	object_event 20,  9, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionCityTeacherScript, -1
+	object_event 27,  8, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionMachopOwner, -1
+	object_event 30,  9, SPRITE_MACHOP, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VermilionMachop, -1
+	object_event 16, 18, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VermilionCitySuperNerdScript, -1
+	object_event 34, 16, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VermilionGymBadgeGuy, -1

@@ -2634,13 +2634,13 @@ MareepEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 9, THUNDERSHOCK
-	db 16, THUNDER_WAVE
-	db 20, TAKE_DOWN
-	db 25, COTTON_SPORE
+	db 7, THUNDERSHOCK
+	db 12, THUNDER_WAVE
+	db 18, COTTON_SPORE
+	db 23, TAKE_DOWN
 	db 29, CONFUSE_RAY
-	db 33, LIGHT_SCREEN
-	db 39, THUNDER
+	db 34, LIGHT_SCREEN
+	db 40, THUNDER
 	db 0 ; no more level-up moves
 
 FlaaffyEvosAttacks:
@@ -2648,27 +2648,27 @@ FlaaffyEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 9, THUNDERSHOCK
-	db 18, THUNDER_WAVE
-	db 22, TAKE_DOWN
-	db 27, COTTON_SPORE
-	db 33, CONFUSE_RAY
+	db 7, THUNDERSHOCK
+	db 12, THUNDER_WAVE
+	db 19, COTTON_SPORE
+	db 25, TAKE_DOWN
+	db 32, CONFUSE_RAY
 	db 38, LIGHT_SCREEN
-	db 43, THUNDER
+	db 45, THUNDER
 	db 0 ; no more level-up moves
 
 AmpharosEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
-	db 9, THUNDERSHOCK
-	db 18, THUNDER_WAVE
-	db 22, TAKE_DOWN
-	db 27, COTTON_SPORE
+	db 7, THUNDERSHOCK
+	db 12, THUNDER_WAVE
+	db 19, COTTON_SPORE
+	db 25, TAKE_DOWN
 	db 30, THUNDERPUNCH
-	db 36, CONFUSE_RAY
-	db 43, LIGHT_SCREEN
-	db 52, THUNDER
+	db 34, CONFUSE_RAY
+	db 42, LIGHT_SCREEN
+	db 51, THUNDER
 	db 0 ; no more level-up moves
 
 BellossomEvosAttacks:

@@ -373,7 +373,7 @@ ENDM
 	connection east, CeruleanCity, CERULEAN_CITY, -4
 
 	map_attributes Route8, ROUTE_8, $2c, WEST | EAST
-	connection west, SaffronCity, SAFFRON_CITY, -9
+	connection west, SaffronCity, SAFFRON_CITY, -6
 	connection east, LavenderTown, LAVENDER_TOWN, 0
 
 	map_attributes Route10North, ROUTE_10_NORTH, $2c, NORTH | SOUTH

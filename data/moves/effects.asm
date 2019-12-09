@@ -1759,6 +1759,8 @@ RapidSpin:
 	applydamage
 	criticaltext
 	supereffectivetext
+	speedup
+	statupmessage
 	clearhazards
 	checkdestinybond
 	buildopponentrage

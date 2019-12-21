@@ -1646,8 +1646,8 @@ JohtoGrassWildMons:
 	db 24, GLIGAR
 	db 25, GRAVELER
 	db 27, GRAVELER
-	db 27, GRAVELER
-	db 27, GRAVELER
+	db 27, SKARMORY
+	db 27, SKARMORY
 
 	map_id ROUTE_46
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite

@@ -427,7 +427,7 @@ JohtoGrassWildMons:
 	db 6, ONIX
 	; nite
 	db 6, GEODUDE
-	db 6, RATTATA
+	db 6, SANDSHREW
 	db 5, WOOPER
 	db 4, RATTATA
 	db 7, ZUBAT
@@ -1059,52 +1059,52 @@ JohtoGrassWildMons:
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 43, GRAVELER
+	db 44, ONIX
 	db 44, URSARING
-	db 42, ONIX
-	db 45, MAGMAR
+	db 44, DONPHAN
 	db 45, GOLBAT
 	db 20, LARVITAR
-	db 15, LARVITAR
+	db 25, LARVITAR
 	; day
 	db 43, GRAVELER
+	db 44, ONIX
 	db 44, URSARING
-	db 42, ONIX
-	db 45, MAGMAR
+	db 44, DONPHAN
 	db 45, GOLBAT
 	db 20, LARVITAR
-	db 15, LARVITAR
+	db 25, LARVITAR
 	; nite
 	db 43, GRAVELER
+	db 44, ONIX
 	db 44, URSARING
-	db 42, ONIX
-	db 42, GOLBAT
-	db 45, GOLDUCK
-	db 46, LARVITAR
-	db 46, LARVITAR
+	db 44, DONPHAN
+	db 45, GOLBAT
+	db 20, LARVITAR
+	db 25, LARVITAR
 
 	map_id SILVER_CAVE_ROOM_2
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 48, GOLBAT
 	db 48, GOLDUCK
-	db 47, URSARING
-	db 46, PARASECT
+	db 47, SNEASEL
+	db 47, PARASECT
 	db 48, PARASECT
-	db 15, LARVITAR
 	db 20, LARVITAR
+	db 25, LARVITAR
 	; day
 	db 48, GOLBAT
 	db 48, GOLDUCK
-	db 47, URSARING
-	db 46, PARASECT
+	db 47, SNEASEL
+	db 47, PARASECT
 	db 48, PARASECT
-	db 15, LARVITAR
 	db 20, LARVITAR
+	db 25, LARVITAR
 	; nite
 	db 48, GOLBAT
 	db 48, GOLDUCK
-	db 46, URSARING
-	db 46, PARASECT
+	db 47, SNEASEL
+	db 47, PARASECT
 	db 48, MISDREAVUS
 	db 45, MISDREAVUS
 	db 45, MISDREAVUS
@@ -1112,56 +1112,56 @@ JohtoGrassWildMons:
 	map_id SILVER_CAVE_ROOM_3
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 51, GOLBAT
-	db 48, ONIX
-	db 48, GRAVELER
-	db 50, URSARING
-	db 20, LARVITAR
-	db 15, LARVITAR
-	db 20, PUPITAR
+	db 51, QUAGSIRE
+	db 48, GOLDUCK
+	db 48, SNEASEL
+	db 48, QUAGSIRE
+	db 50, GOLBAT
+	db 25, LARVITAR
+	db 30, PUPITAR
 	; day
-	db 51, GOLBAT
-	db 48, ONIX
-	db 48, GRAVELER
-	db 50, URSARING
-	db 20, LARVITAR
-	db 15, LARVITAR
-	db 20, PUPITAR
+	db 51, QUAGSIRE
+	db 48, GOLDUCK
+	db 48, SNEASEL
+	db 48, QUAGSIRE
+	db 50, GOLBAT
+	db 25, LARVITAR
+	db 30, PUPITAR
 	; nite
-	db 51, GOLBAT
-	db 48, ONIX
-	db 48, GRAVELER
-	db 50, URSARING
-	db 45, GOLDUCK
-	db 53, GOLBAT
-	db 53, GOLBAT
+	db 51, QUAGSIRE
+	db 48, GOLDUCK
+	db 48, SNEASEL
+	db 48, MISDREAVUS
+	db 50, GOLBAT
+	db 25, LARVITAR
+	db 30, PUPITAR
 
 	map_id SILVER_CAVE_ITEM_ROOMS
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 48, GOLBAT
-	db 46, GOLBAT
+	db 48, QUAGSIRE
 	db 48, GOLDUCK
-	db 46, GOLDUCK
+	db 50, STEELIX
 	db 48, PARASECT
+	db 48, GOLBAT
 	db 50, PARASECT
-	db 20, LARVITAR
+	db 25, LARVITAR
 	; day
-	db 48, GOLBAT
-	db 46, GOLBAT
+	db 48, QUAGSIRE
 	db 48, GOLDUCK
-	db 46, GOLDUCK
+	db 50, STEELIX
 	db 48, PARASECT
+	db 48, GOLBAT
 	db 50, PARASECT
-	db 20, LARVITAR
+	db 25, LARVITAR
 	; nite
-	db 45, MISDREAVUS
-	db 48, GOLBAT
+	db 48, QUAGSIRE
 	db 48, GOLDUCK
-	db 46, GOLDUCK
-	db 48, PARASECT
+	db 50, STEELIX
+	db 48, MISDREAVUS
+	db 48, GOLBAT
 	db 50, PARASECT
-	db 52, PARASECT
+	db 25, LARVITAR
 
 	map_id DARK_CAVE_VIOLET_ENTRANCE
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
@@ -1178,7 +1178,7 @@ JohtoGrassWildMons:
 	db 2, ZUBAT
 	db 2, GEODUDE
 	db 4, GEODUDE
-	db 2, ZUBAT
+	db 2, TEDDIURSA
 	db 4, ZUBAT
 	db 4, DUNSPARCE
 	; nite
@@ -1186,7 +1186,7 @@ JohtoGrassWildMons:
 	db 2, ZUBAT
 	db 2, GEODUDE
 	db 4, GEODUDE
-	db 2, ZUBAT
+	db 2, TEDDIURSA
 	db 4, ZUBAT
 	db 4, DUNSPARCE
 
@@ -1199,7 +1199,7 @@ JohtoGrassWildMons:
 	db 25, URSARING
 	db 20, TEDDIURSA
 	db 23, GOLBAT
-	db 23, GOLBAT
+	db 23, WOBBUFFET
 	; day
 	db 23, GEODUDE
 	db 23, ZUBAT
@@ -1207,7 +1207,7 @@ JohtoGrassWildMons:
 	db 25, URSARING
 	db 30, URSARING
 	db 23, GOLBAT
-	db 23, GOLBAT
+	db 23, WOBBUFFET
 	; nite
 	db 23, GEODUDE
 	db 23, ZUBAT
@@ -1344,8 +1344,8 @@ JohtoGrassWildMons:
 	db 6, RATTATA
 	db 6, RATTATA
 	; nite
-	db 5, WOOPER
-	db 6, RATTATA
+	db 5, EKANS
+	db 6, WOOPER
 	db 7, BELLSPROUT
 	db 6, MAREEP
 	db 7, HOOTHOOT
@@ -1375,7 +1375,7 @@ JohtoGrassWildMons:
 	db 6, ZUBAT
 	db 6, GEODUDE
 	db 6, ZUBAT
-	db 7, RATTATA
+	db 7, EKANS
 	db 7, RATTATA
 	db 7, RATTATA
 
@@ -1562,9 +1562,9 @@ JohtoGrassWildMons:
 	; nite
 	db 15, MANKEY
 	db 14, ZUBAT
-	db 15, RATICATE
+	db 15, EKANS
 	db 16, MAREEP
-	db 15, MARILL
+	db 15, ARBOK
 	db 16, GOLBAT
 	db 17, FLAAFFY
 
@@ -1664,7 +1664,7 @@ JohtoGrassWildMons:
 	db 2, SPEAROW
 	db 3, GEODUDE
 	db 3, RATTATA
-	db 2, RATTATA
+	db 2, PHANPY
 	db 2, RATTATA
 	db 2, RATTATA
 	; nite
@@ -1672,7 +1672,7 @@ JohtoGrassWildMons:
 	db 2, RATTATA
 	db 3, GEODUDE
 	db 3, RATTATA
-	db 2, RATTATA
+	db 2, PHANPY
 	db 2, RATTATA
 	db 2, RATTATA
 
@@ -1733,28 +1733,28 @@ JohtoGrassWildMons:
 	map_id SILVER_CAVE_OUTSIDE
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 41, TANGELA
-	db 42, PONYTA
+	db 39, TANGELA
+	db 40, PONYTA
 	db 40, DONPHAN
-	db 44, RAPIDASH
-	db 41, DODUO
-	db 43, DODRIO
+	db 40, URSARING
+	db 41, RAPIDASH
+	db 43, DODUO
 	db 43, DODRIO
 	; day
-	db 41, TANGELA
-	db 42, PONYTA
+	db 39, TANGELA
+	db 40, PONYTA
 	db 40, DONPHAN
-	db 44, RAPIDASH
-	db 41, DODUO
-	db 43, DODRIO
+	db 40, URSARING
+	db 41, RAPIDASH
+	db 43, DODUO
 	db 43, DODRIO
 	; nite
-	db 41, TANGELA
-	db 42, POLIWHIRL
+	db 39, TANGELA
+	db 40, PONYTA
 	db 40, DONPHAN
-	db 44, POLIWHIRL
-	db 38, SNEASEL
-	db 42, SNEASEL
-	db 42, SNEASEL
+	db 40, URSARING
+	db 41, RAPIDASH
+	db 43, POLIWHIRL
+	db 43, SNEASEL
 
 	db -1 ; end

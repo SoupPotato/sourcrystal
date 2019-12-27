@@ -1724,10 +1724,10 @@ JohtoGrassWildMons:
 	; nite
 	db 24, TAUROS
 	db 24, GLOOM
+	db 21, FEAROW
+	db 22, HOUNDOUR
 	db 21, NOCTOWL
-	db 22, SPINARAK
 	db 20, DIGLETT
-	db 20, HOUNDOUR
 	db 20, GIRAFARIG
 
 	map_id SILVER_CAVE_OUTSIDE

@@ -86,14 +86,23 @@ RageCandyBarMerchantScript:
 	end
 
 MahoganyTownGrampsScript:
-	faceplayer
+    faceplayer
 	opentext
-	checkevent EVENT_CLEARED_ROCKET_HIDEOUT
-	iftrue .ClearedRocketHideout
-	writetext MahoganyTownGrampsText
+	buttonsound
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_CARD
+	writetext GotPagerCardText
 	waitbutton
 	closetext
 	end
+
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
+	
+.pagercardname
+	db "PAGER CARD@"
 
 .ClearedRocketHideout:
 	writetext MahoganyTownGrampsText_ClearedRocketHideout
@@ -153,6 +162,11 @@ RageCandyBarMerchantText_TryOne:
 	para "Right now, it can"
 	line "be yours for just"
 	cont "¥300! Want one?"
+	done
+	
+GotPagerCardText:
+	text "<PLAYER>'s #GEAR"
+	line "now has a PPS!"
 	done
 
 RageCandyBarMerchantText_SavorIt:

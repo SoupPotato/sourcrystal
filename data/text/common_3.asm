@@ -1058,8 +1058,8 @@ UnknownText_0x1c5847::
 	done
 
 UnknownText_0x1c5862::
-	text "Press any button"
-	line "to exit."
+	text "A - Navigate."
+	line "B - Exit."
 	done
 
 UnknownText_0x1c587d::

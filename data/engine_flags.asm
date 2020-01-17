@@ -11,6 +11,7 @@ EngineFlags:
 	engine_flag wPokegearFlags, POKEGEAR_RADIO_CARD_F ; $0
 	engine_flag wPokegearFlags, POKEGEAR_MAP_CARD_F
 	engine_flag wPokegearFlags, POKEGEAR_PHONE_CARD_F
+	engine_flag wPokegearFlags, POKEGEAR_PAGER_CARD_F
 	engine_flag wPokegearFlags, POKEGEAR_EXPN_CARD_F
 	engine_flag wPokegearFlags, POKEGEAR_OBTAINED_F
 

@@ -1502,3 +1502,8 @@ UnknownText_0x1c60d1::
 	para "Come back again in"
 	line "a while."
 	prompt
+
+UnknownText_pokegearpagersummon::
+	text "Select a PAGER"
+	line "to summon."
+	done

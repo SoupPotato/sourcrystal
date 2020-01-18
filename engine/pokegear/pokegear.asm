@@ -190,8 +190,8 @@ AnimatePokegearModeIndicatorArrow:
 	db $9F ; POKEGEARCARD_CLOCK
 	db $10 ; POKEGEARCARD_MAP
 	db $00 ; POKEGEARCARD_PHONE
-	db $20 ; POKEGEARCARD_PAGER
-	db $30 ; POKEGEARCARD_RADIO
+	db $30 ; POKEGEARCARD_PAGER
+	db $20 ; POKEGEARCARD_RADIO
 
 TownMap_GetCurrentLandmark:
 	ld a, [wMapGroup]
@@ -312,7 +312,7 @@ InitPokegearTilemap:
 	dw .Map
 	dw .Phone
 	dw .Radio
-	dw .Phone ;pager todo
+	dw .Pager ;pager todo
 
 .Clock:
 	ld de, ClockTilemapRLE
@@ -392,6 +392,15 @@ InitPokegearTilemap:
 	hlcoord 18, 2
 	ld [hl], $3f
 	ret
+	
+.Pager:
+	ld de, PagerTilemapRLE
+	call Pokegear_LoadTilemapRLE
+	hlcoord 0, 12
+	lb bc, 4, 18
+	call TextBox
+	call PokegearPhone_UpdateDisplayList
+	ret
 
 Pokegear_FinishTilemap:
 	hlcoord 0, 0
@@ -469,6 +478,8 @@ PokegearJumptable:
 	dw PokegearPhone_FinishPhoneCall
 	dw PokegearRadio_Init
 	dw PokegearRadio_Joypad
+	dw PokegearPager_Init
+	dw PokegearPager_Joypad
 
 PokegearClock_Init:
 	call InitPokegearTilemap
@@ -576,11 +587,15 @@ PokegearMap_JohtoMap:
 PokegearMap_ContinueMap:
 	ld hl, hJoyLast
 	ld a, [hl]
+	and B_BUTTON
+	jr nz, .quit
+	ld a, [hl]
 	and D_RIGHT
 	jr nz, .right
 	ld a, [hl]
 	and D_LEFT
 	jr nz, .left
+	call .DPad
 	ret
 
 .right
@@ -597,6 +612,11 @@ PokegearMap_ContinueMap:
 	ret z
 	ld c, POKEGEARSTATE_RADIOINIT
 	ld b, POKEGEARCARD_RADIO
+	jr .done
+	
+.quit	
+    ld c, POKEGEARSTATE_CLOCKINIT
+	ld b, POKEGEARCARD_CLOCK
 	jr .done
 
 .left
@@ -792,6 +812,7 @@ PokegearRadio_Joypad:
 .no_map
 	ld c, POKEGEARSTATE_CLOCKINIT
 	ld b, POKEGEARCARD_CLOCK
+	jr .switch_page
 
 .switch_page
 	call Pokegear_SwitchPage
@@ -1283,7 +1304,7 @@ PokegearPager_Init:
 	ld [wPokegearPagerSelectedPerson], a
 	call InitPokegearTilemap
 	call ExitPokegearRadio_HandleMusic
-	ld hl, PokegearText_WhomToCall
+	ld hl, PokegearText_SelectaPager
 	call PrintText
 	ret
 
@@ -1329,7 +1350,7 @@ PokegearPager_Joypad:
 	ret
 
 .a
-	ld hl, wPhoneList
+	ld hl, wPagerList
 	ld a, [wPokegearPagerScrollPosition]
 	ld e, a
 	ld d, 0
@@ -1815,6 +1836,11 @@ PokegearText_PressAnyButtonToExit:
 PokegearText_DeleteStoredNumber:
 	; Delete this stored phone number?
 	text_jump UnknownText_0x1c587d
+	db "@"
+	
+PokegearText_SelectaPager:
+	; Select a PAGER to summon.
+	text_jump UnknownText_pokegearpagersummon
 	db "@"
 
 

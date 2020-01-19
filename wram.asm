@@ -3096,17 +3096,3 @@ INCLUDE "sram.asm"
 
 SECTION "Spinners", WRAMX
 wSpinning:: ds 1
-
-SECTION "pager stuff", WRAMX
-wPagerList:: ds CONTACT_LIST_SIZE 
-	ds 7
-	
-UNION
-NEXTU 
-; pokegearpager
-wPokegearPagerLoadNameBuffer:: db 
-wPokegearPagerCursorPosition:: db 
-wPokegearPagerScrollPosition:: db 
-wPokegearPagerSelectedPerson:: db 
-wPokegearPagerSubmenuCursor:: db 
-ENDU 

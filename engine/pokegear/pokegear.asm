@@ -25,9 +25,7 @@ NUM_POKEGEAR_CARDS EQU const_value
 	const POKEGEARSTATE_PAGERINIT       ; d
 	const POKEGEARSTATE_PAGERJOYPAD     ; e
 
-NUM_PAGER_FLAGS EQU 6
-PAGER_DISPLAY_HEIGHT EQU 4
-
+PHONE_OR_PAGER_HEIGHT EQU 4
 
 PokeGear:
 	ld hl, wOptions
@@ -909,7 +907,7 @@ PokegearPhone_Joypad:
 	ld [wPokegearPhoneSelectedPerson], a
 	hlcoord 1, 4
 	ld a, [wPokegearPhoneCursorPosition]
-	ld bc, 20 * 2
+	ld bc, SCREEN_WIDTH * 2
 	call AddNTimes
 	ld [hl], "▷"
 	call PokegearPhoneContactSubmenu
@@ -1018,7 +1016,7 @@ PokegearPhone_GetDPad:
 .down
 	ld hl, wPokegearPhoneCursorPosition
 	ld a, [hl]
-	cp 3
+	cp PHONE_OR_PAGER_HEIGHT - 1
 	jr nc, .scroll_page_down
 	inc [hl]
 	jr .done_joypad_same_page
@@ -1026,7 +1024,7 @@ PokegearPhone_GetDPad:
 .scroll_page_down
 	ld hl, wPokegearPhoneScrollPosition
 	ld a, [hl]
-	cp 6
+	cp CONTACT_LIST_SIZE - PHONE_OR_PAGER_HEIGHT
 	ret nc
 	inc [hl]
 	jr .done_joypad_update_page
@@ -1046,15 +1044,7 @@ PokegearPhone_GetDPad:
 	ret
 
 PokegearPhone_UpdateCursor:
-	ld a, " "
-	hlcoord 1, 4
-	ld [hl], a
-	hlcoord 1, 6
-	ld [hl], a
-	hlcoord 1, 8
-	ld [hl], a
-	hlcoord 1, 10
-	ld [hl], a
+	call ClearPhoneOrPagerCursors
 	hlcoord 1, 4
 	ld a, [wPokegearPhoneCursorPosition]
 	ld bc, 2 * SCREEN_WIDTH
@@ -1063,22 +1053,10 @@ PokegearPhone_UpdateCursor:
 	ret
 
 PokegearPhone_UpdateDisplayList:
-	hlcoord 1, 3
-	ld b, 9
-	ld a, " "
-.row
-	ld c, 18
-.col
-	ld [hli], a
-	dec c
-	jr nz, .col
-	inc hl
-	inc hl
-	dec b
-	jr nz, .row
+	call ClearPhoneOrPagerArea
 	ld a, [wPokegearPhoneScrollPosition]
 	ld e, a
-	ld d, $0
+	ld d, 0
 	ld hl, wPhoneList
 	add hl, de
 	xor a
@@ -1100,7 +1078,7 @@ PokegearPhone_UpdateDisplayList:
 	ld a, [wPokegearPhoneLoadNameBuffer]
 	inc a
 	ld [wPokegearPhoneLoadNameBuffer], a
-	cp 4
+	cp PHONE_OR_PAGER_HEIGHT
 	jr c, .loop
 	call PokegearPhone_UpdateCursor
 	ret
@@ -1324,11 +1302,6 @@ PokegearPhoneContactSubmenu:
 	dw .Cancel
 
 PokegearPager_Init:
-	; TODO - don't set this here
-	; set the Nth bit to unlock pager N
-	ld a, %00111111
-	ld [wPagerFlags], a
-
 	ld hl, wJumptableIndex
 	inc [hl]
 	xor a
@@ -1426,7 +1399,7 @@ PokegearPager_GetDPad:
 .down
 	ld hl, wPokegearPagerCursorPosition
 	ld a, [hl]
-	cp PAGER_DISPLAY_HEIGHT - 1
+	cp PHONE_OR_PAGER_HEIGHT - 1
 	jr nc, .scroll_page_down
 	inc [hl]
 	jr .done_joypad_same_page
@@ -1434,7 +1407,7 @@ PokegearPager_GetDPad:
 .scroll_page_down
 	ld hl, wPokegearPagerScrollPosition
 	ld a, [hl]
-	cp NUM_PAGER_FLAGS - PAGER_DISPLAY_HEIGHT
+	cp NUM_PAGER_FLAGS - PHONE_OR_PAGER_HEIGHT
 	ret nc
 	inc [hl]
 	jr .done_joypad_update_page
@@ -1454,13 +1427,7 @@ PokegearPager_GetDPad:
 	ret
 
 PokegearPager_UpdateCursor:
-	ld a, " "
-x = 4
-rept PAGER_DISPLAY_HEIGHT
-	hlcoord 1, x
-	ld [hl], a
-x = x + 2
-endr
+	call ClearPhoneOrPagerCursors
 	hlcoord 1, 4
 	ld a, [wPokegearPagerCursorPosition]
 	ld bc, 2 * SCREEN_WIDTH
@@ -1469,48 +1436,15 @@ endr
 	ret
 
 PokegearPager_UpdateDisplayList:
-	hlcoord 1, 3
-	ld b, PAGER_DISPLAY_HEIGHT * 2 + 1
-	ld a, " "
-.row
-	ld c, SCREEN_WIDTH - 2
-.col
-	ld [hli], a
-	dec c
-	jr nz, .col
-	inc hl
-	inc hl
-	dec b
-	jr nz, .row
-
+	call ClearPhoneOrPagerArea
 	ld a, [wPokegearPagerScrollPosition]
 	ld c, a
-	; c = the bit tested in wPagerFlags
-
 	xor a
 	ld [wPokegearPagerLoadNameBuffer], a
-
 .loop
-	ld hl, wPagerFlags
-	ld d, 0 ; BANK(wPagerFlags)
-	ld b, CHECK_FLAG
 	push bc
-	predef SmallFarFlagAction
-	ld a, c
-	pop bc
+	call CheckPagerFlagC
 	; a = nonzero if bit c is set
-
-	push af
-	push bc
-	hlcoord 5, 4
-	ld a, [wPokegearPagerLoadNameBuffer]
-	ld bc, 2 * SCREEN_WIDTH
-	call AddNTimes
-	pop bc
-	pop af
-	; hl = the coords to print the name
-
-	push bc
 	ld de, PagerMissingName
 	and a
 	jr z, .got_name
@@ -1522,15 +1456,19 @@ PokegearPager_UpdateDisplayList:
 	ld e, l
 	pop hl
 .got_name
+	; de = the pager name
+	hlcoord 5, 4
+	ld a, [wPokegearPagerLoadNameBuffer]
+	ld bc, 2 * SCREEN_WIDTH
+	call AddNTimes
+	; hl = the coords to print the name
 	call PlaceString
 	pop bc
-
 	inc c ; advance to the next bit in wPagerFlags
-
 	ld a, [wPokegearPagerLoadNameBuffer]
 	inc a
 	ld [wPokegearPagerLoadNameBuffer], a
-	cp PAGER_DISPLAY_HEIGHT
+	cp PHONE_OR_PAGER_HEIGHT
 	jr c, .loop
 	call PokegearPager_UpdateCursor
 	ret
@@ -3232,14 +3170,41 @@ Unreferenced_Function92311:
 	ld [hBGMapMode], a
 	ret
 
+ClearPhoneOrPagerArea:
+	hlcoord 1, 3
+	ld b, PHONE_OR_PAGER_HEIGHT * 2 + 1
+	ld a, " "
+.row
+	ld c, SCREEN_WIDTH - 2
+.col
+	ld [hli], a
+	dec c
+	jr nz, .col
+	inc hl
+	inc hl
+	dec b
+	jr nz, .row
+	ret
 
-PagerFlagNames:
-	db "SCYTHER CLEAVE@"
-	db "PIDGEOTTO WING@"
-	db "LAPRAS SAIL@"
-	db "MACHOKE PUSH@"
-	db "MAREEP SHINE@"
-	db "REMORAID WHIRL@"
+ClearPhoneOrPagerCursors:
+	ld a, " "
+x = 4
+rept PHONE_OR_PAGER_HEIGHT
+	hlcoord 1, x
+	ld [hl], a
+x = x + 2
+endr
+	ret
 
-PagerMissingName:
-	db "----------@"
+CheckPagerFlagC:
+; return nonzero in a if bit c of wPagerFlags is set
+	ld hl, wPagerFlags
+	ld d, 0
+	ld b, CHECK_FLAG
+	push bc
+	predef SmallFarFlagAction
+	ld a, c
+	pop bc
+	ret
+
+INCLUDE "data/pager/names.asm"

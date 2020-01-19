@@ -195,38 +195,37 @@ ItemEffects:
 	dw NoEffect            ; ITEM_B3
 
 FlashPager:
-    farjp OWFlash
-	
-CutPager:
-    farjp MonMenu_Cut
-	
-SurfPager:
-    farjp SurfFunction
-	
-StrngthPager:
-    farjp StrengthFunction
-	
-FlyPager:
-  call GetMapEnvironment
-  call CheckOutdoorMap
-  jp nz, CantUseMessage
-  call FadeToMenu
-  farcall FlyFunction
-  bit B_BUTTON_F, [hl]
-  ret z
-  call Call_ExitMenu
-  xor a
-  ld [hBGMapMode], a
-  farcall Pack_InitGFX
-  farcall WaitBGMap_DrawPackGFX
-  farjp Pack_InitColors
-  
-WrlPoolPager:
-    farjp WhirlpoolFunction
-	
-RckSmshPager:
-    farjp RockSmashFunction
+	farjp OWFlash
 
+CutPager:
+	farjp MonMenu_Cut
+
+SurfPager:
+	farjp SurfFunction
+
+StrngthPager:
+	farjp StrengthFunction
+
+FlyPager:
+	call GetMapEnvironment
+	call CheckOutdoorMap
+	jp nz, CantUseMessage
+	call FadeToMenu
+	farcall FlyFunction
+	bit B_BUTTON_F, [hl]
+	ret z
+	call Call_ExitMenu
+	xor a
+	ld [hBGMapMode], a
+	farcall Pack_InitGFX
+	farcall WaitBGMap_DrawPackGFX
+	farjp Pack_InitColors
+
+WrlPoolPager:
+	farjp WhirlpoolFunction
+
+RckSmshPager:
+	farjp RockSmashFunction
 
 PokeBallEffect:
 	ld a, [wBattleMode]

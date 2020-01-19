@@ -25,7 +25,6 @@ NUM_POKEGEAR_CARDS EQU const_value
 	const POKEGEARSTATE_PAGERINIT       ; d
 	const POKEGEARSTATE_PAGERJOYPAD     ; e
 
-NUM_PAGER_FLAGS EQU 6
 PAGER_DISPLAY_HEIGHT EQU 4
 
 
@@ -1324,11 +1323,6 @@ PokegearPhoneContactSubmenu:
 	dw .Cancel
 
 PokegearPager_Init:
-	; TODO - don't set this here
-	; set the Nth bit to unlock pager N
-	ld a, %00111111
-	ld [wPagerFlags], a
-
 	ld hl, wJumptableIndex
 	inc [hl]
 	xor a
@@ -3232,14 +3226,4 @@ Unreferenced_Function92311:
 	ld [hBGMapMode], a
 	ret
 
-
-PagerFlagNames:
-	db "SCYTHER CLEAVE@"
-	db "PIDGEOTTO WING@"
-	db "LAPRAS SAIL@"
-	db "MACHOKE PUSH@"
-	db "MAREEP SHINE@"
-	db "REMORAID WHIRL@"
-
-PagerMissingName:
-	db "----------@"
+INCLUDE "data/pager/names.asm"

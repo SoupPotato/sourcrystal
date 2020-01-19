@@ -771,6 +771,9 @@ wPokegearMapPlayerIconLandmark:: db ; c6d8
 wPokegearRadioChannelBank:: db ; c6d9
 wPokegearRadioChannelAddr:: dw ; c6da
 wPokegearRadioMusicPlaying:: db ; c6dc
+wPokegearPagerLoadNameBuffer:: db ; c6dd
+wPokegearPagerCursorPosition:: db ; c6de
+wPokegearPagerScrollPosition:: db ; c6df
 
 NEXTU ; c6d0
 ; slot machine
@@ -2730,7 +2733,8 @@ wStepCount:: db ; dc73
 wPoisonStepCount:: db ; dc74
 	ds 2
 wHappinessStepCount:: db
-	ds 1
+
+wPagerFlags:: db ; flag_array NUM_PAGER_FLAGS
 
 wParkBallsRemaining::
 wSafariBallsRemaining:: db ; dc79

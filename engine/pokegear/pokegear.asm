@@ -25,6 +25,10 @@ NUM_POKEGEAR_CARDS EQU const_value
 	const POKEGEARSTATE_PAGERINIT       ; d
 	const POKEGEARSTATE_PAGERJOYPAD     ; e
 
+NUM_PAGER_FLAGS EQU 6
+PAGER_DISPLAY_HEIGHT EQU 4
+
+
 PokeGear:
 	ld hl, wOptions
 	ld a, [hl]
@@ -100,6 +104,8 @@ PokeGear:
 	ld [wPokegearRadioChannelBank], a
 	ld [wPokegearRadioChannelAddr], a
 	ld [wPokegearRadioChannelAddr + 1], a
+	ld [wPokegearPagerScrollPosition], a
+	ld [wPokegearPagerCursorPosition], a
 	call Pokegear_InitJumptableIndices
 	call InitPokegearTilemap
 	ld b, SCGB_POKEGEAR_PALS
@@ -312,7 +318,7 @@ InitPokegearTilemap:
 	dw .Map
 	dw .Phone
 	dw .Radio
-	dw .Pager ;pager todo
+	dw .Pager
 
 .Clock:
 	ld de, ClockTilemapRLE
@@ -392,13 +398,14 @@ InitPokegearTilemap:
 	hlcoord 18, 2
 	ld [hl], $3f
 	ret
-	
+
 .Pager:
 	ld de, PagerTilemapRLE
 	call Pokegear_LoadTilemapRLE
 	hlcoord 0, 12
     lb bc, 4, 18
 	call TextBox
+	call PokegearPager_UpdateDisplayList
 	ret
 
 Pokegear_FinishTilemap:
@@ -496,14 +503,14 @@ PokegearClock_Joypad:
 	and B_BUTTON
 	jr nz, .quit
 	ld a, [hl]
-	and A_BUTTON
+	and A_BUTTON | D_RIGHT
 	ret z
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_PHONE_CARD_F, a
 	ld c, POKEGEARSTATE_PHONEINIT
 	ld b, POKEGEARCARD_PHONE
 	jr .done
-	
+
 .done
 	call Pokegear_SwitchPage
 	ret
@@ -612,8 +619,8 @@ PokegearMap_ContinueMap:
 	ld c, POKEGEARSTATE_RADIOINIT
 	ld b, POKEGEARCARD_RADIO
 	jr .done
-	
-.quit	
+
+.quit
     ld c, POKEGEARSTATE_CLOCKINIT
 	ld b, POKEGEARCARD_CLOCK
 	jr .done
@@ -791,8 +798,8 @@ PokegearRadio_Joypad:
 	ret z
 	rst FarCall
 	ret
-	
-.quit	
+
+.quit
     ld c, POKEGEARSTATE_CLOCKINIT
 	ld b, POKEGEARCARD_CLOCK
 	jr .switch_page
@@ -841,7 +848,7 @@ PokegearPhone_Init:
 PokegearPhone_Joypad:
 	ld hl, hJoyPressed
 	ld a, [hl]
-	and B_BUTTON
+	and B_BUTTON | D_LEFT
 	jr nz, .quit
 	ld a, [hl]
 	and A_BUTTON
@@ -865,7 +872,7 @@ PokegearPhone_Joypad:
 	ld c, POKEGEARSTATE_PAGERINIT
 	ld b, POKEGEARCARD_PAGER
 	jr .switch_page
-	
+
 .no_pager
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_RADIO_CARD_F, a
@@ -873,7 +880,7 @@ PokegearPhone_Joypad:
 	ld c, POKEGEARSTATE_RADIOINIT
 	ld b, POKEGEARCARD_RADIO
 	jr .switch_page
-	
+
 
 .right
 	ld a, [wPokegearFlags]
@@ -1316,12 +1323,17 @@ PokegearPhoneContactSubmenu:
 	dw .Call
 	dw .Cancel
 
-;pager system TODO
-
 PokegearPager_Init:
+	; TODO - don't set this here
+	; set the Nth bit to unlock pager N
+	ld a, %00111111
+	ld [wPagerFlags], a
+
 	ld hl, wJumptableIndex
 	inc [hl]
 	xor a
+	ld [wPokegearPagerScrollPosition], a
+	ld [wPokegearPagerCursorPosition], a
 	call InitPokegearTilemap
 	call ExitPokegearRadio_HandleMusic
 	ld hl, PokegearText_SelectaPager
@@ -1339,6 +1351,10 @@ PokegearPager_Joypad:
 	ld a, [hl]
 	and D_RIGHT
 	jr nz, .right
+	ld a, [hl]
+	and A_BUTTON
+	jr nz, .a
+	call PokegearPager_GetDPad
 	ret
 
 .quit
@@ -1366,29 +1382,158 @@ PokegearPager_Joypad:
 	bit POKEGEAR_PHONE_CARD_F, a
 	ld c, POKEGEARSTATE_PHONEINIT
 	ld b, POKEGEARCARD_PHONE
-	jr .switch_page	
-	
+	jr .switch_page
+
 .switch_page
 	call Pokegear_SwitchPage
 	ret
-	
-; END pager system TODO
 
-
-; unused
-	ld a, [hHours]
-	cp 12
-	jr c, .am
-	sub 12
-	ld [wd265], a
-	scf
+.a
+	ld a, [wPokegearPagerScrollPosition]
+	ld c, a
+	ld a, [wPokegearPagerCursorPosition]
+	add c
+	ld c, a
+	; TODO - if bit c of wPagerFlags is set, run pager #c (0-5)
 	ret
 
-.am
-	ld [wd265], a
+PokegearPager_GetDPad:
+	ld hl, hJoyLast
+	ld a, [hl]
+	and D_UP
+	jr nz, .up
+	ld a, [hl]
+	and D_DOWN
+	jr nz, .down
+	ret
+
+.up
+	ld hl, wPokegearPagerCursorPosition
+	ld a, [hl]
 	and a
+	jr z, .scroll_page_up
+	dec [hl]
+	jr .done_joypad_same_page
+
+.scroll_page_up
+	ld hl, wPokegearPagerScrollPosition
+	ld a, [hl]
+	and a
+	ret z
+	dec [hl]
+	jr .done_joypad_update_page
+
+.down
+	ld hl, wPokegearPagerCursorPosition
+	ld a, [hl]
+	cp PAGER_DISPLAY_HEIGHT - 1
+	jr nc, .scroll_page_down
+	inc [hl]
+	jr .done_joypad_same_page
+
+.scroll_page_down
+	ld hl, wPokegearPagerScrollPosition
+	ld a, [hl]
+	cp NUM_PAGER_FLAGS - PAGER_DISPLAY_HEIGHT
+	ret nc
+	inc [hl]
+	jr .done_joypad_update_page
+
+.done_joypad_same_page
+	xor a
+	ld [hBGMapMode], a
+	call PokegearPager_UpdateCursor
+	call WaitBGMap
 	ret
 
+.done_joypad_update_page
+	xor a
+	ld [hBGMapMode], a
+	call PokegearPager_UpdateDisplayList
+	call WaitBGMap
+	ret
+
+PokegearPager_UpdateCursor:
+	ld a, " "
+x = 4
+rept PAGER_DISPLAY_HEIGHT
+	hlcoord 1, x
+	ld [hl], a
+x = x + 2
+endr
+	hlcoord 1, 4
+	ld a, [wPokegearPagerCursorPosition]
+	ld bc, 2 * SCREEN_WIDTH
+	call AddNTimes
+	ld [hl], "▶"
+	ret
+
+PokegearPager_UpdateDisplayList:
+	hlcoord 1, 3
+	ld b, PAGER_DISPLAY_HEIGHT * 2 + 1
+	ld a, " "
+.row
+	ld c, SCREEN_WIDTH - 2
+.col
+	ld [hli], a
+	dec c
+	jr nz, .col
+	inc hl
+	inc hl
+	dec b
+	jr nz, .row
+
+	ld a, [wPokegearPagerScrollPosition]
+	ld c, a
+	; c = the bit tested in wPagerFlags
+
+	xor a
+	ld [wPokegearPagerLoadNameBuffer], a
+
+.loop
+	ld hl, wPagerFlags
+	ld d, 0 ; BANK(wPagerFlags)
+	ld b, CHECK_FLAG
+	push bc
+	predef SmallFarFlagAction
+	ld a, c
+	pop bc
+	; a = nonzero if bit c is set
+
+	push af
+	push bc
+	hlcoord 5, 4
+	ld a, [wPokegearPagerLoadNameBuffer]
+	ld bc, 2 * SCREEN_WIDTH
+	call AddNTimes
+	pop bc
+	pop af
+	; hl = the coords to print the name
+
+	push bc
+	ld de, PagerMissingName
+	and a
+	jr z, .got_name
+	push hl
+	ld hl, PagerFlagNames
+	ld a, c
+	call GetNthString
+	ld d, h
+	ld e, l
+	pop hl
+.got_name
+	call PlaceString
+	pop bc
+
+	inc c ; advance to the next bit in wPagerFlags
+
+	ld a, [wPokegearPagerLoadNameBuffer]
+	inc a
+	ld [wPokegearPagerLoadNameBuffer], a
+	cp PAGER_DISPLAY_HEIGHT
+	jr c, .loop
+	call PokegearPager_UpdateCursor
+	ret
 
 Pokegear_SwitchPage:
 	ld de, SFX_READ_TEXT_2
@@ -1463,7 +1608,7 @@ PokegearText_DeleteStoredNumber:
 	; Delete this stored phone number?
 	text_jump UnknownText_0x1c587d
 	db "@"
-	
+
 PokegearText_SelectaPager:
 	; Select a PAGER to summon.
 	text_jump UnknownText_pokegearpagersummon
@@ -3087,3 +3232,14 @@ Unreferenced_Function92311:
 	ld [hBGMapMode], a
 	ret
 
+
+PagerFlagNames:
+	db "SCYTHER CLEAVE@"
+	db "PIDGEOTTO WING@"
+	db "LAPRAS SAIL@"
+	db "MACHOKE PUSH@"
+	db "MAREEP SHINE@"
+	db "REMORAID WHIRL@"
+
+PagerMissingName:
+	db "----------@"

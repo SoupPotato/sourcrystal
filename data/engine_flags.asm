@@ -15,6 +15,15 @@ EngineFlags:
 	engine_flag wPokegearFlags, POKEGEAR_EXPN_CARD_F
 	engine_flag wPokegearFlags, POKEGEAR_OBTAINED_F
 
+	; pager
+	engine_flag wPagerFlags, PAGER_CUT_F
+	engine_flag wPagerFlags, PAGER_FLY_F
+	engine_flag wPagerFlags, PAGER_SURF_F
+	engine_flag wPagerFlags, PAGER_STRENGTH_F
+	engine_flag wPagerFlags, PAGER_FLASH_F
+	engine_flag wPagerFlags, PAGER_WHIRLPOOL_F
+	engine_flag wPagerFlags, PAGER_ROCK_SMASH_F
+
 	; day-care
 	engine_flag wDayCareMan, DAYCAREMAN_HAS_EGG_F
 	engine_flag wDayCareMan, DAYCAREMAN_HAS_MON_F

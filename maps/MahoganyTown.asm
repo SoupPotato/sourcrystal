@@ -92,6 +92,7 @@ MahoganyTownGrampsScript:
 	stringtotext .pagercardname, MEM_BUFFER_1
 	scall .JumpstdReceiveItem
 	setflag ENGINE_PAGER_CARD
+	verbosegiveitem RCKSMSHPAGER
 	writetext GotPagerCardText
 	waitbutton
 	closetext

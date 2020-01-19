@@ -134,7 +134,7 @@ ItemDescriptions:
 	dw StarPieceDesc
 	dw BasementKeyDesc
 	dw PassDesc
-	dw TeruSama9Desc
+	dw RckSmshPagerDesc
 	dw TeruSama10Desc
 	dw TeruSama11Desc
 	dw CharcoalDesc
@@ -784,8 +784,9 @@ PassDesc:
 	db   "A ticket for the"
 	next "MAGNET TRAIN.@"
 
-TeruSama9Desc:
-	db   "?@"
+RckSmshPagerDesc:
+    db   "Summons a #MON"
+	next "to use ROCK SMASH.@"
 
 TeruSama10Desc:
 	db   "?@"

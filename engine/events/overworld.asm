@@ -1397,8 +1397,9 @@ RockSmashFromMenuScript:
 	special UpdateTimePals
 
 RockSmashScript:
-	callasm GetPartyNick
 	writetext UnknownText_0xcf58
+	cry 223
+	waitbutton
 	closetext
 	special WaitSFX
 	playsound SFX_STRENGTH
@@ -1424,9 +1425,6 @@ UnknownText_0xcf58:
 	db "@"
 
 AskRockSmashScript:
-	callasm HasRockSmash
-	ifequal 1, .no
-
 	opentext
 	writetext UnknownText_0xcf77
 	yesorno
@@ -1445,20 +1443,6 @@ UnknownText_0xcf77:
 	; This rock looks breakable. Want to use ROCK SMASH?
 	text_jump UnknownText_0x1c0924
 	db "@"
-
-HasRockSmash:
-	ld d, ROCK_SMASH
-	call CheckPartyMove
-	jr nc, .yes
-.no
-	ld a, 1
-	jr .done
-.yes
-	xor a
-	jr .done
-.done
-	ld [wScriptVar], a
-	ret
 
 FishFunction:
 	ld a, e

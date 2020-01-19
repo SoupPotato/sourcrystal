@@ -11,8 +11,18 @@ EngineFlags:
 	engine_flag wPokegearFlags, POKEGEAR_RADIO_CARD_F ; $0
 	engine_flag wPokegearFlags, POKEGEAR_MAP_CARD_F
 	engine_flag wPokegearFlags, POKEGEAR_PHONE_CARD_F
+	engine_flag wPokegearFlags, POKEGEAR_PAGER_CARD_F
 	engine_flag wPokegearFlags, POKEGEAR_EXPN_CARD_F
 	engine_flag wPokegearFlags, POKEGEAR_OBTAINED_F
+
+	; pager
+	engine_flag wPagerFlags, PAGER_CUT_F
+	engine_flag wPagerFlags, PAGER_FLY_F
+	engine_flag wPagerFlags, PAGER_SURF_F
+	engine_flag wPagerFlags, PAGER_STRENGTH_F
+	engine_flag wPagerFlags, PAGER_FLASH_F
+	engine_flag wPagerFlags, PAGER_WHIRLPOOL_F
+	engine_flag wPagerFlags, PAGER_ROCK_SMASH_F
 
 	; day-care
 	engine_flag wDayCareMan, DAYCAREMAN_HAS_EGG_F

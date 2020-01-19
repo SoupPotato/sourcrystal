@@ -454,9 +454,9 @@ UnknownText_0x1c08bc::
 	done
 
 UnknownText_0x1c08f0::
-	text_from_ram wStringBuffer2
-	text " used"
-	line "ROCK SMASH!"
+	text "<PLAYER> summoned"
+	line "a REMORAID to"
+	cont "use ROCK SMASH!"
 	prompt
 
 UnknownText_0x1c0906::
@@ -468,8 +468,8 @@ UnknownText_0x1c0924::
 	text "This rock looks"
 	line "breakable."
 
-	para "Want to use ROCK"
-	line "SMASH?"
+	para "Want to use the"
+	line "RKSMSHPAGER?"
 	done
 
 UnknownText_0x1c0958::

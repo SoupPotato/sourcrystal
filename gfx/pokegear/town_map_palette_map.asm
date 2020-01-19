@@ -5,6 +5,7 @@
 	const PAL_TOWNMAP_CITY     ; 3
 	const PAL_TOWNMAP_POI      ; 4
 	const PAL_TOWNMAP_POI_MTN  ; 5
+	const PAL_TOWNMAP_PPS      ; 6
 
 townmappals: MACRO
 rept _NARG / 2
@@ -27,4 +28,6 @@ ENDM
 	townmappals CITY,     CITY,     CITY,     CITY,     CITY,     CITY,     CITY,     CITY
 	townmappals CITY,     CITY,     CITY,     CITY,     CITY,     CITY,     CITY,     BORDER
 	townmappals CITY,     CITY,     CITY,     CITY,     CITY,     CITY,     CITY,     CITY
+	townmappals BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER
+	townmappals PPS,      PPS,      PPS,      PPS,      BORDER,   BORDER,   BORDER,   BORDER
 	townmappals BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER

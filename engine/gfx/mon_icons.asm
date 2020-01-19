@@ -13,6 +13,21 @@ LoadOverworldMonIcon:
 	ld c, 8
 	ret
 
+LoadPagerMonIcon:
+	ld a, e
+	call ReadMonMenuIcon
+	ld l, a
+	ld h, 0
+	add hl, hl
+	ld de, IconPointers
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld bc, 8 tiles
+	ld e, BANK(Icons)
+	ret
+
 LoadMenuMonIcon:
 	push hl
 	push de

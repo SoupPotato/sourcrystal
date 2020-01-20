@@ -1483,10 +1483,10 @@ PokegearPager_UpdateDisplayList:
 	ld [wPokegearPagerLoadNameBuffer], a
 .loop
 	push bc
-	call CheckPagerFlagC
-	; a = nonzero if bit c is set
 	ld de, PagerMissingName
-	and a
+	ld a, c
+	ld hl, wPagerFlags
+	call TestBitAInHL
 	jr z, .got_name
 	push hl
 	ld hl, PagerCardNames
@@ -3234,17 +3234,6 @@ rept PHONE_OR_PAGER_HEIGHT
 	ld [hl], a
 x = x + 2
 endr
-	ret
-
-CheckPagerFlagC:
-; return nonzero in a if bit c of wPagerFlags is set
-	ld hl, wPagerFlags
-	ld d, 0
-	ld b, CHECK_FLAG
-	push bc
-	predef SmallFarFlagAction
-	ld a, c
-	pop bc
 	ret
 
 INCLUDE "data/pager_system.asm"

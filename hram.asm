@@ -130,3 +130,5 @@ hMobile            EQU $ffe9
 hSystemBooted      EQU $ffea
 hClockResetTrigger EQU $ffeb
 hIsConfusionDamage EQU $ffec
+
+hCodeBuffer EQU $ffed

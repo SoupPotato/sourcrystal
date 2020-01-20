@@ -66,6 +66,10 @@ NUM_SPRITE_ANIM_STRUCTS EQU 10 ; see wSpriteAnimationStructs
 	const SPRITE_ANIM_INDEX_INTRO_UNOWN_F            ; 2a
 	const SPRITE_ANIM_INDEX_INTRO_SUICUNE_AWAY       ; 2b
 	const SPRITE_ANIM_INDEX_CELEBI                   ; 2c
+	const SPRITE_ANIM_INDEX_PAGER_MON_RED            ; 2d
+	const SPRITE_ANIM_INDEX_PAGER_MON_BLUE           ; 2e
+	const SPRITE_ANIM_INDEX_PAGER_MON_GREEN          ; 2f
+	const SPRITE_ANIM_INDEX_PAGER_MON_BROWN          ; 30
 
 ; DoAnimFrame.Jumptable indexes (see engine/gfx/sprite_anims.asm)
 	const_def
@@ -104,6 +108,7 @@ NUM_SPRITE_ANIM_STRUCTS EQU 10 ; see wSpriteAnimationStructs
 	const SPRITE_ANIM_SEQ_INTRO_UNOWN             ; 20
 	const SPRITE_ANIM_SEQ_INTRO_UNOWN_F           ; 21
 	const SPRITE_ANIM_SEQ_INTRO_SUICUNE_AWAY      ; 22
+	const SPRITE_ANIM_SEQ_PAGER_MON               ; 23
 
 ; SpriteAnimFrameData indexes (see data/sprite_anims/framesets.asm)
 	const_def
@@ -173,6 +178,10 @@ NUM_SPRITE_ANIM_STRUCTS EQU 10 ; see wSpriteAnimationStructs
 	const SPRITE_ANIM_FRAMESET_INTRO_UNOWN_F            ; 3f
 	const SPRITE_ANIM_FRAMESET_CELEBI_LEFT              ; 40
 	const SPRITE_ANIM_FRAMESET_CELEBI_RIGHT             ; 41
+	const SPRITE_ANIM_FRAMESET_PAGER_MON_RED            ; 42
+	const SPRITE_ANIM_FRAMESET_PAGER_MON_BLUE           ; 43
+	const SPRITE_ANIM_FRAMESET_PAGER_MON_GREEN          ; 44
+	const SPRITE_ANIM_FRAMESET_PAGER_MON_BROWN          ; 45
 
 ; SpriteAnimOAMData indexes (see data/sprite_anims/oam.asm)
 	const_def
@@ -316,3 +325,5 @@ NUM_SPRITE_ANIM_STRUCTS EQU 10 ; see wSpriteAnimationStructs
 	const SPRITE_ANIM_OAMSET_GAMEFREAK_LOGO_9           ; 89
 	const SPRITE_ANIM_OAMSET_GAMEFREAK_LOGO_10          ; 8a
 	const SPRITE_ANIM_OAMSET_GAMEFREAK_LOGO_11          ; 8b
+	const SPRITE_ANIM_OAMSET_BROWN_WALK_1               ; 8c
+	const SPRITE_ANIM_OAMSET_BROWN_WALK_2               ; 8d

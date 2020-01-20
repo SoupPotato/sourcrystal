@@ -141,6 +141,8 @@ SpriteAnimOAMData:
 	dbw $08, .OAMData_GameFreakLogo4_11        ; SPRITE_ANIM_OAMSET_GAMEFREAK_LOGO_9
 	dbw $04, .OAMData_GameFreakLogo4_11        ; SPRITE_ANIM_OAMSET_GAMEFREAK_LOGO_10
 	dbw $00, .OAMData_GameFreakLogo4_11        ; SPRITE_ANIM_OAMSET_GAMEFREAK_LOGO_11
+	dbw $00, .OAMData_BrownWalk                ; SPRITE_ANIM_OAMSET_BROWN_WALK_1
+	dbw $04, .OAMData_BrownWalk                ; SPRITE_ANIM_OAMSET_BROWN_WALK_2
 
 .OAMData_1x1_Palette0:
 	db 1
@@ -1126,3 +1128,10 @@ SpriteAnimOAMData:
 	dsprite  0,  0, -1,  4, $51, 1
 	dsprite  0,  0,  0,  4, $52, 1
 	dsprite  0,  0,  1,  4, $53, 1
+
+.OAMData_BrownWalk:
+	db 4
+	dsprite -1,  0, -1,  0, $00, PAL_OW_BROWN
+	dsprite -1,  0,  0,  0, $01, PAL_OW_BROWN
+	dsprite  0,  0, -1,  0, $02, PAL_OW_BROWN
+	dsprite  0,  0,  0,  0, $03, PAL_OW_BROWN

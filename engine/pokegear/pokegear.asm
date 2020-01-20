@@ -25,8 +25,6 @@ NUM_POKEGEAR_CARDS EQU const_value
 	const POKEGEARSTATE_PAGERINIT       ; d
 	const POKEGEARSTATE_PAGERJOYPAD     ; e
 
-PHONE_OR_PAGER_HEIGHT EQU 4
-
 PokeGear:
 	ld hl, wOptions
 	ld a, [hl]
@@ -156,7 +154,7 @@ Pokegear_LoadGFX:
 	ld bc, 4 tiles
 	call FarCopyBytes
 .pager
-	ld hl, PagerIconSpecies
+	ld hl, PagerCardIconSpecies
 	ld de, vTiles0 tile $20
 .loop
 	ld a, [hli]
@@ -1324,6 +1322,33 @@ PokegearPager_Init:
 	ld [wPokegearPagerCursorPosition], a
 	call InitPokegearTilemap
 	call ExitPokegearRadio_HandleMusic
+	ld hl, PagerCardSprites
+.loop
+	; sprite anim index
+	ld a, [hli]
+	and a
+	jr z, .done
+	push hl
+	depixel 0, 4
+	call _InitSpriteAnimStruct
+	pop hl
+	; pager flag bit
+	ld a, [hli]
+	push hl
+	ld hl, SPRITEANIMSTRUCT_0F
+	add hl, bc
+	ld [hl], a
+	; tile id = pager flag bit * 8 + $20
+	add a
+	add a
+	add a
+	add $20
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld [hl], a
+	pop hl
+	jr .loop
+.done
 	ld hl, PokegearText_SelectaPager
 	call PrintText
 	ret
@@ -1464,7 +1489,7 @@ PokegearPager_UpdateDisplayList:
 	and a
 	jr z, .got_name
 	push hl
-	ld hl, PagerFlagNames
+	ld hl, PagerCardNames
 	ld a, c
 	call GetNthString
 	ld d, h
@@ -3222,5 +3247,4 @@ CheckPagerFlagC:
 	pop bc
 	ret
 
-INCLUDE "data/pager/names.asm"
-INCLUDE "data/pager/icons.asm"
+INCLUDE "data/pager_system.asm"

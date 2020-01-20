@@ -66,12 +66,17 @@ SpriteAnimFrameData:
 	dw .Frameset_IntroUnownF
 	dw .Frameset_CelebiLeft
 	dw .Frameset_CelebiRight
+	dw .Frameset_PagerMonRed
+	dw .Frameset_PagerMonBlue
+	dw .Frameset_PagerMonGreen
+	dw .Frameset_PagerMonBrown
 
 .Frameset_00:
 	frame SPRITE_ANIM_OAMSET_RED_WALK_1, 32
 	endanim
 
 .Frameset_PartyMon:
+.Frameset_PagerMonRed:
 	frame SPRITE_ANIM_OAMSET_RED_WALK_1,  8
 	frame SPRITE_ANIM_OAMSET_RED_WALK_2,  8
 	dorestart
@@ -243,49 +248,6 @@ SpriteAnimFrameData:
 	frame SPRITE_ANIM_OAMSET_MAGNET_TRAIN_RED_2,  8
 	frame SPRITE_ANIM_OAMSET_MAGNET_TRAIN_RED_1,  8
 	frame SPRITE_ANIM_OAMSET_MAGNET_TRAIN_RED_2,  8, OAM_X_FLIP
-	dorestart
-
-; unused
-	frame SPRITE_ANIM_OAMSET_UNUSED_43,  8
-	frame SPRITE_ANIM_OAMSET_UNUSED_44,  8
-	dorestart
-
-; unused
-	frame SPRITE_ANIM_OAMSET_UNUSED_45,  8
-	frame SPRITE_ANIM_OAMSET_UNUSED_46,  8
-	dorestart
-
-; unused
-	frame SPRITE_ANIM_OAMSET_UNUSED_47,  8
-	frame SPRITE_ANIM_OAMSET_UNUSED_48,  8
-	dorestart
-
-; unused
-	frame SPRITE_ANIM_OAMSET_UNUSED_49,  1
-	frame SPRITE_ANIM_OAMSET_UNUSED_49,  1, OAM_X_FLIP
-	frame SPRITE_ANIM_OAMSET_UNUSED_49,  1, OAM_X_FLIP, OAM_Y_FLIP
-	frame SPRITE_ANIM_OAMSET_UNUSED_49,  1, OAM_Y_FLIP
-	dorestart
-
-; unused
-	frame SPRITE_ANIM_OAMSET_UNUSED_4A, 32
-	endanim
-
-; unused
-	frame SPRITE_ANIM_OAMSET_UNUSED_4B, 32
-	endanim
-
-; unused
-	frame SPRITE_ANIM_OAMSET_UNUSED_4C, 32
-	endanim
-
-; unused
-	frame SPRITE_ANIM_OAMSET_UNUSED_4D, 32
-	endanim
-
-; unused
-	frame SPRITE_ANIM_OAMSET_UNUSED_4E,  3
-	dorepeat  3
 	dorestart
 
 .Frameset_Unused1C:
@@ -495,3 +457,18 @@ SpriteAnimFrameData:
 	frame SPRITE_ANIM_OAMSET_CELEBI_1,  8, OAM_X_FLIP
 	frame SPRITE_ANIM_OAMSET_CELEBI_2,  8, OAM_X_FLIP
 	endanim
+
+.Frameset_PagerMonBlue:
+	frame SPRITE_ANIM_OAMSET_BLUE_WALK_1,  8
+	frame SPRITE_ANIM_OAMSET_BLUE_WALK_2,  8
+	dorestart
+
+.Frameset_PagerMonGreen:
+	frame SPRITE_ANIM_OAMSET_CELEBI_1,  8
+	frame SPRITE_ANIM_OAMSET_CELEBI_2,  8
+	dorestart
+
+.Frameset_PagerMonBrown:
+	frame SPRITE_ANIM_OAMSET_BROWN_WALK_1,  8
+	frame SPRITE_ANIM_OAMSET_BROWN_WALK_2,  8
+	dorestart

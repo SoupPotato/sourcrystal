@@ -1058,8 +1058,8 @@ UnknownText_0x1c5847::
 	done
 
 UnknownText_0x1c5862::
-	text "A - Navigate."
-	line "B - Exit."
+	text "Push A to Navigate"
+	line "Psuh B to Exit"
 	done
 
 UnknownText_0x1c587d::

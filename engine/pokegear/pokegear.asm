@@ -514,8 +514,42 @@ PokegearClock_Joypad:
 	and B_BUTTON
 	jr nz, .quit
 	ld a, [hl]
+	and D_LEFT
+	jr nz, .left
+	ld a, [hl]
 	and A_BUTTON | D_RIGHT
 	ret z
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_PHONE_CARD_F, a
+	ld c, POKEGEARSTATE_PHONEINIT
+	ld b, POKEGEARCARD_PHONE
+	jr .done
+	
+.left
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_RADIO_CARD_F, a
+	jr z, .no_radio
+	ld c, POKEGEARSTATE_RADIOINIT
+	ld b, POKEGEARCARD_RADIO
+	jr .done
+	
+.no_radio
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_PAGER_CARD_F, a
+	jr z, .no_pager
+	ld c, POKEGEARSTATE_PAGERINIT
+	ld b, POKEGEARCARD_PAGER
+	jr .done
+
+.no_pager
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_MAP_CARD_F, a
+	jr z, .no_map
+	ld c, POKEGEARSTATE_MAPCHECKREGION
+	ld b, POKEGEARCARD_MAP
+	jr .done
+
+.no_map
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_PHONE_CARD_F, a
 	ld c, POKEGEARSTATE_PHONEINIT
@@ -626,7 +660,7 @@ PokegearMap_ContinueMap:
 .no_pager
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_RADIO_CARD_F, a
-	ret z
+	jr z, .quit
 	ld c, POKEGEARSTATE_RADIOINIT
 	ld b, POKEGEARCARD_RADIO
 	jr .done
@@ -887,7 +921,7 @@ PokegearPhone_Joypad:
 .no_pager
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_RADIO_CARD_F, a
-	ret z
+	jr z, .quit
 	ld c, POKEGEARSTATE_RADIOINIT
 	ld b, POKEGEARCARD_RADIO
 	jr .switch_page
@@ -1378,10 +1412,11 @@ PokegearPager_Joypad:
 .right
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_RADIO_CARD_F, a
-	ret z
+	jr z, .quit
 	ld c, POKEGEARSTATE_RADIOINIT
 	ld b, POKEGEARCARD_RADIO
-
+	jr .switch_page
+	
 .left
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_MAP_CARD_F, a
@@ -1396,6 +1431,7 @@ PokegearPager_Joypad:
 	ld c, POKEGEARSTATE_PHONEINIT
 	ld b, POKEGEARCARD_PHONE
 	jr .switch_page
+	
 
 .switch_page
 	call Pokegear_SwitchPage
@@ -1407,8 +1443,72 @@ PokegearPager_Joypad:
 	ld a, [wPokegearPagerCursorPosition]
 	add c
 	ld c, a
-	; TODO - if bit c of wPagerFlags is set, run pager #c (0-5)
-	ret
+	; TODO - if bit c of wPagerFlags is set, run pager #c (0-6)
+	; Make sure the pager value isn't 7 or higher
+    ld a, c
+    cp 7
+    jr nc, .end
+	
+	; Shift the flag to check into `a`
+    ld a, 1
+    ld b, c  ; Since we're going to modify `c`, back it up to `b`
+    inc c
+    jr .enter
+.loop
+    rlca ; rotate a left by 1
+.enter
+    dec c
+    jr nz, .loop
+
+    ; Check the flag (look up the AND operation on wikipedia)
+    ld hl, wPagerFlags
+    and [hl]
+    jr z, .end
+
+    ; Cut Pager
+    ld a, b
+    cp 0
+    jr nz, .not_cut
+    farjp CutPager
+	
+	; Fly Pager
+.not_cut
+    cp 1
+    jr nz, .not_fly
+    farjp FlyPager
+	
+    ; Surf Pager
+.not_fly
+    cp 2
+    jr nz, .not_surf
+    farjp SurfPager
+	
+    ; Strength Pager
+.not_surf
+    cp 3
+    jr nz, .not_strength
+    farjp StrngthPager
+	
+    ; Flash Pager
+.not_strength
+    cp 5
+    jr nz, .not_flash
+    farjp FlashPager
+	
+    ; Whirlpool Pager
+.not_flash
+    cp 6
+    jr nz, .not_whirlpool
+    farjp WrlPoolPager
+	
+    ; Rock Smash Pager
+.not_whirlpool
+    cp 7
+    jr nz, .end
+    farjp RckSmshPager
+
+.end
+  ret
 
 PokegearPager_GetDPad:
 	ld hl, hJoyLast

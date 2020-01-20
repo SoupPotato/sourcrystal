@@ -332,7 +332,7 @@ _AskSurfText::
 	
 _UsedFlyText::
 	text "<PLAYER> summoned"
-	line "a PIDGEOTTO to"
+	line "a PIDGEOT to"
 	cont "use FLY!"
 	done
 
@@ -455,7 +455,7 @@ UnknownText_0x1c08bc::
 
 UnknownText_0x1c08f0::
 	text "<PLAYER> summoned"
-	line "a REMORAID to"
+	line "a CUBONE to"
 	cont "use ROCK SMASH!"
 	prompt
 

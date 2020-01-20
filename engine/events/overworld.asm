@@ -622,7 +622,7 @@ FlyFunction:
 .FlyScript:
 	reloadmappart
 	writetext UsedFlyText ; "used FLY!"
-	cry 17
+	cry 18
 	waitbutton
 	closetext
 	callasm HideSprites
@@ -1398,7 +1398,7 @@ RockSmashFromMenuScript:
 
 RockSmashScript:
 	writetext UnknownText_0xcf58
-	cry 223
+	cry 104
 	waitbutton
 	closetext
 	special WaitSFX
@@ -1425,6 +1425,8 @@ UnknownText_0xcf58:
 	db "@"
 
 AskRockSmashScript:
+    checkevent EVENT_GOT_TM08_ROCK_SMASH
+	iffalse .no
 	opentext
 	writetext UnknownText_0xcf77
 	yesorno
@@ -1433,6 +1435,7 @@ AskRockSmashScript:
 	end
 .no
 	jumptext UnknownText_0xcf72
+
 
 UnknownText_0xcf72:
 	; Maybe a #MON can break this.

@@ -40,16 +40,6 @@ MeetMomScript:
 	scall PlayersHouse1FReceiveItemStd
 	setflag ENGINE_POKEGEAR
 	setflag ENGINE_PHONE_CARD
-
-	setflag ENGINE_PAGER_CARD
-	setflag ENGINE_PAGER_CUT
-	setflag ENGINE_PAGER_FLY
-	setflag ENGINE_PAGER_SURF
-	setflag ENGINE_PAGER_STRENGTH
-	setflag ENGINE_PAGER_FLASH
-	setflag ENGINE_PAGER_WHIRLPOOL
-	setflag ENGINE_PAGER_ROCK_SMASH
-
 	addcellnum PHONE_MOM
 	setscene SCENE_FINISHED
 	setevent EVENT_PLAYERS_HOUSE_MOM_1

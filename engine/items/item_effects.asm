@@ -148,7 +148,7 @@ ItemEffects:
 	dw NoEffect            ; STAR_PIECE
 	dw BasementKeyEffect   ; BASEMENT_KEY
 	dw NoEffect            ; PASS
-	dw RckSmshPager        ; ROCKSMASH_PAGER
+	dw RockSmashPager      ; ROCKSMASH_PAGER
 	dw NoEffect            ; ITEM_88
 	dw NoEffect            ; ITEM_89
 	dw NoEffect            ; CHARCOAL
@@ -195,16 +195,16 @@ ItemEffects:
 	dw NoEffect            ; ITEM_B3
 
 FlashPager:
-	farjp OWFlash
+	farjp MonMenu_Flash
 
 CutPager:
 	farjp MonMenu_Cut
 
 SurfPager:
-	farjp SurfFunction
+	farjp MonMenu_Surf
 
 StrngthPager:
-	farjp StrengthFunction
+	farjp MonMenu_Strength
 
 FlyPager:
 	call GetMapEnvironment
@@ -222,10 +222,10 @@ FlyPager:
 	farjp Pack_InitColors
 
 WrlPoolPager:
-	farjp WhirlpoolFunction
+	farjp  MonMenu_Whirlpool
 
-RckSmshPager:
-	farjp RockSmashFunction
+RockSmashPager:
+	farjp MonMenu_RockSmash
 
 PokeBallEffect:
 	ld a, [wBattleMode]

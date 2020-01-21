@@ -561,8 +561,8 @@ PokegearClock_Joypad:
 	ret
 
 .quit
-	ld hl, wJumptableIndex
-	set 7, [hl]
+	ld a, $80
+	ld [wJumptableIndex], a
 	ret
 
 .UpdateClock:
@@ -1447,7 +1447,7 @@ PokegearPager_Joypad:
 	; Make sure the pager value isn't 7 or higher
     ld a, c
     cp 7
-    jr nc, .end
+    jp nc, .end
 	
 	; Shift the flag to check into `a`
     ld a, 1
@@ -1469,7 +1469,12 @@ PokegearPager_Joypad:
     ld a, b
     cp 0
     jr nz, .not_cut
-    farjp CutPager
+    farcall CutPager
+	jp nz, .end
+	ld a, $84
+    ld [wJumptableIndex], a
+	ret
+
 	
 	; Fly Pager
 .not_cut
@@ -1481,31 +1486,51 @@ PokegearPager_Joypad:
 .not_fly
     cp 2
     jr nz, .not_surf
-    farjp SurfPager
+    farcall SurfPager
+	jp nz, .end
+	ld a, $84
+    ld [wJumptableIndex], a
+	ret
 	
     ; Strength Pager
 .not_surf
     cp 3
     jr nz, .not_strength
-    farjp StrngthPager
+    farcall StrngthPager
+	jp nz, .end
+	ld a, $84
+    ld [wJumptableIndex], a
+	ret
 	
     ; Flash Pager
 .not_strength
-    cp 5
+    cp 4
     jr nz, .not_flash
-    farjp FlashPager
+    farcall FlashPager
+	jp nz, .end
+	ld a, $84
+    ld [wJumptableIndex], a
+	ret
 	
     ; Whirlpool Pager
 .not_flash
-    cp 6
+    cp 5
     jr nz, .not_whirlpool
-    farjp WrlPoolPager
+    farcall WrlPoolPager
+	jp nz, .end
+	ld a, $84
+    ld [wJumptableIndex], a
+	ret
 	
     ; Rock Smash Pager
 .not_whirlpool
-    cp 7
+    cp 6
     jr nz, .end
-    farjp RckSmshPager
+    farcall RockSmashPager
+	jp nz, .end
+	ld a, $84
+    ld [wJumptableIndex], a
+	ret
 
 .end
   ret

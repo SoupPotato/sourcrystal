@@ -486,11 +486,11 @@ StartMenu_Pokedex:
 
 
 StartMenu_Pokegear:
-
 	call FadeToMenu
 	farcall PokeGear
 	call CloseSubmenu
-	ld a, 0
+	ld a, [wJumptableIndex]
+	and $7f
 	ret
 
 
@@ -1192,17 +1192,10 @@ OpenPartyStats:
 
 MonMenu_Cut:
 	farcall CutFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
-
+    ld a, [wFieldMoveSucceeded]
+    cp $1
+    ret
+	
 
 MonMenu_Fly:
 	farcall FlyFunction
@@ -1231,40 +1224,19 @@ MonMenu_Fly:
 MonMenu_Flash:
 	farcall OWFlash
 	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
+    cp $1
+    ret
 
 MonMenu_Strength:
 	farcall StrengthFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
+    ld a, [wFieldMoveSucceeded]
+    cp $1
+    ret
 
 MonMenu_Whirlpool:
 	farcall WhirlpoolFunction
 	ld a, [wFieldMoveSucceeded]
 	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
 	ret
 
 MonMenu_Waterfall:
@@ -1295,16 +1267,9 @@ MonMenu_Teleport:
 
 MonMenu_Surf:
 	farcall SurfFunction
-	ld a, [wFieldMoveSucceeded]
-	and a
-	jr z, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
+    ld a, [wFieldMoveSucceeded]
+    cp $1
+    ret
 
 MonMenu_Dig:
 	farcall DigFunction
@@ -1378,13 +1343,6 @@ MonMenu_RockSmash:
 	farcall RockSmashFunction
 	ld a, [wFieldMoveSucceeded]
 	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
 	ret
 
 MonMenu_SweetScent:

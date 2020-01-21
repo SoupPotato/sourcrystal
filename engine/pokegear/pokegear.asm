@@ -1443,97 +1443,75 @@ PokegearPager_Joypad:
 	ld a, [wPokegearPagerCursorPosition]
 	add c
 	ld c, a
-	; TODO - if bit c of wPagerFlags is set, run pager #c (0-6)
-	; Make sure the pager value isn't 7 or higher
-    ld a, c
-    cp 7
-    jp nc, .end
-	
-	; Shift the flag to check into `a`
-    ld a, 1
-    ld b, c  ; Since we're going to modify `c`, back it up to `b`
-    inc c
-    jr .enter
-.loop
-    rlca ; rotate a left by 1
-.enter
-    dec c
-    jr nz, .loop
 
-    ; Check the flag (look up the AND operation on wikipedia)
-    ld hl, wPagerFlags
-    and [hl]
-    jr z, .end
+	; make sure the pager value is valid (0-6)
+	cp NUM_PAGER_FLAGS
+	ret nc
 
-    ; Cut Pager
-    ld a, b
-    cp 0
-    jr nz, .not_cut
-    farcall CutPager
-	jp nz, .end
-	ld a, $84
-    ld [wJumptableIndex], a
-	ret
+	; make sure the pager bit is set
+	ld hl, wPagerFlags
+	call TestBitAInHL
+	ret z
 
-	
-	; Fly Pager
-.not_cut
-    cp 1
-    jr nz, .not_fly
-    farjp FlyPager
-	
-    ; Surf Pager
-.not_fly
-    cp 2
-    jr nz, .not_surf
-    farcall SurfPager
-	jp nz, .end
+	; get the offset from PagerCardRoutines
+	ld hl, PagerCardRoutines
+	ld b, 0
+	add hl, bc
+	add hl, bc
+
+	; jump to the specific pager routine
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	jp hl
+
+PagerCardRoutines:
+	dw CutPagerRoutine
+	dw FlyPagerRoutine
+	dw SurfPagerRoutine
+	dw StrengthPagerRoutine
+	dw FlashPagerRoutine
+	dw WhirlpoolPagerRoutine
+	dw RockSmashPagerRoutine
+
+FinishPagerRoutine:
 	ld a, $84
-    ld [wJumptableIndex], a
-	ret
-	
-    ; Strength Pager
-.not_surf
-    cp 3
-    jr nz, .not_strength
-    farcall StrngthPager
-	jp nz, .end
-	ld a, $84
-    ld [wJumptableIndex], a
-	ret
-	
-    ; Flash Pager
-.not_strength
-    cp 4
-    jr nz, .not_flash
-    farcall FlashPager
-	jp nz, .end
-	ld a, $84
-    ld [wJumptableIndex], a
-	ret
-	
-    ; Whirlpool Pager
-.not_flash
-    cp 5
-    jr nz, .not_whirlpool
-    farcall WrlPoolPager
-	jp nz, .end
-	ld a, $84
-    ld [wJumptableIndex], a
-	ret
-	
-    ; Rock Smash Pager
-.not_whirlpool
-    cp 6
-    jr nz, .end
-    farcall RockSmashPager
-	jp nz, .end
-	ld a, $84
-    ld [wJumptableIndex], a
+	ld [wJumptableIndex], a
 	ret
 
-.end
-  ret
+CutPagerRoutine:
+	farcall CutPager
+	ret nz
+	jr FinishPagerRoutine
+
+FlyPagerRoutine:
+	farcall FlyPager
+	jr FinishPagerRoutine
+
+SurfPagerRoutine:
+	farcall SurfPager
+	ret nz
+	jr FinishPagerRoutine
+
+StrengthPagerRoutine:
+	farcall StrngthPager
+	ret nz
+	jr FinishPagerRoutine
+
+FlashPagerRoutine:
+	farcall FlashPager
+	ret nz
+	jr FinishPagerRoutine
+
+WhirlpoolPagerRoutine:
+	farcall WrlPoolPager
+	ret nz
+	jr FinishPagerRoutine
+
+RockSmashPagerRoutine:
+	farcall RockSmashPager
+	ret nz
+	jr FinishPagerRoutine
 
 PokegearPager_GetDPad:
 	ld hl, hJoyLast

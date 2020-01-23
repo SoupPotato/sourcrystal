@@ -1443,6 +1443,23 @@ PokegearPager_Joypad:
 	ld a, [wPokegearPagerCursorPosition]
 	add c
 	ld c, a
+	
+	ld [wPokegearPagerSelectedMon], a
+	hlcoord 1, 4
+	ld a, [wPokegearPagerCursorPosition]
+	ld bc, SCREEN_WIDTH * 2
+	call AddNTimes
+	ld [hl], "▷"
+	call PokegearPagerContactSubmenu
+	jr c, .quit_submenu
+	ld hl, wJumptableIndex
+	inc [hl]
+	ret
+	
+.quit_submenu
+	ld a, POKEGEARSTATE_PAGERJOYPAD
+	ld [wJumptableIndex], a
+	ret
 
 	; make sure the pager value is valid (0-6)
 	cp NUM_PAGER_FLAGS
@@ -1615,6 +1632,159 @@ PokegearPager_UpdateDisplayList:
 	jr c, .loop
 	call PokegearPager_UpdateCursor
 	ret
+	
+; TODO
+
+PokegearPagerContactSubmenu:
+	ld hl, wPhoneList
+	ld a, [wPokegearPagerScrollPosition]
+	ld e, a
+	ld d, 0
+	add hl, de
+	ld a, [wPokegearPagerCursorPosition]
+	ld e, a
+	ld d, 0
+	add hl, de
+	ld hl, .CallCancelJumptable
+	ld de, .CallCancelStrings
+
+.got_menu_data
+	xor a
+	ld [hBGMapMode], a
+	push hl
+	push de
+	ld a, [de]
+	ld l, a
+	inc de
+	ld a, [de]
+	ld h, a
+	inc de
+	push hl
+	ld bc, hBGMapAddress + 1
+	add hl, bc
+	ld a, [de]
+	inc de
+	sla a
+	ld b, a
+	ld c, 8
+	push de
+	call TextBox
+	pop de
+	pop hl
+	inc hl
+	call PlaceString
+	pop de
+	xor a
+	ld [wPokegearPagerSubmenuCursor], a
+	call .UpdateCursor
+	call WaitBGMap
+.loop
+	push de
+	call JoyTextDelay
+	pop de
+	ld hl, hJoyPressed
+	ld a, [hl]
+	and D_UP
+	jr nz, .d_up
+	ld a, [hl]
+	and D_DOWN
+	jr nz, .d_down
+	ld a, [hl]
+	and A_BUTTON | B_BUTTON
+	jr nz, .a_b
+	call DelayFrame
+	jr .loop
+
+.d_up
+	ld hl, wPokegearPagerSubmenuCursor
+	ld a, [hl]
+	and a
+	jr z, .loop
+	dec [hl]
+	call .UpdateCursor
+	jr .loop
+
+.d_down
+	ld hl, 2
+	add hl, de
+	ld a, [wPokegearPagerSubmenuCursor]
+	inc a
+	cp [hl]
+	jr nc, .loop
+	ld [wPokegearPagerSubmenuCursor], a
+	call .UpdateCursor
+	jr .loop
+
+.a_b
+	xor a
+	ld [hBGMapMode], a
+	call PokegearPager_UpdateDisplayList
+	ld a, $1
+	ld [hBGMapMode], a
+	pop hl
+	ld a, [hJoyPressed]
+	and B_BUTTON
+	jr nz, .Cancel
+	ld a, [wPokegearPagerSubmenuCursor]
+	ld e, a
+	ld d, 0
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	jp hl
+
+.Cancel:
+	ld hl, PokegearText_WhomToCall
+	call PrintText
+	scf
+	ret
+
+
+.Call:
+	and a
+	ret
+
+
+.UpdateCursor:
+	push de
+	ld a, [de]
+	inc de
+	ld l, a
+	ld a, [de]
+	inc de
+	ld h, a
+	ld a, [de]
+	ld c, a
+	push hl
+	ld a, " "
+	ld de, SCREEN_WIDTH * 2
+.clear_column
+	ld [hl], a
+	add hl, de
+	dec c
+	jr nz, .clear_column
+	pop hl
+	ld a, [wPokegearPagerSubmenuCursor]
+	ld bc, SCREEN_WIDTH  * 2
+	call AddNTimes
+	ld [hl], "▶"
+	pop de
+	ret
+
+.CallCancelStrings:
+	dwcoord 10, 8
+	db 2
+	db   "CALL"
+	next "CANCEL"
+	db   "@"
+
+.CallCancelJumptable:
+	dw .Call
+	dw .Cancel
+	
+;end TODO
 
 Pokegear_SwitchPage:
 	ld de, SFX_READ_TEXT_2

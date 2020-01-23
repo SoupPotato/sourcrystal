@@ -774,6 +774,8 @@ wPokegearRadioMusicPlaying:: db ; c6dc
 wPokegearPagerLoadNameBuffer:: db ; c6dd
 wPokegearPagerCursorPosition:: db ; c6de
 wPokegearPagerScrollPosition:: db ; c6df
+wPokegearPagerSelectedMon:: db ; c6e0
+wPokegearPagerSubmenuCursor:: db ; c6e1
 
 NEXTU ; c6d0
 ; slot machine

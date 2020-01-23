@@ -269,8 +269,8 @@ CoolDuoElanandIda2AfterBattleText:
 	done
 	
 CooltrainermArwinSeenText:
-	text "Anyway,"
-	line "fight me and see!"
+	text "Anyway, fight me"
+	line "and see!"
 	done
 
 CooltrainermArwinBeatenText:

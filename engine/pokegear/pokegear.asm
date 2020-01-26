@@ -1438,25 +1438,22 @@ PokegearPager_Joypad:
 	ret
 
 .a
-	; save the pager value
-	ld a, [wPokegearPagerScrollPosition]
-	ld c, a
-	ld a, [wPokegearPagerCursorPosition]
-	add c
-	ld [wPokegearPagerSelectedMon], a
-
 	; show the Call/Cancel menu
-	hlcoord 1, 4
-	ld a, [wPokegearPagerCursorPosition]
-	ld bc, SCREEN_WIDTH * 2
-	call AddNTimes
-	ld [hl], "▷"
-	call PokegearPagerContactSubmenu
-	ret c
+    hlcoord 1, 4
+    ld a, [wPokegearPagerCursorPosition]
+    ld bc, SCREEN_WIDTH * 2
+    call AddNTimes
+    ld [hl], "▷"
+    call PokegearPagerContactSubmenu
+    ret c
 
-	; get the pager value
-	ld a, [wPokegearPagerSelectedMon]
-	ld c, a
+    ; get the pager value
+    ld a, [wPokegearPagerScrollPosition]
+    ld c, a
+    ld a, [wPokegearPagerCursorPosition]
+    add c
+    ld [wPokegearPagerSelectedMon], a
+    ld c, a
 
 	; make sure the pager value is valid (0-6)
 	cp NUM_PAGER_FLAGS
@@ -1631,19 +1628,10 @@ PokegearPager_UpdateDisplayList:
 	ret
 
 PokegearPagerContactSubmenu:
-	ld hl, wPhoneList
-	ld a, [wPokegearPagerSelectedMon]
-	ld e, a
-	ld d, 0
-	add hl, de
-	ld hl, .CallCancelJumptable
-	ld de, .CallCancelStrings
-
-.got_menu_data
-	xor a
-	ld [hBGMapMode], a
-	push hl
-	push de
+    xor a
+    ld [hBGMapMode], a
+    ld de, .CallCancelStrings
+    push de
 	ld a, [de]
 	ld l, a
 	inc de
@@ -1708,15 +1696,15 @@ PokegearPagerContactSubmenu:
 
 .a_b
 	xor a
-	ld [hBGMapMode], a
-	call PokegearPager_UpdateDisplayList
-	ld a, $1
-	ld [hBGMapMode], a
-	pop hl
-	ld a, [hJoyPressed]
-	and B_BUTTON
-	jr nz, .Cancel
-	ld a, [wPokegearPagerSubmenuCursor]
+    ld [hBGMapMode], a
+    call PokegearPager_UpdateDisplayList
+    ld a, $1
+    ld [hBGMapMode], a
+    ld a, [hJoyPressed]
+    and B_BUTTON
+    jr nz, .Cancel
+    ld hl, .CallCancelJumptable
+    ld a, [wPokegearPagerSubmenuCursor]
 	ld e, a
 	ld d, 0
 	add hl, de
@@ -1725,6 +1713,10 @@ PokegearPagerContactSubmenu:
 	ld h, [hl]
 	ld l, a
 	jp hl
+	
+.CallCancelJumptable:
+	dw .Call
+	dw .Cancel
 
 .Cancel:
 	ld hl, PokegearText_WhomToCall
@@ -1768,10 +1760,6 @@ PokegearPagerContactSubmenu:
 	db   "CALL"
 	next "CANCEL"
 	db   "@"
-
-.CallCancelJumptable:
-	dw .Call
-	dw .Cancel
 
 Pokegear_SwitchPage:
 	ld de, SFX_READ_TEXT_2

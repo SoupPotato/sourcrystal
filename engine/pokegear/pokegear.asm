@@ -524,7 +524,7 @@ PokegearClock_Joypad:
 	ld c, POKEGEARSTATE_PHONEINIT
 	ld b, POKEGEARCARD_PHONE
 	jr .done
-	
+
 .left
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_RADIO_CARD_F, a
@@ -532,7 +532,7 @@ PokegearClock_Joypad:
 	ld c, POKEGEARSTATE_RADIOINIT
 	ld b, POKEGEARCARD_RADIO
 	jr .done
-	
+
 .no_radio
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_PAGER_CARD_F, a
@@ -1416,7 +1416,7 @@ PokegearPager_Joypad:
 	ld c, POKEGEARSTATE_RADIOINIT
 	ld b, POKEGEARCARD_RADIO
 	jr .switch_page
-	
+
 .left
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_MAP_CARD_F, a
@@ -1431,35 +1431,32 @@ PokegearPager_Joypad:
 	ld c, POKEGEARSTATE_PHONEINIT
 	ld b, POKEGEARCARD_PHONE
 	jr .switch_page
-	
+
 
 .switch_page
 	call Pokegear_SwitchPage
 	ret
 
 .a
+	; save the pager value
 	ld a, [wPokegearPagerScrollPosition]
 	ld c, a
 	ld a, [wPokegearPagerCursorPosition]
 	add c
-	ld c, a
-	
 	ld [wPokegearPagerSelectedMon], a
+
+	; show the Call/Cancel menu
 	hlcoord 1, 4
 	ld a, [wPokegearPagerCursorPosition]
 	ld bc, SCREEN_WIDTH * 2
 	call AddNTimes
 	ld [hl], "▷"
 	call PokegearPagerContactSubmenu
-	jr c, .quit_submenu
-	ld hl, wJumptableIndex
-	inc [hl]
-	ret
-	
-.quit_submenu
-	ld a, POKEGEARSTATE_PAGERJOYPAD
-	ld [wJumptableIndex], a
-	ret
+	ret c
+
+	; get the pager value
+	ld a, [wPokegearPagerSelectedMon]
+	ld c, a
 
 	; make sure the pager value is valid (0-6)
 	cp NUM_PAGER_FLAGS
@@ -1632,16 +1629,10 @@ PokegearPager_UpdateDisplayList:
 	jr c, .loop
 	call PokegearPager_UpdateCursor
 	ret
-	
-; TODO
 
 PokegearPagerContactSubmenu:
 	ld hl, wPhoneList
-	ld a, [wPokegearPagerScrollPosition]
-	ld e, a
-	ld d, 0
-	add hl, de
-	ld a, [wPokegearPagerCursorPosition]
+	ld a, [wPokegearPagerSelectedMon]
 	ld e, a
 	ld d, 0
 	add hl, de
@@ -1741,11 +1732,9 @@ PokegearPagerContactSubmenu:
 	scf
 	ret
 
-
 .Call:
 	and a
 	ret
-
 
 .UpdateCursor:
 	push de
@@ -1783,8 +1772,6 @@ PokegearPagerContactSubmenu:
 .CallCancelJumptable:
 	dw .Call
 	dw .Cancel
-	
-;end TODO
 
 Pokegear_SwitchPage:
 	ld de, SFX_READ_TEXT_2

@@ -210,11 +210,9 @@ FlyPager:
 	call GetMapEnvironment
 	call CheckOutdoorMap
 	jp nz, CantUseMessage
-	call FadeToMenu
 	farcall FlyFunction
 	bit B_BUTTON_F, [hl]
 	ret z
-	call Call_ExitMenu
 	xor a
 	ld [hBGMapMode], a
 	farcall Pack_InitGFX

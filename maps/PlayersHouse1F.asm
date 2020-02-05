@@ -68,18 +68,19 @@ MeetMomScript:
 
 .KnowPhone:
 	writetext UnknownText_0x7a7cb
-	buttonsound
+	waitbutton
+	closetext
 	jump .FinishPhone
 
 .ExplainPhone:
 	writetext UnknownText_0x7a807
 	buttonsound
-	jump .FinishPhone
-
-.FinishPhone:
 	writetext UnknownText_0x7a850
 	waitbutton
 	closetext
+	jump .FinishPhone
+
+.FinishPhone:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue .FromRight
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
@@ -263,11 +264,10 @@ UnknownText_0x7a763:
 	done
 
 UnknownText_0x7a7cb:
-	text "Don't you just"
-	line "turn the #GEAR"
-
-	para "on and select the"
-	line "PHONE icon?"
+	text "Oh, I see."
+	
+	para "Aren't you a"
+	line "clever one?"
 	done
 
 UnknownText_0x7a807:

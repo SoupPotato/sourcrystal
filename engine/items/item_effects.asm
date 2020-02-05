@@ -207,20 +207,10 @@ StrngthPager:
 	farjp MonMenu_Strength
 
 FlyPager:
-	call GetMapEnvironment
-	call CheckOutdoorMap
-	jp nz, CantUseMessage
-	farcall FlyFunction
-	bit B_BUTTON_F, [hl]
-	ret z
-	xor a
-	ld [hBGMapMode], a
-	farcall Pack_InitGFX
-	farcall WaitBGMap_DrawPackGFX
-	farjp Pack_InitColors
+	farjp MonMenu_Fly
 
 WrlPoolPager:
-	farjp  MonMenu_Whirlpool
+	farjp MonMenu_Whirlpool
 
 RockSmashPager:
 	farjp MonMenu_RockSmash

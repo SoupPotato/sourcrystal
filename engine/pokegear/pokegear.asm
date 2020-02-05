@@ -1497,7 +1497,26 @@ CutPagerRoutine:
 
 FlyPagerRoutine:
 	farcall FlyPager
-	jr FinishPagerRoutine
+	jr z, FinishPagerRoutine
+ 	call DisableLCD
+ 	farcall DeinitializeAllSprites
+ 	call ClearSprites
+ 	call ClearTileMap
+ 	call Pokegear_LoadGFX
+ 	call InitPokegearModeIndicatorArrow
+ 	ld a, LCDC_DEFAULT
+ 	ld [rLCDC], a
+ 	call PokegearPager_Init
+ 	ld a, 1
+ 	ld [wPokegearPagerCursorPosition], a
+ 	call PokegearPager_UpdateCursor
+ 	call WaitBGMap
+ 	ld b, SCGB_POKEGEAR_PALS
+ 	call GetSGBLayout
+ 	call SetPalettes
+ 	ld a, POKEGEARSTATE_PAGERJOYPAD
+ 	ld [wJumptableIndex], a
+ 	ret
 
 SurfPagerRoutine:
 	farcall SurfPager

@@ -68,7 +68,7 @@ OddEgg1:
 	bigdw 7 ; Def
 	bigdw 12 ; Spd
 	bigdw 9 ; SAtk
-	bigdw 8 ; SDef
+	bigdw 9 ; SDef
 	db "EGG@@@@@@@@"
 	
 OddEgg2:
@@ -95,7 +95,7 @@ OddEgg2:
 	bigdw 7 ; Def
 	bigdw 12 ; Spd
 	bigdw 9 ; SAtk
-	bigdw 8 ; SDef
+	bigdw 9 ; SDef
 	db "EGG@@@@@@@@"
 	
 	db PICHU
@@ -117,11 +117,11 @@ OddEgg2:
 	db 0, 0 ; Status
 	bigdw 0 ; HP
 	bigdw 17 ; Max HP
-	bigdw 10 ; Atk
+	bigdw 9 ; Atk
 	bigdw 7 ; Def
 	bigdw 12 ; Spd
 	bigdw 9 ; SAtk
-	bigdw 8 ; SDef
+	bigdw 9 ; SDef
 	db "EGG@@@@@@@@"
 	
 	db PICHU
@@ -147,7 +147,7 @@ OddEgg2:
 	bigdw 7 ; Def
 	bigdw 12 ; Spd
 	bigdw 9 ; SAtk
-	bigdw 8 ; SDef
+	bigdw 9 ; SDef
 	db "EGG@@@@@@@@"
 
 	db CLEFFA
@@ -376,7 +376,7 @@ OddEgg2:
 	db 5 ; Level
 	db 0, 0 ; Status
 	bigdw 0 ; HP
-	bigdw 19 ; Max HP
+	bigdw 20 ; Max HP
 	bigdw 8 ; Atk
 	bigdw 7 ; Def
 	bigdw 12 ; Spd
@@ -402,7 +402,7 @@ OddEgg2:
 	db 5 ; Level
 	db 0, 0 ; Status
 	bigdw 0 ; HP
-	bigdw 19 ; Max HP
+	bigdw 20 ; Max HP
 	bigdw 8 ; Atk
 	bigdw 7 ; Def
 	bigdw 12 ; Spd
@@ -428,7 +428,7 @@ OddEgg2:
 	db 5 ; Level
 	db 0, 0 ; Status
 	bigdw 0 ; HP
-	bigdw 19 ; Max HP
+	bigdw 20 ; Max HP
 	bigdw 13 ; Atk
 	bigdw 8 ; Def
 	bigdw 14 ; Spd
@@ -454,7 +454,7 @@ OddEgg2:
 	db 5 ; Level
 	db 0, 0 ; Status
 	bigdw 0 ; HP
-	bigdw 19 ; Max HP
+	bigdw 20 ; Max HP
 	bigdw 13 ; Atk
 	bigdw 8 ; Def
 	bigdw 14 ; Spd
@@ -480,7 +480,7 @@ OddEgg2:
 	db 5 ; Level
 	db 0, 0 ; Status
 	bigdw 0 ; HP
-	bigdw 19 ; Max HP
+	bigdw 20 ; Max HP
 	bigdw 13 ; Atk
 	bigdw 8 ; Def
 	bigdw 14 ; Spd
@@ -506,7 +506,7 @@ OddEgg2:
 	db 5 ; Level
 	db 0, 0 ; Status
 	bigdw 0 ; HP
-	bigdw 19 ; Max HP
+	bigdw 20 ; Max HP
 	bigdw 13 ; Atk
 	bigdw 8 ; Def
 	bigdw 14 ; Spd
@@ -558,7 +558,7 @@ OddEgg2:
 	db 5 ; Level
 	db 0, 0 ; Status
 	bigdw 0 ; HP
-	bigdw 19 ; Max HP
+	bigdw 20 ; Max HP
 	bigdw 11 ; Atk
 	bigdw 9 ; Def
 	bigdw 15 ; Spd
@@ -584,7 +584,7 @@ OddEgg2:
 	db 5 ; Level
 	db 0, 0 ; Status
 	bigdw 0 ; HP
-	bigdw 19 ; Max HP
+	bigdw 20 ; Max HP
 	bigdw 12 ; Atk
 	bigdw 9 ; Def
 	bigdw 15 ; Spd
@@ -610,7 +610,7 @@ OddEgg2:
 	db 5 ; Level
 	db 0, 0 ; Status
 	bigdw 0 ; HP
-	bigdw 19 ; Max HP
+	bigdw 20 ; Max HP
 	bigdw 12 ; Atk
 	bigdw 9 ; Def
 	bigdw 15 ; Spd
@@ -636,7 +636,7 @@ OddEgg2:
 	db 5 ; Level
 	db 0, 0 ; Status
 	bigdw 0 ; HP
-	bigdw 18 ; Max HP
+	bigdw 19 ; Max HP
 	bigdw 9 ; Atk
 	bigdw 9 ; Def
 	bigdw 9 ; Spd
@@ -662,7 +662,7 @@ OddEgg2:
 	db 5 ; Level
 	db 0, 0 ; Status
 	bigdw 0 ; HP
-	bigdw 18 ; Max HP
+	bigdw 19 ; Max HP
 	bigdw 9 ; Atk
 	bigdw 9 ; Def
 	bigdw 9 ; Spd

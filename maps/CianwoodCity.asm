@@ -97,7 +97,11 @@ CianwoodCityChucksWife:
 .BeatChuck:
 	writetext ChucksWifeGiveHMText
 	buttonsound
-	verbosegiveitem FLY_PAGER
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_FLY
+	writetext GotFlyPagerText
+	buttonsound
 	writetext ChucksWifeFlySpeechText
 	buttonsound
 	verbosegiveitem HM_FLY
@@ -111,6 +115,18 @@ CianwoodCityChucksWife:
 .Done:
 	closetext
 	end
+	
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
+
+.pagercardname
+	db "FLY PAGER@"
+	
+GotFlyPagerText:
+	text "PIDGEOT WING was"
+	line "added to the PPS!"
+	done
 
 CianwoodCityYoungster:
 	jumptextfaceplayer CianwoodCityYoungsterText

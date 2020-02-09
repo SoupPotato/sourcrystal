@@ -335,6 +335,13 @@ ElmAfterTheftScript:
 	scall ElmJumpBackScript2
 	writetext ElmAfterTheftText4
 	buttonsound
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_CARD
+	writetext GotPagerCardText
+	buttonsound
+	writetext ElmAfterTheftText7
+	buttonsound
 	writetext ElmAfterTheftText5
 	buttonsound
 	setevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
@@ -347,6 +354,13 @@ ElmAfterTheftScript:
 	closetext
 	setscene SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS
 	end
+	
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
+
+.pagercardname
+	db "PAGER CARD@"
 
 ElmStudyingEggScript:
 	writetext ElmStudyingEggText
@@ -987,6 +1001,12 @@ ElmAfterTheftText4:
 
 	para "If it is, it is a"
 	line "great discovery!"
+	
+	para "Thank you, <PLAY_G>."
+	
+	para "I would like you"
+	line "to have this as"
+	cont "my thanks."
 	done
 
 ElmAfterTheftText5:
@@ -1033,6 +1053,27 @@ ElmAfterTheftText6:
 	para "Before you leave,"
 	line "make sure that you"
 	cont "talk to your mom."
+	done
+	
+ElmAfterTheftText7:
+	text "That's the latest"
+	line "#GEAR card."
+
+	para "The #MON"
+	line "PAGER SYSTEM."
+
+	para "Or PPS for short."
+	
+	para "It allows you to"
+	line "call on special"
+	
+	para "#MON to help"
+	line "you on your"
+	cont "travels."
+	
+	para "But you need a"
+	line "PAGER to use it"
+	cont "first."
 	done
 
 ElmStudyingEggText:
@@ -1366,6 +1407,11 @@ ElmsLabPCText:
 
 	para "…It says on the"
 	line "screen…"
+	done
+	
+GotPagerCardText:
+	text "<PLAYER>'s #GEAR"
+	line "now has a PPS!"
 	done
 
 ElmsLab_MapEvents:

@@ -30,7 +30,7 @@
 	const FIRE_STONE   ; $16
 	const THUNDERSTONE ; $17
 	const WATER_STONE  ; $18
-	const CUT_PAGER    ; $19
+	const ITEM_19      ; $19
 	const HP_UP        ; $1A
 	const PROTEIN      ; $1B
 	const IRON         ; $1C
@@ -50,12 +50,12 @@
 	const SUPER_REPEL  ; $2A
 	const MAX_REPEL    ; $2B
 	const DIRE_HIT     ; $2C
-	const FLASH_PAGER  ; $2D
+	const ITEM_2D      ; $2D
 	const FRESH_WATER  ; $2E
 	const SODA_POP     ; $2F
 	const LEMONADE     ; $30
 	const X_ATTACK     ; $31
-	const SURF_PAGER   ; $32
+	const ITEM_32      ; $32
 	const X_DEFEND     ; $33
 	const X_SPEED      ; $34
 	const X_SPECIAL    ; $35
@@ -95,7 +95,7 @@
 	const BIG_MUSHROOM ; $57
 	const SILVERPOWDER ; $58
 	const BLU_APRICORN ; $59
-	const STRNGTHPAGER ; $5A
+	const ITEM_5A      ; $5A
 	const AMULET_COIN  ; $5B
 	const YLW_APRICORN ; $5C
 	const GRN_APRICORN ; $5D
@@ -105,7 +105,7 @@
 	const WHT_APRICORN ; $61
 	const BLACKBELT    ; $62
 	const BLK_APRICORN ; $63
-	const FLY_PAGER    ; $64
+	const ITEM_64      ; $64
 	const PNK_APRICORN ; $65
 	const BLACKGLASSES ; $66
 	const SLOWPOKETAIL ; $67
@@ -125,7 +125,7 @@
 	const MIRACLE_SEED ; $75
 	const THICK_CLUB   ; $76
 	const FOCUS_BAND   ; $77
-	const WRLPOOLPAGER ; $78
+	const ITEM_78      ; $78
 	const ENERGYPOWDER ; $79
 	const ENERGY_ROOT  ; $7A
 	const HEAL_POWDER  ; $7B
@@ -140,7 +140,7 @@
 	const STAR_PIECE   ; $84
 	const BASEMENT_KEY ; $85
 	const PASS         ; $86
-	const RCKSMSHPAGER ; $87
+	const ITEM_87      ; $87
 	const ITEM_88      ; $88
 	const ITEM_89      ; $89
 	const CHARCOAL     ; $8A

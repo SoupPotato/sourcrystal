@@ -518,11 +518,9 @@ TrySurfOW::
 	call CheckEngineFlag
 	jr c, .quit
 
-	ld a, SURF_PAGER
-    ld [wCurItem], a ; might be CurItem on your repo
-    ld hl, wNumItems ; might be NumItems on your repo
-    call CheckItem
-    jr nc, .quit
+	ld de, ENGINE_PAGER_SURF
+	call CheckEngineFlag
+	jr c, .quit
 
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
@@ -1083,13 +1081,11 @@ UnknownText_0xcd73:
 	db "@"
 
 TryStrengthOW:
-	ld a, STRNGTHPAGER
-    ld [wCurItem], a ; might be CurItem on your repo
-    ld hl, wNumItems ; might be NumItems on your repo
-    call CheckItem
-    jr nc, .nope
-
 	ld de, ENGINE_PLAINBADGE
+	call CheckEngineFlag
+	jr c, .nope
+	
+	ld de, ENGINE_PAGER_STRENGTH
 	call CheckEngineFlag
 	jr c, .nope
 
@@ -1220,13 +1216,10 @@ DisappearWhirlpool:
 	ret
 
 TryWhirlpoolOW::
-	ld a, WRLPOOLPAGER
-    ld [wCurItem], a ; might be CurItem on your repo
-    ld hl, wNumItems ; might be NumItems on your repo
-    call CheckItem
-    jr nc, .failed
-	
 	ld de, ENGINE_GLACIERBADGE
+	call CheckEngineFlag
+	jr c, .failed
+	ld de, ENGINE_PAGER_WHIRLPOOL
 	call CheckEngineFlag
 	jr c, .failed
 	call TryWhirlpoolMenu
@@ -1373,6 +1366,7 @@ TryRockSmashFromMenu:
 GetFacingObject:
 	farcall CheckFacingObject
 	jr nc, .fail
+	
 
 	ld a, [hObjectStructIndexBuffer]
 	call GetObjectStruct
@@ -1795,11 +1789,9 @@ TryCutOW::
 	call CheckEngineFlag
 	jr c, .cant_cut
 	
-	ld a, CUT_PAGER
-    ld [wCurItem], a ; might be CurItem on your repo
-    ld hl, wNumItems ; might be NumItems on your repo
-    call CheckItem
-    jr nc, .cant_cut
+	ld de, ENGINE_PAGER_CUT
+	call CheckEngineFlag
+	jr c, .cant_cut
 
 	ld a, BANK(AskCutScript)
 	ld hl, AskCutScript

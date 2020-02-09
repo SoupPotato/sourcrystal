@@ -1496,6 +1496,9 @@ CutPagerRoutine:
 	jr FinishPagerRoutine
 
 FlyPagerRoutine:
+    call ClearBGPalettes
+    ld a, $90
+    ld [hWY], a
 	farcall FlyPager
 	jr z, FinishPagerRoutine
  	call DisableLCD

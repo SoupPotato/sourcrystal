@@ -105,7 +105,11 @@ DanceTheaterSurfGuy:
 .GetSurf:
 	writetext SurfGuyLikeADanceText
 	buttonsound
-	verbosegiveitem SURF_PAGER
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_SURF
+	writetext GotSurfPagerText
+	buttonsound
 	writetext UnknownText_0x9999b
 	buttonsound
 	verbosegiveitem HM_SURF
@@ -114,6 +118,18 @@ DanceTheaterSurfGuy:
 	waitbutton
 	closetext
 	end
+	
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
+
+.pagercardname
+	db "SURF PAGER@"
+	
+GotSurfPagerText:
+	text "LAPRAS SURF was"
+	line "added to the PPS!"
+	done
 
 SurfGuyAlreadyGaveSurf:
 	writetext SurfGuyElegantKimonoGirlsText

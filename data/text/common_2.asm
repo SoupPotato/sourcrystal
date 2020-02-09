@@ -326,8 +326,8 @@ _AlreadySurfingText::
 
 _AskSurfText::
 	text "The water is calm."
-	line "Want to use the"
-	cont "SURF PAGER?"
+	line "Want to use"
+	cont "LAPRAS SURF?"
 	done
 	
 _UsedFlyText::
@@ -399,8 +399,8 @@ UnknownText_0x1c07a0::
 	text "A #MON may be"
 	line "able to move this."
 
-	para "Want to use the"
-	line "STRNGTHPAGER?"
+	para "Want to use"
+	line "MACHOKE PUSH?"
 	done
 
 UnknownText_0x1c07d8::
@@ -431,8 +431,8 @@ UnknownText_0x1c0864::
 	text "A whirlpool is in"
 	line "the way."
 
-	para "Want to use the"
-	line "WRLPOOLPAGER?"
+	para "Want to use"
+	line "REMORAID WHIRL?"
 	done
 
 UnknownText_0x1c0897::
@@ -468,8 +468,8 @@ UnknownText_0x1c0924::
 	text "This rock looks"
 	line "breakable."
 
-	para "Want to use the"
-	line "RKSMSHPAGER?"
+	para "Want to use"
+	line "CUBONE SMASH?"
 	done
 
 UnknownText_0x1c0958::
@@ -509,8 +509,8 @@ UnknownText_0x1c09dd::
 	text "This tree can be"
 	line "CUT!"
 
-	para "Want to use the"
-	line "CUT PAGER?"
+	para "Want to use"
+	line "SCYTHER CHOP?"
 	done
 
 UnknownText_0x1c0a05::

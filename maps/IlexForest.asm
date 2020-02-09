@@ -349,7 +349,11 @@ IlexForestCharcoalMasterScript:
 	iftrue .AlreadyGotCut
 	writetext Text_CharcoalMasterIntro
 	buttonsound
-	verbosegiveitem CUT_PAGER
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_CUT
+	writetext GotCutPagerText
+	buttonsound
 	writetext Text_CharcoalMasterMid
 	buttonsound
 	verbosegiveitem HM_CUT
@@ -364,12 +368,24 @@ IlexForestCharcoalMasterScript:
 	clearevent EVENT_CHARCOAL_KILN_APPRENTICE
 	clearevent EVENT_CHARCOAL_KILN_BOSS
 	end
+	
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
 
+.pagercardname
+	db "CUT PAGER@"
+	
 .AlreadyGotCut:
 	writetext Text_CharcoalMasterTalkAfter
 	waitbutton
 	closetext
 	end
+	
+GotCutPagerText:
+	text "SCYTHER CHOP was"
+	line "added to the PPS!"
+	done
 
 IlexForestHeadbuttGuyScript:
 	faceplayer

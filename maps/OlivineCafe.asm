@@ -15,7 +15,11 @@ OlivineCafeStrengthSailorScript:
 	iftrue .GotStrength
 	writetext OlivineCafeStrengthSailorText
 	buttonsound
-	verbosegiveitem STRNGTHPAGER
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_STRENGTH
+	writetext GotStrengthPagerText
+	buttonsound
 	writetext UnknownText_STR
 	buttonsound
 	verbosegiveitem HM_STRENGTH
@@ -25,6 +29,18 @@ OlivineCafeStrengthSailorScript:
 	waitbutton
 	closetext
 	end
+	
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
+
+.pagercardname
+	db "STRNGTHPAGER@"
+	
+GotStrengthPagerText:
+	text "MACHOKE PUSH was"
+	line "added to the PPS!"
+	done
 
 OlivineCafeFishingGuruScript:
 	jumptextfaceplayer OlivineCafeFishingGuruText

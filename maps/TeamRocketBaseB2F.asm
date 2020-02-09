@@ -285,7 +285,11 @@ RocketBaseElectrodeScript:
 	opentext
 	writetext UnknownText_0x6d809
 	buttonsound
-	verbosegiveitem WRLPOOLPAGER
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_WHIRLPOOL
+	writetext GotWhirlpoolPagerText
+	buttonsound
 	writetext UnknownText_0x6d8f8
 	buttonsound
 	verbosegiveitem HM_WHIRLPOOL
@@ -314,6 +318,18 @@ RocketBaseElectrodeScript:
 	setevent EVENT_SECURITY_CAMERA_4
 	setevent EVENT_SECURITY_CAMERA_5
 	end
+	
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
+
+.pagercardname
+	db "WRLPOOLPAGER@"
+	
+GotWhirlpoolPagerText:
+	text "REMORAID WHIRL was"
+	line "added to the PPS!"
+	done
 
 TeamRocketBaseB2FLockedDoor:
 	conditional_event EVENT_OPENED_DOOR_TO_ROCKET_HIDEOUT_TRANSMITTER, .Script

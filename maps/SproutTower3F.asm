@@ -76,7 +76,11 @@ SageLiScript:
 	opentext
 	writetext SageLiPagerText
 	buttonsound
-	verbosegiveitem FLASH_PAGER
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_FLASH
+	writetext GotFlashPagerText
+	buttonsound
 	writetext SageLiTakeThisFlashText
 	buttonsound
 	verbosegiveitem HM_FLASH
@@ -92,6 +96,18 @@ SageLiScript:
 	waitbutton
 	closetext
 	end
+	
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
+
+.pagercardname
+	db "FLASH PAGER@"
+	
+GotFlashPagerText:
+	text "MAREEP SHINE was"
+	line "added to the PPS!"
+	done
 
 TrainerSageJin:
 	trainer SAGE, JIN, EVENT_BEAT_SAGE_JIN, SageJinSeenText, SageJinBeatenText, 0, .Script

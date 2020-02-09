@@ -139,12 +139,31 @@ Route36RockSmashGuyScript:
 	verbosegiveitem TM_ROCK_SMASH
 	iffalse .NoRoomForTM
 	setevent EVENT_GOT_TM08_ROCK_SMASH
-.AlreadyGotRockSmash:
 	writetext RockSmashGuyText3
+	buttonsound
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_ROCK_SMASH
+	writetext GotRockSmashPagerText
+	buttonsound
+.AlreadyGotRockSmash:
+	writetext RockSmashGuyText4
 	waitbutton
 .NoRoomForTM:
 	closetext
 	end
+	
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
+
+.pagercardname
+	db "RCKSMSHPAGER@"
+	
+GotRockSmashPagerText:
+	text "CUBONE SMASH was"
+	line "added to the PPS!"
+	done
 
 Route36LassScript:
 	faceplayer
@@ -496,11 +515,23 @@ RockSmashGuyText3:
 	text "That happens to be"
 	line "ROCK SMASH."
 
-	para "You can shatter"
-	line "rocks with just a"
+	para "It lowers the"
+	line "target's DEFENSE"
+	cont "with each hit."
+	
+	para "You can have this"
+	line "too!"
+	done
+	
+RockSmashGuyText4:
+	text "That's a"
+	line "RCKSMSHPAGER."
 
-	para "single well-aimed"
-	line "smack."
+	para "With that you can"
+	line "shatter rocks with"
+
+	para "just a single"
+	line "well-aimed smack."
 
 	para "If any rocks are"
 	line "in your way, just"

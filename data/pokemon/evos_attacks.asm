@@ -2712,12 +2712,14 @@ AzumarillEvosAttacks:
 SudowoodoEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ROCK_THROW
-	db 1, MIMIC
-	db 10, FLAIL
-	db 19, LOW_KICK
-	db 28, ROCK_SLIDE
-	db 37, FAINT_ATTACK
-	db 46, SLAM
+	db 1, FLAIL
+	db 8, LOW_KICK
+	db 15, MIMIC
+	db 22, SLAM
+	db 29, ROCK_SLIDE
+	db 36, FAINT_ATTACK
+	db 43, COUNTER
+	db 50, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 PolitoedEvosAttacks:

@@ -335,14 +335,14 @@ ElmAfterTheftScript:
 	scall ElmJumpBackScript2
 	writetext ElmAfterTheftText4
 	buttonsound
+	writetext ElmAfterTheftText5
+	buttonsound
 	stringtotext .pagercardname, MEM_BUFFER_1
 	scall .JumpstdReceiveItem
 	setflag ENGINE_PAGER_CARD
 	writetext GotPagerCardText
 	buttonsound
 	writetext ElmAfterTheftText7
-	buttonsound
-	writetext ElmAfterTheftText5
 	buttonsound
 	setevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	setflag ENGINE_MAIN_MENU_MOBILE_CHOICES
@@ -1001,12 +1001,6 @@ ElmAfterTheftText4:
 
 	para "If it is, it is a"
 	line "great discovery!"
-	
-	para "Thank you, <PLAY_G>."
-	
-	para "I would like you"
-	line "to have this as"
-	cont "my thanks."
 	done
 
 ElmAfterTheftText5:
@@ -1041,6 +1035,17 @@ ElmAfterTheftText5:
 	para "The closest GYM"
 	line "would be the one"
 	cont "in VIOLET CITY."
+	
+	para "So, to start your"
+	line "journey…"
+	
+	para "I would like you"
+	line "to have this."
+	
+	para "Consider it my"
+	line "thanks for bring-"
+	cont "ing me the EGG."
+
 	done
 
 ElmAfterTheftText6:
@@ -1065,11 +1070,9 @@ ElmAfterTheftText7:
 	para "Or PPS for short."
 	
 	para "It allows you to"
-	line "call on special"
-	
-	para "#MON to help"
-	line "you on your"
-	cont "travels."
+	line "call on special"	
+	cont "#MON to aid you"
+	cont "on your travels."
 	
 	para "But you need a"
 	line "PAGER to use it"

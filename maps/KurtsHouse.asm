@@ -72,8 +72,6 @@ Kurt1:
 	iffalse .NoRoomForBall
 	setevent EVENT_KURT_GAVE_YOU_LURE_BALL
 .GotLureBall:
-	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	iftrue .WaitForApricorns
 	checkevent EVENT_GAVE_KURT_RED_APRICORN
 	iftrue .GiveLevelBall
 	checkevent EVENT_GAVE_KURT_BLU_APRICORN
@@ -167,11 +165,16 @@ Kurt1:
 
 .GaveKurtApricorns:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	setflag ENGINE_KURT_MAKING_BALLS
 .WaitForApricorns:
 	writetext UnknownText_0x18e779
 	waitbutton
 	closetext
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	pause 15
+	special FadeInQuickly
+	opentext
+	jump .GotLureBall
 	end
 
 .Cancel:
@@ -180,84 +183,70 @@ Kurt1:
 	closetext
 	end
 
-._ThatTurnedOutGreat:
-	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 .ThatTurnedOutGreat:
 	writetext UnknownText_0x18e82a
 	waitbutton
 .NoRoomForBall:
+    writetext UnknownText_0x18e7d8
+	waitbutton
 	closetext
 	end
 
 .GiveLevelBall:
-	checkflag ENGINE_KURT_MAKING_BALLS
-	iftrue KurtMakingBallsScript
 	writetext UnknownText_0x18e7fb
 	buttonsound
 	verbosegiveitem2 LEVEL_BALL, VAR_KURT_APRICORNS
 	iffalse .NoRoomForBall
 	clearevent EVENT_GAVE_KURT_RED_APRICORN
-	jump ._ThatTurnedOutGreat
+	jump .ThatTurnedOutGreat
 
 .GiveLureBall:
-	checkflag ENGINE_KURT_MAKING_BALLS
-	iftrue KurtMakingBallsScript
 	writetext UnknownText_0x18e7fb
 	buttonsound
 	verbosegiveitem2 LURE_BALL, VAR_KURT_APRICORNS
 	iffalse .NoRoomForBall
 	clearevent EVENT_GAVE_KURT_BLU_APRICORN
-	jump ._ThatTurnedOutGreat
+	jump .ThatTurnedOutGreat
 
 .GiveMoonBall:
-	checkflag ENGINE_KURT_MAKING_BALLS
-	iftrue KurtMakingBallsScript
 	writetext UnknownText_0x18e7fb
 	buttonsound
 	verbosegiveitem2 MOON_BALL, VAR_KURT_APRICORNS
 	iffalse .NoRoomForBall
 	clearevent EVENT_GAVE_KURT_YLW_APRICORN
-	jump ._ThatTurnedOutGreat
+	jump .ThatTurnedOutGreat
 
 .GiveFriendBall:
-	checkflag ENGINE_KURT_MAKING_BALLS
-	iftrue KurtMakingBallsScript
 	writetext UnknownText_0x18e7fb
 	buttonsound
 	verbosegiveitem2 FRIEND_BALL, VAR_KURT_APRICORNS
 	iffalse .NoRoomForBall
 	clearevent EVENT_GAVE_KURT_GRN_APRICORN
-	jump ._ThatTurnedOutGreat
+	jump .ThatTurnedOutGreat
 
 .GiveFastBall:
-	checkflag ENGINE_KURT_MAKING_BALLS
-	iftrue KurtMakingBallsScript
 	writetext UnknownText_0x18e7fb
 	buttonsound
 	verbosegiveitem2 FAST_BALL, VAR_KURT_APRICORNS
 	iffalse .NoRoomForBall
 	clearevent EVENT_GAVE_KURT_WHT_APRICORN
-	jump ._ThatTurnedOutGreat
+	jump .ThatTurnedOutGreat
 
 .GiveHeavyBall:
-	checkflag ENGINE_KURT_MAKING_BALLS
-	iftrue KurtMakingBallsScript
 	writetext UnknownText_0x18e7fb
 	buttonsound
 	verbosegiveitem2 HEAVY_BALL, VAR_KURT_APRICORNS
 	iffalse .NoRoomForBall
 	clearevent EVENT_GAVE_KURT_BLK_APRICORN
-	jump ._ThatTurnedOutGreat
+	jump .ThatTurnedOutGreat
 
 .GiveLoveBall:
-	checkflag ENGINE_KURT_MAKING_BALLS
-	iftrue KurtMakingBallsScript
 	writetext UnknownText_0x18e7fb
 	buttonsound
 	verbosegiveitem2 LOVE_BALL, VAR_KURT_APRICORNS
 	iffalse .NoRoomForBall
 	clearevent EVENT_GAVE_KURT_PNK_APRICORN
-	jump ._ThatTurnedOutGreat
+	jump .ThatTurnedOutGreat
 
 .CanGiveGSBallToKurt:
 	checkevent EVENT_GAVE_GS_BALL_TO_KURT
@@ -317,21 +306,6 @@ Kurt2:
 	opentext
 	checkevent EVENT_GAVE_GS_BALL_TO_KURT
 	iftrue KurtScript_ImCheckingItNow
-KurtMakingBallsScript:
-	checkevent EVENT_BUGGING_KURT_TOO_MUCH
-	iffalse Script_FirstTimeBuggingKurt
-	writetext UnknownText_0x18e7d8
-	waitbutton
-	closetext
-	turnobject KURTSHOUSE_KURT2, UP
-	end
-
-Script_FirstTimeBuggingKurt:
-	writetext UnknownText_0x18e863
-	waitbutton
-	closetext
-	turnobject KURTSHOUSE_KURT2, UP
-	setevent EVENT_BUGGING_KURT_TOO_MUCH
 	end
 
 KurtScript_ImCheckingItNow:
@@ -529,11 +503,10 @@ UnknownText_0x18e736:
 	done
 
 UnknownText_0x18e779:
-	text "KURT: It'll take a"
-	line "day to make you a"
+	text "KURT: Splendid!"
 
-	para "BALL. Come back"
-	line "for it later."
+	para "I'll start working"
+	line "right away."
 	done
 
 UnknownText_0x18e7bc:
@@ -542,8 +515,8 @@ UnknownText_0x18e7bc:
 	done
 
 UnknownText_0x18e7d8:
-	text "KURT: I'm working!"
-	line "Don't bother me!"
+	text "KURT: Make room"
+	line "for this!"
 	done
 
 UnknownText_0x18e7fb:
@@ -558,14 +531,6 @@ UnknownText_0x18e82a:
 
 	para "Try catching"
 	line "#MON with it."
-	done
-
-UnknownText_0x18e863:
-	text "KURT: Now that my"
-	line "granddaughter is"
-
-	para "helping me, I can"
-	line "work much faster."
 	done
 
 UnknownText_0x18e8ab:

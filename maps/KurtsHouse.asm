@@ -187,8 +187,6 @@ Kurt1:
 	writetext UnknownText_0x18e82a
 	waitbutton
 .NoRoomForBall:
-    writetext UnknownText_0x18e7d8
-	waitbutton
 	closetext
 	end
 
@@ -512,11 +510,6 @@ UnknownText_0x18e779:
 UnknownText_0x18e7bc:
 	text "KURT: Oh…"
 	line "That's a letdown."
-	done
-
-UnknownText_0x18e7d8:
-	text "KURT: Make room"
-	line "for this!"
 	done
 
 UnknownText_0x18e7fb:

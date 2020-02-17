@@ -73,6 +73,7 @@ DewgongFrontpic:     INCBIN "gfx/pokemon/dewgong/front.animated.2bpp.lz"
 VictreebelFrontpic:  INCBIN "gfx/pokemon/victreebel/front.animated.2bpp.lz"
 PrimeapeFrontpic:    INCBIN "gfx/pokemon/primeape/front.animated.2bpp.lz"
 OmastarBackpic:      INCBIN "gfx/pokemon/omastar/back.2bpp.lz"
+PoliwrathFrontpic:   INCBIN "gfx/pokemon/poliwrath/front.animated.2bpp.lz"
 
 
 SECTION "Pics 4", ROMX
@@ -83,7 +84,6 @@ OnixFrontpic:        INCBIN "gfx/pokemon/onix/front.animated.2bpp.lz"
 BlisseyFrontpic:     INCBIN "gfx/pokemon/blissey/front.animated.2bpp.lz"
 MachokeFrontpic:     INCBIN "gfx/pokemon/machoke/front.animated.2bpp.lz"
 DragoniteFrontpic:   INCBIN "gfx/pokemon/dragonite/front.animated.2bpp.lz"
-PoliwrathFrontpic:   INCBIN "gfx/pokemon/poliwrath/front.animated.2bpp.lz"
 AerodactylFrontpic:  INCBIN "gfx/pokemon/aerodactyl/front.animated.2bpp.lz"
 SeakingFrontpic:     INCBIN "gfx/pokemon/seaking/front.animated.2bpp.lz"
 MukFrontpic:         INCBIN "gfx/pokemon/muk/front.animated.2bpp.lz"

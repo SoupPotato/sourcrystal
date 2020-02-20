@@ -1941,9 +1941,9 @@ GetTwoThirdsMaxHP:
     ld [hDivisor], a
     ld b, 2
     call Divide
-    ld a, [hQuotient + 2]
+    ld a, [hQuotient + 1]
     ld b, a
-    ld a, [hQuotient + 3]
+    ld a, [hQuotient + 2]
     ld c, a
 
     and b

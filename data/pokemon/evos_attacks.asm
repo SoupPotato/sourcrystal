@@ -3062,28 +3062,31 @@ SnubbullEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, SCARY_FACE
-	db 4, TAIL_WHIP
-	db 8, CHARM
-	db 13, BITE
-	db 19, LICK
-	db 26, ROAR
-	db 34, RAGE
-	db 42, CRUNCH
-	db 48, TAKE_DOWN
+	db 1, TAIL_WHIP
+	db 1, CHARM
+	db 8, BITE
+	db 13, LICK
+	db 19, HEADBUTT
+	db 25, ROAR
+	db 31, RAGE
+	db 37, CRUNCH
+	db 43, TAKE_DOWN
 	db 0 ; no more level-up moves
 
 GranbullEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, SCARY_FACE
-	db 4, TAIL_WHIP
-	db 8, CHARM
-	db 13, BITE
-	db 19, LICK
-	db 28, ROAR
-	db 38, RAGE
-	db 45, CRUNCH
-	db 53, TAKE_DOWN
+	db 1, TAIL_WHIP
+	db 1, CHARM
+	db 8, BITE
+	db 13, LICK
+	db 19, HEADBUTT
+	db 26, ROAR
+	db 33, RAGE
+	db 40, CRUNCH
+	db 47, TAKE_DOWN
+	db 54, OUTRAGE
 	db 0 ; no more level-up moves
 
 QwilfishEvosAttacks:

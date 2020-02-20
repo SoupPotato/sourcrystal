@@ -6826,103 +6826,76 @@ INCLUDE "engine/battle/move_effects/rapid_spin.asm"
 
 
 BattleCommand_HealMorn:
-; healmorn
-	ld b, MORN_F
-	jr BattleCommand_TimeBasedHealContinue
-
-
 BattleCommand_HealDay:
-; healday
-	ld b, DAY_F
-	jr BattleCommand_TimeBasedHealContinue
-
-
 BattleCommand_HealNite:
-; healnite
-	ld b, NITE_F
-	; fallthrough
-
 BattleCommand_TimeBasedHealContinue:
 ; Time- and weather-sensitive heal.
 
-	ld hl, wBattleMonMaxHP
-	ld de, wBattleMonHP
-	ld a, [hBattleTurn]
-	and a
-	jr z, .start
-	ld hl, wEnemyMonMaxHP
-	ld de, wEnemyMonHP
+    ld hl, wBattleMonMaxHP
+    ld de, wBattleMonHP
+    ldh a, [hBattleTurn]
+    and a
+    jr z, .start
+    ld hl, wEnemyMonMaxHP
+    ld de, wEnemyMonHP
 
 .start
+; Don't bother healing if HP is already full.
+    ld c, 2
+    call StringCmp
+    jr z, .Full
+
 ; Index for .Multipliers
 ; Default restores half max HP.
-	ld c, 2
+    ld c, 1
 
-; Don't bother healing if HP is already full.
-	push bc
-	call StringCmp
-	pop bc
-	jr z, .Full
-
-; Don't factor in time of day in link battles.
-	ld a, [wLinkMode]
-	and a
-	jr nz, .Weather
-
-	ld a, [wTimeOfDay]
-	cp b
-	jr z, .Weather
-	dec c ; double
-
-.Weather:
-	ld a, [wBattleWeather]
-	and a
-	jr z, .Heal
+    ld a, [wBattleWeather]
+    and a
+    jr z, .Heal
 
 ; x2 in sun
 ; /2 in rain/sandstorm
-	inc c
-	cp WEATHER_SUN
-	jr z, .Heal
-	dec c
-	dec c
+    inc c
+    cp WEATHER_SUN
+    jr z, .Heal
+    dec c
+    dec c
 
 .Heal:
-	ld b, 0
-	ld hl, .Multipliers
-	add hl, bc
-	add hl, bc
+    ld b, 0
+    ld hl, .Multipliers
+    add hl, bc
+    add hl, bc
 
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	ld a, BANK(GetMaxHP)
-	rst FarCall
+    ld a, [hli]
+    ld h, [hl]
+    ld l, a
+    ld a, BANK(GetMaxHP)
+    rst FarCall
 
-	call AnimateCurrentMove
-	call BattleCommand_SwitchTurn
+    call AnimateCurrentMove
+    call BattleCommand_SwitchTurn
 
-	callfar RestoreHP
+    callfar RestoreHP
 
-	call BattleCommand_SwitchTurn
-	call UpdateUserInParty
+    call BattleCommand_SwitchTurn
+    call UpdateUserInParty
 
 ; 'regained health!'
-	ld hl, RegainedHealthText
-	jp StdBattleTextBox
+    ld hl, RegainedHealthText
+    jp StdBattleTextBox
 
 .Full:
-	call AnimateFailedMove
+    call AnimateFailedMove
 
 ; 'hp is full!'
-	ld hl, HPIsFullText
-	jp StdBattleTextBox
+    ld hl, HPIsFullText
+    jp StdBattleTextBox
 
 .Multipliers:
-	dw GetEighthMaxHP
-	dw GetQuarterMaxHP
-	dw GetHalfMaxHP
-	dw GetMaxHP
+    dw GetQuarterMaxHP
+    dw GetHalfMaxHP
+    dw GetTwoThirdsMaxHP
 
 
 INCLUDE "engine/battle/move_effects/hidden_power.asm"

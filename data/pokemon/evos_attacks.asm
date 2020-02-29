@@ -2091,27 +2091,32 @@ KabutopsEvosAttacks:
 AerodactylEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, WING_ATTACK
-	db 8, AGILITY
-	db 15, BITE
-	db 22, SUPERSONIC
+	db 1, SUPERSONIC
+	db 7, BITE
+	db 15, SCARY_FACE
+	db 21, ROAR
 	db 29, ANCIENTPOWER
-	db 36, SCARY_FACE
-	db 43, TAKE_DOWN
-	db 50, HYPER_BEAM
+	db 35, AGILITY
+	db 43, CRUNCH
+	db 49, TAKE_DOWN
+	db 57, HYPER_BEAM
+	db 63, ROCK_SLIDE
 	db 0 ; no more level-up moves
 
 SnorlaxEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 8, AMNESIA
-	db 15, DEFENSE_CURL
-	db 22, BELLY_DRUM
-	db 29, HEADBUTT
-	db 36, SNORE
-	db 36, REST
-	db 43, BODY_SLAM
-	db 50, ROLLOUT
-	db 57, HYPER_BEAM
+	db 6, DEFENSE_CURL
+	db 12, AMNESIA
+	db 17, LICK
+	db 23, BELLY_DRUM
+	db 28, REST
+	db 34, SNORE
+	db 34, SLEEP_TALK
+	db 39, BODY_SLAM
+	db 45, ROLLOUT
+	db 50, CRUNCH
+	db 56, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 ArticunoEvosAttacks:

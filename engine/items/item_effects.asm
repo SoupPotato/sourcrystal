@@ -1016,39 +1016,20 @@ LoveBallMultiplier:
 	ret
 
 FastBallMultiplier:
-; This function is buggy.
-; UPDATE: Bug has been fixed.
-; Intent:  multiply catch rate by 4 if enemy mon is in one of the three
-;          FleeMons tables.
-; Reality: multiply catch rate by 4 if enemy mon is one of the first three in
-;          the first FleeMons table.
+; UPDATE: Fast Ball now functions the same as gen IV+. 
+; Catch rate is x4 on mons with a base speed of 100+. Otherwise its x1.
 	ld a, [wTempEnemyMonSpecies]
-	ld c, a
-	ld hl, FleeMons
-	ld d, 3
-
-.loop
-	ld a, BANK(FleeMons)
-	call GetFarByte
-
-	inc hl
-	cp -1
-	jr z, .next
-	cp c
-	jr nz, .loop ; for the intended effect, this should be "jr nz, .loop"
+	ld [wCurSpecies], a
+	call GetBaseData
+	ld a, [wBaseSpeed]
+	cp 100
+	ret nc
 	sla b
 	jr c, .max
-
 	sla b
 	ret nc
-
 .max
 	ld b, $ff
-	ret
-
-.next
-	dec d
-	jr nz, .loop
 	ret
 
 LevelBallMultiplier:

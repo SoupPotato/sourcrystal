@@ -329,18 +329,13 @@ CableClubGroupSprites:
 	
 Route47GroupSprites:
 ; Route47, Route48, YellowForest, CliffEdgeCave, CliffEdgeGate
-    db SPRITE_SUICUNE
-	db SPRITE_POKEDEX
-	db SPRITE_OLD_LINK_RECEPTIONIST
+    db SPRITE_TEACHER
 	db SPRITE_SUPER_NERD
 	db SPRITE_YOUNGSTER
 	db SPRITE_LASS
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_POKEFAN_M
-	; 9 of max 9 walking sprites
-	db SPRITE_POKEFAN_F
-	db SPRITE_FISHER
-	db SPRITE_TEACHER
-	db SPRITE_TWIN
+	; 7 of max 9 walking sprites
 	db SPRITE_POKE_BALL
+	db SPRITE_OLD_LINK_RECEPTIONIST

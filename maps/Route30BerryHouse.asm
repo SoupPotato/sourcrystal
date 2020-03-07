@@ -13,7 +13,7 @@ Route30BerryHousePokefanMScript:
 	iftrue .GotBerry
 	writetext Route30BerrySpeechHouseMonEatBerriesText
 	buttonsound
-	verbosegiveitem BERRY
+	verbosegiveitem ORAN_BERRY
 	iffalse .NoRoom
 	setevent EVENT_GOT_BERRY_FROM_ROUTE_30_HOUSE
 .GotBerry:

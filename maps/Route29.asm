@@ -229,7 +229,7 @@ Route29BerryTree:
 	buttonsound
 	writetext Route29HeyItsBerryText
 	buttonsound
-	verbosegiveitem BERRY
+	verbosegiveitem ORAN_BERRY
 	closetext
 	disappear ROUTE29_BERRY
 	setflag ENGINE_DAILY_ROUTE29_BERRY

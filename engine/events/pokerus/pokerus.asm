@@ -141,7 +141,7 @@ ConvertBerriesToBerryJuice:
 	ld bc, MON_ITEM
 	add hl, bc
 	ld a, [hl]
-	cp BERRY
+	cp ORAN_BERRY
 	jr z, .convertToJuice
 
 .loopMon

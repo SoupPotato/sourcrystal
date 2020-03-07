@@ -64,9 +64,9 @@ MooMoo:
 	writetext Text_AskGiveBerry
 	yesorno
 	iffalse .Refused
-	checkitem BERRY
+	checkitem ORAN_BERRY
 	iffalse .NoBerriesInBag
-	takeitem BERRY
+	takeitem ORAN_BERRY
 	copybytetovar wMooMooBerries
 	addvar 1
 	copyvartobyte wMooMooBerries
@@ -129,7 +129,7 @@ Text_MoomooIsSick:
 	text "MOOMOO is sick…"
 
 	para "She needs lots of"
-	line "BERRIES."
+	line "ORAN BERRIES."
 	done
 
 Text_WereFeedingMoomoo:
@@ -150,13 +150,14 @@ UnknownText_0x9cd92:
 	done
 
 Text_AskGiveBerry:
-	text "Give a BERRY to"
-	line "MILTANK?"
+	text "Give a ORAN BERRY"
+	line "to MILTANK?"
 	done
 
 Text_GaveBerry:
 	text "<PLAYER> gave a"
-	line "BERRY to MILTANK."
+	line "ORAN BERRY to"
+	cont "MILTANK."
 	done
 
 Text_LittleHealthier:

@@ -140,19 +140,19 @@ TrainerBugCatcherWade1:
 	checkevent EVENT_WADE_HAS_BITTER_BERRY
 	iftrue .BitterBerry
 .Berry:
-	verbosegiveitem BERRY
+	verbosegiveitem ORAN_BERRY
 	iffalse .PackFull
 	jump .Done
 .Psncureberry:
-	verbosegiveitem PSNCUREBERRY
+	verbosegiveitem PECHA_BERRY
 	iffalse .PackFull
 	jump .Done
 .Przcureberry:
-	verbosegiveitem PRZCUREBERRY
+	verbosegiveitem CHERI_BERRY
 	iffalse .PackFull
 	jump .Done
 .BitterBerry:
-	verbosegiveitem BITTER_BERRY
+	verbosegiveitem PERSIM_BERRY
 	iffalse .PackFull
 .Done:
 	clearflag ENGINE_WADE_HAS_ITEM
@@ -278,7 +278,7 @@ Route31BerryTree:
 	buttonsound
 	writetext Route31HeyItsBerryText
 	buttonsound
-	verbosegiveitem BITTER_BERRY
+	verbosegiveitem PERSIM_BERRY
 	closetext
 	disappear ROUTE31_BERRY
 	setflag ENGINE_DAILY_ROUTE31_BERRY

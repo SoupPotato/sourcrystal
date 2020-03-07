@@ -114,7 +114,7 @@ VioletBerryTree:
 	buttonsound
 	writetext VioletHeyItsBerryText
 	buttonsound
-	verbosegiveitem PRZCUREBERRY
+	verbosegiveitem CHERI_BERRY
 	closetext
 	disappear VIOLETCITY_BERRY
 	setflag ENGINE_DAILY_VIOLET_BERRY

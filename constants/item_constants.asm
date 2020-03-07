@@ -79,17 +79,17 @@
 	const SILVER_WING  ; $47
 	const MOOMOO_MILK  ; $48
 	const QUICK_CLAW   ; $49
-	const PSNCUREBERRY ; $4A
+	const PECHA_BERRY  ; $4A
 	const GOLD_LEAF    ; $4B
 	const SOFT_SAND    ; $4C
 	const SHARP_BEAK   ; $4D
-	const PRZCUREBERRY ; $4E
-	const BURNT_BERRY  ; $4F
-	const ICE_BERRY    ; $50
+	const CHERI_BERRY  ; $4E
+	const ASPEAR_BERRY ; $4F
+	const RAWST_BERRY  ; $50
 	const POISON_BARB  ; $51
 	const KINGS_ROCK   ; $52
-	const BITTER_BERRY ; $53
-	const MINT_BERRY   ; $54
+	const PERSIM_BERRY ; $53
+	const CHESTO_BERRY ; $54
 	const RED_APRICORN ; $55
 	const TINYMUSHROOM ; $56
 	const BIG_MUSHROOM ; $57
@@ -114,7 +114,7 @@
 	const SMOKE_BALL   ; $6A
 	const NEVERMELTICE ; $6B
 	const MAGNET       ; $6C
-	const MIRACLEBERRY ; $6D
+	const LUM_BERRY    ; $6D
 	const PEARL        ; $6E
 	const BIG_PEARL    ; $6F
 	const EVERSTONE    ; $70
@@ -155,7 +155,7 @@
 	const ITEM_93      ; $93
 	const ITEM_94      ; $94
 	const ITEM_95      ; $95
-	const MYSTERYBERRY ; $96
+	const LEPPA_BERRY  ; $96
 	const DRAGON_SCALE ; $97
 	const BERSERK_GENE ; $98
 	const ITEM_99      ; $99
@@ -178,8 +178,8 @@
 	const POLKADOT_BOW ; $AA
 	const ITEM_AB      ; $AB
 	const UP_GRADE     ; $AC
-	const BERRY        ; $AD
-	const GOLD_BERRY   ; $AE
+	const ORAN_BERRY   ; $AD
+	const SITRUS_BERRY ; $AE
 	const SQUIRTBOTTLE ; $AF
 	const ITEM_B0      ; $B0
 	const PARK_BALL    ; $B1

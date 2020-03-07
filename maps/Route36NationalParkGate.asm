@@ -265,7 +265,7 @@ Route36Officer_ContestHasConcluded:
 .GoldBerry:
 	writetext UnknownText_0x6b97f
 	buttonsound
-	verbosegiveitem GOLD_BERRY
+	verbosegiveitem SITRUS_BERRY
 	iffalse .BagFull
 	clearevent EVENT_CONTEST_OFFICER_HAS_GOLD_BERRY
 	closetext
@@ -274,7 +274,7 @@ Route36Officer_ContestHasConcluded:
 .Berry:
 	writetext UnknownText_0x6b97f
 	buttonsound
-	verbosegiveitem BERRY
+	verbosegiveitem ORAN_BERRY
 	iffalse .BagFull
 	clearevent EVENT_CONTEST_OFFICER_HAS_BERRY
 	closetext

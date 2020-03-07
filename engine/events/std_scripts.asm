@@ -328,7 +328,7 @@ BugContestResultsScript:
 	farwritetext ContestResults_ConsolationPrizeText
 	buttonsound
 	waitsfx
-	verbosegiveitem BERRY
+	verbosegiveitem ORAN_BERRY
 	iffalse BugContestResults_NoRoomForBerry
 
 BugContestResults_DidNotWin:
@@ -399,10 +399,10 @@ BugContestResults_SecondPlace:
 	jump BugContestResults_ReturnAfterWinnersPrize
 
 BugContestResults_ThirdPlace:
-	itemtotext GOLD_BERRY, MEM_BUFFER_1
+	itemtotext SITRUS_BERRY, MEM_BUFFER_1
 	farwritetext ContestResults_PlayerWonAPrizeText
 	waitbutton
-	verbosegiveitem GOLD_BERRY
+	verbosegiveitem SITRUS_BERRY
 	iffalse BugContestResults_NoRoomForGoldBerry
 	jump BugContestResults_ReturnAfterWinnersPrize
 

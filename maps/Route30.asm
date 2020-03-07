@@ -279,7 +279,7 @@ Route30BerryTree:
 	buttonsound
 	writetext Route30HeyItsBerryText
 	buttonsound
-	verbosegiveitem BERRY
+	verbosegiveitem ORAN_BERRY
 	closetext
 	disappear ROUTE30_BERRY
 	setflag ENGINE_DAILY_ROUTE30_BERRY
@@ -291,7 +291,7 @@ Route30BerryTree2:
 	buttonsound
 	writetext Route30HeyItsBerry2Text
 	buttonsound
-	verbosegiveitem PSNCUREBERRY
+	verbosegiveitem PECHA_BERRY
 	closetext
 	disappear ROUTE30_BERRY2
 	setflag ENGINE_DAILY_ROUTE30_BERRY2

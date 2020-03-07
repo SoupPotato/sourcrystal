@@ -239,48 +239,7 @@ ENDM
 	dict "<ENEMY>",   PlaceEnemysName
 	dict "<PLAY_G>",  PlaceGenderedPlayerName
 
-	cp "ﾟ"
-	jr z, .place ; should be .diacritic
-	cp "ﾞ"
-	jr z, .place ; should be .diacritic
-	jr .not_diacritic
-
-.diacritic
-	ld b, a
-	call Diacritic
-	jp NextChar
-
-.not_diacritic
-	cp FIRST_REGULAR_TEXT_CHAR
-	jr nc, .place
-
-	cp "パ"
-	jr nc, .handakuten
-
-.dakuten
-	cp FIRST_HIRAGANA_DAKUTEN_CHAR
-	jr nc, .hiragana_dakuten
-	add "カ" - "ガ"
-	jr .katakana_dakuten
-.hiragana_dakuten
-	add "か" - "が"
-.katakana_dakuten
-	ld b, "ﾞ" ; dakuten
-	call Diacritic
-	jr .place
-
-.handakuten
-	cp "ぱ"
-	jr nc, .hiragana_handakuten
-	add "ハ" - "パ"
-	jr .katakana_handakuten
-.hiragana_handakuten
-	add "は" - "ぱ"
-.katakana_handakuten
-	ld b, "ﾟ" ; handakuten
-	call Diacritic
-
-.place
+	
 	ld [hli], a
 	call PrintLetterDelay
 	jp NextChar

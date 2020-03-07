@@ -133,7 +133,7 @@
 	
 	charmap "■",         $d7
 	charmap "▲",         $d8
-	charmap "☎",         $d9
+	charmap "☎",        $d9
 	charmap "<BOLD_V>",  $da
 	charmap "<BOLD_S>",  $db
 	charmap "<COLON>",   $dc ; colon with tinier dots than ":"

@@ -123,6 +123,16 @@ EngineFlags:
 	engine_flag wDailyFlags, DAILYFLAGS_GOT_SHUCKIE_TODAY_F
 	engine_flag wDailyFlags, DAILYFLAGS_GOLDENROD_UNDERGROUND_BARGAIN_F
 	engine_flag wDailyFlags, DAILYFLAGS_TRAINER_HOUSE_F
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE29_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE29_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE30_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE30_BERRY2
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE30_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE30_APRICORN2
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE31_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE31_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_VIOLET_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_VIOLET_APRICORN
 
 	engine_flag wWeeklyFlags, WEEKLYFLAGS_MT_MOON_SQUARE_CLEFAIRY_F ; $58
 	engine_flag wWeeklyFlags, WEEKLYFLAGS_UNION_CAVE_LAPRAS_F

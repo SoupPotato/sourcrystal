@@ -254,6 +254,16 @@ CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const DAILYFLAGS_GOT_SHUCKIE_TODAY_F             ; 5
 	const DAILYFLAGS_GOLDENROD_UNDERGROUND_BARGAIN_F ; 6
 	const DAILYFLAGS_TRAINER_HOUSE_F                 ; 7
+	const DAILYFLAGS_ROUTE29_BERRY                   ; 8
+	const DAILYFLAGS_ROUTE29_APRICORN                ; 9
+	const DAILYFLAGS_ROUTE30_BERRY                   ; 10
+	const DAILYFLAGS_ROUTE30_BERRY2                  ; 11
+	const DAILYFLAGS_ROUTE30_APRICORN                ; 12
+	const DAILYFLAGS_ROUTE30_APRICORN2               ; 13
+	const DAILYFLAGS_ROUTE31_BERRY                   ; 14
+	const DAILYFLAGS_ROUTE31_APRICORN                ; 15
+	const DAILYFLAGS_VIOLET_BERRY                    ; 16
+	const DAILYFLAGS_VIOLET_APRICORN                 ; 17
 
 ; wWeeklyFlags:: ; dc1f
 	const_def

@@ -94,7 +94,7 @@
 	const SPRITE_BOULDER ; 5a
 	const SPRITE_SNES ; 5b
 	const SPRITE_FAMICOM ; 5c
-	const SPRITE_FRUIT_TREE ; 5d
+	const SPRITE_BERRY ; 5d
 	const SPRITE_GOLD_TROPHY ; 5e
 	const SPRITE_SILVER_TROPHY ; 5f
 	const SPRITE_KRIS ; 60
@@ -103,7 +103,9 @@
 	const SPRITE_SUICUNE ; 63
 	const SPRITE_ENTEI ; 64
 	const SPRITE_RAIKOU ; 65
-	const SPRITE_STANDING_YOUNGSTER ; 66
+	const SPRITE_APRICORN ; 66
+	const SPRITE_BERRY2 ; 67
+	const SPRITE_APRICORN2 ; 68
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
 	const_def $80

@@ -2,7 +2,8 @@
 	const ROUTE29_COOLTRAINER_M1
 	const ROUTE29_YOUNGSTER
 	const ROUTE29_TEACHER1
-	const ROUTE29_FRUIT_TREE
+	const ROUTE29_BERRY
+	const ROUTE29_APRICORN
 	const ROUTE29_FISHER
 	const ROUTE29_COOLTRAINER_M2
 	const ROUTE29_TUSCANY
@@ -13,14 +14,30 @@ Route29_MapScripts:
 	scene_script .DummyScene0 ; SCENE_ROUTE29_NOTHING
 	scene_script .DummyScene1 ; SCENE_ROUTE29_CATCH_TUTORIAL
 
-	db 1 ; callbacks
-	callback MAPCALLBACK_OBJECTS, .Tuscany
+	db 3 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .Berry
+	callback MAPCALLBACK_OBJECTS, .Apricorn
+	callback MAPCALLBACK_OBJECTS, .Tuscany	
 
 .DummyScene0:
 	end
 
 .DummyScene1:
 	end
+	
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE29_BERRY
+	iftrue .NoBerry
+	appear ROUTE29_BERRY
+.NoBerry:
+	;return
+	
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE29_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE29_APRICORN
+.NoApricorn:
+	;return
 
 .Tuscany:
 	checkflag ENGINE_ZEPHYRBADGE
@@ -206,8 +223,47 @@ Route29Sign1:
 Route29Sign2:
 	jumptext Route29Sign2Text
 
-Route29FruitTree:
-	fruittree FRUITTREE_ROUTE_29
+Route29BerryTree:
+	opentext
+	writetext Route29BerryTreeText
+	buttonsound
+	writetext Route29HeyItsBerryText
+	buttonsound
+	verbosegiveitem BERRY
+	closetext
+	disappear ROUTE29_BERRY
+	setflag ENGINE_DAILY_ROUTE29_BERRY
+	end
+
+Route29ApricornTree:
+    opentext
+	writetext Route29ApricornTreeText
+	buttonsound	
+	writetext Route29HeyItsApricornText
+	buttonsound
+	verbosegiveitem GRN_APRICORN
+	closetext
+	disappear ROUTE29_APRICORN
+	setflag ENGINE_DAILY_ROUTE29_APRICORN
+	end
+	
+Route29NoBerry:
+	opentext
+	writetext Route29BerryTreeText
+	buttonsound
+	writetext Route29NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route29NoApricorn:
+	opentext
+	writetext Route29ApricornTreeText
+	buttonsound
+	writetext Route29NothingHereText
+	waitbutton
+	closetext
+	end
 
 Route29Potion:
 	itemball POTION
@@ -412,6 +468,31 @@ Route29Sign2Text:
 	para "CHERRYGROVE CITY -"
 	line "NEW BARK TOWN"
 	done
+	
+Route29BerryTreeText:
+	text "It's a"
+	line "BERRY tree..."
+	done
+
+Route29HeyItsBerryText:
+	text "Hey! It's"
+	line "ORAN BERRY!"
+	done
+
+Route29ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree..."
+	done
+
+Route29HeyItsApricornText:
+	text "Hey! It's"
+	line "GRN APRICORN!"
+	done
+
+Route29NothingHereText:
+	text "There's nothing"
+	line "here..."
+	done
 
 Route29_MapEvents:
 	db 0, 0 ; filler
@@ -423,15 +504,18 @@ Route29_MapEvents:
 	coord_event 53,  8, SCENE_ROUTE29_CATCH_TUTORIAL, Route29Tutorial1
 	coord_event 53,  9, SCENE_ROUTE29_CATCH_TUTORIAL, Route29Tutorial2
 
-	db 2 ; bg events
+	db 4 ; bg events
 	bg_event 51,  7, BGEVENT_READ, Route29Sign1
 	bg_event  3,  5, BGEVENT_READ, Route29Sign2
+	bg_event 24, 13, BGEVENT_READ, Route29NoBerry
+	bg_event 12,  2, BGEVENT_READ, Route29NoApricorn
 
-	db 8 ; object events
+	db 9 ; object events
 	object_event 50, 12, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CatchingTutorialDudeScript, -1
 	object_event 27, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route29YoungsterScript, -1
 	object_event 15, 11, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route29TeacherScript, -1
-	object_event 12,  2, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route29FruitTree, -1
+	object_event 24, 13, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route29BerryTree, EVENT_ROUTE29_BERRY
+	object_event 12,  2, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route29ApricornTree, EVENT_ROUTE29_APRICORN
 	object_event 25,  3, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route29FisherScript, -1
 	object_event 13,  4, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route29CooltrainerMScript, -1
 	object_event 29, 12, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TuscanyScript, EVENT_ROUTE_29_TUSCANY_OF_TUESDAY

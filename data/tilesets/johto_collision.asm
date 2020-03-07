@@ -171,3 +171,10 @@
 	tilecoll WALL, WALL, WALL, WALL ; aa
 	tilecoll WATERFALL, WATERFALL, WATER, WATER ; ab
 	tilecoll WATER, WATER, WATERFALL, WATERFALL ; ac
+	tilecoll WALL, FLOOR, FLOOR, FLOOR ; ad
+	tilecoll FLOOR, FLOOR, WALL, FLOOR ; ae
+	tilecoll FLOOR, FLOOR, FLOOR, WALL ; af
+	tilecoll FLOOR, FLOOR, WALL, WALL ; b0
+	tilecoll FLOOR, FLOOR, WALL, FLOOR ; b1
+	tilecoll FLOOR, WALL, FLOOR, FLOOR ; b2
+	tilecoll WALL, FLOOR, FLOOR, FLOOR ; b3

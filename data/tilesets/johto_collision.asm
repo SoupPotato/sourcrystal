@@ -178,3 +178,4 @@
 	tilecoll FLOOR, FLOOR, WALL, FLOOR ; b1
 	tilecoll FLOOR, WALL, FLOOR, FLOOR ; b2
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; b3
+	tilecoll FLOOR, WALL, FLOOR, WALL ; b4

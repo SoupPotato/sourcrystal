@@ -133,6 +133,21 @@ EngineFlags:
 	engine_flag wDailyFlags, DAILYFLAGS_ROUTE31_APRICORN
 	engine_flag wDailyFlags, DAILYFLAGS_VIOLET_BERRY
 	engine_flag wDailyFlags, DAILYFLAGS_VIOLET_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE33_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE33_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE33_APRICORN2
+	engine_flag wDailyFlags, DAILYFLAGS_AZALEA_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE35_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE35_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE36_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE36_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE37_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE37_APRICORN2
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE37_APRICORN3
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE38_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE38_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE39_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE39_APRICORN
 
 	engine_flag wWeeklyFlags, WEEKLYFLAGS_MT_MOON_SQUARE_CLEFAIRY_F ; $58
 	engine_flag wWeeklyFlags, WEEKLYFLAGS_UNION_CAVE_LAPRAS_F

@@ -13,8 +13,9 @@ Route31_MapScripts:
 
 	db 2 ; callbacks
 	callback MAPCALLBACK_NEWMAP, .CheckMomCall
-	callback MAPCALLBACK_OBJECTS, .Berry
-	
+	callback MAPCALLBACK_OBJECTS, .Fruittrees
+
+.Fruittrees:	
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE31_BERRY
 	iftrue .NoBerry

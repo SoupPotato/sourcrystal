@@ -8,13 +8,36 @@
 	const ROUTE35_BUG_CATCHER
 	const ROUTE35_SUPER_NERD
 	const ROUTE35_OFFICER
-	const ROUTE35_FRUIT_TREE
+	const ROUTE35_BERRY
+	const ROUTE35_APRICORN
 	const ROUTE35_POKE_BALL
 
 Route35_MapScripts:
 	db 0 ; scene scripts
 
-	db 0 ; callbacks
+	db 1 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .Fruittrees
+
+.DummyScene0:
+	end
+
+.DummyScene1:
+	end
+	
+.Fruittrees
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE35_BERRY
+	iftrue .NoBerry
+	appear ROUTE35_BERRY
+.NoBerry:
+	;return
+	
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE35_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE35_APRICORN
+.NoApricorn:
+	return
 
 TrainerBirdKeeperBryan:
 	trainer BIRD_KEEPER, BRYAN, EVENT_BEAT_BIRD_KEEPER_BRYAN, BirdKeeperBryanSeenText, BirdKeeperBryanBeatenText, 0, .Script
@@ -271,8 +294,47 @@ Route35Sign:
 Route35TMRollout:
 	itemball TM_ROLLOUT
 
-Route35FruitTree:
-	fruittree FRUITTREE_ROUTE_35
+Route35BerryTree:
+	opentext
+	writetext Route35BerryTreeText
+	buttonsound
+	writetext Route35HeyItsBerryText
+	buttonsound
+	verbosegiveitem LEPPA_BERRY
+	closetext
+	disappear ROUTE35_BERRY
+	setflag ENGINE_DAILY_ROUTE35_BERRY
+	end
+	
+Route35ApricornTree:
+    opentext
+	writetext Route35ApricornTreeText
+	buttonsound	
+	writetext Route35HeyItsApricornText
+	buttonsound
+	verbosegiveitem GRN_APRICORN
+	closetext
+	disappear ROUTE35_APRICORN
+	setflag ENGINE_DAILY_ROUTE35_APRICORN
+	end
+
+Route35NoBerry:
+	opentext
+	writetext Route35BerryTreeText
+	buttonsound
+	writetext Route35NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route35NoApricorn:
+	opentext
+	writetext Route35ApricornTreeText
+	buttonsound
+	writetext Route35NothingHereText
+	waitbutton
+	closetext
+	end
 
 CamperIvanSeenText:
 	text "I've been getting"
@@ -459,6 +521,31 @@ OfficerDirkPrettyToughText:
 Route35SignText:
 	text "ROUTE 35"
 	done
+	
+Route35BerryTreeText:
+	text "It's a"
+	line "BERRY tree..."
+	done
+
+Route35HeyItsBerryText:
+	text "Hey! It's"
+	line "LEPPA BERRY!"
+	done
+
+Route35ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree..."
+	done
+
+Route35HeyItsApricornText:
+	text "Hey! It's"
+	line "GRN APRICORN!"
+	done	
+
+Route35NothingHereText:
+	text "There's nothing"
+	line "here..."
+	done
 
 Route35_MapEvents:
 	db 0, 0 ; filler
@@ -470,11 +557,13 @@ Route35_MapEvents:
 
 	db 0 ; coord events
 
-	db 2 ; bg events
+	db 4 ; bg events
 	bg_event  1,  7, BGEVENT_READ, Route35Sign
 	bg_event 11, 31, BGEVENT_READ, Route35Sign
+	bg_event  1, 26, BGEVENT_READ, Route35NoBerry
+	bg_event  2, 25, BGEVENT_READ, Route35NoApricorn
 
-	db 11 ; object events
+	db 12 ; object events
 	object_event  4, 19, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperIvan, -1
 	object_event  8, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperElliot, -1
 	object_event  7, 20, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerBrooke, -1
@@ -484,5 +573,6 @@ Route35_MapEvents:
 	object_event 16,  7, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherArnie, -1
 	object_event  5, 10, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerJugglerIrwin, -1
 	object_event  5,  6, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TrainerOfficerDirk, -1
-	object_event  2, 25, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route35FruitTree, -1
+	object_event  1, 26, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route35BerryTree, EVENT_ROUTE35_BERRY
+	object_event  2, 25, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route35ApricornTree, EVENT_ROUTE35_APRICORN
 	object_event 13, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route35TMRollout, EVENT_ROUTE_35_TM_ROLLOUT

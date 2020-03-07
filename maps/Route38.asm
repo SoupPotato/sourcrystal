@@ -4,13 +4,30 @@
 	const ROUTE38_STANDING_YOUNGSTER2
 	const ROUTE38_BUENA1
 	const ROUTE38_SAILOR
-	const ROUTE38_FRUIT_TREE
+	const ROUTE38_BERRY
+	const ROUTE38_APRICORN
 	const ROUTE38_BUENA2
 
 Route38_MapScripts:
 	db 0 ; scene scripts
 
-	db 0 ; callbacks
+	db 1 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .Fruittrees
+	
+.Fruittrees
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE38_BERRY
+	iftrue .NoBerry
+	appear ROUTE38_BERRY
+.NoBerry:
+	;return
+	
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE38_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE38_APRICORN
+.NoApricorn:
+	return
 
 TrainerBirdKeeperToby:
 	trainer BIRD_KEEPER, TOBY, EVENT_BEAT_BIRD_KEEPER_TOBY, BirdKeeperTobySeenText, BirdKeeperTobyBeatenText, 0, .Script
@@ -317,8 +334,47 @@ Route38Sign:
 Route38TrainerTips:
 	jumptext Route38TrainerTipsText
 
-Route38FruitTree:
-	fruittree FRUITTREE_ROUTE_38
+Route38BerryTree:
+	opentext
+	writetext Route38BerryTreeText
+	buttonsound
+	writetext Route38HeyItsBerryText
+	buttonsound
+	verbosegiveitem ORAN_BERRY
+	closetext
+	disappear ROUTE38_BERRY
+	setflag ENGINE_DAILY_ROUTE38_BERRY
+	end
+	
+Route38ApricornTree:
+    opentext
+	writetext Route38ApricornTreeText
+	buttonsound	
+	writetext Route38HeyItsApricornText
+	buttonsound
+	verbosegiveitem WHT_APRICORN
+	closetext
+	disappear ROUTE38_APRICORN
+	setflag ENGINE_DAILY_ROUTE38_APRICORN
+	end
+
+Route38NoBerry:
+	opentext
+	writetext Route38BerryTreeText
+	buttonsound
+	writetext Route38NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route38NoApricorn:
+	opentext
+	writetext Route38ApricornTreeText
+	buttonsound
+	writetext Route38NothingHereText
+	waitbutton
+	closetext
+	end
 
 BirdKeeperTobySeenText:
 	text "Fly high into the"
@@ -469,6 +525,31 @@ Route38TrainerTipsText:
 	line "#MON and stops"
 	cont "its evolution."
 	done
+	
+Route38BerryTreeText:
+	text "It's a"
+	line "BERRY tree..."
+	done
+
+Route38HeyItsBerryText:
+	text "Hey! It's"
+	line "ORAN BERRY!"
+	done
+
+Route38ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree..."
+	done
+
+Route38HeyItsApricornText:
+	text "Hey! It's"
+	line "WHT APRICORN!"
+	done	
+
+Route38NothingHereText:
+	text "There's nothing"
+	line "here..."
+	done
 
 Route38_MapEvents:
 	db 0, 0 ; filler
@@ -479,15 +560,18 @@ Route38_MapEvents:
 
 	db 0 ; coord events
 
-	db 2 ; bg events
+	db 4 ; bg events
 	bg_event 33,  7, BGEVENT_READ, Route38Sign
 	bg_event  5, 13, BGEVENT_READ, Route38TrainerTips
+	bg_event 12, 11, BGEVENT_READ, Route38NoBerry
+	bg_event 12,  9, BGEVENT_READ, Route38NoApricorn
 
-	db 7 ; object events
+	db 8 ; object events
 	object_event  4,  1, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSchoolboyChad1, -1
 	object_event 15,  3, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerLassDana1, -1
 	object_event 12, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBirdKeeperToby, -1
 	object_event 19,  9, SPRITE_BUENA, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBeautyValerie, -1
 	object_event 24,  5, SPRITE_SAILOR, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerSailorHarry, -1
-	object_event 12, 10, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route38FruitTree, -1
+	object_event 12, 11, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route38BerryTree, EVENT_ROUTE38_BERRY
+	object_event 12,  9, SPRITE_APRICORN2, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, Route38ApricornTree, EVENT_ROUTE38_APRICORN
 	object_event  5,  8, SPRITE_BUENA, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBeautyOlivia, -1

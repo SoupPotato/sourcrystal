@@ -14,12 +14,13 @@ VioletCity_MapScripts:
 
 	db 2 ; callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
-	callback MAPCALLBACK_OBJECTS, .Berry
+	callback MAPCALLBACK_OBJECTS, .Fruittrees
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_VIOLET
 	return
-	
+
+.Fruittrees:	
 .Berry:
 	checkflag ENGINE_DAILY_VIOLET_BERRY
 	iftrue .NoBerry

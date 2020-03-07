@@ -264,6 +264,21 @@ CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const DAILYFLAGS_ROUTE31_APRICORN                ; 15
 	const DAILYFLAGS_VIOLET_BERRY                    ; 16
 	const DAILYFLAGS_VIOLET_APRICORN                 ; 17
+	const DAILYFLAGS_ROUTE33_BERRY                   ; 18
+	const DAILYFLAGS_ROUTE33_APRICORN                ; 19
+	const DAILYFLAGS_ROUTE33_APRICORN2               ; 20
+	const DAILYFLAGS_AZALEA_APRICORN                 ; 21
+	const DAILYFLAGS_ROUTE35_BERRY                   ; 22
+	const DAILYFLAGS_ROUTE35_APRICORN                ; 23
+	const DAILYFLAGS_ROUTE36_BERRY                   ; 24
+	const DAILYFLAGS_ROUTE36_APRICORN                ; 25
+	const DAILYFLAGS_ROUTE37_APRICORN                ; 26
+	const DAILYFLAGS_ROUTE37_APRICORN2               ; 27
+	const DAILYFLAGS_ROUTE37_APRICORN3               ; 28
+	const DAILYFLAGS_ROUTE38_BERRY                   ; 29
+	const DAILYFLAGS_ROUTE38_APRICORN                ; 30
+	const DAILYFLAGS_ROUTE39_BERRY                   ; 31
+	const DAILYFLAGS_ROUTE39_APRICORN                ; 32
 
 ; wWeeklyFlags:: ; dc1f
 	const_def

@@ -1,12 +1,37 @@
 	const_def 2 ; object constants
 	const ROUTE33_POKEFAN_M
 	const ROUTE33_LASS
-	const ROUTE33_FRUIT_TREE
+	const ROUTE33_BERRY
+	const ROUTE33_APRICORN
+	const ROUTE33_APRICORN2
 
 Route33_MapScripts:
 	db 0 ; scene scripts
 
-	db 0 ; callbacks
+	db 1 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .Fruittrees
+	
+.Fruittrees:	
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE33_BERRY
+	iftrue .NoBerry
+	appear ROUTE33_BERRY
+.NoBerry:
+	;return
+	
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE33_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE33_APRICORN
+.NoApricorn:
+	;return
+	
+.Apricorn2:
+	checkflag ENGINE_DAILY_ROUTE33_APRICORN2
+	iftrue .NoApricorn2
+	appear ROUTE33_APRICORN2
+.NoApricorn2:
+	return
 
 Route33LassScript:
 	jumptextfaceplayer Route33LassText
@@ -139,8 +164,59 @@ TrainerHikerAnthony:
 Route33Sign:
 	jumptext Route33SignText
 
-Route33FruitTree:
-	fruittree FRUITTREE_ROUTE_33
+Route33BerryTree:
+	opentext
+	writetext Route33BerryTreeText
+	buttonsound
+	writetext Route33HeyItsBerryText
+	buttonsound
+	verbosegiveitem PECHA_BERRY
+	closetext
+	disappear ROUTE33_BERRY
+	setflag ENGINE_DAILY_ROUTE33_BERRY
+	end
+	
+Route33ApricornTree:
+    opentext
+	writetext Route33ApricornTreeText
+	buttonsound	
+	writetext Route33HeyItsApricornText
+	buttonsound
+	verbosegiveitem BLK_APRICORN
+	closetext
+	disappear ROUTE33_APRICORN
+	setflag ENGINE_DAILY_ROUTE33_APRICORN
+	end
+	
+Route33ApricornTree2:
+    opentext
+	writetext Route33ApricornTreeText
+	buttonsound	
+	writetext Route33HeyItsApricorn2Text
+	buttonsound
+	verbosegiveitem PNK_APRICORN
+	closetext
+	disappear ROUTE33_APRICORN2
+	setflag ENGINE_DAILY_ROUTE33_APRICORN2
+	end
+
+Route33NoBerry:
+	opentext
+	writetext Route33BerryTreeText
+	buttonsound
+	writetext Route33NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route33NoApricorn:
+	opentext
+	writetext Route33ApricornTreeText
+	buttonsound
+	writetext Route33NothingHereText
+	waitbutton
+	closetext
+	end
 
 HikerAnthony2SeenText:
 	text "I came through the"
@@ -191,6 +267,36 @@ Route33LassText:
 Route33SignText:
 	text "ROUTE 33"
 	done
+	
+Route33BerryTreeText:
+	text "It's a"
+	line "BERRY tree..."
+	done
+
+Route33HeyItsBerryText:
+	text "Hey! It's"
+	line "PECHA BERRY!"
+	done
+
+Route33ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree..."
+	done
+
+Route33HeyItsApricornText:
+	text "Hey! It's"
+	line "BLK APRICORN!"
+	done
+	
+Route33HeyItsApricorn2Text:
+	text "Hey! It's"
+	line "PNK APRICORN!"
+	done
+
+Route33NothingHereText:
+	text "There's nothing"
+	line "here..."
+	done
 
 Route33_MapEvents:
 	db 0, 0 ; filler
@@ -200,10 +306,15 @@ Route33_MapEvents:
 
 	db 0 ; coord events
 
-	db 1 ; bg events
+	db 4 ; bg events
 	bg_event 11, 11, BGEVENT_READ, Route33Sign
+	bg_event  6, 11, BGEVENT_READ, Route33NoBerry
+	bg_event 13, 16, BGEVENT_READ, Route33NoApricorn
+	bg_event 14, 16, BGEVENT_READ, Route33NoApricorn
 
-	db 3 ; object events
+	db 5 ; object events
 	object_event  6, 13, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerAnthony, -1
-	object_event 13, 16, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route33LassScript, -1
-	object_event 14, 16, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route33FruitTree, -1
+	object_event 12, 16, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route33LassScript, -1
+	object_event  6, 11, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route33BerryTree, EVENT_ROUTE33_BERRY
+	object_event 14, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, Route33ApricornTree, EVENT_ROUTE33_APRICORN
+	object_event 13, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route33ApricornTree2, EVENT_ROUTE33_APRICORN2

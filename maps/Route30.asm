@@ -16,12 +16,10 @@
 Route30_MapScripts:
 	db 0 ; scene scripts
 
-	db 4 ; callbacks
-	callback MAPCALLBACK_OBJECTS, .Berry
-	callback MAPCALLBACK_OBJECTS, .Apricorn
-	callback MAPCALLBACK_OBJECTS, .Berry2
-	callback MAPCALLBACK_OBJECTS, .Apricorn2
+	db 1 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .Fruittrees
 	
+.Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE30_BERRY
 	iftrue .NoBerry

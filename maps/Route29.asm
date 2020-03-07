@@ -14,10 +14,8 @@ Route29_MapScripts:
 	scene_script .DummyScene0 ; SCENE_ROUTE29_NOTHING
 	scene_script .DummyScene1 ; SCENE_ROUTE29_CATCH_TUTORIAL
 
-	db 3 ; callbacks
-	callback MAPCALLBACK_OBJECTS, .Berry
-	callback MAPCALLBACK_OBJECTS, .Apricorn
-	callback MAPCALLBACK_OBJECTS, .Tuscany	
+	db 1 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .FruittreesandTuscany
 
 .DummyScene0:
 	end
@@ -25,6 +23,7 @@ Route29_MapScripts:
 .DummyScene1:
 	end
 	
+.FruittreesandTuscany:
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE29_BERRY
 	iftrue .NoBerry

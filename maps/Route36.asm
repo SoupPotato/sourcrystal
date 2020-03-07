@@ -4,7 +4,8 @@
 	const ROUTE36_SUDOWOODO
 	const ROUTE36_LASS1
 	const ROUTE36_FISHER
-	const ROUTE36_FRUIT_TREE
+	const ROUTE36_BERRY
+	const ROUTE36_APRICORN
 	const ROUTE36_ARTHUR
 	const ROUTE36_FLORIA
 	const ROUTE36_SUICUNE
@@ -15,13 +16,28 @@ Route36_MapScripts:
 	scene_script .DummyScene1 ; SCENE_ROUTE36_SUICUNE
 
 	db 1 ; callbacks
-	callback MAPCALLBACK_OBJECTS, .ArthurCallback
+	callback MAPCALLBACK_OBJECTS, .FruittreesandArthurCallback
 
 .DummyScene0:
 	end
 
 .DummyScene1:
 	end
+	
+.FruittreesandArthurCallback
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE36_BERRY
+	iftrue .NoBerry
+	appear ROUTE36_BERRY
+.NoBerry:
+	;return
+	
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE36_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE36_APRICORN
+.NoApricorn:
+	;return
 
 .ArthurCallback:
 	checkcode VAR_WEEKDAY
@@ -378,8 +394,47 @@ Route36TrainerTips1:
 Route36TrainerTips2:
 	jumptext Route36TrainerTips2Text
 
-Route36FruitTree:
-	fruittree FRUITTREE_ROUTE_36
+Route36BerryTree:
+	opentext
+	writetext Route36BerryTreeText
+	buttonsound
+	writetext Route36HeyItsBerryText
+	buttonsound
+	verbosegiveitem RAWST_BERRY
+	closetext
+	disappear ROUTE36_BERRY
+	setflag ENGINE_DAILY_ROUTE36_BERRY
+	end
+	
+Route36ApricornTree:
+    opentext
+	writetext Route36ApricornTreeText
+	buttonsound	
+	writetext Route36HeyItsApricornText
+	buttonsound
+	verbosegiveitem BLU_APRICORN
+	closetext
+	disappear ROUTE36_APRICORN
+	setflag ENGINE_DAILY_ROUTE36_APRICORN
+	end
+
+Route36NoBerry:
+	opentext
+	writetext Route36BerryTreeText
+	buttonsound
+	writetext Route36NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route36NoApricorn:
+	opentext
+	writetext Route36ApricornTreeText
+	buttonsound
+	writetext Route36NothingHereText
+	waitbutton
+	closetext
+	end
 
 SudowoodoShakeMovement:
 	tree_shake ; shake
@@ -685,6 +740,31 @@ Route36TrainerTips2Text:
 	para "caves and other"
 	line "landmarks."
 	done
+	
+Route36BerryTreeText:
+	text "It's a"
+	line "BERRY tree..."
+	done
+
+Route36HeyItsBerryText:
+	text "Hey! It's"
+	line "RAWST BERRY!"
+	done
+
+Route36ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree..."
+	done
+
+Route36HeyItsApricornText:
+	text "Hey! It's"
+	line "BLU APRICORN!"
+	done	
+
+Route36NothingHereText:
+	text "There's nothing"
+	line "here..."
+	done
 
 Route36_MapEvents:
 	db 0, 0 ; filler
@@ -699,19 +779,22 @@ Route36_MapEvents:
 	coord_event 20,  7, SCENE_ROUTE36_SUICUNE, Route36SuicuneScript
 	coord_event 22,  7, SCENE_ROUTE36_SUICUNE, Route36SuicuneScript
 
-	db 4 ; bg events
+	db 6 ; bg events
 	bg_event 29,  1, BGEVENT_READ, Route36TrainerTips2
 	bg_event 45, 11, BGEVENT_READ, RuinsOfAlphNorthSign
 	bg_event 55,  7, BGEVENT_READ, Route36Sign
 	bg_event 21,  7, BGEVENT_READ, Route36TrainerTips1
+	bg_event 21,  5, BGEVENT_READ, Route36NoBerry
+	bg_event 21,  4, BGEVENT_READ, Route36NoApricorn
 
-	db 9 ; object events
+	db 10 ; object events
 	object_event 20, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicMark, -1
 	object_event 31, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerSchoolboyAlan1, -1
 	object_event 35,  9, SPRITE_SUDOWOODO, SPRITEMOVEDATA_SUDOWOODO, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SudowoodoScript, EVENT_ROUTE_36_SUDOWOODO
 	object_event 51,  8, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36LassScript, -1
 	object_event 44,  9, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36RockSmashGuyScript, -1
-	object_event 21,  4, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36FruitTree, -1
+	object_event 21,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route36BerryTree, EVENT_ROUTE36_BERRY
+	object_event 21,  4, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36ApricornTree, EVENT_ROUTE36_APRICORN
 	object_event 46,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArthurScript, EVENT_ROUTE_36_ARTHUR_OF_THURSDAY
 	object_event 33, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36FloriaScript, EVENT_FLORIA_AT_SUDOWOODO
 	object_event 21,  6, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_ON_ROUTE_36

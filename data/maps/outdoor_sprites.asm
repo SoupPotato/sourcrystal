@@ -206,6 +206,8 @@ AzaleaGroupSprites:
 	db SPRITE_SILVER
 	; 7 of max 9 walking sprites
 	db SPRITE_BERRY
+	db SPRITE_APRICORN
+	db SPRITE_APRICORN2
 	db SPRITE_SLOWPOKE
 	db SPRITE_KURT
 	db 0 ; end
@@ -242,6 +244,8 @@ CianwoodGroupSprites:
 	; 8 of max 9 walking sprites
 	db SPRITE_TAUROS
 	db SPRITE_BERRY
+	db SPRITE_APRICORN
+	db SPRITE_APRICORN2
 	db SPRITE_ROCK
 	db SPRITE_YOUNGSTER ; non-walking version of SPRITE_YOUNGSTER
 	db SPRITE_SUICUNE

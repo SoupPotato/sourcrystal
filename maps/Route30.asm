@@ -278,9 +278,11 @@ Route30BerryTree:
 	writetext Route30HeyItsBerryText
 	buttonsound
 	verbosegiveitem ORAN_BERRY
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE30_BERRY
 	setflag ENGINE_DAILY_ROUTE30_BERRY
+.NoRoomInBag
+	closetext
 	end
 	
 Route30BerryTree2:
@@ -290,9 +292,11 @@ Route30BerryTree2:
 	writetext Route30HeyItsBerry2Text
 	buttonsound
 	verbosegiveitem PECHA_BERRY
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE30_BERRY2
 	setflag ENGINE_DAILY_ROUTE30_BERRY2
+.NoRoomInBag
+	closetext
 	end
 
 Route30ApricornTree:
@@ -302,9 +306,11 @@ Route30ApricornTree:
 	writetext Route30HeyItsApricornText
 	buttonsound
 	verbosegiveitem GRN_APRICORN
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE30_APRICORN
 	setflag ENGINE_DAILY_ROUTE30_APRICORN
+.NoRoomInBag
+	closetext
 	end
 	
 Route30ApricornTree2:
@@ -314,9 +320,11 @@ Route30ApricornTree2:
 	writetext Route30HeyItsApricorn2Text
 	buttonsound
 	verbosegiveitem PNK_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE30_APRICORN
+	setflag ENGINE_DAILY_ROUTE30_APRICORN
+.NoRoomInBag
 	closetext
-	disappear ROUTE30_APRICORN2
-	setflag ENGINE_DAILY_ROUTE30_APRICORN2
 	end
 	
 Route30NoBerry:

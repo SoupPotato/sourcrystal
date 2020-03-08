@@ -198,9 +198,11 @@ Route39BerryTree:
 	writetext Route39HeyItsBerryText
 	buttonsound
 	verbosegiveitem CHESTO_BERRY
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE39_BERRY
 	setflag ENGINE_DAILY_ROUTE39_BERRY
+.NoRoomInBag
+	closetext
 	end
 	
 Route39ApricornTree:
@@ -210,9 +212,11 @@ Route39ApricornTree:
 	writetext Route39HeyItsApricornText
 	buttonsound
 	verbosegiveitem GRN_APRICORN
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE39_APRICORN
 	setflag ENGINE_DAILY_ROUTE39_APRICORN
+.NoRoomInBag
+	closetext
 	end
 
 Route39NoBerry:

@@ -280,9 +280,11 @@ Route31BerryTree:
 	writetext Route31HeyItsBerryText
 	buttonsound
 	verbosegiveitem PERSIM_BERRY
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE31_BERRY
 	setflag ENGINE_DAILY_ROUTE31_BERRY
+.NoRoomInBag
+	closetext
 	end
 
 Route31ApricornTree:
@@ -292,9 +294,11 @@ Route31ApricornTree:
 	writetext Route31HeyItsApricornText
 	buttonsound
 	verbosegiveitem BLK_APRICORN
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE31_APRICORN
 	setflag ENGINE_DAILY_ROUTE31_APRICORN
+.NoRoomInBag
+	closetext
 	end
 
 Route31NoBerry:

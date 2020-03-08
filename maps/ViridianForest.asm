@@ -1,6 +1,9 @@
 	const_def 2 ; object constants
     const VIRIDIAN_FOREST_POKE_BALL1
-	const VIRIDIAN_FOREST_FRUIT_TREE
+	const VIRIDIAN_FOREST_POKE_BALL2
+	const VIRIDIAN_FOREST_POKE_BALL3
+	const VIRIDIAN_FOREST_BERRY
+	const VIRIDIAN_FOREST_APRICORN
 	const VIRIDIAN_FOREST_BUG_CATCHER1
 	const VIRIDIAN_FOREST_BUG_CATCHER2
 	const VIRIDIAN_FOREST_BUG_CATCHER3
@@ -10,7 +13,23 @@
 ViridianForest_MapScripts:
 	db 0 ; scene scripts
 
-	db 0 ; callbacks
+	db 1 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .Fruittrees
+	
+.Fruittrees
+.Berry:
+	checkflag ENGINE_DAILY_VIRIDIAN_FOREST_BERRY
+	iftrue .NoBerry
+	appear VIRIDIAN_FOREST_BERRY
+.NoBerry:
+	;return
+	
+.Apricorn:
+	checkflag ENGINE_DAILY_VIRIDIAN_FOREST_APRICORN
+	iftrue .NoApricorn
+	appear VIRIDIAN_FOREST_APRICORN
+.NoApricorn:
+	return
 	
 ViridianForestHiddenMaxEther:
 	hiddenitem MAX_ETHER, EVENT_ROUTE_2_HIDDEN_MAX_ETHER
@@ -21,8 +40,51 @@ ViridianForestHiddenFullHeal:
 ViridianForestHiddenFullRestore:
 	hiddenitem FULL_RESTORE, EVENT_ROUTE_2_HIDDEN_FULL_RESTORE
 	
-ViridianForestFruitTree:
-	fruittree FRUITTREE_ROUTE_2
+ViridianForestBerryTree:
+	opentext
+	writetext ViridianForestBerryTreeText
+	buttonsound
+	writetext ViridianForestHeyItsBerryText
+	buttonsound
+	verbosegiveitem PECHA_BERRY
+	iffalse .NoRoomInBag
+	disappear VIRIDIAN_FOREST_BERRY
+	setflag ENGINE_DAILY_VIRIDIAN_FOREST_BERRY
+.NoRoomInBag
+	closetext
+	end
+	
+ViridianForestApricornTree:
+    opentext
+	writetext ViridianForestApricornTreeText
+	buttonsound	
+	writetext ViridianForestHeyItsApricornText
+	buttonsound
+	verbosegiveitem PNK_APRICORN
+	iffalse .NoRoomInBag
+	disappear VIRIDIAN_FOREST_APRICORN
+	setflag ENGINE_DAILY_VIRIDIAN_FOREST_APRICORN
+.NoRoomInBag
+	closetext
+	end
+
+ViridianForestNoBerry:
+	opentext
+	writetext ViridianForestBerryTreeText
+	buttonsound
+	writetext ViridianForestNothingHereText
+	waitbutton
+	closetext
+	end
+
+ViridianForestNoApricorn:
+	opentext
+	writetext ViridianForestApricornTreeText
+	buttonsound
+	writetext ViridianForestNothingHereText
+	waitbutton
+	closetext
+	end
 	
 ViridianForestMaxPotion:
 	itemball MAX_POTION
@@ -213,6 +275,31 @@ BugCatcherDaneAfterBattleText:
 	line "go anywhere with"
 	cont "that skill!"
 	done
+	
+ViridianForestBerryTreeText:
+	text "It's a"
+	line "BERRY tree..."
+	done
+
+ViridianForestHeyItsBerryText:
+	text "Hey! It's"
+	line "PECHA BERRY!"
+	done
+
+ViridianForestApricornTreeText:
+	text "It's an"
+	line "APRICORN tree..."
+	done
+
+ViridianForestHeyItsApricornText:
+	text "Hey! It's"
+	line "PNK APRICORN!"
+	done	
+
+ViridianForestNothingHereText:
+	text "There's nothing"
+	line "here..."
+	done
 
 ViridianForest_MapEvents:
 	db 0, 0 ; filler
@@ -224,17 +311,20 @@ ViridianForest_MapEvents:
 
 	db 0 ; coord events
 
-	db 4 ; bg events
+	db 6 ; bg events
 	bg_event 17, 22, BGEVENT_ITEM, ViridianForestHiddenMaxEther
 	bg_event 13,  6, BGEVENT_ITEM, ViridianForestHiddenFullHeal
 	bg_event 10, 38, BGEVENT_ITEM, ViridianForestHiddenFullRestore
 	bg_event 31, 46, BGEVENT_ITEM, ViridianForestHiddenRevive
+	bg_event 17,  6, BGEVENT_READ, ViridianForestNoBerry
+	bg_event 31,  6, BGEVENT_READ, ViridianForestNoApricorn
 
-	db 9 ; object events
+	db 10 ; object events
     object_event 11, 32, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestMaxPotion, EVENT_VIRIDIAN_FOREST_MAX_POTION
 	object_event 25, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestMaxEther, EVENT_VIRIDIAN_FOREST_MAX_ETHER
 	object_event  2, 34, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestLeafStone, EVENT_VIRIDIAN_FOREST_LEAF_STONE
-	object_event 31,  6, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree, -1
+	object_event 17,  6, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ViridianForestBerryTree, EVENT_VIRIDIAN_FOREST_BERRY
+	object_event 31,  6, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ViridianForestApricornTree, EVENT_VIRIDIAN_FOREST_APRICORN
 	object_event  4, 26, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBugCatcherAbner, -1
 	object_event 25,  5, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerBugCatcherEllis, -1
 	object_event 28, 22, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBugCatcherStacey, -1

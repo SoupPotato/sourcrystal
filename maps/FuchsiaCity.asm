@@ -2,16 +2,33 @@
 	const FUCHSIACITY_YOUNGSTER
 	const FUCHSIACITY_POKEFAN_M
 	const FUCHSIACITY_TEACHER
-	const FUCHSIACITY_FRUIT_TREE
+	const FUCHSIACITY_BERRY
+	const FUCHSIACITY_APRICORN
 
 FuchsiaCity_MapScripts:
 	db 0 ; scene scripts
 
-	db 1 ; callbacks
+	db 2 ; callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
+	callback MAPCALLBACK_OBJECTS, .Fruittrees
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_FUCHSIA
+	return
+	
+.Fruittrees
+.Berry:
+	checkflag ENGINE_DAILY_FUCHSIA_BERRY
+	iftrue .NoBerry
+	appear FUCHSIACITY_BERRY
+.NoBerry:
+	;return
+	
+.Apricorn:
+	checkflag ENGINE_DAILY_FUCHSIA_APRICORN
+	iftrue .NoApricorn
+	appear FUCHSIACITY_APRICORN
+.NoApricorn:
 	return
 
 FuchsiaCityYoungster:
@@ -47,8 +64,51 @@ FuchsiaCityPokecenterSign:
 FuchsiaCityMartSign:
 	jumpstd martsign
 
-FuchsiaCityFruitTree:
-	fruittree FRUITTREE_FUCHSIA_CITY
+FuchsiaBerryTree:
+	opentext
+	writetext FuchsiaBerryTreeText
+	buttonsound
+	writetext FuchsiaHeyItsBerryText
+	buttonsound
+	verbosegiveitem ASPEAR_BERRY
+	iffalse .NoRoomInBag
+	disappear FUCHSIACITY_BERRY
+	setflag ENGINE_DAILY_FUCHSIA_BERRY
+.NoRoomInBag
+	closetext
+	end
+	
+FuchsiaApricornTree:
+    opentext
+	writetext FuchsiaApricornTreeText
+	buttonsound	
+	writetext FuchsiaHeyItsApricornText
+	buttonsound
+	verbosegiveitem RED_APRICORN
+	iffalse .NoRoomInBag
+	disappear FUCHSIACITY_APRICORN
+	setflag ENGINE_DAILY_FUCHSIA_APRICORN
+.NoRoomInBag
+	closetext
+	end
+
+FuchsiaNoBerry:
+	opentext
+	writetext FuchsiaBerryTreeText
+	buttonsound
+	writetext FuchsiaNothingHereText
+	waitbutton
+	closetext
+	end
+
+FuchsiaNoApricorn:
+	opentext
+	writetext FuchsiaApricornTreeText
+	buttonsound
+	writetext FuchsiaNothingHereText
+	waitbutton
+	closetext
+	end
 
 FuchsiaCityYoungsterText:
 	text "One of the ELITE"
@@ -121,7 +181,32 @@ NoLitteringSignText:
 	para "Please take your"
 	line "waste with you."
 	done
+	
+FuchsiaBerryTreeText:
+	text "It's a"
+	line "BERRY tree..."
+	done
 
+FuchsiaHeyItsBerryText:
+	text "Hey! It's"
+	line "ASPEAR BERRY!"
+	done
+
+FuchsiaApricornTreeText:
+	text "It's an"
+	line "APRICORN tree..."
+	done
+
+FuchsiaHeyItsApricornText:
+	text "Hey! It's"
+	line "RED APRICORN!"
+	done	
+
+FuchsiaNothingHereText:
+	text "There's nothing"
+	line "here..."
+	done
+	
 FuchsiaCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -140,7 +225,7 @@ FuchsiaCity_MapEvents:
 
 	db 0 ; coord events
 
-	db 8 ; bg events
+	db 10 ; bg events
 	bg_event 21, 15, BGEVENT_READ, FuchsiaCitySign
 	bg_event  5, 29, BGEVENT_READ, FuchsiaGymSign
 	bg_event 25, 15, BGEVENT_READ, SafariZoneOfficeSign
@@ -149,9 +234,12 @@ FuchsiaCity_MapEvents:
 	bg_event 13, 15, BGEVENT_READ, NoLitteringSign
 	bg_event 20, 27, BGEVENT_READ, FuchsiaCityPokecenterSign
 	bg_event  6, 13, BGEVENT_READ, FuchsiaCityMartSign
+	bg_event 17, 17, BGEVENT_READ, FuchsiaNoBerry
+	bg_event 15, 17, BGEVENT_READ, FuchsiaNoApricorn
 
-	db 4 ; object events
+	db 5 ; object events
 	object_event 23, 18, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityYoungster, -1
 	object_event 13,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityPokefanM, -1
 	object_event 16, 14, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FuchsiaCityTeacher, -1
-	object_event 14, 17, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFruitTree, -1
+	object_event 17, 17, SPRITE_BERRY2, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FuchsiaBerryTree, EVENT_FUCHSIA_BERRY
+	object_event 15, 17, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FuchsiaApricornTree, EVENT_FUCHSIA_APRICORN

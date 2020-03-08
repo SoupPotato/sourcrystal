@@ -49,6 +49,8 @@ PewterGroupSprites:
 	; max 9 of 9 walking sprites
 	db SPRITE_POKE_BALL
 	db SPRITE_BERRY
+	db SPRITE_APRICORN
+	db SPRITE_APRICORN2
 	db 0 ; end
 ViridianGroupSprites:
 ; Route2South, Route22, ViridianCity
@@ -70,6 +72,7 @@ CinnabarGroupSprites:
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_POKE_BALL
 	db SPRITE_BERRY
+	db SPRITE_APRICORN
 	db 0 ; end
 
 ; CeruleanCity and Route5 are connected
@@ -107,6 +110,7 @@ VermilionGroupSprites:
 	db SPRITE_TWIN
 	db SPRITE_POKE_BALL
 	db SPRITE_BERRY
+	db SPRITE_APRICORN
 	db 0 ; end
 
 CeladonGroupSprites:
@@ -142,6 +146,9 @@ FuchsiaGroupSprites:
 	db SPRITE_TWIN
 	db SPRITE_POKE_BALL
 	db SPRITE_BERRY
+	db SPRITE_BERRY2
+	db SPRITE_APRICORN
+	db SPRITE_APRICORN2
 	db 0 ; end
 
 IndigoGroupSprites:
@@ -263,6 +270,9 @@ MahoganyGroupSprites:
 	db SPRITE_FISHER
 	; 8 of max 9 walking sprites
 	db SPRITE_BERRY
+	db SPRITE_BERRY2
+	db SPRITE_APRICORN
+	db SPRITE_APRICORN2
 	db SPRITE_POKE_BALL
 	db SPRITE_SUICUNE
 	db 0 ; end
@@ -280,6 +290,7 @@ LakeOfRageGroupSprites:
 	; 8 of max 9 walking sprites
 	db SPRITE_GYARADOS
 	db SPRITE_BERRY
+	db SPRITE_APRICORN
 	db SPRITE_POKE_BALL
 	db 0 ; end
 
@@ -295,6 +306,8 @@ BlackthornGroupSprites:
 	db SPRITE_COOLTRAINER_F
 	; 8 of max 9 walking sprites
 	db SPRITE_BERRY
+	db SPRITE_APRICORN
+	db SPRITE_APRICORN2
 	db SPRITE_POKE_BALL
 	db 0 ; end
 

@@ -131,9 +131,11 @@ Route37ApricornTree:
 	writetext Route37HeyItsApricornText
 	buttonsound
 	verbosegiveitem RED_APRICORN
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE37_APRICORN
 	setflag ENGINE_DAILY_ROUTE37_APRICORN
+.NoRoomInBag
+	closetext
 	end
 	
 Route37ApricornTree2:
@@ -143,9 +145,11 @@ Route37ApricornTree2:
 	writetext Route37HeyItsApricorn2Text
 	buttonsound
 	verbosegiveitem BLU_APRICORN
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE37_APRICORN2
 	setflag ENGINE_DAILY_ROUTE37_APRICORN2
+.NoRoomInBag
+	closetext
 	end
 	
 Route37ApricornTree3:
@@ -155,9 +159,11 @@ Route37ApricornTree3:
 	writetext Route37HeyItsApricorn3Text
 	buttonsound
 	verbosegiveitem BLK_APRICORN
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE37_APRICORN3
 	setflag ENGINE_DAILY_ROUTE37_APRICORN3
+.NoRoomInBag
+	closetext
 	end
 
 Route37NoApricorn:

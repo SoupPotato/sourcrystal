@@ -92,7 +92,9 @@ CheckDailyResetTimer::
 	ret nc
 	xor a
 	ld hl, wDailyFlags
+rept 8
 	ld [hli], a ; wDailyFlags
+endr
 	ld [hli], a ; wWeeklyFlags
 	ld [hli], a ; wSwarmFlags
 	ld [hl], a  ; wSwarmFlags + 1

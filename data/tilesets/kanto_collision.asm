@@ -162,3 +162,7 @@
 	tilecoll HOP_DOWN_RIGHT, WALL, WALL, WALL ; a1
 	tilecoll HOP_DOWN, WALL, WALL, WALL ; a2
 	tilecoll WATER, FLOOR, WATER, FLOOR ; a3
+	tilecoll FLOOR, FLOOR, FLOOR, WALL ; a4
+	tilecoll FLOOR, FLOOR, FLOOR, WALL ; a5
+	tilecoll FLOOR, WALL, FLOOR, FLOOR ; a6
+	tilecoll WALL, FLOOR, FLOOR, FLOOR ; a7

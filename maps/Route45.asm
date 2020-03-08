@@ -6,7 +6,8 @@
 	const ROUTE45_BLACK_BELT
 	const ROUTE45_COOLTRAINER_M
 	const ROUTE45_COOLTRAINER_F
-	const ROUTE45_FRUIT_TREE
+	const ROUTE45_BERRY
+	const ROUTE45_APRICORN
 	const ROUTE45_POKE_BALL1
 	const ROUTE45_POKE_BALL2
 	const ROUTE45_POKE_BALL3
@@ -16,7 +17,23 @@
 Route45_MapScripts:
 	db 0 ; scene scripts
 
-	db 0 ; callbacks
+	db 1 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .Fruittrees
+	
+.Fruittrees
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE45_BERRY
+	iftrue .NoBerry
+	appear ROUTE45_BERRY
+.NoBerry:
+	;return
+	
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE45_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE45_APRICORN
+.NoApricorn:
+	return
 
 TrainerBlackbeltKenji:
 	trainer BLACKBELT_T, KENJI3, EVENT_BEAT_BLACKBELT_KENJI, BlackbeltKenji3SeenText, BlackbeltKenji3BeatenText, 0, .Script
@@ -294,8 +311,51 @@ Route45DummyScript:
 Route45Sign:
 	jumptext Route45SignText
 
-Route45FruitTree:
-	fruittree FRUITTREE_ROUTE_45
+Route45BerryTree:
+	opentext
+	writetext Route45BerryTreeText
+	buttonsound
+	writetext Route45HeyItsBerryText
+	buttonsound
+	verbosegiveitem LEPPA_BERRY
+	iffalse .NoRoomInBag
+	disappear ROUTE45_BERRY
+	setflag ENGINE_DAILY_ROUTE45_BERRY
+.NoRoomInBag
+	closetext
+	end
+	
+Route45ApricornTree:
+    opentext
+	writetext Route45ApricornTreeText
+	buttonsound	
+	writetext Route45HeyItsApricornText
+	buttonsound
+	verbosegiveitem GRN_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE45_APRICORN
+	setflag ENGINE_DAILY_ROUTE45_APRICORN
+.NoRoomInBag
+	closetext
+	end
+
+Route45NoBerry:
+	opentext
+	writetext Route45BerryTreeText
+	buttonsound
+	writetext Route45NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route45NoApricorn:
+	opentext
+	writetext Route45ApricornTreeText
+	buttonsound
+	writetext Route45NothingHereText
+	waitbutton
+	closetext
+	end
 
 Route45Nugget:
 	itemball NUGGET
@@ -528,6 +588,31 @@ Route45SignText:
 	text "ROUTE 45"
 	line "MOUNTAIN RD. AHEAD"
 	done
+	
+Route45BerryTreeText:
+	text "It's a"
+	line "BERRY tree..."
+	done
+
+Route45HeyItsBerryText:
+	text "Hey! It's"
+	line "LEPPA BERRY!"
+	done
+
+Route45ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree..."
+	done
+
+Route45HeyItsApricornText:
+	text "Hey! It's"
+	line "GRN APRICORN!"
+	done	
+
+Route45NothingHereText:
+	text "There's nothing"
+	line "here..."
+	done
 
 Route45_MapEvents:
 	db 0, 0 ; filler
@@ -537,11 +622,13 @@ Route45_MapEvents:
 
 	db 0 ; coord events
 
-	db 2 ; bg events
+	db 4 ; bg events
 	bg_event 10,  4, BGEVENT_READ, Route45Sign
 	bg_event 13, 80, BGEVENT_ITEM, Route45HiddenPpUp
+	bg_event 17, 80, BGEVENT_READ, Route45NoBerry
+	bg_event 16, 82, BGEVENT_READ, Route45NoApricorn
 
-	db 13 ; object events
+	db 14 ; object events
 	object_event 10, 16, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerHikerErik, -1
 	object_event 15, 65, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerMichael, -1
 	object_event  5, 28, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerParry, -1
@@ -549,7 +636,8 @@ Route45_MapEvents:
 	object_event 11, 50, SPRITE_BLACK_BELT, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerBlackbeltKenji, -1
 	object_event 17, 18, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainermRyan, -1
 	object_event  5, 36, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfKelly, -1
-	object_event 16, 82, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route45FruitTree, -1
+	object_event 17, 80, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route45BerryTree, EVENT_ROUTE45_BERRY
+	object_event 16, 82, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route45ApricornTree, EVENT_ROUTE45_APRICORN
 	object_event  6, 51, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45Nugget, EVENT_ROUTE_45_NUGGET
 	object_event  5, 66, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45Revive, EVENT_ROUTE_45_REVIVE
 	object_event  6, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45Elixer, EVENT_ROUTE_45_ELIXER

@@ -301,9 +301,11 @@ Route35BerryTree:
 	writetext Route35HeyItsBerryText
 	buttonsound
 	verbosegiveitem LEPPA_BERRY
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE35_BERRY
 	setflag ENGINE_DAILY_ROUTE35_BERRY
+.NoRoomInBag
+	closetext
 	end
 	
 Route35ApricornTree:
@@ -313,9 +315,11 @@ Route35ApricornTree:
 	writetext Route35HeyItsApricornText
 	buttonsound
 	verbosegiveitem GRN_APRICORN
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE35_APRICORN
 	setflag ENGINE_DAILY_ROUTE35_APRICORN
+.NoRoomInBag
+	closetext
 	end
 
 Route35NoBerry:

@@ -148,6 +148,35 @@ EngineFlags:
 	engine_flag wDailyFlags, DAILYFLAGS_ROUTE38_APRICORN
 	engine_flag wDailyFlags, DAILYFLAGS_ROUTE39_BERRY
 	engine_flag wDailyFlags, DAILYFLAGS_ROUTE39_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE42_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE42_APRICORN2
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE42_APRICORN3
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE43_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE43_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE44_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE44_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE45_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE45_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE46_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE46_BERRY2
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE46_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE46_APRICORN2
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE26_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE26_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE1_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE1_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_VIRIDIAN_FOREST_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_VIRIDIAN_FOREST_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_PEWTER_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_PEWTER_BERRY2
+	engine_flag wDailyFlags, DAILYFLAGS_PEWTER_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_PEWTER_APRICORN2
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE8_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE8_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE11_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_ROUTE11_APRICORN
+	engine_flag wDailyFlags, DAILYFLAGS_FUCHSIA_BERRY
+	engine_flag wDailyFlags, DAILYFLAGS_FUCHSIA_APRICORN
 
 	engine_flag wWeeklyFlags, WEEKLYFLAGS_MT_MOON_SQUARE_CLEFAIRY_F ; $58
 	engine_flag wWeeklyFlags, WEEKLYFLAGS_UNION_CAVE_LAPRAS_F

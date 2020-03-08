@@ -2,17 +2,49 @@
 	const PEWTERCITY_COOLTRAINER_F
 	const PEWTERCITY_BUG_CATCHER
 	const PEWTERCITY_GRAMPS
-	const PEWTERCITY_FRUIT_TREE1
-	const PEWTERCITY_FRUIT_TREE2
+	const PEWTERCITY_BERRY
+	const PEWTERCITY_BERRY2
+	const PEWTERCITY_APRICORN
+	const PEWTERCITY_APRICORN2
 
 PewterCity_MapScripts:
 	db 0 ; scene scripts
 
-	db 1 ; callbacks
+	db 2 ; callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
+	callback MAPCALLBACK_OBJECTS, .Fruittrees
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_PEWTER
+	return
+	
+.Fruittrees
+.Berry:
+	checkflag ENGINE_DAILY_PEWTER_BERRY
+	iftrue .NoBerry
+	appear PEWTERCITY_BERRY
+.NoBerry:
+	;return
+	
+.Apricorn:
+	checkflag ENGINE_DAILY_PEWTER_APRICORN
+	iftrue .NoApricorn
+	appear PEWTERCITY_APRICORN
+.NoApricorn:
+	;return
+	
+.Berry2:
+	checkflag ENGINE_DAILY_PEWTER_BERRY2
+	iftrue .NoBerry2
+	appear PEWTERCITY_BERRY2
+.NoBerry2:
+	;return
+	
+.Apricorn2:
+	checkflag ENGINE_DAILY_PEWTER_APRICORN2
+	iftrue .NoApricorn2
+	appear PEWTERCITY_APRICORN2
+.NoApricorn2:
 	return
 
 PewterCityCooltrainerFScript:
@@ -60,11 +92,79 @@ PewterCityPokecenterSign:
 PewterCityMartSign:
 	jumpstd martsign
 
-PewterCityFruitTree1:
-	fruittree FRUITTREE_PEWTER_CITY_1
+PewterCityBerryTree:
+	opentext
+	writetext PewterCityBerryTreeText
+	buttonsound
+	writetext PewterCityHeyItsBerryText
+	buttonsound
+	verbosegiveitem RAWST_BERRY
+	iffalse .NoRoomInBag
+	disappear PEWTERCITY_BERRY
+	setflag ENGINE_DAILY_PEWTER_BERRY
+.NoRoomInBag
+	closetext
+	end
+	
+PewterCityBerryTree2:
+	opentext
+	writetext PewterCityBerryTreeText
+	buttonsound
+	writetext PewterCityHeyItsBerry2Text
+	buttonsound
+	verbosegiveitem CHESTO_BERRY
+	iffalse .NoRoomInBag
+	disappear PEWTERCITY_BERRY2
+	setflag ENGINE_DAILY_PEWTER_BERRY2
+.NoRoomInBag
+	closetext
+	end
 
-PewterCityFruitTree2:
-	fruittree FRUITTREE_PEWTER_CITY_2
+PewterCityApricornTree:
+    opentext
+	writetext PewterCityApricornTreeText
+	buttonsound	
+	writetext PewterCityHeyItsApricornText
+	buttonsound
+	verbosegiveitem BLU_APRICORN
+	iffalse .NoRoomInBag
+	disappear PEWTERCITY_APRICORN
+	setflag ENGINE_DAILY_PEWTER_APRICORN
+.NoRoomInBag
+	closetext
+	end
+	
+PewterCityApricornTree2:
+    opentext
+	writetext PewterCityApricornTreeText
+	buttonsound	
+	writetext PewterCityHeyItsApricorn2Text
+	buttonsound
+	verbosegiveitem WHT_APRICORN
+	iffalse .NoRoomInBag
+	disappear PEWTERCITY_APRICORN2
+	setflag ENGINE_DAILY_PEWTER_APRICORN2
+.NoRoomInBag
+	closetext
+	end
+	
+PewterCityNoBerry:
+	opentext
+	writetext PewterCityBerryTreeText
+	buttonsound
+	writetext PewterCityNothingHereText
+	waitbutton
+	closetext
+	end
+
+PewterCityNoApricorn:
+	opentext
+	writetext PewterCityApricornTreeText
+	buttonsound
+	writetext PewterCityNothingHereText
+	waitbutton
+	closetext
+	end
 
 PewterCityCooltrainerFText:
 	text "Have you visited"
@@ -150,6 +250,41 @@ PewterCityWelcomeSignText:
 	line "PEWTER CITY!"
 	done
 
+PewterCityBerryTreeText:
+	text "It's a"
+	line "BERRY tree..."
+	done
+
+PewterCityHeyItsBerryText:
+	text "Hey! It's"
+	line "RAWST BERRY!"
+	done
+	
+PewterCityHeyItsBerry2Text:
+	text "Hey! It's"
+	line "CHESTO BERRY!"
+	done
+
+PewterCityApricornTreeText:
+	text "It's an"
+	line "APRICORN tree..."
+	done
+
+PewterCityHeyItsApricornText:
+	text "Hey! It's"
+	line "BLU APRICORN!"
+	done	
+	
+PewterCityHeyItsApricorn2Text:
+	text "Hey! It's"
+	line "WHT APRICORN!"
+	done	
+
+PewterCityNothingHereText:
+	text "There's nothing"
+	line "here..."
+	done
+
 PewterCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -162,7 +297,7 @@ PewterCity_MapEvents:
 
 	db 0 ; coord events
 
-	db 7 ; bg events
+	db 11 ; bg events
 	bg_event 25, 23, BGEVENT_READ, PewterCitySign
 	bg_event 11, 17, BGEVENT_READ, PewterGymSign
 	bg_event 15,  9, BGEVENT_READ, PewterMuseumSign
@@ -170,10 +305,16 @@ PewterCity_MapEvents:
 	bg_event 19, 29, BGEVENT_READ, PewterCityWelcomeSign
 	bg_event 14, 25, BGEVENT_READ, PewterCityPokecenterSign
 	bg_event 24, 17, BGEVENT_READ, PewterCityMartSign
+	bg_event 27,  5, BGEVENT_READ, PewterCityNoBerry
+	bg_event 29,  5, BGEVENT_READ, PewterCityNoBerry
+	bg_event 31,  3, BGEVENT_READ, PewterCityNoApricorn
+	bg_event 29,  3, BGEVENT_READ, PewterCityNoApricorn
 
-	db 5 ; object events
+	db 7 ; object events
 	object_event 19, 11, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PewterCityCooltrainerFScript, -1
 	object_event 14, 29, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PewterCityBugCatcherScript, -1
 	object_event 29, 17, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityGrampsScript, -1
-	object_event 32,  3, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree1, -1
-	object_event 30,  3, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree2, -1
+	object_event 29,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PewterCityBerryTree, EVENT_PEWTER_BERRY
+	object_event 27,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityBerryTree2, EVENT_PEWTER_BERRY2
+	object_event 31,  3, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityApricornTree, EVENT_PEWTER_APRICORN
+	object_event 29,  3, SPRITE_APRICORN2, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, PewterCityApricornTree2, EVENT_PEWTER_APRICORN2

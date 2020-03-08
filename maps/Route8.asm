@@ -4,12 +4,29 @@
 	const ROUTE8_BIKER3
 	const ROUTE8_SUPER_NERD1
 	const ROUTE8_SUPER_NERD2
-	const ROUTE8_FRUIT_TREE
+	const ROUTE8_BERRY
+	const ROUTE8_APRICORN
 
 Route8_MapScripts:
 	db 0 ; scene scripts
 
-	db 0 ; callbacks
+	db 1 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .Fruittrees
+	
+.Fruittrees
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE8_BERRY
+	iftrue .NoBerry
+	appear ROUTE8_BERRY
+.NoBerry:
+	;return
+	
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE8_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE8_APRICORN
+.NoApricorn:
+	return
 
 TrainerBikerDwayne:
 	trainer BIKER, DWAYNE, EVENT_BEAT_BIKER_DWAYNE, BikerDwayneSeenText, BikerDwayneBeatenText, 0, .Script
@@ -105,8 +122,51 @@ Route8LockedDoor:
 Route8UndergroundPathSign:
 	jumptext Route8UndergroundPathSignText
 
-Route8FruitTree:
-	fruittree FRUITTREE_ROUTE_8
+Route8BerryTree:
+	opentext
+	writetext Route8BerryTreeText
+	buttonsound
+	writetext Route8HeyItsBerryText
+	buttonsound
+	verbosegiveitem CHERI_BERRY
+	iffalse .NoRoomInBag
+	disappear ROUTE8_BERRY
+	setflag ENGINE_DAILY_ROUTE8_BERRY
+.NoRoomInBag
+	closetext
+	end
+	
+Route8ApricornTree:
+    opentext
+	writetext Route8ApricornTreeText
+	buttonsound	
+	writetext Route8HeyItsApricornText
+	buttonsound
+	verbosegiveitem YLW_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE8_APRICORN
+	setflag ENGINE_DAILY_ROUTE8_APRICORN
+.NoRoomInBag
+	closetext
+	end
+
+Route8NoBerry:
+	opentext
+	writetext Route8BerryTreeText
+	buttonsound
+	writetext Route8NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route8NoApricorn:
+	opentext
+	writetext Route8ApricornTreeText
+	buttonsound
+	writetext Route8NothingHereText
+	waitbutton
+	closetext
+	end
 
 BikerDwayneSeenText:
 	text "We're the KANTO"
@@ -271,6 +331,31 @@ Route8UndergroundPathSignText:
 	para "It's impossible to"
 	line "read…"
 	done
+	
+Route8BerryTreeText:
+	text "It's a"
+	line "BERRY tree..."
+	done
+
+Route8HeyItsBerryText:
+	text "Hey! It's"
+	line "CHERI BERRY!"
+	done
+
+Route8ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree..."
+	done
+
+Route8HeyItsApricornText:
+	text "Hey! It's"
+	line "YLW APRICORN!"
+	done	
+
+Route8NothingHereText:
+	text "There's nothing"
+	line "here..."
+	done
 
 Route8_MapEvents:
 	db 0, 0 ; filler
@@ -281,17 +366,20 @@ Route8_MapEvents:
 
 	db 0 ; coord events
 
-	db 2 ; bg events
+	db 4 ; bg events
 	bg_event 11,  7, BGEVENT_READ, Route8UndergroundPathSign
 	bg_event  9,  5, BGEVENT_READ, Route8LockedDoor
+	bg_event  8,  8, BGEVENT_READ, Route8NoBerry
+	bg_event 49,  6, BGEVENT_READ, Route8NoApricorn
 
-	db 9 ; object events
+	db 10 ; object events
 	object_event 12, 11, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerBikerDwayne, -1
 	object_event 12, 12, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerBikerHarris, -1
 	object_event 12, 13, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerBikerZeke, -1
 	object_event 22, 12, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSupernerdSam, -1
 	object_event 39,  8, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSupernerdTom, -1
-	object_event 49,  6, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route8FruitTree, -1
+	object_event  8,  8, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route8BerryTree, EVENT_ROUTE8_BERRY
+	object_event 49,  6, SPRITE_APRICORN2, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route8ApricornTree, EVENT_ROUTE8_APRICORN
     object_event 30,  3, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerCoupleMoeandLulu1, -1
 	object_event 31,  3, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerCoupleMoeandLulu2, -1
 	object_event 45, 15, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, GentlemanMilton, -1

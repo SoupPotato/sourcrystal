@@ -5,14 +5,16 @@
 	const ROUTE43_FISHER
 	const ROUTE43_LASS
 	const ROUTE43_YOUNGSTER
-	const ROUTE43_FRUIT_TREE
+	const ROUTE43_BERRY
+	const ROUTE43_APRICORN
 	const ROUTE43_POKE_BALL
 
 Route43_MapScripts:
 	db 0 ; scene scripts
 
-	db 1 ; callbacks
+	db 2 ; callbacks
 	callback MAPCALLBACK_NEWMAP, .CheckIfRockets
+	callback MAPCALLBACK_OBJECTS, .Fruittrees
 
 .CheckIfRockets:
 	checkevent EVENT_CLEARED_ROCKET_HIDEOUT
@@ -22,6 +24,21 @@ Route43_MapScripts:
 
 .NoRockets:
 	setmapscene ROUTE_43_GATE, SCENE_FINISHED
+	return
+	
+.Fruittrees
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE43_BERRY
+	iftrue .NoBerry
+	appear ROUTE43_BERRY
+.NoBerry:
+	;return
+	
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE43_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE43_APRICORN
+.NoApricorn:
 	return
 
 TrainerCamperSpencer:
@@ -316,8 +333,51 @@ Route43Sign2:
 Route43TrainerTips:
 	jumptext Route43TrainerTipsText
 
-Route43FruitTree:
-	fruittree FRUITTREE_ROUTE_43
+Route43BerryTree:
+	opentext
+	writetext Route43BerryTreeText
+	buttonsound
+	writetext Route43HeyItsBerryText
+	buttonsound
+	verbosegiveitem PERSIM_BERRY
+	iffalse .NoRoomInBag
+	disappear ROUTE43_BERRY
+	setflag ENGINE_DAILY_ROUTE43_BERRY
+.NoRoomInBag
+	closetext
+	end
+	
+Route43ApricornTree:
+    opentext
+	writetext Route43ApricornTreeText
+	buttonsound	
+	writetext Route43HeyItsApricornText
+	buttonsound
+	verbosegiveitem BLK_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE43_APRICORN
+	setflag ENGINE_DAILY_ROUTE43_APRICORN
+.NoRoomInBag
+	closetext
+	end
+
+Route43NoBerry:
+	opentext
+	writetext Route43BerryTreeText
+	buttonsound
+	writetext Route43NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route43NoApricorn:
+	opentext
+	writetext Route43ApricornTreeText
+	buttonsound
+	writetext Route43NothingHereText
+	waitbutton
+	closetext
+	end
 
 Route43MaxEther:
 	itemball MAX_ETHER
@@ -497,6 +557,31 @@ Route43TrainerTipsText:
 	para "weak against your"
 	line "#MON's type."
 	done
+	
+Route43BerryTreeText:
+	text "It's a"
+	line "BERRY tree..."
+	done
+
+Route43HeyItsBerryText:
+	text "Hey! It's"
+	line "PERSIM BERRY!"
+	done
+
+Route43ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree..."
+	done
+
+Route43HeyItsApricornText:
+	text "Hey! It's"
+	line "BLK APRICORN!"
+	done	
+
+Route43NothingHereText:
+	text "There's nothing"
+	line "here..."
+	done
 
 Route43_MapEvents:
 	db 0, 0 ; filler
@@ -510,17 +595,20 @@ Route43_MapEvents:
 
 	db 0 ; coord events
 
-	db 3 ; bg events
+	db 5 ; bg events
 	bg_event 13,  3, BGEVENT_READ, Route43Sign1
 	bg_event 11, 49, BGEVENT_READ, Route43Sign2
 	bg_event 16, 38, BGEVENT_READ, Route43TrainerTips
+	bg_event  1, 24, BGEVENT_READ, Route43NoBerry
+	bg_event  1, 26, BGEVENT_READ, Route43NoApricorn
 
-	db 8 ; object events
+	db 9 ; object events
 	object_event 13,  5, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPokemaniacBen, -1
 	object_event 13, 20, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPokemaniacBrent, -1
 	object_event 14,  7, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPokemaniacRon, -1
 	object_event  4, 16, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerFisherMarvin, -1
 	object_event  9, 25, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerTiffany, -1
 	object_event 13, 40, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperSpencer, -1
-	object_event  1, 26, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route43FruitTree, -1
+	object_event  1, 24, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route43BerryTree, EVENT_ROUTE43_BERRY
+	object_event  1, 26, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, Route43ApricornTree, EVENT_ROUTE43_APRICORN
 	object_event 12, 32, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route43MaxEther, EVENT_ROUTE_43_MAX_ETHER

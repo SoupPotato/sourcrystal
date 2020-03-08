@@ -244,7 +244,7 @@ CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const BIKEFLAGS_ALWAYS_ON_BIKE_F  ; 1
 	const BIKEFLAGS_DOWNHILL_F        ; 2
 
-; wDailyFlags:: ; dc1e
+; wDailyFlags:: ; dc1e    maximum of 64 slots, if more space needed reallocat in wram.asm 2699 and time.asm 94
 	const_def
 	const DAILYFLAGS_KURT_MAKING_BALLS_F             ; 0
 	const DAILYFLAGS_BUG_CONTEST_F                   ; 1
@@ -279,6 +279,35 @@ CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const DAILYFLAGS_ROUTE38_APRICORN                ; 30
 	const DAILYFLAGS_ROUTE39_BERRY                   ; 31
 	const DAILYFLAGS_ROUTE39_APRICORN                ; 32
+	const DAILYFLAGS_ROUTE42_APRICORN                ; 33
+	const DAILYFLAGS_ROUTE42_APRICORN2               ; 34
+	const DAILYFLAGS_ROUTE42_APRICORN3               ; 35
+	const DAILYFLAGS_ROUTE43_BERRY                   ; 36
+	const DAILYFLAGS_ROUTE43_APRICORN                ; 37
+	const DAILYFLAGS_ROUTE44_BERRY                   ; 38
+	const DAILYFLAGS_ROUTE44_APRICORN                ; 39
+	const DAILYFLAGS_ROUTE45_BERRY                   ; 40
+	const DAILYFLAGS_ROUTE45_APRICORN                ; 41
+	const DAILYFLAGS_ROUTE46_BERRY                   ; 42
+	const DAILYFLAGS_ROUTE46_BERRY2                  ; 43
+	const DAILYFLAGS_ROUTE46_APRICORN                ; 44
+	const DAILYFLAGS_ROUTE46_APRICORN2               ; 45
+	const DAILYFLAGS_ROUTE26_BERRY                   ; 46
+	const DAILYFLAGS_ROUTE26_APRICORN                ; 47
+	const DAILYFLAGS_ROUTE1_BERRY                    ; 48
+	const DAILYFLAGS_ROUTE1_APRICORN                 ; 49
+	const DAILYFLAGS_VIRIDIAN_FOREST_BERRY           ; 50
+	const DAILYFLAGS_VIRIDIAN_FOREST_APRICORN        ; 51
+	const DAILYFLAGS_PEWTER_BERRY                    ; 52
+	const DAILYFLAGS_PEWTER_BERRY2                   ; 53
+	const DAILYFLAGS_PEWTER_APRICORN                 ; 54
+	const DAILYFLAGS_PEWTER_APRICORN2                ; 55
+	const DAILYFLAGS_ROUTE8_BERRY                    ; 56
+	const DAILYFLAGS_ROUTE8_APRICORN                 ; 57
+	const DAILYFLAGS_ROUTE11_BERRY                   ; 58
+	const DAILYFLAGS_ROUTE11_APRICORN                ; 59
+	const DAILYFLAGS_FUCHSIA_BERRY                   ; 60
+	const DAILYFLAGS_FUCHSIA_APRICORN                ; 61
 
 ; wWeeklyFlags:: ; dc1f
 	const_def

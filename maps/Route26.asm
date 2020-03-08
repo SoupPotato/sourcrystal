@@ -5,13 +5,30 @@
 	const ROUTE26_COOLTRAINER_F2
 	const ROUTE26_YOUNGSTER
 	const ROUTE26_FISHER
-	const ROUTE26_FRUIT_TREE
+	const ROUTE26_BERRY
+	const ROUTE26_APRICORN
 	const ROUTE26_POKE_BALL
 
 Route26_MapScripts:
 	db 0 ; scene scripts
 
-	db 0 ; callbacks
+	db 1 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .Fruittrees
+	
+.Fruittrees
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE26_BERRY
+	iftrue .NoBerry
+	appear ROUTE26_BERRY
+.NoBerry:
+	;return
+	
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE26_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE26_APRICORN
+.NoApricorn:
+	return
 
 TrainerCooltrainermJake:
 	trainer COOLTRAINERM, JAKE, EVENT_BEAT_COOLTRAINERM_JAKE, CooltrainermJakeSeenText, CooltrainermJakeBeatenText, 0, .Script
@@ -246,8 +263,51 @@ TrainerFisherScott:
 Route26Sign:
 	jumptext Route26SignText
 
-Route26FruitTree:
-	fruittree FRUITTREE_ROUTE_26
+Route26BerryTree:
+	opentext
+	writetext Route26BerryTreeText
+	buttonsound
+	writetext Route26HeyItsBerryText
+	buttonsound
+	verbosegiveitem RAWST_BERRY
+	iffalse .NoRoomInBag
+	disappear ROUTE26_BERRY
+	setflag ENGINE_DAILY_ROUTE26_BERRY
+.NoRoomInBag
+	closetext
+	end
+	
+Route26ApricornTree:
+    opentext
+	writetext Route26ApricornTreeText
+	buttonsound	
+	writetext Route26HeyItsApricornText
+	buttonsound
+	verbosegiveitem BLU_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE26_APRICORN
+	setflag ENGINE_DAILY_ROUTE26_APRICORN
+.NoRoomInBag
+	closetext
+	end
+
+Route26NoBerry:
+	opentext
+	writetext Route26BerryTreeText
+	buttonsound
+	writetext Route26NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route26NoApricorn:
+	opentext
+	writetext Route26ApricornTreeText
+	buttonsound
+	writetext Route26NothingHereText
+	waitbutton
+	closetext
+	end
 
 Route26MaxElixer:
 	itemball MAX_ELIXER
@@ -409,6 +469,31 @@ Route26SignText:
 	para "#MON LEAGUE"
 	line "RECEPTION GATE"
 	done
+	
+Route26BerryTreeText:
+	text "It's a"
+	line "BERRY tree..."
+	done
+
+Route26HeyItsBerryText:
+	text "Hey! It's"
+	line "RAWST BERRY!"
+	done
+
+Route26ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree..."
+	done
+
+Route26HeyItsApricornText:
+	text "Hey! It's"
+	line "BLU APRICORN!"
+	done	
+
+Route26NothingHereText:
+	text "There's nothing"
+	line "here..."
+	done
 
 Route26_MapEvents:
 	db 0, 0 ; filler
@@ -420,15 +505,18 @@ Route26_MapEvents:
 
 	db 0 ; coord events
 
-	db 1 ; bg events
+	db 3 ; bg events
 	bg_event  8,  6, BGEVENT_READ, Route26Sign
+	bg_event 17, 80, BGEVENT_READ, Route26NoBerry
+	bg_event 16, 82, BGEVENT_READ, Route26NoApricorn
 
-	db 8 ; object events
+	db 9 ; object events
 	object_event 14, 24, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCooltrainermJake, -1
 	object_event  9, 38, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainermGaven3, -1
 	object_event 10, 56, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfJoyce, -1
 	object_event  5,  8, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerfBeth1, -1
 	object_event 13, 79, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPsychicRichard, -1
 	object_event 10, 92, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerFisherScott, -1
-	object_event 14, 54, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route26FruitTree, -1
+	object_event 14, 54, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route26BerryTree, EVENT_ROUTE26_BERRY
+	object_event 14, 54, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route26ApricornTree, EVENT_ROUTE26_APRICORN
 	object_event  9, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route26MaxElixer, EVENT_ROUTE_26_MAX_ELIXER

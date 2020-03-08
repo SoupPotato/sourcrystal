@@ -171,9 +171,11 @@ Route33BerryTree:
 	writetext Route33HeyItsBerryText
 	buttonsound
 	verbosegiveitem PECHA_BERRY
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE33_BERRY
 	setflag ENGINE_DAILY_ROUTE33_BERRY
+.NoRoomInBag
+	closetext
 	end
 	
 Route33ApricornTree:
@@ -183,9 +185,11 @@ Route33ApricornTree:
 	writetext Route33HeyItsApricornText
 	buttonsound
 	verbosegiveitem BLK_APRICORN
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE33_APRICORN
 	setflag ENGINE_DAILY_ROUTE33_APRICORN
+.NoRoomInBag
+	closetext
 	end
 	
 Route33ApricornTree2:
@@ -195,9 +199,11 @@ Route33ApricornTree2:
 	writetext Route33HeyItsApricorn2Text
 	buttonsound
 	verbosegiveitem PNK_APRICORN
-	closetext
+	iffalse .NoRoomInBag
 	disappear ROUTE33_APRICORN2
 	setflag ENGINE_DAILY_ROUTE33_APRICORN2
+.NoRoomInBag
+	closetext
 	end
 
 Route33NoBerry:

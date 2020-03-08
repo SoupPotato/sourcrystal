@@ -116,9 +116,11 @@ VioletBerryTree:
 	writetext VioletHeyItsBerryText
 	buttonsound
 	verbosegiveitem CHERI_BERRY
-	closetext
+	iffalse .NoRoomInBag
 	disappear VIOLETCITY_BERRY
 	setflag ENGINE_DAILY_VIOLET_BERRY
+.NoRoomInBag
+	closetext
 	end
 VioletApricornTree:
     opentext
@@ -127,9 +129,11 @@ VioletApricornTree:
 	writetext VioletHeyItsApricornText
 	buttonsound
 	verbosegiveitem YLW_APRICORN
-	closetext
+	iffalse .NoRoomInBag
 	disappear VIOLETCITY_APRICORN
 	setflag ENGINE_DAILY_VIOLET_APRICORN
+.NoRoomInBag
+	closetext
 	end
 
 VioletNoBerry:

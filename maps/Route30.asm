@@ -321,8 +321,8 @@ Route30ApricornTree2:
 	buttonsound
 	verbosegiveitem PNK_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE30_APRICORN
-	setflag ENGINE_DAILY_ROUTE30_APRICORN
+	disappear ROUTE30_APRICORN2
+	setflag ENGINE_DAILY_ROUTE30_APRICORN2
 .NoRoomInBag
 	closetext
 	end

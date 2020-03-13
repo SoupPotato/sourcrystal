@@ -42,7 +42,6 @@ ReturnFromMapSetupScript::
 ; Display for 60 frames
 	ld a, 60
 	ld [wLandmarkSignTimer], a
-	call LoadMapNameSignGFX
 	call InitMapNameFrame
 	farcall HDMATransfer_OnlyTopFourRows
 	ret
@@ -125,14 +124,6 @@ PlaceMapNameSign::
 	ld [hWY], a
 	xor a
 	ld [hLCDCPointer], a
-	ret
-
-
-LoadMapNameSignGFX:
-	ld de, MapEntryFrameGFX
-	ld hl, vTiles0 tile MAP_NAME_SIGN_START
-	lb bc, BANK(MapEntryFrameGFX), 14
-	call Get2bpp
 	ret
 
 InitMapNameFrame:

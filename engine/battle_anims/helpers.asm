@@ -104,6 +104,8 @@ GetBattleAnimOAMPointer:
 
 
 LoadBattleAnimObj:
+	cp ANIM_GFX_POKE_BALL
+	call z, .LoadBallPalette
 	push hl
 	ld l, a
 	ld h, 0
@@ -124,3 +126,51 @@ LoadBattleAnimObj:
 	pop bc
 	ret
 
+.LoadBallPalette:
+	; save the registers to the stack
+	push hl
+	push af
+	; save the current WRAM bank
+	ld a, [rSVBK]
+	push af
+	; switch to the WRAM bank of wCurItem so we can read it
+	ld a, BANK(wCurItem)
+	ld [rSVBK], a
+	; store the current item in b
+	ld a, [wCurItem]
+	ld b, a
+	; seek for the BallColors entry matching the current item
+	ld hl, BallColors
+.loop
+	ld a, [hli]
+	cp b ; did we find the current ball?
+	jr z, .done
+	cp -1 ; did we reach the end of the list?
+	jr z, .done
+rept 4
+	inc hl ; skip over the 4 RGB color bytes to the next entry
+endr
+	jr .loop
+.done
+	; switch to the WRAM bank of wOBPals2 so we can write to it
+	ld a, BANK(wOBPals2)
+	ld [rSVBK], a
+	; load the RGB colors into the middle two colors of PAL_BATTLE_OB_RED
+	ld de, wOBPals2 palette PAL_BATTLE_OB_RED color 1
+rept 4
+	ld a, [hli]
+	ld [de], a
+	inc de
+endr
+	; apply the updated colors to the palette RAM
+	ld a, $1
+	ld [hCGBPalUpdate], a
+	; restore the current WRAM bank
+	pop af
+	ld [rSVBK], a
+	; restore the registers from the stack
+	pop af
+	pop hl
+	ret
+
+INCLUDE "data/battle_anims/ball_colors.asm"

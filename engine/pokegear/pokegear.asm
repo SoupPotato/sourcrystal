@@ -832,6 +832,9 @@ PokegearRadio_Joypad:
 	and B_BUTTON
 	jr nz, .quit
 	ld a, [hl]
+	and D_RIGHT
+	jr nz, .quit
+	ld a, [hl]
 	and D_LEFT
 	jr nz, .left
 	ld a, [wPokegearRadioChannelAddr]

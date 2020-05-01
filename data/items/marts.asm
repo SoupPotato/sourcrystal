@@ -131,14 +131,10 @@ MartGoldenrod4F:
 	db -1 ; end
 
 MartGoldenrod5F:
-	db 7 ; # items
+	db 3 ; # items
 	db TM_THUNDERPUNCH
 	db TM_FIRE_PUNCH
 	db TM_ICE_PUNCH
-	db FIRE_STONE
-	db THUNDERSTONE
-	db WATER_STONE
-	db LEAF_STONE
 	db -1 ; end
 
 MartOlivine:

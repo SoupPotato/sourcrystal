@@ -11,6 +11,7 @@
 	const GOLDENRODGAMECORNER_GENTLEMAN
 	const GOLDENRODGAMECORNER_POKEFAN_M2
 	const GOLDENRODGAMECORNER_POKEFAN_M3
+	const GOLDENRODGAMECORNER_RECEPTIONIST3
 
 GoldenrodGameCorner_MapScripts:
 	db 0 ; scene scripts
@@ -110,6 +111,20 @@ GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript:
 	writetext GoldenrodGameCornerPrizeVendorConfirmPrizeText
 	yesorno
 	end
+	
+GoldenrodGameCornerStoneVendor_FinishScript:
+	waitsfx
+	playsound SFX_TRANSACTION
+	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
+	waitbutton
+	jump GoldenrodGameCornerStoneVendorScript
+	
+GoldenrodGameCornerItemVendor_FinishScript:
+	waitsfx
+	playsound SFX_TRANSACTION
+	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
+	waitbutton
+	jump GoldenrodGameCornerItemVendorScript
 
 GoldenrodGameCornerTMVendor_FinishScript:
 	waitsfx
@@ -122,6 +137,8 @@ GoldenrodGameCornerPrizeVendor_AlreadyHaveTMScript:
 	writetext GoldenrodGameCornerPrizeVendorAlreadyHaveTMText
 	waitbutton
 	jump GoldenrodGameCornerTMVendor_LoopScript
+	
+
 
 GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript:
 	writetext GoldenrodGameCornerPrizeVendorNeedMoreCoinsText
@@ -159,6 +176,163 @@ GoldenrodGameCornerTMVendorMenuHeader:
 	db "TM25    6500@"
 	db "TM14    6500@"
 	db "TM38    6500@"
+	db "CANCEL@"
+	
+GoldenrodGameCornerSpecialVendorScript:
+	faceplayer
+	opentext
+	writetext GoldenrodGameCornerPrizeVendorIntroText
+	waitbutton
+	checkitem COIN_CASE
+	iffalse GoldenrodGameCornerPrizeVendor_NoCoinCaseScript
+	writetext GoldenrodGameCornerPrizeVendorWhichPrizeText
+GoldenrodGameCornerStoneVendor_LoopScript:
+	special DisplayCoinCaseBalance
+	loadmenu GoldenrodGameCornerSpecialVendorMenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, GoldenrodGameCornerStoneVendorScript
+	ifequal 2, GoldenrodGameCornerItemVendorScript
+	jump GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+
+GoldenrodGameCornerStoneVendorScript:
+	special DisplayCoinCaseBalance
+	loadmenu GoldenrodGameCornerStoneVendorMenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .FireStone
+	ifequal 2, .ThunderStone
+	ifequal 3, .WaterStone
+	ifequal 4, .LeafStone
+	jump GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+
+.FireStone:
+	checkcoins 1000
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	itemtotext FIRE_STONE, MEM_BUFFER_0
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	giveitem FIRE_STONE
+	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	takecoins 1000
+	jump GoldenrodGameCornerStoneVendor_FinishScript
+
+.ThunderStone:
+	checkcoins 1000
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	itemtotext THUNDERSTONE, MEM_BUFFER_0
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	giveitem THUNDERSTONE
+	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	takecoins 1000
+	jump GoldenrodGameCornerStoneVendor_FinishScript
+
+.WaterStone:
+	checkcoins 1000
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	itemtotext WATER_STONE, MEM_BUFFER_0
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	giveitem WATER_STONE
+	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	takecoins 1000
+	jump GoldenrodGameCornerStoneVendor_FinishScript
+	
+.LeafStone:
+	checkcoins 1000
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	itemtotext LEAF_STONE, MEM_BUFFER_0
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	giveitem LEAF_STONE
+	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	takecoins 1000
+	jump GoldenrodGameCornerStoneVendor_FinishScript
+	
+GoldenrodGameCornerItemVendorScript:
+	special DisplayCoinCaseBalance
+	loadmenu GoldenrodGameCornerItemVendorMenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .KingsRock
+	ifequal 2, .MetalCoat
+	ifequal 3, .CovenantOrb
+	jump GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+
+.KingsRock:
+	checkcoins 2000
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	itemtotext KINGS_ROCK, MEM_BUFFER_0
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	giveitem KINGS_ROCK
+	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	takecoins 2000
+	jump GoldenrodGameCornerItemVendor_FinishScript
+
+.MetalCoat:
+	checkcoins 2000
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	itemtotext METAL_COAT, MEM_BUFFER_0
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	giveitem METAL_COAT
+	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	takecoins 2000
+	jump GoldenrodGameCornerItemVendor_FinishScript
+
+.CovenantOrb:
+	checkcoins 3000
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	itemtotext COVENANT_ORB, MEM_BUFFER_0
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	giveitem COVENANT_ORB
+	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	takecoins 3000
+	jump GoldenrodGameCornerItemVendor_FinishScript
+	
+GoldenrodGameCornerSpecialVendorMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 3, 19, TEXTBOX_Y - 2
+	dw .MenuDataSpecial
+	db 1 ; default option
+
+.MenuDataSpecial:
+	db STATICMENU_CURSOR ; flags
+	db 3 ; items
+	db "EVOLUTION STONES@"
+	db "EVOLUTION ITEMS@"
+	db "CANCEL@"
+
+GoldenrodGameCornerStoneVendorMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, 19, TEXTBOX_Y - -1
+	dw .MenuDataStone
+	db 1 ; default option
+
+.MenuDataStone:
+	db STATICMENU_CURSOR ; flags
+	db 5 ; items
+	db "FIRE STONE   1000@"
+	db "THUNDERSTONE 1000@"
+	db "WATER STONE  1000@"
+	db "LEAF STONE   1000@"
+	db "CANCEL@"
+	
+GoldenrodGameCornerItemVendorMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, 19, TEXTBOX_Y - 1
+	dw .MenuDataItems
+	db 1 ; default option
+
+.MenuDataItems:
+	db STATICMENU_CURSOR ; flags
+	db 4 ; items
+	db "KING'S ROCK  2000@"
+	db "METAL COAT   2000@"
+	db "COVENANT ORB 3000@"
 	db "CANCEL@"
 
 GoldenrodGameCornerPrizeMonVendorScript:
@@ -492,10 +666,10 @@ GoldenrodGameCorner_MapEvents:
 	bg_event 18, 11, BGEVENT_RIGHT, GoldenrodGameCornerCardFlipMachineScript
 	bg_event 12,  1, BGEVENT_LEFT, GoldenrodGameCornerLeftTheirDrinkScript
 
-	db 12 ; object events
+	db 13 ; object events
 	object_event  3,  2, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerCoinVendorScript, -1
-	object_event 16,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerTMVendorScript, -1
-	object_event 18,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPrizeMonVendorScript, -1
+	object_event 19,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerTMVendorScript, -1
+	object_event 15,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPrizeMonVendorScript, -1
 	object_event  8,  7, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, DAY, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPharmacistScript, -1
 	object_event  8,  7, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, NITE, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPharmacistScript, -1
 	object_event 11, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPokefanM1Script, -1
@@ -505,3 +679,4 @@ GoldenrodGameCorner_MapEvents:
 	object_event  5, 10, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerGentlemanScript, -1
 	object_event  2,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPokefanM2Script, -1
 	object_event 17, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPokefanM3Script, EVENT_GOLDENROD_GAME_CORNER_MOVE_TUTOR
+	object_event 17,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerSpecialVendorScript, -1

@@ -1494,7 +1494,7 @@ FinishPagerRoutine:
 	ret
 
 CutPagerRoutine:
-	farcall CutPager
+	farcall MonMenu_Cut
 	ret nz
 	jr FinishPagerRoutine
 
@@ -1502,7 +1502,7 @@ FlyPagerRoutine:
     call ClearBGPalettes
     ld a, $90
     ld [hWY], a
-	farcall FlyPager
+	farcall MonMenu_Fly
 	jr z, FinishPagerRoutine
  	call DisableLCD
  	farcall DeinitializeAllSprites
@@ -1525,27 +1525,27 @@ FlyPagerRoutine:
  	ret
 
 SurfPagerRoutine:
-	farcall SurfPager
+	farcall MonMenu_Surf
 	ret nz
 	jr FinishPagerRoutine
 
 StrengthPagerRoutine:
-	farcall StrngthPager
+	farcall MonMenu_Strength
 	ret nz
 	jr FinishPagerRoutine
 
 FlashPagerRoutine:
-	farcall FlashPager
+	farcall MonMenu_Flash
 	ret nz
 	jr FinishPagerRoutine
 
 WhirlpoolPagerRoutine:
-	farcall WrlPoolPager
+	farcall MonMenu_Whirlpool
 	ret nz
 	jr FinishPagerRoutine
 
 RockSmashPagerRoutine:
-	farcall RockSmashPager
+	farcall MonMenu_RockSmash
 	ret nz
 	jr FinishPagerRoutine
 

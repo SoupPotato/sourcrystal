@@ -24,7 +24,7 @@ ItemDescriptions:
 	dw FireStoneDesc
 	dw ThunderStoneDesc
 	dw WaterStoneDesc
-	dw CutPagerDesc
+	dw CovenantOrbDesc
 	dw HPUpDesc
 	dw ProteinDesc
 	dw IronDesc
@@ -44,12 +44,12 @@ ItemDescriptions:
 	dw SuperRepelDesc
 	dw MaxRepelDesc
 	dw DireHitDesc
-	dw FlashPagerDesc
+	dw TeruSama3Desc
 	dw FreshWaterDesc
 	dw SodaPopDesc
 	dw LemonadeDesc
 	dw XAttackDesc
-	dw SurfPagerDesc
+	dw TeruSama4Desc
 	dw XDefendDesc
 	dw XSpeedDesc
 	dw XSpecialDesc
@@ -89,7 +89,7 @@ ItemDescriptions:
 	dw BigMushroomDesc
 	dw SilverPowderDesc
 	dw BluApricornDesc
-	dw StrngthPagerDesc
+	dw TeruSama6Desc
 	dw AmuletCoinDesc
 	dw YlwApricornDesc
 	dw GrnApricornDesc
@@ -99,7 +99,7 @@ ItemDescriptions:
 	dw WhtApricornDesc
 	dw BlackbeltDesc
 	dw BlkApricornDesc
-	dw FlyPagerDesc
+	dw TeruSama7Desc
 	dw PnkApricornDesc
 	dw BlackGlassesDesc
 	dw SlowpokeTailDesc
@@ -119,7 +119,7 @@ ItemDescriptions:
 	dw MiracleSeedDesc
 	dw ThickClubDesc
 	dw FocusBandDesc
-	dw WrlPoolPagerDesc
+	dw TeruSama8Desc
 	dw EnergyPowderDesc
 	dw EnergyRootDesc
 	dw HealPowderDesc
@@ -134,7 +134,7 @@ ItemDescriptions:
 	dw StarPieceDesc
 	dw BasementKeyDesc
 	dw PassDesc
-	dw RckSmshPagerDesc
+	dw TeruSama9Desc
 	dw TeruSama10Desc
 	dw TeruSama11Desc
 	dw CharcoalDesc
@@ -351,9 +351,9 @@ WaterStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
 
-CutPagerDesc:
-	db   "Summons a #MON"
-	next "to use CUT.@"
+CovenantOrbDesc:
+	db   "Evolves certain"
+	next "kinds of #MON.@"
 	
 HPUpDesc:
 	db   "Raises the HP of"
@@ -431,9 +431,8 @@ DireHitDesc:
 	db   "Ups critical hit"
 	next "ratio. (1 BTL)@"
 
-FlashPagerDesc:
-	db   "Summons a #MON"
-	next "to use FLASH.@"
+TeruSama3Desc:
+	db   "?@"
 
 FreshWaterDesc:
 	db   "Restores #MON"
@@ -451,9 +450,8 @@ XAttackDesc:
 	db   "Raises ATTACK."
 	next "(1 BTL)@"
 
-SurfPagerDesc:
-	db   "Summons a #MON"
-	next "to use SURF.@"
+TeruSama4Desc:
+	db   "?@"
 
 XDefendDesc:
 	db   "Raises DEFENSE."
@@ -608,9 +606,8 @@ SilverPowderDesc:
 BluApricornDesc:
 	db   "A blue APRICORN.@"
 
-StrngthPagerDesc:
-	db   "Summons a #MON"
-	next "to use STRENGTH.@"
+TeruSama6Desc:
+	db   "?@"
 
 AmuletCoinDesc:
 	db   "Doubles monetary"
@@ -645,9 +642,8 @@ BlkApricornDesc:
 	db   "A black APRICORN."
 	next "@"
 
-FlyPagerDesc:
-	db   "Summons a #MON"
-	next "to use FLY.@"
+TeruSama7Desc:
+	db   "?@"
 
 PnkApricornDesc:
 	db   "A pink APRICORN."
@@ -725,9 +721,8 @@ FocusBandDesc:
 	db   "May prevent faint-"
 	next "ing. (HOLD)@"
 
-WrlPoolPagerDesc:
-	db   "Summons a #MON"
-	next "to use WHIRLPOOL.@"
+TeruSama8Desc:
+	db   "?@"
 
 EnergyPowderDesc:
 	db   "Restores #MON"
@@ -784,9 +779,8 @@ PassDesc:
 	db   "A ticket for the"
 	next "MAGNET TRAIN.@"
 
-RckSmshPagerDesc:
-    db   "Summons a #MON"
-	next "to use ROCK SMASH.@"
+TeruSama9Desc:
+	db   "?@"
 
 TeruSama10Desc:
 	db   "?@"

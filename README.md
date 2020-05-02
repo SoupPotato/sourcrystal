@@ -16,4 +16,3 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 - [**Wiki**][wiki] (includes [tutorials][tutorials])
 - **Discord:** [pret][discord]
 - **IRC:** [freenode#pret][irc]
-

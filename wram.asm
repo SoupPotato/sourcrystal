@@ -2184,6 +2184,7 @@ wBattleHasJustStarted:: db
 
 wNamedObjectIndexBuffer::
 wCurTMHM::
+wTempTMHM::
 wTypeMatchup::
 wFoundMatchingIDInParty::
 wd265::

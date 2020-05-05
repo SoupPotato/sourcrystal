@@ -28,6 +28,7 @@ HiddenItemScript::
 	opentext
 	copybytetovar wEngineBuffer3
 	itemtotext USE_SCRIPT_VAR, MEM_BUFFER_0
+	callasm .append_tmhm_move_name
 	writetext .found_text
 	giveitem ITEM_FROM_MEM
 	iffalse .bag_full
@@ -44,6 +45,11 @@ HiddenItemScript::
 .finish
 	closetext
 	end
+	
+.append_tmhm_move_name
+	ld de, wStringBuffer3 + STRLEN("TM##")
+	farcall AppendTMHMMoveName
+	ret
 
 .found_text
 	; found @ !

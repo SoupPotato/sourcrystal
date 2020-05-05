@@ -617,4 +617,8 @@ if DEF(_CRYSTAL11)
 INCBIN "mobile/stadium/stadium2_2.bin"
 else
 INCBIN "mobile/stadium/stadium2_1.bin"
+
+SECTION "Battle Weather Images", ROMX
+
+INCLUDE "gfx/weather_images.asm"
 endc

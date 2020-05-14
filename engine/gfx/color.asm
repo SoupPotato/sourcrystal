@@ -677,7 +677,7 @@ CGB_ApplyPartyMenuHPPals:
 InitPartyMenuOBPals:
 	ld hl, PartyMenuOBPals
 	ld de, wOBPals1
-	ld bc, 2 palettes
+	ld bc, 8 palettes
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
 	ret

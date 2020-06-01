@@ -103,8 +103,6 @@ OlivineLighthouseAmphy:
 	opentext
 	checkevent EVENT_JASMINE_RETURNED_TO_GYM
 	iftrue .HealthyNow
-	variablesprite SPRITE_AMPHY, SPRITE_AMPHY_SICK
-	special LoadUsedSpritesGFX
 	writetext AmphyPalPalooText
 	writebyte AMPHAROS
 	special PlaySlowCry

@@ -1,12 +1,13 @@
 	const_def 2 ; object constants
 	const OLIVINELIGHTHOUSE6F_JASMINE
-	const OLIVINELIGHTHOUSE6F_MONSTER
+	const OLIVINELIGHTHOUSE6F_AMPHY_SICK
 	const OLIVINELIGHTHOUSE6F_POKE_BALL
 
 OlivineLighthouse6F_MapScripts:
 	db 0 ; scene scripts
 
 	db 0 ; callbacks
+
 
 OlivineLighthouseJasmine:
 	faceplayer
@@ -36,29 +37,26 @@ OlivineLighthouseJasmine:
 	closetext
 	turnobject OLIVINELIGHTHOUSE6F_JASMINE, RIGHT
 	pause 15
-	turnobject OLIVINELIGHTHOUSE6F_MONSTER, LEFT
 	opentext
 	playmusic MUSIC_HEAL
 	writetext JasmineAmphyHowAreYouFeelingText
 	pause 60
 	buttonsound
 	closetext
+	variablesprite SPRITE_AMPHY, SPRITE_AMPHAROS
+	special LoadUsedSpritesGFX
 	special RestartMapMusic
 	cry AMPHAROS
 	special FadeOutPalettes
-	pause 10
 	special FadeInPalettes
 	opentext
 	writetext AmphyPaluPaluluText
 	waitbutton
 	closetext
-	turnobject OLIVINELIGHTHOUSE6F_MONSTER, RIGHT
-	pause 10
-	turnobject OLIVINELIGHTHOUSE6F_MONSTER, LEFT
-	pause 10
-	turnobject OLIVINELIGHTHOUSE6F_MONSTER, RIGHT
-	pause 10
-	turnobject OLIVINELIGHTHOUSE6F_MONSTER, LEFT
+	special FadeOutPalettes
+	special FadeInPalettes
+	special FadeOutPalettes
+	special FadeInPalettes
 	pause 10
 	faceplayer
 	opentext
@@ -90,7 +88,6 @@ OlivineLighthouseJasmine:
 	closetext
 	turnobject OLIVINELIGHTHOUSE6F_JASMINE, RIGHT
 	pause 15
-	turnobject OLIVINELIGHTHOUSE6F_MONSTER, LEFT
 	opentext
 	writetext JasmineAmphyHangOnText
 	waitbutton
@@ -106,6 +103,8 @@ OlivineLighthouseAmphy:
 	opentext
 	checkevent EVENT_JASMINE_RETURNED_TO_GYM
 	iftrue .HealthyNow
+	variablesprite SPRITE_AMPHY, SPRITE_AMPHY_SICK
+	special LoadUsedSpritesGFX
 	writetext AmphyPalPalooText
 	writebyte AMPHAROS
 	special PlaySlowCry
@@ -270,5 +269,5 @@ OlivineLighthouse6F_MapEvents:
 
 	db 3 ; object events
 	object_event  8,  8, SPRITE_JASMINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineLighthouseJasmine, EVENT_OLIVINE_LIGHTHOUSE_JASMINE
-	object_event  9,  8, SPRITE_MONSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, OlivineLighthouseAmphy, -1
+	object_event  9,  8, SPRITE_AMPHY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 1, OlivineLighthouseAmphy, -1
 	object_event  3,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse6FSuperPotion, EVENT_OLIVINE_LIGHTHOUSE_6F_SUPER_POTION

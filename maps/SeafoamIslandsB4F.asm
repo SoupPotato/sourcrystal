@@ -4,22 +4,25 @@
 	const SEAFOAM_ISLANDS_B4F_POKE_BALL2
 
 SeafoamIslandsB4F_MapScripts:
-	db 1 ; scene scripts
-    scene_script .DummyScene
+	db 0 ; scene scripts
 
-	db 0 ; callbacks
+	db 1 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .Articuno
 
-.DummyScene:
+.Articuno:
 	checkevent EVENT_FOUGHT_ARTICUNO
-	iftrue .DoNothing
+	iftrue .NoAppear
 	checkcode VAR_BADGES
-	ifequal NUM_BADGES, .ArticunoAppear
-.DoNothing
-    end
-	
-.ArticunoAppear
-    setevent EVENT_ARTICUNO_APPEAR
-	end
+	ifequal NUM_BADGES, .Appear
+	jump .NoAppear
+
+.Appear:
+	appear SEAFOAM_ISLANDS_B4F_ARTICUNO
+	return
+
+.NoAppear:
+	disappear SEAFOAM_ISLANDS_B4F_ARTICUNO
+	return
 	
 SeafoamIslandsB4FHiddenCalcium:
 	hiddenitem CALCIUM, EVENT_SEAFOAM_ISLANDS_B4F_HIDDEN_CALCIUM
@@ -65,6 +68,6 @@ SeafoamIslandsB4F_MapEvents:
 	bg_event 20, 18, BGEVENT_ITEM, SeafoamIslandsB4FHiddenCalcium
 
 	db 3 ; object events
-	object_event 19, 18, SPRITE_MOLTRES, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0,  SeafoamIslandsArticuno, EVENT_ARTICUNO_APPEAR
+	object_event 19, 18, SPRITE_ARTICUNO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0,  SeafoamIslandsArticuno, EVENT_ARTICUNO_APPEAR
 	object_event 21,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SeafoamIslandsB4FUltraBall, EVENT_SEAFOAM_ISLANDS_B4F_ULTRA_BALL
 	object_event 33,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SeafoamIslandsB4FBigPearl, EVENT_SEAFOAM_ISLANDS_B4F_BIG_PEARL

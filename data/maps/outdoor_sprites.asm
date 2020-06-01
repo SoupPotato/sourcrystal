@@ -50,7 +50,6 @@ PewterGroupSprites:
 	db SPRITE_POKE_BALL
 	db SPRITE_BERRY
 	db SPRITE_APRICORN
-	db SPRITE_APRICORN2
 	db 0 ; end
 ViridianGroupSprites:
 ; Route2South, Route22, ViridianCity
@@ -91,8 +90,8 @@ SaffronGroupSprites:
 	db SPRITE_MISTY
 	; max 9 of 9 walking sprites
 	db SPRITE_POKE_BALL
-	db SPRITE_SLOWPOKE
-	db SPRITE_MOLTRES
+	db SPRITE_SLOWBRO
+	db SPRITE_ZAPDOS
 	db 0 ; end
 
 VermilionGroupSprites:
@@ -122,7 +121,7 @@ CeladonGroupSprites:
 	db SPRITE_LASS
 	db SPRITE_BIKER
 	; 6 of max 9 walking sprites
-	db SPRITE_POLIWAG
+	db SPRITE_POLIWRATH
 	db SPRITE_POKE_BALL
 	db SPRITE_BERRY
 	db 0 ; end
@@ -146,9 +145,7 @@ FuchsiaGroupSprites:
 	db SPRITE_TWIN
 	db SPRITE_POKE_BALL
 	db SPRITE_BERRY
-	db SPRITE_BERRY2
 	db SPRITE_APRICORN
-	db SPRITE_APRICORN2
 	db 0 ; end
 
 IndigoGroupSprites:
@@ -166,16 +163,15 @@ CherrygroveGroupSprites:
 	db SPRITE_FISHER
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_YOUNGSTER
-	db SPRITE_MONSTER
 	db SPRITE_GRAMPS
 	db SPRITE_BUG_CATCHER
 	db SPRITE_COOLTRAINER_F
-	; max 9 of 9 walking sprites
+	; max 8 of 9 walking sprites
+	db SPRITE_PIDGEY
+	db SPRITE_RATTATA_UP
 	db SPRITE_POKE_BALL
 	db SPRITE_BERRY
-	db SPRITE_BERRY2
 	db SPRITE_APRICORN
-	db SPRITE_APRICORN2
 	db 0 ; end
 
 ; Route37 and EcruteakCity are connected
@@ -196,9 +192,7 @@ EcruteakGroupSprites:
 	db SPRITE_SUDOWOODO 
 	db SPRITE_POKE_BALL
 	db SPRITE_BERRY
-	db SPRITE_BERRY2
 	db SPRITE_APRICORN
-	db SPRITE_APRICORN2
 	db SPRITE_SUICUNE
 	db 0 ; end
 
@@ -214,7 +208,6 @@ AzaleaGroupSprites:
 	; 7 of max 9 walking sprites
 	db SPRITE_BERRY
 	db SPRITE_APRICORN
-	db SPRITE_APRICORN2
 	db SPRITE_SLOWPOKE
 	db SPRITE_KURT
 	db 0 ; end
@@ -249,10 +242,9 @@ CianwoodGroupSprites:
 	db SPRITE_SUPER_NERD
 	db SPRITE_SWIMMER_GUY
 	; 8 of max 9 walking sprites
-	db SPRITE_TAUROS
+	db SPRITE_MILTANK
 	db SPRITE_BERRY
 	db SPRITE_APRICORN
-	db SPRITE_APRICORN2
 	db SPRITE_ROCK
 	db SPRITE_YOUNGSTER ; non-walking version of SPRITE_YOUNGSTER
 	db SPRITE_SUICUNE
@@ -270,9 +262,7 @@ MahoganyGroupSprites:
 	db SPRITE_FISHER
 	; 8 of max 9 walking sprites
 	db SPRITE_BERRY
-	db SPRITE_BERRY2
 	db SPRITE_APRICORN
-	db SPRITE_APRICORN2
 	db SPRITE_POKE_BALL
 	db SPRITE_SUICUNE
 	db 0 ; end
@@ -307,7 +297,6 @@ BlackthornGroupSprites:
 	; 8 of max 9 walking sprites
 	db SPRITE_BERRY
 	db SPRITE_APRICORN
-	db SPRITE_APRICORN2
 	db SPRITE_POKE_BALL
 	db 0 ; end
 
@@ -328,7 +317,7 @@ DungeonsGroupSprites:
 	db SPRITE_SCIENTIST
 	; 8 of max 9 walking sprites
 	db SPRITE_GAMEBOY_KID
-	db SPRITE_GROWLITHE
+	db SPRITE_PERSIAN
 	db SPRITE_POKE_BALL
 	db 0 ; end
 

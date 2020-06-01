@@ -84,7 +84,7 @@ OverworldSprites:
 	overworld_sprite MonsterSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite FairySpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite BirdSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
-	overworld_sprite DragonSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
+	overworld_sprite DragoniteMoveSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite BigOnixSpriteGFX, 12, STANDING_SPRITE, PAL_OW_BROWN
 	overworld_sprite N64SpriteGFX, 4, STILL_SPRITE, PAL_OW_BROWN
 	overworld_sprite SudowoodoSpriteGFX, 12, STANDING_SPRITE, PAL_OW_GREEN
@@ -108,5 +108,8 @@ OverworldSprites:
 	overworld_sprite EnteiSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
 	overworld_sprite RaikouSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
 	overworld_sprite ApricornSpriteGFX, 4, STILL_SPRITE, PAL_OW_TREE
-	overworld_sprite Berry2SpriteGFX, 4, STILL_SPRITE, PAL_OW_TREE
-	overworld_sprite Apricorn2SpriteGFX, 4, STILL_SPRITE, PAL_OW_TREE
+	overworld_sprite RattataUpSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
+	overworld_sprite PidgeyMoveSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
+	overworld_sprite SlowpokeNoTailSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
+	overworld_sprite FarfetchdMoveSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
+	overworld_sprite AmphySickSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN

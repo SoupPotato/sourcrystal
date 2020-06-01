@@ -211,16 +211,15 @@ BugCatcherStaceySeenText:
 	done
 
 BugCatcherStaceyBeatenText:
-	text "I couldn't" 
-	line "catch it!"
+	text "I couldn't catch" 
+	line "it!"
 	done
 
 BugCatcherStaceyAfterBattleText:
 	text "Has anyone ever"
-	line "told you that"
-	cont "from behind,"
-	cont "you look like a"
-	cont "VENONAT?"
+	line "told you that from"
+	cont "behind, you look"
+	cont "like a VENONAT?"
 	done
 	
 BugCatcherDionSeenText:

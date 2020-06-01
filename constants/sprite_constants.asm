@@ -80,7 +80,7 @@
 	const SPRITE_MONSTER ; 4c
 	const SPRITE_FAIRY ; 4d
 	const SPRITE_BIRD ; 4e
-	const SPRITE_DRAGON ; 4f
+	const SPRITE_DRAGONITE_MOVE ; 4f
 	const SPRITE_BIG_ONIX ; 50
 	const SPRITE_N64 ; 51
 	const SPRITE_SUDOWOODO ; 52
@@ -104,54 +104,78 @@
 	const SPRITE_ENTEI ; 64
 	const SPRITE_RAIKOU ; 65
 	const SPRITE_APRICORN ; 66
-	const SPRITE_BERRY2 ; 67
-	const SPRITE_APRICORN2 ; 68
+	const SPRITE_RATTATA_UP ; 69
+	const SPRITE_PIDGEY_MOVE ; 6a
+	const SPRITE_SLOWPOKE_NOTAIL ; 6b
+	const SPRITE_FARFETCH_D_MOVE ; 6c
+	const SPRITE_AMPHY_SICK ; fe
+
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
-	const_def $80
+	const_def $70
 SPRITE_POKEMON EQU const_value
-	const SPRITE_UNOWN ; 80
-	const SPRITE_GEODUDE ; 81
-	const SPRITE_GROWLITHE ; 82
-	const SPRITE_WEEDLE ; 83
-	const SPRITE_SHELLDER ; 84
-	const SPRITE_ODDISH ; 85
-	const SPRITE_GENGAR ; 86
-	const SPRITE_ZUBAT ; 87
-	const SPRITE_MAGIKARP ; 88
-	const SPRITE_SQUIRTLE ; 89
-	const SPRITE_TOGEPI ; 8a
-	const SPRITE_BUTTERFREE ; 8b
-	const SPRITE_DIGLETT ; 8c
-	const SPRITE_POLIWAG ; 8d
-	const SPRITE_PIKACHU ; 8e
-	const SPRITE_CLEFAIRY ; 8f
-	const SPRITE_CHARMANDER ; 90
-	const SPRITE_JYNX ; 91
-	const SPRITE_STARMIE ; 92
-	const SPRITE_BULBASAUR ; 93
-	const SPRITE_JIGGLYPUFF ; 94
-	const SPRITE_GRIMER ; 95
-	const SPRITE_EKANS ; 96
-	const SPRITE_PARAS ; 97
-	const SPRITE_TENTACOOL ; 98
-	const SPRITE_TAUROS ; 99
-	const SPRITE_MACHOP ; 9a
-	const SPRITE_VOLTORB ; 9b
-	const SPRITE_LAPRAS ; 9c
-	const SPRITE_RHYDON ; 9d
-	const SPRITE_MOLTRES ; 9e
-	const SPRITE_SNORLAX ; 9f
-	const SPRITE_GYARADOS ; a0
-	const SPRITE_LUGIA ; a1
-	const SPRITE_HO_OH ; a2
+	const SPRITE_UNOWN ; 70
+	const SPRITE_GEODUDE ; 71
+	const SPRITE_GROWLITHE ; 72
+	const SPRITE_WEEDLE ; 73
+	const SPRITE_SHELLDER ; 74
+	const SPRITE_ODDISH ; 75
+	const SPRITE_GENGAR ; 76
+	const SPRITE_ZUBAT ; 77
+	const SPRITE_MAGIKARP ; 78
+	const SPRITE_SQUIRTLE ; 79
+	const SPRITE_MEOWTH ; 7a
+	const SPRITE_BUTTERFREE ; 7b
+	const SPRITE_DIGLETT ; 7c
+	const SPRITE_POLIWAG ; 7d
+	const SPRITE_PIKACHU ; 7e
+	const SPRITE_CLEFAIRY ; 7f
+	const SPRITE_CHARMANDER ; 80
+	const SPRITE_MEWTWO ; 81
+	const SPRITE_STARMIE ; 82
+	const SPRITE_BULBASAUR ; 83
+	const SPRITE_JIGGLYPUFF ; 84
+	const SPRITE_GRIMER ; 85
+	const SPRITE_DRATINI ; 86
+	const SPRITE_ABRA ; 87
+	const SPRITE_TENTACOOL ; 88
+	const SPRITE_MILTANK ; 89
+	const SPRITE_MACHOP ; 8a
+	const SPRITE_VOLTORB ; 8b
+	const SPRITE_LAPRAS ; 8c
+	const SPRITE_RHYDON ; 8d
+	const SPRITE_MOLTRES ; 8e
+	const SPRITE_SNORLAX ; 8f
+	const SPRITE_GYARADOS ; 90
+	const SPRITE_LUGIA ; 91
+	const SPRITE_HO_OH ; 92
+	const SPRITE_PIDGEY ; 93
+	const SPRITE_FARFETCH_D ; 94
+	const SPRITE_MACHOKE ; 95
+	const SPRITE_PERSIAN ; 96
+	const SPRITE_AMPHAROS ; 97
+	const SPRITE_ELECTRODE ; 98
+	const SPRITE_MURKROW ; 99
+	const SPRITE_RATTATA ; 9a
+	const SPRITE_SPEAROW ; 9b
+	const SPRITE_NIDORAN_M ; 9c
+	const SPRITE_KANGASKHAN ; 9d
+	const SPRITE_SLOWBRO ; 9e
+	const SPRITE_ZAPDOS ; 9f
+	const SPRITE_NIDORINO ; a0
+	const SPRITE_PSYDUCK ; a1
+	const SPRITE_BAYLEEF ; a2
+	const SPRITE_POLIWRATH ; a3
+	const SPRITE_NIDORAN_F ; a4
+	const SPRITE_FEAROW ; a5
+	const SPRITE_ARTICUNO ; a6
 
 ; special GetMonSprite values (see engine/overworld/overworld.asm)
 	const_def $e0
 	const SPRITE_DAY_CARE_MON_1 ; e0
 	const SPRITE_DAY_CARE_MON_2 ; e1
 
-; wVariableSprites indexes (see wram.asm)
+; wVariableSprites indexes (see wram.asm) NOTE: Adding a new variablesprite requires a new save file be created to re-initiate 'InitializeEventsScript'
 	const_def $f0
 SPRITE_VARS EQU const_value
 	const SPRITE_CONSOLE ; f0
@@ -159,7 +183,7 @@ SPRITE_VARS EQU const_value
 	const SPRITE_DOLL_2 ; f2
 	const SPRITE_BIG_DOLL ; f3
 	const SPRITE_WEIRD_TREE ; f4
-	const SPRITE_OLIVINE_RIVAL ; f5
+	const SPRITE_AMPHY; f5
 	const SPRITE_AZALEA_ROCKET ; f6
 	const SPRITE_FUCHSIA_GYM_1 ; f7
 	const SPRITE_FUCHSIA_GYM_2 ; f8

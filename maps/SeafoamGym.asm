@@ -390,8 +390,8 @@ ScientistLowellSeenText:
 	line "in a cave like"
 	cont "this,"
 	
-	para "but we never"
-	line "forget to do the"
+	para "but we never for-"
+	line "get to do the"
 	cont "laundry."
 	done
 
@@ -443,8 +443,8 @@ SuperNerdCarySeenText:
 	line "in a cave like"
 	cont "this?"
 	
-	para "I'd love to"
-	line "explore it."
+	para "I'd love to ex-"
+	line "plore it."
 	done
 
 SuperNerdCaryBeatenText:
@@ -464,8 +464,8 @@ ScientistLindenSeenText:
 	text "BLAINE may have"
 	line "lost his Gym,"
 	
-	para "but he never"
-	line "gives up."
+	para "but he never gives"
+	line "up."
 	
 	para "His perseverance"
 	line "is what motivates"
@@ -475,8 +475,8 @@ ScientistLindenSeenText:
 ScientistLindenBeatenText:
 	text "Argh..."
 	
-	para "I can't do"
-	line "any more..."
+	para "I can't do any"
+	line "more..."
 	done
 
 ScientistLindenAfterBattleText:

@@ -4,22 +4,25 @@
 	const SILVERCAVEITEMROOMS_POKE_BALL2
 
 SilverCaveItemRooms_MapScripts:
-	db 1 ; scene scripts
-    scene_script .DummyScene
+	db 0 ; scene scripts
 
-	db 0 ; callbacks
+	db 1 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .Moltres
 
-.DummyScene:
+.Moltres:
 	checkevent EVENT_FOUGHT_MOLTRES
-	iftrue .DoNothing
+	iftrue .NoAppear
 	checkcode VAR_BADGES
-	ifequal NUM_BADGES, .MoltresAppear
-.DoNothing
-    end
-	
-.MoltresAppear
-    setevent EVENT_MOLTRES_APPEAR
-	end
+	ifequal NUM_BADGES, .Appear
+	jump .NoAppear
+
+.Appear:
+	appear SILVERCAVEITEMROOMS_MOLTRES
+	return
+
+.NoAppear:
+	disappear SILVERCAVEITEMROOMS_MOLTRES
+	return
 	
 SilverCaveItemRoomsHiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_SILVERCAVEITEMROOMS_HIDDEN_HYPER_POTION

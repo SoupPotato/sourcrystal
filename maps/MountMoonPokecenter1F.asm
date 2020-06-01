@@ -22,14 +22,14 @@ MountMoonPokecenter1FHikerText:
 	line "I remember there"
 
 	para "was nothing built"
-	line "here when I"
+	line "here when I "
 	cont "climbed the"
 	cont "mountain."
 
 	para "Things change, and"
-	line "it's getting"
-	cont "more and more"
-	cont "convenient."
+	line "it's getting more"
+	cont "and more con-"
+	cont "venient."
 	done
 
 MountMoonPokecenter1FLassText:
@@ -41,18 +41,15 @@ MountMoonPokecenter1FLassText:
 	line "what wild #MON"
 	cont "you'll encounter."
 
-	para "It is very"
-	line "important to"
-	
-	para "recover your"
-	line "#MON at a place "
-	cont "like this."
+	para "It is very im-"
+	line "portant to recover"	
+	cont "your #MON at"
+	cont "a place like this."
 
 	para "Don't forget to"
 	line "make a record of"
-	
-	para "your progress,"
-	line "either!"
+	cont "your progress,"
+	cont "either!"
 	done
 
 MountMoonPokecenter1F_MapEvents:

@@ -109,6 +109,7 @@
 	const SPRITE_SLOWPOKE_NOTAIL ; 6b
 	const SPRITE_FARFETCH_D_MOVE ; 6c
 	const SPRITE_AMPHY_SICK ; fe
+	const SPRITE_CLEFAIRY_MOVE ; ff
 
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)

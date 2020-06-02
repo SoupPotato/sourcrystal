@@ -114,3 +114,4 @@ SECTION "Sprites 3", ROMX
 SlowpokeNoTailSpriteGFX::      INCBIN "gfx/sprites/slowpoke_notail.2bpp"
 FarfetchdMoveSpriteGFX::       INCBIN "gfx/sprites/farfetchd_move.2bpp"
 AmphySickSpriteGFX::           INCBIN "gfx/sprites/ampy_sick.2bpp"
+ClefairyMoveSpriteGFX::        INCBIN "gfx/sprites/clefairy_move.2bpp"

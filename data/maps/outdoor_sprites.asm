@@ -330,7 +330,7 @@ FastShipGroupSprites:
 	db SPRITE_YOUNGSTER
 	; 5 of max 9 walking sprites
 	db SPRITE_HO_OH
-	db SPRITE_FAIRY
+	db SPRITE_CLEFAIRY_MOVE
 	db SPRITE_ROCK
 	db 0 ; end
 

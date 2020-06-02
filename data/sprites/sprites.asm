@@ -113,3 +113,4 @@ OverworldSprites:
 	overworld_sprite SlowpokeNoTailSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
 	overworld_sprite FarfetchdMoveSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
 	overworld_sprite AmphySickSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
+	overworld_sprite ClefairyMoveSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED

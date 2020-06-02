@@ -137,55 +137,63 @@ MansionPalette2:
 INCLUDE "gfx/tilesets/mansion_2.pal"
 
 LoadSpecialMapOBPalette:
-	ld a, [wMapGroup]
-	cp GROUP_ROUTE_30
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_30
 	jr z, .GetMapNumber
-	cp GROUP_VIOLET_CITY
+	cp MAP_VIOLET_CITY
 	jr z, .GetMapNumber
-	cp GROUP_AZALEA_TOWN
+	cp MAP_AZALEA_TOWN
 	jr z, .GetMapNumber
-	cp GROUP_ROUTE_38
+	cp MAP_ROUTE_38
 	jr z, .GetMapNumber
-	cp GROUP_ROUTE_42
+	cp MAP_ROUTE_42
 	jr z, .GetMapNumber
-	cp GROUP_ROUTE_44
+	cp MAP_ROUTE_44
 	jr z, .GetMapNumber
-	cp GROUP_ROUTE_46
+	cp MAP_ROUTE_46
 	jr z, .GetMapNumber
-	cp GROUP_PEWTER_CITY
+	cp MAP_PEWTER_CITY
 	jr z, .GetMapNumber
-	cp GROUP_ROUTE_8
+	cp MAP_ROUTE_8
 	jr z, .GetMapNumber
-	cp GROUP_OLIVINE_LIGHTHOUSE_6F
+	cp MAP_OLIVINE_LIGHTHOUSE_6F
+	jr z, .GetMapNumber
+	cp MAP_VIRIDIAN_NICKNAME_SPEECH_HOUSE
+	jr z, .GetMapNumber
+	cp MAP_INDIGO_PLATEAU_POKECENTER_1F
 	jr z, .GetMapNumber
 	jr .do_nothing
 
 
 .GetMapNumber
-	ld a, [wMapNumber]
-	cp MAP_ROUTE_30
+	ld a, [wMapGroup]
+	cp GROUP_ROUTE_30
 	jr z, .PurpleOverRockOBPalette
-	cp MAP_VIOLET_CITY
+	cp GROUP_VIOLET_CITY
 	jr z, .YellowOverRockOBPalette
-	cp MAP_AZALEA_TOWN
-	jr z, .WhiteOverSilverOBPalette
-	cp MAP_ROUTE_38
-	jr z, .WhiteOverSilverOBPalette
-	cp MAP_ROUTE_42
+	cp GROUP_AZALEA_TOWN
+	jr z, .WhiteOverRockOBPalette
+	cp GROUP_ROUTE_38
+	jr z, .WhiteOverRockOBPalette
+	cp GROUP_ROUTE_42
 	jr z, .YellowOverRockOBPalette
-	cp MAP_ROUTE_44
+	cp GROUP_ROUTE_44
 	jr z, .YellowOverRockOBPalette
-	cp MAP_ROUTE_46
+	cp GROUP_ROUTE_46
 	jr z, .YellowOverRockOBPalette
-	cp MAP_PEWTER_CITY
-	jr z, .WhiteOverSilverOBPalette
-	cp MAP_ROUTE_8
+	cp GROUP_PEWTER_CITY
+	jr z, .WhiteOverRockOBPalette
+	cp GROUP_ROUTE_8
+	jr z, .PurpleOverRockYellowOverPinkOBPalette
+	cp GROUP_FUCHSIA_CITY
 	jr z, .YellowOverRockOBPalette
-	cp MAP_FUCHSIA_CITY
+	cp GROUP_OLIVINE_LIGHTHOUSE_6F
 	jr z, .YellowOverRockOBPalette
-	cp MAP_OLIVINE_LIGHTHOUSE_6F
+	cp GROUP_VIRIDIAN_NICKNAME_SPEECH_HOUSE
+	jr z, .PurpleOverRockOBPalette
+	cp GROUP_INDIGO_PLATEAU_POKECENTER_1F
 	jr z, .YellowOverRockOBPalette
-
+	
 
 .do_nothing
     and a
@@ -205,12 +213,19 @@ LoadSpecialMapOBPalette:
     ld hl, YellowOverRock
     jr .finish
 	
-.WhiteOverSilverOBPalette:
+.WhiteOverRockOBPalette:
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
-    ld hl, WhiteOverSilver
+    ld hl, WhiteOverRock
     jr .finish	
+	
+.PurpleOverRockYellowOverPinkOBPalette
+	ld a, [wTimeOfDayPal]
+	maskbits NUM_DAYTIMES
+	ld bc, 8 palettes
+    ld hl, PurpleOverRockYellowOverPink
+	jr .finish
 	
 .finish
 	call AddNTimes

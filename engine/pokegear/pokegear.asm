@@ -1499,30 +1499,34 @@ CutPagerRoutine:
 	jr FinishPagerRoutine
 
 FlyPagerRoutine:
-    call ClearBGPalettes
-    ld a, $90
-    ld [hWY], a
+    ;call ClearBGPalettes                   ;temporarily disabled until a better method can be found
+    ;ld a, $90
+    ;ld [hWY], a
+	;farcall MonMenu_Fly
+	;jr z, FinishPagerRoutine
+ 	;call DisableLCD
+ 	;farcall DeinitializeAllSprites
+ 	;call ClearSprites
+ 	;call ClearTileMap
+ 	;call Pokegear_LoadGFX
+ 	;call InitPokegearModeIndicatorArrow
+ 	;ld a, LCDC_DEFAULT
+ 	;ld [rLCDC], a
+ 	;call PokegearPager_Init
+ 	;ld a, 1
+ 	;ld [wPokegearPagerCursorPosition], a
+ 	;call PokegearPager_UpdateCursor
+ 	;call WaitBGMap
+ 	;ld b, SCGB_POKEGEAR_PALS
+ 	;call GetSGBLayout
+ 	;call SetPalettes
+ 	;ld a, POKEGEARSTATE_PAGERJOYPAD
+ 	;ld [wJumptableIndex], a
+ 	;ret
+	
 	farcall MonMenu_Fly
-	jr z, FinishPagerRoutine
- 	call DisableLCD
- 	farcall DeinitializeAllSprites
- 	call ClearSprites
- 	call ClearTileMap
- 	call Pokegear_LoadGFX
- 	call InitPokegearModeIndicatorArrow
- 	ld a, LCDC_DEFAULT
- 	ld [rLCDC], a
- 	call PokegearPager_Init
- 	ld a, 1
- 	ld [wPokegearPagerCursorPosition], a
- 	call PokegearPager_UpdateCursor
- 	call WaitBGMap
- 	ld b, SCGB_POKEGEAR_PALS
- 	call GetSGBLayout
- 	call SetPalettes
- 	ld a, POKEGEARSTATE_PAGERJOYPAD
- 	ld [wJumptableIndex], a
- 	ret
+	ret nz
+	jr FinishPagerRoutine
 
 SurfPagerRoutine:
 	farcall MonMenu_Surf
@@ -2576,9 +2580,9 @@ _FlyMap:
 .loop
 	call JoyTextDelay
 	ld hl, hJoyPressed
-	ld a, [hl]
-	and B_BUTTON
-	jr nz, .pressedB
+	;ld a, [hl]                     ;temporarily disabled until a better method can be found
+	;and B_BUTTON
+	;jr nz, .pressedB
 	ld a, [hl]
 	and A_BUTTON
 	jr nz, .pressedA

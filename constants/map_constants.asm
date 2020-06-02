@@ -148,9 +148,9 @@ ENDM
 	map_const VICTORY_ROAD,                                10, 36 ; 91
 	map_const CLIFF_EDGE_GATE,                             10, 11 ; 92
 	map_const CLIFF_CAVE,                                   7, 20 ; 93
-	map_const CERULEAN_CAVE_1F,                             20, 14 ; 94
-	map_const CERULEAN_CAVE_2F,                             20, 14 ; 95
-	map_const CERULEAN_CAVE_B1F,                             20, 14 ; 95
+	map_const CERULEAN_CAVE_1F,                            20, 14 ; 94
+	map_const CERULEAN_CAVE_2F,                            20, 14 ; 95
+	map_const CERULEAN_CAVE_B1F,                           20, 14 ; 95
 
 	newgroup                                                      ;  4
 

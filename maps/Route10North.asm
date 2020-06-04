@@ -100,4 +100,4 @@ Route10North_MapEvents:
 	bg_event 12,  1, BGEVENT_READ, Route10PokecenterSign
 
 	db 1 ; object events
-    object_event 3, 22, SPRITE_ZAPDOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0,  Route10Zapdos, EVENT_ZAPDOS_APPEAR
+    object_event 3, 22, SPRITE_ZAPDOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0,  Route10Zapdos, EVENT_ZAPDOS_APPEAR

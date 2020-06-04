@@ -168,6 +168,8 @@ LoadSpecialMapOBPalette:
 	jr z, .GetMapNumber
 	cp MAP_DANCE_THEATRE
 	jr z, .GetMapNumber
+	cp MAP_ROUTE_10_NORTH
+	jr z, .GetMapNumber
 	jr .do_nothing
 
 
@@ -205,6 +207,8 @@ LoadSpecialMapOBPalette:
 	jr z, .GrayOverRockOBPalette
 	cp GROUP_DANCE_THEATRE
 	jr z, .GrayOverRockOBPalette
+	cp GROUP_ROUTE_10_NORTH
+	jr z, .YellowOverRockOBPalette
 	
 
 .do_nothing

@@ -162,6 +162,12 @@ LoadSpecialMapOBPalette:
 	jr z, .GetMapNumber
 	cp MAP_INDIGO_PLATEAU_POKECENTER_1F
 	jr z, .GetMapNumber
+	cp MAP_VERMILION_CITY
+	jr z, .GetMapNumber
+	cp MAP_GOLDENROD_DEPT_STORE_B1F
+	jr z, .GetMapNumber
+	cp MAP_DANCE_THEATRE
+	jr z, .GetMapNumber
 	jr .do_nothing
 
 
@@ -193,6 +199,12 @@ LoadSpecialMapOBPalette:
 	jr z, .PurpleOverRockOBPalette
 	cp GROUP_INDIGO_PLATEAU_POKECENTER_1F
 	jr z, .YellowOverRockOBPalette
+	cp GROUP_VERMILION_CITY
+	jr z, .GrayOverRockOBPalette
+	cp GROUP_GOLDENROD_DEPT_STORE_B1F
+	jr z, .GrayOverRockOBPalette
+	cp GROUP_DANCE_THEATRE
+	jr z, .GrayOverRockOBPalette
 	
 
 .do_nothing
@@ -225,6 +237,13 @@ LoadSpecialMapOBPalette:
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
     ld hl, PurpleOverRockYellowOverPink
+	jr .finish
+	
+.GrayOverRockOBPalette
+	ld a, [wTimeOfDayPal]
+	maskbits NUM_DAYTIMES
+	ld bc, 8 palettes
+    ld hl, GrayOverRock
 	jr .finish
 	
 .finish

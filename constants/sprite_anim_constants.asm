@@ -327,3 +327,5 @@ NUM_SPRITE_ANIM_STRUCTS EQU 10 ; see wSpriteAnimationStructs
 	const SPRITE_ANIM_OAMSET_GAMEFREAK_LOGO_11          ; 8b
 	const SPRITE_ANIM_OAMSET_BROWN_WALK_1               ; 8c
 	const SPRITE_ANIM_OAMSET_BROWN_WALK_2               ; 8d
+	const SPRITE_ANIM_OAMSET_PARTY_MON_1                ; 8e
+	const SPRITE_ANIM_OAMSET_PARTY_MON_2                ; 8f

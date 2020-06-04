@@ -681,7 +681,7 @@ InitPartyMenuOBPals:
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
 	ret
-
+	
 GetBattlemonBackpicPalettePointer:
 	push de
 	farcall GetPartyMonDVs

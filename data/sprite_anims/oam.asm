@@ -143,6 +143,8 @@ SpriteAnimOAMData:
 	dbw $00, .OAMData_GameFreakLogo4_11        ; SPRITE_ANIM_OAMSET_GAMEFREAK_LOGO_11
 	dbw $00, .OAMData_BrownWalk                ; SPRITE_ANIM_OAMSET_BROWN_WALK_1
 	dbw $04, .OAMData_BrownWalk                ; SPRITE_ANIM_OAMSET_BROWN_WALK_2
+	dbw $00, .OAMData_PartyMon                 ; SPRITE_ANIM_OAMSET_PARTY_MON_1
+	dbw $04, .OAMData_PartyMon                 ; SPRITE_ANIM_OAMSET_PARTY_MON_2
 
 .OAMData_1x1_Palette0:
 	db 1
@@ -362,31 +364,38 @@ SpriteAnimOAMData:
 
 .OAMData_PartyMonWithMail1:
 	db 4
-	dsprite -1,  0, -1,  0, $00, PAL_OW_RED
-	dsprite -1,  0,  0,  0, $01, PAL_OW_RED
-	dsprite  0,  0, -1,  0, $08, PAL_OW_RED
-	dsprite  0,  0,  0,  0, $03, PAL_OW_RED
+	dsprite -1,  0, -1,  0, $00, -1
+	dsprite -1,  0,  0,  0, $01, -1
+	dsprite  0,  0, -1,  0, $08, PAL_ICON_RED
+	dsprite  0,  0,  0,  0, $03, -1
 
 .OAMData_PartyMonWithMail2:
 	db 4
-	dsprite -1,  0, -1,  0, $04, PAL_OW_RED
-	dsprite -1,  0,  0,  0, $05, PAL_OW_RED
-	dsprite  0,  0, -1,  0, $08, PAL_OW_RED
-	dsprite  0,  0,  0,  0, $07, PAL_OW_RED
+	dsprite -1,  0, -1,  0, $04, -1
+	dsprite -1,  0,  0,  0, $05, -1
+	dsprite  0,  0, -1,  0, $08, PAL_ICON_RED
+	dsprite  0,  0,  0,  0, $07, -1
 
 .OAMData_PartyMonWithItem1:
 	db 4
-	dsprite -1,  0, -1,  0, $00, PAL_OW_RED
-	dsprite -1,  0,  0,  0, $01, PAL_OW_RED
-	dsprite  0,  0, -1,  0, $09, PAL_OW_RED
-	dsprite  0,  0,  0,  0, $03, PAL_OW_RED
+	dsprite -1,  0, -1,  0, $00, -1
+	dsprite -1,  0,  0,  0, $01, -1
+	dsprite  0,  0, -1,  0, $09, PAL_ICON_RED
+	dsprite  0,  0,  0,  0, $03, -1
 
 .OAMData_PartyMonWithItem2:
 	db 4
-	dsprite -1,  0, -1,  0, $04, PAL_OW_RED
-	dsprite -1,  0,  0,  0, $05, PAL_OW_RED
-	dsprite  0,  0, -1,  0, $09, PAL_OW_RED
-	dsprite  0,  0,  0,  0, $07, PAL_OW_RED
+	dsprite -1,  0, -1,  0, $04, -1
+	dsprite -1,  0,  0,  0, $05, -1
+	dsprite  0,  0, -1,  0, $09, PAL_ICON_RED
+	dsprite  0,  0,  0,  0, $07, -1
+	
+.OAMData_PartyMon:
+	db 4
+	dsprite -1,  0, -1,  0, $00, -1
+	dsprite -1,  0,  0,  0, $01, -1
+	dsprite  0,  0, -1,  0, $02, -1
+	dsprite  0,  0,  0,  0, $03, -1
 
 .OAMData_GSIntroMagikarp:
 	db 6

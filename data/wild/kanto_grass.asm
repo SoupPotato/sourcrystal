@@ -731,6 +731,33 @@ KantoGrassWildMons:
 	db 16, HYPNO
 	db 16, HYPNO
 
+	map_id ROUTE_12
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 23, NIDORINO
+	db 23, NIDORINA
+	db 25, PIDGEOTTO
+	db 25, HOPPIP
+	db 27, HOPPIP
+	db 27, HOPPIP
+	db 25, CHANSEY
+	; day
+	db 23, NIDORINO
+	db 23, NIDORINA
+	db 25, PIDGEOTTO
+	db 25, HOPPIP
+	db 27, HOPPIP
+	db 27, HOPPIP
+	db 25, CHANSEY
+	; nite
+	db 23, VENONAT
+	db 23, QUAGSIRE
+	db 25, NOCTOWL
+	db 25, VENOMOTH
+	db 25, QUAGSIRE
+	db 25, QUAGSIRE
+	db 25, CHANSEY
+	
 	map_id ROUTE_13
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn

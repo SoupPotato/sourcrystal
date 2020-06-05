@@ -6,23 +6,29 @@
 	const GOLDENRODPOKECENTER1F_POKEFAN_F
 
 GoldenrodPokecenter1F_MapScripts:
-	db 0 ; scene scripts
+	db 1 ; scene scripts
+	scene_script .GSBall ; SCENE_DEFAULT
 
 	db 0 ; callbacks
+
+.GSBall:
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .gsball
+	end
+	
+.gsball
+	checkevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
+	iftrue .nope
+	priorityjump GoldenrodPokecenter1F_GSBallScene
+.nope
+	end
 
 GoldenrodPokecenter1FNurseScript:
 	jumpstd pokecenternurse
 
-GoldenrodPokecenter1F_GSBallSceneLeft:
+GoldenrodPokecenter1F_GSBallScene:
 	writebyte BATTLETOWERACTION_CHECKMOBILEEVENT
 	special BattleTowerAction
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .gsball
-	end
-
-.gsball
-	checkevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
-	iftrue .cancel
 	playsound SFX_EXIT_BUILDING
 	moveobject GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST, 0, 7
 	disappear GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST
@@ -40,38 +46,6 @@ GoldenrodPokecenter1F_GSBallSceneLeft:
 	waitbutton
 	closetext
 	applymovement GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST, MovementData_0x61060
-	special RestartMapMusic
-	disappear GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST
-	playsound SFX_EXIT_BUILDING
-.cancel
-	end
-
-GoldenrodPokecenter1F_GSBallSceneRight:
-	writebyte BATTLETOWERACTION_CHECKMOBILEEVENT
-	special BattleTowerAction
-	ifequal MOBILE_EVENT_OBJECT_GS_BALL, .gsball
-	end
-
-.gsball
-	checkevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
-	iftrue .cancel
-	playsound SFX_EXIT_BUILDING
-	moveobject GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST, 0, 7
-	disappear GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST
-	appear GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST
-	playmusic MUSIC_SHOW_ME_AROUND
-	applymovement GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST, MovementData_0x61065
-	turnobject PLAYER, UP
-	opentext
-	writetext UnknownText_0x622f0
-	waitbutton
-	verbosegiveitem GS_BALL
-	setevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
-	setevent EVENT_CAN_GIVE_GS_BALL_TO_KURT
-	writetext UnknownText_0x62359
-	waitbutton
-	closetext
-	applymovement GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST, MovementData_0x6106c
 	special RestartMapMusic
 	disappear GOLDENRODPOKECENTER1F_LINK_RECEPTIONIST
 	playsound SFX_EXIT_BUILDING
@@ -812,9 +786,7 @@ GoldenrodPokecenter1F_MapEvents:
 	warp_event  0,  6, POKECOM_CENTER_ADMIN_OFFICE_MOBILE, 1
 	warp_event  0,  7, POKECENTER_2F, 1
 
-	db 2 ; coord events
-	coord_event  3,  7, SCENE_DEFAULT, GoldenrodPokecenter1F_GSBallSceneLeft
-	coord_event  4,  7, SCENE_DEFAULT, GoldenrodPokecenter1F_GSBallSceneRight
+	db 0 ; coord events
 
 	db 0 ; bg events
 

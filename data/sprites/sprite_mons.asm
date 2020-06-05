@@ -55,3 +55,5 @@ SpriteMons:
 	db NIDORAN_F
 	db FEAROW
 	db ARTICUNO
+	db DODRIO
+	db BLISSEY

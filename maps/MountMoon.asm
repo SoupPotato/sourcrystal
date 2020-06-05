@@ -6,7 +6,17 @@ MountMoon_MapScripts:
 	scene_script .RivalEncounter ; SCENE_DEFAULT
 	scene_script .DummyScene ; SCENE_FINISHED
 
-	db 0 ; callbacks
+	db 1 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .Rival
+	
+.Rival
+	checkevent EVENT_BEAT_RIVAL_IN_MT_MOON
+	iffalse .notgone
+	end
+	
+.notgone
+	appear MOUNTMOON_SILVER
+	end
 
 .RivalEncounter:
 	priorityjump .RivalBattle

@@ -1488,43 +1488,51 @@ PagerCardRoutines:
 	dw WhirlpoolPagerRoutine
 	dw RockSmashPagerRoutine
 
-FinishPagerRoutine:
-	ld a, $84
-	ld [wJumptableIndex], a
+FlyPagerRoutine:
+	call GetMapEnvironment
+	call CheckOutdoorMap
+	jr z, .FlyStartUp          ;checks if the player is outside
+	jr .initiate
+	
+.FlyStartUp	                         
+	call ClearBGPalettes                   
+	ld a, $90
+	ld [hWY], a
+	jr .initiate              ; jump to initiate
+	
+.initiate
+	farcall MonMenu_Fly   ;Regardless this code must trigger if the player is outside or not.
+	jr z, FinishPagerRoutine
+	call GetMapEnvironment
+	call CheckOutdoorMap
+	jr z, .FlyExecute
 	ret
+	
+.FlyExecute
+ 	call DisableLCD
+ 	farcall DeinitializeAllSprites
+ 	call ClearSprites
+ 	call ClearTileMap
+ 	call Pokegear_LoadGFX
+ 	call InitPokegearModeIndicatorArrow
+ 	ld a, LCDC_DEFAULT
+ 	ld [rLCDC], a
+ 	call PokegearPager_Init
+ 	ld a, 1
+ 	ld [wPokegearPagerCursorPosition], a
+ 	call PokegearPager_UpdateCursor
+ 	call WaitBGMap
+ 	ld b, SCGB_POKEGEAR_PALS
+ 	call GetSGBLayout
+ 	call SetPalettes
+ 	ld a, POKEGEARSTATE_PAGERJOYPAD
+ 	ld [wJumptableIndex], a
+ 	ret
+	
 
+; all other pager functions had to be mvoed below FlyPagerRoutine due to its code setup
 CutPagerRoutine:
 	farcall MonMenu_Cut
-	ret nz
-	jr FinishPagerRoutine
-
-FlyPagerRoutine:
-    ;call ClearBGPalettes                   ;temporarily disabled until a better method can be found
-    ;ld a, $90
-    ;ld [hWY], a
-	;farcall MonMenu_Fly
-	;jr z, FinishPagerRoutine
- 	;call DisableLCD
- 	;farcall DeinitializeAllSprites
- 	;call ClearSprites
- 	;call ClearTileMap
- 	;call Pokegear_LoadGFX
- 	;call InitPokegearModeIndicatorArrow
- 	;ld a, LCDC_DEFAULT
- 	;ld [rLCDC], a
- 	;call PokegearPager_Init
- 	;ld a, 1
- 	;ld [wPokegearPagerCursorPosition], a
- 	;call PokegearPager_UpdateCursor
- 	;call WaitBGMap
- 	;ld b, SCGB_POKEGEAR_PALS
- 	;call GetSGBLayout
- 	;call SetPalettes
- 	;ld a, POKEGEARSTATE_PAGERJOYPAD
- 	;ld [wJumptableIndex], a
- 	;ret
-	
-	farcall MonMenu_Fly
 	ret nz
 	jr FinishPagerRoutine
 
@@ -1547,11 +1555,17 @@ WhirlpoolPagerRoutine:
 	farcall MonMenu_Whirlpool
 	ret nz
 	jr FinishPagerRoutine
+	
 
 RockSmashPagerRoutine:
 	farcall MonMenu_RockSmash
 	ret nz
 	jr FinishPagerRoutine
+	
+FinishPagerRoutine:
+	ld a, $84
+	ld [wJumptableIndex], a
+	ret
 
 PokegearPager_GetDPad:
 	ld hl, hJoyLast
@@ -2580,9 +2594,9 @@ _FlyMap:
 .loop
 	call JoyTextDelay
 	ld hl, hJoyPressed
-	;ld a, [hl]                     ;temporarily disabled until a better method can be found
-	;and B_BUTTON
-	;jr nz, .pressedB
+	ld a, [hl]                     ;temporarily disabled until a better method can be found
+	and B_BUTTON
+	jr nz, .pressedB
 	ld a, [hl]
 	and A_BUTTON
 	jr nz, .pressedA

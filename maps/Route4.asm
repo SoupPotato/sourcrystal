@@ -3,11 +3,23 @@
 	const ROUTE4_LASS1
 	const ROUTE4_LASS2
 	const ROUTE4_POKE_BALL
+	const ROUTE4_CAVE_COOLTRAINER_M
 
 Route4_MapScripts:
 	db 0 ; scene scripts
 
-	db 0 ; callbacks
+	db 1 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .CaveCooltrainerCaveBlock
+	
+.CaveCooltrainerCaveBlock:
+	checkcode VAR_BADGES
+	ifequal NUM_BADGES, .CaveCooltrainerDissapear
+	appear CERULEANCITY_CAVE_COOLTRAINER_M
+	return
+	
+.CaveCooltrainerDissapear:
+	disappear CERULEANCITY_CAVE_COOLTRAINER_M
+	return
 
 TrainerBirdKeeperHank:
 	trainer BIRD_KEEPER, HANK, EVENT_BEAT_BIRD_KEEPER_HANK, BirdKeeperHankSeenText, BirdKeeperHankBeatenText, 0, .Script
@@ -130,8 +142,9 @@ Route4_MapEvents:
 	bg_event  5,  7, BGEVENT_READ, MtMoonSquareSign
 	bg_event 18,  3, BGEVENT_ITEM, Route4HiddenUltraBall
 
-	db 4 ; object events
+	db 5 ; object events
 	object_event 27,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperHank, -1
 	object_event 17,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerPicnickerHope, -1
 	object_event 33,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerPicnickerSharon, -1
 	object_event 40,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route4HPUp, EVENT_ROUTE_4_HP_UP
+	object_event 72,  4, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0,CeruleanCaveCooltrainerMScript, 0

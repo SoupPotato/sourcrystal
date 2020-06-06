@@ -68,7 +68,6 @@ ENDM
 	map_const TIN_TOWER_8F,                                10,  9 ; 11
 	map_const TIN_TOWER_9F,                                10,  9 ; 12
 	map_const BURNED_TOWER_1F,                             10,  9 ; 13
-	map_const BURNED_TOWER_B1F,                            10,  9 ; 14
 	map_const NATIONAL_PARK,                               20, 27 ; 15
 	map_const NATIONAL_PARK_BUG_CONTEST,                   20, 27 ; 16
 	map_const RADIO_TOWER_1F,                               9,  4 ; 17
@@ -132,7 +131,7 @@ ENDM
 	map_const SILVER_CAVE_ROOM_3,                          10, 18 ; 75
 	map_const SILVER_CAVE_ITEM_ROOMS,                      10, 17 ; 76
 	map_const DARK_CAVE_VIOLET_ENTRANCE,                   20, 18 ; 77
-	map_const DARK_CAVE_BLACKTHORN_ENTRANCE,               15, 18 ; 78
+	map_const DARK_CAVE_BLACKTHORN_ENTRANCE,               17, 18 ; 78
 	map_const DRAGONS_DEN_1F,                               5,  9 ; 79
 	map_const DRAGONS_DEN_B1F,                             20, 18 ; 80
 	map_const DRAGON_SHRINE,                                5,  5 ; 81
@@ -165,15 +164,14 @@ ENDM
 	newgroup                                                      ;  5
 
 	map_const BLACKTHORN_GYM_1F,                            5,  9 ;  1
-	map_const BLACKTHORN_GYM_2F,                            5,  9 ;  2
-	map_const BLACKTHORN_DRAGON_SPEECH_HOUSE,               4,  4 ;  3
-	map_const BLACKTHORN_EMYS_HOUSE,                        4,  4 ;  4
-	map_const BLACKTHORN_MART,                              6,  4 ;  5
-	map_const BLACKTHORN_POKECENTER_1F,                     5,  4 ;  6
-	map_const MOVE_DELETERS_HOUSE,                          4,  4 ;  7
-	map_const ROUTE_45,                                    10, 45 ;  8
-	map_const ROUTE_46,                                    10, 18 ;  9
-	map_const BLACKTHORN_CITY,                             20, 18 ; 10
+	map_const BLACKTHORN_DRAGON_SPEECH_HOUSE,               4,  4 ;  2
+	map_const BLACKTHORN_EMYS_HOUSE,                        4,  4 ;  3
+	map_const BLACKTHORN_MART,                              6,  4 ;  4
+	map_const BLACKTHORN_POKECENTER_1F,                     5,  4 ;  5
+	map_const MOVE_DELETERS_HOUSE,                          4,  4 ;  6
+	map_const ROUTE_45,                                    10, 45 ;  7
+	map_const ROUTE_46,                                    10, 18 ;  8
+	map_const BLACKTHORN_CITY,                             20, 18 ;  9
 
 	newgroup                                                      ;  6
 
@@ -331,6 +329,8 @@ ENDM
 	map_const MOUNT_MOON_SQUARE,                           15,  9 ; 10
 	map_const MOUNT_MOON_GIFT_SHOP,                         4,  4 ; 11
 	map_const TIN_TOWER_ROOF,                              10,  9 ; 12
+	map_const BURNED_TOWER_B1F,                            10,  9 ; 13
+	map_const BLACKTHORN_GYM_2F,                            5,  9 ; 14
 
 	newgroup                                                      ; 16
 

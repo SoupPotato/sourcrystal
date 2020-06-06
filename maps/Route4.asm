@@ -14,11 +14,11 @@ Route4_MapScripts:
 .CaveCooltrainerCaveBlock:
 	checkcode VAR_BADGES
 	ifequal NUM_BADGES, .CaveCooltrainerDissapear
-	appear CERULEANCITY_CAVE_COOLTRAINER_M
+	appear ROUTE4_CAVE_COOLTRAINER_M
 	return
 	
 .CaveCooltrainerDissapear:
-	disappear CERULEANCITY_CAVE_COOLTRAINER_M
+	disappear ROUTE4_CAVE_COOLTRAINER_M
 	return
 
 TrainerBirdKeeperHank:
@@ -147,4 +147,4 @@ Route4_MapEvents:
 	object_event 17,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerPicnickerHope, -1
 	object_event 33,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerPicnickerSharon, -1
 	object_event 40,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route4HPUp, EVENT_ROUTE_4_HP_UP
-	object_event 72,  4, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0,CeruleanCaveCooltrainerMScript, 0
+	object_event 72,  4, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0,ObjectEvent, 0

@@ -170,6 +170,8 @@ LoadSpecialMapOBPalette:
 	jr z, .GetMapNumber
 	cp MAP_ROUTE_10_NORTH
 	jr z, .GetMapNumber
+	cp MAP_CERULEAN_CAVE_B1F
+	jr z, .GetMapNumber
 	jr .do_nothing
 
 
@@ -209,6 +211,8 @@ LoadSpecialMapOBPalette:
 	jr z, .GrayOverRockOBPalette
 	cp GROUP_ROUTE_10_NORTH
 	jr z, .YellowOverRockOBPalette
+	cp GROUP_CERULEAN_CAVE_B1F
+	jr z, .PurpleOverPinkOBPalette
 	
 
 .do_nothing
@@ -248,6 +252,13 @@ LoadSpecialMapOBPalette:
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
     ld hl, GrayOverRock
+	jr .finish
+	
+.PurpleOverPinkOBPalette:
+	ld a, [wTimeOfDayPal]
+	maskbits NUM_DAYTIMES
+	ld bc, 8 palettes
+    ld hl, PurpleOverPink
 	jr .finish
 	
 .finish

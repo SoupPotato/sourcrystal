@@ -1491,24 +1491,18 @@ PagerCardRoutines:
 FlyPagerRoutine:
 	call GetMapEnvironment
 	call CheckOutdoorMap
-	jr z, .FlyStartUp          ;checks if the player is outside
-	jr .initiate
-	
-.FlyStartUp	                         
+	jr nz, .FlyStartUp         ;checks if the player is outside	                         
 	call ClearBGPalettes                   
 	ld a, $90
 	ld [hWY], a
-	jr .initiate              ; jump to initiate
 	
-.initiate
+.FlyStartUp
 	farcall MonMenu_Fly   ;Regardless this code must trigger if the player is outside or not.
 	jr z, FinishPagerRoutine
 	call GetMapEnvironment
 	call CheckOutdoorMap
-	jr z, .FlyExecute
-	ret
-	
-.FlyExecute
+	ret nz
+
  	call DisableLCD
  	farcall DeinitializeAllSprites
  	call ClearSprites

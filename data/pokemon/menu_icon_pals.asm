@@ -82,8 +82,8 @@ MonMenuIconPals:
 	icon_pals BROWN, YELLOW    ; GOLEM
 	icon_pals RED, BLUE        ; PONYTA
 	icon_pals RED, GRAY        ; RAPIDASH
-	icon_pals PINK, PURPLE        ; SLOWPOKE
-	icon_pals PINK, BLUE        ; SLOWBRO
+	icon_pals PINK, PURPLE     ; SLOWPOKE
+	icon_pals PINK, BLUE       ; SLOWBRO
 	icon_pals GRAY, BROWN      ; MAGNEMITE
 	icon_pals GRAY, BROWN      ; MAGNETON
 	icon_pals BROWN, RED       ; FARFETCH_D
@@ -96,8 +96,8 @@ MonMenuIconPals:
 	icon_pals PURPLE, RED      ; SHELLDER
 	icon_pals PURPLE, BLUE     ; CLOYSTER
 	icon_pals PURPLE, BLUE     ; GASTLY
-	icon_pals PURPLE, BLUE     ; HAUNTER
-	icon_pals PURPLE, BLUE     ; GENGAR
+	icon_pals RED, BLUE        ; HAUNTER
+	icon_pals RED, BLUE        ; GENGAR
 	icon_pals GRAY, BROWN      ; ONIX
 	icon_pals YELLOW, PINK     ; DROWZEE
 	icon_pals YELLOW, PINK     ; HYPNO

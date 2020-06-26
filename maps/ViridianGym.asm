@@ -250,7 +250,7 @@ CoolDuoElanandIdaBeatenText:
 	done
 
 CoolDuoElanandIda1AfterBattleText:
-	para "ELAN: You're"
+	text "ELAN: You're"
 	line "stronger than we"
 	cont "anticipated!"
 	done

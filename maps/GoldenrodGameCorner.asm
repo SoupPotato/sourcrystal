@@ -390,7 +390,7 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	jump .loop
 
 .porygon
-	checkcoins 2500
+	checkcoins 3500
 	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
 	checkcode VAR_PARTYCOUNT
 	ifequal PARTY_LENGTH, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
@@ -404,7 +404,7 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	writebyte PORYGON
 	special GameCornerPrizeMonCheckDex
 	givepoke PORYGON, 12
-	takecoins 2500
+	takecoins 3500
 	jump .loop
 
 .MenuHeader:
@@ -418,7 +418,7 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	db 4 ; items
 	db "ABRA        100@"
 	db "CUBONE      800@"
-	db "PORYGON    2500@"
+	db "PORYGON    3500@"
 	db "CANCEL@"
 
 GoldenrodGameCornerPharmacistScript:

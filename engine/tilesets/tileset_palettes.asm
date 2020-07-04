@@ -137,84 +137,157 @@ MansionPalette2:
 INCLUDE "gfx/tilesets/mansion_2.pal"
 
 LoadSpecialMapOBPalette:
-	ld a, [wMapNumber]
-	cp MAP_ROUTE_30
-	jr z, .GetMapNumber
-	cp MAP_VIOLET_CITY
-	jr z, .GetMapNumber
-	cp MAP_AZALEA_TOWN
-	jr z, .GetMapNumber
-	cp MAP_ROUTE_38
-	jr z, .GetMapNumber
-	cp MAP_ROUTE_42
-	jr z, .GetMapNumber
-	cp MAP_ROUTE_44
-	jr z, .GetMapNumber
-	cp MAP_ROUTE_46
-	jr z, .GetMapNumber
-	cp MAP_PEWTER_CITY
-	jr z, .GetMapNumber
-	cp MAP_ROUTE_8
-	jr z, .GetMapNumber
-	cp MAP_OLIVINE_LIGHTHOUSE_6F
-	jr z, .GetMapNumber
-	cp MAP_VIRIDIAN_NICKNAME_SPEECH_HOUSE
-	jr z, .GetMapNumber
-	cp MAP_INDIGO_PLATEAU_POKECENTER_1F
-	jr z, .GetMapNumber
-	cp MAP_VERMILION_CITY
-	jr z, .GetMapNumber
-	cp MAP_GOLDENROD_DEPT_STORE_B1F
-	jr z, .GetMapNumber
-	cp MAP_DANCE_THEATRE
-	jr z, .GetMapNumber
-	cp MAP_ROUTE_10_NORTH
-	jr z, .GetMapNumber
-	cp MAP_CERULEAN_CAVE_B1F
-	jr z, .GetMapNumber
-	jr .do_nothing
-
-
-.GetMapNumber
 	ld a, [wMapGroup]
 	cp GROUP_ROUTE_30
-	jr z, .PurpleOverRockOBPalette
+	jr nz, .not_route30
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_30
+	jp z, .PurpleOverRockOBPalette
+	
+.not_route30
+	ld a, [wMapGroup]
 	cp GROUP_VIOLET_CITY
-	jr z, .YellowOverRockOBPalette
+	jr nz, .not_violet
+	ld a, [wMapNumber]
+	cp MAP_VIOLET_CITY
+	jp z, .YellowOverRockOBPalette
+	
+.not_violet
+	ld a, [wMapGroup]
 	cp GROUP_AZALEA_TOWN
-	jr z, .WhiteOverRockOBPalette
+	jr nz, .not_azalea
+	ld a, [wMapNumber]
+	cp MAP_AZALEA_TOWN
+	jp z, .WhiteOverRockOBPalette
+	
+.not_azalea
+	ld a, [wMapGroup]
 	cp GROUP_ROUTE_38
-	jr z, .WhiteOverRockOBPalette
+	jr nz, .not_route38
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_38
+	jp z, .WhiteOverRockOBPalette
+	
+.not_route38
+	ld a, [wMapGroup]
 	cp GROUP_ROUTE_42
-	jr z, .YellowOverRockOBPalette
+	jr nz, .not_route42
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_42
+	jp z, .YellowOverRockOBPalette
+	
+.not_route42
+	ld a, [wMapGroup]
 	cp GROUP_ROUTE_44
-	jr z, .YellowOverRockOBPalette
+	jr nz, .not_route44
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_44
+	jp z, .YellowOverRockOBPalette
+	
+.not_route44
+	ld a, [wMapGroup]
 	cp GROUP_ROUTE_46
-	jr z, .YellowOverRockOBPalette
+	jr nz, .not_route46
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_46
+	jp z, .YellowOverRockOBPalette
+	
+.not_route46
+	ld a, [wMapGroup]
 	cp GROUP_PEWTER_CITY
-	jr z, .WhiteOverRockOBPalette
+	jr nz, .not_pewter
+	ld a, [wMapNumber]
+	cp MAP_PEWTER_CITY
+	jp z, .WhiteOverRockOBPalette
+	
+.not_pewter
+	ld a, [wMapGroup]
 	cp GROUP_ROUTE_8
-	jr z, .PurpleOverRockYellowOverPinkOBPalette
+	jr nz, .not_route8
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_8
+	jp z, .PurpleOverRockYellowOverPinkOBPalette
+	
+.not_route8
+	ld a, [wMapGroup]
 	cp GROUP_FUCHSIA_CITY
-	jr z, .YellowOverRockOBPalette
+	jr nz, .not_fuchsia
+	ld a, [wMapNumber]
+	cp MAP_FUCHSIA_CITY
+	jp z, .YellowOverRockOBPalette
+	
+.not_fuchsia
+	ld a, [wMapGroup]
 	cp GROUP_OLIVINE_LIGHTHOUSE_6F
+	jr nz, .not_lighthouse6F
+	ld a, [wMapNumber]
+	cp MAP_OLIVINE_LIGHTHOUSE_6F
 	jr z, .YellowOverRockOBPalette
+	
+.not_lighthouse6F
+	ld a, [wMapGroup]
 	cp GROUP_VIRIDIAN_NICKNAME_SPEECH_HOUSE
+	jr nz, .not_viridianhouse
+	ld a, [wMapNumber]
+	cp MAP_VIRIDIAN_NICKNAME_SPEECH_HOUSE
 	jr z, .PurpleOverRockOBPalette
+	
+.not_viridianhouse
+	ld a, [wMapGroup]
 	cp GROUP_INDIGO_PLATEAU_POKECENTER_1F
+	jr nz, .not_indigo
+	ld a, [wMapNumber]
+	cp MAP_INDIGO_PLATEAU_POKECENTER_1F
 	jr z, .YellowOverRockOBPalette
+	
+.not_indigo
+	ld a, [wMapGroup]
 	cp GROUP_VERMILION_CITY
+	jr nz, .not_vermillion
+	ld a, [wMapNumber]
+	cp MAP_VERMILION_CITY
 	jr z, .GrayOverRockOBPalette
+	
+.not_vermillion
+	ld a, [wMapGroup]
 	cp GROUP_GOLDENROD_DEPT_STORE_B1F
+	jr nz, .not_goldenrodstoreB1F
+	ld a, [wMapNumber]
+	cp MAP_GOLDENROD_DEPT_STORE_B1F
 	jr z, .GrayOverRockOBPalette
+	
+.not_goldenrodstoreB1F
+	ld a, [wMapGroup]
 	cp GROUP_DANCE_THEATRE
+	jr nz, .not_dancetheater
+	ld a, [wMapNumber]
+	cp MAP_DANCE_THEATRE
 	jr z, .GrayOverRockOBPalette
+	
+.not_dancetheater
+	ld a, [wMapGroup]
 	cp GROUP_ROUTE_10_NORTH
+	jr nz, .not_route10N
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_10_NORTH
 	jr z, .YellowOverRockOBPalette
+	
+.not_route10N
+	ld a, [wMapGroup]
 	cp GROUP_CERULEAN_CAVE_B1F
+	jr nz, .not_ceruleancave
+	ld a, [wMapNumber]
+	cp MAP_CERULEAN_CAVE_B1F
 	jr z, .PurpleOverPinkOBPalette
 	
-
+.not_ceruleancave
+	ld a, [wMapGroup]
+	cp GROUP_MR_FUJIS_HOUSE
+	jr nz, .do_nothing
+	ld a, [wMapNumber]
+	cp MAP_MR_FUJIS_HOUSE
+	jr z, .PurpleOverRockOBPalette
+	
 .do_nothing
     and a
     ret

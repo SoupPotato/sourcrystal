@@ -1033,6 +1033,7 @@ Script_UsedStrength:
 	writetext .UsedStrength
 	copybytetovar wBuffer6
 	cry 67
+	waitbutton
 	writetext .StrengthAllowedItToMoveBoulders
 	closetext
 	end

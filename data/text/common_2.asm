@@ -292,9 +292,9 @@ UnknownText_0x1c05c8::
 	prompt
 
 UnknownText_0x1c05dd::
-	text "<PLAYER> summoned"
-	line "a SCYTHER to"
-	cont "use CUT!"
+	text "<PLAYER> summoned a"
+	line "SCYTHER to use"
+	cont "CUT!"
 	prompt
 
 UnknownText_0x1c05ec::
@@ -303,15 +303,15 @@ UnknownText_0x1c05ec::
 	prompt
 
 UnknownText_0x1c0609::
-	text "<PLAYER> summoned"
-	line "a MAREEP to"
-	cont "use FLASH!"
+	text "<PLAYER> summoned a"
+	line "MAREEP to use "
+	cont "FLASH!"
 	db "@@"
 
 _UsedSurfText::
-	text "<PLAYER> summoned"
-	line "a LAPRAS to"
-	cont "use SURF!"
+	text "<PLAYER> summoned a"
+	line "LAPRAS to use"
+	cont "SURF!"
 	done
 
 _CantSurfText::
@@ -331,9 +331,9 @@ _AskSurfText::
 	done
 	
 _UsedFlyText::
-	text "<PLAYER> summoned"
-	line "a PIDGEOT to"
-	cont "use FLY!"
+	text "<PLAYER> summoned a"
+	line "PIDGEOT to use"
+	cont "FLY!"
 	done
 
 UnknownText_0x1c068e::
@@ -385,9 +385,9 @@ UnknownText_0x1c0751::
 	prompt
 
 UnknownText_0x1c0774::
-	text "<PLAYER> summoned"
-	line "a MACHOKE to"
-	cont "use STRENGTH!"
+	text "<PLAYER> summoned a"
+	line "MACHOKE to use"
+	cont "STRENGTH!"
 	done
 
 UnknownText_0x1c0788::
@@ -414,9 +414,9 @@ UnknownText_0x1c07f4::
 	done
 
 UnknownText_0x1c0816::
-	text "<PLAYER> summoned"
-	line "a REMORAID to"
-	cont "use WHIRLPOOL!"
+	text "<PLAYER> summoned a"
+	line "REMORAID to use"
+	cont "WHIRLPOOL!"
 	prompt
 
 UnknownText_0x1c082b::
@@ -454,9 +454,9 @@ UnknownText_0x1c08bc::
 	done
 
 UnknownText_0x1c08f0::
-	text "<PLAYER> summoned"
-	line "a CUBONE to"
-	cont "use ROCK SMASH!"
+	text "<PLAYER> summoned a"
+	line "CUBONE to use"
+	cont "ROCK SMASH!"
 	prompt
 
 UnknownText_0x1c0906::

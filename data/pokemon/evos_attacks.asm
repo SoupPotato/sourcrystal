@@ -606,13 +606,15 @@ OddishEvosAttacks:
 	db EVOLVE_LEVEL, 21, GLOOM
 	db 0 ; no more evolutions
 	db 1, ABSORB
+	db 1, GROWTH
 	db 7, SWEET_SCENT
+	db 12, ACID
 	db 14, POISONPOWDER
 	db 16, STUN_SPORE
 	db 18, SLEEP_POWDER
-	db 21, ACID
-	db 25, MEGA_DRAIN
-	db 30, MOONLIGHT
+	db 22, MEGA_DRAIN
+	db 28, MOONLIGHT
+	db 32, TOXIC
 	db 36, GIGA_DRAIN
 	db 42, PETAL_DANCE
 	db 0 ; no more level-up moves
@@ -622,17 +624,19 @@ GloomEvosAttacks:
 	db EVOLVE_ITEM, SUN_STONE, BELLOSSOM
 	db 0 ; no more evolutions
 	db 1, ABSORB
+	db 1, GROWTH
 	db 1, SWEET_SCENT
-	db 1, POISONPOWDER
+	db 1, ACID
 	db 7, SWEET_SCENT
+	db 12, ACID
 	db 14, POISONPOWDER
 	db 16, STUN_SPORE
 	db 18, SLEEP_POWDER
-	db 23, ACID
-	db 28, MEGA_DRAIN
-	db 34, MOONLIGHT
-	db 40, GIGA_DRAIN
-	db 47, PETAL_DANCE
+	db 24, MEGA_DRAIN
+	db 31, MOONLIGHT
+	db 37, TOXIC
+	db 44, GIGA_DRAIN
+	db 50, PETAL_DANCE
 	db 0 ; no more level-up moves
 
 VileplumeEvosAttacks:
@@ -1630,10 +1634,10 @@ KoffingEvosAttacks:
 	db 20, SELFDESTRUCT
 	db 24, SLUDGE
 	db 30, HAZE
-	db 35, SLUDGE_BOMB
-	db 39, EXPLOSION
-	db 45, DESTINY_BOND
-	db 50, TOXIC
+	db 35, TOXIC
+	db 39, SLUDGE_BOMB
+	db 45, EXPLOSION
+	db 50, DESTINY_BOND
 	db 0 ; no more level-up moves
 
 WeezingEvosAttacks:
@@ -1647,10 +1651,10 @@ WeezingEvosAttacks:
 	db 20, SELFDESTRUCT
 	db 24, SLUDGE
 	db 30, HAZE
-	db 35, SLUDGE_BOMB
-	db 44, EXPLOSION
-	db 50, DESTINY_BOND
-	db 54, TOXIC
+	db 35, TOXIC
+	db 44, SLUDGE_BOMB
+	db 50, EXPLOSION
+	db 54, DESTINY_BOND
 	db 0 ; no more level-up moves
 
 RhyhornEvosAttacks:
@@ -3417,12 +3421,13 @@ PhanpyEvosAttacks:
 	db 1, GROWL
 	db 6, DEFENSE_CURL
 	db 10, FLAIL
-	db 15, TAKE_DOWN
-	db 19, ROLLOUT
+	db 15, ROLLOUT
+	db 19, MAGNITUDE
 	db 24, SLAM
-	db 28, ENDURE
-	db 33, CHARM
-	db 37, DOUBLE_EDGE
+	db 28, TAKE_DOWN
+	db 33, ENDURE
+	db 37, CHARM
+	db 42, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 DonphanEvosAttacks:
@@ -3431,13 +3436,13 @@ DonphanEvosAttacks:
 	db 1, GROWL
 	db 6, DEFENSE_CURL
 	db 10, FLAIL
-	db 15, TAKE_DOWN
-	db 19, ROLLOUT
+	db 15, ROLLOUT
+	db 19, MAGNITUDE
 	db 24, SLAM
 	db 25, FURY_ATTACK
-	db 31, MAGNITUDE
+	db 31, TAKE_DOWN
 	db 37, RAPID_SPIN
-	db 43, SCARY_FACE
+	db 44, SCARY_FACE
 	db 50, EARTHQUAKE
 	db 0 ; no more level-up moves
 

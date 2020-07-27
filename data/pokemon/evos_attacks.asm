@@ -3340,18 +3340,22 @@ OctilleryEvosAttacks:
 DelibirdEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PRESENT
+	db 25, DRILL_PECK
 	db 0 ; no more level-up moves
 
 MantineEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, BUBBLE
-	db 10, SUPERSONIC
-	db 18, BUBBLEBEAM
-	db 25, TAKE_DOWN
-	db 32, AGILITY
-	db 40, WING_ATTACK
-	db 49, CONFUSE_RAY
+	db 6, SUPERSONIC
+	db 11, HEADBUTT
+	db 16, AGILITY
+	db 22, BUBBLEBEAM
+	db 27, WING_ATTACK
+	db 33, PSYBEAM
+	db 38, TAKE_DOWN
+	db 44, CONFUSE_RAY
+	db 49, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 SkarmoryEvosAttacks:

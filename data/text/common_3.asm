@@ -189,20 +189,9 @@ UnknownText_0x1c454b::
 	line "save the game?"
 	done
 
-UnknownText_0x1c456d::
-	text "SAVING… DON'T TURN"
-	line "OFF THE POWER."
-	done
-
 UnknownText_0x1c4590::
 	text "<PLAYER> saved"
 	line "the game."
-	done
-
-UnknownText_0x1c45a3::
-	text "There is already a"
-	line "save file. Is it"
-	cont "OK to overwrite?"
 	done
 
 UnknownText_0x1c45d9::

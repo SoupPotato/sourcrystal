@@ -726,11 +726,7 @@ UnknownText_0x1c0d6c::
 _ActorNameText::
 	text "<USER>@@"
 
-_UsedMove1Text::
-	text_start
-	line "used @@"
-
-_UsedMove2Text::
+_UsedMoveText::
 	text_start
 	line "used @@"
 
@@ -740,25 +736,6 @@ _UsedInsteadText::
 
 _MoveNameText::
 	text_from_ram wStringBuffer2
-	db "@@"
-
-_EndUsedMove1Text::
-	text "!"
-	done
-
-_EndUsedMove2Text::
-	text "!"
-	done
-
-_EndUsedMove3Text::
-	text "!"
-	done
-
-_EndUsedMove4Text::
-	text "!"
-	done
-
-_EndUsedMove5Text::
 	text "!"
 	done
 

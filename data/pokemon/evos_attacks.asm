@@ -1179,16 +1179,17 @@ MagnemiteEvosAttacks:
 	db EVOLVE_LEVEL, 30, MAGNETON
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 6, THUNDERSHOCK
-	db 11, SUPERSONIC
-	db 16, SONICBOOM
-	db 21, THUNDER_WAVE
-	db 26, SPARK
-	db 31, SWIFT
-	db 37, SCREECH
-	db 43, THUNDERBOLT
-	db 49, LOCK_ON
-	db 55, ZAP_CANNON
+	db 5, THUNDERSHOCK
+	db 10, SUPERSONIC
+	db 14, SONICBOOM
+	db 19, THUNDER_WAVE
+	db 23, SPARK
+	db 28, SCREECH
+	db 32, SWIFT
+	db 37, THUNDERBOLT
+	db 41, LIGHT_SCREEN
+	db 46, LOCK_ON
+	db 50, ZAP_CANNON
 	db 0 ; no more level-up moves
 
 MagnetonEvosAttacks:
@@ -1197,16 +1198,17 @@ MagnetonEvosAttacks:
 	db 1, THUNDERSHOCK
 	db 1, SUPERSONIC
 	db 1, SONICBOOM
-	db 6, THUNDERSHOCK
-	db 11, SUPERSONIC
-	db 16, SONICBOOM
-	db 21, THUNDER_WAVE
-	db 27, SPARK
-	db 32, TRI_ATTACK
-	db 38, SCREECH
-	db 45, THUNDERBOLT
-	db 52, LOCK_ON
-	db 58, ZAP_CANNON
+	db 5, THUNDERSHOCK
+	db 10, SUPERSONIC
+	db 14, SONICBOOM
+	db 19, THUNDER_WAVE
+	db 23, SPARK
+	db 28, SCREECH
+	db 34, TRI_ATTACK
+	db 40, THUNDERBOLT
+	db 45, LIGHT_SCREEN
+	db 50, LOCK_ON
+	db 56, ZAP_CANNON
 	db 0 ; no more level-up moves
 
 FarfetchDEvosAttacks:

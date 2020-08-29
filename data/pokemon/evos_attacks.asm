@@ -532,14 +532,15 @@ VulpixEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, EMBER
 	db 1, TAIL_WHIP
-	db 7, ROAR
+	db 7, DISABLE
 	db 11, QUICK_ATTACK
-	db 15, CONFUSE_RAY
-	db 19, FIRE_SPIN
-	db 25, FAINT_ATTACK
+	db 14, CONFUSE_RAY
+	db 20, FIRE_SPIN
+	db 24, SPITE
+	db 27, FAINT_ATTACK
 	db 33, FLAMETHROWER
-	db 41, SAFEGUARD
-	db 49, FIRE_BLAST
+	db 37, SAFEGUARD
+	db 40, FIRE_BLAST
 	db 0 ; no more level-up moves
 
 NinetalesEvosAttacks:

@@ -107,7 +107,7 @@ Buena:
 	checkflag ENGINE_BUENAS_PASSWORD_2
 	iftrue .PlayedAlready
 	checkcode VAR_HOUR
-	ifless 18, .TooEarly
+	ifless 20, .TooEarly
 	checkflag ENGINE_BUENAS_PASSWORD
 	iffalse .TuneIn
 	checkitem BLUE_CARD
@@ -605,8 +605,8 @@ UnknownText_0x5e131:
 	text "BUENA: Tune in to"
 	line "PASSWORD every"
 
-	para "night from six to"
-	line "midnight!"
+	para "night from eight"
+	line "to midnight!"
 
 	para "Tune in, then drop"
 	line "in for a visit!"

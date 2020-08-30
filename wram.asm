@@ -2177,12 +2177,13 @@ wCurBaseDataEnd::
 
 wCurDamage:: dw ; d256
 
-	ds 2
+	ds 1
 
-wMornEncounterRate::  db ; d25a
-wDayEncounterRate::   db ; d25b
-wNiteEncounterRate::  db ; d25c
-wWaterEncounterRate:: db ; d25d
+wMornEncounterRate::  db
+wDayEncounterRate::   db
+wNiteEncounterRate::  db
+wEveEncounterRate::   db
+wWaterEncounterRate:: db
 wListMoves_MoveIndicesBuffer:: ds NUM_MOVES
 wPutativeTMHMMove:: db
 wInitListType:: db

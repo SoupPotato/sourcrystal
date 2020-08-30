@@ -1,4 +1,12 @@
 LoadSpecialMapPalette:
+	call GetMapTimeOfDay
+	bit IN_DARKNESS_F, a
+	jr z, .not_dark
+	ld a, [wStatusFlags]
+	bit STATUSFLAGS_FLASH_F, a
+	jr z, .darkness
+
+.not_dark
 	ld a, [wMapTileset]
 	cp TILESET_POKECOM_CENTER
 	jr z, .pokecom_2f
@@ -13,6 +21,11 @@ LoadSpecialMapPalette:
 	cp TILESET_MANSION
 	jr z, .mansion_mobile
 	jr .do_nothing
+	
+.darkness
+	call LoadDarknessPalette
+	scf
+	ret
 
 .pokecom_2f
 	call LoadPokeComPalette
@@ -51,6 +64,17 @@ LoadSpecialMapPalette:
 .do_nothing
 	and a
 	ret
+	
+LoadDarknessPalette:
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	ld hl, DarknessPalette
+	ld bc, 8 palettes
+	call FarCopyWRAM
+	ret
+
+DarknessPalette:
+INCLUDE "gfx/tilesets/darkness.pal"
 
 LoadPokeComPalette:
 	ld a, BANK(wBGPals1)
@@ -345,3 +369,34 @@ LoadSpecialMapOBPalette:
 
 ; Special Overworld Pals
 INCLUDE "gfx/overworld/npc_sprites_special.pal"
+
+LoadSpecialNPCPalette:
+	call GetMapTimeOfDay
+	bit IN_DARKNESS_F, a
+	jr z, .not_dark
+	ld a, [wStatusFlags]
+	bit STATUSFLAGS_FLASH_F, a
+	jr z, .darkness
+
+.not_dark
+	jr .do_nothing
+
+.darkness
+	call LoadNPCDarknessPalette
+	scf
+	ret
+
+.do_nothing
+	and a
+	ret
+
+LoadNPCDarknessPalette:
+	ld a, BANK(wOBPals1)
+	ld de, wOBPals1
+	ld hl, NPCDarknessPalette
+	ld bc, 8 palettes
+	call FarCopyWRAM
+	ret
+
+NPCDarknessPalette:
+INCLUDE "gfx/overworld/npc_sprites_darkness.pal"

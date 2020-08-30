@@ -141,7 +141,7 @@ NUM_HOF_TEAMS = 30
 ; EVOLVE_HAPPINESS triggers
 	const_def 1
 	const TR_ANYTIME
-	const TR_MORNDAY
+	const TR_MORNDAYEVE
 	const TR_NITE
 
 ; EVOLVE_STAT triggers

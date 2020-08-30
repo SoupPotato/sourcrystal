@@ -150,7 +150,7 @@ MomPhoneLectureScript:
 ; Bill
 
 BillPhoneScript1:
-	checktime DAY
+	checktime DAY | EVE
 	iftrue .daygreet
 	checktime NITE
 	iftrue .nitegreet

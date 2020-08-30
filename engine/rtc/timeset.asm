@@ -356,31 +356,41 @@ OakText_ResponseToSetTime:
 	jr c, .nite
 	cp DAY_HOUR + 1
 	jr c, .morn
-	cp NITE_HOUR
+	cp EVE_HOUR
 	jr c, .day
-.nite:
-	ld hl, .sodark
-	ret
-.morn:
-	ld hl, .overslept
-	ret
-.day:
-	ld hl, .yikes
+	cp NITE_HOUR
+	jr c, .eve
+.nite
+ 	ld hl, .OakTimeSoDarkText
+ 	ret
+ .morn
+ 	ld hl, .OakTimeOversleptText
+ 	ret
+ .day
+ 	ld hl, .OakTimeYikesText
+ 	ret
+.eve
+	ld hl, .OakTimeNappedText
 	ret
 
-.overslept
+.OakTimeOversleptText
 	; ! I overslept!
-	text_jump UnknownText_0x1bc326
+	text_jump _OakTimeOversleptText
 	db "@"
 
-.yikes
+.OakTimeYikesText:
 	; ! Yikes! I over- slept!
-	text_jump UnknownText_0x1bc336
+	text_jump _OakTimeOversleptText
 	db "@"
 
-.sodark
+.OakTimeSoDarkText:
 	; ! No wonder it's so dark!
-	text_jump UnknownText_0x1bc34f
+	text_jump _OakTimeSoDarkText
+	db "@"
+	
+.OakTimeNappedText:
+	; ! I napped for too long!
+	text_jump _OakTimeNappedText
 	db "@"
 
 TimeSetBackgroundGFX:
@@ -706,8 +716,10 @@ GetTimeOfDayString:
 	jr c, .nite
 	cp DAY_HOUR
 	jr c, .morn
-	cp NITE_HOUR
+	cp EVE_HOUR
 	jr c, .day
+	cp NITE_HOUR
+	jr c, .eve
 .nite
 	ld de, .nite_string
 	ret
@@ -717,10 +729,14 @@ GetTimeOfDayString:
 .day
 	ld de, .day_string
 	ret
+.eve
+	ld de, .eve_string
+	ret
 
 .nite_string: db "NITE@"
 .morn_string: db "MORN@"
 .day_string:  db "DAY@"
+.eve_string:  db "EVE@"
 
 AdjustHourForAMorPM:
 ; Convert the hour stored in c (0-23) to a 1-12 value

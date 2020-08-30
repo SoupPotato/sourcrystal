@@ -19,7 +19,7 @@ PhoneScript_Random11:
 	end
 
 PhoneScript_AnswerPhone_Male:
-	checktime DAY
+	checktime DAY | EVE
 	iftrue PhoneScript_AnswerPhone_Male_Day
 	checktime NITE
 	iftrue PhoneScript_AnswerPhone_Male_Nite
@@ -392,7 +392,7 @@ PhoneScript_AnswerPhone_Male_Nite:
 	end
 
 PhoneScript_AnswerPhone_Female:
-	checktime DAY
+	checktime DAY | EVE
 	iftrue PhoneScript_AnswerPhone_Female_Day
 	checktime NITE
 	iftrue PhoneScript_AnswerPhone_Female_Nite
@@ -549,7 +549,7 @@ PhoneScript_AnswerPhone_Female_Nite:
 	end
 
 PhoneScript_GreetPhone_Male:
-	checktime DAY
+	checktime DAY | EVE
 	iftrue PhoneScript_GreetPhone_Male_Day
 	checktime NITE
 	iftrue PhoneScript_GreetPhone_Male_Nite
@@ -922,7 +922,7 @@ PhoneScript_GreetPhone_Male_Nite:
 	end
 
 PhoneScript_GreetPhone_Female:
-	checktime DAY
+	checktime DAY | EVE
 	iftrue PhoneScript_GreetPhone_Female_Day
 	checktime NITE
 	iftrue PhoneScript_GreetPhone_Female_Nite

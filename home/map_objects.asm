@@ -257,7 +257,7 @@ CheckObjectTime::
 	ld a, [hl]
 	cp -1
 	jr z, .timeofday_always
-	ld hl, .TimeOfDayValues_191e
+	ld hl, .TimesOfDay
 	ld a, [wTimeOfDay]
 	add l
 	ld l, a
@@ -277,11 +277,12 @@ CheckObjectTime::
 	and a
 	ret
 
-.TimeOfDayValues_191e:
+.TimesOfDay:
 ; entries correspond to TimeOfDay values
 	db MORN
 	db DAY
 	db NITE
+	db EVE
 
 .check_hour
 	ld hl, MAPOBJECT_HOUR

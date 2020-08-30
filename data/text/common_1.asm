@@ -183,21 +183,27 @@ UnknownText_0x1bc323::
 	text "?"
 	done
 
-UnknownText_0x1bc326::
+_OakTimeOversleptText::
 	text "!"
 	line "I overslept!"
 	done
 
-UnknownText_0x1bc336::
+_OakTimeYikesText::
 	text "!"
 	line "Yikes! I over-"
 	cont "slept!"
 	done
 
-UnknownText_0x1bc34f::
+_OakTimeSoDarkText::
 	text "!"
 	line "No wonder it's so"
 	cont "dark!"
+	done
+	
+_OakTimeNappedText::
+	text "!"
+	line "I napped for"
+	cont "too long!"
 	done
 
 UnknownText_0x1bc369::

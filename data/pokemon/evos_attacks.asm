@@ -748,12 +748,13 @@ MeowthEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, GROWL
-	db 11, BITE
-	db 20, PAY_DAY
-	db 28, FAINT_ATTACK
-	db 35, SCREECH
-	db 41, FURY_SWIPES
-	db 46, SLASH
+	db 7, BITE
+	db 12, FURY_SWIPES
+	db 19, SCREECH
+	db 25, PAY_DAY
+	db 30, FAINT_ATTACK
+	db 37, SWAGGER
+	db 43, SLASH
 	db 0 ; no more level-up moves
 
 PersianEvosAttacks:
@@ -761,12 +762,13 @@ PersianEvosAttacks:
 	db 1, SCRATCH
 	db 1, GROWL
 	db 1, BITE
-	db 11, BITE
-	db 20, PAY_DAY
-	db 29, FAINT_ATTACK
-	db 38, SCREECH
-	db 46, FURY_SWIPES
-	db 53, SLASH
+	db 7, BITE
+	db 12, FURY_SWIPES
+	db 19, SCREECH
+	db 25, PAY_DAY
+	db 31, FAINT_ATTACK
+	db 38, SWAGGER
+	db 46, SLASH
 	db 0 ; no more level-up moves
 
 PsyduckEvosAttacks:
@@ -1070,11 +1072,12 @@ GeodudeEvosAttacks:
 	db 6, DEFENSE_CURL
 	db 11, ROCK_THROW
 	db 16, MAGNITUDE
-	db 21, SELFDESTRUCT
-	db 26, HARDEN
-	db 31, ROLLOUT
-	db 36, EARTHQUAKE
-	db 41, EXPLOSION
+	db 21, ROLLOUT
+	db 26, SELFDESTRUCT
+	db 31, EARTHQUAKE
+	db 36, EXPLOSION
+	db 41, DOUBLE_EDGE
+	db 46, ROCK_SLIDE
 	db 0 ; no more level-up moves
 
 GravelerEvosAttacks:
@@ -1087,11 +1090,12 @@ GravelerEvosAttacks:
 	db 6, DEFENSE_CURL
 	db 11, ROCK_THROW
 	db 16, MAGNITUDE
-	db 21, SELFDESTRUCT
-	db 27, HARDEN
-	db 34, ROLLOUT
-	db 41, EARTHQUAKE
-	db 48, EXPLOSION
+	db 21, ROLLOUT
+	db 27, SELFDESTRUCT
+	db 34, EARTHQUAKE
+	db 41, EXPLOSION
+	db 48, DOUBLE_EDGE
+	db 55, ROCK_SLIDE
 	db 0 ; no more level-up moves
 
 GolemEvosAttacks:
@@ -1099,15 +1103,15 @@ GolemEvosAttacks:
 	db 1, TACKLE
 	db 1, DEFENSE_CURL
 	db 1, ROCK_THROW
-	db 1, MAGNITUDE
 	db 6, DEFENSE_CURL
 	db 11, ROCK_THROW
 	db 16, MAGNITUDE
-	db 21, SELFDESTRUCT
-	db 27, HARDEN
-	db 34, ROLLOUT
-	db 41, EARTHQUAKE
-	db 48, EXPLOSION
+	db 21, ROLLOUT
+	db 27, SELFDESTRUCT
+	db 34, EARTHQUAKE
+	db 41, EXPLOSION
+	db 48, DOUBLE_EDGE
+	db 55, ROCK_SLIDE
 	db 0 ; no more level-up moves
 
 PonytaEvosAttacks:

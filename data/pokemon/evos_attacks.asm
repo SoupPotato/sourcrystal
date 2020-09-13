@@ -3243,15 +3243,16 @@ SlugmaEvosAttacks:
 	db EVOLVE_LEVEL, 38, MAGCARGO
 	db 0 ; no more evolutions
 	db 1, SMOG
-	db 8, EMBER
-	db 11, ROCK_THROW
-	db 16, HARDEN
-	db 23, RECOVER
-	db 26, ANCIENTPOWER
-	db 31, AMNESIA
-	db 36, FLAMETHROWER
-	db 43, ROCK_SLIDE
-	db 50, BODY_SLAM
+	db 5, EMBER
+	db 10, ROCK_THROW
+	db 14, HARDEN
+	db 19, RECOVER
+	db 23, ANCIENTPOWER
+	db 28, FLAME_WHEEL
+	db 32, ROCK_SLIDE
+	db 37, AMNESIA
+	db 41, BODY_SLAM
+	db 46, FLAMETHROWER
 	db 0 ; no more level-up moves
 
 MagcargoEvosAttacks:
@@ -3259,15 +3260,16 @@ MagcargoEvosAttacks:
 	db 1, SMOG
 	db 1, EMBER
 	db 1, ROCK_THROW
-	db 8, EMBER
-	db 11, ROCK_THROW
-	db 16, HARDEN
-	db 23, RECOVER
-	db 26, ANCIENTPOWER
-	db 31, AMNESIA
-	db 36, FLAMETHROWER
-	db 48, ROCK_SLIDE
-	db 60, BODY_SLAM
+	db 5, EMBER
+	db 10, ROCK_THROW
+	db 14, HARDEN
+	db 19, RECOVER
+	db 23, ANCIENTPOWER
+	db 28, FLAME_WHEEL
+	db 32, ROCK_SLIDE
+	db 37, AMNESIA
+	db 43, BODY_SLAM
+	db 50, FLAMETHROWER
 	db 0 ; no more level-up moves
 
 SwinubEvosAttacks:

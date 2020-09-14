@@ -264,7 +264,7 @@ NUM_ATTACKS EQU const_value + -1
 	const MOVE_OR_ANIM_FE ; fe
 
 ; Battle animations use the same constants as the moves up to this point
-	const ANIM_SWEET_SCENT_2     ; ff
+	const ANIM_HELD_ITEM_TRIGGER ; ff
 	const ANIM_THROW_POKE_BALL   ; 100
 	const ANIM_SEND_OUT_MON      ; 101
 	const ANIM_RETURN_MON        ; 102

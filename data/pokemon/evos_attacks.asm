@@ -2903,24 +2903,30 @@ WooperEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, WATER_GUN
 	db 1, TAIL_WHIP
-	db 11, SLAM
-	db 21, AMNESIA
-	db 31, EARTHQUAKE
-	db 41, RAIN_DANCE
-	db 51, MIST
-	db 51, HAZE
+	db 7, MUD_SLAP
+	db 12, MIST
+	db 12, HAZE
+	db 15, SLAM
+	db 21, RAIN_DANCE
+	db 26, AMNESIA
+	db 29, SURF
+	db 35, TOXIC
+	db 40, EARTHQUAKE
 	db 0 ; no more level-up moves
 
 QuagsireEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, WATER_GUN
 	db 1, TAIL_WHIP
-	db 11, SLAM
-	db 23, AMNESIA
-	db 35, EARTHQUAKE
-	db 47, RAIN_DANCE
-	db 59, MIST
-	db 59, HAZE
+	db 7, MUD_SLAP
+	db 12, MIST
+	db 12, HAZE
+	db 15, SLAM
+	db 21, RAIN_DANCE
+	db 27, AMNESIA
+	db 32, SURF
+	db 39, TOXIC
+	db 47, EARTHQUAKE
 	db 0 ; no more level-up moves
 
 EspeonEvosAttacks:

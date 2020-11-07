@@ -1644,7 +1644,7 @@ Music_JumpIf:
 	ret
 
 
-MusicEE
+MusicEE:
 ; conditional jump
 ; checks a byte in ram corresponding to the current channel
 ; doesn't seem to be set by any commands

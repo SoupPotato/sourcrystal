@@ -1504,16 +1504,16 @@ VoltorbEvosAttacks:
 	db EVOLVE_LEVEL, 30, ELECTRODE
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 9, SCREECH
-	db 17, SONICBOOM
-	db 21, SPARK
+	db 6, SCREECH
+	db 10, SONICBOOM
+	db 15, SPARK
+	db 20, ROLLOUT
 	db 25, SELFDESTRUCT
-	db 29, ROLLOUT
-	db 33, LIGHT_SCREEN
-	db 36, SWIFT
-	db 40, THUNDERBOLT
-	db 44, EXPLOSION
-	db 48, MIRROR_COAT
+	db 29, LIGHT_SCREEN
+	db 34, SWIFT
+	db 38, THUNDERBOLT
+	db 43, EXPLOSION
+	db 47, MIRROR_COAT
 	db 0 ; no more level-up moves
 
 ElectrodeEvosAttacks:
@@ -1522,16 +1522,16 @@ ElectrodeEvosAttacks:
 	db 1, SCREECH
 	db 1, SONICBOOM
 	db 1, SPARK
-	db 9, SCREECH
-	db 17, SONICBOOM
-	db 21, SPARK
+	db 6, SCREECH
+	db 10, SONICBOOM
+	db 15, SPARK
+	db 20, ROLLOUT
 	db 25, SELFDESTRUCT
-	db 29, ROLLOUT
-	db 34, LIGHT_SCREEN
-	db 38, SWIFT
-	db 43, THUNDERBOLT
+	db 29, LIGHT_SCREEN
+	db 35, SWIFT
+	db 42, THUNDERBOLT
 	db 48, EXPLOSION
-	db 53, MIRROR_COAT
+	db 55, MIRROR_COAT
 	db 0 ; no more level-up moves
 
 ExeggcuteEvosAttacks:

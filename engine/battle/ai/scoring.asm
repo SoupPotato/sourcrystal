@@ -1598,7 +1598,7 @@ AI_Smart_Spite:
 	ret
 
 
-Function_0x38d16
+Function_0x38d16:
 	jp AIDiscourageMove
 
 

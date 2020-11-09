@@ -304,9 +304,6 @@ INCBIN "data/tilesets/omanyte_word_room_metatiles.bin"
 TilesetAerodactylWordRoomMeta:
 INCBIN "data/tilesets/aerodactyl_word_room_metatiles.bin"
 
-
-SECTION "Tileset Data 8", ROMX
-
 Tileset0GFX:
 TilesetJohtoGFX:
 INCBIN "gfx/tilesets/johto.2bpp.lz"

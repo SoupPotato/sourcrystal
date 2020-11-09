@@ -9,7 +9,7 @@ Function118007:
 	xor a
 	ld [wcd38], a
 
-asm_11800b
+asm_11800b:
 	call BattleTowerRoomMenu_InitRAM
 	ld a, $18
 	ld [wcd33], a
@@ -1023,7 +1023,7 @@ Function11886a:
 Function11886e:
 	xor a
 
-asm_11886f
+asm_11886f:
 	ld [wBGMapPalBuffer], a
 	ld a, $0
 	ld [wcd3c], a
@@ -1569,7 +1569,7 @@ Function118d9b:
 	call BattleTowerRoomMenu2
 	ret c
 
-asm_118d9f
+asm_118d9f:
 	ld hl, $c608
 	call Function119940
 	ld a, [wcd38]
@@ -1667,7 +1667,7 @@ Function118e39:
 	and a
 	jr nz, .asm_118e39
 	dec hl
-asm_118e3e
+asm_118e3e:
 .asm_118e3e
 	ld a, [hld]
 	cp $2f
@@ -3571,7 +3571,7 @@ Function119b45:
 	ld a, [wcf65]
 	ld h, a
 
-asm_119b4d
+asm_119b4d:
 	ld a, $26
 	jp Function119e2b
 

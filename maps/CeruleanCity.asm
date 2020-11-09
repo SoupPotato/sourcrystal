@@ -28,7 +28,7 @@ CeruleanCity_MapScripts:
 	setflag ENGINE_FLYPOINT_CERULEAN
 	return
 	
-CeruleanCaveCooltrainerMScript
+CeruleanCaveCooltrainerMScript:
     faceplayer
 	opentext
 	writetext CeruleanCaveCooltrainerMText

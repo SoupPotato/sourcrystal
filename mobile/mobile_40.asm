@@ -688,7 +688,7 @@ Function100493:
 Function100495:
 	jr asm_100497
 
-asm_100497
+asm_100497:
 	call Function100337
 	ret c
 	ret z
@@ -2997,7 +2997,7 @@ Function101406:
 	and a
 	ret
 
-asm_101416
+asm_101416:
 	scf
 	ret
 

@@ -43,7 +43,7 @@ TrainerBlackBeltManford:
 	closetext
 	end
 	
-TrainerBlackBeltAnder
+TrainerBlackBeltAnder:
 	trainer BLACKBELT_T, ANDER, EVENT_BEAT_BLACKBELT_ANDER, BlackBeltAnderSeenText, BlackBeltAnderBeatenText, 0, .Script
 
 .Script:

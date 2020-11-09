@@ -5641,7 +5641,7 @@ Function1167a6:
 	ld hl, wc312
 	inc [hl]
 
-asm_1167af
+asm_1167af:
 .asm_1167af
 	ld a, [wc311]
 	cp $ff

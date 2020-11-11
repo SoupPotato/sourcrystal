@@ -2819,10 +2819,13 @@ HoppipEvosAttacks:
 	db 12, POISONPOWDER
 	db 14, STUN_SPORE
 	db 16, SLEEP_POWDER
-	db 19, MEGA_DRAIN
-	db 24, LEECH_SEED
-	db 30, COTTON_SPORE
-	db 36, GIGA_DRAIN
+	db 19, GUST
+	db 22, MEGA_DRAIN
+	db 25, LEECH_SEED
+	db 28, COTTON_SPORE
+	db 31, AMNESIA
+	db 34, GIGA_DRAIN
+	db 37, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 SkiploomEvosAttacks:
@@ -2830,36 +2833,38 @@ SkiploomEvosAttacks:
 	db 0 ; no more evolutions
     db 1, ABSORB
 	db 1, SPLASH
-	db 1, SYNTHESIS
-	db 1, TAIL_WHIP
 	db 4, SYNTHESIS
 	db 7, TAIL_WHIP
 	db 10, TACKLE
 	db 12, POISONPOWDER
 	db 14, STUN_SPORE
 	db 16, SLEEP_POWDER
-	db 20, MEGA_DRAIN
-	db 26, LEECH_SEED
-	db 32, COTTON_SPORE
+	db 20, GUST
+	db 24, MEGA_DRAIN
+	db 27, LEECH_SEED
+	db 31, COTTON_SPORE
+	db 35, AMNESIA
 	db 38, GIGA_DRAIN
+	db 42, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 JumpluffEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ABSORB
 	db 1, SPLASH
-	db 1, SYNTHESIS
-	db 1, TAIL_WHIP
 	db 4, SYNTHESIS
 	db 7, TAIL_WHIP
 	db 10, TACKLE
 	db 12, POISONPOWDER
 	db 14, STUN_SPORE
 	db 16, SLEEP_POWDER
-	db 20, MEGA_DRAIN
-	db 26, LEECH_SEED
-	db 34, COTTON_SPORE
-	db 42, GIGA_DRAIN
+	db 20, GUST
+	db 23, MEGA_DRAIN
+	db 28, LEECH_SEED
+	db 33, COTTON_SPORE
+	db 38, AMNESIA
+	db 43, GIGA_DRAIN
+	db 48, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 AipomEvosAttacks:

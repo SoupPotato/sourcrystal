@@ -256,7 +256,7 @@ GoldenrodGameCornerItemVendorScript:
 	closewindow
 	ifequal 1, .KingsRock
 	ifequal 2, .MetalCoat
-	ifequal 3, .CovenantOrb
+	ifequal 3, .NextMenu2
 	jump GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
 
 .KingsRock:
@@ -277,6 +277,37 @@ GoldenrodGameCornerItemVendorScript:
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
 	giveitem METAL_COAT
+	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	takecoins 2000
+	jump GoldenrodGameCornerItemVendor_FinishScript
+
+.NextMenu2
+	loadmenu GoldenrodGameCornerItemVendorMenu2Header
+	verticalmenu
+	closewindow
+	ifequal 1, .DragonScale
+	ifequal 2, .Up_Grade
+	ifequal 3, .CovenantOrb
+	jump GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	
+.DragonScale:
+	checkcoins 2000
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	itemtotext DRAGON_SCALE, MEM_BUFFER_0
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	giveitem DRAGON_SCALE
+	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	takecoins 2000
+	jump GoldenrodGameCornerItemVendor_FinishScript
+	
+.Up_Grade:
+	checkcoins 2000
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	itemtotext UP_GRADE, MEM_BUFFER_0
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	giveitem UP_GRADE
 	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
 	takecoins 2000
 	jump GoldenrodGameCornerItemVendor_FinishScript
@@ -322,15 +353,28 @@ GoldenrodGameCornerStoneVendorMenuHeader:
 	
 GoldenrodGameCornerItemVendorMenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 2, 19, TEXTBOX_Y - 1
+	menu_coords 0, 3, 19, TEXTBOX_Y - 2
 	dw .MenuDataItems
 	db 1 ; default option
 
 .MenuDataItems:
 	db STATICMENU_CURSOR ; flags
-	db 4 ; items
+	db 3 ; items
 	db "KING'S ROCK  2000@"
 	db "METAL COAT   2000@"
+	db "NEXT@"
+	
+GoldenrodGameCornerItemVendorMenu2Header:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, 19, TEXTBOX_Y - 1
+	dw .MenuDataItems2
+	db 1 ; default option
+	
+.MenuDataItems2:
+	db STATICMENU_CURSOR ; flags
+	db 4 ; items
+	db "DRAGON SCALE 2000@"
+	db "UP-GRADE     2000@"
 	db "COVENANT ORB 3000@"
 	db "CANCEL@"
 

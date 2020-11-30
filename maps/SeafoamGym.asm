@@ -375,7 +375,7 @@ SeafoamGymGuyWinText:
 
     para "JOHTO who has come"
 	line "to challenge that"
-	cont "Gym Leader..."
+	cont "Gym Leader…"
 	
 	para "I have witnessed"
 	line "a hot battle!"
@@ -425,7 +425,7 @@ ScientistDannieBeatenText:
 ScientistDannieAfterBattleText:
 	text "We take a step"
 	line "back when we"
-	cont "are defeated..."
+	cont "are defeated…"
 	
 	para "Don't you think"
 	line "we are downright"
@@ -473,10 +473,10 @@ ScientistLindenSeenText:
 	done
 
 ScientistLindenBeatenText:
-	text "Argh..."
+	text "Argh…"
 	
 	para "I can't do any"
-	line "more..."
+	line "more…"
 	done
 
 ScientistLindenAfterBattleText:

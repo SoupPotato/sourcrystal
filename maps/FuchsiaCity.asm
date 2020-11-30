@@ -184,7 +184,7 @@ NoLitteringSignText:
 	
 FuchsiaBerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 FuchsiaHeyItsBerryText:
@@ -194,7 +194,7 @@ FuchsiaHeyItsBerryText:
 
 FuchsiaApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 FuchsiaHeyItsApricornText:
@@ -204,7 +204,7 @@ FuchsiaHeyItsApricornText:
 
 FuchsiaNothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 	
 FuchsiaCity_MapEvents:

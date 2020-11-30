@@ -506,7 +506,7 @@ YoungsterJoeyText_GiveHPUpAfterBattle:
 	
 Route30BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route30HeyItsBerryText:
@@ -521,7 +521,7 @@ Route30HeyItsBerry2Text:
 
 Route30ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route30HeyItsApricornText:
@@ -536,7 +536,7 @@ Route30HeyItsApricorn2Text:
 
 Route30NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route30_MapEvents:

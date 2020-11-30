@@ -23,7 +23,7 @@ Route11GateOfficerText:
 	line "if somthing isn't"
 	
 	para "blocking the"
-	line "entrance..."
+	line "entrance…"
 
 	done
 

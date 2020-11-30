@@ -177,7 +177,7 @@ SwimmermEstebanSeenText:
 
 SwimmermEstebanBeatenText:
 	text "I'm sorry,"
-	line "Teacher..."
+	line "Teacher…"
 	done
 
 SwimmermEstebanAfterBattleText:
@@ -202,7 +202,7 @@ SwimmermDuaneSeenText:
 SwimmermDuaneBeatenText:
 	text "My #MON"
 	line "and I have no"
-	cont "body strength..."
+	cont "body strength…"
 	done
 
 SwimmermDuaneAfterBattleText:
@@ -309,7 +309,7 @@ FisherMurphyAfterBattleText:
 FisherLiamSeenText:
 	text "Whoa! A nibble!"
 	
-	para "...Huh?"
+	para "…Huh?"
 	line "A battle?"
 	
 	para "OK, let's go!"
@@ -328,11 +328,11 @@ FisherLiamAfterBattleText:
 	line "you to wait until"
 	
 	para "I reeled that"
-	line "#MON in..."
+	line "#MON in…"
 	done
 	
 FisherGideonSeenText:
-	text "Question is..."
+	text "Question is…"
 	line "did I become a"
 	
 	para "fisherman because"
@@ -344,7 +344,7 @@ FisherGideonSeenText:
 	done
 
 FisherGideonBeatenText:
-	text "Ummm... Hmmm..."
+	text "Ummm… Hmmm…"
 	done
 
 FisherGideonAfterBattleText:
@@ -366,7 +366,7 @@ BirdkeeperKinsleySeenText:
 	done
 
 BirdkeeperKinsleyBeatenText:
-	text "I couldn't fly..."
+	text "I couldn't fly…"
 	done
 
 BirdkeeperKinsleyAfterBattleText:
@@ -400,7 +400,7 @@ BirdkeeperEastonAfterBattleText:
 	
 	para "bird #MON"
 	line "started using"
-	cont "us..."
+	cont "us…"
 	done
 
 Route21_MapEvents:

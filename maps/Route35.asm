@@ -528,7 +528,7 @@ Route35SignText:
 	
 Route35BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route35HeyItsBerryText:
@@ -538,7 +538,7 @@ Route35HeyItsBerryText:
 
 Route35ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route35HeyItsApricornText:
@@ -548,7 +548,7 @@ Route35HeyItsApricornText:
 
 Route35NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route35_MapEvents:

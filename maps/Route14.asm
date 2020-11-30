@@ -149,7 +149,7 @@ BirdKeeperJamieSeenText:
 	line "in the feather-"
 	cont "weight class!"
 	
-	para "...Huh? What do"
+	para "…Huh? What do"
 	line "mean that doesn't"
 	cont "sound very strong?"
 	done
@@ -164,7 +164,7 @@ BirdKeeperJamieAfterBattleText:
 	text "Maybe I should"
 	line "lie and say I'm"
 	cont "in the heavyweight"
-	cont "class..."
+	cont "class…"
 	done
 
 TeacherClariceSeenText:
@@ -233,7 +233,7 @@ SchoolboyTravisSeenText:
 	done
 
 SchoolboyTravisBeatenText:
-	text "So strong..."
+	text "So strong…"
 	done
 
 SchoolboyTravisAfterBattleText:

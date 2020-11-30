@@ -252,7 +252,7 @@ PewterCityWelcomeSignText:
 
 PewterCityBerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 PewterCityHeyItsBerryText:
@@ -267,7 +267,7 @@ PewterCityHeyItsBerry2Text:
 
 PewterCityApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 PewterCityHeyItsApricornText:
@@ -282,7 +282,7 @@ PewterCityHeyItsApricorn2Text:
 
 PewterCityNothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 PewterCity_MapEvents:

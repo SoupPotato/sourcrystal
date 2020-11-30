@@ -153,7 +153,7 @@ PicnickerPiperSeenText:
 
 PicnickerPiperBeatenText:
 	text "Oh, that's"
-	line "too bad..."
+	line "too bad…"
 	done
 
 PicnickerPiperAfterBattleText:
@@ -211,7 +211,7 @@ CoupleTimandSueBeatenText:
 	text "TIM: You're the"
 	line "strongest!"
 	
-	para "SUE: Wa ha..."
+	para "SUE: Wa ha…"
 	done
 
 CoupleTimandSueAfterBattleText1:
@@ -222,7 +222,7 @@ CoupleTimandSueAfterBattleText1:
 	
 CoupleTimandSueAfterBattleText2:
 	text "SUE: That strength"
-	line "of yours..."
+	line "of yours…"
 	
 	para "I've got it!"
 	line "Are you in love?"
@@ -238,13 +238,13 @@ CamperTannerSeenText:
 	done
 
 CamperTannerBeatenText:
-	text "Oh, I'm hungry..."
+	text "Oh, I'm hungry…"
 	done
 
 CamperTannerAfterBattleText:
 	text "I figured it would"
 	line "be easy to knock"
-	cont "you out..."
+	cont "you out…"
 	done
 	
 CamperClarkSeenText:
@@ -261,7 +261,7 @@ CamperClarkSeenText:
 	done
 
 CamperClarkBeatenText:
-	text "Pfuuuuhh..."
+	text "Pfuuuuhh…"
 	done
 
 CamperClarkAfterBattleText:

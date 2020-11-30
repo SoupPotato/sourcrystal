@@ -196,9 +196,9 @@ BikerEoinSeenText:
 	done
 
 BikerEoinBeatenText:
-	text "Hnnff...hnnff..."
+	text "Hnnff…hnnff…"
 	line "I'm out of"
-	cont "breath..."
+	cont "breath…"
 	done
 
 BikerEoinAfterBattleText:
@@ -237,7 +237,7 @@ BikerDanSeenText:
 	done
 
 BikerDanBeatenText:
-	text "Paaraaraaaaa..."
+	text "Paaraaraaaaa…"
 	done
 
 BikerDanAfterBattleText:
@@ -245,7 +245,7 @@ BikerDanAfterBattleText:
 	line "choly melody."
 	
 	para "It really suits"
-	line "me well..."
+	line "me well…"
 	done
 
 BikerTheronSeenText:
@@ -309,7 +309,7 @@ BikerRileySeenText:
 
 BikerRileyBeatenText:
 	text "Maybe my hunch was"
-	line "a little off..."
+	line "a little off…"
 	done
 
 BikerRileyAfterBattleText:

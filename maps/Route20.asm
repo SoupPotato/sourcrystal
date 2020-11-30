@@ -259,12 +259,12 @@ SwimmermElmoSeenText:
 	done
 
 SwimmermElmoBeatenText:
-	text "Ulp..."
+	text "Ulp…"
 	done
 
 SwimmermElmoAfterBattleText:
 	text "Maybe I should go"
-	line "back to fishing..."
+	line "back to fishing…"
 	done
 	
 SwimmermCameronSeenText:
@@ -316,7 +316,7 @@ PicnickerAdrianSeenText:
 	done
 
 PicnickerAdrianBeatenText:
-	text "Aaah...that's it."
+	text "Aaah…that's it."
 	done
 
 PicnickerAdrianAfterBattleText:
@@ -386,7 +386,7 @@ BirdkeeperErnieAfterBattleText:
 CinnabarGymSignText:
 	text "SEAFOAM ISLANDS"
 
-	para "...Somebody put a"
+	para "…Somebody put a"
 	line "notice under the"
 	cont "sign!"
 

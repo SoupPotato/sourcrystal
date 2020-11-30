@@ -273,7 +273,7 @@ TrainerCoupleMoeandLuluSeenText:
 	done
 
 TrainerCoupleMoeandLuluBeatenText:
-	text "MOE: Uwaaaahhh..."
+	text "MOE: Uwaaaahhh…"
 	
 	para "LULU: Eeek!"
 	done
@@ -281,7 +281,7 @@ TrainerCoupleMoeandLuluBeatenText:
 TrainerCoupleMoeandLulu1AfterBattleText:
 	text "MOE: In short,"
 	line "you're just too"
-	cont "strong..."
+	cont "strong…"
 	done
 	
 TrainerCoupleMoeandLulu2AfterBattleText:
@@ -334,7 +334,7 @@ Route8UndergroundPathSignText:
 	
 Route8BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route8HeyItsBerryText:
@@ -344,7 +344,7 @@ Route8HeyItsBerryText:
 
 Route8ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route8HeyItsApricornText:
@@ -354,7 +354,7 @@ Route8HeyItsApricornText:
 
 Route8NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route8_MapEvents:

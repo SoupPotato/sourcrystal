@@ -207,7 +207,7 @@ Route1SignText:
 	
 Route1BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route1HeyItsBerryText:
@@ -217,7 +217,7 @@ Route1HeyItsBerryText:
 
 Route1ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route1HeyItsApricornText:
@@ -227,7 +227,7 @@ Route1HeyItsApricornText:
 
 Route1NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route1_MapEvents:

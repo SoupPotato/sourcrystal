@@ -47,7 +47,7 @@ CeruleanCaveB1FMewtwo:
 	end
 	
 MewtwoText:
-    text "...!"
+    text "…!"
 	done
 
 CeruleanCaveB1FHiddenNugget:

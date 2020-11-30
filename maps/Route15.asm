@@ -144,10 +144,10 @@ TwinsKayandTiaSeenText:
 
 TwinsKayandTiaBeatenText:
 	text "TIA and KAY"
-	line "both lost..."
+	line "both lost…"
 	
 	para "KAY and TIA"
-	line "both lost..."
+	line "both lost…"
 	done
 
 TwinsKayandTiaAfterBattleText1:
@@ -159,12 +159,12 @@ TwinsKayandTiaAfterBattleText1:
 TwinsKayandTiaAfterBattleText2:
 	text "Absolute truth--"
 	line "I'm KAY!"
-	cont "Maybe..."
+	cont "Maybe…"
 	done
 	
 PokefanBooneSeenText:
 	text "Hey, your"
-	line "#MON..."
+	line "#MON…"
 	
 	para "Show me. Show me."
 	line "Show me!"
@@ -194,7 +194,7 @@ PokefanEleanorSeenText:
 	done
 
 PokefanEleanorBeatenText:
-	text "Oh, well..."
+	text "Oh, well…"
 	done
 
 PokefanEleanorAfterBattleText:

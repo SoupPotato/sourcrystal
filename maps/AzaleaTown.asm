@@ -481,7 +481,7 @@ AzaleaTownIlexForestSignText:
 	
 AzaleaApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 AzaleaHeyItsApricornText:
@@ -491,7 +491,7 @@ AzaleaHeyItsApricornText:
 
 AzaleaNothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 AzaleaTown_MapEvents:

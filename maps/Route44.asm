@@ -566,7 +566,7 @@ Route44Sign2Text:
 	
 Route44BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route44HeyItsBerryText:
@@ -576,7 +576,7 @@ Route44HeyItsBerryText:
 
 Route44ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route44HeyItsApricornText:
@@ -586,7 +586,7 @@ Route44HeyItsApricornText:
 
 Route44NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route44_MapEvents:

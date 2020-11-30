@@ -43,8 +43,8 @@ HikerDevinAfterBattleText:
 	
 HikerDevinSeenText:
 	text "Longing for"
-	line "others is..."
-	cont "what it is..."
+	line "others is…"
+	cont "what it is…"
 
 	para "But battles are"
 	line "battles,"

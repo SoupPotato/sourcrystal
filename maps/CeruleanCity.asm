@@ -294,7 +294,7 @@ CeruleanLockedDoorText:
 	done
 	
 CeruleanCaveCooltrainerMText:
-    text "This is..."
+    text "This is…"
 	line "The notorious"
 	cont "CERULEAN CAVE!"
 	

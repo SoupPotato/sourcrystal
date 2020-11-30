@@ -350,7 +350,7 @@ Route46SignText:
 	
 Route46BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route46HeyItsBerryText:
@@ -365,7 +365,7 @@ Route46HeyItsBerry2Text:
 
 Route46ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route46HeyItsApricornText:
@@ -380,7 +380,7 @@ Route46HeyItsApricorn2Text:
 
 Route46NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route46_MapEvents:

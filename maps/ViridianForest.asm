@@ -166,7 +166,7 @@ BugCatcherAbnerSeenText:
 BugCatcherAbnerBeatenText:
 	text "Thanks for your"
 	line "hard work, my"
-	cont "lovley #MON..."
+	cont "lovley #MON…"
 	done
 
 BugCatcherAbnerAfterBattleText:
@@ -205,8 +205,8 @@ BugCatcherStaceySeenText:
 	text "Wow, that's a"
 	line "HUGE #MON!"
 
-	para "..."
-	line "...What kind of"
+	para "…"
+	line "…What kind of"
 	cont "Trainer?!"
 	done
 
@@ -231,7 +231,7 @@ BugCatcherDionSeenText:
 	done
 
 BugCatcherDionBeatenText:
-	text "Phew..." 
+	text "Phew…" 
 	done
 
 BugCatcherDionAfterBattleText:
@@ -245,7 +245,7 @@ BugCatcherDionAfterBattleText:
 	line "leaves,"
 	
 	para "swimming in "
-    line "puddles..."
+    line "puddles…"
 	
 	para "For bug #MON"
 	line "fans, knowing how"
@@ -264,7 +264,7 @@ BugCatcherDaneSeenText:
 	done
 
 BugCatcherDaneBeatenText:
-	text "That's wonderful..." 
+	text "That's wonderful…" 
 	done
 
 BugCatcherDaneAfterBattleText:
@@ -277,7 +277,7 @@ BugCatcherDaneAfterBattleText:
 	
 ViridianForestBerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 ViridianForestHeyItsBerryText:
@@ -287,7 +287,7 @@ ViridianForestHeyItsBerryText:
 
 ViridianForestApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 ViridianForestHeyItsApricornText:
@@ -297,7 +297,7 @@ ViridianForestHeyItsApricornText:
 
 ViridianForestNothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 ViridianForest_MapEvents:

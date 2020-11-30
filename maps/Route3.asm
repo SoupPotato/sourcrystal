@@ -166,8 +166,8 @@ HikerBruceAfterBattleText:
 HikerDwightSeenText:
 	text "Peace!"
 	
-	para "..."
-	line "...Huh?"
+	para "…"
+	line "…Huh?"
 	
 	para "When you meet"
 	line "the unknown on a"
@@ -187,7 +187,7 @@ HikerDwightAfterBattleText:
 	line "hearted greetings"
 	
 	para "with someone you"
-	line "dont know..."
+	line "dont know…"
 	
 	para "That's the best"
 	line "thing about"
@@ -206,7 +206,7 @@ BlackBeltManfordSeenText:
 BlackBeltManfordBeatenText:
 	text "Looks like I've"
 	line "been beaten at"
-	cont "my own game..."
+	cont "my own game…"
 	done
 
 BlackBeltManfordAfterBattleText:
@@ -228,7 +228,7 @@ BlackBeltAnderSeenText:
 	done
 
 BlackBeltAnderBeatenText:
-	text "You did it..."
+	text "You did it…"
 	done
 
 BlackBeltAnderAfterBattleText:
@@ -255,7 +255,7 @@ CoolDuoZacandJenSeenText:
 
 CoolDuoZacandJenBeatenText:
 	text "ZAC: You weren't"
-	line "bluffing..."
+	line "bluffing…"
 	
 	para "JEN: You're so"
 	line "much stronger"
@@ -286,8 +286,8 @@ YoungsterRegisSeenText:
 	done
 
 YoungsterRegisBeatenText:
-	text "That is..."
-	line "Fail Boy..."
+	text "That is…"
+	line "Fail Boy…"
 	done
 
 YoungsterRegisAfterBattleText:

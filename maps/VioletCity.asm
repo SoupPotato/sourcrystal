@@ -337,7 +337,7 @@ EarlsPokemonAcademySignText:
 	
 VioletBerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 VioletHeyItsBerryText:
@@ -347,7 +347,7 @@ VioletHeyItsBerryText:
 
 VioletApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 VioletHeyItsApricornText:
@@ -357,7 +357,7 @@ VioletHeyItsApricornText:
 
 VioletNothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 VioletCity_MapEvents:

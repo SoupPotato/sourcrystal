@@ -474,7 +474,7 @@ Route29Sign2Text:
 	
 Route29BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route29HeyItsBerryText:
@@ -484,7 +484,7 @@ Route29HeyItsBerryText:
 
 Route29ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route29HeyItsApricornText:
@@ -494,7 +494,7 @@ Route29HeyItsApricornText:
 
 Route29NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route29_MapEvents:

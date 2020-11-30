@@ -198,7 +198,7 @@ HikerEdwinBeatenText:
 	done
 
 HikerEdwinAfterBattleText:
-	text "Phew..."
+	text "Phew…"
 	line "Broken in pieces."
 	done
 

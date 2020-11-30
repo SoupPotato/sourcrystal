@@ -477,7 +477,7 @@ DarkCaveSignText:
 	
 Route31BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route31HeyItsBerryText:
@@ -487,7 +487,7 @@ Route31HeyItsBerryText:
 
 Route31ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route31HeyItsApricornText:
@@ -497,7 +497,7 @@ Route31HeyItsApricornText:
 
 Route31NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route31_MapEvents:

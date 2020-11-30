@@ -276,7 +276,7 @@ Route33SignText:
 	
 Route33BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route33HeyItsBerryText:
@@ -286,7 +286,7 @@ Route33HeyItsBerryText:
 
 Route33ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route33HeyItsApricornText:
@@ -301,7 +301,7 @@ Route33HeyItsApricorn2Text:
 
 Route33NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route33_MapEvents:

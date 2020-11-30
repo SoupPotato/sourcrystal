@@ -591,7 +591,7 @@ Route45SignText:
 	
 Route45BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route45HeyItsBerryText:
@@ -601,7 +601,7 @@ Route45HeyItsBerryText:
 
 Route45ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route45HeyItsApricornText:
@@ -611,7 +611,7 @@ Route45HeyItsApricornText:
 
 Route45NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route45_MapEvents:

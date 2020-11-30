@@ -560,7 +560,7 @@ Route43TrainerTipsText:
 	
 Route43BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route43HeyItsBerryText:
@@ -570,7 +570,7 @@ Route43HeyItsBerryText:
 
 Route43ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route43HeyItsApricornText:
@@ -580,7 +580,7 @@ Route43HeyItsApricornText:
 
 Route43NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route43_MapEvents:

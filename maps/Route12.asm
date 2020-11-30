@@ -233,13 +233,13 @@ TrainerBirdKeeperJacobSeenText:
 	done
 
 TrainerBirdKeeperJacobBeatenText:
-	text "Phew..."
+	text "Phew…"
 	done
 
 TrainerBirdKeeperJacobAfterBattleText:
 	text "Since the wind has"
 	line "changed, I'll lay"
-	cont "low..."
+	cont "low…"
 	done
 	
 TrainerBirdKeeperGailSeenText:
@@ -247,7 +247,7 @@ TrainerBirdKeeperGailSeenText:
 	done
 
 TrainerBirdKeeperGailBeatenText:
-	text "Pyopyopyopyo..."
+	text "Pyopyopyopyo…"
 	done
 
 TrainerBirdKeeperGailAfterBattleText:
@@ -272,13 +272,13 @@ TrainerCoupleVicandTaraBeatenText:
 	line "my plans!"
 	
 	para "TARA: Oh no,"
-	line "oh no..."
+	line "oh no…"
 	done
 
 TrainerCoupleVicandTara1AfterBattleText:
 	text "VIC: TARA's"
 	line "already seen me"
-	cont "humiliated..."
+	cont "humiliated…"
 	done
 	
 TrainerCoupleVicandTara2AfterBattleText:

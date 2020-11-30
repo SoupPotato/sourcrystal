@@ -301,12 +301,12 @@ Route37SignText:
 	
 Route37BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route37ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route37HeyItsApricornText:
@@ -326,7 +326,7 @@ Route37HeyItsApricorn3Text:
 
 Route37NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route37_MapEvents:

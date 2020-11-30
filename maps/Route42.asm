@@ -383,7 +383,7 @@ Route42Sign2Text:
 	
 Route42ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route42HeyItsApricornText:
@@ -403,7 +403,7 @@ Route42HeyItsApricorn3Text:
 
 Route42NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route42_MapEvents:

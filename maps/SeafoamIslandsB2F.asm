@@ -75,7 +75,7 @@ BoarderShaunSeenText:
 
 BoarderShaunBeatenText:
 	text "I got kicked"
-	line "around..."
+	line "around…"
 	done
 
 BoarderShaunAfterBattleText:
@@ -92,7 +92,7 @@ BoarderBryceSeenText:
 
 BoarderBryceBeatenText:
 	text "I lost all the"
-	line "way out here..."
+	line "way out here…"
 	done
 
 BoarderBryceAfterBattleText:

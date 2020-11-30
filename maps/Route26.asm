@@ -472,7 +472,7 @@ Route26SignText:
 	
 Route26BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route26HeyItsBerryText:
@@ -482,7 +482,7 @@ Route26HeyItsBerryText:
 
 Route26ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route26HeyItsApricornText:
@@ -492,7 +492,7 @@ Route26HeyItsApricornText:
 
 Route26NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route26_MapEvents:

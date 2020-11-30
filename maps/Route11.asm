@@ -250,7 +250,7 @@ Route11DiglettsCaveSignText:
 	
 Route11BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route11HeyItsBerryText:
@@ -260,7 +260,7 @@ Route11HeyItsBerryText:
 
 Route11ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route11HeyItsApricornText:
@@ -270,7 +270,7 @@ Route11HeyItsApricornText:
 
 Route11NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route11_MapEvents:

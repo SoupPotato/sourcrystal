@@ -354,7 +354,7 @@ SwimmerfJoySeenText:
 	
 SwimmerfJoyBeatenText:
 	text "I lost"
-	line "beautifully..."
+	line "beautifully…"
 	done
 
 SwimmerfJoyAfterBattleText:
@@ -362,10 +362,10 @@ SwimmerfJoyAfterBattleText:
 	line "intruder has"
 
 	para "appeared in this"
-	line "Gym..."
+	line "Gym…"
 	
 	para "I don't like that"
-	line "idea..."
+	line "idea…"
 	done
 
 SailorParkerSeenText:

@@ -403,7 +403,7 @@ Route39TrainerTipsText:
 	
 Route39BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route39HeyItsBerryText:
@@ -413,7 +413,7 @@ Route39HeyItsBerryText:
 
 Route39ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route39HeyItsApricornText:
@@ -423,7 +423,7 @@ Route39HeyItsApricornText:
 
 Route39NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route39_MapEvents:

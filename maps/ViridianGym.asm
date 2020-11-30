@@ -281,7 +281,7 @@ CooltrainermArwinAfterBattleText:
 	text "Me, I should be"
 	line "a pretty good"
 	cont "practice part-"
-	cont "ner..."
+	cont "ner…"
 
 	para "I shouldn't say"
 	line "that about myself!"
@@ -298,10 +298,10 @@ CooltrainermBonitaSeenText:
 
 CooltrainermBonitaBeatenText:
 	text "All of my"
-	line "#MON..."
+	line "#MON…"
 	
 	para "All dizzy and"
-	line "fainting..."
+	line "fainting…"
 	done
 
 CooltrainermBonitaAfterBattleText:

@@ -747,7 +747,7 @@ Route36TrainerTips2Text:
 	
 Route36BerryTreeText:
 	text "It's a"
-	line "BERRY tree..."
+	line "BERRY tree…"
 	done
 
 Route36HeyItsBerryText:
@@ -757,7 +757,7 @@ Route36HeyItsBerryText:
 
 Route36ApricornTreeText:
 	text "It's an"
-	line "APRICORN tree..."
+	line "APRICORN tree…"
 	done
 
 Route36HeyItsApricornText:
@@ -767,7 +767,7 @@ Route36HeyItsApricornText:
 
 Route36NothingHereText:
 	text "There's nothing"
-	line "here..."
+	line "here…"
 	done
 
 Route36_MapEvents:

@@ -89,7 +89,7 @@ TwinsDayandDaniBeatenText:
 
 TwinsDayandDani1AfterBattleText:
 	text "DANI: You beat"
-    line "us..."
+    line "us…"
 	done
 
 TwinsDayandDani2AfterBattleText:
@@ -112,13 +112,13 @@ PicnickerSelinaBeatenText:
 PicnickerSelinaAfterBattleText:
 	text "The reason I'm"
 	line "going on a "
-	cont "picnic..."
+	cont "picnic…"
 
 	para "It's because I"
 	line "really want to"
 	
 	para "smell the fresh"
-	line "air..."
+	line "air…"
 	
 	para "Do you know what"
 	line "I mean?"

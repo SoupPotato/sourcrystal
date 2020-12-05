@@ -3258,13 +3258,15 @@ TeddiursaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
-	db 8, LICK
-	db 15, FURY_SWIPES
-	db 22, FAINT_ATTACK
-	db 29, REST
-	db 35, SLASH
-	db 41, SNORE
-	db 46, THRASH
+	db 1, LICK
+	db 7, FURY_SWIPES
+	db 13, FAINT_ATTACK
+	db 19, SWEET_SCENT
+	db 25, SLASH
+	db 31, CHARM
+	db 37, REST
+	db 37, SNORE
+	db 43, THRASH
 	db 0 ; no more level-up moves
 
 UrsaringEvosAttacks:
@@ -3273,14 +3275,14 @@ UrsaringEvosAttacks:
 	db 1, LEER
 	db 1, LICK
 	db 1, FURY_SWIPES
-	db 8, LICK
-	db 15, FURY_SWIPES
-	db 22, FAINT_ATTACK
-	db 31, REST
-	db 37, SLASH
-	db 43, SNORE
-	db 50, THRASH
-	db 58, CROSS_CHOP
+	db 13, FAINT_ATTACK
+	db 19, SWEET_SCENT
+	db 25, SLASH
+	db 33, SCARY_FACE
+	db 41, REST
+	db 41, SNORE
+	db 49, THRASH
+	db 56, CROSS_CHOP
 	db 0 ; no more level-up moves
 
 SlugmaEvosAttacks:

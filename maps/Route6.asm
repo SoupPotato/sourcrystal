@@ -111,8 +111,7 @@ PicnickerSelinaBeatenText:
 
 PicnickerSelinaAfterBattleText:
 	text "The reason I'm"
-	line "going on a "
-	cont "picnic…"
+	line "going on a picnic…"
 
 	para "It's because I"
 	line "really want to"

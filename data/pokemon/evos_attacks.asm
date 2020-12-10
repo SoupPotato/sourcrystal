@@ -882,15 +882,16 @@ PoliwagEvosAttacks:
 	db EVOLVE_LEVEL, 25, POLIWHIRL
 	db 0 ; no more evolutions
 	db 1, BUBBLE
-	db 7, HYPNOSIS
-	db 12, WATER_GUN
-	db 16, DOUBLESLAP
-	db 22, RAIN_DANCE
-	db 27, BUBBLEBEAM
-	db 31, BODY_SLAM
-	db 38, BELLY_DRUM
-	db 43, HYDRO_PUMP
-	db 48, DOUBLE_EDGE
+	db 6, HYPNOSIS
+	db 11, WATER_GUN
+	db 14, DOUBLESLAP
+	db 19, RAIN_DANCE
+	db 24, BUBBLEBEAM
+	db 28, BODY_SLAM
+	db 33, BELLY_DRUM
+	db 38, LOW_KICK
+	db 42, HYDRO_PUMP
+	db 47, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 PoliwhirlEvosAttacks:
@@ -900,15 +901,16 @@ PoliwhirlEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BUBBLE
 	db 1, HYPNOSIS
-	db 7, HYPNOSIS
-	db 12, WATER_GUN
-	db 16, DOUBLESLAP
-	db 22, RAIN_DANCE
-	db 28, BUBBLEBEAM
-	db 33, BODY_SLAM
-	db 41, BELLY_DRUM
-	db 47, HYDRO_PUMP
-	db 53, DOUBLE_EDGE
+	db 6, HYPNOSIS
+	db 11, WATER_GUN
+	db 14, DOUBLESLAP
+	db 19, RAIN_DANCE
+	db 24, BUBBLEBEAM
+	db 30, BODY_SLAM
+	db 36, BELLY_DRUM
+	db 42, LOW_KICK
+	db 48, HYDRO_PUMP
+	db 54, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 PoliwrathEvosAttacks:
@@ -917,8 +919,8 @@ PoliwrathEvosAttacks:
 	db 1, HYPNOSIS
 	db 1, DOUBLESLAP
 	db 1, SUBMISSION
-	db 41, SUBMISSION
-	db 47, MIND_READER
+	db 42, SUBMISSION
+	db 48, MIND_READER
 	db 0 ; no more level-up moves
 
 AbraEvosAttacks:
@@ -938,10 +940,10 @@ KadabraEvosAttacks:
 	db 16, CONFUSION
 	db 18, DISABLE
 	db 21, PSYBEAM
-	db 26, RECOVER
-	db 31, FUTURE_SIGHT
+	db 26, REFLECT
+	db 31, RECOVER
 	db 38, PSYCHIC_M
-	db 45, REFLECT
+	db 45, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
 AlakazamEvosAttacks:
@@ -953,10 +955,10 @@ AlakazamEvosAttacks:
 	db 16, CONFUSION
 	db 18, DISABLE
 	db 21, PSYBEAM
-	db 26, RECOVER
-	db 31, FUTURE_SIGHT
+	db 26, REFLECT
+	db 31, RECOVER
 	db 38, PSYCHIC_M
-	db 45, REFLECT
+	db 45, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
 MachopEvosAttacks:
@@ -1082,14 +1084,14 @@ GeodudeEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 6, DEFENSE_CURL
-	db 11, ROCK_THROW
-	db 16, MAGNITUDE
-	db 21, ROLLOUT
-	db 26, SELFDESTRUCT
-	db 31, EARTHQUAKE
-	db 36, EXPLOSION
-	db 41, DOUBLE_EDGE
-	db 46, ROCK_SLIDE
+	db 10, ROCK_THROW
+	db 15, MAGNITUDE
+	db 19, ROLLOUT
+	db 24, SELFDESTRUCT
+	db 28, EARTHQUAKE
+	db 33, DOUBLE_EDGE
+	db 37, ROCK_SLIDE
+	db 42, EXPLOSION
 	db 0 ; no more level-up moves
 
 GravelerEvosAttacks:
@@ -1100,14 +1102,14 @@ GravelerEvosAttacks:
 	db 1, DEFENSE_CURL
 	db 1, ROCK_THROW
 	db 6, DEFENSE_CURL
-	db 11, ROCK_THROW
-	db 16, MAGNITUDE
-	db 21, ROLLOUT
-	db 27, SELFDESTRUCT
-	db 34, EARTHQUAKE
-	db 41, EXPLOSION
-	db 48, DOUBLE_EDGE
-	db 55, ROCK_SLIDE
+	db 10, ROCK_THROW
+	db 15, MAGNITUDE
+	db 19, ROLLOUT
+	db 26, SELFDESTRUCT
+	db 33, EARTHQUAKE
+	db 40, DOUBLE_EDGE
+	db 47, ROCK_SLIDE
+	db 54, EXPLOSION
 	db 0 ; no more level-up moves
 
 GolemEvosAttacks:
@@ -1116,14 +1118,14 @@ GolemEvosAttacks:
 	db 1, DEFENSE_CURL
 	db 1, ROCK_THROW
 	db 6, DEFENSE_CURL
-	db 11, ROCK_THROW
-	db 16, MAGNITUDE
-	db 21, ROLLOUT
-	db 27, SELFDESTRUCT
-	db 34, EARTHQUAKE
-	db 41, EXPLOSION
-	db 48, DOUBLE_EDGE
-	db 55, ROCK_SLIDE
+	db 10, ROCK_THROW
+	db 15, MAGNITUDE
+	db 19, ROLLOUT
+	db 26, SELFDESTRUCT
+	db 33, EARTHQUAKE
+	db 40, DOUBLE_EDGE
+	db 47, ROCK_SLIDE
+	db 54, EXPLOSION
 	db 0 ; no more level-up moves
 
 PonytaEvosAttacks:
@@ -3000,10 +3002,13 @@ UmbreonEvosAttacks:
 MurkrowEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PECK
-	db 11, PURSUIT
-	db 16, HAZE
-	db 26, NIGHT_SHADE
-	db 31, FAINT_ATTACK
+	db 5, PURSUIT
+	db 11, HAZE
+	db 15, WING_ATTACK
+	db 21, NIGHT_SHADE
+	db 25, FAINT_ATTACK
+	db 31, SWAGGER
+	db 35, DRILL_PECK
 	db 41, MEAN_LOOK
 	db 0 ; no more level-up moves
 

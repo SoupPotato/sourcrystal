@@ -3507,10 +3507,10 @@ DonphanEvosAttacks:
 	db 19, MAGNITUDE
 	db 24, SLAM
 	db 25, FURY_ATTACK
-	db 31, TAKE_DOWN
-	db 37, RAPID_SPIN
-	db 44, SCARY_FACE
-	db 50, EARTHQUAKE
+	db 31, RAPID_SPIN
+	db 37, SCARY_FACE
+	db 44, EARTHQUAKE
+	db 50, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 Porygon2EvosAttacks:

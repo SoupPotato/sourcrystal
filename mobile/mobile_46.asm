@@ -1662,16 +1662,14 @@ Function118e06:
 	jr asm_118e3e
 
 Function118e39:
-.asm_118e39
 	ld a, [hli]
 	and a
-	jr nz, .asm_118e39
+	jr nz, Function118e39
 	dec hl
 asm_118e3e:
-.asm_118e3e
 	ld a, [hld]
 	cp $2f
-	jr nz, .asm_118e3e
+	jr nz, asm_118e3e
 	inc hl
 	inc hl
 	ld de, wcd85
@@ -6451,13 +6449,13 @@ Function11b267:
 	ld [hl], $ef
 	ret
 
-asm_11b26a
+asm_11b26a:
 	xor a
 	ld [bc], a
 	ld [hl], $7f
 	ret
 
-asm_11b26f
+asm_11b26f:
 	ld a, $2
 	ld [bc], a
 

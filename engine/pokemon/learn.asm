@@ -180,21 +180,13 @@ ForgetMove:
 	ld a, [hl]
 	push af
 	push bc
-	call IsHMMove
 	pop bc
 	pop de
 	ld a, d
-	jr c, .hmmove
 	pop hl
 	add hl, bc
 	and a
 	ret
-
-.hmmove
-	ld hl, Text_CantForgetHM
-	call PrintText
-	pop hl
-	jr .loop
 
 .cancel
 	scf

@@ -1656,31 +1656,30 @@ KoffingEvosAttacks:
 	db 1, TACKLE
 	db 6, SMOG
 	db 10, SMOKESCREEN
-	db 15, FAINT_ATTACK
-	db 20, SELFDESTRUCT
-	db 24, SLUDGE
-	db 30, HAZE
-	db 35, TOXIC
-	db 39, SLUDGE_BOMB
-	db 45, EXPLOSION
-	db 50, DESTINY_BOND
+	db 14, FAINT_ATTACK
+	db 19, SLUDGE
+	db 23, SELFDESTRUCT
+	db 28, HAZE
+	db 32, TOXIC
+	db 37, SLUDGE_BOMB
+	db 41, EXPLOSION
+	db 46, DESTINY_BOND
 	db 0 ; no more level-up moves
 
 WeezingEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_GAS
 	db 1, TACKLE
-	db 1, SMOG
 	db 6, SMOG
 	db 10, SMOKESCREEN
-	db 15, FAINT_ATTACK
-	db 20, SELFDESTRUCT
-	db 24, SLUDGE
-	db 30, HAZE
-	db 35, SLUDGE_BOMB
-	db 42, EXPLOSION
-	db 49, DESTINY_BOND
-	db 56, TOXIC
+	db 14, FAINT_ATTACK
+	db 19, SLUDGE
+	db 23, SELFDESTRUCT
+	db 28, HAZE
+	db 32, TOXIC
+	db 38, SLUDGE_BOMB
+	db 44, EXPLOSION
+	db 50, DESTINY_BOND
 	db 0 ; no more level-up moves
 
 RhyhornEvosAttacks:
@@ -1775,13 +1774,13 @@ HorseaEvosAttacks:
 	db 7, SMOKESCREEN
 	db 10, WATER_GUN
 	db 16, TWISTER
-	db 20, FOCUS_ENERGY
-	db 26, BUBBLEBEAM
-	db 29, DRAGONBREATH
-	db 35, AGILITY
-	db 38, DRAGON_RAGE
-	db 44, HYDRO_PUMP
-	db 47, RAIN_DANCE
+	db 19, FOCUS_ENERGY
+	db 25, BUBBLEBEAM
+	db 28, DRAGONBREATH
+	db 34, AGILITY
+	db 37, DRAGON_RAGE
+	db 43, HYDRO_PUMP
+	db 46, RAIN_DANCE
 	db 0 ; no more level-up moves
 
 SeadraEvosAttacks:
@@ -1794,12 +1793,12 @@ SeadraEvosAttacks:
 	db 7, SMOKESCREEN
 	db 10, WATER_GUN
 	db 16, TWISTER
-	db 20, FOCUS_ENERGY
-	db 26, BUBBLEBEAM
-	db 29, DRAGONBREATH
-	db 37, AGILITY
-	db 41, DRAGON_RAGE
-	db 48, HYDRO_PUMP
+	db 19, FOCUS_ENERGY
+	db 25, BUBBLEBEAM
+	db 28, DRAGONBREATH
+	db 35, AGILITY
+	db 40, DRAGON_RAGE
+	db 47, HYDRO_PUMP
 	db 52, RAIN_DANCE
 	db 0 ; no more level-up moves
 
@@ -3468,16 +3467,15 @@ KingdraEvosAttacks:
 	db 1, BUBBLE
 	db 1, LEER
 	db 1, SMOKESCREEN
-	db 1, WATER_GUN
 	db 7, SMOKESCREEN
 	db 10, WATER_GUN
 	db 16, TWISTER
-	db 20, FOCUS_ENERGY
-	db 26, BUBBLEBEAM
-	db 29, DRAGONBREATH
-	db 37, AGILITY
-	db 41, DRAGON_RAGE
-	db 48, HYDRO_PUMP
+	db 19, FOCUS_ENERGY
+	db 25, BUBBLEBEAM
+	db 28, DRAGONBREATH
+	db 35, AGILITY
+	db 40, DRAGON_RAGE
+	db 47, HYDRO_PUMP
 	db 52, RAIN_DANCE
 	db 0 ; no more level-up moves
 

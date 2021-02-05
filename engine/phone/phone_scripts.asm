@@ -1575,7 +1575,7 @@ TiffanyPhoneScript1:
 	farscall PhoneScript_AnswerPhone_Female
 	checkflag ENGINE_TIFFANY_TUESDAY_AFTERNOON
 	iftrue .NotTuesday
-	checkflag ENGINE_TIFFANY_HAS_PINK_BOW
+	checkflag ENGINE_TIFFANY_HAS_SILK_SCARF
 	iftrue .HasItem
 	checkcode VAR_WEEKDAY
 	ifnotequal TUESDAY, .NotTuesday
@@ -1602,11 +1602,11 @@ TiffanyPhoneScript2:
 	iftrue .Generic
 	checkflag ENGINE_TIFFANY_TUESDAY_AFTERNOON
 	iftrue .Generic
-	checkflag ENGINE_TIFFANY_HAS_PINK_BOW
+	checkflag ENGINE_TIFFANY_HAS_SILK_SCARF
 	iftrue .Generic
 	farscall PhoneScript_Random3
 	ifequal 0, TiffanyWantsBattle
-	checkevent EVENT_TIFFANY_GAVE_PINK_BOW
+	checkevent EVENT_TIFFANY_GAVE_SILK_SCARF
 	iftrue .PinkBow
 	farscall PhoneScript_Random2
 	ifequal 0, TiffanyHasPinkBow
@@ -1663,7 +1663,7 @@ TiffanysFamilyMembers:
 	farjump TiffanyItsAwful
 
 TiffanyHasPinkBow:
-	setflag ENGINE_TIFFANY_HAS_PINK_BOW
+	setflag ENGINE_TIFFANY_HAS_SILK_SCARF
 	landmarktotext ROUTE_43, MEM_BUFFER_2
 	farjump PhoneScript_FoundItem_Female
 

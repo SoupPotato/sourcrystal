@@ -183,7 +183,7 @@ Route29CooltrainerMScript:
 TuscanyScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_PINK_BOW_FROM_TUSCANY
+	checkevent EVENT_GOT_SILK_SCARF_FROM_TUSCANY
 	iftrue TuscanyTuesdayScript
 	checkcode VAR_WEEKDAY
 	ifnotequal TUESDAY, TuscanyNotTuesdayScript
@@ -195,9 +195,9 @@ TuscanyScript:
 .MetTuscany:
 	writetext TuscanyGivesGiftText
 	buttonsound
-	verbosegiveitem PINK_BOW
+	verbosegiveitem SILK_SCARF
 	iffalse TuscanyDoneScript
-	setevent EVENT_GOT_PINK_BOW_FROM_TUSCANY
+	setevent EVENT_GOT_SILK_SCARF_FROM_TUSCANY
 	writetext TuscanyGaveGiftText
 	waitbutton
 	closetext

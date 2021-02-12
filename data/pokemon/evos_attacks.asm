@@ -729,11 +729,12 @@ DiglettEvosAttacks:
 	db 1, SAND_ATTACK
 	db 5, GROWL
 	db 9, MUD_SLAP
-	db 13, MAGNITUDE
-	db 19, DIG
-	db 24, FAINT_ATTACK
-	db 30, SLASH
-	db 36, EARTHQUAKE
+	db 15, MAGNITUDE
+	db 19, FAINT_ATTACK
+	db 23, DIG
+	db 29, SANDSTORM
+	db 33, SLASH
+	db 37, EARTHQUAKE
 	db 43, FISSURE
 	db 0 ; no more level-up moves
 
@@ -745,13 +746,14 @@ DugtrioEvosAttacks:
 	db 1, MUD_SLAP
 	db 5, GROWL
 	db 9, MUD_SLAP
-	db 13, MAGNITUDE
-	db 19, DIG
-	db 24, FAINT_ATTACK
-	db 32, TRI_ATTACK
+	db 15, MAGNITUDE
+	db 19, FAINT_ATTACK
+	db 23, DIG
+	db 26, TRI_ATTACK
+	db 30, SANDSTORM
 	db 36, SLASH
-	db 44, EARTHQUAKE
-	db 53, FISSURE
+	db 42, EARTHQUAKE
+	db 49, FISSURE
 	db 0 ; no more level-up moves
 
 MeowthEvosAttacks:

@@ -728,8 +728,8 @@ DiglettEvosAttacks:
 	db 1, SCRATCH
 	db 1, SAND_ATTACK
 	db 5, GROWL
-	db 9, MAGNITUDE
-	db 13, MUD_SLAP
+	db 9, MUD_SLAP
+	db 13, MAGNITUDE
 	db 19, DIG
 	db 24, FAINT_ATTACK
 	db 30, SLASH
@@ -742,10 +742,10 @@ DugtrioEvosAttacks:
 	db 1, SCRATCH
 	db 1, SAND_ATTACK
 	db 1, GROWL
-	db 1, MAGNITUDE
+	db 1, MUD_SLAP
 	db 5, GROWL
-	db 9, MAGNITUDE
-	db 13, MUD_SLAP
+	db 9, MUD_SLAP
+	db 13, MAGNITUDE
 	db 19, DIG
 	db 24, FAINT_ATTACK
 	db 32, TRI_ATTACK

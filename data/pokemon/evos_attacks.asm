@@ -749,8 +749,8 @@ DugtrioEvosAttacks:
 	db 15, MAGNITUDE
 	db 19, FAINT_ATTACK
 	db 23, DIG
-	db 26, TRI_ATTACK
 	db 30, SANDSTORM
+	db 32, TRI_ATTACK
 	db 36, SLASH
 	db 42, EARTHQUAKE
 	db 49, FISSURE

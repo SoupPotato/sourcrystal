@@ -1623,8 +1623,9 @@ BattleAnim_Recover:
 	anim_sound 0, 0, SFX_SHARPEN
 	anim_bgeffect ANIM_BG_18, $0, $1, $40
 	anim_call BattleAnim_Recover_branch
-	anim_wait 22
+	anim_wait 32
 	anim_incbgeffect ANIM_BG_18
+	anim_bgeffect ANIM_BG_07, $0, $0, $0
 	anim_call BattleAnim_Recover_branch_cbc6a
 	anim_ret
 
@@ -3759,6 +3760,8 @@ BattleAnim_GigaDrain:
 	anim_wait 32
 	anim_incbgeffect ANIM_BG_1C
 	anim_call BattleAnim_ShowMon_0
+	anim_wait 1
+	anim_bgeffect ANIM_BG_07, $0, $0, $0
 .loop2
 	anim_sound 0, 0, SFX_METRONOME
 	anim_obj ANIM_OBJ_GLIMMER, 24, 64, $0

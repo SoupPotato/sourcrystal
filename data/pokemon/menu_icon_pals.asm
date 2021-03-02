@@ -111,7 +111,7 @@ MonMenuIconPals:
 	icon_pals BROWN, GREEN     ; MARROWAK
 	icon_pals BROWN, GREEN     ; HITMONLEE
 	icon_pals RED, BLUE        ; HITMONCHAN
-	icon_pals RED, YELLOW      ; LICKITUNG
+	icon_pals PINK, YELLOW     ; LICKITUNG
 	icon_pals PURPLE, GRAY     ; KOFFING
 	icon_pals PURPLE, GRAY     ; WEEZING
 	icon_pals GRAY, BROWN      ; RHYHORN
@@ -125,7 +125,7 @@ MonMenuIconPals:
 	icon_pals RED, YELLOW      ; SEAKING
 	icon_pals BROWN, GRAY      ; STARYU
 	icon_pals PURPLE, BLUE     ; STARMIE
-	icon_pals RED, GREEN       ; MR_MIME
+	icon_pals PINK, GREEN      ; MR_MIME
 	icon_pals GREEN, GRAY      ; SCYTHER
 	icon_pals RED, PURPLE      ; JYNX
 	icon_pals YELLOW, BROWN    ; ELECTABUZZ
@@ -184,13 +184,13 @@ MonMenuIconPals:
 	icon_pals GREEN, GRAY      ; XATU
 	icon_pals BLUE, PINK       ; MAREEP
 	icon_pals RED, PINK        ; FLAAFFY
-	icon_pals YELLOW, PURPLE   ; AMPHAROS
+	icon_pals YELLOW, PINK     ; AMPHAROS
 	icon_pals GREEN, PURPLE    ; BELLOSSOM
 	icon_pals BLUE, GREEN      ; MARILL
 	icon_pals BLUE, YELLOW     ; AZUMARILL
 	icon_pals GREEN, RED       ; SUDOWOODO
 	icon_pals GREEN, PURPLE    ; POLITOED
-	icon_pals RED, GREEN       ; HOPPIP
+	icon_pals PINK, GREEN      ; HOPPIP
 	icon_pals GREEN, PURPLE    ; SKIPLOOM
 	icon_pals BLUE, PINK       ; JUMPLUFF
 	icon_pals PURPLE, RED      ; AIPOM

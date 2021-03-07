@@ -326,7 +326,7 @@ Route45BerryTree:
 	end
 	
 Route45ApricornTree:
-    opentext
+	opentext
 	writetext Route45ApricornTreeText
 	buttonsound	
 	writetext Route45HeyItsApricornText

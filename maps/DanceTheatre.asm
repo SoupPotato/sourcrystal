@@ -297,8 +297,8 @@ SurfGuyLikeADanceText:
 	done
 	
 UnknownText_0x9999b:
-    text "That's a "
-    line "SURF PAGER."
+	text "That's a "
+	line "SURF PAGER."
 	
 	para "It summons a"
 	line "#MON to ferry"

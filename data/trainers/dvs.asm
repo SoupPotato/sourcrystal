@@ -68,6 +68,6 @@ TrainerClassDVs:
 	dn  9,  8,  8,  8 ; OFFICER
 	dn  7, 14, 10,  8 ; GRUNTF
 	dn  9,  8,  8,  8 ; MYSTICALMAN
-    dn  9,  8,  8,  8 ; COUPLE
+	dn  9,  8,  8,  8 ; COUPLE
 	dn 10, 10, 10,  8 ; COOL_DUO
 	

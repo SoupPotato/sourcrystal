@@ -183,7 +183,7 @@ KRIS EQU __enum__
 	const BERT
 	const ERNIE
 	const KINSLEY
-    const EASTON
+	const EASTON
 	
 	trainerclass LASS ; 19
 	const CARRIE

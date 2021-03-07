@@ -1031,7 +1031,7 @@ GetSubstitutePic: ; used only for BANK(GetSubstitutePic)
 	ret
 
 BattleAnimCmd_MinimizeOpp:
-    ;Disabled for new animation. Remove comments (;) to re-enable
+	;Disabled for new animation. Remove comments (;) to re-enable
 	;ld a, [rSVBK]
 	;push af
 	;ld a, 1 ; unnecessary bankswitch?

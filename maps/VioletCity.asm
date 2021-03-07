@@ -123,7 +123,7 @@ VioletBerryTree:
 	closetext
 	end
 VioletApricornTree:
-    opentext
+	opentext
 	writetext VioletApricornTreeText
 	buttonsound	
 	writetext VioletHeyItsApricornText

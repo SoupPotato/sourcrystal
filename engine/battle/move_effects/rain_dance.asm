@@ -1,7 +1,7 @@
 BattleCommand_StartRain:
 ; startrain
 
-    ld a, [wBattleWeather]
+	ld a, [wBattleWeather]
 	cp WEATHER_RAIN
 	jr z, .failed
 	

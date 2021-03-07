@@ -213,7 +213,7 @@ CooltrainerSophieBeatenText:
 	done
 
 YellowForestcooltrainerMScript:
-    jumptextfaceplayer YellowForestcooltrainerMText
+	jumptextfaceplayer YellowForestcooltrainerMText
 	
 YellowForestcooltrainerMText:
 	text "There's a protein"

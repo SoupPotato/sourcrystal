@@ -206,7 +206,7 @@ Route39BerryTree:
 	end
 	
 Route39ApricornTree:
-    opentext
+	opentext
 	writetext Route39ApricornTreeText
 	buttonsound	
 	writetext Route39HeyItsApricornText

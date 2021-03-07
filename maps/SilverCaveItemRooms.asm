@@ -37,8 +37,8 @@ SilverCaveItemRoomsFullRestore:
 	itemball FULL_RESTORE
 	
 SilverCaveItemRoomsMoltres:
-    opentext
-    writetext MoltresText
+	opentext
+	writetext MoltresText
 	cry MOLTRES
 	pause 15
 	closetext
@@ -51,7 +51,7 @@ SilverCaveItemRoomsMoltres:
 	end
 	
 MoltresText:
-    text "Gyaoo!"
+	text "Gyaoo!"
 	done
 
 SilverCaveItemRooms_MapEvents:

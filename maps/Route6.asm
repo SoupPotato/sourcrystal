@@ -89,12 +89,12 @@ TwinsDayandDaniBeatenText:
 
 TwinsDayandDani1AfterBattleText:
 	text "DANI: You beat"
-    line "us…"
+	line "us…"
 	done
 
 TwinsDayandDani2AfterBattleText:
 	text "DANI: Looks like"
-    line "we got bounced."
+	line "we got bounced."
 	done
 	
 PicnickerSelinaSeenText:

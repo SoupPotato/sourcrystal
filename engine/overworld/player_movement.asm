@@ -553,7 +553,7 @@ DoPlayerMovement::
 .CheckForced:
 ; When sliding on ice, input is forced to remain in the same direction.
 
-    call CheckSpinning
+	call CheckSpinning
 	jr z, .not_spinning
 	dec a
 	jr .force

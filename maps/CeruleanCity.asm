@@ -29,7 +29,7 @@ CeruleanCity_MapScripts:
 	return
 	
 CeruleanCaveCooltrainerMScript:
-    faceplayer
+	faceplayer
 	opentext
 	writetext CeruleanCaveCooltrainerMText
 	waitbutton
@@ -294,7 +294,7 @@ CeruleanLockedDoorText:
 	done
 	
 CeruleanCaveCooltrainerMText:
-    text "This is…"
+	text "This is…"
 	line "The notorious"
 	cont "CERULEAN CAVE!"
 	

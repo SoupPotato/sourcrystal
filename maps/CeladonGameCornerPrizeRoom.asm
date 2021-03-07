@@ -32,7 +32,7 @@ CeladonPrizeRoom_tmcounterloop:
 	jump CeladonPrizeRoom_cancel
 
 .doubleteam
-    checkitem TM_DOUBLE_TEAM
+	checkitem TM_DOUBLE_TEAM
 	iftrue CeladonPrizeRoom_alreadyhavetm
 	checkcoins 1500
 	ifequal HAVE_LESS, CeladonPrizeRoom_notenoughcoins
@@ -45,7 +45,7 @@ CeladonPrizeRoom_tmcounterloop:
 	jump CeladonPrizeRoom_purchased
 
 .psychic
-    checkitem TM_PSYCHIC_M
+	checkitem TM_PSYCHIC_M
 	iftrue CeladonPrizeRoom_alreadyhavetm
 	checkcoins 4500
 	ifequal HAVE_LESS, CeladonPrizeRoom_notenoughcoins
@@ -58,7 +58,7 @@ CeladonPrizeRoom_tmcounterloop:
 	jump CeladonPrizeRoom_purchased
 
 .hyperbeam
-    checkitem TM_HYPER_BEAM
+	checkitem TM_HYPER_BEAM
 	iftrue CeladonPrizeRoom_alreadyhavetm
 	checkcoins 7500
 	ifequal HAVE_LESS, CeladonPrizeRoom_notenoughcoins

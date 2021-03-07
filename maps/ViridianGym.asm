@@ -66,7 +66,7 @@ ViridianGymStatue:
 	jumpstd gymstatue2
 	
 TrainerCoolDuoElanandIda1:
-    trainer COOL_DUO, ELANANDIDA1, EVENT_BEAT_COOL_DUO_ELAN_AND_IDA, CoolDuoElanandIdaSeenText, CoolDuoElanandIdaBeatenText, 0, .Script
+	trainer COOL_DUO, ELANANDIDA1, EVENT_BEAT_COOL_DUO_ELAN_AND_IDA, CoolDuoElanandIdaSeenText, CoolDuoElanandIdaBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -77,7 +77,7 @@ TrainerCoolDuoElanandIda1:
 	end
 	
 TrainerCoolDuoElanandIda2:
-    trainer COOL_DUO, ELANANDIDA2, EVENT_BEAT_COOL_DUO_ELAN_AND_IDA, CoolDuoElanandIdaSeenText, CoolDuoElanandIdaBeatenText, 0, .Script
+	trainer COOL_DUO, ELANANDIDA2, EVENT_BEAT_COOL_DUO_ELAN_AND_IDA, CoolDuoElanandIdaSeenText, CoolDuoElanandIdaBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled

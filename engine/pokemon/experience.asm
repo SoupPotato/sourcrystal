@@ -32,7 +32,7 @@ CalcLevel:
 
 CalcExpAtLevel:
 ; (a/b)*n**3 + c*n**2 + d*n - e
-    ld a, d
+	ld a, d
 	cp 1
 	jr nz, .UseExpFormula
 ; Pokémon have 0 experience at level 1

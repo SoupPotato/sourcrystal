@@ -3,8 +3,8 @@ BattleCommand_Present:
 
 	push bc
 	push de
-    call BattleCommand_Stab
-    pop de
+	call BattleCommand_Stab
+	pop de
 	pop bc
 
 	ld a, [wTypeMatchup]

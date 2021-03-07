@@ -214,7 +214,7 @@ AzaleaTownMartSign:
 	jumpstd martsign
 
 AzaleaApricornTree:
-    opentext
+	opentext
 	writetext AzaleaApricornTreeText
 	buttonsound	
 	writetext AzaleaHeyItsApricornText

@@ -115,7 +115,7 @@ Route11BerryTree:
 	end
 	
 Route11ApricornTree:
-    opentext
+	opentext
 	writetext Route11ApricornTreeText
 	buttonsound	
 	writetext Route11HeyItsApricornText

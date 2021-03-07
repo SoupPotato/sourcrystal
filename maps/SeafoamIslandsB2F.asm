@@ -86,7 +86,7 @@ BoarderShaunAfterBattleText:
 BoarderBryceSeenText:
 	text "What did you come"
 	line "all the way out"
-    cont "here for, I won-"
+	cont "here for, I won-"
 	cont "der." 	
 	done
 

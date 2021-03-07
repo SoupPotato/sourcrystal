@@ -69,5 +69,5 @@ TrainerGroups:
 	dw OfficerGroup
 	dw GruntFGroup
 	dw MysticalmanGroup
-    dw CoupleGroup
+	dw CoupleGroup
 	dw CoolDuoGroup

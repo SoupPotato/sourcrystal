@@ -269,7 +269,7 @@ CoolDuoZacandJen1AfterBattleText:
 
 CoolDuoZacandJen2AfterBattleText:
 	text "JEN: I'm looking"
-    line "foward to seeing"
+	line "foward to seeing"
 	
 	para "what kind of"
 	line "Trainer you'll"
@@ -292,7 +292,7 @@ YoungsterRegisBeatenText:
 
 YoungsterRegisAfterBattleText:
 	text "Looks like I"
-    line "need a bit more"
+	line "need a bit more"
 	cont "training!"
 	done
 

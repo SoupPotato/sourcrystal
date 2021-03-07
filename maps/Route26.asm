@@ -278,7 +278,7 @@ Route26BerryTree:
 	end
 	
 Route26ApricornTree:
-    opentext
+	opentext
 	writetext Route26ApricornTreeText
 	buttonsound	
 	writetext Route26HeyItsApricornText

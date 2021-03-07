@@ -167,7 +167,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_ROUTE_30
 	jp z, .PurpleOverRockOBPalette
-	
+
 .not_route30
 	ld a, [wMapGroup]
 	cp GROUP_VIOLET_CITY
@@ -175,7 +175,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_VIOLET_CITY
 	jp z, .YellowOverRockOBPalette
-	
+
 .not_violet
 	ld a, [wMapGroup]
 	cp GROUP_AZALEA_TOWN
@@ -183,7 +183,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_AZALEA_TOWN
 	jp z, .WhiteOverRockOBPalette
-	
+
 .not_azalea
 	ld a, [wMapGroup]
 	cp GROUP_ROUTE_38
@@ -191,7 +191,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_ROUTE_38
 	jp z, .WhiteOverRockOBPalette
-	
+
 .not_route38
 	ld a, [wMapGroup]
 	cp GROUP_ROUTE_42
@@ -199,7 +199,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_ROUTE_42
 	jp z, .YellowOverRockOBPalette
-	
+
 .not_route42
 	ld a, [wMapGroup]
 	cp GROUP_ROUTE_44
@@ -207,7 +207,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_ROUTE_44
 	jp z, .YellowOverRockOBPalette
-	
+
 .not_route44
 	ld a, [wMapGroup]
 	cp GROUP_ROUTE_46
@@ -215,7 +215,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_ROUTE_46
 	jp z, .YellowOverRockOBPalette
-	
+
 .not_route46
 	ld a, [wMapGroup]
 	cp GROUP_PEWTER_CITY
@@ -223,7 +223,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_PEWTER_CITY
 	jp z, .WhiteOverRockOBPalette
-	
+
 .not_pewter
 	ld a, [wMapGroup]
 	cp GROUP_ROUTE_8
@@ -231,7 +231,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_ROUTE_8
 	jp z, .PurpleOverRockYellowOverPinkOBPalette
-	
+
 .not_route8
 	ld a, [wMapGroup]
 	cp GROUP_FUCHSIA_CITY
@@ -239,7 +239,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_FUCHSIA_CITY
 	jp z, .YellowOverRockOBPalette
-	
+
 .not_fuchsia
 	ld a, [wMapGroup]
 	cp GROUP_OLIVINE_LIGHTHOUSE_6F
@@ -247,7 +247,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_OLIVINE_LIGHTHOUSE_6F
 	jr z, .YellowOverRockOBPalette
-	
+
 .not_lighthouse6F
 	ld a, [wMapGroup]
 	cp GROUP_VIRIDIAN_NICKNAME_SPEECH_HOUSE
@@ -255,7 +255,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_VIRIDIAN_NICKNAME_SPEECH_HOUSE
 	jr z, .PurpleOverRockOBPalette
-	
+
 .not_viridianhouse
 	ld a, [wMapGroup]
 	cp GROUP_INDIGO_PLATEAU_POKECENTER_1F
@@ -263,7 +263,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_INDIGO_PLATEAU_POKECENTER_1F
 	jr z, .YellowOverRockOBPalette
-	
+
 .not_indigo
 	ld a, [wMapGroup]
 	cp GROUP_VERMILION_CITY
@@ -271,7 +271,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_VERMILION_CITY
 	jr z, .GrayOverRockOBPalette
-	
+
 .not_vermillion
 	ld a, [wMapGroup]
 	cp GROUP_GOLDENROD_DEPT_STORE_B1F
@@ -279,7 +279,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_GOLDENROD_DEPT_STORE_B1F
 	jr z, .GrayOverRockOBPalette
-	
+
 .not_goldenrodstoreB1F
 	ld a, [wMapGroup]
 	cp GROUP_DANCE_THEATRE
@@ -287,7 +287,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_DANCE_THEATRE
 	jr z, .GrayOverRockOBPalette
-	
+
 .not_dancetheater
 	ld a, [wMapGroup]
 	cp GROUP_ROUTE_10_NORTH
@@ -295,7 +295,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_ROUTE_10_NORTH
 	jr z, .YellowOverRockOBPalette
-	
+
 .not_route10N
 	ld a, [wMapGroup]
 	cp GROUP_CERULEAN_CAVE_B1F
@@ -303,7 +303,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_CERULEAN_CAVE_B1F
 	jr z, .PurpleOverPinkOBPalette
-	
+
 .not_ceruleancave
 	ld a, [wMapGroup]
 	cp GROUP_MR_FUJIS_HOUSE
@@ -313,59 +313,59 @@ LoadSpecialMapOBPalette:
 	jr z, .PurpleOverRockOBPalette
 	
 .do_nothing
-    and a
-    ret
+	and a
+	ret
 
 .PurpleOverRockOBPalette:
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
-    ld hl, PurpleOverRock
+	ld hl, PurpleOverRock
 	jr .finish
-    
+
 .YellowOverRockOBPalette:
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
-    ld hl, YellowOverRock
-    jr .finish
-	
+	ld hl, YellowOverRock
+	jr .finish
+
 .WhiteOverRockOBPalette:
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
-    ld hl, WhiteOverRock
-    jr .finish	
-	
+	ld hl, WhiteOverRock
+	jr .finish	
+
 .PurpleOverRockYellowOverPinkOBPalette
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
-    ld hl, PurpleOverRockYellowOverPink
+	ld hl, PurpleOverRockYellowOverPink
 	jr .finish
-	
+
 .GrayOverRockOBPalette
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
-    ld hl, GrayOverRock
+	ld hl, GrayOverRock
 	jr .finish
-	
+
 .PurpleOverPinkOBPalette:
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
-    ld hl, PurpleOverPink
+	ld hl, PurpleOverPink
 	jr .finish
-	
+
 .finish
 	call AddNTimes
-    ld de, wOBPals1
-    ld bc, 8 palettes
+	ld de, wOBPals1
+	ld bc, 8 palettes
 	ld a, BANK(wOBPals1)
-    call FarCopyWRAM
-    scf
-    ret
+	call FarCopyWRAM
+	scf
+	ret
 
 ; Special Overworld Pals
 INCLUDE "gfx/overworld/npc_sprites_special.pal"

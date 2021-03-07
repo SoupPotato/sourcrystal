@@ -300,7 +300,7 @@ Route30BerryTree2:
 	end
 
 Route30ApricornTree:
-    opentext
+	opentext
 	writetext Route30ApricornTreeText
 	buttonsound	
 	writetext Route30HeyItsApricornText
@@ -314,7 +314,7 @@ Route30ApricornTree:
 	end
 	
 Route30ApricornTree2:
-    opentext
+	opentext
 	writetext Route30ApricornTreeText
 	buttonsound	
 	writetext Route30HeyItsApricorn2Text

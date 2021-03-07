@@ -708,7 +708,7 @@ ENDM
 	map_attributes CliffCave, CLIFF_CAVE, $09, 0
 	map_attributes YellowForest, YELLOW_FOREST, $38, 0
 	map_attributes YellowForestGate, YELLOW_FOREST_GATE, $00, 0
-    map_attributes ViridianForest, VIRIDIAN_FOREST, $58, 0
+	map_attributes ViridianForest, VIRIDIAN_FOREST, $58, 0
 	map_attributes ViridianForestGateN, VIRIDIAN_FOREST_GATE_N, $00, 0
 	map_attributes ViridianForestGateS, VIRIDIAN_FOREST_GATE_S, $00, 0
 	map_attributes MountMoonPokecenter1F, MOUNT_MOON_POKECENTER_1F, $00, 0

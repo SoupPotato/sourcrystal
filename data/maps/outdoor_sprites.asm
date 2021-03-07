@@ -37,7 +37,7 @@ OutdoorSprites:
 ; PalletTown and Route21 are connected
 PewterGroupSprites:
 ; Route3, PewterCity
-    db SPRITE_TEACHER
+	db SPRITE_TEACHER
 	db SPRITE_FISHER
 	db SPRITE_YOUNGSTER
 	db SPRITE_COOLTRAINER_M
@@ -341,7 +341,7 @@ CableClubGroupSprites:
 	
 Route47GroupSprites:
 ; Route47, Route48, YellowForest, CliffEdgeCave, CliffEdgeGate
-    db SPRITE_TEACHER
+	db SPRITE_TEACHER
 	db SPRITE_SUPER_NERD
 	db SPRITE_YOUNGSTER
 	db SPRITE_LASS

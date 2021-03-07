@@ -79,7 +79,7 @@ FuchsiaBerryTree:
 	end
 	
 FuchsiaApricornTree:
-    opentext
+	opentext
 	writetext FuchsiaApricornTreeText
 	buttonsound	
 	writetext FuchsiaHeyItsApricornText

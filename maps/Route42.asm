@@ -224,7 +224,7 @@ Route42SuperPotion:
 	itemball SUPER_POTION
 
 Route42ApricornTree:
-    opentext
+	opentext
 	writetext Route42ApricornTreeText
 	buttonsound	
 	writetext Route42HeyItsApricornText
@@ -238,7 +238,7 @@ Route42ApricornTree:
 	end
 
 Route42Apricorn2Tree:
-    opentext
+	opentext
 	writetext Route42ApricornTreeText
 	buttonsound	
 	writetext Route42HeyItsApricorn2Text
@@ -252,7 +252,7 @@ Route42Apricorn2Tree:
 	end
 	
 Route42Apricorn3Tree:
-    opentext
+	opentext
 	writetext Route42ApricornTreeText
 	buttonsound	
 	writetext Route42HeyItsApricorn3Text

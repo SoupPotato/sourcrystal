@@ -348,7 +348,7 @@ Route43BerryTree:
 	end
 	
 Route43ApricornTree:
-    opentext
+	opentext
 	writetext Route43ApricornTreeText
 	buttonsound	
 	writetext Route43HeyItsApricornText

@@ -34,8 +34,8 @@ SeafoamIslandsB4FBigPearl:
 	itemball BIG_PEARL
 	
 SeafoamIslandsArticuno:
-    opentext
-    writetext ArticunoText
+	opentext
+	writetext ArticunoText
 	cry ARTICUNO
 	pause 15
 	closetext
@@ -48,7 +48,7 @@ SeafoamIslandsArticuno:
 	end
 	
 ArticunoText:
-    text "Gyaoo!"
+	text "Gyaoo!"
 	done
 
 SeafoamIslandsB4F_MapEvents:

@@ -146,7 +146,7 @@ TrainerSwimmermElmo:
 	end
 
 SeafoamIslandsSign:
-    jumptext SeafoamIslandsSignText
+	jumptext SeafoamIslandsSignText
 
 CinnabarGymSign:
 	jumptext CinnabarGymSignText

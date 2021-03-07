@@ -59,7 +59,7 @@ CeruleanCave2F_MapEvents:
 	db 0 ; coord events
 
 	db 4 ; bg events
-    bg_event  4, 21, BGEVENT_ITEM, CeruleanCave2FHiddenPPUP
+	bg_event  4, 21, BGEVENT_ITEM, CeruleanCave2FHiddenPPUP
 	bg_event 30, 16, BGEVENT_ITEM, CeruleanCave2FHiddenCalcium
 	bg_event 28, 22, BGEVENT_ITEM, CeruleanCave2FHiddenFullHeal
 	bg_event 33, 20, BGEVENT_ITEM, CeruleanCave2FHiddenBigPearl

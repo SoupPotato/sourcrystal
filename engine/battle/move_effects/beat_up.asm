@@ -109,7 +109,7 @@ BattleCommand_BeatUp:
 	push af
 	call BattleCommand_DamageStats
 	pop af
-    ld d, a
+	ld d, a
 	
 	ld hl, wBeatUpHits
 	inc [hl]

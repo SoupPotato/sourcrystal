@@ -414,7 +414,7 @@ InitPokegearTilemap:
 	ld de, PagerTilemapRLE
 	call Pokegear_LoadTilemapRLE
 	hlcoord 0, 12
-    lb bc, 4, 18
+	lb bc, 4, 18
 	call TextBox
 	call PokegearPager_UpdateDisplayList
 	ret
@@ -666,7 +666,7 @@ PokegearMap_ContinueMap:
 	jr .done
 
 .quit
-    ld c, POKEGEARSTATE_CLOCKINIT
+	ld c, POKEGEARSTATE_CLOCKINIT
 	ld b, POKEGEARCARD_CLOCK
 	jr .done
 
@@ -848,7 +848,7 @@ PokegearRadio_Joypad:
 	ret
 
 .quit
-    ld c, POKEGEARSTATE_CLOCKINIT
+	ld c, POKEGEARSTATE_CLOCKINIT
 	ld b, POKEGEARCARD_CLOCK
 	jr .switch_page
 
@@ -1442,21 +1442,21 @@ PokegearPager_Joypad:
 
 .a
 	; show the Call/Cancel menu
-    hlcoord 1, 4
-    ld a, [wPokegearPagerCursorPosition]
-    ld bc, SCREEN_WIDTH * 2
-    call AddNTimes
-    ld [hl], "▷"
-    call PokegearPagerContactSubmenu
-    ret c
+	hlcoord 1, 4
+	ld a, [wPokegearPagerCursorPosition]
+	ld bc, SCREEN_WIDTH * 2
+	call AddNTimes
+	ld [hl], "▷"
+	call PokegearPagerContactSubmenu
+	ret c
 
-    ; get the pager value
-    ld a, [wPokegearPagerScrollPosition]
-    ld c, a
-    ld a, [wPokegearPagerCursorPosition]
-    add c
-    ld [wPokegearPagerSelectedMon], a
-    ld c, a
+	; get the pager value
+	ld a, [wPokegearPagerScrollPosition]
+	ld c, a
+	ld a, [wPokegearPagerCursorPosition]
+	add c
+	ld [wPokegearPagerSelectedMon], a
+	ld c, a
 
 	; make sure the pager value is valid (0-6)
 	cp NUM_PAGER_FLAGS
@@ -1665,10 +1665,10 @@ PokegearPager_UpdateDisplayList:
 	ret
 
 PokegearPagerContactSubmenu:
-    xor a
-    ld [hBGMapMode], a
-    ld de, .CallCancelStrings
-    push de
+	xor a
+	ld [hBGMapMode], a
+	ld de, .CallCancelStrings
+	push de
 	ld a, [de]
 	ld l, a
 	inc de
@@ -1733,15 +1733,15 @@ PokegearPagerContactSubmenu:
 
 .a_b
 	xor a
-    ld [hBGMapMode], a
-    call PokegearPager_UpdateDisplayList
-    ld a, $1
-    ld [hBGMapMode], a
-    ld a, [hJoyPressed]
-    and B_BUTTON
-    jr nz, .Cancel
-    ld hl, .CallCancelJumptable
-    ld a, [wPokegearPagerSubmenuCursor]
+	ld [hBGMapMode], a
+	call PokegearPager_UpdateDisplayList
+	ld a, $1
+	ld [hBGMapMode], a
+	ld a, [hJoyPressed]
+	and B_BUTTON
+	jr nz, .Cancel
+	ld hl, .CallCancelJumptable
+	ld a, [wPokegearPagerSubmenuCursor]
 	ld e, a
 	ld d, 0
 	add hl, de

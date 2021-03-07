@@ -113,7 +113,7 @@ Music:
 	dba Music_Route47HGSS
 	dba Music_SafariZoneGateHGSS
 	dba Music_CeruleanCityHGSS
-    dba Music_NuggetBridgeHGSS
+	dba Music_NuggetBridgeHGSS
 	dba Music_CinnabarIslandHGSS
 	dba Music_HoOhBattleHGSS
 	dba Music_LugiaBattleHGSS

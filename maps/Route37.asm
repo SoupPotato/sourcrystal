@@ -125,7 +125,7 @@ Route37Sign:
 	jumptext Route37SignText
 	
 Route37ApricornTree:
-    opentext
+	opentext
 	writetext Route37ApricornTreeText
 	buttonsound	
 	writetext Route37HeyItsApricornText
@@ -139,7 +139,7 @@ Route37ApricornTree:
 	end
 	
 Route37ApricornTree2:
-    opentext
+	opentext
 	writetext Route37ApricornTreeText
 	buttonsound	
 	writetext Route37HeyItsApricorn2Text
@@ -153,7 +153,7 @@ Route37ApricornTree2:
 	end
 	
 Route37ApricornTree3:
-    opentext
+	opentext
 	writetext Route37ApricornTreeText
 	buttonsound	
 	writetext Route37HeyItsApricorn3Text

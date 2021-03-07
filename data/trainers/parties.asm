@@ -3330,7 +3330,7 @@ PicnickerGroup:
 	db 43, CLEFAIRY,   METRONOME, ENCORE, MOONLIGHT, MINIMIZE
 	db -1 ; end
 
-    ; PICNICKER (27)
+	; PICNICKER (27)
 	db "SELINA@",TRAINERTYPE_NORMAL
 	db 42, SUNFLORA
 	db -1 ; end
@@ -4014,13 +4014,13 @@ MysticalmanGroup:
 	db -1 ; end
 	
 CoupleGroup:
-    ; COUPLE (1)
+	; COUPLE (1)
 	db "DUFF & EDA@", TRAINERTYPE_MOVES
 	db 25, CLOYSTER,    CLAMP, AURORA_BEAM, SUPERSONIC, PROTECT
 	db 25, ONIX,        BIND, RAGE, ROCK_THROW, SANDSTORM
 	db -1 ; end
 
-    ; COUPLE (2)
+	; COUPLE (2)
 	db "DUFF & EDA@", TRAINERTYPE_MOVES
 	db 25, ONIX,        BIND, RAGE, ROCK_THROW, SANDSTORM
 	db 25, CLOYSTER,    CLAMP, AURORA_BEAM, SUPERSONIC, PROTECT
@@ -4063,7 +4063,7 @@ CoupleGroup:
 	db -1 ; end
 
 CoolDuoGroup:
-    ; COOL_DUO (1)
+	; COOL_DUO (1)
 	db "THOM & KAE@", TRAINERTYPE_NORMAL
 	db 25, MAGMAR
 	db 25, ELECTABUZZ

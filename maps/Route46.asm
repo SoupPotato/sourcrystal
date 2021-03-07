@@ -223,7 +223,7 @@ Route46BerryTree2:
 	end
 
 Route46ApricornTree:
-    opentext
+	opentext
 	writetext Route46ApricornTreeText
 	buttonsound	
 	writetext Route46HeyItsApricornText
@@ -237,7 +237,7 @@ Route46ApricornTree:
 	end
 	
 Route46ApricornTree2:
-    opentext
+	opentext
 	writetext Route46ApricornTreeText
 	buttonsound	
 	writetext Route46HeyItsApricorn2Text

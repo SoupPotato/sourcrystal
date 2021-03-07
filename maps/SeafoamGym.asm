@@ -89,7 +89,7 @@ TrainerScientistLowell:
 	end
 	
 .MovementDataScientistLowell:
-    step UP
+	step UP
 	turn_head DOWN
 	step_end
 	
@@ -123,7 +123,7 @@ TrainerScientistDannie:
 	end
 	
 .MovementDataScientistDannie:
-    step LEFT
+	step LEFT
 	turn_head RIGHT
 	step_end
 	
@@ -157,7 +157,7 @@ TrainerSuperNerdCary:
 	end
 	
 .MovementDataSuperNerdCary:
-    step RIGHT
+	step RIGHT
 	turn_head LEFT
 	step_end
 	
@@ -191,7 +191,7 @@ TrainerScientistLinden:
 	end
 	
 .MovementDataScientistLinden:
-    step LEFT
+	step LEFT
 	turn_head RIGHT
 	step_end
 	
@@ -225,7 +225,7 @@ TrainerSuperNerdWaldo:
 	end
 	
 .MovementDataSuperNerdWaldo:
-    step DOWN
+	step DOWN
 	turn_head UP
 	step_end
 	
@@ -257,9 +257,9 @@ TrainerSuperNerdMerle:
 	waitbutton
 	closetext
 	end
-	
+
 .MovementDataSuperNerdMerle:
-    step DOWN
+	step DOWN
 	turn_head UP
 	step_end
 
@@ -373,19 +373,19 @@ SeafoamGymGuyWinText:
 	para "Gym and the"
 	line "Trainer from"
 
-    para "JOHTO who has come"
+	para "JOHTO who has come"
 	line "to challenge that"
 	cont "Gym Leader…"
 	
 	para "I have witnessed"
 	line "a hot battle!"
 	done
-	
+
 ScientistLowellSeenText:
 	text "A white lab coat"
 	line "is a researcher's"
 	cont "life."
-	
+
 	para "We may be living"
 	line "in a cave like"
 	cont "this,"
@@ -539,7 +539,7 @@ SeafoamGym_MapEvents:
 	db 14 ; object events
 	object_event 12,  8, SPRITE_BLAINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SeafoamGymBlaineScript, -1
 	object_event 14, 17, SPRITE_GYM_GUY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SeafoamGymGuyScript, -1
-    object_event 12, 12, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, TrainerScientistLowell, EVENT_SCIENTIST_LOWELL
+	object_event 12, 12, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, TrainerScientistLowell, EVENT_SCIENTIST_LOWELL
 	object_event 12, 11, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, TrainerScientistLowell, EVENT_SCIENTIST_LOWELL_DEFEATED
 	object_event  7, 11, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 2, TrainerScientistDannie, EVENT_SCIENTIST_DANNIE
 	object_event  6, 11, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 2, TrainerScientistDannie, EVENT_SCIENTIST_DANNIE_DEFEATED

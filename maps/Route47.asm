@@ -120,7 +120,7 @@ CoolDuoThomandkae2AfterBattleText:
 	done
 	
 CoolDuoThomandkaeSeenText:
-    text "THOM: One plus one"
+	text "THOM: One plus one"
 	line "is two. But the"
 
 	para "two of us together"
@@ -173,7 +173,7 @@ CoupleDuffandead2AfterBattleText:
 	done
 	
 CoupleDuffandeadSeenText:
-    text "DUFF: Watching"
+	text "DUFF: Watching"
 	line "over my girlfriend"
 
 	para "makes my heart"

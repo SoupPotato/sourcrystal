@@ -2,7 +2,7 @@
 	const CERULEAN_CAVE_B1F_POKE_BALL1
 	const CERULEAN_CAVE_B1F_POKE_BALL2
 	const CERULEAN_CAVE_B1F_POKE_BALL3
-    const CERULEAN_CAVE_B1F_POKE_BALL4
+	const CERULEAN_CAVE_B1F_POKE_BALL4
 	const CERULEAN_CAVE_B1F_POKE_BALL5
 	const CERULEAN_CAVE_B1F_ROCK1
 	const CERULEAN_CAVE_B1F_ROCK2
@@ -26,15 +26,15 @@ CeruleanCaveB1F_MapScripts:
 	checkcode VAR_BADGES
 	ifequal NUM_BADGES, .MewtwoAppear
 .DoNothing
-    end
+	end
 	
 .MewtwoAppear
-    setevent EVENT_MEWTWO_APPEAR
+	setevent EVENT_MEWTWO_APPEAR
 	end
 	
 CeruleanCaveB1FMewtwo:
-    opentext
-    writetext MewtwoText
+	opentext
+	writetext MewtwoText
 	cry MEWTWO
 	pause 15
 	closetext
@@ -47,7 +47,7 @@ CeruleanCaveB1FMewtwo:
 	end
 	
 MewtwoText:
-    text "…!"
+	text "…!"
 	done
 
 CeruleanCaveB1FHiddenNugget:
@@ -97,7 +97,7 @@ CeruleanCaveB1F_MapEvents:
 	object_event 19, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, CeruleanCaveB1FMoonStone, EVENT_CERULEAN_CAVE_B1F_MOON_STONE
 	object_event 37, 11, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, CeruleanCaveB1FMagnet, EVENT_CERULEAN_CAVE_B1F_MAGNET
 	object_event 37, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, CeruleanCaveB1FLeftovers, EVENT_CERULEAN_CAVE_B1F_LEFTOVERS
-    object_event 28, 11, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCaveB1FRock, -1
+	object_event 28, 11, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCaveB1FRock, -1
 	object_event 22, 13, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCaveB1FRock, -1
 	object_event  9, 12, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCaveB1FRock, -1
 	object_event  6, 11, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCaveB1FRock, -1

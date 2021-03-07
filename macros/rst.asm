@@ -9,9 +9,9 @@ farcall: MACRO ; bank, address
 ENDM
 
 farjp: MACRO
-    ld a, BANK(\1)
-    ld hl, \1
-    jp FarCall
+	ld a, BANK(\1)
+	ld hl, \1
+	jp FarCall
 ENDM
 
 callfar: MACRO ; address, bank

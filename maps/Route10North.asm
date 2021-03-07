@@ -1,4 +1,4 @@
-    const_def 2 ; object constants
+	const_def 2 ; object constants
 	const ROUTE10_ZAPDOS
 
 
@@ -24,8 +24,8 @@ Route10North_MapScripts:
 	return
 
 Route10Zapdos:
-    opentext
-    writetext ZapdosText
+	opentext
+	writetext ZapdosText
 	cry ZAPDOS
 	pause 15
 	closetext
@@ -37,43 +37,8 @@ Route10Zapdos:
 	reloadmapafterbattle
 	end
 
-Route10test:
-	setevent EVENT_BEAT_FALKNER
-	setevent EVENT_BEAT_BUGSY
-	setevent EVENT_BEAT_WHITNEY
-	setevent EVENT_BEAT_MORTY
-	setevent EVENT_BEAT_CHUCK
-	setevent EVENT_BEAT_JASMINE
-	setevent EVENT_BEAT_PRYCE
-	setevent EVENT_BEAT_CLAIR
-	setevent EVENT_BEAT_BROCK
-	setevent EVENT_BEAT_MISTY
-	setevent EVENT_BEAT_LTSURGE
-	setevent EVENT_BEAT_ERIKA
-	setevent EVENT_BEAT_SABRINA
-	setevent EVENT_BEAT_JANINE
-	setevent EVENT_BEAT_BLAINE
-	setevent EVENT_BEAT_BLUE
-    setflag ENGINE_ZEPHYRBADGE
-	setflag ENGINE_HIVEBADGE
-	setflag ENGINE_PLAINBADGE
-	setflag ENGINE_FOGBADGE
-	setflag ENGINE_STORMBADGE
-	setflag ENGINE_MINERALBADGE
-	setflag ENGINE_GLACIERBADGE
-	setflag ENGINE_RISINGBADGE
-	setflag ENGINE_BOULDERBADGE
-	setflag ENGINE_CASCADEBADGE
-	setflag ENGINE_THUNDERBADGE
-	setflag ENGINE_RAINBOWBADGE
-	setflag ENGINE_MARSHBADGE
-	setflag ENGINE_SOULBADGE
-	setflag ENGINE_VOLCANOBADGE
-	setflag ENGINE_EARTHBADGE
-	end
-	
 ZapdosText:
-    text "Gyaoo!"
+	text "Gyaoo!"
 	done
 
 PowerPlantSign:
@@ -100,4 +65,4 @@ Route10North_MapEvents:
 	bg_event 12,  1, BGEVENT_READ, Route10PokecenterSign
 
 	db 1 ; object events
-    object_event 3, 22, SPRITE_ZAPDOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0,  Route10Zapdos, EVENT_ZAPDOS_APPEAR
+	object_event 3, 22, SPRITE_ZAPDOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0,  Route10Zapdos, EVENT_ZAPDOS_APPEAR

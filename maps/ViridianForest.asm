@@ -1,5 +1,5 @@
 	const_def 2 ; object constants
-    const VIRIDIAN_FOREST_POKE_BALL1
+	const VIRIDIAN_FOREST_POKE_BALL1
 	const VIRIDIAN_FOREST_POKE_BALL2
 	const VIRIDIAN_FOREST_POKE_BALL3
 	const VIRIDIAN_FOREST_BERRY
@@ -9,13 +9,13 @@
 	const VIRIDIAN_FOREST_BUG_CATCHER3
 	const VIRIDIAN_FOREST_BUG_CATCHER4
 	const VIRIDIAN_FOREST_BUG_CATCHER5
-	
+
 ViridianForest_MapScripts:
 	db 0 ; scene scripts
 
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .Fruittrees
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_VIRIDIAN_FOREST_BERRY
@@ -23,7 +23,7 @@ ViridianForest_MapScripts:
 	appear VIRIDIAN_FOREST_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_VIRIDIAN_FOREST_APRICORN
 	iftrue .NoApricorn
@@ -55,7 +55,7 @@ ViridianForestBerryTree:
 	end
 	
 ViridianForestApricornTree:
-    opentext
+	opentext
 	writetext ViridianForestApricornTreeText
 	buttonsound	
 	writetext ViridianForestHeyItsApricornText
@@ -245,7 +245,7 @@ BugCatcherDionAfterBattleText:
 	line "leaves,"
 	
 	para "swimming in "
-    line "puddles…"
+	line "puddles…"
 	
 	para "For bug #MON"
 	line "fans, knowing how"
@@ -257,7 +257,7 @@ BugCatcherDionAfterBattleText:
 	
 BugCatcherDaneSeenText:
 	text "Welcome to "
-    line "VIRIDAN FOREST."
+	line "VIRIDAN FOREST."
 	
 	para "Enjoy my Bug-"
 	line "type #MON!"
@@ -319,7 +319,7 @@ ViridianForest_MapEvents:
 	bg_event 31,  6, BGEVENT_READ, ViridianForestNoApricorn
 
 	db 10 ; object events
-    object_event 11, 32, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestMaxPotion, EVENT_VIRIDIAN_FOREST_MAX_POTION
+	object_event 11, 32, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestMaxPotion, EVENT_VIRIDIAN_FOREST_MAX_POTION
 	object_event 25, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestMaxEther, EVENT_VIRIDIAN_FOREST_MAX_ETHER
 	object_event  2, 34, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestLeafStone, EVENT_VIRIDIAN_FOREST_LEAF_STONE
 	object_event 17,  6, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ViridianForestBerryTree, EVENT_VIRIDIAN_FOREST_BERRY

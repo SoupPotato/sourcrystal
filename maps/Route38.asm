@@ -349,7 +349,7 @@ Route38BerryTree:
 	end
 	
 Route38ApricornTree:
-    opentext
+	opentext
 	writetext Route38ApricornTreeText
 	buttonsound	
 	writetext Route38HeyItsApricornText

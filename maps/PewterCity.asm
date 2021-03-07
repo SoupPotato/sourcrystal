@@ -121,7 +121,7 @@ PewterCityBerryTree2:
 	end
 
 PewterCityApricornTree:
-    opentext
+	opentext
 	writetext PewterCityApricornTreeText
 	buttonsound	
 	writetext PewterCityHeyItsApricornText
@@ -135,7 +135,7 @@ PewterCityApricornTree:
 	end
 	
 PewterCityApricornTree2:
-    opentext
+	opentext
 	writetext PewterCityApricornTreeText
 	buttonsound	
 	writetext PewterCityHeyItsApricorn2Text

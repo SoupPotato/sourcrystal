@@ -179,7 +179,7 @@ Route33BerryTree:
 	end
 	
 Route33ApricornTree:
-    opentext
+	opentext
 	writetext Route33ApricornTreeText
 	buttonsound	
 	writetext Route33HeyItsApricornText
@@ -193,7 +193,7 @@ Route33ApricornTree:
 	end
 	
 Route33ApricornTree2:
-    opentext
+	opentext
 	writetext Route33ApricornTreeText
 	buttonsound	
 	writetext Route33HeyItsApricorn2Text

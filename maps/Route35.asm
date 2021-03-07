@@ -309,7 +309,7 @@ Route35BerryTree:
 	end
 	
 Route35ApricornTree:
-    opentext
+	opentext
 	writetext Route35ApricornTreeText
 	buttonsound	
 	writetext Route35HeyItsApricornText

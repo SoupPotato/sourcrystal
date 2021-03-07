@@ -249,7 +249,7 @@ ChucksWifeFlySpeechText:
 	
 	para "You should take"
 	line "this too!"
-    done
+	done
 	
 UnknownText_0x1a021d:
 	text "That HM will"

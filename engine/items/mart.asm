@@ -366,7 +366,7 @@ LoadBuyMenuText:
 	ret
 
 MartAskPurchaseQuantity:
-    ld a, [wCurItem]
+	ld a, [wCurItem]
 	cp TM01
 	jr nc, .PurchaseQuantityOfTM
 	call GetMartDialogGroup ; gets a pointer from GetMartDialogGroup.MartTextFunctionPointers

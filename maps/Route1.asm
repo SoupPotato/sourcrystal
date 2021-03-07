@@ -89,7 +89,7 @@ Route1BerryTree:
 	end
 	
 Route1ApricornTree:
-    opentext
+	opentext
 	writetext Route1ApricornTreeText
 	buttonsound	
 	writetext Route1HeyItsApricornText

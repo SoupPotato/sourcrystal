@@ -821,7 +821,7 @@ Text_CharcoalMasterMid:
 	para "It lets you"
 	line "summon a #MON"
 	cont "to cut small "
-    cont "trees."
+	cont "trees."
 
 	para "Of course, you"
 	line "have to have the"

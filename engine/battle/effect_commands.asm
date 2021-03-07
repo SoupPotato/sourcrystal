@@ -1972,7 +1972,7 @@ BattleCommand_EffectChance:
 	ld hl, wEnemyMoveStruct + MOVE_CHANCE
 .got_move_chance
 
-    ld a, [hl]
+	ld a, [hl]
 	sub 100 percent
 	; If chance was 100%, RNG won't be called (carry not set)
 	; Thus chance will be subtracted from 0, guaranteeing a carry
@@ -3147,7 +3147,7 @@ BattleCommand_DamageCalc:
 	ret z
 
 .skip_zero_damage_check
-    xor a ; Not confusion damage
+	xor a ; Not confusion damage
 	ldh [hIsConfusionDamage], a
 	; fallthrough
 
@@ -5594,7 +5594,7 @@ BattleCommand_EndLoop:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_BEAT_UP
-    jr nz, .not_beat_up
+	jr nz, .not_beat_up
 	ld a, [wBeatUpHits]
 	and a
 	jr z, .end
@@ -6831,71 +6831,71 @@ BattleCommand_HealNite:
 BattleCommand_TimeBasedHealContinue:
 ; Time- and weather-sensitive heal.
 
-    ld hl, wBattleMonMaxHP
-    ld de, wBattleMonHP
-    ldh a, [hBattleTurn]
-    and a
-    jr z, .start
-    ld hl, wEnemyMonMaxHP
-    ld de, wEnemyMonHP
+	ld hl, wBattleMonMaxHP
+	ld de, wBattleMonHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .start
+	ld hl, wEnemyMonMaxHP
+	ld de, wEnemyMonHP
 
 .start
 ; Don't bother healing if HP is already full.
-    ld c, 2
-    call StringCmp
-    jr z, .Full
+	ld c, 2
+	call StringCmp
+	jr z, .Full
 
 ; Index for .Multipliers
 ; Default restores half max HP.
-    ld c, 1
+	ld c, 1
 
-    ld a, [wBattleWeather]
-    and a
-    jr z, .Heal
+	ld a, [wBattleWeather]
+	and a
+	jr z, .Heal
 
 ; x2 in sun
 ; /2 in rain/sandstorm
-    inc c
-    cp WEATHER_SUN
-    jr z, .Heal
-    dec c
-    dec c
+	inc c
+	cp WEATHER_SUN
+	jr z, .Heal
+	dec c
+	dec c
 
 .Heal:
-    ld b, 0
-    ld hl, .Multipliers
-    add hl, bc
-    add hl, bc
+	ld b, 0
+	ld hl, .Multipliers
+	add hl, bc
+	add hl, bc
 
-    ld a, [hli]
-    ld h, [hl]
-    ld l, a
-    ld a, BANK(GetMaxHP)
-    rst FarCall
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, BANK(GetMaxHP)
+	rst FarCall
 
-    call AnimateCurrentMove
-    call BattleCommand_SwitchTurn
+	call AnimateCurrentMove
+	call BattleCommand_SwitchTurn
 
-    callfar RestoreHP
+	callfar RestoreHP
 
-    call BattleCommand_SwitchTurn
-    call UpdateUserInParty
+	call BattleCommand_SwitchTurn
+	call UpdateUserInParty
 
 ; 'regained health!'
-    ld hl, RegainedHealthText
-    jp StdBattleTextBox
+	ld hl, RegainedHealthText
+	jp StdBattleTextBox
 
 .Full:
-    call AnimateFailedMove
+	call AnimateFailedMove
 
 ; 'hp is full!'
-    ld hl, HPIsFullText
-    jp StdBattleTextBox
+	ld hl, HPIsFullText
+	jp StdBattleTextBox
 
 .Multipliers:
-    dw GetQuarterMaxHP
-    dw GetHalfMaxHP
-    dw GetTwoThirdsMaxHP
+	dw GetQuarterMaxHP
+	dw GetHalfMaxHP
+	dw GetTwoThirdsMaxHP
 
 
 INCLUDE "engine/battle/move_effects/hidden_power.asm"
@@ -6967,7 +6967,7 @@ BattleCommand_DefrostTarget:
 
 
 CheckHiddenOpponent:
-    xor a
+	xor a
 	ret
 
 

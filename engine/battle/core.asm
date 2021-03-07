@@ -1743,10 +1743,10 @@ HandleWeather:
 	jr .SandstormDamage
 
 .PlayWeatherAnimation:
-    xor a ; uses one byte of ROM, compared to two for "ld a, 1"
-    ld [wNumHits], a
-    call SetPlayerTurn
-    ld hl, .WeatherAnimations
+	xor a ; uses one byte of ROM, compared to two for "ld a, 1"
+	ld [wNumHits], a
+	call SetPlayerTurn
+	ld hl, .WeatherAnimations
 	ld a, [wBattleWeather]
 	dec a
 	ld b, 0
@@ -1757,7 +1757,7 @@ HandleWeather:
 	jp Call_PlayBattleAnim
 	
 .WeatherAnimations:
-    db RAIN_DANCE
+	db RAIN_DANCE
 	db SUNNY_DAY
 	db SANDSTORM
 	
@@ -1931,29 +1931,29 @@ GetHalfMaxHP:
 	ret
 	
 GetTwoThirdsMaxHP:
-    call GetMaxHP
+	call GetMaxHP
 
-    sla c
-    rl b
+	sla c
+	rl b
 
-    ld a, b
-    ld [hDividend + 0], a
-    ld a, c
-    ld [hDividend + 1], a
-    ld a, 3
-    ld [hDivisor], a
-    ld b, 2
-    call Divide
-    ld a, [hQuotient + 1]
-    ld b, a
-    ld a, [hQuotient + 2]
-    ld c, a
+	ld a, b
+	ld [hDividend + 0], a
+	ld a, c
+	ld [hDividend + 1], a
+	ld a, 3
+	ld [hDivisor], a
+	ld b, 2
+	call Divide
+	ld a, [hQuotient + 1]
+	ld b, a
+	ld a, [hQuotient + 2]
+	ld c, a
 
-    and b
-    jr nz, .ok
-    inc c
+	and b
+	jr nz, .ok
+	inc c
 .ok
-    ret
+	ret
 
 GetMaxHP:
 ; output: bc, wBuffer1-2

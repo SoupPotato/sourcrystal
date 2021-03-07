@@ -1752,14 +1752,16 @@ HandleWeather:
 	ld b, 0
 	ld c, a
 	add hl, bc
-	ld d, 0
+	add hl, bc
 	ld e, [hl]
+	inc hl
+	ld d, [hl]
 	jp Call_PlayBattleAnim
 	
 .WeatherAnimations:
-	db RAIN_DANCE
-	db SUNNY_DAY
-	db SANDSTORM
+	dw ANIM_IN_RAIN
+	dw ANIM_IN_SUN
+	dw ANIM_IN_SANDSTORM
 	
 .SandstormDamage:
 	ld a, BATTLE_VARS_SUBSTATUS3

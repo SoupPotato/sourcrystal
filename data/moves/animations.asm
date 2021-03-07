@@ -279,6 +279,8 @@ BattleAnimations::
 	dw BattleAnim_Wobble
 	dw BattleAnim_Shake
 	dw BattleAnim_HitConfusion
+	dw BattleAnim_InRain
+	dw BattleAnim_InSun
 
 BattleAnim_0:
 BattleAnim_252:
@@ -559,20 +561,6 @@ BattleAnim_InLove:
 	anim_sound 0, 0, SFX_LICK
 	anim_obj ANIM_OBJ_HEART, 36, 72, $0
 	anim_wait 32
-	anim_ret
-
-BattleAnim_InSandstorm:
-	anim_1gfx ANIM_GFX_POWDER
-	anim_obj ANIM_OBJ_SANDSTORM, 88, 0, $0
-	anim_wait 8
-	anim_obj ANIM_OBJ_SANDSTORM, 72, 0, $1
-	anim_wait 8
-	anim_obj ANIM_OBJ_SANDSTORM, 56, 0, $2
-.loop
-	anim_sound 0, 1, SFX_MENU
-	anim_wait 8
-	anim_loop 6, .loop
-	anim_wait 8
 	anim_ret
 
 BattleAnim_InNightmare:
@@ -2594,23 +2582,23 @@ BattleAnim_Substitute_branch_ca77c:
 BattleAnim_Minimize:
 	anim_1gfx ANIM_GFX_MINI
 .loop
-    anim_sound 0, 1, SFX_SLUDGE_BOMB
-    anim_bgeffect ANIM_BG_RETURN_MON, $0, $1, $0
-    anim_wait 12
+	anim_sound 0, 1, SFX_SLUDGE_BOMB
+	anim_bgeffect ANIM_BG_RETURN_MON, $0, $1, $0
+	anim_wait 12
 	anim_obj ANIM_OBJ_MINIMIZE, 48, 110, $0
 	anim_wait 6
 	anim_obj ANIM_OBJ_MINIMIZE, 48, 110, $0
 	anim_wait 6
-    anim_loop 2, .loop
-    anim_sound 0, 1, SFX_SLUDGE_BOMB
-    anim_bgeffect ANIM_BG_RETURN_MON, $0, $1, $0
-    anim_wait 16
+	anim_loop 2, .loop
+	anim_sound 0, 1, SFX_SLUDGE_BOMB
+	anim_bgeffect ANIM_BG_RETURN_MON, $0, $1, $0
+	anim_wait 16
 .mini	
 	anim_obj ANIM_OBJ_MINIMIZE, 48, 110, $0
 	anim_wait 6
 	anim_loop 8, .mini
 	anim_sound 0, 1, SFX_LICK
-    anim_bgeffect ANIM_BG_ENTER_MON, $0, $1, $0
+	anim_bgeffect ANIM_BG_ENTER_MON, $0, $1, $0
 	anim_wait 12
 	anim_ret
 
@@ -3721,6 +3709,7 @@ BattleAnim_Outrage:
 	anim_ret
 
 BattleAnim_Sandstorm:
+BattleAnim_InSandstorm:
 	anim_1gfx ANIM_GFX_POWDER
 	anim_obj ANIM_OBJ_SANDSTORM, 88, 0, $0
 	anim_wait 8
@@ -4459,6 +4448,7 @@ BattleAnim_Twister:
 	anim_ret
 
 BattleAnim_RainDance:
+BattleAnim_InRain:
 	anim_1gfx ANIM_GFX_WATER
 	anim_bgp $f8
 	anim_obp0 $7c
@@ -4472,6 +4462,7 @@ BattleAnim_RainDance:
 	anim_ret
 
 BattleAnim_SunnyDay:
+BattleAnim_InSun:
 	anim_1gfx ANIM_GFX_WATER
 	anim_bgp $90
 	anim_sound 0, 1, SFX_MORNING_SUN

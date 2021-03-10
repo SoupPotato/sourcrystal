@@ -2605,8 +2605,9 @@ BattleAnim_Minimize:
 BattleAnim_SkyAttack:
 	anim_if_param_equal $1, BattleAnim_SkyAttack_branch_c9fb5
 	anim_1gfx ANIM_GFX_SKY_ATTACK
+	anim_bgeffect ANIM_BG_HIDE_MON, $0, $1, $0
 	anim_bgeffect ANIM_BG_27, $0, $1, $0
-	anim_wait 32
+	anim_wait 8
 	anim_sound 0, 0, SFX_HYPER_BEAM
 	anim_obj ANIM_OBJ_SKY_ATTACK, 48, 88, $40
 	anim_wait 64

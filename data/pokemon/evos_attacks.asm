@@ -502,8 +502,8 @@ NidorinoEvosAttacks:
 
 NidokingEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, SCRATCH
-	db 1, TAIL_WHIP
+	db 1, PECK
+	db 1, FOCUS_ENERGY
 	db 1, DOUBLE_KICK
 	db 1, POISON_STING
 	db 36, THRASH
@@ -1655,7 +1655,7 @@ KoffingEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_GAS
 	db 1, TACKLE
-	db 6, SMOG
+	db 5, SMOG
 	db 10, SMOKESCREEN
 	db 14, FAINT_ATTACK
 	db 19, SLUDGE
@@ -1671,7 +1671,7 @@ WeezingEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_GAS
 	db 1, TACKLE
-	db 6, SMOG
+	db 5, SMOG
 	db 10, SMOKESCREEN
 	db 14, FAINT_ATTACK
 	db 19, SLUDGE
@@ -1740,15 +1740,15 @@ TangelaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ABSORB
 	db 1, CONSTRICT
-	db 4, STUN_SPORE
-	db 7, GROWTH
-	db 10, MEGA_DRAIN
-	db 13, BIND
-	db 19, VINE_WHIP
-	db 25, POISONPOWDER
-	db 31, GIGA_DRAIN
-	db 34, SLEEP_POWDER
-	db 40, ANCIENTPOWER
+	db 5, STUN_SPORE
+	db 10, GROWTH
+	db 14, MEGA_DRAIN
+	db 19, BIND
+	db 23, VINE_WHIP
+	db 28, POISONPOWDER
+	db 32, GIGA_DRAIN
+	db 37, SLEEP_POWDER
+	db 41, ANCIENTPOWER
 	db 46, SLAM
 	db 0 ; no more level-up moves
 
@@ -1756,13 +1756,14 @@ KangaskhanEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, COMET_PUNCH
 	db 1, TAIL_WHIP
-	db 7, GROWL
-	db 13, BITE
-	db 19, RAGE
-	db 25, MEGA_PUNCH
-	db 31, DIZZY_PUNCH
-	db 37, CRUNCH
-	db 43, ENDURE
+	db 6, GROWL
+	db 12, BITE
+	db 17, RAGE
+	db 23, MEGA_PUNCH
+	db 28, FOCUS_ENERGY
+	db 34, DIZZY_PUNCH
+	db 39, CRUNCH
+	db 44, ENDURE
 	db 49, REVERSAL
 	db 55, OUTRAGE
 	db 0 ; no more level-up moves

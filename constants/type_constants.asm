@@ -38,8 +38,8 @@ SPECIAL EQU const_value
 	const ELECTRIC
 	const PSYCHIC
 	const ICE
-	const DRAGON
 	const GHOST
+	const DRAGON
 TYPES_END EQU const_value
 
 NUM_TYPES EQU TYPES_END + UNUSED_TYPES - UNUSED_TYPES_END

@@ -2563,7 +2563,7 @@ SpinarakEvosAttacks:
 	db 25, PURSUIT
 	db 29, SPIDER_WEB
 	db 33, AGILITY
-    db 39, PIN_MISSILE
+	db 39, PIN_MISSILE
 	db 45, PSYCHIC_M
 	db 0 ; no more level-up moves
 
@@ -2577,11 +2577,12 @@ AriadosEvosAttacks:
 	db 9, LEECH_LIFE
 	db 13, SCARY_FACE
 	db 17, NIGHT_SHADE
+	db 22, SWORDS_DANCE
 	db 23, FURY_SWIPES
 	db 28, PURSUIT
 	db 32, SPIDER_WEB
 	db 37, AGILITY
-    db 43, PIN_MISSILE
+	db 43, PIN_MISSILE
 	db 50, PSYCHIC_M
 	db 0 ; no more level-up moves
 
@@ -2834,8 +2835,8 @@ HoppipEvosAttacks:
 	db 14, STUN_SPORE
 	db 16, SLEEP_POWDER
 	db 19, GUST
-	db 22, MEGA_DRAIN
-	db 25, LEECH_SEED
+	db 22, LEECH_SEED
+	db 25, MEGA_DRAIN
 	db 28, COTTON_SPORE
 	db 31, AMNESIA
 	db 34, GIGA_DRAIN
@@ -2845,7 +2846,7 @@ HoppipEvosAttacks:
 SkiploomEvosAttacks:
 	db EVOLVE_LEVEL, 27, JUMPLUFF
 	db 0 ; no more evolutions
-    db 1, ABSORB
+	db 1, ABSORB
 	db 1, SPLASH
 	db 4, SYNTHESIS
 	db 7, TAIL_WHIP
@@ -2854,12 +2855,12 @@ SkiploomEvosAttacks:
 	db 14, STUN_SPORE
 	db 16, SLEEP_POWDER
 	db 20, GUST
-	db 24, MEGA_DRAIN
-	db 27, LEECH_SEED
-	db 31, COTTON_SPORE
-	db 35, AMNESIA
-	db 38, GIGA_DRAIN
-	db 42, DOUBLE_EDGE
+	db 24, LEECH_SEED
+	db 28, MEGA_DRAIN
+	db 32, COTTON_SPORE
+	db 36, AMNESIA
+	db 40, GIGA_DRAIN
+	db 44, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 JumpluffEvosAttacks:
@@ -2873,12 +2874,12 @@ JumpluffEvosAttacks:
 	db 14, STUN_SPORE
 	db 16, SLEEP_POWDER
 	db 20, GUST
-	db 23, MEGA_DRAIN
-	db 28, LEECH_SEED
-	db 33, COTTON_SPORE
-	db 38, AMNESIA
-	db 43, GIGA_DRAIN
-	db 48, DOUBLE_EDGE
+	db 24, LEECH_SEED
+	db 29, MEGA_DRAIN
+	db 34, COTTON_SPORE
+	db 39, AMNESIA
+	db 44, GIGA_DRAIN
+	db 49, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 AipomEvosAttacks:

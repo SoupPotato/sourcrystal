@@ -3065,10 +3065,12 @@ GirafarigEvosAttacks:
 	db 1, STOMP
 	db 7, CONFUSION
 	db 13, STOMP
-	db 20, AGILITY
-	db 30, BATON_PASS
-	db 41, PSYBEAM
-	db 54, CRUNCH
+	db 19, PSYBEAM
+	db 25, AGILITY
+	db 31, DOUBLE_KICK
+	db 37, BATON_PASS
+	db 43, PSYCHIC_M
+	db 49, CRUNCH
 	db 0 ; no more level-up moves
 
 PinecoEvosAttacks:
@@ -3100,6 +3102,7 @@ ForretressEvosAttacks:
 	db 38, EXPLOSION
 	db 44, ENDURE
 	db 50, DOUBLE_EDGE
+	db 56, ZAP_CANNON
 	db 0 ; no more level-up moves
 
 DunsparceEvosAttacks:
@@ -3223,11 +3226,14 @@ ShuckleEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, CONSTRICT
 	db 1, WITHDRAW
-	db 9, WRAP
-	db 14, ENCORE
-	db 23, SAFEGUARD
-	db 28, BIDE
-	db 37, REST
+	db 6, BIDE
+	db 12, ROLLOUT
+	db 16, ENCORE
+	db 21, WRAP
+	db 27, ROCK_THROW
+	db 31, SAFEGUARD
+	db 36, REST
+	db 42, ROCK_SLIDE
 	db 0 ; no more level-up moves
 
 HeracrossEvosAttacks:
@@ -3665,7 +3671,7 @@ RaikouEvosAttacks:
 	db 36, REFLECT
 	db 43, CRUNCH
 	db 50, THUNDERBOLT
-	db 57, PSYCHIC
+	db 57, PSYCHIC_M
 	db 64, RAIN_DANCE
 	db 71, AMNESIA
 	db 78, THUNDER
@@ -3682,7 +3688,7 @@ EnteiEvosAttacks:
 	db 36, FLAME_WHEEL
 	db 43, SWAGGER
 	db 50, FLAMETHROWER
-	db 57, PSYCHIC
+	db 57, PSYCHIC_M
 	db 64, SUNNY_DAY
 	db 71, AMNESIA
 	db 78, FIRE_BLAST
@@ -3699,7 +3705,7 @@ SuicuneEvosAttacks:
 	db 36, MIST
 	db 43, MIRROR_COAT
 	db 50, ICE_BEAM
-	db 57, PSYCHIC
+	db 57, PSYCHIC_M
 	db 64, HYDRO_PUMP
 	db 71, AMNESIA
 	db 78, BLIZZARD

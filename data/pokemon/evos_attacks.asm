@@ -3360,7 +3360,7 @@ PiloswineEvosAttacks:
 	db 30, MIST
 	db 33, FURY_ATTACK
 	db 36, EARTHQUAKE
-	db 43, FLAIL
+	db 43, THRASH
 	db 51, BLIZZARD
 	db 57, AMNESIA
 	db 0 ; no more level-up moves
@@ -3368,13 +3368,16 @@ PiloswineEvosAttacks:
 CorsolaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 7, HARDEN
-	db 13, BUBBLE
-	db 19, RECOVER
-	db 25, BUBBLEBEAM
-	db 31, SPIKE_CANNON
-	db 37, MIRROR_COAT
-	db 43, ANCIENTPOWER
+	db 6, HARDEN
+	db 12, BUBBLE
+	db 17, RECOVER
+	db 17, ENDURE
+	db 23, BUBBLEBEAM
+	db 28, BARRIER
+	db 34, ANCIENTPOWER
+	db 39, SPIKE_CANNON
+	db 45, MIRROR_COAT
+	db 50, FLAIL
 	db 0 ; no more level-up moves
 
 RemoraidEvosAttacks:

@@ -354,7 +354,7 @@ ElmAfterTheftScript:
 	closetext
 	setscene SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS
 	end
-	
+
 .JumpstdReceiveItem:
 	jumpstd receiveitem
 	end
@@ -1035,13 +1035,13 @@ ElmAfterTheftText5:
 	para "The closest GYM"
 	line "would be the one"
 	cont "in VIOLET CITY."
-	
+
 	para "So, to start your"
 	line "journey…"
-	
+
 	para "I would like you"
 	line "to have this."
-	
+
 	para "Consider it my"
 	line "thanks for bring-"
 	cont "ing me the EGG."
@@ -1059,7 +1059,7 @@ ElmAfterTheftText6:
 	line "make sure that you"
 	cont "talk to your mom."
 	done
-	
+
 ElmAfterTheftText7:
 	text "That's the latest"
 	line "#GEAR card."
@@ -1068,12 +1068,12 @@ ElmAfterTheftText7:
 	line "PAGER SYSTEM."
 
 	para "Or PPS for short."
-	
+
 	para "It allows you to"
-	line "call on special"	
+	line "call on special"
 	cont "#MON to aid you"
 	cont "on your travels."
-	
+
 	para "But you need a"
 	line "PAGER to use it"
 	cont "first."
@@ -1411,7 +1411,7 @@ ElmsLabPCText:
 	para "…It says on the"
 	line "screen…"
 	done
-	
+
 GotPagerCardText:
 	text "<PLAYER>'s #GEAR"
 	line "now has a PPS!"

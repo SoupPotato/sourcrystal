@@ -17,7 +17,7 @@ Route44_MapScripts:
 
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .Fruittrees
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE44_BERRY
@@ -25,7 +25,7 @@ Route44_MapScripts:
 	appear ROUTE44_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE44_APRICORN
 	iftrue .NoApricorn
@@ -333,11 +333,11 @@ Route44BerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route44ApricornTree:
 	opentext
 	writetext Route44ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route44HeyItsApricornText
 	buttonsound
 	verbosegiveitem RED_APRICORN
@@ -563,7 +563,7 @@ Route44Sign2Text:
 	para "MAHOGANY TOWN -"
 	line "BLACKTHORN CITY"
 	done
-	
+
 Route44BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -582,7 +582,7 @@ Route44ApricornTreeText:
 Route44HeyItsApricornText:
 	text "Hey! It's"
 	line "RED APRICORN!"
-	done	
+	done
 
 Route44NothingHereText:
 	text "There's nothing"

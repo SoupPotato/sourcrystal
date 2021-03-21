@@ -7,19 +7,19 @@ SeafoamIslandsB3F_MapScripts:
 	db 0 ; scene scripts
 
 	db 0 ; callbacks
-	
+
 SeafoamIslandsB3FHiddenMaxRevive:
 	hiddenitem MAX_REVIVE, EVENT_SEAFOAM_ISLANDS_B3F_HIDDEN_MAX_REVIVE
-	
+
 SeafoamIslandsB3FHiddenRareCandy:
 	hiddenitem RARE_CANDY, EVENT_SEAFOAM_ISLANDS_B3F_HIDDEN_RARE_CANDY
 
 SeafoamIslandsB3FBigPearl:
 	itemball BIG_PEARL
-	
+
 SeafoamIslandsB3FRevive:
 	itemball REVIVE
-	
+
 SeafoamIslandsB3FBoulder:
 	jumpstd strengthboulder
 
@@ -30,7 +30,7 @@ SeafoamIslandsB3F_MapEvents:
 	warp_event 35, 19, SEAFOAM_ISLANDS_B2F, 5
 	warp_event  5, 21, SEAFOAM_ISLANDS_B2F, 6
 	warp_event 35, 11, SEAFOAM_ISLANDS_B2F, 7
-	warp_event 21, 12, SEAFOAM_ISLANDS_B2F, 8	
+	warp_event 21, 12, SEAFOAM_ISLANDS_B2F, 8
 	warp_event 37, 17, SEAFOAM_ISLANDS_B4F, 1
 	warp_event 29, 19, SEAFOAM_ISLANDS_B4F, 2
 	warp_event 27,  3, SEAFOAM_ISLANDS_B4F, 3

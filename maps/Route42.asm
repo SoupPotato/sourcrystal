@@ -22,7 +22,7 @@ Route42_MapScripts:
 
 .DummyScene1:
 	end
-	
+
 .Fruittrees
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE42_APRICORN
@@ -30,14 +30,14 @@ Route42_MapScripts:
 	appear ROUTE42_APRICORN
 .NoApricorn:
 	;return
-	
+
 .Apricorn2:
 	checkflag ENGINE_DAILY_ROUTE42_APRICORN2
 	iftrue .NoApricorn2
 	appear ROUTE42_APRICORN2
 .NoApricorn2:
 	;return
-	
+
 .Apricorn3:
 	checkflag ENGINE_DAILY_ROUTE42_APRICORN3
 	iftrue .NoApricorn3
@@ -226,7 +226,7 @@ Route42SuperPotion:
 Route42ApricornTree:
 	opentext
 	writetext Route42ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route42HeyItsApricornText
 	buttonsound
 	verbosegiveitem PNK_APRICORN
@@ -240,7 +240,7 @@ Route42ApricornTree:
 Route42Apricorn2Tree:
 	opentext
 	writetext Route42ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route42HeyItsApricorn2Text
 	buttonsound
 	verbosegiveitem GRN_APRICORN
@@ -250,11 +250,11 @@ Route42Apricorn2Tree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route42Apricorn3Tree:
 	opentext
 	writetext Route42ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route42HeyItsApricorn3Text
 	buttonsound
 	verbosegiveitem YLW_APRICORN
@@ -380,7 +380,7 @@ Route42Sign2Text:
 	para "ECRUTEAK CITY -"
 	line "MAHOGANY TOWN"
 	done
-	
+
 Route42ApricornTreeText:
 	text "It's an"
 	line "APRICORN tree…"
@@ -389,13 +389,13 @@ Route42ApricornTreeText:
 Route42HeyItsApricornText:
 	text "Hey! It's"
 	line "PNK APRICORN!"
-	done	
-	
+	done
+
 Route42HeyItsApricorn2Text:
 	text "Hey! It's"
 	line "GRN APRICORN!"
 	done
-	
+
 Route42HeyItsApricorn3Text:
 	text "Hey! It's"
 	line "YLW APRICORN!"

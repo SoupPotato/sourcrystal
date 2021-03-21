@@ -1466,7 +1466,7 @@ ScriptCall:
 ; space.
 ; SOUP UPDATE: Bug has been fixed.
 
-    ld hl, wScriptStackSize
+	ld hl, wScriptStackSize
 	ld a, [hl]
 	cp 5
 	ret nc
@@ -2850,7 +2850,7 @@ Script_checksave:
 
 .byte
 	db 0
-	
+
 AppendTMHMMoveName::
 ; a = item ID
 	ld a, [wNamedObjectIndexBuffer]

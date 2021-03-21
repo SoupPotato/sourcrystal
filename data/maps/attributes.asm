@@ -241,7 +241,7 @@ ENDM
 	map_attributes Route2South, ROUTE_2_SOUTH, $0f, NORTH | SOUTH
 	connection north, Route2North, ROUTE_2_NORTH, 0
 	connection south, ViridianCity, VIRIDIAN_CITY, -5
-	
+
 	map_attributes Route2North, ROUTE_2_NORTH, $0f, NORTH | SOUTH
 	connection north, PewterCity, PEWTER_CITY, -5
 	connection south, Route2South, ROUTE_2_SOUTH, 0

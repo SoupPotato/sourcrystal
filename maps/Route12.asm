@@ -21,7 +21,7 @@ TrainerFisherKyle:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerFisherKyler:
 	trainer FISHER, KYLER, EVENT_BEAT_FISHER_KYLER, FisherKylerSeenText, FisherKylerBeatenText, 0, .Script
 
@@ -65,7 +65,7 @@ TrainerFisherBarney:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBirdKeeperJacob:
 	trainer BIRD_KEEPER, JACOB, EVENT_BEAT_BIRD_KEEPER_JACOB, TrainerBirdKeeperJacobSeenText, TrainerBirdKeeperJacobBeatenText, 0, .Script
 
@@ -76,7 +76,7 @@ TrainerBirdKeeperJacob:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBirdKeeperGail:
 	trainer BIRD_KEEPER, GAIL, EVENT_BEAT_BIRD_KEEPER_GAIL, TrainerBirdKeeperGailSeenText, TrainerBirdKeeperGailBeatenText, 0, .Script
 
@@ -98,7 +98,7 @@ TrainerCoupleVicandTara1:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerCoupleVicandTara2:
 	trainer COUPLE, VICANDTARA2, EVENT_BEAT_COUPLE_VICANDTARA, TrainerCoupleVicandTaraSeenText, TrainerCoupleVicandTaraBeatenText, 0, .Script
 
@@ -159,7 +159,7 @@ FisherStephenAfterBattleText:
 	para "programs? We get a"
 	line "good variety here."
 	done
-	
+
 FisherKyleSeenText:
 	text "Do you remember?"
 	done
@@ -241,7 +241,7 @@ TrainerBirdKeeperJacobAfterBattleText:
 	line "changed, I'll lay"
 	cont "low…"
 	done
-	
+
 TrainerBirdKeeperGailSeenText:
 	text "BASABASABASABASA!"
 	done
@@ -254,12 +254,12 @@ TrainerBirdKeeperGailAfterBattleText:
 	text "Chuun-Chuun?"
 	line "Chunchun!"
 	done
-	
+
 TrainerCoupleVicandTaraSeenText:
 	text "VIC: All right!"
 	line "I'll be able to"
 	cont "show off for TARA!"
-	
+
 	para "TARA: I love to"
 	line "look at my boy-"
 	cont "friend's face in"
@@ -270,7 +270,7 @@ TrainerCoupleVicandTaraSeenText:
 TrainerCoupleVicandTaraBeatenText:
 	text "VIC: Oh no,"
 	line "my plans!"
-	
+
 	para "TARA: Oh no,"
 	line "oh no…"
 	done
@@ -280,11 +280,11 @@ TrainerCoupleVicandTara1AfterBattleText:
 	line "already seen me"
 	cont "humiliated…"
 	done
-	
+
 TrainerCoupleVicandTara2AfterBattleText:
 	text "TARA: Even though"
 	line "my boyfriend lost,"
-	
+
 	para "he's still"
 	line "wonderful."
 	done

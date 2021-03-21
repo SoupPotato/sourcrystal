@@ -13,7 +13,7 @@ YellowForestGateOfficerText:
 	text "There are rare"
 	line "#MON in"
 	cont "YELLOW FOREST!"
-	
+
 	para "Don't forget to"
 	line "bring # BALLS!"
 	done

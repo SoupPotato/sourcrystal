@@ -22,7 +22,7 @@ Route47HiddenPearl:
 
 Route47HiddenStardust:
 	hiddenitem STARDUST, EVENT_ROUTE_47_HIDDEN_STARDUST
-	
+
 GenericTrainerHikerDevin:
 	trainer HIKER, DEVIN, EVENT_BEAT_HIKER_DEVIN, HikerDevinSeenText, HikerDevinBeatenText, 0, .Script
 
@@ -33,14 +33,14 @@ GenericTrainerHikerDevin:
 	waitbutton
 	closetext
 	end
-	
+
 HikerDevinAfterBattleText:
 	text "After a battle,"
 	line "you should always"
-	para "leave with a" 
+	para "leave with a"
 	line "parting laugh!"
 	done
-	
+
 HikerDevinSeenText:
 	text "Longing for"
 	line "others is…"
@@ -50,11 +50,11 @@ HikerDevinSeenText:
 	line "battles,"
 	cont "so let's go!"
 	done
-	
+
 HikerDevinBeatenText:
 	text "Wah ha ha!"
 	done
-	
+
 GenericTrainerCamperGrant:
 	trainer CAMPER, GRANT, EVENT_BEAT_CAMPER_GRANT, CamperGrantSeenText, CamperGrantBeatenText, 0, .Script
 
@@ -65,18 +65,18 @@ GenericTrainerCamperGrant:
 	waitbutton
 	closetext
 	end
-	
+
 CamperGrantAfterBattleText:
 	text "See ya!"
 	done
-	
+
 CamperGrantSeenText:
 	text "I'm not good with"
 	line "crowds, so I'm"
 	cont "camping out here"
 	cont "with my #MON!"
 	done
-	
+
 CamperGrantBeatenText:
 	text "I should head"
 	line "deeper into the"
@@ -102,7 +102,7 @@ CoolDuoThomandkae1AfterBattleText:
 
 GenericTrainerCoolDuoThomandkae2:
 	trainer COOL_DUO, THOMANDKAE2, EVENT_BEAT_COOL_DUO_THOM_AND_KAE, CoolDuoThomandkaeSeenText, CoolDuoThomandkaeBeatenText, 0, .Script
-	
+
 .Script:
 	endifjustbattled
 	opentext
@@ -118,14 +118,14 @@ CoolDuoThomandkae2AfterBattleText:
 	para "lone trainer."
 	line "Boy, was I wrong!"
 	done
-	
+
 CoolDuoThomandkaeSeenText:
 	text "THOM: One plus one"
 	line "is two. But the"
 
 	para "two of us together"
 	line "is much stronger!"
-	
+
 	para "KAE: The two of us"
 	line "aren't just some"
 	cont "boring pair!"
@@ -134,12 +134,11 @@ CoolDuoThomandkaeSeenText:
 CoolDuoThomandkaeBeatenText:
 	text "THOM: That wasn't"
 	line "what I expected…"
-	
+
 	para "KAE: You're"
 	line "unusual, too!"
 	done
 
-	
 GenericTrainerCoupleDuffandeda1:
 	trainer COUPLE, DUFFANDEDA1, EVENT_BEAT_COUPLE_DUFF_AND_EDA, CoupleDuffandeadSeenText, CoupleDuffandeadBeatenText, 0, .Script
 
@@ -158,7 +157,7 @@ CoupleDuffandead1AfterBattleText:
 
 GenericTrainerCoupleDuffandeda2:
 	trainer COUPLE, DUFFANDEDA2, EVENT_BEAT_COUPLE_DUFF_AND_EDA, CoupleDuffandeadSeenText, CoupleDuffandeadBeatenText, 0, .Script
-	
+
 .Script:
 	endifjustbattled
 	opentext
@@ -171,14 +170,14 @@ CoupleDuffandead2AfterBattleText:
 	text "EDA: You're really"
 	line "something…"
 	done
-	
+
 CoupleDuffandeadSeenText:
 	text "DUFF: Watching"
 	line "over my girlfriend"
 
 	para "makes my heart"
 	line "soar!"
-	
+
 	para "EDA: My feelings"
 	line "for my boyfriend"
 
@@ -190,7 +189,7 @@ CoupleDuffandeadBeatenText:
 	text "DUFF: Thank you"
 	line "for the awe-"
 	cont "inspiring battle!"
-	
+
 	para "EDA: You should"
 	line "find a wonderful"
 	cont "partner, too."

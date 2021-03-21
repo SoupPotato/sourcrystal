@@ -1325,7 +1325,7 @@ GrimerEvosAttacks:
 	db 40, SLUDGE_BOMB
 	db 45, TOXIC
 	db 0 ; no more level-up moves
-	
+
 MukEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_GAS
@@ -1789,7 +1789,7 @@ SeadraEvosAttacks:
 	db EVOLVE_ITEM, DRAGON_SCALE, KINGDRA
 	db EVOLVE_TRADE, DRAGON_SCALE, KINGDRA
 	db 0 ; no more evolutions
-    db 1, BUBBLE
+	db 1, BUBBLE
 	db 1, LEER
 	db 1, SMOKESCREEN
 	db 7, SMOKESCREEN
@@ -1869,7 +1869,7 @@ MrMimeEvosAttacks:
 	db 9, MEDITATE
 	db 13, DOUBLESLAP
 	db 17, MIMIC
-    db 17, PSYWAVE
+	db 17, PSYWAVE
 	db 21, LIGHT_SCREEN
 	db 21, REFLECT
 	db 25, PSYBEAM
@@ -1923,7 +1923,7 @@ ElectabuzzEvosAttacks:
 	db 14, SWIFT
 	db 19, THUNDER_WAVE
 	db 25, THUNDERPUNCH
-	db 32, LIGHT_SCREEN 
+	db 32, LIGHT_SCREEN
 	db 41, THUNDERBOLT
 	db 47, SCREECH
 	db 56, THUNDER
@@ -2447,7 +2447,7 @@ FeraligatrEvosAttacks:
 	db 7, RAGE
 	db 13, WATER_GUN
 	db 21, BITE
-	db 28, SCARY_FACE 
+	db 28, SCARY_FACE
 	db 30, AGILITY
 	db 32, CRUNCH
 	db 38, SLASH

@@ -23,7 +23,7 @@ Route35_MapScripts:
 
 .DummyScene1:
 	end
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE35_BERRY
@@ -31,7 +31,7 @@ Route35_MapScripts:
 	appear ROUTE35_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE35_APRICORN
 	iftrue .NoApricorn
@@ -307,11 +307,11 @@ Route35BerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route35ApricornTree:
 	opentext
 	writetext Route35ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route35HeyItsApricornText
 	buttonsound
 	verbosegiveitem GRN_APRICORN
@@ -525,7 +525,7 @@ OfficerDirkPrettyToughText:
 Route35SignText:
 	text "ROUTE 35"
 	done
-	
+
 Route35BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -544,7 +544,7 @@ Route35ApricornTreeText:
 Route35HeyItsApricornText:
 	text "Hey! It's"
 	line "GRN APRICORN!"
-	done	
+	done
 
 Route35NothingHereText:
 	text "There's nothing"

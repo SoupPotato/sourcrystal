@@ -389,7 +389,7 @@ SpriteAnimOAMData:
 	dsprite -1,  0,  0,  0, $05, -1
 	dsprite  0,  0, -1,  0, $09, PAL_ICON_RED
 	dsprite  0,  0,  0,  0, $07, -1
-	
+
 .OAMData_PartyMon:
 	db 4
 	dsprite -1,  0, -1,  0, $00, -1

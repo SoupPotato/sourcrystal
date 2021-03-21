@@ -109,7 +109,7 @@ KantoGrassWildMons:
 	db 15, MAROWAK
 	db 15, KANGASKHAN
 	db 15, KANGASKHAN
-	
+
 	map_id CERULEAN_CAVE_1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
@@ -136,7 +136,7 @@ KantoGrassWildMons:
 	db 40, DITTO
 	db 40, ELECTRODE
 	db 37, WOBBUFFET
-	
+
 	map_id CERULEAN_CAVE_2F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
@@ -163,7 +163,7 @@ KantoGrassWildMons:
 	db 42, DITTO
 	db 41, ELECTRODE
 	db 42, WOBBUFFET
-	
+
 	map_id CERULEAN_CAVE_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
@@ -190,7 +190,7 @@ KantoGrassWildMons:
 	db 45, DITTO
 	db 46, ELECTRODE
 	db 49, WOBBUFFET
-	
+
 	map_id VIRIDIAN_FOREST
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
@@ -217,7 +217,7 @@ KantoGrassWildMons:
 	db 7, PIKACHU
 	db 7, NOCTOWL
 	db 7, NOCTOWL
-	
+
 	map_id SEAFOAM_ISLANDS
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
@@ -244,7 +244,7 @@ KantoGrassWildMons:
 	db 26, ZUBAT
 	db 32, GOLDUCK
 	db 32, GOLDUCK
-	
+
 	map_id SEAFOAM_ISLANDS_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
@@ -271,7 +271,7 @@ KantoGrassWildMons:
 	db 34, GOLDUCK
 	db 28, ZUBAT
 	db 29, ZUBAT
-	
+
 	map_id SEAFOAM_ISLANDS_B2F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
@@ -298,7 +298,7 @@ KantoGrassWildMons:
 	db 35, GOLDUCK
 	db 29, ZUBAT
 	db 30, ZUBAT
-	
+
 	map_id SEAFOAM_ISLANDS_B3F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
@@ -325,7 +325,7 @@ KantoGrassWildMons:
 	db 34, SEEL
 	db 32, ZUBAT
 	db 32, ZUBAT
-	
+
 	map_id SEAFOAM_ISLANDS_B4F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
@@ -433,7 +433,7 @@ KantoGrassWildMons:
 	db 6, RATICATE
 	db 4, HOOTHOOT
 	db 4, HOOTHOOT
-	
+
 	map_id ROUTE_2_NORTH
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
@@ -757,7 +757,7 @@ KantoGrassWildMons:
 	db 25, QUAGSIRE
 	db 25, QUAGSIRE
 	db 25, CHANSEY
-	
+
 	map_id ROUTE_13
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn

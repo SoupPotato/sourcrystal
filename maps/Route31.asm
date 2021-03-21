@@ -15,14 +15,14 @@ Route31_MapScripts:
 	callback MAPCALLBACK_NEWMAP, .CheckMomCall
 	callback MAPCALLBACK_OBJECTS, .Fruittrees
 
-.Fruittrees:	
+.Fruittrees:
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE31_BERRY
 	iftrue .NoBerry
 	appear ROUTE31_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE31_APRICORN
 	iftrue .NoApricorn
@@ -290,7 +290,7 @@ Route31BerryTree:
 Route31ApricornTree:
 	opentext
 	writetext Route31ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route31HeyItsApricornText
 	buttonsound
 	verbosegiveitem BLK_APRICORN
@@ -474,7 +474,7 @@ Route31SignText:
 DarkCaveSignText:
 	text "DARK CAVE"
 	done
-	
+
 Route31BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"

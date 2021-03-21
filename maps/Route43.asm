@@ -25,7 +25,7 @@ Route43_MapScripts:
 .NoRockets:
 	setmapscene ROUTE_43_GATE, SCENE_FINISHED
 	return
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE43_BERRY
@@ -33,7 +33,7 @@ Route43_MapScripts:
 	appear ROUTE43_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE43_APRICORN
 	iftrue .NoApricorn
@@ -346,11 +346,11 @@ Route43BerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route43ApricornTree:
 	opentext
 	writetext Route43ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route43HeyItsApricornText
 	buttonsound
 	verbosegiveitem BLK_APRICORN
@@ -557,7 +557,7 @@ Route43TrainerTipsText:
 	para "weak against your"
 	line "#MON's type."
 	done
-	
+
 Route43BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -576,7 +576,7 @@ Route43ApricornTreeText:
 Route43HeyItsApricornText:
 	text "Hey! It's"
 	line "BLK APRICORN!"
-	done	
+	done
 
 Route43NothingHereText:
 	text "There's nothing"

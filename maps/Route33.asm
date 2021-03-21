@@ -10,22 +10,22 @@ Route33_MapScripts:
 
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .Fruittrees
-	
-.Fruittrees:	
+
+.Fruittrees:
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE33_BERRY
 	iftrue .NoBerry
 	appear ROUTE33_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE33_APRICORN
 	iftrue .NoApricorn
 	appear ROUTE33_APRICORN
 .NoApricorn:
 	;return
-	
+
 .Apricorn2:
 	checkflag ENGINE_DAILY_ROUTE33_APRICORN2
 	iftrue .NoApricorn2
@@ -177,11 +177,11 @@ Route33BerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route33ApricornTree:
 	opentext
 	writetext Route33ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route33HeyItsApricornText
 	buttonsound
 	verbosegiveitem BLK_APRICORN
@@ -191,11 +191,11 @@ Route33ApricornTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route33ApricornTree2:
 	opentext
 	writetext Route33ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route33HeyItsApricorn2Text
 	buttonsound
 	verbosegiveitem PNK_APRICORN
@@ -273,7 +273,7 @@ Route33LassText:
 Route33SignText:
 	text "ROUTE 33"
 	done
-	
+
 Route33BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -293,7 +293,7 @@ Route33HeyItsApricornText:
 	text "Hey! It's"
 	line "BLK APRICORN!"
 	done
-	
+
 Route33HeyItsApricorn2Text:
 	text "Hey! It's"
 	line "PNK APRICORN!"

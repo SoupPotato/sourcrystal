@@ -15,7 +15,7 @@ FuchsiaCity_MapScripts:
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_FUCHSIA
 	return
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_FUCHSIA_BERRY
@@ -23,7 +23,7 @@ FuchsiaCity_MapScripts:
 	appear FUCHSIACITY_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_FUCHSIA_APRICORN
 	iftrue .NoApricorn
@@ -77,11 +77,11 @@ FuchsiaBerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 FuchsiaApricornTree:
 	opentext
 	writetext FuchsiaApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext FuchsiaHeyItsApricornText
 	buttonsound
 	verbosegiveitem RED_APRICORN
@@ -181,7 +181,7 @@ NoLitteringSignText:
 	para "Please take your"
 	line "waste with you."
 	done
-	
+
 FuchsiaBerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -200,13 +200,13 @@ FuchsiaApricornTreeText:
 FuchsiaHeyItsApricornText:
 	text "Hey! It's"
 	line "RED APRICORN!"
-	done	
+	done
 
 FuchsiaNothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
-	
+
 FuchsiaCity_MapEvents:
 	db 0, 0 ; filler
 

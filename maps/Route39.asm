@@ -16,7 +16,7 @@ Route39_MapScripts:
 
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .Fruittrees
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE39_BERRY
@@ -24,7 +24,7 @@ Route39_MapScripts:
 	appear ROUTE39_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE39_APRICORN
 	iftrue .NoApricorn
@@ -204,11 +204,11 @@ Route39BerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route39ApricornTree:
 	opentext
 	writetext Route39ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route39HeyItsApricornText
 	buttonsound
 	verbosegiveitem GRN_APRICORN
@@ -400,7 +400,7 @@ Route39TrainerTipsText:
 	para "Use HEADBUTT on"
 	line "any tree you see!"
 	done
-	
+
 Route39BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -419,7 +419,7 @@ Route39ApricornTreeText:
 Route39HeyItsApricornText:
 	text "Hey! It's"
 	line "GRN APRICORN!"
-	done	
+	done
 
 Route39NothingHereText:
 	text "There's nothing"

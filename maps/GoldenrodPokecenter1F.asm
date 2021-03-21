@@ -15,7 +15,7 @@ GoldenrodPokecenter1F_MapScripts:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .gsball
 	end
-	
+
 .gsball
 	checkevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
 	iftrue .nope

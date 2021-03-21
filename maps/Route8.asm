@@ -12,7 +12,7 @@ Route8_MapScripts:
 
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .Fruittrees
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE8_BERRY
@@ -20,7 +20,7 @@ Route8_MapScripts:
 	appear ROUTE8_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE8_APRICORN
 	iftrue .NoApricorn
@@ -135,11 +135,11 @@ Route8BerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route8ApricornTree:
 	opentext
 	writetext Route8ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route8HeyItsApricornText
 	buttonsound
 	verbosegiveitem YLW_APRICORN
@@ -251,30 +251,30 @@ SupernerdTomAfterBattleText:
 	line "you advantages in"
 	cont "battles."
 	done
-	
+
 TrainerCoupleMoeandLuluSeenText:
 	text "MOE: Do I look"
 	line "weak?"
 
 	para "Don't make me"
 	line "laugh!"
-	
+
 	para "When I'm with"
 	line "LULU, I've got a"
-	
+
 	para "hundred times more"
 	line "courage!"
-	
+
 	para "LULU: MOE and I"
 	line "make a great pair!"
-	
+
 	para "You should prepare"
 	line "yourself!"
 	done
 
 TrainerCoupleMoeandLuluBeatenText:
 	text "MOE: Uwaaaahhh…"
-	
+
 	para "LULU: Eeek!"
 	done
 
@@ -283,18 +283,18 @@ TrainerCoupleMoeandLulu1AfterBattleText:
 	line "you're just too"
 	cont "strong…"
 	done
-	
+
 TrainerCoupleMoeandLulu2AfterBattleText:
 	text "LULU: Don't mis-"
 	line "understand this!"
-	
+
 	para "It's not that"
 	line "MOE's weak,"
-	
+
 	para "it's that you're"
 	line "too strong!"
 	done
-	
+
 GentlemanMiltonSeenText:
 	text "I am but a"
 	line "Gentleman stopped"
@@ -314,11 +314,10 @@ GentlemanMiltonAfterBattleText:
 	text "Stopping in the"
 	line "road for a battle"
 	cont "isn't rude."
-	
+
 	para "No matter what,"
 	line "I am a Gentleman"
 	cont "first!"
-	
 	done
 
 Route8LockedDoorText:
@@ -331,7 +330,7 @@ Route8UndergroundPathSignText:
 	para "It's impossible to"
 	line "read…"
 	done
-	
+
 Route8BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -350,7 +349,7 @@ Route8ApricornTreeText:
 Route8HeyItsApricornText:
 	text "Hey! It's"
 	line "YLW APRICORN!"
-	done	
+	done
 
 Route8NothingHereText:
 	text "There's nothing"

@@ -14,14 +14,14 @@ Route11GateOfficerText:
 
 	para "Have you seen"
 	line "DIGLETTS CAVE?"
-	
+
 	para "You can go"
 	line "through it to get"
 	cont "to ROUTE 2!"
-	
+
 	para "That is,"
 	line "if somthing isn't"
-	
+
 	para "blocking the"
 	line "entrance…"
 

@@ -7,13 +7,13 @@ Route21_MapScripts:
 	db 0 ; scene scripts
 
 	db 0 ; callbacks
-	
+
 Route21HiddenStarDust1:
 	hiddenitem STARDUST, EVENT_ROUTE21_HIDDEN_STARDUST1
-	
+
 Route21HiddenStarDust2:
 	hiddenitem STARDUST, EVENT_ROUTE21_HIDDEN_STARDUST2
-	
+
 Route21HiddenStarDust3:
 	hiddenitem STARDUST, EVENT_ROUTE21_HIDDEN_STARDUST3
 
@@ -27,7 +27,7 @@ TrainerSwimmermSeth:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmermEsteban:
 	trainer SWIMMERM, ESTEBAN, EVENT_BEAT_SWIMMERM_ESTEBAN, SwimmermEstebanSeenText, SwimmermEstebanBeatenText, 0, .Script
 
@@ -38,7 +38,7 @@ TrainerSwimmermEsteban:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmermDuane:
 	trainer SWIMMERM, DUANE, EVENT_BEAT_SWIMMERM_DUANE, SwimmermDuaneSeenText, SwimmermDuaneBeatenText, 0, .Script
 
@@ -49,7 +49,7 @@ TrainerSwimmermDuane:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmerfNikki:
 	trainer SWIMMERF, NIKKI, EVENT_BEAT_SWIMMERF_NIKKI, SwimmerfNikkiSeenText, SwimmerfNikkiBeatenText, 0, .Script
 
@@ -60,7 +60,7 @@ TrainerSwimmerfNikki:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmerfChelan:
 	trainer SWIMMERF, CHELAN, EVENT_BEAT_SWIMMERF_CHELAN, SwimmerfChelanSeenText, SwimmerfChelanBeatenText, 0, .Script
 
@@ -93,7 +93,7 @@ TrainerFisherArnold:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerFisherMurphy:
 	trainer FISHER, MURPHY, EVENT_BEAT_FISHER_MURPHY, FisherMurphySeenText, FisherMurphyBeatenText, 0, .Script
 
@@ -104,7 +104,7 @@ TrainerFisherMurphy:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerFisherLiam:
 	trainer FISHER, LIAM, EVENT_BEAT_FISHER_LIAM, FisherLiamSeenText, FisherLiamBeatenText, 0, .Script
 
@@ -115,7 +115,7 @@ TrainerFisherLiam:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerFisherGideon:
 	trainer FISHER, GIDEON, EVENT_BEAT_FISHER_GIDEON, FisherGideonSeenText, FisherGideonBeatenText, 0, .Script
 
@@ -126,7 +126,7 @@ TrainerFisherGideon:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBirdkeeperKinsley:
 	trainer BIRD_KEEPER, KINSLEY, EVENT_BEAT_BIRD_KEEPER_KINSLEY, BirdkeeperKinsleySeenText, BirdkeeperKinsleyBeatenText, 0, .Script
 
@@ -136,8 +136,8 @@ TrainerBirdkeeperKinsley:
 	writetext BirdkeeperKinsleyAfterBattleText
 	waitbutton
 	closetext
-	end	
-	
+	end
+
 TrainerBirdkeeperEaston:
 	trainer BIRD_KEEPER, EASTON, EVENT_BEAT_BIRD_KEEPER_EASTON, BirdkeeperEastonSeenText, BirdkeeperEastonBeatenText, 0, .Script
 
@@ -147,7 +147,7 @@ TrainerBirdkeeperEaston:
 	writetext BirdkeeperEastonAfterBattleText
 	waitbutton
 	closetext
-	end	
+	end
 
 SwimmermSethSeenText:
 	text "Land ho! Gotta"
@@ -163,14 +163,14 @@ SwimmermSethAfterBattleText:
 	line "was at CINNABAR's"
 	cont "volcano."
 	done
-	
+
 SwimmermEstebanSeenText:
 	text "The teacher from"
 	line "swimming class"
-	
+
 	para "where I learned"
 	line "to swim had a"
-	
+
 	para "face just like"
 	line "a POLIWHIRL."
 	done
@@ -183,17 +183,17 @@ SwimmermEstebanBeatenText:
 SwimmermEstebanAfterBattleText:
 	text "Due to the incre-"
 	line "dible resemblance,"
-	
+
 	para "we called"
 	line "our teacher "
 	cont "PROF. POLIWHIRL!"
 	done
-	
+
 SwimmermDuaneSeenText:
 	text "Swimming is"
 	line "a full-body"
 	cont "exercise,"
-	
+
 	para "so it's really"
 	line "good for building"
 	cont "strength!"
@@ -227,13 +227,13 @@ SwimmerfNikkiAfterBattleText:
 	line "out for blemishes"
 	cont "caused by the sun."
 	done
-	
+
 SwimmerfChelanSeenText:
 	text "I love bikinis!"
-	
+
 	para "If I had an"
 	line "electric bikini,"
-	
+
 	para "I could wear it"
 	line "even in winter!"
 	done
@@ -245,16 +245,16 @@ SwimmerfChelanBeatenText:
 SwimmerfChelanAfterBattleText:
 	text "I suppose if you"
 	line "tried to swim"
-	
+
 	para "in an electric"
 	line "bikini, you'd"
 	cont "get a shock!"
 	done
-	
+
 SwimmerfKaidynSeenText:
 	text "Hey, Trainer!"
 	line "How about you put"
-	
+
 	para "on a swimsuit,"
 	line "too!"
 	done
@@ -267,7 +267,7 @@ SwimmerfKaidynBeatenText:
 SwimmerfKaidynAfterBattleText:
 	text "I wonder if"
 	line "there's a place"
-	
+
 	para "that sells swim-"
 	line "suits that suit"
 	cont "my #MON?"
@@ -286,7 +286,7 @@ FisherArnoldAfterBattleText:
 	text "I'll just go back"
 	line "to fishing…"
 	done
-	
+
 FisherMurphySeenText:
 	text "Huh? I've caught"
 	line "a Trainer instead"
@@ -302,23 +302,23 @@ FisherMurphyAfterBattleText:
 	text "It's said that the"
 	line "#MON that"
 	cont "escaped were huge."
-	
+
 	para "It's the truth!"
 	done
-	
+
 FisherLiamSeenText:
 	text "Whoa! A nibble!"
-	
+
 	para "…Huh?"
 	line "A battle?"
-	
+
 	para "OK, let's go!"
 	done
 
 FisherLiamBeatenText:
 	text "If you try to"
 	line "chase two #MON,"
-	
+
 	para "you won't catch"
 	line "either one!"
 	done
@@ -326,18 +326,18 @@ FisherLiamBeatenText:
 FisherLiamAfterBattleText:
 	text "I should've asked"
 	line "you to wait until"
-	
+
 	para "I reeled that"
 	line "#MON in…"
 	done
-	
+
 FisherGideonSeenText:
 	text "Question is…"
 	line "did I become a"
-	
+
 	para "fisherman because"
 	line "I'm patient,"
-	
+
 	para "or did I get more"
 	line "patient because"
 	cont "I'm a fisherman?"
@@ -352,14 +352,14 @@ FisherGideonAfterBattleText:
 	line "you became a"
 	cont "#MON Trainer?"
 	done
-	
+
 BirdkeeperKinsleySeenText:
 	text "Surrounding your-"
 	line "self with bird"
-	
+
 	para "#MON gives you"
 	line "the feeling that"
-	
+
 	para "someday you might"
 	line "be able to fly,"
 	cont "too!"
@@ -372,15 +372,15 @@ BirdkeeperKinsleyBeatenText:
 BirdkeeperKinsleyAfterBattleText:
 	text "I guess I just"
 	line "need to practice"
-	
+
 	para "flapping my wings"
 	line "more!"
 	done
-	
+
 BirdkeeperEastonSeenText:
 	text "Bird Keepers are"
 	line "so wonderful with"
-	
+
 	para "their bird"
 	line "#MON!"
 	done
@@ -394,10 +394,10 @@ BirdkeeperEastonAfterBattleText:
 	text "We Bird Keepers"
 	line "think we're using"
 	cont "bird #MON."
-	
+
 	para "But somewhere"
 	line "along the line,"
-	
+
 	para "bird #MON"
 	line "started using"
 	cont "us…"

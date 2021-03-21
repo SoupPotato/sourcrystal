@@ -110,17 +110,15 @@ BattleCommand_BeatUp:
 	call BattleCommand_DamageStats
 	pop af
 	ld d, a
-	
+
 	ld hl, wBeatUpHits
 	inc [hl]
 	ret
 
 
-
 .beatup_fail
 	ld b, buildopponentrage_command
 	jp SkipToBattleCommand
-
 
 
 BattleCommand_BeatUpFailText:
@@ -133,7 +131,6 @@ BattleCommand_BeatUpFailText:
 	inc a
 	ld [wAttackMissed], a
 	jp PrintButItFailed
-
 
 
 GetBeatupMonLocation:

@@ -88,7 +88,7 @@ PokecenterNurseScript:
 	farwritetext PokeComNurseDayText
 	buttonsound
 	jump .ok
-	
+
 .eve
 	checkevent EVENT_WELCOMED_TO_POKECOM_CENTER
 	iftrue .eve_comcenter

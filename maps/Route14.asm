@@ -38,7 +38,7 @@ TrainerBirdKeeperRoy:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBirdKeeperJamie:
 	trainer BIRD_KEEPER, JAMIE, EVENT_BEAT_BIRD_KEEPER_JAMIE, BirdKeeperJamieSeenText, BirdKeeperJamieBeatenText, 0, .Script
 
@@ -60,7 +60,7 @@ TrainerPokefanmTrevor:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerTeacherClarice:
 	trainer TEACHER, CLARICE, EVENT_BEAT_TEACHER_CLARICE, TeacherClariceSeenText, TeacherClariceBeatenText, 0, .Script
 
@@ -71,7 +71,7 @@ TrainerTeacherClarice:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSchoolboyConnor:
 	trainer SCHOOLBOY, CONNOR, EVENT_BEAT_SCHOOLBOY_CONNOR, SchoolboyConnorSeenText, SchoolboyConnorBeatenText, 0, .Script
 
@@ -82,7 +82,7 @@ TrainerSchoolboyConnor:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSchoolboyTorin:
 	trainer SCHOOLBOY, TORIN, EVENT_BEAT_SCHOOLBOY_TORIN, SchoolboyTorinSeenText, SchoolboyTorinBeatenText, 0, .Script
 
@@ -93,7 +93,7 @@ TrainerSchoolboyTorin:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSchoolboyTravis:
 	trainer SCHOOLBOY, TRAVIS, EVENT_BEAT_SCHOOLBOY_TRAVIS, SchoolboyTravisSeenText, SchoolboyTravisBeatenText, 0, .Script
 
@@ -143,12 +143,12 @@ BirdKeeperRoyAfterBattleText:
 	para "move FLY, don't"
 	line "you? I envy you."
 	done
-	
+
 BirdKeeperJamieSeenText:
 	text "My weight puts me"
 	line "in the feather-"
 	cont "weight class!"
-	
+
 	para "…Huh? What do"
 	line "mean that doesn't"
 	cont "sound very strong?"
@@ -187,7 +187,7 @@ TeacherClariceAfterBattleText:
 	line "you should do a"
 	cont "full review!"
 	done
-	
+
 SchoolboyConnorSeenText:
 	text "I can't wait to go"
 	line "home and drop off"
@@ -206,7 +206,7 @@ SchoolboyConnorAfterBattleText:
 
 	para "Great advice!"
 	done
-	
+
 SchoolboyTorinSeenText:
 	text "It's good to put"
 	line "what you learn to"
@@ -225,7 +225,7 @@ SchoolboyTorinAfterBattleText:
 	para "identify where I"
 	line "got my #MON…"
 	done
-	
+
 SchoolboyTravisSeenText:
 	text "Do you have after-"
 	line "school study"

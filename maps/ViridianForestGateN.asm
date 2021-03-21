@@ -14,10 +14,10 @@ ViridianForestGateNOfficerText:
 	line "not only has trees"
 	cont "standing like"
 	cont "a maze"
-	
+
 	para "but also has many"
 	line "ups and downs."
-	
+
 	para "That's why people"
 	line "get lost easily"
 	cont "here."

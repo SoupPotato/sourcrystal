@@ -193,7 +193,6 @@ ItemEffects:
 	dw PokeBallEffect      ; PARK_BALL
 	dw NoEffect            ; RAINBOW_WING
 	dw NoEffect            ; ITEM_B3
-	
 
 
 PokeBallEffect:
@@ -351,7 +350,7 @@ PokeBallEffect:
 	ld d, a
 	push de
 	ld a, [wBattleMonItem]
-	ld b, a 
+	ld b, a
 	farcall GetItemHeldEffect
 	ld a, b
 	cp HELD_CATCH_CHANCE
@@ -997,7 +996,7 @@ LoveBallMultiplier:
 	ret
 
 FastBallMultiplier:
-; UPDATE: Fast Ball now functions the same as gen IV+. 
+; UPDATE: Fast Ball now functions the same as gen IV+.
 ; Catch rate is x4 on mons with a base speed of 100+. Otherwise its x1.
 	ld a, [wTempEnemyMonSpecies]
 	ld [wCurSpecies], a
@@ -2681,7 +2680,7 @@ CantUseOnEggMessage:
 IsntTheTimeMessage:
 	ld hl, IsntTheTimeText
 	jr CantUseItemMessage
-	
+
 CantUseMessage: ; f7ed
 	ld hl, CantUseText
 	jr CantUseItemMessage
@@ -2721,7 +2720,7 @@ IsntTheTimeText:
 	; OAK:  ! This isn't the time to use that!
 	text_jump UnknownText_0x1c5d6e
 	db "@"
-	
+
 CantUseText: ; 0xccb6
 	; Can't use that here.
 	text_jump UnknownText_0x1c073b

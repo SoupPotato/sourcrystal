@@ -34,7 +34,7 @@ TrainerSwimmerfLori:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmerfMina:
 	trainer SWIMMERF, MINA, EVENT_BEAT_SWIMMERF_MINA, SwimmerfMinaSeenText, SwimmerfMinaBeatenText, 0, .Script
 
@@ -45,7 +45,7 @@ TrainerSwimmerfMina:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmerfLeona:
 	trainer SWIMMERF, LEONA, EVENT_BEAT_SWIMMERF_LEONA, SwimmerfLeonaSeenText, SwimmerfLeonaBeatenText, 0, .Script
 
@@ -56,7 +56,7 @@ TrainerSwimmerfLeona:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBirdkeeperBert:
 	trainer BIRD_KEEPER, BERT, EVENT_BEAT_BIRD_KEEPER_BERT, BirdkeeperBertSeenText, BirdkeeperBertBeatenText, 0, .Script
 
@@ -67,7 +67,7 @@ TrainerBirdkeeperBert:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBirdkeeperErnie:
 	trainer BIRD_KEEPER, ERNIE, EVENT_BEAT_BIRD_KEEPER_ERNIE, BirdkeeperErnieSeenText, BirdkeeperErnieBeatenText, 0, .Script
 
@@ -78,7 +78,7 @@ TrainerBirdkeeperErnie:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerPicnickerChel:
 	trainer PICNICKER, CHEL, EVENT_BEAT_PICNICKER_CHEL, PicnickerChelSeenText, PicnickerChelBeatenText, 0, .Script
 
@@ -89,7 +89,7 @@ TrainerPicnickerChel:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerPicnickerAdrian:
 	trainer PICNICKER, ADRIAN, EVENT_BEAT_PICNICKER_ADRIAN, PicnickerAdrianSeenText, PicnickerAdrianBeatenText, 0, .Script
 
@@ -100,7 +100,7 @@ TrainerPicnickerAdrian:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerCamperPedro:
 	trainer CAMPER, PEDRO, EVENT_BEAT_CAMPER_PEDRO, CamperPedroSeenText, CamperPedroBeatenText, 0, .Script
 
@@ -122,7 +122,7 @@ TrainerSwimmermCameron:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmermLuis:
 	trainer SWIMMERM, LUIS, EVENT_BEAT_SWIMMERM_LUIS, SwimmermLuisSeenText, SwimmermLuisBeatenText, 0, .Script
 
@@ -133,7 +133,7 @@ TrainerSwimmermLuis:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmermElmo:
 	trainer SWIMMERM, ELMO, EVENT_BEAT_SWIMMERM_ELMO, SwimmermElmoSeenText, SwimmermElmoBeatenText, 0, .Script
 
@@ -201,7 +201,7 @@ SwimmerfMinaAfterBattleText:
 	cont "could hold my"
 	cont "breath!"
 	done
-	
+
 SwimmerfLeonaSeenText:
 	text "Look! It's my very"
 	line "best swimsuit and"
@@ -220,7 +220,7 @@ SwimmerfLeonaAfterBattleText:
 	cont "the lastest trend"
 	cont "in teams?"
 	done
-	
+
 SwimmermLuisSeenText:
 	text "Phew!"
 
@@ -232,7 +232,7 @@ SwimmermLuisBeatenText:
 	text "Even if you're"
 	line "wearing your best"
 	cont "pants,"
-	
+
 	para "if you don't win-"
 	line "you just don't"
 	cont "win."
@@ -241,7 +241,7 @@ SwimmermLuisBeatenText:
 SwimmermLuisAfterBattleText:
 	text "All right!"
 	line "Next time I'll"
-	
+
 	para "wear party swim"
 	line "trunks!"
 	done
@@ -253,7 +253,7 @@ SwimmermElmoSeenText:
 
 	para "I've grown to love"
 	line "swimming so much,"
-	
+
 	para "I'm always in my"
 	line "swim trunks!"
 	done
@@ -266,7 +266,7 @@ SwimmermElmoAfterBattleText:
 	text "Maybe I should go"
 	line "back to fishing…"
 	done
-	
+
 SwimmermCameronSeenText:
 	text "I guess it's im-"
 	line "possible to swim"
@@ -284,7 +284,7 @@ SwimmermCameronAfterBattleText:
 	line "can also swim in"
 	cont "ponds and rivers."
 	done
-	
+
 PicnickerChelSeenText:
 	text "When I was a kid,"
 	line "I only played"
@@ -302,11 +302,11 @@ PicnickerChelBeatenText:
 PicnickerChelAfterBattleText:
 	text "If I'm with"
 	line "#MON,"
-	
+
 	para "I don't mind"
 	line "losing so much!"
 	done
-	
+
 PicnickerAdrianSeenText:
 	text "Are you in"
 	line "a hurry?"
@@ -322,10 +322,10 @@ PicnickerAdrianBeatenText:
 PicnickerAdrianAfterBattleText:
 	text "Even though I"
 	line "lost,"
-	
+
 	para "I had fun!"
 	done
-	
+
 CamperPedroSeenText:
 	text "Have you ever gone"
 	line "camping with"
@@ -340,7 +340,7 @@ CamperPedroAfterBattleText:
 	text "If you forget your"
 	line "blanket when you"
 	cont "go camping,"
-	
+
 	para "you can snuggle up"
 	line "to a #MON and"
 	cont "it will be just as"
@@ -350,7 +350,7 @@ CamperPedroAfterBattleText:
 BirdkeeperBertSeenText:
 	text "Found it!"
 	line "A Trainer that"
-	
+
 	para "I can enjoy"
 	line "fighting!"
 	done
@@ -363,11 +363,11 @@ BirdkeeperBertBeatenText:
 BirdkeeperBertAfterBattleText:
 	text "That was an"
 	line "incredible battle!"
-	
+
 	para "I've got"
 	line "goose bumps!"
 	done
-	
+
 BirdkeeperErnieSeenText:
 	text "Hey, hey."
 	line "Will you battle me?"
@@ -392,10 +392,10 @@ CinnabarGymSignText:
 
 	para "The CINNABAR GYM"
 	line "has moved here."
-	
+
 	para "LEADER: BLAINE"
 	done
-	
+
 SeafoamIslandsSignText:
 	text "SEAFOAM ISLANDS"
 	done
@@ -426,4 +426,3 @@ Route20_MapEvents:
 	object_event 21,  8, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfMina, -1
 	object_event 18, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBirdkeeperBert, -1
 	object_event 30, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBirdkeeperErnie, -1
-	

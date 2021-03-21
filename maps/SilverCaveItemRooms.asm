@@ -23,10 +23,10 @@ SilverCaveItemRooms_MapScripts:
 .NoAppear:
 	disappear SILVERCAVEITEMROOMS_MOLTRES
 	return
-	
+
 SilverCaveItemRoomsHiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_SILVERCAVEITEMROOMS_HIDDEN_HYPER_POTION
-	
+
 SilverCaveItemRoomsHiddenUltraBall:
 	hiddenitem ULTRA_BALL, EVENT_SILVERCAVEITEMROOMS_HIDDEN_ULTRA_BALL
 
@@ -35,7 +35,7 @@ SilverCaveItemRoomsMaxRevive:
 
 SilverCaveItemRoomsFullRestore:
 	itemball FULL_RESTORE
-	
+
 SilverCaveItemRoomsMoltres:
 	opentext
 	writetext MoltresText
@@ -49,7 +49,7 @@ SilverCaveItemRoomsMoltres:
 	setevent EVENT_FOUGHT_MOLTRES
 	reloadmapafterbattle
 	end
-	
+
 MoltresText:
 	text "Gyaoo!"
 	done

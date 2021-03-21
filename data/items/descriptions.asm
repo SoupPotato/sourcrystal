@@ -354,7 +354,7 @@ WaterStoneDesc:
 CovenantOrbDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
-	
+
 HPUpDesc:
 	db   "Raises the HP of"
 	next "one #MON.@"

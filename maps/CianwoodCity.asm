@@ -115,14 +115,14 @@ CianwoodCityChucksWife:
 .Done:
 	closetext
 	end
-	
+
 .JumpstdReceiveItem:
 	jumpstd receiveitem
 	end
 
 .pagercardname
 	db "FLY PAGER@"
-	
+
 GotFlyPagerText:
 	text "PIDGEOT WING was"
 	line "added to the PPS!"
@@ -246,11 +246,11 @@ ChucksWifeFlySpeechText:
 
 	para "to anywhere you"
 	line "have visited."
-	
+
 	para "You should take"
 	line "this too!"
 	done
-	
+
 UnknownText_0x1a021d:
 	text "That HM will"
 	line "teach FLY to your"

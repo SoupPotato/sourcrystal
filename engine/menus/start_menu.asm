@@ -1192,10 +1192,10 @@ OpenPartyStats:
 
 MonMenu_Cut:
 	farcall CutFunction
-    ld a, [wFieldMoveSucceeded]
-    cp $1
-    ret
-	
+	ld a, [wFieldMoveSucceeded]
+	cp $1
+	ret
+
 
 MonMenu_Fly:
 	farcall FlyFunction
@@ -1206,14 +1206,14 @@ MonMenu_Fly:
 MonMenu_Flash:
 	farcall OWFlash
 	ld a, [wFieldMoveSucceeded]
-    cp $1
-    ret
+	cp $1
+	ret
 
 MonMenu_Strength:
 	farcall StrengthFunction
-    ld a, [wFieldMoveSucceeded]
-    cp $1
-    ret
+	ld a, [wFieldMoveSucceeded]
+	cp $1
+	ret
 
 MonMenu_Whirlpool:
 	farcall WhirlpoolFunction
@@ -1249,9 +1249,9 @@ MonMenu_Teleport:
 
 MonMenu_Surf:
 	farcall SurfFunction
-    ld a, [wFieldMoveSucceeded]
-    cp $1
-    ret
+	ld a, [wFieldMoveSucceeded]
+	cp $1
+	ret
 
 MonMenu_Dig:
 	farcall DigFunction

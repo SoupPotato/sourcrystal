@@ -20,14 +20,14 @@ VioletCity_MapScripts:
 	setflag ENGINE_FLYPOINT_VIOLET
 	return
 
-.Fruittrees:	
+.Fruittrees:
 .Berry:
 	checkflag ENGINE_DAILY_VIOLET_BERRY
 	iftrue .NoBerry
 	appear VIOLETCITY_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_VIOLET_APRICORN
 	iftrue .NoApricorn
@@ -125,7 +125,7 @@ VioletBerryTree:
 VioletApricornTree:
 	opentext
 	writetext VioletApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext VioletHeyItsApricornText
 	buttonsound
 	verbosegiveitem YLW_APRICORN
@@ -334,7 +334,7 @@ EarlsPokemonAcademySignText:
 	text "EARL'S #MON"
 	line "ACADEMY"
 	done
-	
+
 VioletBerryTreeText:
 	text "It's a"
 	line "BERRY tree…"

@@ -9,7 +9,7 @@ RepelWoreOffScript::
 	; REPEL's effect wore off.
 	text_jump UnknownText_0x1bd308
 	db "@"
-	
+
 UseAnotherRepelScript::
 	opentext
 	writetext .text
@@ -45,7 +45,7 @@ HiddenItemScript::
 .finish
 	closetext
 	end
-	
+
 .append_tmhm_move_name
 	ld de, wStringBuffer3 + STRLEN("TM##")
 	farcall AppendTMHMMoveName

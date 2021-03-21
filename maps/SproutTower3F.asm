@@ -96,14 +96,14 @@ SageLiScript:
 	waitbutton
 	closetext
 	end
-	
+
 .JumpstdReceiveItem:
 	jumpstd receiveitem
 	end
 
 .pagercardname
 	db "FLASH PAGER@"
-	
+
 GotFlashPagerText:
 	text "MAREEP SHINE was"
 	line "added to the PPS!"
@@ -248,12 +248,12 @@ SageLiSeenText:
 SageLiBeatenText:
 	text "Ah, excellent!"
 	done
-	
+
 SageLiPagerText:
 	text "The trust between"
 	line "you and your #-"
 	cont "MON is strong."
-	
+
 	para "You deserve this,"
 	line "please take it."
 	done
@@ -264,7 +264,7 @@ SageLiTakeThisFlashText:
 
 	para "A PAGER lets you"
 	line "summon a #MON"
-	
+
 	para "that will use a "
 	line "certain move out"
 	cont "of battle."

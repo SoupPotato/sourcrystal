@@ -58,7 +58,7 @@ SeafoamGymBlaineScript:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerScientistLowell:
 	faceplayer
 	opentext
@@ -87,12 +87,12 @@ TrainerScientistLowell:
 	waitbutton
 	closetext
 	end
-	
+
 .MovementDataScientistLowell:
 	step UP
 	turn_head DOWN
 	step_end
-	
+
 TrainerScientistDannie:
 	faceplayer
 	opentext
@@ -121,12 +121,12 @@ TrainerScientistDannie:
 	waitbutton
 	closetext
 	end
-	
+
 .MovementDataScientistDannie:
 	step LEFT
 	turn_head RIGHT
 	step_end
-	
+
 TrainerSuperNerdCary:
 	faceplayer
 	opentext
@@ -155,12 +155,12 @@ TrainerSuperNerdCary:
 	waitbutton
 	closetext
 	end
-	
+
 .MovementDataSuperNerdCary:
 	step RIGHT
 	turn_head LEFT
 	step_end
-	
+
 TrainerScientistLinden:
 	faceplayer
 	opentext
@@ -189,12 +189,12 @@ TrainerScientistLinden:
 	waitbutton
 	closetext
 	end
-	
+
 .MovementDataScientistLinden:
 	step LEFT
 	turn_head RIGHT
 	step_end
-	
+
 TrainerSuperNerdWaldo:
 	faceplayer
 	opentext
@@ -223,12 +223,12 @@ TrainerSuperNerdWaldo:
 	waitbutton
 	closetext
 	end
-	
+
 .MovementDataSuperNerdWaldo:
 	step DOWN
 	turn_head UP
 	step_end
-	
+
 TrainerSuperNerdMerle:
 	faceplayer
 	opentext
@@ -361,7 +361,7 @@ SeafoamGymGuyText:
 
 	para "Trainers one by"
 	line "one, and you will"
-	
+
 	para "surely find the"
 	line "path!"
 	done
@@ -369,14 +369,14 @@ SeafoamGymGuyText:
 SeafoamGymGuyWinText:
 	text "The Gym Leader"
 	line "rebuilding his"
-	
+
 	para "Gym and the"
 	line "Trainer from"
 
 	para "JOHTO who has come"
 	line "to challenge that"
 	cont "Gym Leader…"
-	
+
 	para "I have witnessed"
 	line "a hot battle!"
 	done
@@ -389,7 +389,7 @@ ScientistLowellSeenText:
 	para "We may be living"
 	line "in a cave like"
 	cont "this,"
-	
+
 	para "but we never for-"
 	line "get to do the"
 	cont "laundry."
@@ -403,16 +403,16 @@ ScientistLowellBeatenText:
 ScientistLowellAfterBattleText:
 	text "This white lab"
 	line "coat makes me feel"
-	
+
 	para "like I have become"
 	line "smarter for some"
 	cont "reason."
 	done
-	
+
 ScientistDannieSeenText:
 	text "We lost the Gym on"
 	line "CINNABAR ISLAND"
-	
+
 	para "and felt lost"
 	line "before we"
 	cont "came here."
@@ -426,23 +426,23 @@ ScientistDannieAfterBattleText:
 	text "We take a step"
 	line "back when we"
 	cont "are defeated…"
-	
+
 	para "Don't you think"
 	line "we are downright"
 	cont "honest?"
-	
+
 	para "Never put us in"
 	line "the same category"
-	
+
 	para "as Scientists who"
 	line "help bad guys."
 	done
-	
+
 SuperNerdCarySeenText:
 	text "Wow, to see a Gym"
 	line "in a cave like"
 	cont "this?"
-	
+
 	para "I'd love to ex-"
 	line "plore it."
 	done
@@ -450,7 +450,7 @@ SuperNerdCarySeenText:
 SuperNerdCaryBeatenText:
 	text "How do I feel"
 	line "about losing?"
-	
+
 	para "It hurts!"
 	done
 
@@ -459,14 +459,14 @@ SuperNerdCaryAfterBattleText:
 	line "to improvement"
 	cont "tomorrow."
 	done
-	
+
 ScientistLindenSeenText:
 	text "BLAINE may have"
 	line "lost his Gym,"
-	
+
 	para "but he never gives"
 	line "up."
-	
+
 	para "His perseverance"
 	line "is what motivates"
 	cont "me!"
@@ -474,7 +474,7 @@ ScientistLindenSeenText:
 
 ScientistLindenBeatenText:
 	text "Argh…"
-	
+
 	para "I can't do any"
 	line "more…"
 	done
@@ -482,16 +482,16 @@ ScientistLindenBeatenText:
 ScientistLindenAfterBattleText:
 	text "Together with"
 	line "BLAINE,"
-	
+
 	para "we will rebuild"
 	line "our Gym!"
 	done
-	
+
 SuperNerdWaldoSeenText:
 	text "I am in the middle"
 	line "of collecting"
 	cont "battle records."
-	
+
 	para "Can you help me?"
 	done
 
@@ -503,11 +503,11 @@ SuperNerdWaldoBeatenText:
 SuperNerdWaldoAfterBattleText:
 	text "I didn't expect"
 	line "you to be so good!"
-	
+
 	para "Who in the world"
 	line "are you?"
 	done
-	
+
 SuperNerdMerleSeenText:
 	text "Ooh!"
 	line "You look easily"
@@ -521,8 +521,8 @@ SuperNerdMerleBeatenText:
 SuperNerdMerleAfterBattleText:
 	text "Pardon me!"
 	line "I failed to sense"
-	
-	para "how strong" 
+
+	para "how strong"
 	line "you are."
 	done
 

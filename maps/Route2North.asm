@@ -21,7 +21,6 @@ TrainerBugCatcherEd:
 	waitbutton
 	closetext
 	end
-	
 
 Route2DiglettsCaveSign:
 	jumptext Route2DiglettsCaveSignText

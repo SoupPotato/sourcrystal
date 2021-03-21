@@ -34,14 +34,14 @@ AzaleaTown_MapScripts:
 .Flypoint:
 	setflag ENGINE_FLYPOINT_AZALEA
 	return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_AZALEA_APRICORN
 	iftrue .NoApricorn
 	appear AZALEATOWN_APRICORN
 .NoApricorn:
 	return
-	
+
 AzaleaTownRivalBattleScene1:
 	moveobject AZALEATOWN_SILVER, 11, 11
 	turnobject PLAYER, RIGHT
@@ -216,7 +216,7 @@ AzaleaTownMartSign:
 AzaleaApricornTree:
 	opentext
 	writetext AzaleaApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext AzaleaHeyItsApricornText
 	buttonsound
 	verbosegiveitem WHT_APRICORN
@@ -478,7 +478,7 @@ AzaleaTownIlexForestSignText:
 	para "Enter through the"
 	line "gate."
 	done
-	
+
 AzaleaApricornTreeText:
 	text "It's an"
 	line "APRICORN tree…"

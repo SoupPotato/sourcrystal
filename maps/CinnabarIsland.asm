@@ -34,10 +34,10 @@ CinnabarIslandPokecenterSign:
 
 CinnabarIslandHiddenRareCandy:
 	hiddenitem RARE_CANDY, EVENT_CINNABAR_ISLAND_HIDDEN_RARE_CANDY
-	
+
 CinnabarIslandHiddenStarPiece:
 	hiddenitem STAR_PIECE, EVENT_CINNABAR_ISLAND_HIDDEN_STAR_PIECE
-	
+
 CinnabarIslandHiddenIron:
 	hiddenitem IRON, EVENT_CINNABAR_ISLAND_HIDDEN_IRON
 
@@ -146,6 +146,6 @@ CinnabarIsland_MapEvents:
 	bg_event 11,  4, BGEVENT_ITEM, CinnabarIslandHiddenRareCandy
 	bg_event 21,  4, BGEVENT_ITEM, CinnabarIslandHiddenStarPiece
 	bg_event 20, 11, BGEVENT_ITEM, CinnabarIslandHiddenIron
-	
+
 	db 1 ; object events
 	object_event  9, 10, SPRITE_BLUE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandBlue, EVENT_BLUE_IN_CINNABAR

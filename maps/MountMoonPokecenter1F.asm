@@ -42,7 +42,7 @@ MountMoonPokecenter1FLassText:
 	cont "you'll encounter."
 
 	para "It is very im-"
-	line "portant to recover"	
+	line "portant to recover"
 	cont "your #MON at"
 	cont "a place like this."
 

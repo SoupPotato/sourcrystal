@@ -12,7 +12,7 @@ LoadOverworldMonIcon:
 	ld d, [hl]
 	call GetIconBank
 	ret
-	
+
 SetMenuMonIconColor:
 	push hl
 	push de
@@ -473,7 +473,7 @@ endr
 
 	pop hl
 	ret
-	
+
 GetIconBank:
 	ld a, [wCurIcon]
 	cp ICON_MAGIKARP ; first mon in Icons2
@@ -586,7 +586,7 @@ ReadMonMenuIcon:
 .egg
 	ld a, ICON_EGG
 	ret
-	
+
 FlyMonMenuIcon: ; 8eab3
 	jr z, .bird
 	dec a

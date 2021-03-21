@@ -2078,7 +2078,7 @@ DefenseCurl:
 	statupmessage
 	statupfailtext
 	endmove
-	
+
 WeightDamage:
 	checkobedience
 	usedmovetext

@@ -25,7 +25,7 @@ TrainerBikerReese:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBikerJoseph:
 	trainer BIKER, JOSEPH, EVENT_BEAT_BIKER_JOSEPH, BikerJosephSeenText, BikerJosephBeatenText, 0, .Script
 
@@ -36,7 +36,7 @@ TrainerBikerJoseph:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBikerEoin:
 	trainer BIKER, EOIN, EVENT_BEAT_BIKER_EOIN, BikerEoinSeenText, BikerEoinBeatenText, 0, .Script
 
@@ -69,7 +69,7 @@ TrainerBikerTheron:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBikerTeddy:
 	trainer BIKER, TEDDY, EVENT_BEAT_BIKER_TEDDY, BikerTeddySeenText, BikerTeddyBeatenText, 0, .Script
 
@@ -80,7 +80,7 @@ TrainerBikerTeddy:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBikerMarkey:
 	trainer BIKER, MARKEY, EVENT_BEAT_BIKER_MARKEY, BikerMarkeySeenText, BikerMarkeyBeatenText, 0, .Script
 
@@ -135,7 +135,7 @@ TrainerBikerGlenn:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBikerDan:
 	trainer BIKER, DAN, EVENT_BEAT_BIKER_DAN, BikerDanSeenText, BikerDanBeatenText, 0, .Script
 
@@ -166,12 +166,12 @@ BikerReeseAfterBattleText:
 	text "Don't get cocky,"
 	line "you JOHTO punk!"
 	done
-	
+
 BikerJosephSeenText:
 	text "Modding my Bike"
 	line "costs a bunch of"
 	cont "money!"
-	
+
 	para "I need a job!"
 	done
 
@@ -181,15 +181,15 @@ BikerJosephBeatenText:
 
 BikerJosephAfterBattleText:
 	text "Bike?"
-	
+
 	para "Oh, I was talking"
 	line "about my BICYCLE!"
 	done
-	
+
 BikerEoinSeenText:
 	text "Vroom vroom!"
 	line "Baribaribaribari!"
-	
+
 	para "What do you think"
 	line "of my engine"
 	cont "imitation?"
@@ -204,12 +204,12 @@ BikerEoinBeatenText:
 BikerEoinAfterBattleText:
 	text "We don't put out"
 	line "any exhaust fumes."
-	
+
 	para "We're a biker club"
 	line "that's kind to"
 	cont "nature!"
 	done
-	
+
 BikerAidenSeenText:
 	text "Hey, who told you"
 	line "you could ride up"
@@ -229,7 +229,7 @@ BikerAidenAfterBattleText:
 BikerDanSeenText:
 	text "Parara parapara"
 	line "para-parara!"
-	
+
 	para "My horn's got a"
 	line "great melody to"
 	cont "it, don't you"
@@ -243,7 +243,7 @@ BikerDanBeatenText:
 BikerDanAfterBattleText:
 	text "I love this melan-"
 	line "choly melody."
-	
+
 	para "It really suits"
 	line "me well…"
 	done
@@ -251,7 +251,7 @@ BikerDanAfterBattleText:
 BikerTheronSeenText:
 	text "I'll toughen you"
 	line "up."
-	
+
 	para "Now, you come"
 	line "along with me."
 	done
@@ -265,7 +265,7 @@ BikerTheronAfterBattleText:
 	line "fighting yell was"
 	cont "great!"
 	done
-	
+
 BikerTeddySeenText:
 	text "Hey, that's a"
 	line "cool Bike you're"
@@ -279,14 +279,14 @@ BikerTeddyBeatenText:
 BikerTeddyAfterBattleText:
 	text "I love the way you"
 	line "do battle, too!"
-	
+
 	para "Consider me a fan!"
 	done
-	
+
 BikerMarkeySeenText:
 	text "Hey hey hey!"
 	line "You're in my way!"
-	
+
 	para "IN MY WAY!"
 	done
 
@@ -297,11 +297,11 @@ BikerMarkeyBeatenText:
 BikerMarkeyAfterBattleText:
 	text "Won't you give it"
 	line "a try?"
-	
+
 	para "Would you like to"
 	line "join my team?"
 	done
-	
+
 BikerRileySeenText:
 	text "You're gonna lose!"
 	line "I've got a hunch!"
@@ -314,7 +314,7 @@ BikerRileyBeatenText:
 
 BikerRileyAfterBattleText:
 	text "You're so cool!"
-	
+
 	para "You don't do any-"
 	line "thing halfway!"
 	done

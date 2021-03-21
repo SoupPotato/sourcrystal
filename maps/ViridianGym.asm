@@ -64,7 +64,7 @@ ViridianGymStatue:
 .Beaten:
 	trainertotext BLUE, BLUE1, MEM_BUFFER_1
 	jumpstd gymstatue2
-	
+
 TrainerCoolDuoElanandIda1:
 	trainer COOL_DUO, ELANANDIDA1, EVENT_BEAT_COOL_DUO_ELAN_AND_IDA, CoolDuoElanandIdaSeenText, CoolDuoElanandIdaBeatenText, 0, .Script
 
@@ -75,7 +75,7 @@ TrainerCoolDuoElanandIda1:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerCoolDuoElanandIda2:
 	trainer COOL_DUO, ELANANDIDA2, EVENT_BEAT_COOL_DUO_ELAN_AND_IDA, CoolDuoElanandIdaSeenText, CoolDuoElanandIdaBeatenText, 0, .Script
 
@@ -86,7 +86,7 @@ TrainerCoolDuoElanandIda2:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerCooltrainermArwin:
 	trainer COOLTRAINERM, ARWIN, EVENT_BEAT_COOLTRAINERM_ARWIN, CooltrainermArwinSeenText, CooltrainermArwinBeatenText, 0, .Script
 
@@ -97,7 +97,7 @@ TrainerCooltrainermArwin:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerCooltrainermBonita:
 	trainer COOLTRAINERM, BONITA, EVENT_BEAT_COOLTRAINERM_BONITA, CooltrainermBonitaSeenText, CooltrainermBonitaBeatenText, 0, .Script
 
@@ -108,7 +108,7 @@ TrainerCooltrainermBonita:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerCooltrainerfSalma:
 	trainer COOLTRAINERF, SALMA, EVENT_BEAT_COOLTRAINERF_SALMA, CooltrainerfSalmaSeenText, CooltrainerfSalmaBeatenText, 0, .Script
 
@@ -225,15 +225,15 @@ ViridianGymGuyWinText:
 	para "battle. It brought"
 	line "tears to my eyes."
 	done
-	
+
 CoolDuoElanandIdaSeenText:
 	text "IDA: I'm IDA!"
-	line "Next to me" 
+	line "Next to me"
 	cont "is ELAN!"
-	
+
 	para "Together, we're"
 	line "a COOLDUO!"
-	
+
 	para "ELAN: All right,"
 	line "let's get this"
 	cont "fight started!"
@@ -244,7 +244,7 @@ CoolDuoElanandIdaBeatenText:
 	text "IDA: Wow."
 	line "You're really"
 	cont "something."
-	
+
 	para "ELAN: Well, this"
 	line "is surprising."
 	done
@@ -267,7 +267,7 @@ CoolDuoElanandIda2AfterBattleText:
 	cont "strength is also"
 	cont "very important!"
 	done
-	
+
 CooltrainermArwinSeenText:
 	text "Anyway, fight me"
 	line "and see!"
@@ -286,11 +286,11 @@ CooltrainermArwinAfterBattleText:
 	para "I shouldn't say"
 	line "that about myself!"
 	done
-	
+
 CooltrainermBonitaSeenText:
 	text "Looking around the"
 	line "room like that,"
-	
+
 	para "doesn't it make"
 	line "you a little"
 	cont "dizzy?"
@@ -299,7 +299,7 @@ CooltrainermBonitaSeenText:
 CooltrainermBonitaBeatenText:
 	text "All of my"
 	line "#MON…"
-	
+
 	para "All dizzy and"
 	line "fainting…"
 	done
@@ -309,10 +309,10 @@ CooltrainermBonitaAfterBattleText:
 	line "still got some"
 	cont "energy left."
 	done
-	
+
 CooltrainerfSalmaSeenText:
 	text "What do you think?"
-	
+
 	para "You've never seen"
 	line "such a wonderful"
 	cont "GYM before,"
@@ -353,4 +353,3 @@ ViridianGym_MapEvents:
 	object_event  5, 29, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainermArwin, -1
 	object_event  2, 28, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainerfSalma, -1
 	object_event  2, 16, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainermBonita, -1
-	

@@ -189,7 +189,7 @@ EcruteakGroupSprites:
 	db SPRITE_SUPER_NERD
 	; 8 of max 9 walking sprites
 	db SPRITE_TWIN
-	db SPRITE_SUDOWOODO 
+	db SPRITE_SUDOWOODO
 	db SPRITE_POKE_BALL
 	db SPRITE_BERRY
 	db SPRITE_APRICORN
@@ -338,7 +338,7 @@ CableClubGroupSprites:
 ; (no outdoor maps)
 	; 0 of max 9 walking sprites
 	db 0 ; end
-	
+
 Route47GroupSprites:
 ; Route47, Route48, YellowForest, CliffEdgeCave, CliffEdgeGate
 	db SPRITE_TEACHER

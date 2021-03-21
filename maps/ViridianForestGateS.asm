@@ -13,7 +13,7 @@ ViridianForestGateSOfficerText:
 	text "VIRIDIAN FOREST"
 	line "is like a maze"
 	cont "inside."
-	
+
 	para "Be careful. Don't"
 	line "get lost in there."
 	done

@@ -81,7 +81,7 @@ CeladonPrizeRoom_purchased:
 	writetext CeladonPrizeRoom_HereYouGoText
 	waitbutton
 	jump CeladonPrizeRoom_tmcounterloop
-	
+
 CeladonPrizeRoom_alreadyhavetm:
 	writetext CeladonPrizeRoom_AlreadyHaveTMText
 	waitbutton
@@ -251,7 +251,7 @@ CeladonPrizeRoom_ConfirmPurchaseText:
 CeladonPrizeRoom_HereYouGoText:
 	text "Here you go!"
 	done
-	
+
 CeladonPrizeRoom_AlreadyHaveTMText:
 	text "You already have"
 	line "that TM."

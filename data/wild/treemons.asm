@@ -128,7 +128,7 @@ TreeMonSet_Rock:
 	db 90, KRABBY,     15
 	db 10, SHUCKLE,    15
 	db -1
-	
+
 TreeMonSet_BurnedTower:
 	db 90, GEODUDE,     15
 	db 10, SLUGMA,      15

@@ -111,14 +111,14 @@ GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript:
 	writetext GoldenrodGameCornerPrizeVendorConfirmPrizeText
 	yesorno
 	end
-	
+
 GoldenrodGameCornerStoneVendor_FinishScript:
 	waitsfx
 	playsound SFX_TRANSACTION
 	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
 	waitbutton
 	jump GoldenrodGameCornerStoneVendorScript
-	
+
 GoldenrodGameCornerItemVendor_FinishScript:
 	waitsfx
 	playsound SFX_TRANSACTION
@@ -137,7 +137,6 @@ GoldenrodGameCornerPrizeVendor_AlreadyHaveTMScript:
 	writetext GoldenrodGameCornerPrizeVendorAlreadyHaveTMText
 	waitbutton
 	jump GoldenrodGameCornerTMVendor_LoopScript
-	
 
 
 GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript:
@@ -177,7 +176,7 @@ GoldenrodGameCornerTMVendorMenuHeader:
 	db "TM14    6500@"
 	db "TM38    6500@"
 	db "CANCEL@"
-	
+
 GoldenrodGameCornerSpecialVendorScript:
 	faceplayer
 	opentext
@@ -237,7 +236,7 @@ GoldenrodGameCornerStoneVendorScript:
 	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
 	takecoins 1000
 	jump GoldenrodGameCornerStoneVendor_FinishScript
-	
+
 .LeafStone:
 	checkcoins 1000
 	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
@@ -248,7 +247,7 @@ GoldenrodGameCornerStoneVendorScript:
 	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
 	takecoins 1000
 	jump GoldenrodGameCornerStoneVendor_FinishScript
-	
+
 GoldenrodGameCornerItemVendorScript:
 	special DisplayCoinCaseBalance
 	loadmenu GoldenrodGameCornerItemVendorMenuHeader
@@ -289,7 +288,7 @@ GoldenrodGameCornerItemVendorScript:
 	ifequal 2, .Up_Grade
 	ifequal 3, .CovenantOrb
 	jump GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
-	
+
 .DragonScale:
 	checkcoins 2000
 	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
@@ -300,7 +299,7 @@ GoldenrodGameCornerItemVendorScript:
 	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
 	takecoins 2000
 	jump GoldenrodGameCornerItemVendor_FinishScript
-	
+
 .Up_Grade:
 	checkcoins 2000
 	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
@@ -322,7 +321,7 @@ GoldenrodGameCornerItemVendorScript:
 	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
 	takecoins 3000
 	jump GoldenrodGameCornerItemVendor_FinishScript
-	
+
 GoldenrodGameCornerSpecialVendorMenuHeader:
 	db MENU_BACKUP_TILES ; flags
 	menu_coords 0, 3, 19, TEXTBOX_Y - 2
@@ -350,7 +349,7 @@ GoldenrodGameCornerStoneVendorMenuHeader:
 	db "WATER STONE  1000@"
 	db "LEAF STONE   1000@"
 	db "CANCEL@"
-	
+
 GoldenrodGameCornerItemVendorMenuHeader:
 	db MENU_BACKUP_TILES ; flags
 	menu_coords 0, 3, 19, TEXTBOX_Y - 2
@@ -363,13 +362,13 @@ GoldenrodGameCornerItemVendorMenuHeader:
 	db "KING'S ROCK  2000@"
 	db "METAL COAT   2000@"
 	db "NEXT@"
-	
+
 GoldenrodGameCornerItemVendorMenu2Header:
 	db MENU_BACKUP_TILES ; flags
 	menu_coords 0, 2, 19, TEXTBOX_Y - 1
 	dw .MenuDataItems2
 	db 1 ; default option
-	
+
 .MenuDataItems2:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
@@ -562,7 +561,7 @@ GoldenrodGameCornerPrizeVendorConfirmPrizeText:
 GoldenrodGameCornerPrizeVendorHereYouGoText:
 	text "Here you go!"
 	done
-	
+
 GoldenrodGameCornerPrizeVendorAlreadyHaveTMText:
 	text "But you already"
 	line "have that TM!"

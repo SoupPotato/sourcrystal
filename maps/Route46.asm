@@ -13,7 +13,7 @@ Route46_MapScripts:
 
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .Fruittrees
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE46_BERRY
@@ -21,21 +21,21 @@ Route46_MapScripts:
 	appear ROUTE46_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE46_APRICORN
 	iftrue .NoApricorn
 	appear ROUTE46_APRICORN
 .NoApricorn:
 	;return
-	
+
 .Berry2:
 	checkflag ENGINE_DAILY_ROUTE46_BERRY2
 	iftrue .NoBerry2
 	appear ROUTE46_BERRY2
 .NoBerry2:
 	;return
-	
+
 .Apricorn2:
 	checkflag ENGINE_DAILY_ROUTE46_APRICORN2
 	iftrue .NoApricorn2
@@ -207,7 +207,7 @@ Route46BerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route46BerryTree2:
 	opentext
 	writetext Route46BerryTreeText
@@ -225,7 +225,7 @@ Route46BerryTree2:
 Route46ApricornTree:
 	opentext
 	writetext Route46ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route46HeyItsApricornText
 	buttonsound
 	verbosegiveitem GRN_APRICORN
@@ -235,11 +235,11 @@ Route46ApricornTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route46ApricornTree2:
 	opentext
 	writetext Route46ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route46HeyItsApricorn2Text
 	buttonsound
 	verbosegiveitem YLW_APRICORN
@@ -249,7 +249,7 @@ Route46ApricornTree2:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route46NoBerry:
 	opentext
 	writetext Route46BerryTreeText
@@ -347,7 +347,7 @@ Route46SignText:
 	text "ROUTE 46"
 	line "MOUNTAIN RD. AHEAD"
 	done
-	
+
 Route46BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -357,7 +357,7 @@ Route46HeyItsBerryText:
 	text "Hey! It's"
 	line "CHERI BERRY!"
 	done
-	
+
 Route46HeyItsBerry2Text:
 	text "Hey! It's"
 	line "ORAN BERRY!"
@@ -371,12 +371,12 @@ Route46ApricornTreeText:
 Route46HeyItsApricornText:
 	text "Hey! It's"
 	line "GRN APRICORN!"
-	done	
-	
+	done
+
 Route46HeyItsApricorn2Text:
 	text "Hey! It's"
 	line "YLW APRICORN!"
-	done	
+	done
 
 Route46NothingHereText:
 	text "There's nothing"

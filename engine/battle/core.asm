@@ -1266,7 +1266,7 @@ HandleWrap:
 
 .print_text
 	jp StdBattleTextBox
-	
+
 CheckTrappedPlayer:
 	ld a, [wPlayerWrapCount]
 	and a
@@ -1757,12 +1757,12 @@ HandleWeather:
 	inc hl
 	ld d, [hl]
 	jp Call_PlayBattleAnim
-	
+
 .WeatherAnimations:
 	dw ANIM_IN_RAIN
 	dw ANIM_IN_SUN
 	dw ANIM_IN_SANDSTORM
-	
+
 .SandstormDamage:
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVar
@@ -1931,7 +1931,7 @@ GetHalfMaxHP:
 	inc c
 .end
 	ret
-	
+
 GetTwoThirdsMaxHP:
 	call GetMaxHP
 
@@ -5235,7 +5235,7 @@ TryPlayerSwitch:
 .check_trapped
 	call CheckTrappedPlayer
 	jr nz, .trapped
-	
+
 	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
 	jr z, .try_switch
@@ -9139,7 +9139,7 @@ BattleStartMessage:
 	call DelayFrames
 
 	farcall Battle_GetTrainerName
-	
+
 	ld hl, WantToBattlePluralText
 	call IsPluralTrainer
 	jr z, .PlaceBattleStartText
@@ -9228,7 +9228,7 @@ GetWeatherImage:
 	ld b, PAL_BATTLE_OB_BROWN
 	jr z, .done
 	ret
-	
+
 .done
 	push bc
 	ld b, BANK(WeatherImages) ; c = 4
@@ -9259,4 +9259,3 @@ GetWeatherImage:
 	db $88, $14 ; y/x - bottom left
 	db $80, $1c ; y/x - top right
 	db $80, $14 ; y/x - top left
-	

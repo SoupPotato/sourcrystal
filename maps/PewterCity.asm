@@ -17,7 +17,7 @@ PewterCity_MapScripts:
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_PEWTER
 	return
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_PEWTER_BERRY
@@ -25,21 +25,21 @@ PewterCity_MapScripts:
 	appear PEWTERCITY_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_PEWTER_APRICORN
 	iftrue .NoApricorn
 	appear PEWTERCITY_APRICORN
 .NoApricorn:
 	;return
-	
+
 .Berry2:
 	checkflag ENGINE_DAILY_PEWTER_BERRY2
 	iftrue .NoBerry2
 	appear PEWTERCITY_BERRY2
 .NoBerry2:
 	;return
-	
+
 .Apricorn2:
 	checkflag ENGINE_DAILY_PEWTER_APRICORN2
 	iftrue .NoApricorn2
@@ -105,7 +105,7 @@ PewterCityBerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 PewterCityBerryTree2:
 	opentext
 	writetext PewterCityBerryTreeText
@@ -123,7 +123,7 @@ PewterCityBerryTree2:
 PewterCityApricornTree:
 	opentext
 	writetext PewterCityApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext PewterCityHeyItsApricornText
 	buttonsound
 	verbosegiveitem BLU_APRICORN
@@ -133,11 +133,11 @@ PewterCityApricornTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 PewterCityApricornTree2:
 	opentext
 	writetext PewterCityApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext PewterCityHeyItsApricorn2Text
 	buttonsound
 	verbosegiveitem WHT_APRICORN
@@ -147,7 +147,7 @@ PewterCityApricornTree2:
 .NoRoomInBag
 	closetext
 	end
-	
+
 PewterCityNoBerry:
 	opentext
 	writetext PewterCityBerryTreeText
@@ -259,7 +259,7 @@ PewterCityHeyItsBerryText:
 	text "Hey! It's"
 	line "RAWST BERRY!"
 	done
-	
+
 PewterCityHeyItsBerry2Text:
 	text "Hey! It's"
 	line "CHESTO BERRY!"
@@ -273,12 +273,12 @@ PewterCityApricornTreeText:
 PewterCityHeyItsApricornText:
 	text "Hey! It's"
 	line "BLU APRICORN!"
-	done	
-	
+	done
+
 PewterCityHeyItsApricorn2Text:
 	text "Hey! It's"
 	line "WHT APRICORN!"
-	done	
+	done
 
 PewterCityNothingHereText:
 	text "There's nothing"

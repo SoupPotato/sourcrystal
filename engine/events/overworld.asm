@@ -141,7 +141,6 @@ CutFunction: ; c785
 	jr c, .nothingtocut
 	ld a, $1
 	ret
-	
 
 .nohivebadge
 	ld a, $80
@@ -552,11 +551,11 @@ AskSurfScript:
 AskSurfText:
 	text_jump _AskSurfText ; The water is calm.
 	db "@"              ; Want to SURF?
-	
+
 UsedFlyText: ; c9a9
 	text_jump _UsedFlyText
 	db "@"
-	
+
 FlyFunction:
 	call FieldMoveJumptableReset
 .loop
@@ -636,7 +635,6 @@ FlyFunction:
 	callasm .ReturnFromFly
 	end
 
-	
 .ReturnFromFly:
 	farcall Function561d
 	call DelayFrame
@@ -1085,7 +1083,7 @@ TryStrengthOW:
 	ld de, ENGINE_PLAINBADGE
 	call CheckEngineFlag
 	jr c, .nope
-	
+
 	ld de, ENGINE_PAGER_STRENGTH
 	call CheckEngineFlag
 	jr c, .nope
@@ -1367,7 +1365,6 @@ TryRockSmashFromMenu:
 GetFacingObject:
 	farcall CheckFacingObject
 	jr nc, .fail
-	
 
 	ld a, [hObjectStructIndexBuffer]
 	call GetObjectStruct
@@ -1420,7 +1417,7 @@ UnknownText_0xcf58:
 	db "@"
 
 AskRockSmashScript:
-    checkevent EVENT_GOT_TM08_ROCK_SMASH
+	checkevent EVENT_GOT_TM08_ROCK_SMASH
 	iffalse .no
 	opentext
 	writetext UnknownText_0xcf77
@@ -1789,7 +1786,7 @@ TryCutOW::
 	ld de, ENGINE_HIVEBADGE
 	call CheckEngineFlag
 	jr c, .cant_cut
-	
+
 	ld de, ENGINE_PAGER_CUT
 	call CheckEngineFlag
 	jr c, .cant_cut

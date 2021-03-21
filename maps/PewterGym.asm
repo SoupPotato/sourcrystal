@@ -49,7 +49,7 @@ TrainerCamperJerry:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerHikerEdwin:
 	trainer HIKER, EDWIN, EVENT_BEAT_HIKER_EDWIN, HikerEdwinSeenText, HikerEdwinBeatenText, 0, .Script
 
@@ -186,7 +186,7 @@ CamperJerryAfterBattleText:
 	para "don't take him"
 	line "seriously."
 	done
-	
+
 HikerEdwinSeenText:
 	text "R-r-r-r-R-r-r-R-"
 	line "R-r-R-R-R--CRASH!"

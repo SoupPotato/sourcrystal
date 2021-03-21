@@ -1540,7 +1540,7 @@ JohtoGrassWildMons:
 	db 15, MEOWTH
 	db 14, ELECTABUZZ
 	db 14, ELECTABUZZ
-	
+
 	map_id ROUTE_42
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn

@@ -14,7 +14,7 @@ Route26_MapScripts:
 
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .Fruittrees
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE26_BERRY
@@ -22,7 +22,7 @@ Route26_MapScripts:
 	appear ROUTE26_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE26_APRICORN
 	iftrue .NoApricorn
@@ -276,11 +276,11 @@ Route26BerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route26ApricornTree:
 	opentext
 	writetext Route26ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route26HeyItsApricornText
 	buttonsound
 	verbosegiveitem BLU_APRICORN
@@ -469,7 +469,7 @@ Route26SignText:
 	para "#MON LEAGUE"
 	line "RECEPTION GATE"
 	done
-	
+
 Route26BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -488,7 +488,7 @@ Route26ApricornTreeText:
 Route26HeyItsApricornText:
 	text "Hey! It's"
 	line "BLU APRICORN!"
-	done	
+	done
 
 Route26NothingHereText:
 	text "There's nothing"

@@ -8,16 +8,16 @@ SeafoamIslandsB2F_MapScripts:
 	db 0 ; scene scripts
 
 	db 0 ; callbacks
-	
+
 SeafoamIslandsB2FHiddenPearl1:
 	hiddenitem PEARL, EVENT_SEAFOAM_ISLANDS_B2F_HIDDEN_PEARL1
-	
+
 SeafoamIslandsB2FHiddenPearl2:
 	hiddenitem PEARL, EVENT_SEAFOAM_ISLANDS_B2F_HIDDEN_PEARL2
 
 SeafoamIslandsB2FWaterStone:
 	itemball WATER_STONE
-	
+
 TrainerSkierCady:
 	trainer SKIER, CADY, EVENT_BEAT_SKIER_CADY, SkierCadySeenText, SkierCadyBeatenText, 0, .Script
 
@@ -28,7 +28,7 @@ TrainerSkierCady:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBoarderShaun:
 	trainer BOARDER, SHAUN, EVENT_BEAT_BOARDER_SHAUN, BoarderShaunSeenText, BoarderShaunBeatenText, 0, .Script
 
@@ -39,7 +39,7 @@ TrainerBoarderShaun:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBoarderBryce:
 	trainer BOARDER, BRYCE, EVENT_BEAT_BOARDER_BRYCE, BoarderBryceSeenText, BoarderBryceBeatenText, 0, .Script
 
@@ -66,7 +66,7 @@ SkierCadyAfterBattleText:
 	text "That was a hot"
 	line "battle!"
 	done
-	
+
 BoarderShaunSeenText:
 	text "Hey, hey,"
 	line "you're in my way!"
@@ -87,7 +87,7 @@ BoarderBryceSeenText:
 	text "What did you come"
 	line "all the way out"
 	cont "here for, I won-"
-	cont "der." 	
+	cont "der."
 	done
 
 BoarderBryceBeatenText:

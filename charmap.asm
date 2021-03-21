@@ -130,7 +130,7 @@
 	charmap "'s",        $d4
 	charmap "'t",        $d5
 	charmap "'v",        $d6
-	
+
 	charmap "■",         $d7
 	charmap "▲",         $d8
 	charmap "☎",        $d9
@@ -145,7 +145,7 @@
 	charmap "<PK>",      $e1
 	charmap "<MN>",      $e2
 	charmap "-",         $e3
-	
+
 	charmap "<PO>",      $e4
 	charmap "<KE>",      $e5
 

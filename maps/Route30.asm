@@ -18,7 +18,7 @@ Route30_MapScripts:
 
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .Fruittrees
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE30_BERRY
@@ -26,21 +26,21 @@ Route30_MapScripts:
 	appear ROUTE30_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE30_APRICORN
 	iftrue .NoApricorn
 	appear ROUTE30_APRICORN
 .NoApricorn:
 	;return
-	
+
 .Berry2:
 	checkflag ENGINE_DAILY_ROUTE30_BERRY2
 	iftrue .NoBerry2
 	appear ROUTE30_BERRY2
 .NoBerry2:
 	;return
-	
+
 .Apricorn2:
 	checkflag ENGINE_DAILY_ROUTE30_APRICORN2
 	iftrue .NoApricorn2
@@ -284,7 +284,7 @@ Route30BerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route30BerryTree2:
 	opentext
 	writetext Route30BerryTreeText
@@ -302,7 +302,7 @@ Route30BerryTree2:
 Route30ApricornTree:
 	opentext
 	writetext Route30ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route30HeyItsApricornText
 	buttonsound
 	verbosegiveitem GRN_APRICORN
@@ -312,11 +312,11 @@ Route30ApricornTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route30ApricornTree2:
 	opentext
 	writetext Route30ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route30HeyItsApricorn2Text
 	buttonsound
 	verbosegiveitem PNK_APRICORN
@@ -326,7 +326,7 @@ Route30ApricornTree2:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route30NoBerry:
 	opentext
 	writetext Route30BerryTreeText
@@ -503,7 +503,7 @@ YoungsterJoeyText_GiveHPUpAfterBattle:
 	para "I'm going to get"
 	line "tougher too."
 	done
-	
+
 Route30BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -513,7 +513,7 @@ Route30HeyItsBerryText:
 	text "Hey! It's"
 	line "ORAN BERRY!"
 	done
-	
+
 Route30HeyItsBerry2Text:
 	text "Hey! It's"
 	line "PECHA BERRY!"
@@ -528,7 +528,7 @@ Route30HeyItsApricornText:
 	text "Hey! It's"
 	line "GRN APRICORN!"
 	done
-	
+
 Route30HeyItsApricorn2Text:
 	text "Hey! It's"
 	line "PNK APRICORN!"

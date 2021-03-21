@@ -9,7 +9,7 @@ Route13_MapScripts:
 	db 0 ; scene scripts
 
 	db 0 ; callbacks
-	
+
 TrainerCoupleTimandSue1:
 	trainer COUPLE, TIMANDSUE1, EVENT_BEAT_COUPLE_TIMANDSUE, CoupleTimandSueSeenText, CoupleTimandSueBeatenText, 0, .Script
 
@@ -20,7 +20,7 @@ TrainerCoupleTimandSue1:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerCoupleTimandSue2:
 	trainer COUPLE, TIMANDSUE2, EVENT_BEAT_COUPLE_TIMANDSUE, CoupleTimandSueSeenText, CoupleTimandSueBeatenText, 0, .Script
 
@@ -31,7 +31,7 @@ TrainerCoupleTimandSue2:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerPicnickerPiper:
 	trainer PICNICKER, PIPER, EVENT_BEAT_PICNICKER_PIPER, PicnickerPiperSeenText, PicnickerPiperBeatenText, 0, .Script
 
@@ -42,7 +42,7 @@ TrainerPicnickerPiper:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerPicnickerGinger:
 	trainer PICNICKER, GINGER, EVENT_BEAT_PICNICKER_GINGER, PicnickerGingerSeenText, PicnickerGingerBeatenText, 0, .Script
 
@@ -53,7 +53,7 @@ TrainerPicnickerGinger:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerCamperTanner:
 	trainer CAMPER, TANNER, EVENT_BEAT_CAMPER_TANNER, CamperTannerSeenText, CamperTannerBeatenText, 0, .Script
 
@@ -64,7 +64,7 @@ TrainerCamperTanner:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerCamperClark:
 	trainer CAMPER, CLARK, EVENT_BEAT_CAMPER_CLARK, CamperClarkSeenText, CamperClarkBeatenText, 0, .Script
 
@@ -146,7 +146,7 @@ Route13HiddenCalcium:
 PicnickerPiperSeenText:
 	text "Hey, hey, how"
 	line "about we bring out"
-	
+
 	para "your #MON and"
 	line "mine for a battle?"
 	done
@@ -159,16 +159,16 @@ PicnickerPiperBeatenText:
 PicnickerPiperAfterBattleText:
 	text "The way you were"
 	line "walking with your"
-	
+
 	para "#MON made me"
 	line "think that I could"
 	cont "win."
 	done
-	
+
 PicnickerGingerSeenText:
 	text "Why is it I always"
 	line "get the urge to"
-	
+
 	para "whistle when"
 	line "walking through"
 	cont "nature?"
@@ -183,25 +183,25 @@ PicnickerGingerAfterBattleText:
 	line "unicating with"
 	cont "#MON with"
 	cont "words,"
-	
+
 	para "you can comm-"
 	line "unicate with them"
 	cont "through whistling!"
 	done
-	
+
 CoupleTimandSueSeenText:
 	text "TIM: I'll give you"
 	line "a little hint."
-	
+
 	para "Don't you think my"
 	line "girlfriend's much"
-	
+
 	para "stronger than"
 	line "I am?"
-	
+
 	para "SUE: Women who"
 	line "don't take love"
-	
+
 	para "seriously and who"
 	line "are reckless might"
 	cont "get hurt."
@@ -210,7 +210,7 @@ CoupleTimandSueSeenText:
 CoupleTimandSueBeatenText:
 	text "TIM: You're the"
 	line "strongest!"
-	
+
 	para "SUE: Wa ha…"
 	done
 
@@ -219,11 +219,11 @@ CoupleTimandSueAfterBattleText1:
 	line "beaten her, you"
 	cont "must be strong!"
 	done
-	
+
 CoupleTimandSueAfterBattleText2:
 	text "SUE: That strength"
 	line "of yours…"
-	
+
 	para "I've got it!"
 	line "Are you in love?"
 	done
@@ -231,7 +231,7 @@ CoupleTimandSueAfterBattleText2:
 CamperTannerSeenText:
 	text "I can fit in a"
 	line "quick battle while"
-	
+
 	para "I'm in the midst"
 	line "of preparing a"
 	cont "meal!"
@@ -246,18 +246,17 @@ CamperTannerAfterBattleText:
 	line "be easy to knock"
 	cont "you out…"
 	done
-	
+
 CamperClarkSeenText:
 	text "Collect water!"
 	line "Don't let the fire"
 	cont "go out!"
-	
+
 	para "Look out for wild"
 	line "#MON!"
-	
+
 	para "Let's go,"
 	line "Campfire!"
-
 	done
 
 CamperClarkBeatenText:
@@ -269,7 +268,7 @@ CamperClarkAfterBattleText:
 	line "what kind of prep-"
 	cont "aration you've"
 	cont "done."
-	
+
 	para "If you lose,"
 	line "you lose."
 	done

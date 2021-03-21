@@ -1617,7 +1617,7 @@ BattleAnim_Recover:
 	anim_call BattleAnim_Recover_branch_cbc6a
 	anim_ret
 
-BattleAnim_Recover_branch:	
+BattleAnim_Recover_branch:
 	anim_obj ANIM_OBJ_RECOVER, 44, 88, $30
 	anim_obj ANIM_OBJ_RECOVER, 44, 88, $31
 	anim_obj ANIM_OBJ_RECOVER, 44, 88, $32
@@ -2593,7 +2593,7 @@ BattleAnim_Minimize:
 	anim_sound 0, 1, SFX_SLUDGE_BOMB
 	anim_bgeffect ANIM_BG_RETURN_MON, $0, $1, $0
 	anim_wait 16
-.mini	
+.mini
 	anim_obj ANIM_OBJ_MINIMIZE, 48, 110, $0
 	anim_wait 6
 	anim_loop 8, .mini
@@ -2684,7 +2684,7 @@ BattleAnim_DreamEater:
 	anim_1gfx ANIM_GFX_CHARGE
 	anim_bgp $1b
 	anim_obp0 $27
-	
+
 .loop
 	anim_sound 6, 3, SFX_WARP_TO
 	anim_obj ANIM_OBJ_DREAM_EATER, 128, 48, $2

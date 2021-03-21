@@ -266,7 +266,7 @@ UnknownText_0x7a763:
 
 UnknownText_0x7a7cb:
 	text "Oh, I see."
-	
+
 	para "Aren't you a"
 	line "clever one?"
 	done

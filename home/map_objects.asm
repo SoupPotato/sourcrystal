@@ -203,7 +203,7 @@ CheckSpinTile::
 	ret z
 	ld c, STANDING
 	ret
-	
+
 CheckStopSpinTile::
 	cp $80
 	ret

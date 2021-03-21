@@ -184,7 +184,7 @@ KRIS EQU __enum__
 	const ERNIE
 	const KINSLEY
 	const EASTON
-	
+
 	trainerclass LASS ; 19
 	const CARRIE
 	const BRIDGET
@@ -777,7 +777,7 @@ KRIS EQU __enum__
 
 	trainerclass MYSTICALMAN ; 43
 	const EUSINE
-	
+
 	trainerclass COUPLE ; 44
 	const DUFFANDEDA1
 	const DUFFANDEDA2
@@ -787,7 +787,7 @@ KRIS EQU __enum__
 	const VICANDTARA2
 	const TIMANDSUE1
 	const TIMANDSUE2
-	
+
 	trainerclass COOL_DUO ; 45
 	const THOMANDKAE1
 	const THOMANDKAE2

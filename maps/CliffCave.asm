@@ -27,7 +27,7 @@ CliffCave_MapEvents:
 
 	db 1 ; object events
 	object_event 7, 19, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, PERSONTYPE_SCRIPT, 0, CliffCaveManScript, -1
-	
+
 CliffCaveManScript:
 	jumptextfaceplayer CliffCaveManText
 
@@ -41,10 +41,10 @@ CliffCaveManText:
 	line "way is right and"
 	cont "the other leads"
 	cont "to a dead end."
-	
+
 	para "But people can't"
 	line "help trying both."
-	
+
 	para "Do you want to"
 	line "go up the ladder"
 	cont "or go down the"

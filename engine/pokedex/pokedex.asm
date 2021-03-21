@@ -383,7 +383,7 @@ Pokedex_UpdateDexEntryScreen:
 	ld a, [wPrevDexEntryJumptableIndex]
 	ld [wJumptableIndex], a
 	ret
-	
+
 Pokedex_Page:
 	ld a, [wPokedexStatus]
 	xor 1 ; toggle page

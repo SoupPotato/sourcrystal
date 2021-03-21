@@ -19,7 +19,7 @@ CeruleanCaveB1F_MapScripts:
 	scene_script .DummyScene
 
 	db 0 ; callbacks
-	
+
 .DummyScene:
 	checkevent EVENT_FOUGHT_MEWTWO
 	iftrue .DoNothing
@@ -27,11 +27,11 @@ CeruleanCaveB1F_MapScripts:
 	ifequal NUM_BADGES, .MewtwoAppear
 .DoNothing
 	end
-	
+
 .MewtwoAppear
 	setevent EVENT_MEWTWO_APPEAR
 	end
-	
+
 CeruleanCaveB1FMewtwo:
 	opentext
 	writetext MewtwoText
@@ -45,38 +45,38 @@ CeruleanCaveB1FMewtwo:
 	setevent EVENT_FOUGHT_MEWTWO
 	reloadmapafterbattle
 	end
-	
+
 MewtwoText:
 	text "…!"
 	done
 
 CeruleanCaveB1FHiddenNugget:
 	hiddenitem NUGGET, EVENT_CERULEAN_CAVE_B1F_HIDDEN_NUGGET
-	
+
 CeruleanCaveB1FHiddenUltraBall:
 	hiddenitem ULTRA_BALL, EVENT_CERULEAN_CAVE_B1F_HIDDEN_ULTRA_BALL
-	
+
 CeruleanCaveB1FHiddenMaxRevive:
 	hiddenitem MAX_REVIVE, EVENT_CERULEAN_CAVE_B1F_HIDDEN_MAX_REVIVE
-	
+
 CeruleanCaveB1FUltraBall:
 	itemball ULTRA_BALL
-	
+
 CeruleanCaveB1FMaxRevive:
 	itemball MAX_REVIVE
-	
+
 CeruleanCaveB1FMoonStone:
 	itemball MOON_STONE
-	
+
 CeruleanCaveB1FMagnet:
 	itemball MAGNET
-	
+
 CeruleanCaveB1FLeftovers:
 	itemball LEFTOVERS
-	
+
 CeruleanCaveB1FRock:
 	jumpstd smashrock
-	
+
 CeruleanCaveB1F_MapEvents:
 	db 0, 0 ; filler
 

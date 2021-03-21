@@ -13,13 +13,13 @@ CeruleanCity_MapScripts:
 	db 2 ; callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 	callback MAPCALLBACK_OBJECTS, .CaveCooltrainerCaveBlock
-	
+
 .CaveCooltrainerCaveBlock:
 	checkcode VAR_BADGES
 	ifequal NUM_BADGES, .CaveCooltrainerDissapear
 	appear CERULEANCITY_CAVE_COOLTRAINER_M
 	return
-	
+
 .CaveCooltrainerDissapear:
 	disappear CERULEANCITY_CAVE_COOLTRAINER_M
 	return
@@ -27,7 +27,7 @@ CeruleanCity_MapScripts:
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_CERULEAN
 	return
-	
+
 CeruleanCaveCooltrainerMScript:
 	faceplayer
 	opentext
@@ -292,24 +292,23 @@ CeruleanCapeSignText:
 CeruleanLockedDoorText:
 	text "It's locked…"
 	done
-	
+
 CeruleanCaveCooltrainerMText:
 	text "This is…"
 	line "The notorious"
 	cont "CERULEAN CAVE!"
-	
+
 	para "Horribly powerful"
 	line "#MON live here."
-	
+
 	para "Only those who"
 	line "have defeated all"
-	
+
 	para "eight KANTO"
 	line "GYM LEADERS"
 	cont "are allowed to"
 	cont "challenge it."
 	done
-	
 
 CeruleanCity_MapEvents:
 	db 0, 0 ; filler
@@ -344,4 +343,3 @@ CeruleanCity_MapEvents:
 	object_event 30, 22, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCityFisherScript, -1
 	object_event  8,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCityYoungsterScript, -1
 	object_event  4, 12, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCaveCooltrainerMScript, 0
-	

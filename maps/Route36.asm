@@ -23,7 +23,7 @@ Route36_MapScripts:
 
 .DummyScene1:
 	end
-	
+
 .FruittreesandArthurCallback
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE36_BERRY
@@ -31,7 +31,7 @@ Route36_MapScripts:
 	appear ROUTE36_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE36_APRICORN
 	iftrue .NoApricorn
@@ -168,14 +168,14 @@ Route36RockSmashGuyScript:
 .NoRoomForTM:
 	closetext
 	end
-	
+
 .JumpstdReceiveItem:
 	jumpstd receiveitem
 	end
 
 .pagercardname
 	db "RCKSMSHPAGER@"
-	
+
 GotRockSmashPagerText:
 	text "CUBONE SMASH was"
 	line "added to the PPS!"
@@ -407,11 +407,11 @@ Route36BerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route36ApricornTree:
 	opentext
 	writetext Route36ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route36HeyItsApricornText
 	buttonsound
 	verbosegiveitem BLU_APRICORN
@@ -577,11 +577,11 @@ RockSmashGuyText3:
 	para "It lowers the"
 	line "target's DEFENSE"
 	cont "with each hit."
-	
+
 	para "You can have this"
 	line "too!"
 	done
-	
+
 RockSmashGuyText4:
 	text "That's a"
 	line "RCKSMSHPAGER."
@@ -744,7 +744,7 @@ Route36TrainerTips2Text:
 	para "caves and other"
 	line "landmarks."
 	done
-	
+
 Route36BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -763,7 +763,7 @@ Route36ApricornTreeText:
 Route36HeyItsApricornText:
 	text "Hey! It's"
 	line "BLU APRICORN!"
-	done	
+	done
 
 Route36NothingHereText:
 	text "There's nothing"

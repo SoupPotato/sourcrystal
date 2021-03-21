@@ -29,7 +29,7 @@ TwinsDayandDani2:
 	waitbutton
 	closetext
 	end
-	
+
 CamperViktor:
 	trainer CAMPER, VIKTOR, EVENT_BEAT_CAMPER_VIKTOR, CamperViktorSeenText, CamperViktorBeatenText, 0, .Script
 
@@ -40,7 +40,7 @@ CamperViktor:
 	waitbutton
 	closetext
 	end
-	
+
 PicnickerSelina:
 	trainer PICNICKER, SELINA, EVENT_BEAT_PICNICKER_SELINA, PicnickerSelinaSeenText, PicnickerSelinaBeatenText, 0, .Script
 
@@ -76,7 +76,7 @@ Route6UndergroundPathSignText:
 TwinsDayandDaniSeenText:
 	text "DAY: Are you"
 	line "going to beat us?"
-	
+
 	para "DANI: We'll knock"
 	line "you flat!"
 	done
@@ -96,11 +96,11 @@ TwinsDayandDani2AfterBattleText:
 	text "DANI: Looks like"
 	line "we got bounced."
 	done
-	
+
 PicnickerSelinaSeenText:
 	text "I'm headed out on"
 	line "a picnic."
-	
+
 	para "Do you know why?"
 	done
 
@@ -115,21 +115,21 @@ PicnickerSelinaAfterBattleText:
 
 	para "It's because I"
 	line "really want to"
-	
+
 	para "smell the fresh"
 	line "air…"
-	
+
 	para "Do you know what"
 	line "I mean?"
 	done
-	
+
 CamperViktorSeenText:
 	text "Walking along with"
 	line "luggage and your"
-	
+
 	para "companion #MON"
 	line "gives a great"
-	
+
 	para "feeling of outdoor"
 	line "life!"
 	done
@@ -144,7 +144,7 @@ CamperViktorAfterBattleText:
 
 	para "See you again"
 	line "sometime."
-	
+
 	para "Bye for now!"
 	done
 

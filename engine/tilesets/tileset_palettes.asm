@@ -21,7 +21,7 @@ LoadSpecialMapPalette:
 	cp TILESET_MANSION
 	jr z, .mansion_mobile
 	jr .do_nothing
-	
+
 .darkness
 	call LoadDarknessPalette
 	scf
@@ -64,7 +64,7 @@ LoadSpecialMapPalette:
 .do_nothing
 	and a
 	ret
-	
+
 LoadDarknessPalette:
 	ld a, BANK(wBGPals1)
 	ld de, wBGPals1
@@ -311,7 +311,7 @@ LoadSpecialMapOBPalette:
 	ld a, [wMapNumber]
 	cp MAP_MR_FUJIS_HOUSE
 	jr z, .PurpleOverRockOBPalette
-	
+
 .do_nothing
 	and a
 	ret
@@ -335,7 +335,7 @@ LoadSpecialMapOBPalette:
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
 	ld hl, WhiteOverRock
-	jr .finish	
+	jr .finish
 
 .PurpleOverRockYellowOverPinkOBPalette
 	ld a, [wTimeOfDayPal]

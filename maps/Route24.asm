@@ -44,7 +44,7 @@ CoupleMaleScript:
 	closetext
 	turnobject ROUTE24_SUPER_NERD, LEFT
 	end
-	
+
 CoupleFemaleScript:
 	faceplayer
 	opentext
@@ -53,7 +53,7 @@ CoupleFemaleScript:
 	closetext
 	turnobject ROUTE24_BUENA1, LEFT
 	end
-	
+
 CoupleMaleText:
 	text "Can you leave"
 	line "us alone?"
@@ -63,7 +63,7 @@ CoupleMaleText:
 	cont "us, and it's"
 	cont "finally working."
 	done
-	
+
 CoupleFemaleText:
 	text "Just keep on"
 	line "going. Thank you."

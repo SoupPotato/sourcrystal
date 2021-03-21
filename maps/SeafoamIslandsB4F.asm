@@ -23,16 +23,16 @@ SeafoamIslandsB4F_MapScripts:
 .NoAppear:
 	disappear SEAFOAM_ISLANDS_B4F_ARTICUNO
 	return
-	
+
 SeafoamIslandsB4FHiddenCalcium:
 	hiddenitem CALCIUM, EVENT_SEAFOAM_ISLANDS_B4F_HIDDEN_CALCIUM
 
 SeafoamIslandsB4FUltraBall:
 	itemball ULTRA_BALL
-	
+
 SeafoamIslandsB4FBigPearl:
 	itemball BIG_PEARL
-	
+
 SeafoamIslandsArticuno:
 	opentext
 	writetext ArticunoText
@@ -46,7 +46,7 @@ SeafoamIslandsArticuno:
 	setevent EVENT_FOUGHT_ARTICUNO
 	reloadmapafterbattle
 	end
-	
+
 ArticunoText:
 	text "Gyaoo!"
 	done

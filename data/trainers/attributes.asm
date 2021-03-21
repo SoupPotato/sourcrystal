@@ -408,7 +408,7 @@ TrainerClassAttributes:
 	db 18 ; base reward
 	dw AI_BASIC + AI_TYPES + AI_OPPORTUNIST + AI_CAUTIOUS + AI_STATUS
 	dw CONTEXT_USE + SWITCH_OFTEN
-	
+
 ; Cool Duo
 	db NO_ITEM, NO_ITEM ; items
 	db 16 ; base reward

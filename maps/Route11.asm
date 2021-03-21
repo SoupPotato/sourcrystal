@@ -12,7 +12,7 @@ Route11_MapScripts:
 
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .Fruittrees
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE11_BERRY
@@ -20,7 +20,7 @@ Route11_MapScripts:
 	appear ROUTE11_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE11_APRICORN
 	iftrue .NoApricorn
@@ -113,11 +113,11 @@ Route11BerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route11ApricornTree:
 	opentext
 	writetext Route11ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route11HeyItsApricornText
 	buttonsound
 	verbosegiveitem GRN_APRICORN
@@ -228,7 +228,7 @@ PsychicFidelAfterBattleText:
 Route11SignText:
 	text "ROUTE 11"
 	done
-	
+
 UnknownText_0x1aab64:
 	text "SNORLAX is snoring"
 	line "peacefully…"
@@ -243,11 +243,11 @@ UnknownText_0x1aab84:
 
 	para "SNORLAX woke up!"
 	done
-	
+
 Route11DiglettsCaveSignText:
 	text "DIGLETT'S CAVE"
 	done
-	
+
 Route11BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -266,7 +266,7 @@ Route11ApricornTreeText:
 Route11HeyItsApricornText:
 	text "Hey! It's"
 	line "GRN APRICORN!"
-	done	
+	done
 
 Route11NothingHereText:
 	text "There's nothing"

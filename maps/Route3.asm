@@ -31,7 +31,7 @@ TrainerHikerDwight:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBlackBeltManford:
 	trainer BLACKBELT_T, MANFORD, EVENT_BEAT_BLACKBELT_MANFORD, BlackBeltManfordSeenText, BlackBeltManfordBeatenText, 0, .Script
 
@@ -42,7 +42,7 @@ TrainerBlackBeltManford:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBlackBeltAnder:
 	trainer BLACKBELT_T, ANDER, EVENT_BEAT_BLACKBELT_ANDER, BlackBeltAnderSeenText, BlackBeltAnderBeatenText, 0, .Script
 
@@ -133,22 +133,20 @@ TrainerFirebreatherBurt:
 
 Route3MtMoonSquareSign:
 	jumptext Route3MtMoonSquareSignText
-	
+
 Route3MtMoonPokecenterSign:
 	jumpstd pokecentersign
-	
 
 HikerBruceSeenText:
 	text "My Bag is"
 	line "digging into my"
 	cont "shoulders!"
-	
+
 	para "When that happens,"
 	line "I like to take a"
-	
+
 	para "break and have"
 	line "a battle!"
-	
 	done
 
 HikerBruceBeatenText:
@@ -158,21 +156,21 @@ HikerBruceBeatenText:
 HikerBruceAfterBattleText:
 	text "All right,"
 	line "I guess I should"
-	
+
 	para "carry my bag"
 	line "again!"
 	done
-	
+
 HikerDwightSeenText:
 	text "Peace!"
-	
+
 	para "…"
 	line "…Huh?"
-	
+
 	para "When you meet"
 	line "the unknown on a"
 	cont "mountain road,"
-	
+
 	para "all you want"
 	line "is peace, right?"
 	done
@@ -185,19 +183,19 @@ HikerDwightBeatenText:
 HikerDwightAfterBattleText:
 	text "Exchanging light-"
 	line "hearted greetings"
-	
+
 	para "with someone you"
 	line "dont know…"
-	
+
 	para "That's the best"
 	line "thing about"
 	cont "mountains!"
 	done
-	
+
 BlackBeltManfordSeenText:
 	text "How about you"
 	line "just slow down"
-	
+
 	para "and give me a"
 	line "chance to defeat"
 	cont "you!"
@@ -212,16 +210,16 @@ BlackBeltManfordBeatenText:
 BlackBeltManfordAfterBattleText:
 	text "Even though"
 	line "you're so young,"
-	
+
 	para "you have the"
 	line "spirit of battle"
 	cont "within."
-	
+
 	para "You must have"
 	line "trained under a"
 	cont "well-known master!"
 	done
-	
+
 BlackBeltAnderSeenText:
 	text "Wait a moment!"
 	line "Come fight us!"
@@ -234,7 +232,7 @@ BlackBeltAnderBeatenText:
 BlackBeltAnderAfterBattleText:
 	text "You came all the"
 	line "way from JOHTO?"
-	
+
 	para "You must be very"
 	line "persistent!"
 	done
@@ -242,11 +240,11 @@ BlackBeltAnderAfterBattleText:
 CoolDuoZacandJenSeenText:
 	text "ZAC: Really, you"
 	line "want to battle us?"
-	
+
 	para "You've got a"
 	line "lot courage for"
 	cont "someone so young."
-	
+
 	para "JEN: Huh? You'd"
 	line "like to go up"
 	cont "against us?"
@@ -256,7 +254,7 @@ CoolDuoZacandJenSeenText:
 CoolDuoZacandJenBeatenText:
 	text "ZAC: You weren't"
 	line "bluffing…"
-	
+
 	para "JEN: You're so"
 	line "much stronger"
 	cont "than I thought."
@@ -270,7 +268,7 @@ CoolDuoZacandJen1AfterBattleText:
 CoolDuoZacandJen2AfterBattleText:
 	text "JEN: I'm looking"
 	line "foward to seeing"
-	
+
 	para "what kind of"
 	line "Trainer you'll"
 	cont "become."
@@ -280,7 +278,7 @@ YoungsterRegisSeenText:
 	text "Youngster?"
 	line "Goodness,"
 	cont "how rude!"
-	
+
 	para "Call me"
 	line "Shorts Boy!"
 	done
@@ -328,7 +326,7 @@ YoungsterJimmyAfterBattleText:
 	para "That's my fashion"
 	line "policy."
 	done
-	
+
 FirebreatherOtisSeenText:
 	text "Ah! The weather's"
 	line "as fine as ever."
@@ -395,4 +393,3 @@ Route3_MapEvents:
 	object_event 54, 33, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerDwight, -1
 	object_event 41, 29, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBlackBeltManford, -1
 	object_event 50, 32, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerBlackBeltAnder, -1
-	

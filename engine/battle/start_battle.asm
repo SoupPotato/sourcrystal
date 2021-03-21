@@ -16,7 +16,7 @@ FindFirstAliveMonAndStartBattle:
 	xor a
 	ld [hMapAnims], a
 	call DelayFrame
-	
+
 	predef DoBattleTransition
 	farcall _LoadBattleFontsHPBar
 	ld a, 1

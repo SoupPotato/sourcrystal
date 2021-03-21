@@ -70,7 +70,7 @@ OddEgg1:
 	bigdw 9 ; SAtk
 	bigdw 9 ; SDef
 	db "EGG@@@@@@@@"
-	
+
 OddEgg2:
 	db PICHU
 	db NO_ITEM
@@ -97,7 +97,7 @@ OddEgg2:
 	bigdw 9 ; SAtk
 	bigdw 9 ; SDef
 	db "EGG@@@@@@@@"
-	
+
 	db PICHU
 	db NO_ITEM
 	db THUNDERSHOCK, CHARM, DIZZY_PUNCH, 0
@@ -123,7 +123,7 @@ OddEgg2:
 	bigdw 9 ; SAtk
 	bigdw 9 ; SDef
 	db "EGG@@@@@@@@"
-	
+
 	db PICHU
 	db NO_ITEM
 	db THUNDERSHOCK, CHARM, DIZZY_PUNCH, 0
@@ -175,7 +175,7 @@ OddEgg2:
 	bigdw 10 ; SAtk
 	bigdw 10 ; SDef
 	db "EGG@@@@@@@@"
-	
+
 	db CLEFFA
 	db NO_ITEM
 	db POUND, CHARM, DIZZY_PUNCH, 0
@@ -201,7 +201,7 @@ OddEgg2:
 	bigdw 10 ; SAtk
 	bigdw 10 ; SDef
 	db "EGG@@@@@@@@"
-	
+
 	db CLEFFA
 	db NO_ITEM
 	db POUND, CHARM, DIZZY_PUNCH, 0
@@ -305,7 +305,7 @@ OddEgg2:
 	bigdw 10 ; SAtk
 	bigdw 8 ; SDef
 	db "EGG@@@@@@@@"
-	
+
 	db IGGLYBUFF
 	db NO_ITEM
 	db SING, CHARM, DIZZY_PUNCH, 0
@@ -331,7 +331,7 @@ OddEgg2:
 	bigdw 10 ; SAtk
 	bigdw 8 ; SDef
 	db "EGG@@@@@@@@"
-	
+
 	db IGGLYBUFF
 	db NO_ITEM
 	db SING, CHARM, DIZZY_PUNCH, 0
@@ -461,7 +461,7 @@ OddEgg2:
 	bigdw 13 ; SAtk
 	bigdw 11 ; SDef
 	db "EGG@@@@@@@@"
-	
+
 	db MAGBY
 	db NO_ITEM
 	db SMOG, LEER, DIZZY_PUNCH, 0
@@ -487,7 +487,7 @@ OddEgg2:
 	bigdw 13 ; SAtk
 	bigdw 11 ; SDef
 	db "EGG@@@@@@@@"
-	
+
 	db MAGBY
 	db NO_ITEM
 	db SMOG, LEER, DIZZY_PUNCH, 0
@@ -565,7 +565,7 @@ OddEgg2:
 	bigdw 12 ; SAtk
 	bigdw 11 ; SDef
 	db "EGG@@@@@@@@"
-	
+
 	db ELEKID
 	db NO_ITEM
 	db QUICK_ATTACK, LEER, DIZZY_PUNCH, 0
@@ -591,7 +591,7 @@ OddEgg2:
 	bigdw 12 ; SAtk
 	bigdw 11 ; SDef
 	db "EGG@@@@@@@@"
-	
+
 	db ELEKID
 	db NO_ITEM
 	db QUICK_ATTACK, LEER, DIZZY_PUNCH, 0

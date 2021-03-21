@@ -329,7 +329,7 @@ _AskSurfText::
 	line "Want to use"
 	cont "LAPRAS SURF?"
 	done
-	
+
 _UsedFlyText::
 	text "<PLAYER> summoned a"
 	line "PIDGEOT to use"

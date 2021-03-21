@@ -13,28 +13,28 @@ Route37_MapScripts:
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .FruittreesandSunny
 
-.FruittreesandSunny	
+.FruittreesandSunny
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE37_APRICORN
 	iftrue .NoApricorn
 	appear ROUTE37_APRICORN
 .NoApricorn:
 	;return
-	
+
 .Apricorn2:
 	checkflag ENGINE_DAILY_ROUTE37_APRICORN2
 	iftrue .NoApricorn2
 	appear ROUTE37_APRICORN2
 .NoApricorn2:
 	;return
-	
+
 .Apricorn3:
 	checkflag ENGINE_DAILY_ROUTE37_APRICORN3
 	iftrue .NoApricorn3
 	appear ROUTE37_APRICORN3
 .NoApricorn3:
 	;return
-	
+
 .Sunny:
 	checkcode VAR_WEEKDAY
 	ifequal SUNDAY, .SunnyAppears
@@ -123,11 +123,11 @@ SunnyNotSundayScript:
 
 Route37Sign:
 	jumptext Route37SignText
-	
+
 Route37ApricornTree:
 	opentext
 	writetext Route37ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route37HeyItsApricornText
 	buttonsound
 	verbosegiveitem RED_APRICORN
@@ -137,11 +137,11 @@ Route37ApricornTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route37ApricornTree2:
 	opentext
 	writetext Route37ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route37HeyItsApricorn2Text
 	buttonsound
 	verbosegiveitem BLU_APRICORN
@@ -151,11 +151,11 @@ Route37ApricornTree2:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route37ApricornTree3:
 	opentext
 	writetext Route37ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route37HeyItsApricorn3Text
 	buttonsound
 	verbosegiveitem BLK_APRICORN
@@ -298,7 +298,7 @@ SunnyNotSundayText:
 Route37SignText:
 	text "ROUTE 37"
 	done
-	
+
 Route37BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -312,13 +312,13 @@ Route37ApricornTreeText:
 Route37HeyItsApricornText:
 	text "Hey! It's"
 	line "RED APRICORN!"
-	done	
-	
+	done
+
 Route37HeyItsApricorn2Text:
 	text "Hey! It's"
 	line "BLU APRICORN!"
 	done
-	
+
 Route37HeyItsApricorn3Text:
 	text "Hey! It's"
 	line "BLK APRICORN!"

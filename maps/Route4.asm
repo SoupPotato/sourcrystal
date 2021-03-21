@@ -10,13 +10,13 @@ Route4_MapScripts:
 
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .CaveCooltrainerCaveBlock
-	
+
 .CaveCooltrainerCaveBlock:
 	checkcode VAR_BADGES
 	ifequal NUM_BADGES, .CaveCooltrainerDissapear
 	appear ROUTE4_CAVE_COOLTRAINER_M
 	return
-	
+
 .CaveCooltrainerDissapear:
 	disappear ROUTE4_CAVE_COOLTRAINER_M
 	return

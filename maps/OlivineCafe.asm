@@ -29,14 +29,14 @@ OlivineCafeStrengthSailorScript:
 	waitbutton
 	closetext
 	end
-	
+
 .JumpstdReceiveItem:
 	jumpstd receiveitem
 	end
 
 .pagercardname
 	db "STRNGTHPAGER@"
-	
+
 GotStrengthPagerText:
 	text "MACHOKE PUSH was"
 	line "added to the PPS!"
@@ -61,7 +61,7 @@ OlivineCafeStrengthSailorText:
 	line "and gain some"
 	cont "muscle!"
 	done
-	
+
 UnknownText_STR:
 	text "You can use this"
 	line "to teach your"

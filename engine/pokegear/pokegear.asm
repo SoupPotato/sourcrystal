@@ -1491,11 +1491,11 @@ PagerCardRoutines:
 FlyPagerRoutine:
 	call GetMapEnvironment
 	call CheckOutdoorMap
-	jr nz, .FlyStartUp         ;checks if the player is outside	                         
-	call ClearBGPalettes                   
+	jr nz, .FlyStartUp         ;checks if the player is outside
+	call ClearBGPalettes
 	ld a, $90
 	ld [hWY], a
-	
+
 .FlyStartUp
 	farcall MonMenu_Fly   ;Regardless this code must trigger if the player is outside or not.
 	jr z, FinishPagerRoutine
@@ -1503,26 +1503,25 @@ FlyPagerRoutine:
 	call CheckOutdoorMap
 	ret nz
 
- 	call DisableLCD
- 	farcall DeinitializeAllSprites
- 	call ClearSprites
- 	call ClearTileMap
- 	call Pokegear_LoadGFX
- 	call InitPokegearModeIndicatorArrow
- 	ld a, LCDC_DEFAULT
- 	ld [rLCDC], a
- 	call PokegearPager_Init
- 	ld a, 1
- 	ld [wPokegearPagerCursorPosition], a
- 	call PokegearPager_UpdateCursor
- 	call WaitBGMap
- 	ld b, SCGB_POKEGEAR_PALS
- 	call GetSGBLayout
- 	call SetPalettes
- 	ld a, POKEGEARSTATE_PAGERJOYPAD
- 	ld [wJumptableIndex], a
- 	ret
-	
+	call DisableLCD
+	farcall DeinitializeAllSprites
+	call ClearSprites
+	call ClearTileMap
+	call Pokegear_LoadGFX
+	call InitPokegearModeIndicatorArrow
+	ld a, LCDC_DEFAULT
+	ld [rLCDC], a
+	call PokegearPager_Init
+	ld a, 1
+	ld [wPokegearPagerCursorPosition], a
+	call PokegearPager_UpdateCursor
+	call WaitBGMap
+	ld b, SCGB_POKEGEAR_PALS
+	call GetSGBLayout
+	call SetPalettes
+	ld a, POKEGEARSTATE_PAGERJOYPAD
+	ld [wJumptableIndex], a
+	ret
 
 ; all other pager functions had to be mvoed below FlyPagerRoutine due to its code setup
 CutPagerRoutine:
@@ -1549,13 +1548,12 @@ WhirlpoolPagerRoutine:
 	farcall MonMenu_Whirlpool
 	ret nz
 	jr FinishPagerRoutine
-	
 
 RockSmashPagerRoutine:
 	farcall MonMenu_RockSmash
 	ret nz
 	jr FinishPagerRoutine
-	
+
 FinishPagerRoutine:
 	ld a, $84
 	ld [wJumptableIndex], a
@@ -1750,7 +1748,7 @@ PokegearPagerContactSubmenu:
 	ld h, [hl]
 	ld l, a
 	jp hl
-	
+
 .CallCancelJumptable:
 	dw .Call
 	dw .Cancel

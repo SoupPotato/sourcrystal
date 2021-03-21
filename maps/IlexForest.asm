@@ -368,20 +368,20 @@ IlexForestCharcoalMasterScript:
 	clearevent EVENT_CHARCOAL_KILN_APPRENTICE
 	clearevent EVENT_CHARCOAL_KILN_BOSS
 	end
-	
+
 .JumpstdReceiveItem:
 	jumpstd receiveitem
 	end
 
 .pagercardname
 	db "CUT PAGER@"
-	
+
 .AlreadyGotCut:
 	writetext Text_CharcoalMasterTalkAfter
 	waitbutton
 	closetext
 	end
-	
+
 GotCutPagerText:
 	text "SCYTHER CHOP was"
 	line "added to the PPS!"
@@ -828,11 +828,11 @@ Text_CharcoalMasterMid:
 
 	para "GYM BADGE from"
 	line "AZALEA to use it."
-	
+
 	para "Oh here take this"
 	line "too!"
 	done
-	
+
 Text_CharcoalMasterOutro:
 	text "That's the CUT HM."
 	line "Teach that to a"

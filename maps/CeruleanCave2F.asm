@@ -2,43 +2,42 @@
 	const CERULEAN_CAVE_2F_POKE_BALL1
 	const CERULEAN_CAVE_2F_POKE_BALL2
 	const CERULEAN_CAVE_2F_POKE_BALL3
-	const CERULEAN_CAVE_2F_POKE_BALL4	
+	const CERULEAN_CAVE_2F_POKE_BALL4
 	const CERULEAN_CAVE_2F_ROCK1
 	const CERULEAN_CAVE_2F_ROCK2
 	const CERULEAN_CAVE_2F_ROCK3
 	const CERULEAN_CAVE_2F_ROCK4
 	const CERULEAN_CAVE_2F_ROCK5
-	
 
 CeruleanCave2F_MapScripts:
 	db 0 ; scene scripts
 
 	db 0 ; callbacks
-	
+
 CeruleanCave2FHiddenPPUP:
 	hiddenitem PP_UP, EVENT_CERULEAN_CAVE_2F_HIDDEN_PP_UP
-	
+
 CeruleanCave2FHiddenCalcium:
 	hiddenitem CALCIUM, EVENT_CERULEAN_CAVE_2F_HIDDEN_CALCIUM
-	
+
 CeruleanCave2FHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_CERULEAN_CAVE_2F_HIDDEN_FULL_HEAL
-	
+
 CeruleanCave2FHiddenBigPearl:
 	hiddenitem BIG_PEARL, EVENT_CERULEAN_CAVE_2F_HIDDEN_BIG_PEARL
-	
+
 CeruleanCave2FThunderstone:
 	itemball THUNDERSTONE
-	
+
 CeruleanCave2FPPUP:
 	itemball PP_UP
-	
+
 CeruleanCave2FUltraBall:
 	itemball ULTRA_BALL
-	
+
 CeruleanCave2FCarbos:
 	itemball CARBOS
-	
+
 CeruleanCave2FRock:
 	jumpstd smashrock
 
@@ -75,5 +74,3 @@ CeruleanCave2F_MapEvents:
 	object_event 12,  8, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCave2FRock, -1
 	object_event 10, 21, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCave2FRock, -1
 	object_event 32,  9, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCave2FRock, -1
-  
-	

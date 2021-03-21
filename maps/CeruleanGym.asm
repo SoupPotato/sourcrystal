@@ -95,7 +95,7 @@ TrainerSwimmerfDiana:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmerfJoy:
 	trainer SWIMMERF, JOY, EVENT_BEAT_SWIMMERF_JOY, SwimmerfJoySeenText, SwimmerfJoyBeatenText, 0, .Script
 
@@ -128,7 +128,7 @@ TrainerSailorParker:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSailorEddy:
 	trainer SAILOR, EDDY, EVENT_BEAT_SAILOR_EDDY, SailorEddySeenText, SailorEddyBeatenText, 0, .Script
 
@@ -346,12 +346,12 @@ SwimmerfBrianaAfterBattleText:
 SwimmerfJoySeenText:
 	text "Swimming isn't"
 	line "just about speed!"
-	
+
 	para "It's also about"
 	line "the beauty of"
 	cont "grace!"
 	done
-	
+
 SwimmerfJoyBeatenText:
 	text "I lost"
 	line "beautifully…"
@@ -363,7 +363,7 @@ SwimmerfJoyAfterBattleText:
 
 	para "appeared in this"
 	line "Gym…"
-	
+
 	para "I don't like that"
 	line "idea…"
 	done
@@ -388,11 +388,11 @@ SailorParkerAfterBattleText:
 	line "guard down, or"
 	cont "you'll be crushed!"
 	done
-	
+
 SailorEddySeenText:
 	text "I've been relaxing"
 	line "poolside,"
-	
+
 	para "so I've got"
 	line "enough strength!"
 	done

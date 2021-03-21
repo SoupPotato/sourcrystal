@@ -239,7 +239,6 @@ ENDM
 	dict "<ENEMY>",   PlaceEnemysName
 	dict "<PLAY_G>",  PlaceGenderedPlayerName
 
-	
 	ld [hli], a
 	call PrintLetterDelay
 	jp NextChar

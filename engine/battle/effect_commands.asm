@@ -2692,7 +2692,7 @@ DittoMetalPowder:
 .done
 	scf
 	rr c
-	
+
 	ld a, HIGH(MAX_STAT_VALUE)
 	cp b
 	jr c, .cap
@@ -5604,7 +5604,7 @@ BattleCommand_EndLoop:
 	call StdBattleTextBox
 
 	pop bc
-	
+
 .end
 	xor a
 	ld [bc], a
@@ -7241,7 +7241,7 @@ _CheckBattleScene:
 	pop de
 	pop hl
 	ret
-	
+
 BattleCommand_WeightDamage:
 ; weightdamage
 

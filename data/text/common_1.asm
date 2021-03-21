@@ -199,7 +199,7 @@ _OakTimeSoDarkText::
 	line "No wonder it's so"
 	cont "dark!"
 	done
-	
+
 _OakTimeNappedText::
 	text "!"
 	line "I napped for"
@@ -1288,7 +1288,7 @@ UnknownText_0x1bd308::
 	text "REPEL's effect"
 	line "wore off."
 	done
-	
+
 UseAnotherRepelText::
 	text "REPEL's effect"
 	line "wore off."

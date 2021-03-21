@@ -118,14 +118,14 @@ DanceTheaterSurfGuy:
 	waitbutton
 	closetext
 	end
-	
+
 .JumpstdReceiveItem:
 	jumpstd receiveitem
 	end
 
 .pagercardname
 	db "SURF PAGER@"
-	
+
 GotSurfPagerText:
 	text "LAPRAS SURF was"
 	line "added to the PPS!"
@@ -295,15 +295,15 @@ SurfGuyLikeADanceText:
 	line "this. Don't worry"
 	cont "--take it!"
 	done
-	
+
 UnknownText_0x9999b:
 	text "That's a "
 	line "SURF PAGER."
-	
+
 	para "It summons a"
 	line "#MON to ferry"
 	cont "you across water."
-	
+
 	para "Please have this"
 	line "as well."
 	done

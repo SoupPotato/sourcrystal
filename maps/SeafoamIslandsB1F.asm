@@ -11,19 +11,19 @@ SeafoamIslandsB1F_MapScripts:
 	db 0 ; scene scripts
 
 	db 0 ; callbacks
-	
+
 SeafoamIslandsB1FHiddenIceHeal:
 	hiddenitem ICE_HEAL, EVENT_SEAFOAM_ISLANDS_B1F_HIDDEN_ICE_HEAL
 
 SeafoamIslandsB1FBoulder:
 	jumpstd strengthboulder
-	
+
 SeafoamIslandsB1FMaxElixer:
 	itemball MAX_ELIXER
 
 SeafoamIslandsB1FIceHeal:
 	itemball ICE_HEAL
-	
+
 SeafoamIslandsB1F_MapEvents:
 	db 0, 0 ; filler
 

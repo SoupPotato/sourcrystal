@@ -553,7 +553,7 @@ PlayDanger:
 	cp 16
 	jr nz, .increment
 	ld hl, DangerSoundLow
-	
+
 
 .applychannel
 	xor a

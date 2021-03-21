@@ -387,7 +387,7 @@ OakText_ResponseToSetTime:
 	; ! No wonder it's so dark!
 	text_jump _OakTimeSoDarkText
 	db "@"
-	
+
 .OakTimeNappedText:
 	; ! I napped for too long!
 	text_jump _OakTimeNappedText

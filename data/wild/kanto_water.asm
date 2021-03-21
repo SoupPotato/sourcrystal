@@ -145,19 +145,19 @@ KantoWaterWildMons:
 	db 35, TENTACOOL
 	db 30, TENTACOOL
 	db 35, TENTACRUEL
-	
+
 	map_id SEAFOAM_ISLANDS_B4F
 	db 4 percent ; encounter rate
 	db 35, SEEL
 	db 35, HORSEA
 	db 40, SLOWBRO
-	
+
 	map_id CERULEAN_CAVE_1F
 	db 4 percent ; encounter rate
 	db 40, PSYDUCK
 	db 40, GOLDUCK
 	db 40, GYARADOS
-	
+
 	map_id CERULEAN_CAVE_B1F
 	db 4 percent ; encounter rate
 	db 40, PSYDUCK

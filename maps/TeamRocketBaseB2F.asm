@@ -318,14 +318,14 @@ RocketBaseElectrodeScript:
 	setevent EVENT_SECURITY_CAMERA_4
 	setevent EVENT_SECURITY_CAMERA_5
 	end
-	
+
 .JumpstdReceiveItem:
 	jumpstd receiveitem
 	end
 
 .pagercardname
 	db "WRLPOOLPAGER@"
-	
+
 GotWhirlpoolPagerText:
 	text "REMORAID WHIRL was"
 	line "added to the PPS!"
@@ -753,7 +753,7 @@ UnknownText_0x6d809:
 UnknownText_0x6d8e6:
 	text "That HM teaches"
 	line "WHIRLPOOL."
-	
+
 	para "It's a move that"
 	line "traps the foe"
 	para "in a raging"
@@ -773,7 +773,7 @@ UnknownText_0x6d8f8:
 
 	para "You can only use"
 	line "that with the"
-	
+
 	para "BADGE from"
 	line "MAHOGANY GYM."
 	done

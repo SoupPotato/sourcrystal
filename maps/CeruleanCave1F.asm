@@ -8,31 +8,30 @@
 	const CERULEAN_CAVE_1F_ROCK4
 	const CERULEAN_CAVE_1F_ROCK5
 	const CERULEAN_CAVE_1F_ROCK6
-	
 
 CeruleanCave1F_MapScripts:
 	db 0 ; scene scripts
 
 	db 0 ; callbacks
-	
+
 CeruleanCave1FHiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_CERULEAN_CAVE_1F_HIDDEN_HYPER_POTION
-	
+
 CeruleanCave1FHiddenRevive:
 	hiddenitem REVIVE, EVENT_CERULEAN_CAVE_1F_HIDDEN_REVIVE
-	
+
 CeruleanCave1FHiddenRareCandy:
 	hiddenitem RARE_CANDY, EVENT_CERULEAN_CAVE_1F_HIDDEN_RARE_CANDY
-	
+
 CeruleanCave1FNugget:
 	itemball NUGGET
-	
+
 CeruleanCave1FFullRestore:
 	itemball FULL_RESTORE
-	
+
 CeruleanCave1FMaxElixer:
 	itemball MAX_ELIXER
-	
+
 CeruleanCave1FRock:
 	jumpstd smashrock
 
@@ -52,8 +51,6 @@ CeruleanCave1F_MapEvents:
 	warp_event 34,  7, CERULEAN_CAVE_2F, 9
 	warp_event  3, 11, CERULEAN_CAVE_B1F, 1
 	warp_event 34, 13, CERULEAN_CAVE_B1F, 2
-	
-	
 
 	db 0 ; coord events
 
@@ -72,4 +69,3 @@ CeruleanCave1F_MapEvents:
 	object_event  2, 24, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCave1FRock, -1
 	object_event  3, 23, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCave1FRock, -1
 	object_event  2, 22, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCave1FRock, -1
-	

@@ -11,7 +11,7 @@ Route15_MapScripts:
 	db 0 ; scene scripts
 
 	db 0 ; callbacks
-	
+
 TrainerTwinsKayandTia1:
 	trainer TWINS, KAYANDTIA1, EVENT_BEAT_TWINS_KAYANDTIA, TwinsKayandTiaSeenText, TwinsKayandTiaBeatenText, 0, .Script
 
@@ -22,7 +22,7 @@ TrainerTwinsKayandTia1:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerTwinsKayandTia2:
 	trainer TWINS, KAYANDTIA2, EVENT_BEAT_TWINS_KAYANDTIA, TwinsKayandTiaSeenText, TwinsKayandTiaBeatenText, 0, .Script
 
@@ -33,7 +33,7 @@ TrainerTwinsKayandTia2:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerPokefanEleanor:
 	trainer POKEFANF, ELEANOR, EVENT_BEAT_POKEFANF_ELEANOR, PokefanEleanorSeenText, PokefanEleanorBeatenText, 0, .Script
 
@@ -44,7 +44,7 @@ TrainerPokefanEleanor:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerPokefanBoone:
 	trainer POKEFANM, BOONE, EVENT_BEAT_POKEFANM_BOONE, PokefanBooneSeenText, PokefanBooneBeatenText, 0, .Script
 
@@ -131,13 +131,13 @@ Route15PPUp:
 TwinsKayandTiaSeenText:
 	text "We're the twins"
 	line "KAY and TIA!"
-	
+
 	para "Do you know which"
 	line "one I am?"
-	
+
 	para "We're the twins"
 	line "KAY and TIA!"
-	
+
 	para "Do you know which"
 	line "one I am?"
 	done
@@ -145,7 +145,7 @@ TwinsKayandTiaSeenText:
 TwinsKayandTiaBeatenText:
 	text "TIA and KAY"
 	line "both lost…"
-	
+
 	para "KAY and TIA"
 	line "both lost…"
 	done
@@ -155,17 +155,17 @@ TwinsKayandTiaAfterBattleText1:
 	line "I'm TIA!"
 	cont "Absolutely!"
 	done
-	
+
 TwinsKayandTiaAfterBattleText2:
 	text "Absolute truth--"
 	line "I'm KAY!"
 	cont "Maybe…"
 	done
-	
+
 PokefanBooneSeenText:
 	text "Hey, your"
 	line "#MON…"
-	
+
 	para "Show me. Show me."
 	line "Show me!"
 	done
@@ -183,7 +183,7 @@ PokefanBooneAfterBattleText:
 	line "bunch of #MON"
 	cont "you've never seen"
 	cont "before."
-	
+
 	para "It's so great!"
 	done
 

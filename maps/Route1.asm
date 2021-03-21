@@ -11,7 +11,7 @@ Route1_MapScripts:
 
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .Fruittrees
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE1_BERRY
@@ -19,7 +19,7 @@ Route1_MapScripts:
 	appear ROUTE1_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE1_APRICORN
 	iftrue .NoApricorn
@@ -37,7 +37,7 @@ TrainerSchoolboyDanny:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSchoolboySherman:
 	trainer SCHOOLBOY, SHERMAN, EVENT_BEAT_SCHOOLBOY_SHERMAN, SchoolboyShermanSeenText, SchoolboyShermanBeatenText, 0, .Script
 
@@ -59,7 +59,7 @@ TrainerCooltrainermFrench:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerCooltrainerfQuinn:
 	trainer COOLTRAINERF, QUINN, EVENT_BEAT_COOLTRAINERF_QUINN, CooltrainerfQuinnSeenText, CooltrainerfQuinnBeatenText, 0, .Script
 
@@ -87,11 +87,11 @@ Route1BerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route1ApricornTree:
 	opentext
 	writetext Route1ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route1HeyItsApricornText
 	buttonsound
 	verbosegiveitem BLK_APRICORN
@@ -138,11 +138,11 @@ SchoolboyDannyAfterBattleText:
 	para "battle whenever we"
 	line "meet."
 	done
-	
+
 SchoolboyShermanSeenText:
 	text "Right after"
 	line "learning it in"
-	
+
 	para "class, I head"
 	line "outside to"
 	cont "practice!"
@@ -160,11 +160,11 @@ SchoolboyShermanAfterBattleText:
 	para "today's mistakes"
 	line "in a notebook!"
 	done
-	
+
 CooltrainermFrenchSeenText:
 	text "You!"
 	line "I've been waiting"
-	
+
 	para "for someone like"
 	line "you!"
 	done
@@ -204,7 +204,7 @@ Route1SignText:
 	para "PALLET TOWN -"
 	line "VIRIDIAN CITY"
 	done
-	
+
 Route1BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -223,7 +223,7 @@ Route1ApricornTreeText:
 Route1HeyItsApricornText:
 	text "Hey! It's"
 	line "BLK APRICORN!"
-	done	
+	done
 
 Route1NothingHereText:
 	text "There's nothing"

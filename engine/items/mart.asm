@@ -378,7 +378,7 @@ MartAskPurchaseQuantity:
 	cp 1
 	jp z, BargainShopAskPurchaseQuantity
 	jp RooftopSaleAskPurchaseQuantity
-	
+
 .PurchaseQuantityOfTM:
 	push de
 	ld hl, wNumItems

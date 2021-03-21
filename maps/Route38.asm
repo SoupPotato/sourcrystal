@@ -13,7 +13,7 @@ Route38_MapScripts:
 
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .Fruittrees
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE38_BERRY
@@ -21,7 +21,7 @@ Route38_MapScripts:
 	appear ROUTE38_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE38_APRICORN
 	iftrue .NoApricorn
@@ -347,11 +347,11 @@ Route38BerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route38ApricornTree:
 	opentext
 	writetext Route38ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route38HeyItsApricornText
 	buttonsound
 	verbosegiveitem WHT_APRICORN
@@ -529,7 +529,7 @@ Route38TrainerTipsText:
 	line "#MON and stops"
 	cont "its evolution."
 	done
-	
+
 Route38BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -548,7 +548,7 @@ Route38ApricornTreeText:
 Route38HeyItsApricornText:
 	text "Hey! It's"
 	line "WHT APRICORN!"
-	done	
+	done
 
 Route38NothingHereText:
 	text "There's nothing"

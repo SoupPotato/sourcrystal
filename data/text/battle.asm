@@ -39,7 +39,7 @@ WantsToBattleText::
 	text "<ENEMY>"
 	line "wants to battle!"
 	prompt
-	
+
 WantToBattlePluralText::
 	text "<ENEMY>"
 	line "want to battle!"
@@ -182,7 +182,7 @@ BattleText_EnemyWasDefeated:
 	text "<ENEMY>"
 	line "was defeated!"
 	prompt
-	
+
 BattleText_PluralEnemyWereDefeated:
 	text "<ENEMY>"
 	line "were defeated!"
@@ -246,7 +246,7 @@ BattleText_EnemyIsAboutToUseWillPlayerChangeMon:
 	para "Will <PLAYER>"
 	line "change #MON?"
 	done
-	
+
 BattleText_PluralEnemyAreAboutToUseWillPlayerChangeMon:
 	text "<ENEMY>"
 	line "are about to use"

@@ -272,7 +272,7 @@ DoPlayerMovement::
 	jr z, .bump
 	cp 2
 	jr z, .bump
-	
+
 	ld a, [wSpinning]
 	and a
 	jr nz, .spin
@@ -315,7 +315,7 @@ DoPlayerMovement::
 	call .DoStep
 	scf
 	ret
-	
+
 .spin
 	ld de, SFX_SQUEAK
 	call PlaySFX
@@ -566,7 +566,7 @@ DoPlayerMovement::
 	ld a, [wPlayerTurningDirection]
 	cp 0
 	ret z
-	
+
 .force
 	maskbits NUM_DIRECTIONS
 	ld e, a

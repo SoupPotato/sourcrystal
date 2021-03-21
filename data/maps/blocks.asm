@@ -26,7 +26,7 @@ SaffronCity_Blocks:
 
 Route2South_Blocks:
 	INCBIN "maps/Route2South.blk"
-	
+
 Route2North_Blocks:
 	INCBIN "maps/Route2North.blk"
 
@@ -1002,30 +1002,30 @@ CliffEdgeGate_Blocks:
 
 Route3_Blocks:
 	INCBIN "maps/Route3.blk"
-	
+
 ViridianForest_Blocks:
 	INCBIN "maps/ViridianForest.blk"
-	
+
 SeafoamIslands_Blocks:
 	INCBIN "maps/SeafoamIslands.blk"
-	
+
 SeafoamIslandsB1F_Blocks:
 	INCBIN "maps/SeafoamIslandsB1F.blk"
-	
+
 SeafoamIslandsB2F_Blocks:
 	INCBIN "maps/SeafoamIslandsB2F.blk"
-	
+
 SeafoamIslandsB3F_Blocks:
 	INCBIN "maps/SeafoamIslandsB3F.blk"
-	
+
 SeafoamIslandsB4F_Blocks:
 	INCBIN "maps/SeafoamIslandsB4F.blk"
-	
+
 CeruleanCave1F_Blocks:
 	INCBIN "maps/CeruleanCave1F.blk"
-	
+
 CeruleanCave2F_Blocks:
 	INCBIN "maps/CeruleanCave2F.blk"
-	
+
 CeruleanCaveB1F_Blocks:
 	INCBIN "maps/CeruleanCaveB1F.blk"

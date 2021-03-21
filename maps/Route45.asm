@@ -19,7 +19,7 @@ Route45_MapScripts:
 
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .Fruittrees
-	
+
 .Fruittrees
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE45_BERRY
@@ -27,7 +27,7 @@ Route45_MapScripts:
 	appear ROUTE45_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE45_APRICORN
 	iftrue .NoApricorn
@@ -324,11 +324,11 @@ Route45BerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route45ApricornTree:
 	opentext
 	writetext Route45ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route45HeyItsApricornText
 	buttonsound
 	verbosegiveitem GRN_APRICORN
@@ -588,7 +588,7 @@ Route45SignText:
 	text "ROUTE 45"
 	line "MOUNTAIN RD. AHEAD"
 	done
-	
+
 Route45BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -607,7 +607,7 @@ Route45ApricornTreeText:
 Route45HeyItsApricornText:
 	text "Hey! It's"
 	line "GRN APRICORN!"
-	done	
+	done
 
 Route45NothingHereText:
 	text "There's nothing"

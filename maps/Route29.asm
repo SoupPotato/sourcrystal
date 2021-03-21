@@ -22,7 +22,7 @@ Route29_MapScripts:
 
 .DummyScene1:
 	end
-	
+
 .FruittreesandTuscany:
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE29_BERRY
@@ -30,7 +30,7 @@ Route29_MapScripts:
 	appear ROUTE29_BERRY
 .NoBerry:
 	;return
-	
+
 .Apricorn:
 	checkflag ENGINE_DAILY_ROUTE29_APRICORN
 	iftrue .NoApricorn
@@ -239,7 +239,7 @@ Route29BerryTree:
 Route29ApricornTree:
 	opentext
 	writetext Route29ApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext Route29HeyItsApricornText
 	buttonsound
 	verbosegiveitem GRN_APRICORN
@@ -249,7 +249,7 @@ Route29ApricornTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 Route29NoBerry:
 	opentext
 	writetext Route29BerryTreeText
@@ -471,7 +471,7 @@ Route29Sign2Text:
 	para "CHERRYGROVE CITY -"
 	line "NEW BARK TOWN"
 	done
-	
+
 Route29BerryTreeText:
 	text "It's a"
 	line "BERRY tree…"

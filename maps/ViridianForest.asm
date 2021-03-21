@@ -30,7 +30,7 @@ ViridianForest_MapScripts:
 	appear VIRIDIAN_FOREST_APRICORN
 .NoApricorn:
 	return
-	
+
 ViridianForestHiddenMaxEther:
 	hiddenitem MAX_ETHER, EVENT_ROUTE_2_HIDDEN_MAX_ETHER
 
@@ -39,7 +39,7 @@ ViridianForestHiddenFullHeal:
 
 ViridianForestHiddenFullRestore:
 	hiddenitem FULL_RESTORE, EVENT_ROUTE_2_HIDDEN_FULL_RESTORE
-	
+
 ViridianForestBerryTree:
 	opentext
 	writetext ViridianForestBerryTreeText
@@ -53,11 +53,11 @@ ViridianForestBerryTree:
 .NoRoomInBag
 	closetext
 	end
-	
+
 ViridianForestApricornTree:
 	opentext
 	writetext ViridianForestApricornTreeText
-	buttonsound	
+	buttonsound
 	writetext ViridianForestHeyItsApricornText
 	buttonsound
 	verbosegiveitem PNK_APRICORN
@@ -85,19 +85,19 @@ ViridianForestNoApricorn:
 	waitbutton
 	closetext
 	end
-	
+
 ViridianForestMaxPotion:
 	itemball MAX_POTION
 
 ViridianForestLeafStone:
 	itemball LEAF_STONE
-	
+
 ViridianForestMaxEther:
 	itemball MAX_ETHER
-	
+
 ViridianForestHiddenRevive:
 	hiddenitem REVIVE, EVENT_ROUTE_2_HIDDEN_REVIVE
-	
+
 TrainerBugCatcherAbner:
 	trainer BUG_CATCHER, ABNER, EVENT_BEAT_BUG_CATCHER_ABNER, BugCatcherAbnerSeenText, BugCatcherAbnerBeatenText, 0, .Script
 
@@ -130,7 +130,7 @@ TrainerBugCatcherStacey:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBugCatcherDion:
 	trainer BUG_CATCHER, DION, EVENT_BEAT_BUG_CATCHER_DION, BugCatcherDionSeenText, BugCatcherDionBeatenText, 0, .Script
 
@@ -156,7 +156,7 @@ TrainerBugCatcherDane:
 BugCatcherAbnerSeenText:
 	text "There are many"
 	line "people out there"
-	
+
 	para "who prefer solid"
 	line "bug #MON over"
 	cont "squishy bug-"
@@ -172,26 +172,26 @@ BugCatcherAbnerBeatenText:
 BugCatcherAbnerAfterBattleText:
 	text "Doesn't matter what"
 	line "kind of #MON--"
-	
+
 	para "as long as you"
 	line "like them, they"
 	cont "all look cute."
 	done
-	
+
 BugCatcherEllisSeenText:
 	text "I'm sure that"
 	line "there's nothing"
-	
+
 	para "more efficient"
 	line "and beautiful in"
-	
+
 	para "this world than a"
 	line "Bug-type #MON."
-	
+
 	done
 
 BugCatcherEllisBeatenText:
-	text "I lost" 
+	text "I lost"
 	line "beautifully!"
 	done
 
@@ -200,7 +200,7 @@ BugCatcherEllisAfterBattleText:
 	line "then I don't mind"
 	cont "losing!"
 	done
-	
+
 BugCatcherStaceySeenText:
 	text "Wow, that's a"
 	line "HUGE #MON!"
@@ -211,7 +211,7 @@ BugCatcherStaceySeenText:
 	done
 
 BugCatcherStaceyBeatenText:
-	text "I couldn't catch" 
+	text "I couldn't catch"
 	line "it!"
 	done
 
@@ -221,7 +221,7 @@ BugCatcherStaceyAfterBattleText:
 	cont "behind, you look"
 	cont "like a VENONAT?"
 	done
-	
+
 BugCatcherDionSeenText:
 	text "Shh! Be quiet!"
 
@@ -231,50 +231,50 @@ BugCatcherDionSeenText:
 	done
 
 BugCatcherDionBeatenText:
-	text "Phew…" 
+	text "Phew…"
 	done
 
 BugCatcherDionAfterBattleText:
 	text "From Bug-type"
 	line "#MON come the"
-	
+
 	para "sounds of munching"
 	line "on grass,"
-	
+
 	para "walking on crunchy"
 	line "leaves,"
-	
+
 	para "swimming in "
 	line "puddles…"
-	
+
 	para "For bug #MON"
 	line "fans, knowing how"
-	
+
 	para "to distinguish"
 	line "these sounds"
 	cont "is key!"
 	done
-	
+
 BugCatcherDaneSeenText:
 	text "Welcome to "
 	line "VIRIDAN FOREST."
-	
+
 	para "Enjoy my Bug-"
 	line "type #MON!"
 	done
 
 BugCatcherDaneBeatenText:
-	text "That's wonderful…" 
+	text "That's wonderful…"
 	done
 
 BugCatcherDaneAfterBattleText:
 	text "Pretty impressive!"
-	
-	para "I'm sure you can" 
+
+	para "I'm sure you can"
 	line "go anywhere with"
 	cont "that skill!"
 	done
-	
+
 ViridianForestBerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
@@ -293,7 +293,7 @@ ViridianForestApricornTreeText:
 ViridianForestHeyItsApricornText:
 	text "Hey! It's"
 	line "PNK APRICORN!"
-	done	
+	done
 
 ViridianForestNothingHereText:
 	text "There's nothing"

@@ -730,7 +730,6 @@ _CGB_TrainerCard:
 	ld a, $1
 	ld [hCGBPalUpdate], a
 	ret
-	
 
 .BadgePalettes:
 INCLUDE "gfx/trainer_card/badges.pal"

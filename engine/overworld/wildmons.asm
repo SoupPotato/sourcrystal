@@ -27,7 +27,7 @@ LoadWildMonData:
 .no_copy
 	ld [wWaterEncounterRate], a
 	ret
-	
+
 GetTimeOfDayNotEve:
 	ld a, [wTimeOfDay]
 	cp EVE_F

@@ -68,7 +68,7 @@ GoldenrodDeptStore5FReceptionistScript:
 	setflag ENGINE_GOLDENROD_DEPT_STORE_TM27_RETURN
 	closetext
 	end
-	
+
 .AlreadyGotTM:
 	writetext GoldenrodDeptStore5FAlreadyGotTMText
 	waitbutton
@@ -153,7 +153,7 @@ UnknownText_0x56202:
 	para "just perfect for"
 	line "your #MON."
 	done
-	
+
 GoldenrodDeptStore5FAlreadyGotTMText:
 	text "Oh, you already"
 	line "have this TM…"

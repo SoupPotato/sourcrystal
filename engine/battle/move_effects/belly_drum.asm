@@ -3,7 +3,6 @@ BattleCommand_BellyDrum:
 	callfar GetHalfMaxHP
 	callfar CheckUserHasEnoughHP
 	jr nc, .failed
-	
 
 	push bc
 	call BattleCommand_AttackUp2

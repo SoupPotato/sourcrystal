@@ -549,7 +549,7 @@ JohtoGrassWildMons:
 	db 5, WEEDLE
 	db 7, METAPOD
 	db 7, KAKUNA
-	db 7, PIDGEY
+	db 7, ZUBAT
 	db 6, PARAS
 	db 6, PARAS
 	; day
@@ -557,7 +557,7 @@ JohtoGrassWildMons:
 	db 5, WEEDLE
 	db 7, METAPOD
 	db 7, KAKUNA
-	db 7, PIDGEY
+	db 7, ZUBAT
 	db 6, PARAS
 	db 6, PARAS
 	; nite
@@ -565,7 +565,7 @@ JohtoGrassWildMons:
 	db 5, VENONAT
 	db 7, ODDISH
 	db 7, PSYDUCK
-	db 7, HOOTHOOT
+	db 7, ZUBAT
 	db 6, PARAS
 	db 6, PARAS
 

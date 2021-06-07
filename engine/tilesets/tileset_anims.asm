@@ -39,7 +39,7 @@ TilesetKantoAnim:
 	dw vTiles2 tile $14, AnimateWaterTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
+	dw vTiles2 tile $64, AnimateFountain
 	dw NULL,  TileAnimationPalette
 	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateFlowerTile

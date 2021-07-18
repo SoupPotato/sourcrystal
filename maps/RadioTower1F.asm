@@ -32,8 +32,8 @@ RadioTower1FLuckyNumberManScript:
 	opentext
 	writetext UnknownText_0x5ceba
 	buttonsound
-	special CheckLuckyNumberShowFlag
-	iffalse .skip
+	checkflag ENGINE_LUCKY_NUMBER_SHOW
+	iftrue .skip
 	special ResetLuckyNumberShowFlag
 .skip
 	special PrintTodaysLuckyNumber
@@ -235,8 +235,8 @@ UnknownText_0x5ceba:
 	done
 
 UnknownText_0x5cf3a:
-	text "This week's ID"
-	line "number is @"
+	text "Today's ID number"
+	line "is @"
 	text_from_ram wStringBuffer3
 	text "."
 	done
@@ -253,7 +253,7 @@ UnknownText_0x5cf79:
 
 UnknownText_0x5cf7e:
 	text "Please come back"
-	line "next week for the"
+	line "tomorrow for the"
 	cont "next LUCKY NUMBER."
 	done
 

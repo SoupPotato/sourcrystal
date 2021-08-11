@@ -269,6 +269,10 @@ SageLiTakeThisFlashText:
 	line "certain move out"
 	cont "of battle."
 
+	para "But to use it, you"
+	line "need the BADGE"
+	cont "from VIOLET's GYM."
+
 	para "Please take this"
 	line "FLASH HM too."
 	done
@@ -277,12 +281,6 @@ SageLiFlashExplanationText:
 	text "FLASH illuminates"
 	line "even the darkest"
 	cont "of all places."
-
-	para "But to use it out"
-	line "of battle, you"
-
-	para "need the BADGE"
-	line "from VIOLET's GYM."
 	done
 
 SageLiAfterBattleText:

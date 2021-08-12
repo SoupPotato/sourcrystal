@@ -180,8 +180,8 @@ ENDM
 	command supereffectivelooptext  ; ad
 	command startloop               ; ae
 	command curl                    ; af
-	command defrosttarget
-	command weightdamage
+	command defrosttarget           ; b0
+	command weightdamage            ; b1
 
 	enum_start $fe
 	command endturn                 ; fe

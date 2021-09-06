@@ -1987,6 +1987,28 @@ Stomp:
 	flinchtarget
 	endmove
 
+BodySlam:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	doubleminimizedamage
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkdestinybond
+	buildopponentrage
+	paralyzetarget
+	endmove
+
 Solarbeam:
 	checkcharge
 	checkobedience

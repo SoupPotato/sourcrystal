@@ -2523,12 +2523,12 @@ LedybaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 4, SUPERSONIC
-	db 9, COMET_PUNCH
+	db 9, SWIFT
 	db 14, LIGHT_SCREEN
 	db 14, REFLECT
 	db 14, SAFEGUARD
 	db 17, MACH_PUNCH
-	db 22, SWIFT
+	db 22, COMET_PUNCH
 	db 27, BATON_PASS
 	db 30, AGILITY
 	db 35, DOUBLE_EDGE
@@ -2539,12 +2539,12 @@ LedianEvosAttacks:
 	db 1, TACKLE
 	db 1, SUPERSONIC
 	db 4, SUPERSONIC
-	db 9, COMET_PUNCH
+	db 9, SWIFT
 	db 14, LIGHT_SCREEN
 	db 14, REFLECT
 	db 14, SAFEGUARD
 	db 17, MACH_PUNCH
-	db 23, SWIFT
+	db 23, COMET_PUNCH
 	db 30, BATON_PASS
 	db 36, AGILITY
 	db 43, DOUBLE_EDGE
@@ -2557,14 +2557,14 @@ SpinarakEvosAttacks:
 	db 1, STRING_SHOT
 	db 5, CONSTRICT
 	db 9, LEECH_LIFE
-	db 13, SCARY_FACE
-	db 17, NIGHT_SHADE
-	db 23, FURY_SWIPES
-	db 25, PURSUIT
-	db 29, SPIDER_WEB
-	db 33, AGILITY
-	db 39, PIN_MISSILE
-	db 45, PSYCHIC_M
+	db 12, SCARY_FACE
+	db 16, NIGHT_SHADE
+	db 20, FURY_SWIPES
+	db 23, PURSUIT
+	db 27, SPIDER_WEB
+	db 31, AGILITY
+	db 34, PIN_MISSILE
+	db 38, PSYCHIC_M
 	db 0 ; no more level-up moves
 
 AriadosEvosAttacks:
@@ -2575,15 +2575,15 @@ AriadosEvosAttacks:
 	db 1, LEECH_LIFE
 	db 5, CONSTRICT
 	db 9, LEECH_LIFE
-	db 13, SCARY_FACE
-	db 17, NIGHT_SHADE
+	db 12, SCARY_FACE
+	db 16, NIGHT_SHADE
+	db 20, FURY_SWIPES
 	db 22, SWORDS_DANCE
-	db 23, FURY_SWIPES
-	db 28, PURSUIT
-	db 32, SPIDER_WEB
-	db 37, AGILITY
-	db 43, PIN_MISSILE
-	db 50, PSYCHIC_M
+	db 25, PURSUIT
+	db 30, SPIDER_WEB
+	db 34, AGILITY
+	db 39, PIN_MISSILE
+	db 44, PSYCHIC_M
 	db 0 ; no more level-up moves
 
 CrobatEvosAttacks:

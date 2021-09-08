@@ -2522,32 +2522,34 @@ LedybaEvosAttacks:
 	db EVOLVE_LEVEL, 18, LEDIAN
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 4, SUPERSONIC
-	db 9, SWIFT
-	db 14, LIGHT_SCREEN
-	db 14, REFLECT
-	db 14, SAFEGUARD
-	db 17, MACH_PUNCH
-	db 22, COMET_PUNCH
+	db 5, SUPERSONIC
+	db 8, SWIFT
+	db 12, LIGHT_SCREEN
+	db 12, REFLECT
+	db 12, SAFEGUARD
+	db 16, MACH_PUNCH
+	db 19, PSYBEAM
+	db 23, COMET_PUNCH
 	db 27, BATON_PASS
 	db 30, AGILITY
-	db 35, DOUBLE_EDGE
+	db 34, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 LedianEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, SUPERSONIC
-	db 4, SUPERSONIC
-	db 9, SWIFT
-	db 14, LIGHT_SCREEN
-	db 14, REFLECT
-	db 14, SAFEGUARD
-	db 17, MACH_PUNCH
-	db 23, COMET_PUNCH
+	db 5, SUPERSONIC
+	db 8, SWIFT
+	db 12, LIGHT_SCREEN
+	db 12, REFLECT
+	db 12, SAFEGUARD
+	db 16, MACH_PUNCH
+	db 21, PSYBEAM
+	db 25, COMET_PUNCH
 	db 30, BATON_PASS
-	db 36, AGILITY
-	db 43, DOUBLE_EDGE
+	db 34, AGILITY
+	db 39, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 SpinarakEvosAttacks:

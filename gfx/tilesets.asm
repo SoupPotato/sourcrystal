@@ -247,15 +247,6 @@ INCBIN "data/tilesets/lighthouse_metatiles.bin"
 TilesetLighthouseColl:
 INCLUDE "data/tilesets/lighthouse_collision.asm"
 
-TilesetFacilityGFX:
-INCBIN "gfx/tilesets/facility.2bpp.lz"
-
-TilesetFacilityMeta:
-INCBIN "data/tilesets/facility_metatiles.bin"
-
-TilesetFacilityColl:
-INCLUDE "data/tilesets/facility_collision.asm"
-
 TilesetBattleTowerOutsideMeta:
 INCBIN "data/tilesets/battle_tower_outside_metatiles.bin"
 
@@ -336,3 +327,12 @@ INCBIN "data/tilesets/cave_metatiles.bin"
 
 TilesetCaveColl:
 INCLUDE "data/tilesets/cave_collision.asm"
+
+TilesetFacilityGFX:
+INCBIN "gfx/tilesets/facility.2bpp.lz"
+
+TilesetFacilityMeta:
+INCBIN "data/tilesets/facility_metatiles.bin"
+
+TilesetFacilityColl:
+INCLUDE "data/tilesets/facility_collision.asm"

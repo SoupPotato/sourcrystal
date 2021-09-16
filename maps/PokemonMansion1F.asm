@@ -30,8 +30,9 @@ WhirlWarp:
 PokemonMansion1F_MapEvents:
 	db 0, 0 ; filler
 
-	db 1 ; warp events
+	db 2 ; warp events
 	warp_event 26,  2, CINNABAR_ISLAND, 2
+	warp_event 21, 23, POKEMON_MANSION_B1F, 1
 
 	db 1 ; coord events
 	coord_event  1, 22, 0, WhirlWarp

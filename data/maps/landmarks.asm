@@ -109,6 +109,7 @@ Landmarks:
 	landmark  20, 116, TohjoFallsName
 	landmark  28,  84, Route28Name
 	landmark 148, 132, FastShipName
+	landmark  58, 146, PokemonMansionName
 
 NewBarkTownName:     db "NEW BARK¯TOWN@"
 CherrygroveCityName: db "CHERRYGROVE¯CITY@"

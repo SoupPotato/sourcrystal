@@ -1032,3 +1032,6 @@ CeruleanCaveB1F_Blocks:
 
 PokemonMansion1F_Blocks:
 	INCBIN "maps/PokemonMansion1F.blk"
+
+PokemonMansionB1F_Blocks:
+	INCBIN "maps/PokemonMansionB1F.blk"

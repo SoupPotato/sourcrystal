@@ -97,17 +97,17 @@ KANTO_LANDMARK EQU const_value
 	const ROUTE_20          ; 5a
 	const SEAFOAM_ISLANDS   ; 5b
 	const CINNABAR_ISLAND   ; 5c
-	const ROUTE_21          ; 5d
-	const ROUTE_22          ; 5e
-	const VICTORY_ROAD      ; 5f
-	const ROUTE_23          ; 60
-	const INDIGO_PLATEAU    ; 61
-	const ROUTE_26          ; 62
-	const ROUTE_27          ; 63
-	const TOHJO_FALLS       ; 64
-	const ROUTE_28          ; 65
-	const FAST_SHIP         ; 66
-	const POKEMON_MANSION   ; 67
+	const POKEMON_MANSION   ; 5d
+	const ROUTE_21          ; 5e
+	const ROUTE_22          ; 5f
+	const VICTORY_ROAD      ; 60
+	const ROUTE_23          ; 61
+	const INDIGO_PLATEAU    ; 62
+	const ROUTE_26          ; 63
+	const ROUTE_27          ; 64
+	const TOHJO_FALLS       ; 65
+	const ROUTE_28          ; 66
+	const FAST_SHIP         ; 67
 
 ; used in CaughtData
 GIFT_LOCATION  EQU $7e

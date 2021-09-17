@@ -20,6 +20,13 @@ LoadSpecialMapPalette:
 	jr z, .radio_tower
 	cp TILESET_MANSION
 	jr z, .mansion_mobile
+	ld a, [wMapGroup]
+	cp GROUP_POKEMON_MANSION_B1F
+	jp nz, .not_Pokemon_Mansion_B1F
+	ld a, [wMapNumber]
+	cp MAP_POKEMON_MANSION_B1F
+	jp z, .LavaOverRedCoalOverBrownBGPalette
+.not_Pokemon_Mansion_B1F
 	jr .do_nothing
 
 .darkness
@@ -58,6 +65,15 @@ LoadSpecialMapPalette:
 
 .mansion_mobile
 	call LoadMansionPalette
+	scf
+	ret
+
+.LavaOverRedCoalOverBrownBGPalette
+	ld hl, LavaOverRedCoalOverBrown
+	ld bc, 8 palettes
+	ld de, wBGPals1
+	ld a, BANK(wBGPals1)
+	call FarCopyWRAM
 	scf
 	ret
 
@@ -357,7 +373,7 @@ LoadSpecialMapOBPalette:
 	ld bc, 8 palettes
 	ld hl, PurpleOverPink
 	jr .finish
-
+	
 .finish
 	call AddNTimes
 	ld de, wOBPals1
@@ -369,6 +385,8 @@ LoadSpecialMapOBPalette:
 
 ; Special Overworld Pals
 INCLUDE "gfx/overworld/npc_sprites_special.pal"
+
+INCLUDE "gfx/tilesets/bg_tiles_special_pals.pal"
 
 LoadSpecialNPCPalette:
 	call GetMapTimeOfDay

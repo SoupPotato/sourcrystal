@@ -310,7 +310,7 @@ LoadSpecialMapOBPalette:
 	jr nz, .do_nothing
 	ld a, [wMapNumber]
 	cp MAP_MR_FUJIS_HOUSE
-	jr z, .PurpleOverRockOBPalette
+	jr z, .PurpleOverRockYellowOverPinkOBPalette
 
 .do_nothing
 	and a

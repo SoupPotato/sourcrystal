@@ -149,7 +149,8 @@ DocumentText:
 	
 	para "ME---ve--irth-"
 	
-	para "-e--am-d--he--E…"
+	para "-e--am-d--he-"
+	line "-ew---n--E--W-…"
 	
 	para "The rest of the"
 	line "page has been"

@@ -143,7 +143,7 @@ DocumentText:
 	
 	para "It looks like the"
 	line "remains of some"
-	cont "doccument…"
+	cont "document…"
 	
 	para "D--ry:-eb.-"
 	

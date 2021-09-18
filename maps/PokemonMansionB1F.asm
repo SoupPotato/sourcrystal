@@ -2,14 +2,22 @@
 	const POKEMON_MANSION_B1F_BOULDER1
 	const POKEMON_MANSION_B1F_BOULDER2
 	const POKEMON_MANSION_B1F_BOULDER3
+	const POKEMON_MANSION_B1F_MEW
 
 PokemonMansionB1F_MapScripts:
-	db 0 ; scene scripts
+	db 1 ; scene scripts
+	scene_script .DummyScene
 
 	db 2 ; callbacks
 	callback MAPCALLBACK_TILES, .BouldersPokemonMansionB1F
 	callback MAPCALLBACK_CMDQUEUE, .SetUpStoneTable
 
+.DummyScene:
+	checkevent EVENT_FOUGHT_MEW
+	iftrue .DoNothing
+	disappear POKEMON_MANSION_B1F_MEW
+.DoNothing
+	end
 
 .BouldersPokemonMansionB1F:
 	checkevent EVENT_POKEMON_MANSION_B1F_BOULDER_1
@@ -90,6 +98,74 @@ PokemonMansionB1FBoulderFilled:
 	line "the gap!"
 	done
 
+LabDocument:
+	opentext
+	writetext DocumentText
+	waitbutton
+	closetext
+	checkevent EVENT_FOUGHT_MEW
+	iftrue .notinparty
+	writebyte MEWTWO
+	special FindPartyMonThatSpecies
+	iffalse .notinparty
+	cry MEWTWO
+	showemote EMOTE_SHOCK, PLAYER, 15
+	playsound SFX_BALL_WOBBLE
+	pause 10
+	playsound SFX_BALL_WOBBLE
+	pause 10
+	opentext
+	writetext MmemberIsRestlessText
+	waitbutton
+	closetext
+	playsound SFX_FLASH
+	pause 10
+	appear POKEMON_MANSION_B1F_MEW
+	pause 10
+	opentext
+	writetext MewText
+	cry MEW
+	pause 15
+	closetext
+	writecode VAR_BATTLETYPE, BATTLETYPE_KANTO_LEGEND
+	loadwildmon MEW, 60
+	startbattle
+	disappear POKEMON_MANSION_B1F_MEW
+	setevent EVENT_FOUGHT_MEW
+	reloadmapafterbattle
+	end
+	
+.notinparty
+	end
+
+DocumentText:
+	text "…"
+	
+	para "It looks like the"
+	line "remains of some"
+	cont "doccument…"
+	
+	para "D--ry:-eb.-"
+	
+	para "ME---ve--irth-"
+	
+	para "-e--am-d--he--E…"
+	
+	para "The rest of the"
+	line "page has been"
+	cont "burned off…"
+	done
+
+MmemberIsRestlessText:
+	text "One of your party"
+	line "members has become"
+	cont "restless…"
+	done
+
+MewText:
+	text "MEW!"
+	done
+
 PokemonMansionB1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -101,9 +177,11 @@ PokemonMansionB1F_MapEvents:
 
 	db 0 ; coord events
 
-	db 0 ; bg events
+	db 1 ; bg events
+	bg_event  4,  5, BGEVENT_READ, LabDocument
 
-	db 3 ; object events
+	db 4 ; object events
 	object_event 22, 23, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonMansionB1FBoulder, EVENT_POKEMON_MANSION_B1F_BOULDER_1
 	object_event 25,  5, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonMansionB1FBoulder, EVENT_POKEMON_MANSION_B1F_BOULDER_2
 	object_event 18, 25, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonMansionB1FBoulder, EVENT_POKEMON_MANSION_B1F_BOULDER_3
+	object_event  4,  4, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1

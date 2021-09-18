@@ -132,7 +132,7 @@
 	tilecoll FLOOR, WALL, FLOOR, WALL ; 83
 	tilecoll WALL, WALL, WALL, WALL ; 84
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 85
-	tilecoll PIT, FLOOR, WALL, LEFT_WALL ; 86
+	tilecoll PIT, LEFT_WALL, WALL, WALL ; 86
 	tilecoll FLOOR, COUNTER, COUNTER, COUNTER ; 87
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 88
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 89
@@ -157,3 +157,5 @@
 	tilecoll LEFT_WALL, FLOOR, FLOOR, FLOOR ; 9c
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 9d
 	tilecoll WALL, PIT, WALL, WALL ; 9e
+	tilecoll WALL, WALL, WALL, WALL ; 9f
+	tilecoll WALL, WALL, WALL, WALL ; a0

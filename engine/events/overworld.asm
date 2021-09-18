@@ -785,6 +785,20 @@ dig_incave:
 	dw .FailDig
 
 .CheckCanDig:
+	ld a, [wMapNumber]
+	cp MAP_POKEMON_MANSION_1F
+	jr nz, .not_Pokemon_Mansion_1F
+	ld a, [wMapNumber]
+	cp MAP_POKEMON_MANSION_1F
+	jr z, .fail
+.not_Pokemon_Mansion_1F
+	ld a, [wMapNumber]
+	cp MAP_POKEMON_MANSION_B1F
+	jr nz, .not_Pokemon_Mansion_B1F
+	ld a, [wMapNumber]
+	cp MAP_POKEMON_MANSION_B1F
+	jr z, .fail
+.not_Pokemon_Mansion_B1F
 	call GetMapEnvironment
 	cp CAVE
 	jr z, .incave

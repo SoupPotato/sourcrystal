@@ -85,4 +85,5 @@ MapScenes::
 	scene_var MOBILE_TRADE_ROOM,                           wMobileTradeRoomSceneID
 	scene_var MOBILE_BATTLE_ROOM,                          wMobileBattleRoomSceneID
 	scene_var POKEMON_MANSION_1F,                          wPokemonMansion1FSceneID
+	scene_var POKEMON_MANSION_B1F,                         wPokemonMansionB1FSceneID
 	db -1

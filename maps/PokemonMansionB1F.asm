@@ -3,6 +3,7 @@
 	const POKEMON_MANSION_B1F_BOULDER2
 	const POKEMON_MANSION_B1F_BOULDER3
 	const POKEMON_MANSION_B1F_MEW
+	const POKEMON_MANSION_B1F_DOCUMENT
 
 PokemonMansionB1F_MapScripts:
 	db 1 ; scene scripts
@@ -178,11 +179,11 @@ PokemonMansionB1F_MapEvents:
 
 	db 0 ; coord events
 
-	db 1 ; bg events
-	bg_event  4,  5, BGEVENT_READ, LabDocument
+	db 0 ; bg events
 
-	db 4 ; object events
+	db 5 ; object events
 	object_event 22, 23, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonMansionB1FBoulder, EVENT_POKEMON_MANSION_B1F_BOULDER_1
 	object_event 25,  5, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonMansionB1FBoulder, EVENT_POKEMON_MANSION_B1F_BOULDER_2
 	object_event 18, 25, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonMansionB1FBoulder, EVENT_POKEMON_MANSION_B1F_BOULDER_3
 	object_event  4,  4, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
+	object_event  4,  5, SPRITE_PAPER, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, LabDocument, -1

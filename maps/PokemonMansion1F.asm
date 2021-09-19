@@ -3,7 +3,12 @@
 PokemonMansion1F_MapScripts:
 	db 0 ; scene scripts
 
-	db 0 ; callbacks
+	db 1 ; callbacks
+	callback MAPCALLBACK_CMDQUEUE, .specialwarp
+	
+.specialwarp:
+	loadvar wDigWarpNumber, 3
+	return
 
 WhirlWarp:
 	playsound SFX_BUBBLEBEAM

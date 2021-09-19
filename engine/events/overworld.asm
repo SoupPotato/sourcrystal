@@ -785,16 +785,6 @@ dig_incave:
 	dw .FailDig
 
 .CheckCanDig
-	ld a, [wMapGroup]
-	assert GROUP_POKEMON_MANSION_1F == GROUP_POKEMON_MANSION_B1F
-	cp GROUP_POKEMON_MANSION_1F
-	jr nz, .not_mansion
-	ld a, [wMapNumber]
-	cp MAP_POKEMON_MANSION_1F
-	jr z, .fail
-	cp MAP_POKEMON_MANSION_B1F
-	jr z, .fail
-.not_mansion
 	call GetMapEnvironment
 	cp CAVE
 	jr z, .incave

@@ -1,5 +1,9 @@
 	const_def 2 ; object constants
 	const CINNABARISLAND_BLUE
+	const CINNABARISLAND_ROCK1
+	const CINNABARISLAND_ROCK2
+	const CINNABARISLAND_ROCK3
+	const CINNABARISLAND_ROCK4
 
 CinnabarIsland_MapScripts:
 	db 0 ; scene scripts
@@ -131,12 +135,20 @@ CinnabarIslandSignText:
 	line "Burning Desire"
 	done
 
+CinnabarIslandRock:
+	jumpstd smashrock
+
+CinnabarIslandMansionRock:
+	setevent EVENT_CINNABAR_MANSION_ROCK_SMASHED
+	jumpstd smashrock
+
 CinnabarIsland_MapEvents:
 	db 0, 0 ; filler
 
-	db 2 ; warp events
+	db 3 ; warp events
 	warp_event 11, 15, CINNABAR_POKECENTER_1F, 1
 	warp_event  9,  3, POKEMON_MANSION_1F, 1
+	warp_event  9,  4, POKEMON_MANSION_1F, 1
 
 	db 0 ; coord events
 
@@ -148,5 +160,9 @@ CinnabarIsland_MapEvents:
 	bg_event 21,  4, BGEVENT_ITEM, CinnabarIslandHiddenStarPiece
 	bg_event 20, 11, BGEVENT_ITEM, CinnabarIslandHiddenIron
 
-	db 1 ; object events
+	db 5 ; object events
 	object_event  9, 10, SPRITE_BLUE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandBlue, EVENT_BLUE_IN_CINNABAR
+	object_event  9,  3, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandMansionRock, EVENT_CINNABAR_MANSION_ROCK_SMASHED
+	object_event 16,  1, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandRock, -1
+	object_event 14,  8, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandRock, -1
+	object_event 20,  7, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandRock, -1

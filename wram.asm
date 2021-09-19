@@ -2603,8 +2603,10 @@ wFastShipB1FSceneID::                             db ; d9bd
 wMountMoonSquareSceneID::                         db ; d9be
 wMobileTradeRoomSceneID::                         db ; d9bf
 wMobileBattleRoomSceneID::                        db ; d9c0
+wPokemonMansion1FSceneID::                        db ; d9c1
+wPokemonMansionB1FSceneID::                       db ; d9c2
 
-	ds 49
+	ds 47
 
 ; fight counts
 wJackFightCount::    db ; d9f2

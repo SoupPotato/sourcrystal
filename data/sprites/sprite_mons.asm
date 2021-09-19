@@ -57,3 +57,4 @@ SpriteMons:
 	db ARTICUNO
 	db DODRIO
 	db BLISSEY
+	db MEW

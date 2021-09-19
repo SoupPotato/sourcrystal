@@ -721,3 +721,5 @@ ENDM
 	map_attributes CeruleanCave1F, CERULEAN_CAVE_1F, $09, 0
 	map_attributes CeruleanCave2F, CERULEAN_CAVE_2F, $09, 0
 	map_attributes CeruleanCaveB1F, CERULEAN_CAVE_B1F, $09, 0
+	map_attributes PokemonMansion1F, POKEMON_MANSION_1F, $6C, 0
+	map_attributes PokemonMansionB1F, POKEMON_MANSION_B1F, $77, 0

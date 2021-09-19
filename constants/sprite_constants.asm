@@ -172,6 +172,7 @@ SPRITE_POKEMON EQU const_value
 	const SPRITE_ARTICUNO ; a6
 	const SPRITE_DODRIO ; a6
 	const SPRITE_BLISSEY ; a7
+	const SPRITE_MEW ; a8
 
 ; special GetMonSprite values (see engine/overworld/overworld.asm)
 	const_def $e0

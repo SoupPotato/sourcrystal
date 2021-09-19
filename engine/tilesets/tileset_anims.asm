@@ -253,6 +253,23 @@ TilesetPokecenterAnim:
 TilesetGateAnim:
 TilesetLabAnim:
 TilesetFacilityAnim:
+	dw vTiles2 tile $60, AnimateWaterTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  LavaBubbleAnim3
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  LavaBubbleAnim4
+	dw NULL,  WaitTileAnimation
+	dw wTileAnimBuffer, ScrollTileDown
+	dw wTileAnimBuffer, ScrollTileDown
+	dw wTileAnimBuffer, ScrollTileDown
+	dw WhirlpoolFrames5, AnimateWhirlpoolTile
+	dw WhirlpoolFrames6, AnimateWhirlpoolTile
+	dw WhirlpoolFrames7, AnimateWhirlpoolTile
+	dw WhirlpoolFrames8, AnimateWhirlpoolTile
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
 TilesetMartAnim:
 TilesetMansionAnim:
 TilesetGameCornerAnim:
@@ -710,6 +727,45 @@ LavaBubbleAnim2:
 	ld hl, vTiles2 tile $38
 	jp WriteTile
 
+LavaBubbleAnim3:
+; Splash in the bottom-right corner of the fountain.
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+	ld a, [wTileAnimationTimer]
+	and %110
+	srl a
+	inc a
+	inc a
+	and %011
+	swap a
+	ld e, a
+	ld d, 0
+	ld hl, LavaBubbleFrames
+	add hl, de
+	ld sp, hl
+	ld hl, vTiles2 tile $61
+	jp WriteTile
+
+
+LavaBubbleAnim4:
+; Splash in the top-left corner of the fountain.
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+	ld a, [wTileAnimationTimer]
+	and %110
+	add a
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, LavaBubbleFrames
+	add hl, de
+	ld sp, hl
+	ld hl, vTiles2 tile $71
+	jp WriteTile
+
 
 LavaBubbleFrames:
 	INCBIN "gfx/tilesets/lava/1.2bpp"
@@ -1007,6 +1063,11 @@ WhirlpoolFrames1: dw vTiles2 tile $32, WhirlpoolTiles1
 WhirlpoolFrames2: dw vTiles2 tile $33, WhirlpoolTiles2
 WhirlpoolFrames3: dw vTiles2 tile $42, WhirlpoolTiles3
 WhirlpoolFrames4: dw vTiles2 tile $43, WhirlpoolTiles4
+
+WhirlpoolFrames5: dw vTiles2 tile $62, WhirlpoolTiles1
+WhirlpoolFrames6: dw vTiles2 tile $63, WhirlpoolTiles2
+WhirlpoolFrames7: dw vTiles2 tile $72, WhirlpoolTiles3
+WhirlpoolFrames8: dw vTiles2 tile $73, WhirlpoolTiles4
 
 WhirlpoolTiles1: INCBIN "gfx/tilesets/whirlpool/1.2bpp"
 WhirlpoolTiles2: INCBIN "gfx/tilesets/whirlpool/2.2bpp"

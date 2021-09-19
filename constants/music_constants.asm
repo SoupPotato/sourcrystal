@@ -116,6 +116,7 @@
 	const MUSIC_HO_OH_BATTLE_HGSS            ; 72
 	const MUSIC_LUGIA_BATTLE_HGSS            ; 73
 	const MUSIC_KANTO_LEGEND_BATTLE          ; 74
+	const MUSIC_CINNABAR_MANSION             ; 75
 
 ; GetMapMusic picks music for this value (see home/map.asm)
 MUSIC_MAHOGANY_MART EQU $64

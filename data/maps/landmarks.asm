@@ -99,6 +99,7 @@ Landmarks:
 	landmark  84, 148, Route20Name
 	landmark  76, 148, SeafoamIslandsName
 	landmark  60, 148, CinnabarIslandName
+	landmark  58, 146, PokemonMansionName
 	landmark  60, 136, Route21Name
 	landmark  44,  84, Route22Name
 	landmark  36,  68, VictoryRoadName
@@ -147,6 +148,7 @@ CeladonCityName:     db "CELADON¯CITY@"
 SaffronCityName:     db "SAFFRON¯CITY@"
 FuchsiaCityName:     db "FUCHSIA¯CITY@"
 CinnabarIslandName:  db "CINNABAR¯ISLAND@"
+PokemonMansionName:  db "POKéMON¯MANSION@"
 IndigoPlateauName:   db "INDIGO¯PLATEAU@"
 VictoryRoadName:     db "VICTORY¯ROAD@"
 MtMoonName:          db "MT.MOON@"
@@ -155,7 +157,6 @@ LavRadioTowerName:   db "LAV¯RADIO TOWER@"
 SilphCoName:         db "SILPH CO.@"
 SafariZoneName:      db "SAFARI ZONE@"
 SeafoamIslandsName:  db "SEAFOAM¯ISLANDS@"
-PokemonMansionName:  db "#MON¯MANSION@"
 Route1Name:          db "ROUTE 1@"
 Route2Name:          db "ROUTE 2@"
 Route3Name:          db "ROUTE 3@"

@@ -784,14 +784,14 @@ dig_incave:
 	dw .DoDig
 	dw .FailDig
 
-.CheckCanDig:
+.CheckCanDig
 	call GetMapEnvironment
 	cp CAVE
 	jr z, .incave
 	cp DUNGEON
 	jr z, .incave
 .fail
-	ld a, $2
+	ld a, 2
 	ret
 
 .incave

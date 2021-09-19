@@ -1109,4 +1109,58 @@ KantoGrassWildMons:
 	db 42, POLIWHIRL
 	db 42, SNEASEL
 
+	map_id POKEMON_MANSION_1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 34, GRIMER
+	db 34, KOFFING
+	db 30, SLUGMA
+	db 28, DITTO
+	db 36, MUK
+	db 32, MAGMAR
+	db 34, MAGMAR
+	; day
+	db 34, GRIMER
+	db 34, KOFFING
+	db 30, SLUGMA
+	db 28, DITTO
+	db 36, MUK
+	db 32, MAGMAR
+	db 34, MAGMAR
+	; nite
+	db 34, GRIMER
+	db 34, KOFFING
+	db 30, SLUGMA
+	db 28, DITTO
+	db 36, MUK
+	db 32, MAGMAR
+	db 34, MAGMAR
+
+	map_id POKEMON_MANSION_B1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 34, KOFFING
+	db 34, SLUGMA
+	db 34, MAGMAR
+	db 28, SLUGMA
+	db 36, WEEZING
+	db 32, DITTO
+	db 36, MAGMAR
+	; day
+	db 34, KOFFING
+	db 34, SLUGMA
+	db 34, MAGMAR
+	db 28, SLUGMA
+	db 36, WEEZING
+	db 32, DITTO
+	db 36, MAGMAR
+	; nite
+	db 34, KOFFING
+	db 34, SLUGMA
+	db 34, MAGMAR
+	db 28, SLUGMA
+	db 36, WEEZING
+	db 32, DITTO
+	db 36, MAGMAR
+
 	db -1 ; end

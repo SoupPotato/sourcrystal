@@ -190,6 +190,8 @@ ENDM
 	map_const ROUTE_20,                                    42,  9 ; 11
 	map_const ROUTE_21,                                    10, 30 ; 12
 	map_const CINNABAR_ISLAND,                             12, 11 ; 13
+	map_const POKEMON_MANSION_1F,                          15, 14 ; 14
+	map_const POKEMON_MANSION_B1F,                         15, 14 ; 15
 
 	newgroup                                                      ;  7
 

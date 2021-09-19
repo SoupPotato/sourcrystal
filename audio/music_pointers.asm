@@ -118,3 +118,4 @@ Music:
 	dba Music_HoOhBattleHGSS
 	dba Music_LugiaBattleHGSS
 	dba Music_KantoLegendBattleXY
+	dba Music_CinnabarMansionRBY

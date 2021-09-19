@@ -72,6 +72,7 @@ CinnabarGroupSprites:
 	db SPRITE_POKE_BALL
 	db SPRITE_BERRY
 	db SPRITE_APRICORN
+	db SPRITE_ROCK
 	db 0 ; end
 
 ; CeruleanCity and Route5 are connected

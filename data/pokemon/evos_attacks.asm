@@ -1983,14 +1983,17 @@ MagikarpEvosAttacks:
 
 GyaradosEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, BITE
 	db 1, THRASH
 	db 20, BITE
-	db 25, DRAGON_RAGE
-	db 30, LEER
-	db 35, TWISTER
-	db 40, HYDRO_PUMP
-	db 45, RAIN_DANCE
-	db 50, HYPER_BEAM
+	db 24, DRAGON_RAGE
+	db 28, LEER
+	db 32, TWISTER
+	db 36, SCARY_FACE
+	db 40, CRUNCH
+	db 44, HYDRO_PUMP
+	db 48, RAIN_DANCE
+	db 52, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 LaprasEvosAttacks:

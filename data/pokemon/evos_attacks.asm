@@ -190,17 +190,19 @@ MetapodEvosAttacks:
 
 ButterfreeEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, CONFUSION
-	db 10, CONFUSION
+	db 1, GUST
+	db 10, GUST
+	db 11, CONFUSION
 	db 13, POISONPOWDER
 	db 13, STUN_SPORE
 	db 13, SLEEP_POWDER
-	db 16, GUST
+	db 16, PSYBEAM
 	db 20, SUPERSONIC
 	db 24, WHIRLWIND
-	db 29, PSYBEAM
+	db 29, CHARM
 	db 34, WING_ATTACK
 	db 40, SAFEGUARD
+	db 45, PSYCHIC_M
 	db 0 ; no more level-up moves
 
 WeedleEvosAttacks:
@@ -219,15 +221,17 @@ KakunaEvosAttacks:
 
 BeedrillEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, FURY_ATTACK
-	db 10, FURY_ATTACK
-	db 13, FOCUS_ENERGY
-	db 16, TWINEEDLE
-	db 20, RAGE
-	db 25, PURSUIT
-	db 30, PIN_MISSILE
-	db 35, FAINT_ATTACK
+	db 1, TWINEEDLE
+	db 10, TWINEEDLE
+	db 11, FURY_ATTACK
+	db 13, RAGE
+	db 16, PURSUIT
+	db 20, FOCUS_ENERGY
+	db 25, PIN_MISSILE
+	db 30, FAINT_ATTACK
+	db 35, SLUDGE_BOMB
 	db 40, AGILITY
+	db 45, OUTRAGE
 	db 0 ; no more level-up moves
 
 PidgeyEvosAttacks:
@@ -2930,19 +2934,20 @@ SunfloraEvosAttacks:
 
 YanmaEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, TACKLE
+	db 1, QUICK_ATTACK
 	db 1, FORESIGHT
-	db 6, QUICK_ATTACK
-	db 11, DOUBLE_TEAM
-	db 14, SONICBOOM
-	db 17, LEECH_LIFE
-	db 22, SUPERSONIC
-	db 27, DETECT
-	db 30, PURSUIT
+	db 5, GUST
+	db 9, DOUBLE_TEAM
+	db 13, SONICBOOM
+	db 15, DETECT
+	db 19, LEECH_LIFE
+	db 23, SUPERSONIC
+	db 27, SWIFT
+	db 29, PURSUIT
 	db 33, ANCIENTPOWER
-	db 38, HYPNOSIS
-	db 43, WING_ATTACK
-	db 46, SCREECH
+	db 37, HYPNOSIS
+	db 41, WING_ATTACK
+	db 43, SCREECH
 	db 0 ; no more level-up moves
 
 WooperEvosAttacks:

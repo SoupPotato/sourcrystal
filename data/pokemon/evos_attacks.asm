@@ -433,10 +433,10 @@ NidoranFEvosAttacks:
 	db EVOLVE_LEVEL, 16, NIDORINA
 	db 0 ; no more evolutions
 	db 1, GROWL
-	db 1, SCRATCH
-	db 6, TAIL_WHIP
-	db 10, DOUBLE_KICK
-	db 14, POISON_STING
+	db 1, POISON_STING
+	db 6, SCRATCH
+	db 10, TAIL_WHIP
+	db 14, DOUBLE_KICK
 	db 19, FURY_SWIPES
 	db 23, BITE
 	db 27, CHARM
@@ -449,10 +449,10 @@ NidorinaEvosAttacks:
 	db EVOLVE_ITEM, MOON_STONE, NIDOQUEEN
 	db 0 ; no more evolutions
 	db 1, GROWL
-	db 1, SCRATCH
-	db 6, TAIL_WHIP
-	db 10, DOUBLE_KICK
-	db 14, POISON_STING
+	db 1, POISON_STING
+	db 6, SCRATCH
+	db 10, TAIL_WHIP
+	db 14, DOUBLE_KICK
 	db 20, FURY_SWIPES
 	db 25, BITE
 	db 31, CHARM
@@ -475,11 +475,11 @@ NidoqueenEvosAttacks:
 NidoranMEvosAttacks:
 	db EVOLVE_LEVEL, 16, NIDORINO
 	db 0 ; no more evolutions
-	db 1, GROWL
-	db 1, PECK
-	db 6, FOCUS_ENERGY
-	db 10, DOUBLE_KICK
-	db 14, POISON_STING
+	db 1, LEER
+	db 1, POISON_STING
+	db 6, PECK
+	db 10, FOCUS_ENERGY
+	db 14, DOUBLE_KICK
 	db 19, FURY_ATTACK
 	db 23, HORN_ATTACK
 	db 27, SWAGGER
@@ -491,11 +491,11 @@ NidoranMEvosAttacks:
 NidorinoEvosAttacks:
 	db EVOLVE_ITEM, MOON_STONE, NIDOKING
 	db 0 ; no more evolutions
-	db 1, GROWL
-	db 1, PECK
-	db 6, FOCUS_ENERGY
-	db 10, DOUBLE_KICK
-	db 14, POISON_STING
+	db 1, LEER
+	db 1, POISON_STING
+	db 6, PECK
+	db 10, FOCUS_ENERGY
+	db 14, DOUBLE_KICK
 	db 20, FURY_ATTACK
 	db 25, HORN_ATTACK
 	db 31, SWAGGER

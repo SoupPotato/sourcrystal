@@ -220,9 +220,11 @@ AzaleaApricornTree:
 	writetext AzaleaHeyItsApricornText
 	buttonsound
 	verbosegiveitem WHT_APRICORN
-	closetext
+	iffalse .NoRoomInBag
 	disappear AZALEATOWN_APRICORN
 	setflag ENGINE_DAILY_AZALEA_APRICORN
+.NoRoomInBag
+	closetext
 	end
 
 AzaleaNoApricorn:

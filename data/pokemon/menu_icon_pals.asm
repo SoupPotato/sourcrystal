@@ -250,11 +250,11 @@ MonMenuIconPals:
 	icon_pals RED, BLUE        ; ENTEI
 	icon_pals BLUE, GRAY       ; SUICUNE
 	icon_pals GREEN, YELLOW    ; LARVITAR
-	icon_pals BLUE, PURPLE   ; PUPITAR
-	icon_pals GREEN, BROWN   ; TYRANITAR
-	icon_pals BLUE, PINK     ; LUGIA
-	icon_pals RED, BROWN     ; HO_OH
-	icon_pals GREEN, PINK    ; CELEBI
-	icon_pals RED, RED       ; 252
-	icon_pals RED, BLUE      ; EGG
-	icon_pals RED, RED       ; 254
+	icon_pals BLUE, PURPLE     ; PUPITAR
+	icon_pals GREEN, BROWN     ; TYRANITAR
+	icon_pals BLUE, PINK       ; LUGIA
+	icon_pals RED, BROWN       ; HO_OH
+	icon_pals GREEN, PINK      ; CELEBI
+	icon_pals RED, RED         ; 252
+	icon_pals RED, RED         ; EGG
+	icon_pals RED, RED         ; 254

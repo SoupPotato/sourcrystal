@@ -370,7 +370,8 @@ BirdkeeperBertAfterBattleText:
 
 BirdkeeperErnieSeenText:
 	text "Hey, hey."
-	line "Will you battle me?"
+	para "Will you battle"
+	line "me?"
 	done
 
 BirdkeeperErnieBeatenText:

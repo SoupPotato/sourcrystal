@@ -98,7 +98,7 @@
 	tilecoll WALL, WALL, WATER, WALL ; 61
 	tilecoll FLOOR, WALL, FLOOR, WALL ; 62
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 63
-	tilecoll WALL, WALL, FLOOR, FLOOR ; 64
+	tilecoll WALL, WALL, WALL, FLOOR ; 64
 	tilecoll UP_WALL, UP_WALL, WALL, WALL ; 65
 	tilecoll UP_WALL, UP_WALL, WALL, FLOOR ; 66
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 67

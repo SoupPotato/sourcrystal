@@ -616,7 +616,19 @@ DoPlayerMovement::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
+if DEF(_DEBUG)
+	ldh a, [hJoyDown]
+	or ~(A_BUTTON | B_BUTTON)
+	inc a
 	ld a, [hl]
+	jr nz, .no_wtw
+	cp COLL_01
+	jr z, .no_wtw
+	ld a, COLL_LADDER
+.no_wtw
+else
+	ld a, [hl]
+endc
 	ld [wWalkingTile], a
 	ret
 

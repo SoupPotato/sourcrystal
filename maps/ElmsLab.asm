@@ -57,6 +57,7 @@ ElmsLab_MapScripts:
 	jump .MustSayYes
 
 .ElmGetsEmail:
+if !DEF(_DEBUG)
 	writetext ElmText_Accepted
 	buttonsound
 	writetext ElmText_ResearchAmbitions
@@ -74,6 +75,7 @@ ElmsLab_MapScripts:
 	turnobject ELMSLAB_ELM, RIGHT
 	writetext ElmText_MissionFromMrPokemon
 	waitbutton
+endc
 	closetext
 	applymovement ELMSLAB_ELM, ElmsLab_ElmToDefaultPositionMovement1
 	turnobject PLAYER, UP
@@ -249,10 +251,12 @@ DidntChooseStarterScript:
 
 ElmDirectionsScript:
 	turnobject PLAYER, UP
+if !DEF(_DEBUG)
 	opentext
 	writetext ElmDirectionsText1
 	waitbutton
 	closetext
+endc
 	addcellnum PHONE_ELM
 	opentext
 	writetext GotElmsNumberText
@@ -784,6 +788,7 @@ ElmText_Intro:
 	text "ELM: <PLAY_G>!"
 	line "There you are!"
 
+if !DEF(_DEBUG)
 	para "I needed to ask"
 	line "you a favor."
 
@@ -817,6 +822,7 @@ ElmText_Intro:
 
 	para "that I recently"
 	line "caught."
+endc
 	done
 
 ElmText_Accepted:
@@ -1049,6 +1055,7 @@ ElmAfterTheftText4:
 ElmAfterTheftText5:
 	text "ELM: What?!?"
 
+if !DEF(_DEBUG)
 	para "PROF.OAK gave you"
 	line "a #DEX?"
 
@@ -1088,7 +1095,7 @@ ElmAfterTheftText5:
 	para "Consider it my"
 	line "thanks for bring-"
 	cont "ing me the EGG."
-
+endc
 	done
 
 ElmAfterTheftText6:

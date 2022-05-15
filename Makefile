@@ -9,41 +9,48 @@ RGBFIX := rgbfix
 RGBGFX := rgbgfx
 RGBLINK := rgblink
 
-roms := pokecrystal.gbc pokecrystal11.gbc
+roms := \
+	sourcrystal.gbc \
+	sourcrystal_debug.gbc
 
-crystal_obj := \
-audio.o \
-home.o \
-main.o \
-wram.o \
-data/text/common.o \
-data/maps/map_data.o \
-data/pokemon/dex_entries.o \
-data/pokemon/egg_moves.o \
-data/pokemon/evos_attacks.o \
-engine/movie/credits.o \
-engine/overworld/events.o \
-gfx/pics.o \
-gfx/sprites.o \
-lib/mobile/main.o
+rom_obj := \
+	audio.o \
+	home.o \
+	main.o \
+	wram.o \
+	data/text/common.o \
+	data/maps/map_data.o \
+	data/pokemon/dex_entries.o \
+	data/pokemon/egg_moves.o \
+	data/pokemon/evos_attacks.o \
+	engine/movie/credits.o \
+	engine/overworld/events.o \
+	gfx/pics.o \
+	gfx/sprites.o \
+	lib/mobile/main.o
 
-crystal11_obj := $(crystal_obj:.o=11.o)
+sourcrystal_obj       := $(rom_obj:.o=.o)
+sourcrystal_debug_obj := $(rom_obj:.o=_debug.o)
 
 
 ### Build targets
 
 .SUFFIXES:
-.PHONY: all crystal crystal11 clean compare tools
+.PHONY: all sour sour_debug clean compare tools
 .SECONDEXPANSION:
 .PRECIOUS:
 .SECONDARY:
 
-all: crystal
-crystal: pokecrystal.gbc
-crystal11: pokecrystal11.gbc
+all: sour sour_debug
+sour: sourcrystal.gbc
+sour_debug: sourcrystal_debug.gbc
 
 clean:
-	rm -f $(roms) $(crystal_obj) $(crystal11_obj) $(roms:.gbc=.map) $(roms:.gbc=.sym)
+	$(RM) $(roms) \
+	      $(roms:.gbc=.sym) \
+	      $(roms:.gbc=.map) \
+	      $(sourcrystal_obj) \
+		  $(sourcrystal_debug_obj)
 	$(MAKE) clean -C tools/
 
 compare: $(roms)
@@ -53,8 +60,8 @@ tools:
 	$(MAKE) -C tools/
 
 
-$(crystal_obj):   RGBASMFLAGS = -D _CRYSTAL -l -Q8 -H
-$(crystal11_obj): RGBASMFLAGS = -D _CRYSTAL -D _CRYSTAL11 -l -Q8 -H
+$(sourcrystal_obj):       RGBASMFLAGS = -D _CRYSTAL -D _CRYSTAL11 -l -Q8 -H
+$(sourcrystal_debug_obj): RGBASMFLAGS = -D _CRYSTAL -D _CRYSTAL11 -D _DEBUG -l -Q8 -H
 
 # The dep rules have to be explicit or else missing files won't be reported.
 # As a side effect, they're evaluated immediately instead of when the rule is invoked.
@@ -70,21 +77,21 @@ ifeq (,$(filter clean tools,$(MAKECMDGOALS)))
 
 $(info $(shell $(MAKE) -C tools))
 
-$(foreach obj, $(crystal11_obj), $(eval $(call DEP,$(obj),$(obj:11.o=.asm))))
-$(foreach obj, $(crystal_obj), $(eval $(call DEP,$(obj),$(obj:.o=.asm))))
+$(foreach obj, $(sourcrystal_obj), $(eval $(call DEP,$(obj),$(obj:.o=.asm))))
+$(foreach obj, $(sourcrystal_debug_obj), $(eval $(call DEP,$(obj),$(obj:_debug.o=.asm))))
 
 endif
 
 
-pokecrystal.gbc: $(crystal_obj) pokecrystal.link
-	$(RGBLINK) -n pokecrystal.sym -m pokecrystal.map -l pokecrystal.link -o $@ $(crystal_obj)
+sourcrystal.gbc: $(sourcrystal_obj) pokecrystal.link
+	$(RGBLINK) -n sourcrystal.sym -m sourcrystal.map -l pokecrystal.link -o $@ $(sourcrystal_obj)
 	$(RGBFIX) -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -p 0 -r 3 -t PM_CRYSTAL $@
-	#tools/sort_symfile.sh pokecrystal.sym
+	#tools/sort_symfile.sh sourcrystal.sym
 
-pokecrystal11.gbc: $(crystal11_obj) pokecrystal.link
-	$(RGBLINK) -n pokecrystal11.sym -m pokecrystal11.map -l pokecrystal.link -o $@ $(crystal11_obj)
+sourcrystal_debug.gbc: $(sourcrystal_debug_obj) pokecrystal.link
+	$(RGBLINK) -n sourcrystal_debug.sym -m sourcrystal_debug.map -l pokecrystal.link -o $@ $(sourcrystal_debug_obj)
 	$(RGBFIX) -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -n 1 -p 0 -r 3 -t PM_CRYSTAL $@
-	tools/sort_symfile.sh pokecrystal11.sym
+	tools/sort_symfile.sh sourcrystal_debug.sym
 
 
 # For files that the compressor can't match, there will be a .lz file suffixed with the md5 hash of the correct uncompressed file.

@@ -680,11 +680,11 @@ if DEF(_CRYSTAL11)
 INCBIN "mobile/stadium/stadium2_2.bin"
 else
 INCBIN "mobile/stadium/stadium2_1.bin"
+endc
 
 SECTION "Battle Weather Images", ROMX
 
 INCLUDE "gfx/weather_images.asm"
-endc
 
 SECTION "Crystal Phone Text 3", ROMX
 

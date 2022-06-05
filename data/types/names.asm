@@ -8,6 +8,7 @@ TypeNames:
 	dw Rock
 	dw Bird
 	dw Bug
+	dw Dragon
 	dw Dark
 	dw Steel
 	dw Normal
@@ -27,7 +28,6 @@ TypeNames:
 	dw Psychic
 	dw Ice
 	dw Ghost
-	dw Dragon
 
 Normal:    db "NORMAL@"
 Fighting:  db "FIGHTING@"

@@ -42,7 +42,7 @@ TrainerClassDVs:
 	dn  7,  8,  8,  8 ; SWIMMERF
 	dn  9,  8,  8,  8 ; SAILOR
 	dn  9,  8,  8,  8 ; SUPER_NERD
-	dn  9,  8,  8,  8 ; RIVAL2
+	dn 13, 13, 13, 13 ; RIVAL2
 	dn  9,  8,  8,  8 ; GUITARIST
 	dn 10,  8,  8,  8 ; HIKER
 	dn  9,  8,  8,  8 ; BIKER

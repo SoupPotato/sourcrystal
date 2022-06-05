@@ -101,29 +101,17 @@ TrainerSchoolboyJack1:
 .Rematch:
 	scall .RematchStd
 	winlosstext SchoolboyJack1BeatenText, 0
-	copybytetovar wJackFightCount
-	ifequal 4, .Fight4
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight4:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight4
-.Fight3:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight3
-.Fight2:
 	checkevent EVENT_CLEARED_RADIO_TOWER
 	iftrue .LoadFight2
-.Fight1:
 	checkflag ENGINE_FLYPOINT_OLIVINE
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer SCHOOLBOY, JACK1
 	startbattle
 	reloadmapafterbattle
-	loadvar wJackFightCount, 1
 	clearflag ENGINE_JACK
 	end
 
@@ -131,7 +119,6 @@ TrainerSchoolboyJack1:
 	loadtrainer SCHOOLBOY, JACK2
 	startbattle
 	reloadmapafterbattle
-	loadvar wJackFightCount, 2
 	clearflag ENGINE_JACK
 	end
 
@@ -139,7 +126,6 @@ TrainerSchoolboyJack1:
 	loadtrainer SCHOOLBOY, JACK3
 	startbattle
 	reloadmapafterbattle
-	loadvar wJackFightCount, 3
 	clearflag ENGINE_JACK
 	end
 
@@ -147,7 +133,6 @@ TrainerSchoolboyJack1:
 	loadtrainer SCHOOLBOY, JACK4
 	startbattle
 	reloadmapafterbattle
-	loadvar wJackFightCount, 4
 	clearflag ENGINE_JACK
 	end
 

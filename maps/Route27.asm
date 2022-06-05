@@ -91,21 +91,13 @@ TrainerBirdKeeperJose2:
 .WantsBattle:
 	scall .Rematch
 	winlosstext BirdKeeperJose2BeatenText, 0
-	copybytetovar wJoseFightCount
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight2:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight2
-.Fight1:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer BIRD_KEEPER, JOSE2
 	startbattle
 	reloadmapafterbattle
-	loadvar wJoseFightCount, 1
 	clearflag ENGINE_JOSE
 	end
 
@@ -113,7 +105,6 @@ TrainerBirdKeeperJose2:
 	loadtrainer BIRD_KEEPER, JOSE1
 	startbattle
 	reloadmapafterbattle
-	loadvar wJoseFightCount, 2
 	clearflag ENGINE_JOSE
 	end
 
@@ -224,21 +215,13 @@ TrainerCooltrainerfReena:
 .WantsBattle:
 	scall .Rematch
 	winlosstext CooltrainerfReenaBeatenText, 0
-	copybytetovar wReenaFightCount
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight2:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight2
-.Fight1:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer COOLTRAINERF, REENA1
 	startbattle
 	reloadmapafterbattle
-	loadvar wReenaFightCount, 1
 	clearflag ENGINE_REENA
 	end
 
@@ -246,7 +229,6 @@ TrainerCooltrainerfReena:
 	loadtrainer COOLTRAINERF, REENA2
 	startbattle
 	reloadmapafterbattle
-	loadvar wReenaFightCount, 2
 	clearflag ENGINE_REENA
 	end
 

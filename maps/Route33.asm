@@ -70,29 +70,17 @@ TrainerHikerAnthony:
 .Rematch:
 	scall .RematchStd
 	winlosstext HikerAnthony2BeatenText, 0
-	copybytetovar wAnthonyFightCount
-	ifequal 4, .Fight4
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight4:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight4
-.Fight3:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight3
-.Fight2:
 	checkevent EVENT_CLEARED_RADIO_TOWER
 	iftrue .LoadFight2
-.Fight1:
 	checkflag ENGINE_FLYPOINT_OLIVINE
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer HIKER, ANTHONY2
 	startbattle
 	reloadmapafterbattle
-	loadvar wAnthonyFightCount, 1
 	clearflag ENGINE_ANTHONY
 	end
 
@@ -100,7 +88,6 @@ TrainerHikerAnthony:
 	loadtrainer HIKER, ANTHONY1
 	startbattle
 	reloadmapafterbattle
-	loadvar wAnthonyFightCount, 2
 	clearflag ENGINE_ANTHONY
 	end
 
@@ -108,7 +95,6 @@ TrainerHikerAnthony:
 	loadtrainer HIKER, ANTHONY3
 	startbattle
 	reloadmapafterbattle
-	loadvar wAnthonyFightCount, 3
 	clearflag ENGINE_ANTHONY
 	end
 
@@ -116,7 +102,6 @@ TrainerHikerAnthony:
 	loadtrainer HIKER, ANTHONY4
 	startbattle
 	reloadmapafterbattle
-	loadvar wAnthonyFightCount, 4
 	clearflag ENGINE_ANTHONY
 	end
 

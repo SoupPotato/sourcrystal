@@ -1759,12 +1759,12 @@ RapidSpin:
 	applydamage
 	criticaltext
 	supereffectivetext
-	speedup
-	statupmessage
 	clearhazards
 	checkdestinybond
 	buildopponentrage
 	kingsrock
+	speedup
+	statupmessage
 	endmove
 
 MorningSun:

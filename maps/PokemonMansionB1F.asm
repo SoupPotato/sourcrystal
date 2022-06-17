@@ -4,6 +4,8 @@
 	const POKEMON_MANSION_B1F_BOULDER3
 	const POKEMON_MANSION_B1F_MEW
 	const POKEMON_MANSION_B1F_DOCUMENT
+	const POKEMON_MANSION_B1F_POKE_BALL1
+	const POKEMON_MANSION_B1F_POKE_BALL2
 
 PokemonMansionB1F_MapScripts:
 	db 1 ; scene scripts
@@ -168,6 +170,15 @@ MewText:
 	text "MEW!"
 	done
 
+PokemonMansionB1FFullRestore:
+	itemball FULL_RESTORE
+
+PokemonMansionB1FRareCandy:
+	itemball RARE_CANDY
+
+PokemonMansion1FHiddenStarPiece:
+	hiddenitem STAR_PIECE, EVENT_POKEMON_MANSION_B1F_HIDDEN_STAR_PIECE
+
 PokemonMansionB1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -179,11 +190,14 @@ PokemonMansionB1F_MapEvents:
 
 	db 0 ; coord events
 
-	db 0 ; bg events
+	db 1 ; bg events
+	bg_event 10, 24, BGEVENT_ITEM, PokemonMansion1FHiddenStarPiece
 
-	db 5 ; object events
+	db 7 ; object events
 	object_event 22, 23, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonMansionB1FBoulder, EVENT_POKEMON_MANSION_B1F_BOULDER_1
 	object_event 25,  5, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonMansionB1FBoulder, EVENT_POKEMON_MANSION_B1F_BOULDER_2
 	object_event 18, 25, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonMansionB1FBoulder, EVENT_POKEMON_MANSION_B1F_BOULDER_3
 	object_event  4,  4, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
 	object_event  4,  5, SPRITE_PAPER, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, LabDocument, -1
+	object_event 14, 11, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PokemonMansionB1FFullRestore, EVENT_POKEMON_MANSION_B1F_FULL_RESTORE
+	object_event  4, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PokemonMansionB1FRareCandy, EVENT_POKEMON_MANSION_B1F_RARE_CANDY

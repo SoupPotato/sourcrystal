@@ -93,7 +93,7 @@ MonMenuIconPals:
 	icon_pals GRAY, BROWN      ; DEWGONG
 	icon_pals PURPLE, GREEN    ; GRIMER
 	icon_pals PURPLE, GREEN    ; MUK
-	icon_pals PURPLE, RED      ; SHELLDER
+	icon_pals PURPLE, YELLOW   ; SHELLDER
 	icon_pals PURPLE, BLUE     ; CLOYSTER
 	icon_pals PURPLE, BLUE     ; GASTLY
 	icon_pals RED, BLUE        ; HAUNTER

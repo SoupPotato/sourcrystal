@@ -190,9 +190,10 @@ BikerDwayneAfterBattleText:
 BikerHarrisSeenText:
 	text "The cops shut down"
 	line "our UNDERGROUND"
+	cont "PATH!"
 
-	para "PATH! That really"
-	line "fries me!"
+	para "That really fries"
+	line "me!"
 	done
 
 BikerHarrisBeatenText:
@@ -261,9 +262,8 @@ TrainerCoupleMoeandLuluSeenText:
 
 	para "When I'm with"
 	line "LULU, I've got a"
-
-	para "hundred times more"
-	line "courage!"
+	cont "hundred times more"
+	cont "courage!"
 
 	para "LULU: MOE and I"
 	line "make a great pair!"
@@ -366,18 +366,18 @@ Route8_MapEvents:
 	db 0 ; coord events
 
 	db 4 ; bg events
-	bg_event 11,  7, BGEVENT_READ, Route8UndergroundPathSign
-	bg_event  9,  5, BGEVENT_READ, Route8LockedDoor
-	bg_event  8,  8, BGEVENT_READ, Route8NoBerry
+	bg_event 11,  5, BGEVENT_READ, Route8UndergroundPathSign
+	bg_event  9,  3, BGEVENT_READ, Route8LockedDoor
+	bg_event  5, 14, BGEVENT_READ, Route8NoBerry
 	bg_event 49,  6, BGEVENT_READ, Route8NoApricorn
 
 	db 10 ; object events
-	object_event 12, 11, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerBikerDwayne, -1
-	object_event 12, 12, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerBikerHarris, -1
-	object_event 12, 13, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerBikerZeke, -1
+	object_event 12, 11, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerBikerDwayne, -1
+	object_event 12, 12, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerBikerHarris, -1
+	object_event 12, 13, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBikerZeke, -1
 	object_event 21, 11, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSupernerdSam, -1
 	object_event 39,  8, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSupernerdTom, -1
-	object_event  8,  8, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route8BerryTree, EVENT_ROUTE8_BERRY
+	object_event  5, 14, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route8BerryTree, EVENT_ROUTE8_BERRY
 	object_event 49,  6, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route8ApricornTree, EVENT_ROUTE8_APRICORN
 	object_event 30,  3, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerCoupleMoeandLulu1, -1
 	object_event 31,  3, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerCoupleMoeandLulu2, -1

@@ -168,3 +168,4 @@
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; a7
 	tilecoll WALL, UP_WALL, WALL, PIT ; a8
 	tilecoll FLOOR, FLOOR, WALL, WALL ; a9
+	tilecoll FLOOR, WALL, FLOOR, FLOOR ; aa

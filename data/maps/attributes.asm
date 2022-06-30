@@ -297,10 +297,10 @@ ENDM
 
 	map_attributes CeladonCity, CELADON_CITY, $0f, WEST | EAST
 	connection west, Route16, ROUTE_16, 6
-	connection east, Route7, ROUTE_7, 5
+	connection east, Route7, ROUTE_7, 6
 
 	map_attributes Route7, ROUTE_7, $0f, WEST | EAST
-	connection west, CeladonCity, CELADON_CITY, -5
+	connection west, CeladonCity, CELADON_CITY, -6
 	connection east, SaffronCity, SAFFRON_CITY, -8
 
 	map_attributes Route15, ROUTE_15, $0f, WEST | EAST

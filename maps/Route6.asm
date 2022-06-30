@@ -115,9 +115,8 @@ PicnickerSelinaAfterBattleText:
 
 	para "It's because I"
 	line "really want to"
-
-	para "smell the fresh"
-	line "air…"
+	cont "smell the fresh"
+	cont "air…"
 
 	para "Do you know what"
 	line "I mean?"
@@ -126,12 +125,10 @@ PicnickerSelinaAfterBattleText:
 CamperViktorSeenText:
 	text "Walking along with"
 	line "luggage and your"
-
-	para "companion #MON"
-	line "gives a great"
-
-	para "feeling of outdoor"
-	line "life!"
+	cont "companion #MON"
+	cont "gives a great"
+	cont "feeling of outdoor"
+	cont "life!"
 	done
 
 CamperViktorBeatenText:

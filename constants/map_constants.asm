@@ -364,7 +364,7 @@ ENDM
 
 	newgroup                                                      ; 18
 
-	map_const ROUTE_8,                                     28,  9 ;  1
+	map_const ROUTE_8,                                     28, 10 ;  1
 	map_const ROUTE_12,                                    12, 53 ;  2
 	map_const ROUTE_10_SOUTH,                              10, 11 ;  3
 	map_const LAVENDER_TOWN,                               10,  9 ;  4

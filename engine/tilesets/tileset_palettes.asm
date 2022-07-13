@@ -306,13 +306,13 @@ LoadSpecialMapOBPalette:
 
 .not_dancetheater
 	ld a, [wMapGroup]
-	cp GROUP_ROUTE_10_NORTH
-	jr nz, .not_route10N
+	cp GROUP_ROUTE_10_SOUTH
+	jr nz, .not_route10S
 	ld a, [wMapNumber]
-	cp MAP_ROUTE_10_NORTH
+	cp MAP_ROUTE_10_SOUTH
 	jr z, .YellowOverRockOBPalette
 
-.not_route10N
+.not_route10S
 	ld a, [wMapGroup]
 	cp GROUP_CERULEAN_CAVE_B1F
 	jr nz, .not_ceruleancave

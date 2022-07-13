@@ -1,11 +1,28 @@
 	const_def 2 ; object constants
 	const ROUTE10SOUTH_POKEFAN_M1
 	const ROUTE10SOUTH_POKEFAN_M2
+	const ROUTE10_ZAPDOS
 
 Route10South_MapScripts:
 	db 0 ; scene scripts
 
-	db 0 ; callbacks
+	db 1 ; callbacks
+	callback MAPCALLBACK_OBJECTS, .Zapdos
+
+.Zapdos:
+	checkevent EVENT_FOUGHT_ZAPDOS
+	iftrue .NoAppear
+	checkcode VAR_BADGES
+	ifequal NUM_BADGES, .Appear
+	jump .NoAppear
+
+.Appear:
+	appear ROUTE10_ZAPDOS
+	return
+
+.NoAppear:
+	disappear ROUTE10_ZAPDOS
+	return
 
 TrainerHikerJim:
 	trainer HIKER, JIM, EVENT_BEAT_HIKER_JIM, HikerJimSeenText, HikerJimBeatenText, 0, .Script
@@ -28,6 +45,24 @@ TrainerPokefanmRobert:
 	waitbutton
 	closetext
 	end
+
+Route10Zapdos:
+	opentext
+	writetext ZapdosText
+	cry ZAPDOS
+	pause 15
+	closetext
+	writecode VAR_BATTLETYPE, BATTLETYPE_KANTO_LEGEND
+	loadwildmon ZAPDOS, 50
+	startbattle
+	disappear ROUTE10_ZAPDOS
+	setevent EVENT_FOUGHT_ZAPDOS
+	reloadmapafterbattle
+	end
+
+ZapdosText:
+	text "Gyaoo!"
+	done
 
 Route10Sign:
 	jumptext Route10SignText
@@ -76,14 +111,17 @@ Route10SignText:
 Route10South_MapEvents:
 	db 0, 0 ; filler
 
-	db 1 ; warp events
-	warp_event  8,  3, ROCK_TUNNEL_1F, 2
+	db 2 ; warp events
+	warp_event  6,  9, POWER_PLANT, 1
+	warp_event  8, 23, ROCK_TUNNEL_1F, 2
 
 	db 0 ; coord events
 
-	db 1 ; bg events
-	bg_event  9,  5, BGEVENT_READ, Route10Sign
+	db 2 ; bg events
+	bg_event  5, 11, BGEVENT_READ, PowerPlantSign
+	bg_event  9, 25, BGEVENT_READ, Route10Sign
 
-	db 2 ; object events
-	object_event 17,  5, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerJim, -1
-	object_event 10, 14, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmRobert, -1
+	db 3 ; object events
+	object_event 17, 25, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerJim, -1
+	object_event 10, 34, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmRobert, -1
+	object_event  3, 10, SPRITE_ZAPDOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0,  Route10Zapdos, EVENT_ZAPDOS_APPEAR

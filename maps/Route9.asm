@@ -206,8 +206,7 @@ Route9SignText:
 Route9_MapEvents:
 	db 0, 0 ; filler
 
-	db 1 ; warp events
-	warp_event 68, 17, ROCK_TUNNEL_1F, 1
+	db 0 ; warp events
 
 	db 0 ; coord events
 

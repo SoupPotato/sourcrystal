@@ -143,6 +143,7 @@ FuchsiaGroupSprites:
 	db SPRITE_LASS
 	; 9 of max 9 walking sprites
 	db SPRITE_GRAMPS
+	db SPRITE_ZAPDOS
 	db SPRITE_TWIN
 	db SPRITE_POKE_BALL
 	db SPRITE_BERRY

@@ -34,9 +34,15 @@ KantoWaterWildMons:
 
 	map_id ROUTE_10_NORTH
 	db 4 percent ; encounter rate
-	db 15, GOLDEEN
+	db 19, GOLDEEN
 	db 10, GOLDEEN
-	db 15, SEAKING
+	db 19, SEAKING
+
+	map_id ROUTE_10_SOUTH
+	db 4 percent ; encounter rate
+	db 19, GOLDEEN
+	db 10, GOLDEEN
+	db 19, SEAKING
 
 	map_id ROUTE_12
 	db 6 percent ; encounter rate

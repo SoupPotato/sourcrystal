@@ -116,19 +116,6 @@ NUM_PLAYER_EVENTS EQU const_value
 	const OBJECTTYPE_6
 
 
-; command queue members
-CMDQUEUE_TYPE  EQU 0
-CMDQUEUE_ADDR  EQU 1
-CMDQUEUE_03    EQU 3
-CMDQUEUE_04    EQU 4
-CMDQUEUE_05    EQU 5
-CMDQUEUE_ENTRY_SIZE EQU 6
-CMDQUEUE_CAPACITY EQU 4
-
-; command queue types
-CMDQUEUE_STONETABLE EQU 2
-
-
 ; elevfloor macro values
 ; ElevatorFloorNames indexes (see data/events/elevator_floors.asm)
 	const_def

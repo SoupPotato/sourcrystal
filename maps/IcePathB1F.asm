@@ -9,14 +9,11 @@ IcePathB1F_MapScripts:
 	db 0 ; scene scripts
 
 	db 1 ; callbacks
-	callback MAPCALLBACK_CMDQUEUE, .SetUpStoneTable
+	callback MAPCALLBACK_STONETABLE, .SetUpStoneTable
 
 .SetUpStoneTable:
-	writecmdqueue .CommandQueue
+	usestonetable .StoneTable
 	return
-
-.CommandQueue:
-	cmdqueue CMDQUEUE_STONETABLE, .StoneTable ; check if any stones are sitting on a warp
 
 .StoneTable:
 	stonetable 3, ICEPATHB1F_BOULDER1, .Boulder1

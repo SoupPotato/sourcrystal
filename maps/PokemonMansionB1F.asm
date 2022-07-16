@@ -13,7 +13,7 @@ PokemonMansionB1F_MapScripts:
 
 	db 2 ; callbacks
 	callback MAPCALLBACK_TILES, .BouldersPokemonMansionB1F
-	callback MAPCALLBACK_CMDQUEUE, .SetUpStoneTable
+	callback MAPCALLBACK_STONETABLE, .SetUpStoneTable
 
 .DummyScene:
 	checkevent EVENT_FOUGHT_MEW
@@ -40,11 +40,8 @@ PokemonMansionB1F_MapScripts:
 	return
 
 .SetUpStoneTable:
-	writecmdqueue .CommandQueue
+	usestonetable .StoneTable
 	return
-
-.CommandQueue:
-	cmdqueue CMDQUEUE_STONETABLE, .StoneTable ; check if any stones are sitting on a warp
 
 .StoneTable:
 	stonetable 2, POKEMON_MANSION_B1F_BOULDER1, .Boulder1

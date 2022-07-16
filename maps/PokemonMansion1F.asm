@@ -6,7 +6,7 @@ PokemonMansion1F_MapScripts:
 	db 0 ; scene scripts
 
 	db 1 ; callbacks
-	callback MAPCALLBACK_CMDQUEUE, .specialwarp
+	callback MAPCALLBACK_STONETABLE, .specialwarp
 	
 .specialwarp:
 	loadvar wDigWarpNumber, 3

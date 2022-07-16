@@ -8,8 +8,10 @@ HandleNewMap:
 	ld a, MAPCALLBACK_NEWMAP
 	call RunMapCallback
 InitCommandQueue:
-	farcall ClearCmdQueue
-	ld a, MAPCALLBACK_CMDQUEUE
+	xor a
+	ld [wStoneTableAddress], a
+	ld [wStoneTableAddress+1], a
+	ld a, MAPCALLBACK_STONETABLE
 	call RunMapCallback
 	call GetMapTimeOfDay
 	ld [wMapTimeOfDay], a

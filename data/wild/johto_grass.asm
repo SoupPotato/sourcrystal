@@ -1058,110 +1058,110 @@ JohtoGrassWildMons:
 	map_id SILVER_CAVE_ROOM_1
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 43, GRAVELER
-	db 44, ONIX
-	db 44, URSARING
-	db 44, DONPHAN
-	db 45, GOLBAT
-	db 20, LARVITAR
-	db 25, LARVITAR
+	db 53, GRAVELER
+	db 54, ONIX
+	db 54, URSARING
+	db 54, DONPHAN
+	db 55, GOLBAT
+	db 40, LARVITAR
+	db 45, LARVITAR
 	; day
-	db 43, GRAVELER
-	db 44, ONIX
-	db 44, URSARING
-	db 44, DONPHAN
-	db 45, GOLBAT
-	db 20, LARVITAR
-	db 25, LARVITAR
+	db 53, GRAVELER
+	db 54, ONIX
+	db 54, URSARING
+	db 54, DONPHAN
+	db 55, GOLBAT
+	db 40, LARVITAR
+	db 45, LARVITAR
 	; nite
-	db 43, GRAVELER
-	db 44, ONIX
-	db 44, URSARING
-	db 44, DONPHAN
-	db 45, GOLBAT
-	db 20, LARVITAR
-	db 25, LARVITAR
+	db 53, GRAVELER
+	db 54, ONIX
+	db 54, URSARING
+	db 54, DONPHAN
+	db 55, GOLBAT
+	db 40, LARVITAR
+	db 45, LARVITAR
 
 	map_id SILVER_CAVE_ROOM_2
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 48, GOLBAT
-	db 48, GOLDUCK
-	db 47, SNEASEL
-	db 47, PARASECT
-	db 48, PARASECT
-	db 20, LARVITAR
-	db 25, LARVITAR
+	db 58, GOLBAT
+	db 58, GOLDUCK
+	db 57, SNEASEL
+	db 57, PARASECT
+	db 58, PARASECT
+	db 40, LARVITAR
+	db 45, LARVITAR
 	; day
-	db 48, GOLBAT
-	db 48, GOLDUCK
-	db 47, SNEASEL
-	db 47, PARASECT
-	db 48, PARASECT
-	db 20, LARVITAR
-	db 25, LARVITAR
+	db 58, GOLBAT
+	db 58, GOLDUCK
+	db 57, SNEASEL
+	db 57, PARASECT
+	db 58, PARASECT
+	db 40, LARVITAR
+	db 45, LARVITAR
 	; nite
-	db 48, GOLBAT
-	db 48, GOLDUCK
-	db 47, SNEASEL
-	db 47, PARASECT
-	db 48, MISDREAVUS
-	db 45, MISDREAVUS
-	db 45, MISDREAVUS
+	db 58, GOLBAT
+	db 58, GOLDUCK
+	db 57, SNEASEL
+	db 57, PARASECT
+	db 58, MISDREAVUS
+	db 55, MISDREAVUS
+	db 55, MISDREAVUS
 
 	map_id SILVER_CAVE_ROOM_3
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 51, QUAGSIRE
-	db 48, GOLDUCK
-	db 48, SNEASEL
-	db 48, QUAGSIRE
-	db 50, GOLBAT
-	db 25, LARVITAR
-	db 30, PUPITAR
+	db 61, QUAGSIRE
+	db 58, GOLDUCK
+	db 58, SNEASEL
+	db 58, QUAGSIRE
+	db 60, GOLBAT
+	db 45, LARVITAR
+	db 50, PUPITAR
 	; day
-	db 51, QUAGSIRE
-	db 48, GOLDUCK
-	db 48, SNEASEL
-	db 48, QUAGSIRE
-	db 50, GOLBAT
-	db 25, LARVITAR
-	db 30, PUPITAR
+	db 61, QUAGSIRE
+	db 58, GOLDUCK
+	db 58, SNEASEL
+	db 58, QUAGSIRE
+	db 60, GOLBAT
+	db 45, LARVITAR
+	db 50, PUPITAR
 	; nite
-	db 51, QUAGSIRE
-	db 48, GOLDUCK
-	db 48, SNEASEL
-	db 48, MISDREAVUS
-	db 50, GOLBAT
-	db 25, LARVITAR
-	db 30, PUPITAR
+	db 61, QUAGSIRE
+	db 58, GOLDUCK
+	db 58, SNEASEL
+	db 58, MISDREAVUS
+	db 60, GOLBAT
+	db 45, LARVITAR
+	db 50, PUPITAR
 
 	map_id SILVER_CAVE_ITEM_ROOMS
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 48, QUAGSIRE
-	db 48, GOLDUCK
-	db 50, STEELIX
-	db 48, PARASECT
-	db 48, GOLBAT
-	db 50, PARASECT
-	db 25, LARVITAR
+	db 58, QUAGSIRE
+	db 58, GOLDUCK
+	db 60, STEELIX
+	db 58, PARASECT
+	db 58, GOLBAT
+	db 60, PARASECT
+	db 45, LARVITAR
 	; day
-	db 48, QUAGSIRE
-	db 48, GOLDUCK
-	db 50, STEELIX
-	db 48, PARASECT
-	db 48, GOLBAT
-	db 50, PARASECT
-	db 25, LARVITAR
+	db 58, QUAGSIRE
+	db 58, GOLDUCK
+	db 60, STEELIX
+	db 58, PARASECT
+	db 58, GOLBAT
+	db 60, PARASECT
+	db 45, LARVITAR
 	; nite
-	db 48, QUAGSIRE
-	db 48, GOLDUCK
-	db 50, STEELIX
-	db 48, MISDREAVUS
-	db 48, GOLBAT
-	db 50, PARASECT
-	db 25, LARVITAR
+	db 58, QUAGSIRE
+	db 58, GOLDUCK
+	db 60, STEELIX
+	db 58, MISDREAVUS
+	db 58, GOLBAT
+	db 60, PARASECT
+	db 45, LARVITAR
 
 	map_id DARK_CAVE_VIOLET_ENTRANCE
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
@@ -1733,28 +1733,28 @@ JohtoGrassWildMons:
 	map_id SILVER_CAVE_OUTSIDE
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 39, TANGELA
-	db 40, PONYTA
-	db 40, DONPHAN
-	db 40, URSARING
-	db 41, RAPIDASH
-	db 43, DODUO
-	db 43, DODRIO
+	db 49, TANGELA
+	db 50, PONYTA
+	db 50, DONPHAN
+	db 50, URSARING
+	db 51, RAPIDASH
+	db 52, DODUO
+	db 52, DODRIO
 	; day
-	db 39, TANGELA
-	db 40, PONYTA
-	db 40, DONPHAN
-	db 40, URSARING
-	db 41, RAPIDASH
-	db 43, DODUO
-	db 43, DODRIO
+	db 49, TANGELA
+	db 50, PONYTA
+	db 50, DONPHAN
+	db 50, URSARING
+	db 51, RAPIDASH
+	db 52, DODUO
+	db 52, DODRIO
 	; nite
-	db 39, TANGELA
-	db 40, PONYTA
-	db 40, DONPHAN
-	db 40, URSARING
-	db 41, RAPIDASH
-	db 43, POLIWHIRL
-	db 43, SNEASEL
+	db 49, TANGELA
+	db 50, PONYTA
+	db 50, DONPHAN
+	db 50, URSARING
+	db 51, RAPIDASH
+	db 52, POLIWHIRL
+	db 52, SNEASEL
 
 	db -1 ; end

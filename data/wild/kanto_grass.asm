@@ -113,83 +113,83 @@ KantoGrassWildMons:
 	map_id CERULEAN_CAVE_1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 40, MACHOKE
-	db 38, PARASECT
-	db 39, PRIMEAPE
-	db 40, MAGNETON
-	db 40, DITTO
-	db 40, ELECTRODE
-	db 37, WOBBUFFET
+	db 46, MACHOKE
+	db 49, PARASECT
+	db 52, PRIMEAPE
+	db 49, MAGNETON
+	db 52, DITTO
+	db 58, ELECTRODE
+	db 55, WOBBUFFET
 	; day
-	db 40, MACHOKE
-	db 38, PARASECT
-	db 39, PRIMEAPE
-	db 40, MAGNETON
-	db 40, DITTO
-	db 40, ELECTRODE
-	db 37, WOBBUFFET
+	db 46, MACHOKE
+	db 49, PARASECT
+	db 52, PRIMEAPE
+	db 49, MAGNETON
+	db 52, DITTO
+	db 58, ELECTRODE
+	db 55, WOBBUFFET
 	; nite
-	db 40, GOLBAT
-	db 38, PARASECT
-	db 39, PERSIAN
-	db 40, MAGNETON
-	db 40, DITTO
-	db 40, ELECTRODE
-	db 37, WOBBUFFET
+	db 46, MACHOKE
+	db 49, PARASECT
+	db 52, PRIMEAPE
+	db 49, MAGNETON
+	db 52, DITTO
+	db 58, ELECTRODE
+	db 55, WOBBUFFET
 
 	map_id CERULEAN_CAVE_2F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 42, MACHOKE
-	db 40, PARASECT
-	db 42, KADABRA
-	db 41, MAGNETON
-	db 42, DITTO
-	db 41, ELECTRODE
-	db 42, WOBBUFFET
+	db 49, MACHOKE
+	db 52, PARASECT
+	db 55, KADABRA
+	db 52, MAGNETON
+	db 55, DITTO
+	db 61, ELECTRODE
+	db 58, WOBBUFFET
 	; day
-	db 42, MACHOKE
-	db 40, PARASECT
-	db 42, KADABRA
-	db 41, MAGNETON
-	db 42, DITTO
-	db 41, ELECTRODE
-	db 42, WOBBUFFET
+	db 49, MACHOKE
+	db 52, PARASECT
+	db 55, KADABRA
+	db 52, MAGNETON
+	db 55, DITTO
+	db 61, ELECTRODE
+	db 58, WOBBUFFET
 	; nite
-	db 42, GOLBAT
-	db 40, PARASECT
-	db 42, KADABRA
-	db 41, MAGNETON
-	db 42, DITTO
-	db 41, ELECTRODE
-	db 42, WOBBUFFET
+	db 49, MACHOKE
+	db 52, PARASECT
+	db 55, KADABRA
+	db 52, MAGNETON
+	db 55, DITTO
+	db 61, ELECTRODE
+	db 58, WOBBUFFET
 
 	map_id CERULEAN_CAVE_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 47, PARASECT
-	db 46, KADABRA
-	db 47, MAGNETON
-	db 47, MACHOKE
-	db 45, DITTO
-	db 46, ELECTRODE
-	db 49, WOBBUFFET
+	db 55, PARASECT
+	db 58, KADABRA
+	db 55, MAGNETON
+	db 52, MACHOKE
+	db 58, DITTO
+	db 64, ELECTRODE
+	db 61, WOBBUFFET
 	; day
-	db 47, PARASECT
-	db 46, KADABRA
-	db 47, MAGNETON
-	db 47, MACHOKE
-	db 45, DITTO
-	db 46, ELECTRODE
-	db 49, WOBBUFFET
+	db 55, PARASECT
+	db 58, KADABRA
+	db 55, MAGNETON
+	db 52, MACHOKE
+	db 58, DITTO
+	db 64, ELECTRODE
+	db 61, WOBBUFFET
 	; nite
-	db 47, PARASECT
-	db 46, KADABRA
-	db 47, MAGNETON
-	db 47, GOLBAT
-	db 45, DITTO
-	db 46, ELECTRODE
-	db 49, WOBBUFFET
+	db 55, PARASECT
+	db 58, KADABRA
+	db 55, MAGNETON
+	db 52, MACHOKE
+	db 58, DITTO
+	db 64, ELECTRODE
+	db 61, WOBBUFFET
 
 	map_id VIRIDIAN_FOREST
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
@@ -268,7 +268,7 @@ KantoGrassWildMons:
 	db 34, GOLBAT
 	db 34, SEEL
 	db 28, PSYDUCK
-	db 34, GOLDUCK
+	db 35, GOLDUCK
 	db 28, ZUBAT
 	db 29, ZUBAT
 
@@ -1112,82 +1112,82 @@ KantoGrassWildMons:
 	map_id ROUTE_28
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 39, TANGELA
-	db 40, PONYTA
-	db 40, DONPHAN
-	db 40, URSARING
-	db 41, RAPIDASH
-	db 42, DODUO
-	db 42, DODRIO
+	db 46, TANGELA
+	db 47, PONYTA
+	db 47, DONPHAN
+	db 47, URSARING
+	db 48, RAPIDASH
+	db 49, DODUO
+	db 49, DODRIO
 	; day
-	db 39, TANGELA
-	db 40, PONYTA
-	db 40, DONPHAN
-	db 40, URSARING
-	db 41, RAPIDASH
-	db 42, DODUO
-	db 42, DODRIO
+	db 46, TANGELA
+	db 47, PONYTA
+	db 47, DONPHAN
+	db 47, URSARING
+	db 48, RAPIDASH
+	db 49, DODUO
+	db 49, DODRIO
 	; nite
-	db 39, TANGELA
-	db 40, PONYTA
-	db 40, DONPHAN
-	db 40, URSARING
-	db 41, RAPIDASH
-	db 42, POLIWHIRL
-	db 42, SNEASEL
+	db 46, TANGELA
+	db 47, PONYTA
+	db 47, DONPHAN
+	db 47, URSARING
+	db 48, RAPIDASH
+	db 49, POLIWHIRL
+	db 49, SNEASEL
 
 	map_id POKEMON_MANSION_1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 34, GRIMER
-	db 34, KOFFING
-	db 30, SLUGMA
-	db 28, DITTO
-	db 36, MUK
-	db 32, MAGMAR
+	db 35, GRIMER
+	db 35, KOFFING
+	db 32, SLUGMA
+	db 30, DITTO
+	db 40, MUK
 	db 34, MAGMAR
+	db 38, MAGMAR
 	; day
-	db 34, GRIMER
-	db 34, KOFFING
-	db 30, SLUGMA
-	db 28, DITTO
-	db 36, MUK
-	db 32, MAGMAR
+	db 35, GRIMER
+	db 35, KOFFING
+	db 32, SLUGMA
+	db 30, DITTO
+	db 40, MUK
 	db 34, MAGMAR
+	db 38, MAGMAR
 	; nite
-	db 34, GRIMER
-	db 34, KOFFING
-	db 30, SLUGMA
-	db 28, DITTO
-	db 36, MUK
-	db 32, MAGMAR
+	db 35, GRIMER
+	db 35, KOFFING
+	db 32, SLUGMA
+	db 30, DITTO
+	db 40, MUK
 	db 34, MAGMAR
+	db 38, MAGMAR
 
 	map_id POKEMON_MANSION_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 34, KOFFING
-	db 34, SLUGMA
-	db 34, MAGMAR
-	db 28, SLUGMA
-	db 36, WEEZING
-	db 32, DITTO
+	db 36, KOFFING
+	db 35, SLUGMA
 	db 36, MAGMAR
+	db 37, SLUGMA
+	db 42, WEEZING
+	db 32, DITTO
+	db 40, MAGMAR
 	; day
-	db 34, KOFFING
-	db 34, SLUGMA
-	db 34, MAGMAR
-	db 28, SLUGMA
-	db 36, WEEZING
-	db 32, DITTO
+	db 36, KOFFING
+	db 35, SLUGMA
 	db 36, MAGMAR
+	db 37, SLUGMA
+	db 42, WEEZING
+	db 32, DITTO
+	db 40, MAGMAR
 	; nite
-	db 34, KOFFING
-	db 34, SLUGMA
-	db 34, MAGMAR
-	db 28, SLUGMA
-	db 36, WEEZING
-	db 32, DITTO
+	db 36, KOFFING
+	db 35, SLUGMA
 	db 36, MAGMAR
+	db 37, SLUGMA
+	db 42, WEEZING
+	db 32, DITTO
+	db 40, MAGMAR
 
 	db -1 ; end

@@ -49,9 +49,9 @@ ROMX $08
 	"Tileset Data 3"
 ROMX $09
 	"bank9"
-	"Egg Moves"
 ROMX $0a
 	"bankA"
+	"Egg Moves"
 ROMX $0b
 	"bankB"
 ROMX $0c

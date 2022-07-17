@@ -1373,6 +1373,7 @@ NEXTU ; cf64
 wCardFlipCursorY:: db
 wCardFlipCursorX:: db
 wCardFlipWhichCard:: db
+wTrainerCardBadgePaletteAddr:: db
 
 NEXTU ; cf64
 ; magnet train
@@ -1417,7 +1418,7 @@ wWhichIndexSet:: db ; cf76
 wScrollingMenuCursorPosition:: db ; cf77
 wWindowStackSize:: db ; cf78
 
-	ds 8
+	ds 7
 
 ; menu header
 wMenuHeader:: ; cf81

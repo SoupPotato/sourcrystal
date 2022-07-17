@@ -1367,7 +1367,6 @@ NEXTU ; cf64
 wTrainerCardBadgeFrameCounter:: db
 wTrainerCardBadgeTileID:: db
 wTrainerCardBadgeAttributes:: db
-wTrainerCardBadgePaletteAddr:: db
 
 NEXTU ; cf64
 ; card flip data
@@ -1418,7 +1417,7 @@ wWhichIndexSet:: db ; cf76
 wScrollingMenuCursorPosition:: db ; cf77
 wWindowStackSize:: db ; cf78
 
-	ds 7
+	ds 8
 
 ; menu header
 wMenuHeader:: ; cf81

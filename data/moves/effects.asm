@@ -575,8 +575,6 @@ DefenseDownHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
-; BUG: Moves that lower Defense can do so after breaking a Substitute (see docs/bugs_and_glitches.md)
-	effectchance
 	defensedown
 	statdownmessage
 	endmove

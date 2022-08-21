@@ -1196,9 +1196,11 @@ BattleAnim_RazorLeaf:
 BattleAnim_Solarbeam:
 	anim_if_param_equal $0, .FireSolarBeam
 	; charge turn
+	anim_bgeffect ANIM_BG_06, $0, $2, $0
+	anim_bgeffect ANIM_BG_18, $0, $1, $40
 	anim_1gfx ANIM_GFX_CHARGE
 	anim_sound 0, 0, SFX_CHARGE
-	anim_obj ANIM_OBJ_3D, 48, 84, $0
+	anim_obj ANIM_OBJ_SOLARBEAM_CHARGE, 48, 84, $0
 	anim_obj ANIM_OBJ_3C, 48, 84, $0
 	anim_obj ANIM_OBJ_3C, 48, 84, $8
 	anim_obj ANIM_OBJ_3C, 48, 84, $10
@@ -1208,6 +1210,7 @@ BattleAnim_Solarbeam:
 	anim_obj ANIM_OBJ_3C, 48, 84, $30
 	anim_obj ANIM_OBJ_3C, 48, 84, $38
 	anim_wait 104
+	anim_incbgeffect ANIM_BG_18
 	anim_bgeffect ANIM_BG_FLASH_WHITE, $0, $4, $2
 	anim_wait 64
 	anim_ret
@@ -1215,7 +1218,7 @@ BattleAnim_Solarbeam:
 .FireSolarBeam
 	anim_1gfx ANIM_GFX_BEAM
 	anim_bgeffect ANIM_BG_06, $0, $2, $0
-	anim_bgp $90
+	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $1, $0
 	anim_call BattleAnim_Solarbeam_branch_cbb39
 	anim_wait 48
 	anim_ret
@@ -2356,18 +2359,30 @@ BattleAnim_Transform:
 	anim_ret
 
 BattleAnim_PetalDance:
-	anim_sound 0, 1, SFX_SWEET_KISS
-	anim_2gfx ANIM_GFX_FLOWER, ANIM_GFX_HIT
 	anim_sound 0, 1, SFX_SWEET_KISS_2
+	anim_2gfx ANIM_GFX_FLOWER, ANIM_GFX_HIT
+	anim_sound 0, 1, SFX_GAME_FREAK_LOGO_GS
+	anim_bgeffect ANIM_BG_1A, $0, $1, $20
 .loop
-	anim_obj ANIM_OBJ_PETAL_DANCE, 48, 56, $0
+	anim_obj ANIM_OBJ_PETAL_DANCE, 48, 56, $5
 	anim_wait 11
 	anim_loop 8, .loop
 	anim_wait 128
+	anim_incbgeffect ANIM_BG_1A
 	anim_wait 24
+	anim_clearobjs
+	anim_wait 1
+	anim_call BattleAnim_FollowEnemyFeet_0
+	anim_bgeffect ANIM_BG_TACKLE, $0, $1, $0
 	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_00, 136, 56, $0
+	anim_obj ANIM_OBJ_01, 136, 56, $0
 	anim_wait 16
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $0, $0
+	anim_wait 4
+	anim_clearobjs
+	anim_bgeffect ANIM_BG_06, $0, $2, $0
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+	anim_wait 1
 	anim_ret
 
 BattleAnim_Barrage:

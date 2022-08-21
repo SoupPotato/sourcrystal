@@ -221,6 +221,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const ANIM_OBJ_DREAM_EATER
 	const ANIM_OBJ_MINIMIZE
 	const ANIM_OBJ_MEDIUM_HORN
+	const ANIM_OBJ_SOLARBEAM_CHARGE
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
 	const_def

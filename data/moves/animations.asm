@@ -2359,7 +2359,6 @@ BattleAnim_Transform:
 	anim_ret
 
 BattleAnim_PetalDance:
-	anim_sound 0, 1, SFX_SWEET_KISS_2
 	anim_2gfx ANIM_GFX_FLOWER, ANIM_GFX_HIT
 	anim_sound 0, 1, SFX_GAME_FREAK_LOGO_GS
 	anim_bgeffect ANIM_BG_1A, $0, $1, $20
@@ -2380,7 +2379,6 @@ BattleAnim_PetalDance:
 	anim_bgeffect ANIM_BG_SHOW_MON, $0, $0, $0
 	anim_wait 4
 	anim_clearobjs
-	anim_bgeffect ANIM_BG_06, $0, $2, $0
 	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
 	anim_wait 1
 	anim_ret

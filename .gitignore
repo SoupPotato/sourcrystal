@@ -1,21 +1,49 @@
-# generated
-*.tx
+# compiled objects
 *.o
+*.h.gch
+
+# compiled graphics
+*.1bpp
+*.2bpp
+*.2bpp.vram*
+*.lz
+gfx/pokemon/*/*.dimensions
+gfx/pokemon/*/*.animated.tilemap
+gfx/pokemon/*/bitmask.asm
+gfx/pokemon/*/frames.asm
+gfx/pokedex/*.bin
+
+# compiled tilesets
+data/tilesets/*_collision.bin
+
+# compiled roms
+*.gbc
+*.pocket
+*.patch
+
+# compiled patch
+*.bsp
+
+# rgbds extras
+*.map
+*.sym
+
+# tool binaries
+*.exe
+
+# tool output
+bank_ends.txt
 
 # precompiled python
 *.pyc
 *$py.class
 
-# no binaries
-*.exe
-
-# roms
-*.gbc
-*.gb
-
-# for any of the poor souls with save game files in their working directory
+# save game files
 *.sgm
 *.sav
+*.rtc
+*.sn*
+*.sa*
 *.ss1
 *.ss2
 *.ss3
@@ -28,28 +56,20 @@
 *.cheats
 *.rtc
 
+# shortcuts
+.lnk
 
-# rgbds extras
-*.map
-*.sym
-
-# compare.sh
-baserom.txt
-pokecrystal.txt
-
-# for vim configuration
-# url: http://www.vim.org/scripts/script.php?script_id=441
+# vim configuration
+# http://www.vim.org/scripts/script.php?script_id=441
 .lvimrc
-# swap files for vim
+
+# swap files for vim and gedit
 .*.swp
-# swap files for gedit
 *~
 
-*.dimensions
-*.gbcpal
-*.1bpp
-*.lz
-*.animated.tilemap
-gfx/pokemon/*/bitmask.asm
-gfx/pokemon/*/frames.asm
-!gfx/pokemon/*/shiny.pal
+# macos files
+.DS_STORE
+
+# local tools
+rgbds/
+deploy.sh

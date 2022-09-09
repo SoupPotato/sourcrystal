@@ -1665,10 +1665,9 @@ AI_Smart_Thief:
 	ret
 
 AI_Smart_Conversion2:
-; BUG: "Smart" AI discourages Conversion2 after the first turn (see docs/bugs_and_glitches.md)
 	ld a, [wLastPlayerMove]
 	and a
-	jr nz, .discourage
+	jr z, .discourage
 
 	push hl
 	dec a

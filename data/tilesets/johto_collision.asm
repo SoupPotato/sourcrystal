@@ -182,3 +182,7 @@
 	tilecoll FLOOR, WALL, FLOOR, FLOOR ; b5
 	tilecoll WALL, WALL, FLOOR, FLOOR ; b6
 	tilecoll FLOOR, FLOOR, FLOOR, WALL ; b7
+	tilecoll WALL, FLOOR, WALL, FLOOR ; b8
+	tilecoll FLOOR, WALL, FLOOR, WALL ; b9
+	tilecoll FLOOR, WALL, WALL, WALL ; ba
+	tilecoll FLOOR, FLOOR, FLOOR, WALL ; bb

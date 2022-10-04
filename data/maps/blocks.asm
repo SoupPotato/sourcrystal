@@ -212,7 +212,7 @@ Route40BattleTowerGate_Blocks:
 Route2Gate_Blocks:
 Route29Route46Gate_Blocks:
 Route5SaffronGate_Blocks:
-YellowForestGate_Blocks:
+YellowForestActualGate_Blocks:
 ViridianForestGateN_Blocks:
 ViridianForestGateS_Blocks:
 	INCBIN "maps/NorthSouthGate.blk"
@@ -336,6 +336,7 @@ ViridianPokecenter1F_Blocks:
 SaffronPokecenter1F_Blocks:
 CherrygrovePokecenter1F_Blocks:
 MountMoonPokecenter1F_Blocks:
+YellowForestGatePokecenter1F_Blocks:
 	INCBIN "maps/Pokecenter1F.blk"
 
 BetaPewterMuseumOfScience1F_Blocks:
@@ -1035,3 +1036,6 @@ PokemonMansion1F_Blocks:
 
 PokemonMansionB1F_Blocks:
 	INCBIN "maps/PokemonMansionB1F.blk"
+
+YellowForestGate_Blocks:
+	INCBIN "maps/YellowForestGate.blk"

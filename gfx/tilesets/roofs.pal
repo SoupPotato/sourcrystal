@@ -134,6 +134,6 @@
 	RGB 25,10,20, 25,03,16 ; eve
 
 ; group 27 (Yellow Forest)
-	RGB 26,24,08, 16,15,05 ; morn/day
-	RGB 14,15,06, 07,08,02 ; nite
-	RGB 26,24,08, 16,15,05 ; morn/day
+	RGB 30,26,00, 22,14,00 ; morn/day
+	RGB 13,13,00, 08,06,04 ; nite
+	RGB 24,19,00, 16,12,00 ; eve

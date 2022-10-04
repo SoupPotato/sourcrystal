@@ -31,6 +31,7 @@ Marts:
 	dw MartMtMoon
 	dw MartIndigoPlateau
 	dw MartUnderground
+	dw MartYellowGate
 .End
 
 
@@ -371,6 +372,15 @@ MartUnderground:
 	db HEAL_POWDER
 	db REVIVAL_HERB
 	db -1 ; end
+
+MartYellowGate:
+	db 4 ; # items
+	db BLUESKY_MAIL
+	db POKE_BALL
+	db GREAT_BALL
+	db ULTRA_BALL
+	db -1 ; end
+
 
 DefaultMart:
 	db 2 ; # items

@@ -513,6 +513,8 @@ ENDM
 	newgroup                                                      ; 27
 
 	map_const ROUTE_47,                                    39, 19 ;  1
-	map_const ROUTE_48,                                    18, 11 ;  2
+	map_const ROUTE_48,                                    18, 10 ;  2
 	map_const YELLOW_FOREST,                               29, 25 ;  3
-	map_const YELLOW_FOREST_GATE,                           5,  4 ;  4
+	map_const YELLOW_FOREST_ACTUAL_GATE,                    5,  4 ;  4
+	map_const YELLOW_FOREST_GATE,                          14, 11 ;  6
+	map_const YELLOW_FOREST_GATE_POKECENTER_1F,             5,  4 ;  7

@@ -44,7 +44,8 @@ Landmarks:
 	landmark  20, 120, Route47Name
 	landmark  20, 124, CliffCaveName
 	landmark  20, 112, Route48Name
-	landmark  20, 108, YellowForestName
+	landmark  20, 108, YellowForestGateName
+	landmark  20, 100, YellowForestName
 	landmark 100,  60, Route42Name
 	landmark  92,  60, MtMortarName
 	landmark 116,  60, MahoganyTownName
@@ -218,3 +219,4 @@ CliffEdgeGateName:   db "CLIFF EDGE¯GATE@"
 CliffCaveName:       db "CLIFF CAVE@"
 YellowForestName:    db "YELLOW¯FOREST@"
 SpecialMapName:      db "SPECIAL@"
+YellowForestGateName: db "YELLOW¯GATE@"

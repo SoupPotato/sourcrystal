@@ -127,6 +127,7 @@ SECTION "bankA", ROMX
 
 INCLUDE "engine/link/link.asm"
 INCLUDE "engine/battle/link_result.asm"
+INCLUDE "data/battle/effect_command_pointers.asm"
 
 ChrisBackpic:
 INCBIN "gfx/player/chris_back.2bpp.lz"
@@ -169,7 +170,6 @@ INCLUDE "engine/battle/read_trainer_party.asm"
 SECTION "Battle Core", ROMX
 
 INCLUDE "engine/battle/core.asm"
-INCLUDE "data/battle/effect_command_pointers.asm"
 
 
 SECTION "bank10", ROMX

@@ -148,7 +148,7 @@ ItemEffects:
 	dw NoEffect            ; STAR_PIECE
 	dw BasementKeyEffect   ; BASEMENT_KEY
 	dw NoEffect            ; PASS
-	dw NoEffect            ; ITEM_87
+	dw PokeBallEffect      ; SAFARI_BALL
 	dw NoEffect            ; ITEM_88
 	dw NoEffect            ; ITEM_89
 	dw NoEffect            ; CHARCOAL
@@ -214,10 +214,14 @@ PokeBallEffect:
 .room_in_party
 	xor a
 	ld [wWildMon], a
-	ld a, [wBattleType]
-	cp BATTLETYPE_CONTEST
-	call nz, ReturnToBattle_UseBall
+	ld a, [wCurItem]
+	cp PARK_BALL
+	jr z, .skip_return_to_battle
+	cp SAFARI_BALL
+	jr z, .skip_return_to_battle
+	call ReturnToBattle_UseBall
 
+.skip_return_to_battle
 	ld hl, wOptions
 	res NO_TEXT_SCROLL, [hl]
 	ld hl, UsedItemText
@@ -688,6 +692,8 @@ PokeBallEffect:
 	ret z
 	cp BATTLETYPE_CONTEST
 	jr z, .used_park_ball
+	cp BATTLETYPE_SAFARI
+	jr z, .used_safari_ball
 
 	ld a, [wWildMon]
 	and a
@@ -707,13 +713,18 @@ PokeBallEffect:
 	dec [hl]
 	ret
 
+.used_safari_ball
+	ld hl, wSafariBallsRemaining
+	dec [hl]
+	ret
+
 
 BallMultiplierFunctionTable:
 ; table of routines that increase or decrease the catch rate based on
 ; which ball is used in a certain situation.
 	dbw ULTRA_BALL,  UltraBallMultiplier
 	dbw GREAT_BALL,  GreatBallMultiplier
-	dbw SAFARI_BALL, SafariBallMultiplier ; Safari Ball, leftover from RBY
+	dbw SAFARI_BALL, SafariBallMultiplier
 	dbw HEAVY_BALL,  HeavyBallMultiplier
 	dbw LEVEL_BALL,  LevelBallMultiplier
 	dbw LURE_BALL,   LureBallMultiplier

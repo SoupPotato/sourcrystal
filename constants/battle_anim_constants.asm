@@ -222,6 +222,8 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const ANIM_OBJ_MINIMIZE
 	const ANIM_OBJ_MEDIUM_HORN
 	const ANIM_OBJ_SOLARBEAM_CHARGE
+	const ANIM_OBJ_SAFARI_ROCK
+	const ANIM_OBJ_SAFARI_BAIT
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
 	const_def
@@ -494,6 +496,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const BATTLEANIMFRAMESET_B7
 	const BATTLEANIMFRAMESET_B8
 	const BATTLEANIMFRAMESET_B9
+	const BATTLEANIMFRAMESET_BA
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
 	const_def
@@ -810,7 +813,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const ANIM_GFX_OBJECTS
 	const ANIM_GFX_SHINE
 	const ANIM_GFX_ANGELS
-	const ANIM_GFX_MINI
+	const ANIM_GFX_MISC_2
 	const ANIM_GFX_AEROBLAST
 
 ; battle_bg_effect struct members (see macros/wram.asm)

@@ -215,6 +215,15 @@ YellowForestGateSignText:
 YellowForestGatePokecenterSign:
 	jumpstd pokecentersign
 
+SafariBattleTestScript:
+	writebyte 5
+	copyvartobyte wSafariBallsRemaining
+	writecode VAR_BATTLETYPE, BATTLETYPE_SAFARI
+	loadwildmon RHYHORN, 30
+	startbattle
+	reloadmapafterbattle
+	end
+
 YellowForestGate_MapEvents:
 	db 0, 0 ; filler
 
@@ -226,7 +235,8 @@ YellowForestGate_MapEvents:
 
 	db 2 ; bg events
 	bg_event 14,  6, BGEVENT_READ, YellowForestGateSign
-	bg_event  8, 11, BGEVENT_READ, YellowForestGatePokecenterSign
+;	bg_event  8, 11, BGEVENT_READ, YellowForestGatePokecenterSign
+	bg_event  8, 11, BGEVENT_READ, SafariBattleTestScript
 
 	db 12 ; object events
 	object_event  6,  6, SPRITE_GENTLEMAN, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, YellowForestGateGentlemanScript, -1

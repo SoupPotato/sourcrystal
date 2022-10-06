@@ -40,4 +40,4 @@ YellowForestGatePokecenter1F_MapEvents:
 
 	db 2 ; object events
 	object_event  3,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, YellowForestGatePokecenter1FNurseScript, -1
-	object_event  6,  5, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, YellowForestGatePokecenter1FHikerScript, -1
+	object_event  6,  5, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, YellowForestGatePokecenter1FHikerScript, -1

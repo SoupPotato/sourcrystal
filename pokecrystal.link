@@ -61,7 +61,6 @@ ROMX $0d
 ROMX $0e
 	"Enemy Trainers"
 ROMX $0f
-	"Battle Core"
 ROMX $10
 	"bank10"
 	"Evolutions and Attacks"
@@ -146,7 +145,7 @@ ROMX $36
 ROMX $37
 	"Tileset Data 6"
 ROMX $38
-	"bank38"
+	"Battle Core"
 ROMX $39
 	"bank39"
 ROMX $3a

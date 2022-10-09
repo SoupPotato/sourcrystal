@@ -132,9 +132,6 @@ INCBIN "data/tilesets/elite_four_room_metatiles.bin"
 TilesetEliteFourRoomColl:
 INCLUDE "data/tilesets/elite_four_room_collision.asm"
 
-TilesetParkGFX:
-INCBIN "gfx/tilesets/park.2bpp.lz"
-
 TilesetParkMeta:
 INCBIN "data/tilesets/park_metatiles.bin"
 
@@ -336,3 +333,6 @@ INCBIN "data/tilesets/facility_metatiles.bin"
 
 TilesetFacilityColl:
 INCLUDE "data/tilesets/facility_collision.asm"
+
+TilesetParkGFX:
+INCBIN "gfx/tilesets/park.2bpp.lz"

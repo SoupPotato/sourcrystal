@@ -569,7 +569,7 @@ JohtoGrassWildMons:
 	db 6, PARAS
 	db 6, PARAS
 
-	map_id YELLOW_FOREST
+	map_id SAFARI_ZONE_AREA_1
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 22, PIKACHU

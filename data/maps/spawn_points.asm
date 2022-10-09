@@ -29,7 +29,7 @@ SpawnPoints:
 	spawn ROUTE_32,                   11, 74
 	spawn AZALEA_TOWN,                15, 10
 	spawn CIANWOOD_CITY,              23, 44
-	spawn YELLOW_FOREST_GATE,          7, 12
+	spawn SAFARI_ZONE_GATE,            7, 12
 	spawn GOLDENROD_CITY,             15, 28
 	spawn OLIVINE_CITY,               13, 22
 	spawn ECRUTEAK_CITY,              23, 28

@@ -101,7 +101,7 @@ EngineFlags:
 	engine_flag wVisitedSpawns, SPAWN_VIOLET
 	engine_flag wVisitedSpawns, SPAWN_AZALEA
 	engine_flag wVisitedSpawns, SPAWN_CIANWOOD
-	engine_flag wVisitedSpawns, SPAWN_YELLOW_FOREST
+	engine_flag wVisitedSpawns, SPAWN_SAFARI_GATE
 	engine_flag wVisitedSpawns, SPAWN_GOLDENROD
 	engine_flag wVisitedSpawns, SPAWN_OLIVINE
 	engine_flag wVisitedSpawns, SPAWN_ECRUTEAK ; $48

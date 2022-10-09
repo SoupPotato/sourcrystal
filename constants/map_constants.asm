@@ -514,7 +514,12 @@ ENDM
 
 	map_const ROUTE_47,                                    39, 19 ;  1
 	map_const ROUTE_48,                                    18, 10 ;  2
-	map_const YELLOW_FOREST,                               29, 25 ;  3
-	map_const YELLOW_FOREST_ACTUAL_GATE,                    5,  4 ;  4
-	map_const YELLOW_FOREST_GATE,                          14, 11 ;  6
-	map_const YELLOW_FOREST_GATE_POKECENTER_1F,             5,  4 ;  7
+	map_const SAFARI_ZONE_ENTRANCE,                         5,  4 ;  3
+	map_const SAFARI_ZONE_GATE,                            14, 11 ;  4
+	map_const SAFARI_ZONE_GATE_POKECENTER_1F,               5,  4 ;  5
+	map_const SAFARI_ZONE_AREA_1,                          20, 15 ;  6
+	map_const SAFARI_ZONE_AREA_2,                          22, 19 ;  7
+
+	newgroup                                                      ; 28
+
+	map_const SAFARI_ZONE_AREA_3,                          21, 17 ;  1

@@ -40,8 +40,8 @@
 	const ROUTE_47          ; 23
 	const CLIFF_CAVE        ; 24
 	const ROUTE_48          ; 25
-	const YELLOW_FOREST_GATE; 26
-	const YELLOW_FOREST     ; 27
+	const SAFARI_ZONE_GATE  ; 26
+	const SAFARI_ZONE       ; 27
 	const ROUTE_42          ; 28
 	const MT_MORTAR         ; 29
 	const MAHOGANY_TOWN     ; 2a

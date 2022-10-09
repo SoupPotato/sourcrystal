@@ -44,8 +44,8 @@ Landmarks:
 	landmark  20, 120, Route47Name
 	landmark  20, 124, CliffCaveName
 	landmark  20, 112, Route48Name
-	landmark  20, 108, YellowForestGateName
-	landmark  20, 100, YellowForestName
+	landmark  20, 108, SafariZoneGateName
+	landmark  20, 100, SafariZoneName
 	landmark 100,  60, Route42Name
 	landmark  92,  60, MtMortarName
 	landmark 116,  60, MahoganyTownName
@@ -156,7 +156,7 @@ MtMoonName:          db "MT.MOON@"
 RockTunnelName:      db "ROCK TUNNEL@"
 LavRadioTowerName:   db "LAV¯RADIO TOWER@"
 SilphCoName:         db "SILPH CO.@"
-SafariZoneName:      db "SAFARI ZONE@"
+KantoSafariZoneName: db "SAFARI ZONE@"
 SeafoamIslandsName:  db "SEAFOAM¯ISLANDS@"
 Route1Name:          db "ROUTE 1@"
 Route2Name:          db "ROUTE 2@"
@@ -217,6 +217,6 @@ UndergroundName:     db "UNDERGROUND@"
 BattleTowerName:     db "BATTLE¯TOWER@"
 CliffEdgeGateName:   db "CLIFF EDGE¯GATE@"
 CliffCaveName:       db "CLIFF CAVE@"
-YellowForestName:    db "YELLOW¯FOREST@"
+SafariZoneName:      db "SAFARI ZONE@"
 SpecialMapName:      db "SPECIAL@"
-YellowForestGateName: db "YELLOW¯GATE@"
+SafariZoneGateName:  db "SAFARI ZONE¯GATE@"

@@ -44,7 +44,7 @@ JohtoWaterWildMons:
 	db 10, PSYDUCK
 	db 15, GOLDUCK
 
-	map_id YELLOW_FOREST
+	map_id SAFARI_ZONE_AREA_1
 	db 6 percent ; encounter rate
 	db 20, POLIWAG
 	db 20, MARILL

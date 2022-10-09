@@ -40,7 +40,7 @@ TreeMonMaps:
 	treemon_map BLACKTHORN_CITY,           TREEMON_SET_CITY
 	treemon_map SILVER_CAVE_OUTSIDE,       TREEMON_SET_CITY
 	treemon_map ILEX_FOREST,               TREEMON_SET_FOREST
-	treemon_map YELLOW_FOREST,             TREEMON_SET_FOREST
+	treemon_map SAFARI_ZONE_AREA_1,        TREEMON_SET_FOREST
 	treemon_map VIRIDIAN_FOREST,           TREEMON_SET_FOREST
 	db -1
 

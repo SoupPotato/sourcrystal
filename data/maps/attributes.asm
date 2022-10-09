@@ -232,10 +232,10 @@ ENDM
 	connection north, Route48, ROUTE_48, 0
 
 	map_attributes Route48, ROUTE_48, $35, NORTH | SOUTH
-	connection north, YellowForestGate, YELLOW_FOREST_GATE, -1
+	connection north, SafariZoneGate, SAFARI_ZONE_GATE, -1
 	connection south, Route47, ROUTE_47, 0
 
-	map_attributes YellowForestGate, YELLOW_FOREST_GATE, $05, SOUTH
+	map_attributes SafariZoneGate, SAFARI_ZONE_GATE, $05, SOUTH
 	connection south, Route48, ROUTE_48, 1
 
 	map_attributes PewterCity, PEWTER_CITY, $0f, SOUTH | EAST
@@ -710,8 +710,7 @@ ENDM
 	map_attributes Route31VioletGate, ROUTE_31_VIOLET_GATE, $00, 0
 	map_attributes CliffEdgeGate, CLIFF_EDGE_GATE, $09, 0
 	map_attributes CliffCave, CLIFF_CAVE, $09, 0
-	map_attributes YellowForest, YELLOW_FOREST, $38, 0
-	map_attributes YellowForestActualGate, YELLOW_FOREST_ACTUAL_GATE, $00, 0
+	map_attributes SafariZoneEntrance, SAFARI_ZONE_ENTRANCE, $00, 0
 	map_attributes ViridianForest, VIRIDIAN_FOREST, $58, 0
 	map_attributes ViridianForestGateN, VIRIDIAN_FOREST_GATE_N, $00, 0
 	map_attributes ViridianForestGateS, VIRIDIAN_FOREST_GATE_S, $00, 0
@@ -727,4 +726,7 @@ ENDM
 	map_attributes CeruleanCaveB1F, CERULEAN_CAVE_B1F, $09, 0
 	map_attributes PokemonMansion1F, POKEMON_MANSION_1F, $6C, 0
 	map_attributes PokemonMansionB1F, POKEMON_MANSION_B1F, $77, 0
-	map_attributes YellowForestGatePokecenter1F, YELLOW_FOREST_GATE_POKECENTER_1F, $00, 0
+	map_attributes SafariZoneGatePokecenter1F, SAFARI_ZONE_GATE_POKECENTER_1F, $00, 0
+	map_attributes SafariZoneArea1, SAFARI_ZONE_AREA_1, $00, 0
+	map_attributes SafariZoneArea2, SAFARI_ZONE_AREA_2, $00, 0
+	map_attributes SafariZoneArea3, SAFARI_ZONE_AREA_3, $00, 0

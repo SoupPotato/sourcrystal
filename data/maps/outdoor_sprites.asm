@@ -30,6 +30,7 @@ OutdoorSprites:
 	dw SaffronGroupSprites
 	dw CherrygroveGroupSprites
 	dw Route47GroupSprites
+	dw SafariSpecSprites
 
 
 ; Route1 and ViridianCity are connected
@@ -342,6 +343,7 @@ CableClubGroupSprites:
 	db 0 ; end
 
 Route47GroupSprites:
+SafariSpecSprites:
 ; Route47, Route48, YellowForest, CliffEdgeCave, CliffEdgeGate
 	db SPRITE_TWIN
 	db SPRITE_SUPER_NERD

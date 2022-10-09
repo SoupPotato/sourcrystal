@@ -27,7 +27,21 @@ LoadSpecialMapPalette:
 	cp MAP_POKEMON_MANSION_B1F
 	jp z, .LavaOverRedCoalOverBrownBGPalette
 .not_Pokemon_Mansion_B1F
-	jr .do_nothing
+	ld a, [wMapGroup]
+	cp GROUP_SAFARI_ZONE_AREA_2
+	jp nz, .not_safari_zone_area_2
+	ld a, [wMapNumber]
+	cp MAP_SAFARI_ZONE_AREA_2
+	jp z, .SandOverBrownBGPalette
+.not_safari_zone_area_2
+	ld a, [wMapGroup]
+	cp GROUP_SAFARI_ZONE_AREA_3
+	jp nz, .not_safari_zone_area_3
+	ld a, [wMapNumber]
+	cp MAP_SAFARI_ZONE_AREA_3
+	jp z, .SwampBGPalettes
+.not_safari_zone_area_3
+	jp .do_nothing
 
 .darkness
 	call LoadDarknessPalette
@@ -48,7 +62,7 @@ LoadSpecialMapPalette:
 	ld a, [wEnvironment]
 	and $7
 	cp INDOOR ; Hall of Fame
-	jr z, .do_nothing
+	jp z, .do_nothing
 	call LoadIcePathPalette
 	scf
 	ret
@@ -71,6 +85,30 @@ LoadSpecialMapPalette:
 .LavaOverRedCoalOverBrownBGPalette
 	ld hl, LavaOverRedCoalOverBrown
 	ld bc, 8 palettes
+	ld de, wBGPals1
+	ld a, BANK(wBGPals1)
+	call FarCopyWRAM
+	scf
+	ret
+
+.SandOverBrownBGPalette:
+	ld hl, SandOverRock
+	ld a, [wTimeOfDayPal]
+	maskbits NUM_DAYTIMES
+	ld bc, 8 palettes
+	call AddNTimes
+	ld de, wBGPals1
+	ld a, BANK(wBGPals1)
+	call FarCopyWRAM
+	scf
+	ret
+
+.SwampBGPalettes:
+	ld hl, SwampPals
+	ld a, [wTimeOfDayPal]
+	maskbits NUM_DAYTIMES
+	ld bc, 8 palettes
+	call AddNTimes
 	ld de, wBGPals1
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
@@ -179,7 +217,7 @@ INCLUDE "gfx/tilesets/mansion_2.pal"
 LoadSpecialMapOBPalette:
 	ld a, [wMapGroup]
 	cp GROUP_ROUTE_30
-	jr nz, .not_route30
+	jp nz, .not_route30
 	ld a, [wMapNumber]
 	cp MAP_ROUTE_30
 	jp z, .PurpleOverRockOBPalette
@@ -187,7 +225,7 @@ LoadSpecialMapOBPalette:
 .not_route30
 	ld a, [wMapGroup]
 	cp GROUP_VIOLET_CITY
-	jr nz, .not_violet
+	jp nz, .not_violet
 	ld a, [wMapNumber]
 	cp MAP_VIOLET_CITY
 	jp z, .YellowOverRockOBPalette
@@ -262,7 +300,7 @@ LoadSpecialMapOBPalette:
 	jr nz, .not_lighthouse6F
 	ld a, [wMapNumber]
 	cp MAP_OLIVINE_LIGHTHOUSE_6F
-	jr z, .YellowOverRockOBPalette
+	jp z, .YellowOverRockOBPalette
 
 .not_lighthouse6F
 	ld a, [wMapGroup]
@@ -270,7 +308,7 @@ LoadSpecialMapOBPalette:
 	jr nz, .not_viridianhouse
 	ld a, [wMapNumber]
 	cp MAP_VIRIDIAN_NICKNAME_SPEECH_HOUSE
-	jr z, .PurpleOverRockOBPalette
+	jp z, .PurpleOverRockOBPalette
 
 .not_viridianhouse
 	ld a, [wMapGroup]
@@ -278,7 +316,7 @@ LoadSpecialMapOBPalette:
 	jr nz, .not_indigo
 	ld a, [wMapNumber]
 	cp MAP_INDIGO_PLATEAU_POKECENTER_1F
-	jr z, .YellowOverRockOBPalette
+	jp z, .YellowOverRockOBPalette
 
 .not_indigo
 	ld a, [wMapGroup]
@@ -286,7 +324,7 @@ LoadSpecialMapOBPalette:
 	jr nz, .not_vermillion
 	ld a, [wMapNumber]
 	cp MAP_VERMILION_CITY
-	jr z, .GrayOverRockOBPalette
+	jp z, .GrayOverRockOBPalette
 
 .not_vermillion
 	ld a, [wMapGroup]
@@ -294,7 +332,7 @@ LoadSpecialMapOBPalette:
 	jr nz, .not_goldenrodstoreB1F
 	ld a, [wMapNumber]
 	cp MAP_GOLDENROD_DEPT_STORE_B1F
-	jr z, .GrayOverRockOBPalette
+	jp z, .GrayOverRockOBPalette
 
 .not_goldenrodstoreB1F
 	ld a, [wMapGroup]
@@ -323,10 +361,26 @@ LoadSpecialMapOBPalette:
 .not_ceruleancave
 	ld a, [wMapGroup]
 	cp GROUP_MR_FUJIS_HOUSE
-	jr nz, .do_nothing
+	jr nz, .not_fujis_house
 	ld a, [wMapNumber]
 	cp MAP_MR_FUJIS_HOUSE
 	jr z, .PurpleOverRockYellowOverPinkOBPalette
+
+.not_fujis_house
+	ld a, [wMapGroup]
+	cp GROUP_SAFARI_ZONE_AREA_2
+	jr nz, .not_safari_zone_area_2
+	ld a, [wMapNumber]
+	cp MAP_SAFARI_ZONE_AREA_2
+	jp z, .SandOverTreeOBPalette
+
+.not_safari_zone_area_2
+	ld a, [wMapGroup]
+	cp GROUP_SAFARI_ZONE_AREA_3
+	jr nz, .do_nothing
+	ld a, [wMapNumber]
+	cp MAP_SAFARI_ZONE_AREA_3
+	jp z, .SwampOverTreeOBPalette
 
 .do_nothing
 	and a
@@ -373,6 +427,20 @@ LoadSpecialMapOBPalette:
 	ld bc, 8 palettes
 	ld hl, PurpleOverPink
 	jr .finish
+
+.SandOverTreeOBPalette:
+	ld a, [wTimeOfDayPal]
+	maskbits NUM_DAYTIMES
+	ld bc, 8 palettes
+	ld hl, SandOverTree
+	jr .finish
+
+.SwampOverTreeOBPalette
+	ld a, [wTimeOfDayPal]
+	maskbits NUM_DAYTIMES
+	ld bc, 8 palettes
+	ld hl, SwampOverTree
+	jr .finish
 	
 .finish
 	call AddNTimes
@@ -382,6 +450,8 @@ LoadSpecialMapOBPalette:
 	call FarCopyWRAM
 	scf
 	ret
+	
+
 
 ; Special Overworld Pals
 INCLUDE "gfx/overworld/npc_sprites_special.pal"

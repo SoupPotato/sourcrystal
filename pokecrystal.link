@@ -170,7 +170,7 @@ ROMX $40
 	"ascii 10186f"
 	"bank40_3"
 ROMX $41
-	"bank41"
+	"Tileset Data 9"
 ROMX $42
 	"Mobile 42"
 	"Intro Logo"

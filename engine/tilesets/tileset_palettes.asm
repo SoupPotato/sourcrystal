@@ -41,6 +41,13 @@ LoadSpecialMapPalette:
 	cp MAP_SAFARI_ZONE_AREA_3
 	jp z, .SwampBGPalettes
 .not_safari_zone_area_3
+	ld a, [wMapGroup]
+	cp GROUP_SAFARI_ZONE_AREA_4
+	jp nz, .not_safari_zone_area_4
+	ld a, [wMapNumber]
+	cp MAP_SAFARI_ZONE_AREA_4
+	jp z, .SundriedBGPalettes
+.not_safari_zone_area_4
 	jp .do_nothing
 
 .darkness
@@ -105,6 +112,18 @@ LoadSpecialMapPalette:
 
 .SwampBGPalettes:
 	ld hl, SwampPals
+	ld a, [wTimeOfDayPal]
+	maskbits NUM_DAYTIMES
+	ld bc, 8 palettes
+	call AddNTimes
+	ld de, wBGPals1
+	ld a, BANK(wBGPals1)
+	call FarCopyWRAM
+	scf
+	ret
+
+.SundriedBGPalettes:
+	ld hl, SundriedPals
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes

@@ -203,8 +203,6 @@ KRIS EQU __enum__
 	const DANA3
 	const DANA4
 	const DANA5
-	const SARAH
-	const ISABEL
 
 	trainerclass JANINE ; 1a
 	const JANINE1
@@ -256,7 +254,6 @@ KRIS EQU __enum__
 	const REENA2
 	const REENA3
 	const CARA
-	const SOPHIE
 	const SALMA
 
 	trainerclass BEAUTY ; 1d
@@ -345,7 +342,6 @@ KRIS EQU __enum__
 	const COLETTE
 	const HILLARY
 	const SHIRLEY
-	const KATHRYN
 	const CLARICE
 
 	trainerclass SABRINA ; 23

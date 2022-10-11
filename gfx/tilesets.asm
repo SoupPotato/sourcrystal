@@ -253,6 +253,9 @@ INCLUDE "data/tilesets/battle_tower_outside_collision.asm"
 TilesetBetaWordRoomMeta:
 INCBIN "data/tilesets/beta_word_room_metatiles.bin"
 
+TilesetForestColl:
+INCLUDE "data/tilesets/forest_collision.asm"
+
 TilesetBetaWordRoomColl:
 TilesetHoOhWordRoomColl:
 TilesetKabutoWordRoomColl:
@@ -307,14 +310,6 @@ INCLUDE "data/tilesets/johto_collision.asm"
 
 SECTION "Tileset Data 9", ROMX
 
-TilesetForestGFX:
-INCBIN "gfx/tilesets/forest.2bpp.lz"
-
-TilesetForestMeta:
-INCBIN "data/tilesets/forest_metatiles.bin"
-
-TilesetForestColl:
-INCLUDE "data/tilesets/forest_collision.asm"
 
 TilesetCaveGFX:
 INCBIN "gfx/tilesets/cave.2bpp.lz"
@@ -336,3 +331,9 @@ INCLUDE "data/tilesets/facility_collision.asm"
 
 TilesetParkGFX:
 INCBIN "gfx/tilesets/park.2bpp.lz"
+
+TilesetForestGFX:
+INCBIN "gfx/tilesets/forest.2bpp.lz"
+
+TilesetForestMeta:
+INCBIN "data/tilesets/forest_metatiles.bin"

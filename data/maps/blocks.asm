@@ -212,7 +212,6 @@ Route40BattleTowerGate_Blocks:
 Route2Gate_Blocks:
 Route29Route46Gate_Blocks:
 Route5SaffronGate_Blocks:
-SafariZoneEntrance_Blocks:
 ViridianForestGateN_Blocks:
 ViridianForestGateS_Blocks:
 	INCBIN "maps/NorthSouthGate.blk"
@@ -1001,6 +1000,9 @@ SafariZoneArea2_Blocks:
 SafariZoneArea3_Blocks:
 	INCBIN "maps/SafariZoneArea3.blk"
 
+SafariZoneArea4_Blocks:
+	INCBIN "maps/SafariZoneArea4.blk"
+
 CliffCave_Blocks:
 	INCBIN "maps/CliffCave.blk"
 
@@ -1045,3 +1047,12 @@ PokemonMansionB1F_Blocks:
 
 SafariZoneGate_Blocks:
 	INCBIN "maps/SafariZoneGate.blk"
+
+SafariRestHouseArea1_Blocks:
+SafariRestHouseArea2_Blocks:
+SafariRestHouseArea3_Blocks:
+SafariRestHouseArea4_Blocks:
+	INCBIN "maps/SafariRestHouse.blk"
+
+SafariZoneEntrance_Blocks:
+	INCBIN "maps/SafariZoneEntrance.blk"

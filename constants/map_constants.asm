@@ -514,11 +514,16 @@ ENDM
 
 	map_const ROUTE_47,                                    39, 19 ;  1
 	map_const ROUTE_48,                                    18, 10 ;  2
-	map_const SAFARI_ZONE_ENTRANCE,                         5,  4 ;  3
+	map_const SAFARI_ZONE_ENTRANCE,                         5,  5 ;  3
 	map_const SAFARI_ZONE_GATE,                            14, 11 ;  4
 	map_const SAFARI_ZONE_GATE_POKECENTER_1F,               5,  4 ;  5
-	map_const SAFARI_ZONE_AREA_1,                          20, 15 ;  6
+	map_const SAFARI_ZONE_AREA_1,                          20, 16 ;  6
 	map_const SAFARI_ZONE_AREA_2,                          22, 19 ;  7
+	map_const SAFARI_ZONE_AREA_4,                          20, 24 ;  8
+	map_const SAFARI_REST_HOUSE_AREA_1,                     4,  4 ;  9
+	map_const SAFARI_REST_HOUSE_AREA_2,                     4,  4 ; 10
+	map_const SAFARI_REST_HOUSE_AREA_3,                     4,  4 ; 11
+	map_const SAFARI_REST_HOUSE_AREA_4,                     4,  4 ; 12
 
 	newgroup                                                      ; 28
 

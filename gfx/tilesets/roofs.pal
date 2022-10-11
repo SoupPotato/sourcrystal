@@ -141,4 +141,4 @@
 ; group 28 (Safari Zone Area 3 Water Leaves)
 	RGB 08,16,12, 04,10,19 ; morn/day
 	RGB 03,11,12, 03,03,10 ; nite
-	RGB 08,13,07, 04,10,19 ; eve
+	RGB 08,13,07, 07,08,17 ; eve

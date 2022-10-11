@@ -439,7 +439,7 @@ ENDM
 	map_attributes TeamRocketBaseB1F, TEAM_ROCKET_BASE_B1F, $00, 0
 	map_attributes TeamRocketBaseB2F, TEAM_ROCKET_BASE_B2F, $00, 0
 	map_attributes TeamRocketBaseB3F, TEAM_ROCKET_BASE_B3F, $00, 0
-	map_attributes IlexForest, ILEX_FOREST, $05, 0
+	map_attributes IlexForest, ILEX_FOREST, $00, 0
 	map_attributes GoldenrodUnderground, GOLDENROD_UNDERGROUND, $00, 0
 	map_attributes GoldenrodUndergroundSwitchRoomEntrances, GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES, $00, 0
 	map_attributes GoldenrodDeptStoreB1F, GOLDENROD_DEPT_STORE_B1F, $00, 0
@@ -730,3 +730,8 @@ ENDM
 	map_attributes SafariZoneArea1, SAFARI_ZONE_AREA_1, $00, 0
 	map_attributes SafariZoneArea2, SAFARI_ZONE_AREA_2, $00, 0
 	map_attributes SafariZoneArea3, SAFARI_ZONE_AREA_3, $00, 0
+	map_attributes SafariZoneArea4, SAFARI_ZONE_AREA_4, $05, 0
+	map_attributes SafariRestHouseArea1, SAFARI_REST_HOUSE_AREA_1, $00, 0
+	map_attributes SafariRestHouseArea2, SAFARI_REST_HOUSE_AREA_2, $00, 0
+	map_attributes SafariRestHouseArea3, SAFARI_REST_HOUSE_AREA_3, $00, 0
+	map_attributes SafariRestHouseArea4, SAFARI_REST_HOUSE_AREA_4, $00, 0

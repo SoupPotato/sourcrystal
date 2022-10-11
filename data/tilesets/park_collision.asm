@@ -216,3 +216,9 @@
 	tilecoll LONG_GRASS, LONG_GRASS, LONG_GRASS, LONG_GRASS ; d7
 	tilecoll LONG_GRASS, LONG_GRASS, LONG_GRASS, LONG_GRASS ; d8
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; d9
+	tilecoll WALL, WALL, WALL, WALL ; da
+	tilecoll WALL, WALL, WALL, WALL ; db
+	tilecoll WALL, WALL, WALL, WALL ; dc
+	tilecoll WALL, FLOOR, WALL, FLOOR ; dd
+	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; de
+	tilecoll WALL, FLOOR, FLOOR, FLOOR ; df

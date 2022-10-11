@@ -12,20 +12,53 @@ SafariZoneEntranceMainOfficerScript:
 	opentext
 	writetext SafariZoneEntranceMainOfficer_Text
 	yesorno
-	iffalse SafariZoneEntranceMainOfficer_Declined
+	iffalse .SafariZoneEntranceMainOfficer_Declined
+	checkmoney YOUR_MONEY, 500
+	ifequal HAVE_LESS, .NotEnoughMoney
+	setflag ENGINE_SAFARI_ZONE
+	playsound SFX_TRANSACTION
+	takemoney YOUR_MONEY, 500
 	writetext SafariZoneEntranceMainOfficer_Text3
 	buttonsound
 	writetext SafariZoneEntranceReceivedBalls_Text
 	playsound SFX_ITEM
 	waitsfx
+	writetext SafariZoneEntranceMainOfficer_Text4
+	waitbutton
 	closetext
+	callasm GiveSafariBalls
+	scall .SafariZoneEntrance_EnterSafari
+	playsound SFX_ENTER_DOOR
+	special FadeOutPalettes
+	waitsfx
+	warpfacing UP, SAFARI_ZONE_AREA_1, 18, 25
 	end
 
-SafariZoneEntranceMainOfficer_Declined:
+.SafariZoneEntrance_EnterSafari:
+	applymovement SAFARIZONEENTRANCE_OFFICER2, MovementData_Officer2
+	applymovement PLAYER, MovementData_PlayerEnterSafari
+	end
+
+.SafariZoneEntranceMainOfficer_Declined:
 	writetext SafariZoneEntranceMainOfficer_Text2
 	waitbutton
 	closetext
 	end
+
+.NotEnoughMoney
+	writetext SafariZoneEntranceMainOfficer_NotEnoughMoneyText
+	waitbutton
+	closetext
+	end
+
+GiveSafariBalls:
+	ld a, 30
+	ld [wSafariBallsRemaining], a
+	ld a, HIGH(5)
+	ld [wSafariTimeRemaining], a
+	ld a, LOW(5)
+	ld [wSafariTimeRemaining + 1], a
+	ret
 
 SafariZoneEntranceOfficerScript:
 	faceplayer
@@ -43,6 +76,18 @@ SafariZoneEntranceOfficer_NotFirstTime:
 	waitbutton
 	closetext
 	end
+
+MovementData_Officer2:
+	step UP
+	step LEFT
+	turn_head RIGHT
+	step_end
+
+MovementData_PlayerEnterSafari:
+	step UP
+	step UP
+	step UP
+	step_end
 
 SafariZoneEntranceOfficer_Text:
 	text "Hi! Is it your"
@@ -113,11 +158,18 @@ SafariZoneEntranceMainOfficer_Text4:
 	line "the PA when you"
 	cont "run out of time"
 	cont "or SAFARI BALLs!"
+	
+	para "Good luck!"
 	done
 
 SafariZoneEntranceReceivedBalls_Text:
 	text "<PLAYER> received"
 	line "30 PARK BALLS."
+	done
+
+SafariZoneEntranceMainOfficer_NotEnoughMoneyText:
+	text "Oh dear, you don't"
+	line "have enough money."
 	done
 
 

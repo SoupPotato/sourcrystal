@@ -912,6 +912,7 @@ CountStep:
 
 .skip_poison
 	farcall DoBikeStep
+	call DoSafariStep
 
 .done
 	xor a
@@ -931,6 +932,30 @@ CountStep:
 .unreferenced
 	ld a, 7
 	scf
+	ret
+
+DoSafariStep:
+	ld a, [wStatusFlags2]
+	bit 1, a
+	jr z, .NoSafariActive
+
+	ld a, [wSafariTimeRemaining]
+	ld b, a
+	ld a, [wSafariTimeRemaining + 1]
+	ld c, a
+	or b
+	jr z, SafariZoneGameOver
+	dec bc
+	ld a, b
+	ld [wSafariTimeRemaining], a
+	ld a, c
+	ld [wSafariTimeRemaining + 1], a
+.NoSafariActive:
+	xor a
+	ret
+
+SafariZoneGameOver:
+	farcall BugCatchingContestOverScript
 	ret
 
 DoRepelStep:

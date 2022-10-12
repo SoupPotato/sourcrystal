@@ -1332,6 +1332,12 @@ UnknownText_0x1c1a6c::
 	line "end the Contest?"
 	done
 
+EndTheSafariGame_text::
+	text "Would you like to"
+	line "end your SAFARI"
+	cont "game?"
+	done
+
 UnknownText_0x1c1a90::
 	text "Toss out how many"
 	line "@"

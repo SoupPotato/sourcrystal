@@ -24,6 +24,7 @@ StdScripts::
 	dba DayToTextScript
 	dba BugContestResultsWarpScript
 	dba BugContestResultsScript
+	dba SafariZoneOverWarpScript
 	dba InitializeEventsScript
 	dba AskNumber1MScript
 	dba AskNumber2MScript
@@ -484,6 +485,15 @@ BugContestResults_CopyContestantsToResults:
 	iftrue .skip10
 	clearevent EVENT_BUG_CATCHING_CONTESTANT_10B
 .skip10
+	end
+
+SafariZoneOverWarpScript:
+	special ClearBGPalettes
+	;setevent EVENT_ROUTE_36_NATIONAL_PARK_GATE_OFFICER_CONTEST_DAY
+	;clearevent EVENT_ROUTE_36_NATIONAL_PARK_GATE_OFFICER_NOT_CONTEST_DAY
+	;setevent EVENT_WARPED_FROM_ROUTE_35_NATIONAL_PARK_GATE
+	warpfacing DOWN, SAFARI_ZONE_ENTRANCE, 3, 0
+	applymovement PLAYER, Movement_SafariZoneOver_WalkAfterWarp
 	end
 
 InitializeEventsScript:
@@ -1910,6 +1920,13 @@ HappinessCheckScript:
 
 Movement_ContestResults_WalkAfterWarp:
 	step RIGHT
+	step DOWN
+	turn_head UP
+	step_end
+
+Movement_SafariZoneOver_WalkAfterWarp:
+	step DOWN
+	step DOWN
 	step DOWN
 	turn_head UP
 	step_end

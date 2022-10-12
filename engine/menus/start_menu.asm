@@ -9,6 +9,7 @@
 	const STARTMENUITEM_EXIT     ; 6
 	const STARTMENUITEM_POKEGEAR ; 7
 	const STARTMENUITEM_QUIT     ; 8
+	const STARTMENUITEM_RETIRE   ; 9
 
 
 StartMenu::
@@ -34,10 +35,12 @@ StartMenu::
 	call .DrawMenuAccount_
 	call DrawVariableLengthMenuBox
 	call .DrawBugContestStatusBox
+	call .DrawSafariZoneStatusBox
 	call SafeUpdateSprites
 	call _OpenAndCloseMenu_HDMATransferTileMapAndAttrMap
 	farcall LoadFonts_NoOAMUpdate
 	call .DrawBugContestStatus
+	call .DrawSafariZoneStatus
 	call UpdateTimePals
 	jr .Select
 
@@ -152,6 +155,7 @@ StartMenu::
 	call .DrawMenuAccount_
 	call DrawVariableLengthMenuBox
 	call .DrawBugContestStatus
+	call .DrawSafariZoneStatus
 	call UpdateSprites
 	call ret_d90
 	call FinishExitMenu
@@ -188,6 +192,7 @@ StartMenu::
 	dw StartMenu_Exit,     .ExitString,     .ExitDesc
 	dw StartMenu_Pokegear, .PokegearString, .PokegearDesc
 	dw StartMenu_Quit,     .QuitString,     .QuitDesc
+	dw StartMenu_Retire,   .RetireString,   .RetireDesc
 
 .PokedexString:  db "#DEX@"
 .PartyString:    db "#MON@"
@@ -198,6 +203,7 @@ StartMenu::
 .ExitString:     db "EXIT@"
 .PokegearString: db "<POKE>GEAR@"
 .QuitString:     db "QUIT@"
+.RetireString:   db "RETIRE@"
 
 .PokedexDesc:
 	db   "#MON"
@@ -234,6 +240,10 @@ StartMenu::
 .QuitDesc:
 	db   "Quit and"
 	next "be judged.@"
+
+.RetireDesc:
+	db   "Leave the"
+	next "SAFARI.@"
 
 
 .OpenMenu:
@@ -315,6 +325,9 @@ endr
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
 	jr nz, .no_pack
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	jr nz, .no_pack
 	ld a, STARTMENUITEM_PACK
 	call .AppendMenuList
 .no_pack
@@ -322,6 +335,9 @@ endr
 	ld hl, wPokegearFlags
 	bit POKEGEAR_OBTAINED_F, [hl]
 	jr z, .no_pokegear
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	jr nz, .no_pokegear
 	ld a, STARTMENUITEM_POKEGEAR
 	call .AppendMenuList
 .no_pokegear
@@ -335,6 +351,10 @@ endr
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
 	ld a, STARTMENUITEM_QUIT
+	jr nz, .write
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	ld a, STARTMENUITEM_RETIRE
 	jr nz, .write
 	ld a, STARTMENUITEM_SAVE
 .write
@@ -409,6 +429,22 @@ endr
 	farcall StartMenu_PrintBugContestStatus
 	ret
 
+.DrawSafariZoneStatusBox:
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	ret z
+	farcall StartMenu_PrintSafariZoneStatus
+	ret
+
+.DrawSafariZoneStatus:
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	jr nz, .safari_zone
+	ret
+.safari_zone
+	farcall StartMenu_PrintSafariZoneStatus
+	ret
+
 
 StartMenu_Exit:
 ; Exit the menu.
@@ -420,11 +456,24 @@ StartMenu_Exit:
 StartMenu_Quit:
 ; Retire from the bug catching contest.
 
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	jr nz, .safari_quit
 	ld hl, .EndTheContestText
 	call StartMenuYesNo
 	jr c, .DontEndContest
 	ld a, BANK(BugCatchingContestReturnToGateScript)
 	ld hl, BugCatchingContestReturnToGateScript
+	call FarQueueScript
+	ld a, 4
+	ret
+
+.safari_quit:
+	ld hl, .EndTheSafariGameText
+	call StartMenuYesNo
+	jr c, .DontEndContest
+	ld a, BANK(SafariZoneReturnToGateScript)
+	ld hl, SafariZoneReturnToGateScript
 	call FarQueueScript
 	ld a, 4
 	ret
@@ -435,6 +484,30 @@ StartMenu_Quit:
 
 .EndTheContestText:
 	text_jump UnknownText_0x1c1a6c
+	db "@"
+
+.EndTheSafariGameText:
+	text_jump EndTheSafariGame_text
+	db "@"
+
+StartMenu_Retire:
+; Retire from the Safari Zone Game.
+
+	ld hl, .EndTheSafariGameText
+	call StartMenuYesNo
+	jr c, .DontEndGame
+	ld a, BANK(SafariZoneReturnToGateScript)
+	ld hl, SafariZoneReturnToGateScript
+	call FarQueueScript
+	ld a, 4
+	ret
+
+.DontEndGame:
+	ld a, 0
+	ret
+
+.EndTheSafariGameText:
+	text_jump EndTheSafariGame_text
 	db "@"
 
 

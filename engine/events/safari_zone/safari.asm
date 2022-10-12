@@ -12,8 +12,8 @@ SafariZoneBattleScript::
 	randomwildmon
 	startbattle
 	reloadmapafterbattle
-	copybytetovar wParkBallsRemaining
-	iffalse BugCatchingContestOutOfBallsScript
+	copybytetovar wSafariBallsRemaining
+	iffalse SafariZoneOutOfBallsScript
 	end
 
 SafariZoneGameOverScript::
@@ -21,7 +21,7 @@ SafariZoneGameOverScript::
 	opentext
 	writetext BugCatchingContestText_BeeepTimesUp
 	waitbutton
-	jump BugCatchingContestReturnToGateScript
+	jump SafariZoneReturnToGateScript
 
 SafariZoneOutOfBallsScript:
 	playsound SFX_ELEVATOR_END
@@ -31,7 +31,7 @@ SafariZoneOutOfBallsScript:
 
 SafariZoneReturnToGateScript:
 	closetext
-	jumpstd bugcontestresultswarp
+	jumpstd safarizoneoverwarp
 
 SafariZoneText_BeeepTimesUp:
 	; ANNOUNCER: BEEEP! Time's up!

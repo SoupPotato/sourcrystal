@@ -26,7 +26,7 @@ SafariZoneEntranceMainOfficerScript:
 	writetext SafariZoneEntranceMainOfficer_Text4
 	waitbutton
 	closetext
-	callasm GiveSafariBalls
+	special GiveSafariBalls
 	scall .SafariZoneEntrance_EnterSafari
 	playsound SFX_ENTER_DOOR
 	special FadeOutPalettes
@@ -50,15 +50,6 @@ SafariZoneEntranceMainOfficerScript:
 	waitbutton
 	closetext
 	end
-
-GiveSafariBalls:
-	ld a, 30
-	ld [wSafariBallsRemaining], a
-	ld a, HIGH(5)
-	ld [wSafariTimeRemaining], a
-	ld a, LOW(5)
-	ld [wSafariTimeRemaining + 1], a
-	ret
 
 SafariZoneEntranceOfficerScript:
 	faceplayer
@@ -164,7 +155,7 @@ SafariZoneEntranceMainOfficer_Text4:
 
 SafariZoneEntranceReceivedBalls_Text:
 	text "<PLAYER> received"
-	line "30 PARK BALLS."
+	line "30 SAFARI BALLS."
 	done
 
 SafariZoneEntranceMainOfficer_NotEnoughMoneyText:

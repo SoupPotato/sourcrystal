@@ -955,7 +955,7 @@ DoSafariStep:
 	ret
 
 SafariZoneGameOver:
-	farcall BugCatchingContestOverScript
+	farcall SafariZoneGameOverScript
 	ret
 
 DoRepelStep:

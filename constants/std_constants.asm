@@ -25,6 +25,7 @@
 	enum daytotext
 	enum bugcontestresultswarp
 	enum bugcontestresults
+	enum safarizoneoverwarp
 	enum initializeevents
 	enum asknumber1m
 	enum asknumber2m

@@ -107,6 +107,8 @@ RandomEncounter::
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
 	jr nz, .bug_contest
+	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	jr nz, .safari_zone
 	farcall TryWildEncounter
 	jr nz, .nope
 	jr .ok
@@ -115,6 +117,11 @@ RandomEncounter::
 	call _TryWildEncounter_BugContest
 	jr nc, .nope
 	jr .ok_bug_contest
+
+.safari_zone
+	call _TryWildEncounter_SafariZone
+	jr nc, .nope
+	jr .ok_safari_zone
 
 .nope
 	ld a, 1
@@ -129,6 +136,11 @@ RandomEncounter::
 .ok_bug_contest
 	ld a, BANK(BugCatchingContestBattleScript)
 	ld hl, BugCatchingContestBattleScript
+	jr .done
+
+.ok_safari_zone
+	ld a, BANK(SafariZoneBattleScript)
+	ld hl, SafariZoneBattleScript
 	jr .done
 
 .done
@@ -172,6 +184,11 @@ _TryWildEncounter_BugContest:
 	farcall CheckRepelEffect
 	ret
 
+_TryWildEncounter_SafariZone:
+	call ChooseWildEncounter_SafariZone
+	farcall CheckRepelEffect
+	ret
+
 ChooseWildEncounter_BugContest::
 ; Pick a random mon out of ContestMons.
 
@@ -180,7 +197,7 @@ ChooseWildEncounter_BugContest::
 	cp 100 << 1
 	jr nc, .loop
 	srl a
-
+	
 	ld hl, ContestMons
 	ld de, 4
 .CheckMon:
@@ -224,6 +241,82 @@ ChooseWildEncounter_BugContest::
 
 	xor a
 	ret
+
+ChooseWildEncounter_SafariZone::
+
+.loop
+	call Random
+	cp 100 << 1
+	jr nc, .loop
+	srl a
+	
+	ld a, [wMapNumber]
+	cp MAP_SAFARI_ZONE_AREA_1
+	jp nz, .not_safari_zone_area_1
+	ld hl, SafariMonsArea1
+	jr .finish
+.not_safari_zone_area_1
+	cp MAP_SAFARI_ZONE_AREA_2
+	jp nz, .not_safari_zone_area_2
+	ld hl, SafariMonsArea2
+	jr .finish
+.not_safari_zone_area_2
+	cp MAP_SAFARI_ZONE_AREA_3
+	jp nz, .not_safari_zone_area_3
+	ld hl, SafariMonsArea3
+	jr .finish
+.not_safari_zone_area_3
+	cp MAP_SAFARI_ZONE_AREA_4
+	jp nz, .not_safari_zone_area_4
+	ld hl, SafariMonsArea4
+	jr .finish
+.not_safari_zone_area_4
+	ld hl, ContestMons
+.finish
+	ld de, 4
+.CheckMon:
+	sub [hl]
+	jr c, .GotMon
+	add hl, de
+	jr .CheckMon
+
+.GotMon:
+	inc hl
+
+; Species
+	ld a, [hli]
+	ld [wTempWildMonSpecies], a
+
+; Min level
+	ld a, [hli]
+	ld d, a
+
+; Max level
+	ld a, [hl]
+
+	sub d
+	jr nz, .RandomLevel
+
+; If min and max are the same.
+	ld a, d
+	jr .GotLevel
+
+.RandomLevel:
+; Get a random level between the min and max.
+	ld c, a
+	inc c
+	call Random
+	ld a, [hRandomAdd]
+	call SimpleDivide
+	add d
+
+.GotLevel:
+	ld [wCurPartyLevel], a
+
+	xor a
+	ret
+
+INCLUDE "data/wild/safari_zone_mons.asm"
 
 TryWildEncounter_BugContest:
 	ld a, [wPlayerStandingTile]

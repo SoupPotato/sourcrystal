@@ -911,8 +911,10 @@ CountStep:
 	jr c, .doscript
 
 .skip_poison
-	farcall DoBikeStep
 	call DoSafariStep
+	jr c, .doscript
+
+	farcall DoBikeStep
 
 .done
 	xor a

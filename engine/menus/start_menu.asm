@@ -436,7 +436,7 @@ endr
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
 	ret z
-	farcall StartMenu_PrintSafariZoneStatus
+	farcall StartMenu_DrawSafariZoneStatusBox
 	ret
 
 .DrawSafariZoneStatus:

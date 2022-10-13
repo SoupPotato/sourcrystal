@@ -176,7 +176,7 @@ SafariZoneEntranceOfficer_Text3:
 	
 	para "When you run out"
 	line "of time or SAFARI"
-	cont "BALLs, it's game"
+	cont "BALLS, it's game"
 	cont "over for you!"
 	
 	para "Before you enter,"
@@ -210,14 +210,14 @@ SafariZoneEntranceMainOfficer_Text3:
 	
 	para "We only allow the"
 	line "use of our SAFARI"
-	cont "BALLs here."
+	cont "BALLS here."
 	done
 
 SafariZoneEntranceMainOfficer_Text4:
 	text "We'll call you on"
 	line "the PA when you"
 	cont "run out of time"
-	cont "or SAFARI BALLs!"
+	cont "or SAFARI BALLS!"
 	
 	para "Good luck!"
 	done

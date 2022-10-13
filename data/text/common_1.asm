@@ -1288,12 +1288,19 @@ Text_SafariTimeUp::
 	text "PA: Ding-dong!"
 	
 	para "Time's up!"
-	done
+	prompt
 
 Text_SafariGameOver::
 	text "PA: Your SAFARI"
 	line "Game is over!"
 	done
+
+Text_SafariOutOfBallsText::
+	text "PA: Ding-dong!"
+
+	para "You are out of"
+	line "SAFARI BALLS!"
+	prompt
 
 UnknownText_0x1bd308::
 	text "REPEL's effect"

@@ -488,7 +488,9 @@ BugContestResults_CopyContestantsToResults:
 	end
 
 SafariZoneOverWarpScript:
+	playsound SFX_ENTER_DOOR
 	special ClearBGPalettes
+	waitsfx
 	warpfacing DOWN, SAFARI_ZONE_ENTRANCE, 3, 0
 	turnobject 4, RIGHT
 	applymovement PLAYER, Movement_SafariZoneOver_WalkAfterWarp

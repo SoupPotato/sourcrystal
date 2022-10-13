@@ -110,15 +110,19 @@ CoinString:
 ShowMoney_TerminatorString:
 	db "@"
 
+StartMenu_DrawSafariZoneStatusBox:
+	hlcoord 0, 0
+	ld b, 4
+	ld c, 8
+	call TextBox
+	ret
+
 StartMenu_PrintSafariZoneStatus:
 	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
-	hlcoord 0, 0
-	ld b, 4
-	ld c, 8
-	call TextBox
+	call StartMenu_DrawSafariZoneStatusBox
 	hlcoord 1, 2
 	ld de, wSafariTimeRemaining
 	lb bc, 2, 3

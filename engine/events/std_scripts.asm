@@ -489,12 +489,31 @@ BugContestResults_CopyContestantsToResults:
 
 SafariZoneOverWarpScript:
 	special ClearBGPalettes
-	;setevent EVENT_ROUTE_36_NATIONAL_PARK_GATE_OFFICER_CONTEST_DAY
-	;clearevent EVENT_ROUTE_36_NATIONAL_PARK_GATE_OFFICER_NOT_CONTEST_DAY
-	;setevent EVENT_WARPED_FROM_ROUTE_35_NATIONAL_PARK_GATE
 	warpfacing DOWN, SAFARI_ZONE_ENTRANCE, 3, 0
+	turnobject 4, RIGHT
 	applymovement PLAYER, Movement_SafariZoneOver_WalkAfterWarp
+	applymovement 4, MovementData_Officer2_Leave
+	opentext
+	writetext SafariZoneEntranceMainOfficer_Text9
+	waitbutton
+	closetext
+	setevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_ACTIVE
+	clearevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE
+	setscene SCENE_SAFARIZONEENTRANCE_NOTHING
 	end
+
+SafariZoneEntranceMainOfficer_Text9:
+	text "Did you get a"
+	line "good catch?"
+	
+	para "We look foward to"
+	line "your next visit!"
+	done
+
+MovementData_Officer2_Leave:
+	step RIGHT
+	step DOWN
+	step_end
 
 InitializeEventsScript:
 	setevent EVENT_EARLS_ACADEMY_EARL
@@ -640,6 +659,7 @@ InitializeEventsScript:
 	setevent EVENT_ARTICUNO_APPEAR
 	setevent EVENT_ZAPDOS_APPEAR
 	setevent EVENT_MOLTRES_APPEAR
+	setevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_ACTIVE
 	return
 
 AskNumber1MScript:

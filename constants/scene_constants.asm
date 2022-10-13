@@ -155,3 +155,12 @@ SCENE_FINISHED EQU 1
 	const_def 1
 	const SCENE_FASTSHIP1F_ENTER_SHIP   ; 1
 	const SCENE_FASTSHIP1F_MEET_GRANDPA ; 2
+
+; wSafariZoneEntranceSceneID
+	const_def 
+	const SCENE_SAFARIZONEENTRANCE_NOTHING            ; 0
+	const SCENE_SAFARIZONEENTRANCE_LEAVE_SAFARI_EARLY ; 1
+
+; wSafariZoneAllAreasSceneID
+	const_def 
+	const SCENE_SAFARIZONEALLAREAS_NO_STEPS_LEFT      ; 1

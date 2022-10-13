@@ -86,4 +86,14 @@ MapScenes::
 	scene_var MOBILE_BATTLE_ROOM,                          wMobileBattleRoomSceneID
 	scene_var POKEMON_MANSION_1F,                          wPokemonMansion1FSceneID
 	scene_var POKEMON_MANSION_B1F,                         wPokemonMansionB1FSceneID
+	scene_var SAFARI_ZONE_ENTRANCE,                        wSafariZoneEntranceSceneID
+	scene_var SAFARI_ZONE_ENTRANCE,                        wSafariZoneAllAreasSceneID
+	scene_var SAFARI_ZONE_AREA_1,                          wSafariZoneAllAreasSceneID
+	scene_var SAFARI_ZONE_AREA_2,                          wSafariZoneAllAreasSceneID
+	scene_var SAFARI_ZONE_AREA_3,                          wSafariZoneAllAreasSceneID
+	scene_var SAFARI_ZONE_AREA_4,                          wSafariZoneAllAreasSceneID
+	scene_var SAFARI_REST_HOUSE_AREA_1,                    wSafariZoneAllAreasSceneID
+	scene_var SAFARI_REST_HOUSE_AREA_2,                    wSafariZoneAllAreasSceneID
+	scene_var SAFARI_REST_HOUSE_AREA_3,                    wSafariZoneAllAreasSceneID
+	scene_var SAFARI_REST_HOUSE_AREA_4,                    wSafariZoneAllAreasSceneID
 	db -1

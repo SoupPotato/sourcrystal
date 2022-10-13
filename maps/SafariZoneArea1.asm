@@ -2,8 +2,31 @@
 
 SafariZoneArea1_MapScripts:
 	db 0 ; scene scripts
+;	scene_script .NoStepsLeft ; SCENE_SAFARIZONEALLAREAS_NO_STEPS_LEFT
 
 	db 0 ; callbacks
+
+.NoStepsLeft:
+	priorityjump .CheckSafariSteps
+
+.CheckSafariSteps:
+	copybytetovar wSafariTimeRemaining
+	ifnotequal 0, .done
+	copybytetovar wSafariTimeRemaining + 1
+	ifequal 0, .SafariZoneGameOverScript
+	
+.done
+	return
+	
+.SafariZoneGameOverScript:
+	playmusic MUSIC_NONE
+	playsound SFX_ELEVATOR_END
+	opentext
+	farwritetext SafariZoneText_BeeepTimesUp
+	waitbutton
+	farwritetext SafariZoneText_GameIsOver
+	waitbutton
+	farjump SafariZoneReturnToGateScript
 
 SafariZoneArea1Lemonade:
 	itemball LEMONADE

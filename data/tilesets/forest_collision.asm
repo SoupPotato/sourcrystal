@@ -167,3 +167,4 @@
 	tilecoll WALL, WALL, WALL, WALL ; a6
 	tilecoll WALL, WALL, WALL, WALL ; a7
 	tilecoll WALL, FLOOR, WALL, FLOOR ; a8
+	tilecoll WALL, WALL, WALL, WALL ; a9

@@ -944,7 +944,7 @@ DoSafariStep:
 	ld a, [wSafariTimeRemaining + 1]
 	ld c, a
 	or b
-	jr z, SafariZoneGameOver
+	jr z, .End_Safari
 	dec bc
 	ld a, b
 	ld [wSafariTimeRemaining], a
@@ -953,9 +953,12 @@ DoSafariStep:
 .NoSafariActive:
 	xor a
 	ret
-
-SafariZoneGameOver:
-	farcall SafariZoneGameOverScript
+	
+.End_Safari
+	ld a, BANK(SafariZoneGameOverScript)
+	ld hl, SafariZoneGameOverScript
+	call CallScript
+	scf
 	ret
 
 DoRepelStep:

@@ -315,6 +315,9 @@ endr
 	ld a, [wPartyCount]
 	and a
 	jr z, .no_pokemon
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	jr nz, .no_pokemon
 	ld a, STARTMENUITEM_POKEMON
 	call .AppendMenuList
 .no_pokemon

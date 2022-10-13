@@ -1,11 +1,57 @@
 	const_def 2 ; object constants
 	const SAFARIZONEENTRANCE_OFFICER
 	const SAFARIZONEENTRANCE_OFFICER2
+	const SAFARIZONEENTRANCE_OFFICER3
 
 SafariZoneEntrance_MapScripts:
-	db 0 ; scene scripts
+	db 2 ; scene scripts
+	scene_script .DummyScene0 ; SCENE_SAFARIZONEENTRANCE_NOTHING
+	scene_script .LeaveSafariEarly ; SCENE_SAFARIZONEENTRANCE_LEAVE_SAFARI_EARLY
 
 	db 0 ; callbacks
+
+.DummyScene0:
+	end
+
+.LeaveSafariEarly:
+	priorityjump .LeavingSafariEarly
+
+.SafariIsRunning:
+	setscene SCENE_SAFARIZONEENTRANCE_LEAVE_SAFARI_EARLY
+	return
+
+.LeavingSafariEarly
+	turnobject SAFARIZONEENTRANCE_OFFICER3, RIGHT
+	applymovement PLAYER, MovementData_PlayerTriestoLeaveSafari
+	opentext
+	writetext SafariZoneEntranceMainOfficer_Text5
+	yesorno
+	iffalse .SafariZoneEntranceMainOfficer_Notleaving
+	clearflag ENGINE_SAFARI_ZONE
+	writetext SafariZoneEntranceMainOfficer_Text7
+	waitbutton
+	closetext
+	applymovement PLAYER, MovementData_PlayerLeaveSafari
+	applymovement SAFARIZONEENTRANCE_OFFICER3, MovementData_Officer2_Leave
+	opentext
+	writetext SafariZoneEntranceMainOfficer_Text8
+	waitbutton
+	closetext
+	setevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_ACTIVE
+	clearevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE
+	setscene SCENE_SAFARIZONEENTRANCE_NOTHING
+	end
+
+.SafariZoneEntranceMainOfficer_Notleaving:
+	writetext SafariZoneEntranceMainOfficer_Text6
+	waitbutton
+	closetext
+	applymovement PLAYER, MovementData_PlayerReEntersSafari
+	playsound SFX_ENTER_DOOR
+	special FadeOutPalettes
+	waitsfx
+	warpfacing UP, SAFARI_ZONE_AREA_1, 18, 25
+	end
 
 SafariZoneEntranceMainOfficerScript:
 	faceplayer
@@ -26,12 +72,15 @@ SafariZoneEntranceMainOfficerScript:
 	writetext SafariZoneEntranceMainOfficer_Text4
 	waitbutton
 	closetext
+	setscene SCENE_SAFARIZONEENTRANCE_LEAVE_SAFARI_EARLY
 	special GiveSafariBalls
 	scall .SafariZoneEntrance_EnterSafari
 	playsound SFX_ENTER_DOOR
 	special FadeOutPalettes
 	waitsfx
 	warpfacing UP, SAFARI_ZONE_AREA_1, 18, 25
+	setevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE
+	clearevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_ACTIVE
 	end
 
 .SafariZoneEntrance_EnterSafari:
@@ -77,6 +126,26 @@ MovementData_Officer2:
 MovementData_PlayerEnterSafari:
 	step UP
 	step UP
+	step UP
+	step_end
+
+MovementData_PlayerTriestoLeaveSafari:
+	step DOWN
+	turn_head LEFT
+	step_end
+
+MovementData_PlayerLeaveSafari:
+	step DOWN
+	step DOWN
+	turn_head UP
+	step_end
+
+MovementData_Officer2_Leave:
+	step RIGHT
+	step DOWN
+	step_end
+
+MovementData_PlayerReEntersSafari:
 	step UP
 	step_end
 
@@ -153,6 +222,26 @@ SafariZoneEntranceMainOfficer_Text4:
 	para "Good luck!"
 	done
 
+SafariZoneEntranceMainOfficer_Text5:
+	text "Oh, are you"
+	line "leaving early?"
+	done
+
+SafariZoneEntranceMainOfficer_Text6:
+	text "Good luck!"
+	done
+
+SafariZoneEntranceMainOfficer_Text7:
+	text "Please return any"
+	line "SAFARI BALLS you"
+	cont "have left."
+	done
+
+SafariZoneEntranceMainOfficer_Text8:
+	text "We look foward to"
+	line "your next visit!"
+	done
+
 SafariZoneEntranceReceivedBalls_Text:
 	text "<PLAYER> received"
 	line "30 SAFARI BALLS."
@@ -176,6 +265,7 @@ SafariZoneEntrance_MapEvents:
 
 	db 0 ; bg events
 
-	db 2 ; object events
+	db 3 ; object events
 	object_event  0,  6, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, PERSONTYPE_SCRIPT, 0, SafariZoneEntranceOfficerScript, -1
-	object_event  3,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, PERSONTYPE_SCRIPT, 0, SafariZoneEntranceMainOfficerScript, -1
+	object_event  3,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, PERSONTYPE_SCRIPT, 0, SafariZoneEntranceMainOfficerScript, EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE
+	object_event  2,  1, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, PERSONTYPE_SCRIPT, 0, SafariZoneEntranceMainOfficerScript, EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_ACTIVE

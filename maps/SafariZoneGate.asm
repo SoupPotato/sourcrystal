@@ -215,15 +215,6 @@ SafariZoneGateSignText:
 SafariZoneGatePokecenterSign:
 	jumpstd pokecentersign
 
-SafariBattleTestScript:
-	writebyte 5
-	copyvartobyte wSafariBallsRemaining
-	writecode VAR_BATTLETYPE, BATTLETYPE_SAFARI
-	loadwildmon RHYHORN, 30
-	startbattle
-	reloadmapafterbattle
-	end
-
 SafariZoneGate_MapEvents:
 	db 0, 0 ; filler
 
@@ -235,8 +226,7 @@ SafariZoneGate_MapEvents:
 
 	db 2 ; bg events
 	bg_event 14,  6, BGEVENT_READ, SafariZoneGateSign
-;	bg_event  8, 11, BGEVENT_READ, SafariZoneGatePokecenterSign
-	bg_event  8, 11, BGEVENT_READ, SafariBattleTestScript
+	bg_event  8, 11, BGEVENT_READ, SafariZoneGatePokecenterSign
 
 	db 12 ; object events
 	object_event  6,  6, SPRITE_GENTLEMAN, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SafariZoneGateGentlemanScript, -1

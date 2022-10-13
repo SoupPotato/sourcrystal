@@ -1284,6 +1284,17 @@ UnknownText_0x1bd2e7::
 	line "Contest is over!"
 	done
 
+Text_SafariTimeUp::
+	text "PA: Ding-dong!"
+	
+	para "Time's up!"
+	done
+
+Text_SafariGameOver::
+	text "PA: Your SAFARI"
+	line "Game is over!"
+	done
+
 UnknownText_0x1bd308::
 	text "REPEL's effect"
 	line "wore off."

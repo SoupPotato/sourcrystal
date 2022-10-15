@@ -36,8 +36,8 @@ LoadScriptBDE::
 	and a
 	ret nz
 ; Set the flag
-	ld [hl], 1
-	inc hl
+	ld a, 1
+	ld [hli], a
 ; Load the script pointer b:de into (wMapReentryScriptBank):(wMapReentryScriptAddress)
 	ld [hl], b
 	inc hl
@@ -85,6 +85,7 @@ TryTileCollisionEvent::
 	farcall TrySurfOW
 	jr nc, .noevent
 	jr .done
+	ret
 
 .noevent
 	xor a
@@ -119,8 +120,16 @@ RandomEncounter::
 	jr .ok_bug_contest
 
 .safari_zone
+	ld a, [wPlayerState]
+	cp PLAYER_SURF
+	jr z, .PlayerIsSurfing
 	call _TryWildEncounter_SafariZone
 	jr nc, .nope
+	jr .ok_safari_zone
+
+.PlayerIsSurfing
+	farcall TryWildEncounter
+	jr nz, .nope
 	jr .ok_safari_zone
 
 .nope
@@ -141,7 +150,6 @@ RandomEncounter::
 .ok_safari_zone
 	ld a, BANK(SafariZoneBattleScript)
 	ld hl, SafariZoneBattleScript
-	jr .done
 
 .done
 	call CallScript
@@ -178,16 +186,16 @@ CanUseSweetScent::
 	ret
 
 _TryWildEncounter_BugContest:
-	call TryWildEncounter_BugContest
+	call TryWildEncounter_BugContestOrSafariZone
 	ret nc
 	call ChooseWildEncounter_BugContest
-	farcall CheckRepelEffect
-	ret
+	farjp CheckRepelEffect
 
 _TryWildEncounter_SafariZone:
+	call TryWildEncounter_BugContestOrSafariZone
+	ret nc
 	call ChooseWildEncounter_SafariZone
-	farcall CheckRepelEffect
-	ret
+	farjp CheckRepelEffect
 
 ChooseWildEncounter_BugContest::
 ; Pick a random mon out of ContestMons.
@@ -232,7 +240,7 @@ ChooseWildEncounter_BugContest::
 	ld c, a
 	inc c
 	call Random
-	ld a, [hRandomAdd]
+	ldh a, [hRandomAdd]
 	call SimpleDivide
 	add d
 
@@ -252,24 +260,72 @@ ChooseWildEncounter_SafariZone::
 	
 	ld a, [wMapNumber]
 	cp MAP_SAFARI_ZONE_AREA_1
-	jp nz, .not_safari_zone_area_1
+	jr nz, .not_safari_zone_area_1
+	ld a, [wTimeOfDay]
+	cp MORN_F
+	jr nz, .not_morn_area_1
+	ld hl, SafariMonsArea1_Morn
+	jr .finish
+.not_morn_area_1
+	cp NITE_F
+	jr nz, .not_nite_area_1
+	ld hl, SafariMonsArea1_Nite
+	jr .finish
+.not_nite_area_1
 	ld hl, SafariMonsArea1
 	jr .finish
+
 .not_safari_zone_area_1
 	cp MAP_SAFARI_ZONE_AREA_2
-	jp nz, .not_safari_zone_area_2
+	jr nz, .not_safari_zone_area_2
+	ld a, [wTimeOfDay]
+	cp MORN_F
+	jr nz, .not_morn_area_2
+	ld hl, SafariMonsArea2_Morn
+	jr .finish
+.not_morn_area_2
+	cp NITE_F
+	jr nz, .not_nite_area_2
+	ld hl, SafariMonsArea2_Nite
+	jr .finish
+.not_nite_area_2
 	ld hl, SafariMonsArea2
 	jr .finish
+
 .not_safari_zone_area_2
 	cp MAP_SAFARI_ZONE_AREA_3
-	jp nz, .not_safari_zone_area_3
+	jr nz, .not_safari_zone_area_3
+	ld a, [wTimeOfDay]
+	cp MORN_F
+	jr nz, .not_morn_area_3
+	ld hl, SafariMonsArea3_Morn
+	jr .finish
+.not_morn_area_3
+	cp NITE_F
+	jr nz, .not_nite_area_3
+	ld hl, SafariMonsArea3_Nite
+	jr .finish
+.not_nite_area_3
 	ld hl, SafariMonsArea3
 	jr .finish
+
 .not_safari_zone_area_3
 	cp MAP_SAFARI_ZONE_AREA_4
-	jp nz, .not_safari_zone_area_4
+	jr nz, .not_safari_zone_area_4
+	ld a, [wTimeOfDay]
+	cp MORN_F
+	jr nz, .not_morn_area_4
+	ld hl, SafariMonsArea4_Morn
+	jr .finish
+.not_morn_area_4
+	cp NITE_F
+	jr nz, .not_nite_area_4
+	ld hl, SafariMonsArea4_Nite
+	jr .finish
+.not_nite_area_4
 	ld hl, SafariMonsArea4
 	jr .finish
+
 .not_safari_zone_area_4
 	ld hl, ContestMons
 .finish
@@ -306,7 +362,7 @@ ChooseWildEncounter_SafariZone::
 	ld c, a
 	inc c
 	call Random
-	ld a, [hRandomAdd]
+	ldh a, [hRandomAdd]
 	call SimpleDivide
 	add d
 
@@ -318,7 +374,7 @@ ChooseWildEncounter_SafariZone::
 
 INCLUDE "data/wild/safari_zone_mons.asm"
 
-TryWildEncounter_BugContest:
+TryWildEncounter_BugContestOrSafariZone:
 	ld a, [wPlayerStandingTile]
 	call CheckSuperTallGrassTile
 	ld b, 40 percent
@@ -329,7 +385,7 @@ TryWildEncounter_BugContest:
 	farcall ApplyMusicEffectOnEncounterRate
 	farcall ApplyCleanseTagEffectOnEncounterRate
 	call Random
-	ld a, [hRandomAdd]
+	ldh a, [hRandomAdd]
 	cp b
 	ret c
 	ld a, 1
@@ -341,8 +397,6 @@ INCLUDE "data/wild/bug_contest_mons.asm"
 
 
 DoBikeStep::
-	nop
-	nop
 	; If the bike shop owner doesn't have our number, or
 	; if we've already gotten the call, we don't have to
 	; be here.

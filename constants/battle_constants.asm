@@ -99,6 +99,7 @@ SPDSPCDV_SHINY EQU $AA
 	const BATTLETYPE_LUGIA
 	const BATTLETYPE_KANTO_LEGEND
 	const BATTLETYPE_SAFARI
+	const BATTLETYPE_SAFARI_FISH
 
 ; BattleVarPairs indexes (see home/battle.asm)
 	const_def

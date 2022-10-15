@@ -59,6 +59,8 @@ DoBattle:
 	jp z, BattleMenu
 	cp BATTLETYPE_SAFARI
 	jp z, SafariBattleTurn
+	cp BATTLETYPE_SAFARI_FISH
+	jp z, SafariBattleTurn
 	xor a
 	ld [wCurPartyMon], a
 .loop2
@@ -3800,6 +3802,8 @@ TryToRunAwayFromBattle:
 	jp z, .can_escape
 	cp BATTLETYPE_SAFARI
 	jp z, .can_escape
+	cp BATTLETYPE_SAFARI_FISH
+	jp z, .can_escape
 	cp BATTLETYPE_TRAP
 	jp z, .cant_escape
 	cp BATTLETYPE_CELEBI
@@ -4998,6 +5002,8 @@ BattleMenu:
 	jr z, .ok
 	cp BATTLETYPE_SAFARI
 	jr z, .ok
+	cp BATTLETYPE_SAFARI_FISH
+	jr z, .ok
 	call EmptyBattleTextBox
 	call UpdateBattleHuds
 	call EmptyBattleTextBox
@@ -5007,6 +5013,8 @@ BattleMenu:
 .loop
 	ld a, [wBattleType]
 	cp BATTLETYPE_SAFARI
+	jr z, .safari_game
+	cp BATTLETYPE_SAFARI_FISH
 	jr z, .safari_game
 	cp BATTLETYPE_CONTEST
 	jr nz, .not_contest
@@ -5173,6 +5181,8 @@ BattleMenu_Pack:
 	jr z, .contest
 	cp BATTLETYPE_SAFARI
 	jr z, .safari
+	cp BATTLETYPE_SAFARI_FISH
+	jr z, .safari
 
 	farcall BattlePack
 	ld a, [wBattlePlayerAction]
@@ -5239,6 +5249,8 @@ BattleMenu_Pack:
 	jr z, .tutorial2
 	cp BATTLETYPE_SAFARI
 	jr z, .tutorial2
+	cp BATTLETYPE_SAFARI_FISH
+	jr z, .tutorial2
 	call GetBattleMonBackpic
 
 .tutorial2
@@ -5248,6 +5260,8 @@ BattleMenu_Pack:
 	call ExitMenu
 	ld a, [wBattleType]
 	cp BATTLETYPE_SAFARI
+	jr z, .skipUpdateBattleHUDs
+	cp BATTLETYPE_SAFARI_FISH
 	jr z, .skipUpdateBattleHUDs
 	call UpdateBattleHUDs
 .skipUpdateBattleHUDs
@@ -5272,6 +5286,8 @@ BattleMenu_Pack:
 BattleMenu_PKMN:
 	ld a, [wBattleType]
 	cp BATTLETYPE_SAFARI
+	jp z, BattleMenu_Bait ; "PKMN" is replaced with "Bait" in Safari mode
+	cp BATTLETYPE_SAFARI_FISH
 	jp z, BattleMenu_Bait ; "PKMN" is replaced with "Bait" in Safari mode
 	call LoadStandardMenuHeader
 BattleMenuPKMN_ReturnFromStats:
@@ -9348,6 +9364,16 @@ BattleStartMessage:
 	jr .PlaceBattleStartText
 
 .NotFishing:
+	ld a, [wBattleType]
+	cp BATTLETYPE_SAFARI_FISH
+	jr nz, .NotFishingInSafari
+
+	farcall StubbedTrainerRankings_HookedEncounters
+
+	ld hl, HookedPokemonAttackedText
+	jr .PlaceBattleStartText
+
+.NotFishingInSafari
 	ld hl, PokemonFellFromTreeText
 	cp BATTLETYPE_TREE
 	jr z, .PlaceBattleStartText

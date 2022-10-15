@@ -328,9 +328,6 @@ endr
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
 	jr nz, .no_pack
-	ld hl, wStatusFlags2
-	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
-	jr nz, .no_pack
 	ld a, STARTMENUITEM_PACK
 	call .AppendMenuList
 .no_pack

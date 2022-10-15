@@ -2,6 +2,7 @@
 	const SAFARIZONEENTRANCE_OFFICER
 	const SAFARIZONEENTRANCE_OFFICER2
 	const SAFARIZONEENTRANCE_OFFICER3
+	const SAFARIZONEENTRANCE_CAMPER
 
 SafariZoneEntrance_MapScripts:
 	db 2 ; scene scripts
@@ -40,6 +41,9 @@ SafariZoneEntrance_MapScripts:
 	setevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_ACTIVE
 	clearevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE
 	setscene SCENE_SAFARIZONEENTRANCE_NOTHING
+	appear SAFARIZONEENTRANCE_OFFICER2
+	pause 1
+	disappear SAFARIZONEENTRANCE_OFFICER3
 	end
 
 .SafariZoneEntranceMainOfficer_Notleaving:
@@ -109,6 +113,7 @@ SafariZoneEntranceOfficerScript:
 	writetext SafariZoneEntranceOfficer_Text3
 	waitbutton
 	closetext
+	turnobject SAFARIZONEENTRANCE_OFFICER, RIGHT
 	end
 
 SafariZoneEntranceOfficer_NotFirstTime:
@@ -265,7 +270,8 @@ SafariZoneEntrance_MapEvents:
 
 	db 0 ; bg events
 
-	db 3 ; object events
+	db 4 ; object events
 	object_event  0,  6, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, PERSONTYPE_SCRIPT, 0, SafariZoneEntranceOfficerScript, -1
 	object_event  3,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, PERSONTYPE_SCRIPT, 0, SafariZoneEntranceMainOfficerScript, EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE
 	object_event  2,  1, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, PERSONTYPE_SCRIPT, 0, SafariZoneEntranceMainOfficerScript, EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_ACTIVE
+	object_event  8,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, PERSONTYPE_SCRIPT, 0, ObjectEvent, 0

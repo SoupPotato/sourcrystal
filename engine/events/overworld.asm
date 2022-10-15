@@ -1492,7 +1492,16 @@ FishFunction:
 	ld [wTempWildMonSpecies], a
 	ld a, e
 	ld [wCurPartyLevel], a
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	jr nz, .safari_zone
 	ld a, BATTLETYPE_FISH
+	ld [wBattleType], a
+	ld a, $2
+	ret
+
+.safari_zone
+	ld a, BATTLETYPE_SAFARI_FISH
 	ld [wBattleType], a
 	ld a, $2
 	ret

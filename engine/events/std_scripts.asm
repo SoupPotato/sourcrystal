@@ -502,6 +502,9 @@ SafariZoneOverWarpScript:
 	setevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_ACTIVE
 	clearevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE
 	setscene SCENE_SAFARIZONEENTRANCE_NOTHING
+	appear 3
+	pause 1
+	disappear 4
 	end
 
 SafariZoneEntranceMainOfficer_Text9:

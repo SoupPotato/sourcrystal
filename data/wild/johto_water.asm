@@ -45,19 +45,19 @@ JohtoWaterWildMons:
 	db 15, GOLDUCK
 
 	map_id SAFARI_ZONE_AREA_1
-	db 6 percent ; encounter rate
+	db 10 percent ; encounter rate
 	db 18, MAGIKARP
 	db 18, MARILL
 	db 18, WOOPER
 
 	map_id SAFARI_ZONE_AREA_3
-	db 6 percent ; encounter rate
+	db 10 percent ; encounter rate
 	db 18, POLIWAG
 	db 18, GRIMER
 	db 18, PSYDUCK
 
 	map_id SAFARI_ZONE_AREA_4
-	db 6 percent ; encounter rate
+	db 10 percent ; encounter rate
 	db 18, TENTACOOL
 	db 18, KRABBY
 	db 18, LAPRAS

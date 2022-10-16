@@ -604,51 +604,52 @@ JohtoGrassWildMons:
 	db 5, NATU
 	db 5, MAROWAK
 	db 5, RAPIDASH
-	db 5, HOOTHOOT
 	db 5, HOUNDOUR
-	; day
 	db 5, NOCTOWL
+	; day
 	db 5, HOUNDOOM
 	db 5, EKANS
 	db 5, BELLSPROUT
 	db 5, MARILL
 	db 5, GRIMER
 	db 5, TANGELA
-	; nite
 	db 5, ARBOK
+	; nite
 	db 5, YANMA
 	db 5, WEEPINBELL
 	db 5, FARFETCH_D
 	db 5, ODDISH
 	db 5, GLOOM
 	db 5, MISDREAVUS
+	db 5, WOOPER
 
 	map_id SAFARI_ZONE_AREA_3 ; DUMMY
 	db 0 percent, 0 percent, 0 percent ; encounter rates: morn/day/nite
 	; morn
-	db 5, WOOPER
 	db 5, QUAGSIRE
 	db 5, HAUNTER
-	db 5, MAROWAK
 	db 5, MACHOP
 	db 5, GEODUDE
 	db 5, VOLTORB
-	; day
 	db 5, ONIX
 	db 5, RHYHORN
+	; day
 	db 5, MACHOKE
 	db 5, GRAVELER
 	db 5, LICKITUNG
 	db 5, KANGASKHAN
 	db 5, LARVITAR
-	; nite
 	db 5, ZUBAT
 	db 5, GOLBAT
+	; nite
 	db 5, MUK
 	db 5, WOBBUFFET
-	db 5, WOBBUFFET
-	db 5, WOBBUFFET
-	db 5, WOBBUFFET
+	db 5, NIDORINO
+	db 5, NIDORINA
+	db 5, MAGNEMITE
+	db 5, MAGNETON
+	db 5, MAGNEMITE
+
 
 	map_id MOUNT_MORTAR_1F_OUTSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite

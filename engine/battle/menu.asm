@@ -74,7 +74,7 @@ PrintSafariBallsRemaining:
 
 ContestBattleMenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 2, 12, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+	menu_coords 0, 12, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
 	dw .MenuData
 	db 1 ; default option
 
@@ -92,7 +92,7 @@ ContestBattleMenuHeader:
 	db "RUN@"
 
 PrintParkBallsRemaining:
-	hlcoord 13, 16
+	hlcoord 11, 16
 	ld de, wParkBallsRemaining
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
 	call PrintNum

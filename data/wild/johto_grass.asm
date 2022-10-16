@@ -569,32 +569,86 @@ JohtoGrassWildMons:
 	db 6, PARAS
 	db 6, PARAS
 
-	map_id SAFARI_ZONE_AREA_1
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	map_id SAFARI_ZONE_AREA_1 ; DUMMY
+	db 0 percent, 0 percent, 0 percent ; encounter rates: morn/day/nite
 	; morn
-	db 22, PIKACHU
-	db 22, DODUO
-	db 20, PONYTA
-	db 20, PIKACHU
-	db 20, MARILL
-	db 21, MR__MIME
-	db 23, KANGASKHAN
+	db 5, SENTRET
+	db 5, JIGGLYPUFF
+	db 5, PIKACHU
+	db 5, GIRAFARIG
+	db 5, DODUO
+	db 5, FURRET
+	db 5, SMEARGLE
 	; day
-	db 22, PIKACHU
-	db 22, DODUO
-	db 20, PONYTA
-	db 20, PIKACHU
-	db 20, MARILL
-	db 21, MR__MIME
-	db 23, KANGASKHAN
+	db 5, MR__MIME
+	db 5, CHANSEY
+	db 5, SUNKERN
+	db 5, RATTATA
+	db 5, MURKROW
+	db 5, RATICATE
+	db 5, STANTLER
 	; nite
-	db 22, CLEFAIRY
-	db 22, MURKROW
-	db 20, MARILL
-	db 20, CLEFAIRY
-	db 20, HOUNDOUR
-	db 21, MISDREAVUS
-	db 23, WOBBUFFET
+	db 5, DROWZEE
+	db 5, CLEFAIRY
+	db 5, SANDSHREW
+	db 5, NIDORAN_M
+	db 5, NIDORAN_F
+	db 5, CUBONE
+	db 5, PONYTA
+
+	map_id SAFARI_ZONE_AREA_2 ; DUMMY
+	db 0 percent, 0 percent, 0 percent ; encounter rates: morn/day/nite
+	; morn
+	db 5, SANDSLASH
+	db 5, GLIGAR
+	db 5, NATU
+	db 5, MAROWAK
+	db 5, RAPIDASH
+	db 5, HOOTHOOT
+	db 5, HOUNDOUR
+	; day
+	db 5, NOCTOWL
+	db 5, HOUNDOOM
+	db 5, EKANS
+	db 5, BELLSPROUT
+	db 5, MARILL
+	db 5, GRIMER
+	db 5, TANGELA
+	; nite
+	db 5, ARBOK
+	db 5, YANMA
+	db 5, WEEPINBELL
+	db 5, FARFETCH_D
+	db 5, ODDISH
+	db 5, GLOOM
+	db 5, MISDREAVUS
+
+	map_id SAFARI_ZONE_AREA_3 ; DUMMY
+	db 0 percent, 0 percent, 0 percent ; encounter rates: morn/day/nite
+	; morn
+	db 5, WOOPER
+	db 5, QUAGSIRE
+	db 5, HAUNTER
+	db 5, MAROWAK
+	db 5, MACHOP
+	db 5, GEODUDE
+	db 5, VOLTORB
+	; day
+	db 5, ONIX
+	db 5, RHYHORN
+	db 5, MACHOKE
+	db 5, GRAVELER
+	db 5, LICKITUNG
+	db 5, KANGASKHAN
+	db 5, LARVITAR
+	; nite
+	db 5, ZUBAT
+	db 5, GOLBAT
+	db 5, MUK
+	db 5, WOBBUFFET
+	db 5, WOBBUFFET
+	db 5, WOBBUFFET
+	db 5, WOBBUFFET
 
 	map_id MOUNT_MORTAR_1F_OUTSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
@@ -659,7 +713,7 @@ JohtoGrassWildMons:
 	db 30, RATICATE
 	db 28, MACHOP
 	db 30, GOLBAT
-	db 25, LARVITAR
+	db 30, GOLBAT
 	; day
 	db 31, GRAVELER
 	db 32, MACHOKE
@@ -667,7 +721,7 @@ JohtoGrassWildMons:
 	db 30, RATICATE
 	db 28, MACHOP
 	db 30, GOLBAT
-	db 25, LARVITAR
+	db 30, GOLBAT
 	; nite
 	db 31, GRAVELER
 	db 31, GEODUDE
@@ -675,7 +729,7 @@ JohtoGrassWildMons:
 	db 30, GOLBAT
 	db 28, MARILL
 	db 32, GOLBAT
-	db 25, LARVITAR
+	db 32, GOLBAT
 
 	map_id MOUNT_MORTAR_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
@@ -686,7 +740,7 @@ JohtoGrassWildMons:
 	db 16, MACHOP
 	db 16, GEODUDE
 	db 18, RATICATE
-	db 18, LARVITAR
+	db 18, RATICATE
 	; day
 	db 15, ZUBAT
 	db 17, ZUBAT
@@ -694,7 +748,7 @@ JohtoGrassWildMons:
 	db 16, MACHOP
 	db 16, GEODUDE
 	db 18, RATICATE
-	db 18, LARVITAR
+	db 18, RATICATE
 	; nite
 	db 15, ZUBAT
 	db 17, ZUBAT
@@ -702,7 +756,7 @@ JohtoGrassWildMons:
 	db 16, MARILL
 	db 16, GEODUDE
 	db 18, RATICATE
-	db 18, LARVITAR
+	db 18, RATICATE
 
 	map_id ICE_PATH_1F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite

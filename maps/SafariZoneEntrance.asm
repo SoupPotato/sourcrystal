@@ -122,6 +122,14 @@ SafariZoneEntranceOfficer_NotFirstTime:
 	closetext
 	end
 
+SafariZoneEntranceBaoboScript:
+	faceplayer
+	opentext
+	writetext SafariZoneEntranceBaobo_Text
+	waitbutton
+	closetext
+	end
+
 MovementData_Officer2:
 	step UP
 	step LEFT
@@ -257,6 +265,23 @@ SafariZoneEntranceMainOfficer_NotEnoughMoneyText:
 	line "have enough money."
 	done
 
+SafariZoneEntranceBaobo_Text:
+	text "Hello there!"
+	line "My name is Baoba!"
+
+	para "I'm the owner of"
+	line "this park."
+	
+	para "I used to run a"
+	line "SAFARI ZONE in"
+	cont "FUCHSIA CITY, but"
+	cont "I decided to ex-"
+	cont "pand the buisness"
+	cont "to JOHTO."
+	
+	para "I hope you enjoy"
+	line "your time here!"
+	done
 
 SafariZoneEntrance_MapEvents:
 	db 0, 0 ; filler
@@ -274,4 +299,4 @@ SafariZoneEntrance_MapEvents:
 	object_event  0,  6, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, PERSONTYPE_SCRIPT, 0, SafariZoneEntranceOfficerScript, -1
 	object_event  3,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, PERSONTYPE_SCRIPT, 0, SafariZoneEntranceMainOfficerScript, EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE
 	object_event  2,  1, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, PERSONTYPE_SCRIPT, 0, SafariZoneEntranceMainOfficerScript, EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_ACTIVE
-	object_event  8,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, PERSONTYPE_SCRIPT, 0, ObjectEvent, 0
+	object_event  8,  6, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, PERSONTYPE_SCRIPT, 0, SafariZoneEntranceBaoboScript, 0

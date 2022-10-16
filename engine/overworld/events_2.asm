@@ -186,13 +186,13 @@ CanUseSweetScent::
 	ret
 
 _TryWildEncounter_BugContest:
-	call TryWildEncounter_BugContestOrSafariZone
+	call TryWildEncounter_BugContest
 	ret nc
 	call ChooseWildEncounter_BugContest
 	farjp CheckRepelEffect
 
 _TryWildEncounter_SafariZone:
-	call TryWildEncounter_BugContestOrSafariZone
+	call TryWildEncounter_SafariZone
 	ret nc
 	call ChooseWildEncounter_SafariZone
 	farjp CheckRepelEffect
@@ -253,25 +253,23 @@ ChooseWildEncounter_BugContest::
 ChooseWildEncounter_SafariZone::
 
 .loop
-	call Random
-	cp 100 << 1
-	jr nc, .loop
-	srl a
-	
 	ld a, [wMapNumber]
 	cp MAP_SAFARI_ZONE_AREA_1
 	jr nz, .not_safari_zone_area_1
 	ld a, [wTimeOfDay]
 	cp MORN_F
 	jr nz, .not_morn_area_1
+	call .generate_random_mon
 	ld hl, SafariMonsArea1_Morn
-	jr .finish
+	jp .finish
 .not_morn_area_1
 	cp NITE_F
 	jr nz, .not_nite_area_1
+	call .generate_random_mon
 	ld hl, SafariMonsArea1_Nite
-	jr .finish
+	jp .finish
 .not_nite_area_1
+	call .generate_random_mon
 	ld hl, SafariMonsArea1
 	jr .finish
 
@@ -281,14 +279,17 @@ ChooseWildEncounter_SafariZone::
 	ld a, [wTimeOfDay]
 	cp MORN_F
 	jr nz, .not_morn_area_2
+	call .generate_random_mon
 	ld hl, SafariMonsArea2_Morn
 	jr .finish
 .not_morn_area_2
 	cp NITE_F
 	jr nz, .not_nite_area_2
+	call .generate_random_mon
 	ld hl, SafariMonsArea2_Nite
 	jr .finish
 .not_nite_area_2
+	call .generate_random_mon
 	ld hl, SafariMonsArea2
 	jr .finish
 
@@ -298,14 +299,17 @@ ChooseWildEncounter_SafariZone::
 	ld a, [wTimeOfDay]
 	cp MORN_F
 	jr nz, .not_morn_area_3
+	call .generate_random_mon
 	ld hl, SafariMonsArea3_Morn
 	jr .finish
 .not_morn_area_3
 	cp NITE_F
 	jr nz, .not_nite_area_3
+	call .generate_random_mon
 	ld hl, SafariMonsArea3_Nite
 	jr .finish
 .not_nite_area_3
+	call .generate_random_mon
 	ld hl, SafariMonsArea3
 	jr .finish
 
@@ -315,14 +319,17 @@ ChooseWildEncounter_SafariZone::
 	ld a, [wTimeOfDay]
 	cp MORN_F
 	jr nz, .not_morn_area_4
+	call .generate_random_mon
 	ld hl, SafariMonsArea4_Morn
 	jr .finish
 .not_morn_area_4
 	cp NITE_F
 	jr nz, .not_nite_area_4
+	call .generate_random_mon
 	ld hl, SafariMonsArea4_Nite
 	jr .finish
 .not_nite_area_4
+	call .generate_random_mon
 	ld hl, SafariMonsArea4
 	jr .finish
 
@@ -372,9 +379,16 @@ ChooseWildEncounter_SafariZone::
 	xor a
 	ret
 
+.generate_random_mon
+	call Random
+	cp 100 << 1
+	jp nc, .loop
+	srl a
+	ret
+
 INCLUDE "data/wild/safari_zone_mons.asm"
 
-TryWildEncounter_BugContestOrSafariZone:
+TryWildEncounter_BugContest:
 	ld a, [wPlayerStandingTile]
 	call CheckSuperTallGrassTile
 	ld b, 40 percent
@@ -382,6 +396,18 @@ TryWildEncounter_BugContestOrSafariZone:
 	ld b, 20 percent
 
 .ok
+	farcall ApplyMusicEffectOnEncounterRate
+	farcall ApplyCleanseTagEffectOnEncounterRate
+	call Random
+	ldh a, [hRandomAdd]
+	cp b
+	ret c
+	ld a, 1
+	and a
+	ret
+
+TryWildEncounter_SafariZone:
+	ld b, 40 percent
 	farcall ApplyMusicEffectOnEncounterRate
 	farcall ApplyCleanseTagEffectOnEncounterRate
 	call Random

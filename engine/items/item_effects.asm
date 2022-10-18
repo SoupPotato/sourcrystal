@@ -531,7 +531,6 @@ PokeBallEffect:
 	ld a, [wBattleType]
 	cp BATTLETYPE_CONTEST
 	jp z, .catch_bug_contest_mon
-	cp BATTLETYPE_CELEBI
 	jr nz, .not_celebi
 	ld hl, wBattleResult
 	set BATTLERESULT_CAUGHT_CELEBI, [hl]
@@ -671,11 +670,26 @@ PokeBallEffect:
 
 	call RotateThreePalettesRight
 	call LoadStandardFont
+	ld a, [wBattleType]
+	cp BATTLETYPE_SAFARI
+	jr z, .caught_safari_mon
+	cp BATTLETYPE_SAFARI_FISH
+	jr z, .caught_safari_mon
+	cp BATTLETYPE_SAFARI_TREE
+	jr z, .caught_safari_mon
+	cp BATTLETYPE_CELEBI
 	jr .return_from_capture
 
 .catch_bug_contest_mon
 	farcall BugContest_SetCaughtContestMon
 	jr .return_from_capture
+
+.caught_safari_mon
+	ld hl, wSafariBallsRemaining
+	dec [hl]
+	call ClearBGPalettes
+	call ClearTileMap
+	ret
 
 .FinishTutorial:
 	ld hl, Text_GotchaMonWasCaught
@@ -714,11 +728,10 @@ PokeBallEffect:
 	ret
 
 .used_safari_ball
-	call ClearBGPalettes
-	call ClearTileMap
 	ld hl, wSafariBallsRemaining
 	dec [hl]
 	ret
+
 
 
 BallMultiplierFunctionTable:

@@ -9,6 +9,7 @@ TreeMons:
 	dw TreeMonSet_Forest
 	dw TreeMonSet_Rock
 	dw TreeMonSet_BurnedTower
+	dw TreeMonSet_Safari
 	dw TreeMonSet_City
 
 ; Two tables each (common, rare).
@@ -122,6 +123,24 @@ TreeMonSet_Forest:
 	db 10, HOOTHOOT,   10
 	db  5, METAPOD,    10
 	db  5, KAKUNA,     10
+	db -1
+
+TreeMonSet_Safari:
+; common
+	db 50, HOOTHOOT,   15
+	db 15, PINECO,     15
+	db 15, PINECO,     15
+	db 10, EXEGGCUTE,  15
+	db  5, EXEGGCUTE,  15
+	db  5, EXEGGCUTE,  15
+	db -1
+; rare
+	db 50, HOOTHOOT,   15
+	db 15, PINECO,     15
+	db 15, AIPOM,      15
+	db 10, AIPOM,      15
+	db  5, SKARMORY,   15
+	db  5, SKARMORY,   15
 	db -1
 
 TreeMonSet_Rock:

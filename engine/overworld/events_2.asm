@@ -115,7 +115,7 @@ RandomEncounter::
 	jr .ok
 
 .bug_contest
-	call _TryWildEncounter_BugContest
+	call _TryWildEncounter_BugContestOrSafariZone
 	jr nc, .nope
 	jr .ok_bug_contest
 
@@ -123,14 +123,13 @@ RandomEncounter::
 	ld a, [wPlayerState]
 	cp PLAYER_SURF
 	jr z, .PlayerIsSurfing
-	call _TryWildEncounter_SafariZone
+	call _TryWildEncounter_BugContestOrSafariZone
 	jr nc, .nope
 	jr .ok_safari_zone
 
 .PlayerIsSurfing
 	farcall TryWildEncounter
-	jr nz, .nope
-	jr .ok_safari_zone
+	jr z, .ok_safari_zone
 
 .nope
 	ld a, 1
@@ -185,72 +184,14 @@ CanUseSweetScent::
 	and a
 	ret
 
-_TryWildEncounter_BugContest:
-	call TryWildEncounter_BugContest
+_TryWildEncounter_BugContestOrSafariZone:
+	call TryWildEncounter_BugContestOrSafariZone
 	ret nc
-	call ChooseWildEncounter_BugContest
+	call ChooseWildEncounter_BugContestOrSafariZone
 	farjp CheckRepelEffect
 
-_TryWildEncounter_SafariZone:
-	call TryWildEncounter_SafariZone
-	ret nc
-	call ChooseWildEncounter_SafariZone
-	farjp CheckRepelEffect
-
-ChooseWildEncounter_BugContest::
+ChooseWildEncounter_BugContestOrSafariZone::
 ; Pick a random mon out of ContestMons.
-
-.loop
-	call Random
-	cp 100 << 1
-	jr nc, .loop
-	srl a
-	
-	ld hl, ContestMons
-	ld de, 4
-.CheckMon:
-	sub [hl]
-	jr c, .GotMon
-	add hl, de
-	jr .CheckMon
-
-.GotMon:
-	inc hl
-
-; Species
-	ld a, [hli]
-	ld [wTempWildMonSpecies], a
-
-; Min level
-	ld a, [hli]
-	ld d, a
-
-; Max level
-	ld a, [hl]
-
-	sub d
-	jr nz, .RandomLevel
-
-; If min and max are the same.
-	ld a, d
-	jr .GotLevel
-
-.RandomLevel:
-; Get a random level between the min and max.
-	ld c, a
-	inc c
-	call Random
-	ldh a, [hRandomAdd]
-	call SimpleDivide
-	add d
-
-.GotLevel:
-	ld [wCurPartyLevel], a
-
-	xor a
-	ret
-
-ChooseWildEncounter_SafariZone::
 
 .loop
 	ld a, [wMapNumber]
@@ -334,6 +275,7 @@ ChooseWildEncounter_SafariZone::
 	jr .finish
 
 .not_safari_zone_area_4
+	call .generate_random_mon
 	ld hl, ContestMons
 .finish
 	ld de, 4
@@ -386,9 +328,10 @@ ChooseWildEncounter_SafariZone::
 	srl a
 	ret
 
-INCLUDE "data/wild/safari_zone_mons.asm"
-
-TryWildEncounter_BugContest:
+TryWildEncounter_BugContestOrSafariZone:
+	ld hl, wStatusFlags
+	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	jr nz, .safari_zone
 	ld a, [wPlayerStandingTile]
 	call CheckSuperTallGrassTile
 	ld b, 40 percent
@@ -406,20 +349,13 @@ TryWildEncounter_BugContest:
 	and a
 	ret
 
-TryWildEncounter_SafariZone:
+.safari_zone
 	ld b, 40 percent
-	farcall ApplyMusicEffectOnEncounterRate
-	farcall ApplyCleanseTagEffectOnEncounterRate
-	call Random
-	ldh a, [hRandomAdd]
-	cp b
-	ret c
-	ld a, 1
-	and a
-	ret
+	jr .ok
 
 
 INCLUDE "data/wild/bug_contest_mons.asm"
+INCLUDE "data/wild/safari_zone_mons.asm"
 
 
 DoBikeStep::

@@ -61,6 +61,8 @@ DoBattle:
 	jp z, SafariBattleTurn
 	cp BATTLETYPE_SAFARI_FISH
 	jp z, SafariBattleTurn
+	cp BATTLETYPE_SAFARI_TREE
+	jp z, SafariBattleTurn
 	xor a
 	ld [wCurPartyMon], a
 .loop2
@@ -3804,6 +3806,8 @@ TryToRunAwayFromBattle:
 	jp z, .can_escape
 	cp BATTLETYPE_SAFARI_FISH
 	jp z, .can_escape
+	cp BATTLETYPE_SAFARI_TREE
+	jp z, .can_escape
 	cp BATTLETYPE_TRAP
 	jp z, .cant_escape
 	cp BATTLETYPE_CELEBI
@@ -5004,6 +5008,8 @@ BattleMenu:
 	jr z, .ok
 	cp BATTLETYPE_SAFARI_FISH
 	jr z, .ok
+	cp BATTLETYPE_SAFARI_TREE
+	jr z, .ok
 	call EmptyBattleTextBox
 	call UpdateBattleHuds
 	call EmptyBattleTextBox
@@ -5015,6 +5021,8 @@ BattleMenu:
 	cp BATTLETYPE_SAFARI
 	jr z, .safari_game
 	cp BATTLETYPE_SAFARI_FISH
+	jr z, .safari_game
+	cp BATTLETYPE_SAFARI_TREE
 	jr z, .safari_game
 	cp BATTLETYPE_CONTEST
 	jr nz, .not_contest
@@ -5183,6 +5191,8 @@ BattleMenu_Pack:
 	jr z, .safari
 	cp BATTLETYPE_SAFARI_FISH
 	jr z, .safari
+	cp BATTLETYPE_SAFARI_TREE
+	jr z, .safari
 
 	farcall BattlePack
 	ld a, [wBattlePlayerAction]
@@ -5251,6 +5261,8 @@ BattleMenu_Pack:
 	jr z, .tutorial2
 	cp BATTLETYPE_SAFARI_FISH
 	jr z, .tutorial2
+	cp BATTLETYPE_SAFARI_TREE
+	jr z, .tutorial2
 	call GetBattleMonBackpic
 
 .tutorial2
@@ -5262,6 +5274,8 @@ BattleMenu_Pack:
 	cp BATTLETYPE_SAFARI
 	jr z, .skipUpdateBattleHUDs
 	cp BATTLETYPE_SAFARI_FISH
+	jr z, .skipUpdateBattleHUDs
+	cp BATTLETYPE_SAFARI_TREE
 	jr z, .skipUpdateBattleHUDs
 	call UpdateBattleHUDs
 .skipUpdateBattleHUDs
@@ -5288,6 +5302,8 @@ BattleMenu_PKMN:
 	cp BATTLETYPE_SAFARI
 	jp z, BattleMenu_Bait ; "PKMN" is replaced with "Bait" in Safari mode
 	cp BATTLETYPE_SAFARI_FISH
+	jp z, BattleMenu_Bait ; "PKMN" is replaced with "Bait" in Safari mode
+	cp BATTLETYPE_SAFARI_TREE
 	jp z, BattleMenu_Bait ; "PKMN" is replaced with "Bait" in Safari mode
 	call LoadStandardMenuHeader
 BattleMenuPKMN_ReturnFromStats:
@@ -6669,8 +6685,13 @@ CheckSleepingTreeMon:
 ; Don't do anything if this isn't a tree encounter
 	ld a, [wBattleType]
 	cp BATTLETYPE_TREE
+	jr nz, .check_safari_zone
+	jp .next
+.check_safari_zone
+	cp BATTLETYPE_SAFARI_TREE
 	jr nz, .NotSleeping
 
+.next
 ; Get list for the time of day
 	ld hl, AsleepTreeMonsMorn
 	ld a, [wTimeOfDay]
@@ -9317,7 +9338,7 @@ BattleStartMessage:
 
 	ld hl, WantToBattlePluralText
 	call IsPluralTrainer
-	jr z, .PlaceBattleStartText
+	jp z, .PlaceBattleStartText
 	ld hl, WantsToBattleText
 	jr .PlaceBattleStartText
 
@@ -9376,6 +9397,8 @@ BattleStartMessage:
 .NotFishingInSafari
 	ld hl, PokemonFellFromTreeText
 	cp BATTLETYPE_TREE
+	ld hl, PokemonFellFromTreeText
+	cp BATTLETYPE_SAFARI_TREE
 	jr z, .PlaceBattleStartText
 	ld hl, WildCelebiAppearedText
 	cp BATTLETYPE_CELEBI

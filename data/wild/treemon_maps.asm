@@ -41,6 +41,7 @@ TreeMonMaps:
 	treemon_map SILVER_CAVE_OUTSIDE,       TREEMON_SET_CITY
 	treemon_map ILEX_FOREST,               TREEMON_SET_FOREST
 	treemon_map VIRIDIAN_FOREST,           TREEMON_SET_FOREST
+	treemon_map SAFARI_ZONE_AREA_4,        TREEMON_SET_SAFARI
 	db -1
 
 RockMonMaps:

@@ -8,6 +8,14 @@ Route48_MapScripts:
 Route48Nugget:
 	itemball NUGGET
 
+Route48Sign:
+	jumptext Route48SignText
+
+Route48SignText:
+	text "ROUTE 48"
+	line "SAFARI ZONE AHEAD"
+	done
+
 Route48_MapEvents:
 	db 0, 0 ; filler
 
@@ -15,7 +23,8 @@ Route48_MapEvents:
 
 	db 0 ; coord events
 
-	db 0 ; bg events
+	db 1 ; bg events
+	bg_event 27,  9, BGEVENT_READ, Route48Sign
 
 	db 6 ; object events
 	object_event  4, 11, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route48Nugget, EVENT_ROUTE_48_NUGGET

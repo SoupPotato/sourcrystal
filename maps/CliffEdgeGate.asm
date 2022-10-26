@@ -13,11 +13,13 @@ CliffEdgeGateHiddenBigPearl:
 	hiddenitem BIG_PEARL, EVENT_CLIFF_EDGE_GATE_HIDDEN_BIG_PEARL
 
 CliffEdgeGateReceptionistText:
-	text "YELLOW FOREST is"
-	line "this way!"
+	text "The SAFARI ZONE"
+	line "is this way!"
 
 	para "It's a popular"
-	line "tourist sight!"
+	line "attraction for"
+	cont "tourists and"
+	cont "trainers alike!"
 	done
 
 CliffEdgeGate_MapEvents:

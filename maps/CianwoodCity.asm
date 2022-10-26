@@ -415,7 +415,7 @@ CianwoodPokeSeerSignText:
 
 CianwoodCliffEdgeGateSignText:
 	text "CLIFF EDGE GATE"
-	line "TO YELLOW FOREST"
+	line "TO SAFARI ZONE"
 	done
 
 CianwoodCity_MapEvents:

@@ -1506,31 +1506,34 @@ VoltorbEvosAttacks:
 	db EVOLVE_LEVEL, 30, ELECTRODE
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 6, SCREECH
-	db 10, SONICBOOM
-	db 15, SPARK
-	db 20, ROLLOUT
+	db 6, THUNDERSHOCK
+	db 9, SONICBOOM
+	db 14, SCREECH
+	db 17, ROLLOUT
+	db 22, SPARK
 	db 25, SELFDESTRUCT
-	db 29, LIGHT_SCREEN
-	db 34, SWIFT
+	db 30, LIGHT_SCREEN
+	db 33, SWIFT
 	db 38, THUNDERBOLT
-	db 43, EXPLOSION
-	db 47, MIRROR_COAT
+	db 41, EXPLOSION
+	db 46, MIRROR_COAT
 	db 0 ; no more level-up moves
 
 ElectrodeEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, SCREECH
+	db 1, THUNDERSHOCK
 	db 1, SONICBOOM
-	db 1, SPARK
-	db 10, SONICBOOM
-	db 15, SPARK
-	db 20, ROLLOUT
+	db 1, SCREECH
+	db 6, THUNDERSHOCK
+	db 9, SONICBOOM
+	db 14, SCREECH
+	db 17, ROLLOUT
+	db 22, SPARK
 	db 25, SELFDESTRUCT
-	db 29, LIGHT_SCREEN
-	db 35, SWIFT
-	db 42, THUNDERBOLT
+	db 33, LIGHT_SCREEN
+	db 37, SWIFT
+	db 44, THUNDERBOLT
 	db 48, EXPLOSION
 	db 55, MIRROR_COAT
 	db 0 ; no more level-up moves
@@ -2823,8 +2826,8 @@ PolitoedEvosAttacks:
 HoppipEvosAttacks:
 	db EVOLVE_LEVEL, 18, SKIPLOOM
 	db 0 ; no more evolutions
-	db 1, ABSORB
 	db 1, SPLASH
+	db 1, ABSORB
 	db 4, SYNTHESIS
 	db 7, TAIL_WHIP
 	db 10, TACKLE
@@ -2843,8 +2846,8 @@ HoppipEvosAttacks:
 SkiploomEvosAttacks:
 	db EVOLVE_LEVEL, 27, JUMPLUFF
 	db 0 ; no more evolutions
-	db 1, ABSORB
 	db 1, SPLASH
+	db 1, ABSORB
 	db 4, SYNTHESIS
 	db 7, TAIL_WHIP
 	db 10, TACKLE
@@ -2862,8 +2865,8 @@ SkiploomEvosAttacks:
 
 JumpluffEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, ABSORB
 	db 1, SPLASH
+	db 1, ABSORB
 	db 4, SYNTHESIS
 	db 7, TAIL_WHIP
 	db 10, TACKLE
@@ -2894,11 +2897,12 @@ AipomEvosAttacks:
 SunkernEvosAttacks:
 	db EVOLVE_ITEM, SUN_STONE, SUNFLORA
 	db 0 ; no more evolutions
-	db 1, ABSORB
-	db 4, GROWTH
+	db 1, TACKLE
+	db 1, GROWTH
+	db 4, ABSORB
 	db 10, MEGA_DRAIN
-	db 14, LEECH_SEED
-	db 19, RAZOR_LEAF
+	db 14, RAZOR_LEAF
+	db 19, LEECH_SEED
 	db 24, GIGA_DRAIN
 	db 29, SYNTHESIS
 	db 35, SOLARBEAM
@@ -2908,11 +2912,12 @@ SunkernEvosAttacks:
 
 SunfloraEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, ABSORB
-	db 4, GROWTH
+	db 1, TACKLE
+	db 1, GROWTH
+	db 4, ABSORB
 	db 10, MEGA_DRAIN
-	db 14, LEECH_SEED
-	db 19, RAZOR_LEAF
+	db 14, RAZOR_LEAF
+	db 19, LEECH_SEED
 	db 24, GIGA_DRAIN
 	db 29, PETAL_DANCE
 	db 35, SOLARBEAM
@@ -3006,10 +3011,11 @@ MurkrowEvosAttacks:
 	db 11, HAZE
 	db 15, WING_ATTACK
 	db 21, NIGHT_SHADE
-	db 25, FAINT_ATTACK
-	db 31, SWAGGER
-	db 35, DRILL_PECK
-	db 41, MEAN_LOOK
+	db 25, MEAN_LOOK
+	db 31, FAINT_ATTACK
+	db 35, SCREECH
+	db 41, DRILL_PECK
+	db 45, PERISH_SONG
 	db 0 ; no more level-up moves
 
 SlowkingEvosAttacks:
@@ -3035,11 +3041,13 @@ MisdreavusEvosAttacks:
 	db 1, PSYWAVE
 	db 6, SPITE
 	db 11, CONFUSE_RAY
-	db 17, MEAN_LOOK
-	db 23, PSYBEAM
-	db 30, PAIN_SPLIT
-	db 37, SHADOW_BALL
-	db 45, PERISH_SONG
+	db 15, MEAN_LOOK
+	db 20, NIGHT_SHADE
+	db 25, PSYBEAM
+	db 29, PAIN_SPLIT
+	db 34, CURSE
+	db 39, SHADOW_BALL
+	db 43, PERISH_SONG
 	db 0 ; no more level-up moves
 
 UnownEvosAttacks:
@@ -3076,31 +3084,35 @@ PinecoEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, PROTECT
-	db 7, SELFDESTRUCT
+	db 6, SELFDESTRUCT
+	db 9, ROLLOUT
 	db 12, TAKE_DOWN
-	db 16, RAPID_SPIN
+	db 17, RAPID_SPIN
 	db 20, BIDE
-	db 26, SPIKES
+	db 23, CURSE
+	db 28, SPIKES
 	db 31, PIN_MISSILE
-	db 36, EXPLOSION
-	db 40, ENDURE
-	db 45, DOUBLE_EDGE
+	db 34, EXPLOSION
+	db 39, ENDURE
+	db 42, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 ForretressEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, PROTECT
-	db 7, SELFDESTRUCT
+	db 6, SELFDESTRUCT
+	db 9, ROLLOUT
 	db 12, TAKE_DOWN
-	db 16, RAPID_SPIN
+	db 17, RAPID_SPIN
 	db 20, BIDE
-	db 26, SPIKES
-	db 33, PIN_MISSILE
-	db 38, EXPLOSION
-	db 44, ENDURE
-	db 50, DOUBLE_EDGE
-	db 56, ZAP_CANNON
+	db 23, CURSE
+	db 28, SPIKES
+	db 32, PIN_MISSILE
+	db 36, EXPLOSION
+	db 42, ENDURE
+	db 46, DOUBLE_EDGE
+	db 50, ZAP_CANNON
 	db 0 ; no more level-up moves
 
 DunsparceEvosAttacks:

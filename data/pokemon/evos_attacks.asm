@@ -348,8 +348,8 @@ EkansEvosAttacks:
 	db 7, POISON_STING
 	db 12, BITE
 	db 16, GLARE
-	db 21, SCREECH
-	db 25, ACID
+	db 21, ACID
+	db 25, SCREECH
 	db 30, SLAM
 	db 34, HAZE
 	db 39, SLUDGE_BOMB
@@ -364,9 +364,9 @@ ArbokEvosAttacks:
 	db 7, POISON_STING
 	db 12, BITE
 	db 16, GLARE
-	db 21, SCREECH
+	db 21, ACID
 	db 22, CRUNCH
-	db 28, ACID
+	db 28, SCREECH
 	db 34, SLAM
 	db 39, HAZE
 	db 45, SLUDGE_BOMB
@@ -1978,17 +1978,18 @@ MagikarpEvosAttacks:
 
 GyaradosEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, TACKLE
 	db 1, BITE
-	db 1, THRASH
 	db 20, BITE
-	db 24, DRAGON_RAGE
-	db 28, LEER
-	db 32, TWISTER
-	db 36, SCARY_FACE
-	db 40, CRUNCH
+	db 23, LEER
+	db 27, DRAGON_RAGE
+	db 30, TWISTER
+	db 34, SCARY_FACE
+	db 37, CRUNCH
+	db 41 ,RAIN_DANCE
 	db 44, HYDRO_PUMP
-	db 48, RAIN_DANCE
-	db 52, HYPER_BEAM
+	db 48, THRASH
+	db 51, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 LaprasEvosAttacks:

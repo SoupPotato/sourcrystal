@@ -19,6 +19,7 @@ ObjectActionPairPointers:
 	dw SetFacingBoulderDust,           SetFacingStanding
 	dw SetFacingGrassShake,            SetFacingStanding
 	dw SetFacingSkyfall,               SetFacingCurrent
+	dw SetFacingRunAction,             SetFacingCurrent
 	assert_table_length NUM_OBJECT_ACTIONS
 
 SetFacingStanding:
@@ -51,49 +52,11 @@ SetFacingStepAction:
 
 	ld hl, OBJECT_STEP_FRAME
 	add hl, bc
+	inc [hl]
 	ld a, [hl]
-	inc a
-	and %00001111
-	ld [hl], a
-	ld e, a
-	ld hl, OBJECT_FACING
-	add hl, bc
-	ld d, [hl]
-	ld hl, OBJECT_WALKING
-	add hl, bc
-	ld a, [hl]
-	cp -1
-	jr z, .bitTwoAndThree
-	cp (STEP_SLOW << 2 | RIGHT) + 1
-	jr c, .slowStep
-	cp (3 << 2 | DOWN)
-	jr nc, .runningStep
-; walking speed
-	ld a, e
-	and %111
-	jr nz, .continue
-	inc d
-	jr .continue
-.slowStep
-	ld a, e
-	and %1111
-	jr nz, .continue
-	inc d
-	jr .continue
-.runningStep
-	ld a, e
-	and %11
-	jr nz, .continue
-	inc d
-	jr .continue
-.bitTwoAndThree
-	ld a, e
 	rrca
 	rrca
-	ld d, a
-
-.continue
-	ld a, d
+	rrca
 	and %11
 	ld d, a
 	call GetSpriteDirection
@@ -328,5 +291,26 @@ SetFacingGrassShake:
 	inc a ; FACING_GRASS_2
 
 .ok
+	ld [hl], a
+	ret
+
+SetFacingRunAction:
+	ld hl, OBJECT_FLAGS1
+	add hl, bc
+	bit SLIDING_F, [hl]
+	jp nz, SetFacingCurrent
+
+	ld hl, OBJECT_STEP_FRAME
+	add hl, bc
+	inc [hl]
+	ld a, [hl]
+	rrca
+	rrca
+	and %11
+	ld d, a
+	call GetSpriteDirection
+	or d
+	ld hl, OBJECT_FACING
+	add hl, bc
 	ld [hl], a
 	ret

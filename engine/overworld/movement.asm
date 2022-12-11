@@ -200,7 +200,7 @@ Movement_step_loop:
 	jp ContinueReadingMovement
 
 Movement_step_end:
-	call RestoreDefaultMovement
+	jp Movement_48
 	ld hl, OBJECT_MOVEMENT_TYPE
 	add hl, bc
 	ld [hl], a
@@ -445,67 +445,72 @@ TurnHead:
 
 Movement_slow_step_down:
 	ld a, STEP_SLOW << 2 | DOWN
-	jp NormalStep
+	jp Movement_do_step
 
 Movement_slow_step_up:
 	ld a, STEP_SLOW << 2 | UP
-	jp NormalStep
+	jp Movement_do_step
 
 Movement_slow_step_left:
 	ld a, STEP_SLOW << 2 | LEFT
-	jp NormalStep
+	jp Movement_do_step
 
 Movement_slow_step_right:
 	ld a, STEP_SLOW << 2 | RIGHT
-	jp NormalStep
+	jp Movement_do_step
 
 Movement_step_down:
 	ld a, STEP_WALK << 2 | DOWN
-	jp NormalStep
+	jp Movement_do_step
 
 Movement_step_up:
 	ld a, STEP_WALK << 2 | UP
-	jp NormalStep
+	jp Movement_do_step
 
 Movement_step_left:
 	ld a, STEP_WALK << 2 | LEFT
-	jp NormalStep
+	jp Movement_do_step
 
 Movement_step_right:
 	ld a, STEP_WALK << 2 | RIGHT
-	jp NormalStep
+	jp Movement_do_step
 
 Movement_big_step_down:
 	ld a, STEP_BIKE << 2 | DOWN
-	jp NormalStep
+	jp Movement_do_step
 
 Movement_big_step_up:
 	ld a, STEP_BIKE << 2 | UP
-	jp NormalStep
+	jp Movement_do_step
 
 Movement_big_step_left:
 	ld a, STEP_BIKE << 2 | LEFT
-	jp NormalStep
+	jp Movement_do_step
 
 Movement_big_step_right:
 	ld a, STEP_BIKE << 2 | RIGHT
+Movement_do_step:
+	ld d, OBJECT_ACTION_STEP
+Movement_normal_step:
 	jp NormalStep
 
 Movement_run_step_down:
 	ld a, $3 << 2 | DOWN  ; STEP_RUN
-	jp NormalStep
+	jp Movement_do_run
 
 Movement_run_step_up:
 	ld a, $3 << 2 | UP    ; STEP_RUN
-	jp NormalStep
+	jp Movement_do_run
 
 Movement_run_step_left:
 	ld a, $3 << 2 | LEFT  ; STEP_RUN
-	jp NormalStep
+	jp Movement_do_run
 
 Movement_run_step_right:
 	ld a, $3 << 2 | RIGHT ; STEP_RUN
-	jp NormalStep
+Movement_do_run:
+	ld d, OBJECT_ACTION_RUN
+	jr Movement_normal_step
 
 Movement_turn_away_down:
 	ld a, STEP_SLOW << 2 | DOWN
@@ -682,11 +687,13 @@ TurnStep:
 	ret
 
 NormalStep:
+	push de
 	call InitStep
 	call UpdateTallGrassFlags
 	ld hl, OBJECT_ACTION
 	add hl, bc
-	ld [hl], OBJECT_ACTION_STEP
+	pop de
+	ld [hl], d
 
 	ld hl, OBJECT_TILE
 	add hl, bc

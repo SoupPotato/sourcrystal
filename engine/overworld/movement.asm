@@ -200,7 +200,7 @@ Movement_step_loop:
 	jp ContinueReadingMovement
 
 Movement_step_end:
-	jp Movement_48
+	call RestoreDefaultMovement
 	ld hl, OBJECT_MOVEMENT_TYPE
 	add hl, bc
 	ld [hl], a

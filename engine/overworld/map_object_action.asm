@@ -147,7 +147,7 @@ CounterclockwiseSpinAction:
 	inc a
 	and %00001111
 	ld d, a
-	cp 4
+	cp 2
 	jr c, .ok
 
 	ld d, 0

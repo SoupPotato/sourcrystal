@@ -2609,12 +2609,14 @@ ChinchouEvosAttacks:
 	db 1, BUBBLE
 	db 1, SUPERSONIC
 	db 6, THUNDER_WAVE
-	db 12, WATER_GUN
-	db 17, CONFUSE_RAY
+	db 10, THUNDERSHOCK
+	db 14, WATER_GUN
+	db 19, CONFUSE_RAY
 	db 23, SPARK
-	db 28, BUBBLEBEAM
-	db 34, FLAIL
-	db 39, TAKE_DOWN
+	db 27, BUBBLEBEAM
+	db 32, FLAIL
+	db 36, TAKE_DOWN
+	db 40, THUNDERBOLT
 	db 45, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -2622,15 +2624,16 @@ LanturnEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BUBBLE
 	db 1, SUPERSONIC
-	db 1, THUNDER_WAVE
 	db 6, THUNDER_WAVE
-	db 12, WATER_GUN
-	db 17, CONFUSE_RAY
+	db 10, THUNDERSHOCK
+	db 14, WATER_GUN
+	db 19, CONFUSE_RAY
 	db 23, SPARK
-	db 30, BUBBLEBEAM
-	db 36, FLAIL
-	db 43, TAKE_DOWN
-	db 50, HYDRO_PUMP
+	db 29, BUBBLEBEAM
+	db 35, FLAIL
+	db 41, TAKE_DOWN
+	db 47, THUNDERBOLT
+	db 53, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 PichuEvosAttacks:
@@ -2832,15 +2835,15 @@ HoppipEvosAttacks:
 	db 4, SYNTHESIS
 	db 7, TAIL_WHIP
 	db 10, TACKLE
-	db 12, POISONPOWDER
-	db 14, STUN_SPORE
-	db 16, SLEEP_POWDER
-	db 19, GUST
-	db 22, LEECH_SEED
-	db 25, MEGA_DRAIN
-	db 28, COTTON_SPORE
-	db 31, AMNESIA
-	db 34, GIGA_DRAIN
+	db 13, POISONPOWDER
+	db 13, STUN_SPORE
+	db 13, SLEEP_POWDER
+	db 17, GUST
+	db 20, LEECH_SEED
+	db 23, MEGA_DRAIN
+	db 27, COTTON_SPORE
+	db 30, AMNESIA
+	db 33, GIGA_DRAIN
 	db 37, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
@@ -2852,16 +2855,16 @@ SkiploomEvosAttacks:
 	db 4, SYNTHESIS
 	db 7, TAIL_WHIP
 	db 10, TACKLE
-	db 12, POISONPOWDER
-	db 14, STUN_SPORE
-	db 16, SLEEP_POWDER
-	db 20, GUST
-	db 24, LEECH_SEED
-	db 28, MEGA_DRAIN
-	db 32, COTTON_SPORE
-	db 36, AMNESIA
-	db 40, GIGA_DRAIN
-	db 44, DOUBLE_EDGE
+	db 13, POISONPOWDER
+	db 13, STUN_SPORE
+	db 13, SLEEP_POWDER
+	db 17, GUST
+	db 21, LEECH_SEED
+	db 26, MEGA_DRAIN
+	db 30, COTTON_SPORE
+	db 34, AMNESIA
+	db 39, GIGA_DRAIN
+	db 43, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 JumpluffEvosAttacks:
@@ -2871,15 +2874,15 @@ JumpluffEvosAttacks:
 	db 4, SYNTHESIS
 	db 7, TAIL_WHIP
 	db 10, TACKLE
-	db 12, POISONPOWDER
-	db 14, STUN_SPORE
-	db 16, SLEEP_POWDER
-	db 20, GUST
-	db 24, LEECH_SEED
-	db 29, MEGA_DRAIN
-	db 34, COTTON_SPORE
-	db 39, AMNESIA
-	db 44, GIGA_DRAIN
+	db 13, POISONPOWDER
+	db 13, STUN_SPORE
+	db 13, SLEEP_POWDER
+	db 17, GUST
+	db 21, LEECH_SEED
+	db 25, MEGA_DRAIN
+	db 31, COTTON_SPORE
+	db 37, AMNESIA
+	db 43, GIGA_DRAIN
 	db 49, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 

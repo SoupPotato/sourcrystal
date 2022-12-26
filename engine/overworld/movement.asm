@@ -476,19 +476,19 @@ Movement_step_right:
 	jp Movement_do_step
 
 Movement_big_step_down:
-	ld a, STEP_BIKE << 2 | DOWN
+	ld a, $3 << 2 | DOWN  ; STEP_RUN
 	jp Movement_do_step
 
 Movement_big_step_up:
-	ld a, STEP_BIKE << 2 | UP
+	ld a, $3 << 2 | UP    ; STEP_RUN
 	jp Movement_do_step
 
 Movement_big_step_left:
-	ld a, STEP_BIKE << 2 | LEFT
+	ld a, $3 << 2 | LEFT  ; STEP_RUN
 	jp Movement_do_step
 
 Movement_big_step_right:
-	ld a, STEP_BIKE << 2 | RIGHT
+	ld a, $3 << 2 | RIGHT ; STEP_RUN
 Movement_do_step:
 	ld d, OBJECT_ACTION_STEP
 Movement_normal_step:
@@ -545,19 +545,19 @@ Movement_turn_in_right:
 	jp TurningStep
 
 Movement_turn_waterfall_down:
-	ld a, STEP_BIKE << 2 | DOWN
+	ld a, $3 << 2 | DOWN  ; STEP_RUN
 	jp TurningStep
 
 Movement_turn_waterfall_up:
-	ld a, STEP_BIKE << 2 | UP
+	ld a, $3 << 2 | UP    ; STEP_RUN
 	jp TurningStep
 
 Movement_turn_waterfall_left:
-	ld a, STEP_BIKE << 2 | LEFT
+	ld a, $3 << 2 | LEFT  ; STEP_RUN
 	jp TurningStep
 
 Movement_turn_waterfall_right:
-	ld a, STEP_BIKE << 2 | RIGHT
+	ld a, $3 << 2 | RIGHT ; STEP_RUN
 	jp TurningStep
 
 Movement_slow_slide_step_down:
@@ -593,19 +593,19 @@ Movement_slide_step_right:
 	jp SlideStep
 
 Movement_fast_slide_step_down:
-	ld a, STEP_BIKE << 2 | DOWN
+	ld a, $3 << 2 | DOWN  ; STEP_RUN
 	jp SlideStep
 
 Movement_fast_slide_step_up:
-	ld a, STEP_BIKE << 2 | UP
+	ld a, $3 << 2 | UP    ; STEP_RUN
 	jp SlideStep
 
 Movement_fast_slide_step_left:
-	ld a, STEP_BIKE << 2 | LEFT
+	ld a, $3 << 2 | LEFT  ; STEP_RUN
 	jp SlideStep
 
 Movement_fast_slide_step_right:
-	ld a, STEP_BIKE << 2 | RIGHT
+	ld a, $3 << 2 | RIGHT ; STEP_RUN
 	jp SlideStep
 
 Movement_slow_jump_step_down:
@@ -641,19 +641,19 @@ Movement_jump_step_right:
 	jp JumpStep
 
 Movement_fast_jump_step_down:
-	ld a, STEP_BIKE << 2 | DOWN
+	ld a, $3 << 2 | DOWN  ; STEP_RUN
 	jp JumpStep
 
 Movement_fast_jump_step_up:
-	ld a, STEP_BIKE << 2 | UP
+	ld a, $3 << 2 | UP    ; STEP_RUN
 	jp JumpStep
 
 Movement_fast_jump_step_left:
-	ld a, STEP_BIKE << 2 | LEFT
+	ld a, $3 << 2 | LEFT  ; STEP_RUN
 	jp JumpStep
 
 Movement_fast_jump_step_right:
-	ld a, STEP_BIKE << 2 | RIGHT
+	ld a, $3 << 2 | RIGHT ; STEP_RUN
 	jp JumpStep
 
 Movement_turn_step_down:

@@ -293,6 +293,7 @@ DEF NUM_OBJECT_ACTIONS EQU const_value
 DEF NUM_FACINGS EQU const_value
 
 ; DoPlayerMovement.DoStep arguments (see engine/overworld/player_movement.asm)
+; TODO: fix STEP_RUN constant to have a value of $3
 	const_def
 	const STEP_SLOW          ; 0
 	const STEP_WALK          ; 1

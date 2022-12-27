@@ -1305,15 +1305,24 @@ LoadMapPals:
 	ldh [rSVBK], a
 
 .got_pals
-	ld a, [wTimeOfDayPal]
-	maskbits NUM_DAYTIMES
-	ld bc, 8 palettes
-	ld hl, MapObjectPals
-	call AddNTimes
-	ld de, wOBPals1
-	ld bc, 8 palettes
+	ldh a, [rSVBK]
+	push af
 	ld a, BANK(wOBPals1)
-	call FarCopyWRAM
+	ldh [rSVBK], a
+	ld hl, wOBPals1
+	ld bc, 8 palettes
+	ld a, $ff
+	call ByteFill
+	ld hl, wOBPals2
+	ld bc, 8 palettes
+	ld a, $ff
+	call ByteFill
+	pop af
+	ldh [rSVBK], a
+	farcall ClearSavedObjPals
+	ld hl, wPalFlags
+	set NO_DYN_PAL_APPLY_F, [hl]
+	farcall CheckForUsedObjPals
 
 	farcall LoadSpecialMapOBPalette
 	farcall LoadSpecialNPCPalette
@@ -1440,9 +1449,6 @@ BillsPC_WhitePalette:
 TilesetBGPalette:
 INCLUDE "gfx/tilesets/bg_tiles.pal"
 
-MapObjectPals::
-INCLUDE "gfx/overworld/npc_sprites.pal"
-
 RoofPals:
 	table_width PAL_COLOR_SIZE * 3 * 2, RoofPals
 INCLUDE "gfx/tilesets/roofs.pal"
@@ -1453,9 +1459,6 @@ INCLUDE "gfx/diploma/diploma.pal"
 
 PartyMenuOBPals:
 INCLUDE "gfx/stats/party_menu_ob.pal"
-
-UnusedBattleObjectPals: ; unreferenced
-INCLUDE "gfx/battle_anims/unused_battle_anims.pal"
 
 UnusedGSTitleBGPals:
 INCLUDE "gfx/title/unused_gs_bg.pal"

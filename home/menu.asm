@@ -70,6 +70,7 @@ PushWindow::
 ExitMenu::
 	push af
 	callfar _ExitMenu
+	farcall ClearSavedObjPals
 	pop af
 	ret
 

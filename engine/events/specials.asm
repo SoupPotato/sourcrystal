@@ -20,8 +20,8 @@ UnusedDummySpecial:
 
 SetPlayerPalette:
 	ld a, [wScriptVar]
-	ld d, a
-	farcall _SetPlayerPalette
+	ld [wPlayerPalIndex], a
+	farcall CheckForUsedObjPals
 	ret
 
 GameCornerPrizeMonCheckDex:

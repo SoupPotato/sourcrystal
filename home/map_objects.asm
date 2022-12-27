@@ -227,11 +227,6 @@ CheckObjectVisibility::
 	ret
 
 CheckObjectTime::
-	ld hl, MAPOBJECT_HOUR_1
-	add hl, bc
-	ld a, [hl]
-	cp -1
-	jr nz, .check_hour
 	ld hl, MAPOBJECT_TIMEOFDAY
 	add hl, bc
 	ld a, [hl]
@@ -263,43 +258,6 @@ CheckObjectTime::
 	db DAY
 	db NITE
 	db EVE
-
-.check_hour
-	ld hl, MAPOBJECT_HOUR_1
-	add hl, bc
-	ld d, [hl]
-	ld hl, MAPOBJECT_HOUR_2
-	add hl, bc
-	ld e, [hl]
-	ld hl, hHours
-	ld a, d
-	cp e
-	jr z, .yes
-	jr c, .check_timeofday
-	ld a, [hl]
-	cp d
-	jr nc, .yes
-	cp e
-	jr c, .yes
-	jr z, .yes
-	jr .no
-
-.check_timeofday
-	ld a, e
-	cp [hl]
-	jr c, .no
-	ld a, [hl]
-	cp d
-	jr nc, .yes
-	jr .no
-
-.yes
-	and a
-	ret
-
-.no
-	scf
-	ret
 
 UnmaskCopyMapObjectStruct::
 	ldh [hMapObjectIndex], a

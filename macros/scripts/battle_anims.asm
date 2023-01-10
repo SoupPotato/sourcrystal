@@ -171,14 +171,18 @@ anim_minimize: MACRO
 	db anim_minimize_command
 ENDM
 
-	enum anim_0xea_command ; $ea
-anim_0xea: MACRO
-	db anim_0xea_command
+	enum anim_setbgpal_command ; ea
+MACRO anim_setbgpal
+	db anim_setbgpal_command
+	db \1 ; pal index to set (0-7)
+	db \2 ; battle pal
 ENDM
 
-	enum anim_0xeb_command ; $eb
-anim_0xeb: MACRO
-	db anim_0xeb_command
+	enum anim_setobjpal_command ; eb
+MACRO anim_setobjpal
+	db anim_setobjpal_command
+	db \1 ; pal index to set (0-7)
+	db \2 ; battle pal
 ENDM
 
 	enum anim_0xec_command ; $ec

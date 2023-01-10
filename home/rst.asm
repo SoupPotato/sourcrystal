@@ -15,6 +15,13 @@ SECTION "rst10", ROM0 ; rst Bankswitch
 SECTION "rst18", ROM0
 	rst $38
 
+SwapHLDE::
+	push de
+	ld d, h
+	ld e, l
+	pop hl
+	ret
+
 SECTION "rst20", ROM0
 	rst $38
 

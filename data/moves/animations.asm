@@ -2327,7 +2327,6 @@ BattleAnim_Twineedle:
 BattleAnim_PinMissile:
 	anim_2gfx ANIM_GFX_HORN, ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_RAZOR_WIND
-.loop
 	anim_obj ANIM_OBJ_MEDIUM_HORN, 64, 92, $28
 	anim_wait 12
 	anim_obj ANIM_OBJ_MEDIUM_HORN, 56, 84, $28
@@ -2340,7 +2339,6 @@ BattleAnim_PinMissile:
 	anim_wait 12
 	anim_sound 0, 1, SFX_POISON_STING
 	anim_obj ANIM_OBJ_04, 132, 52, $0
-	anim_loop 2, .loop
 	anim_wait 16
 	anim_ret
 
@@ -2348,19 +2346,22 @@ BattleAnim_SpikeCannon:
 	anim_2gfx ANIM_GFX_HORN, ANIM_GFX_HIT
 	anim_sound 0, 1, SFX_MEGA_PUNCH
 .loop
+	anim_obj ANIM_OBJ_MEDIUM_HORN, 52, 88, $18
+	anim_wait 12
 	anim_obj ANIM_OBJ_MEDIUM_HORN, 64, 92, $18
+	anim_sound 0, 1, SFX_DOUBLE_KICK
+	anim_obj ANIM_OBJ_04, 130, 50, $0
 	anim_wait 12
 	anim_obj ANIM_OBJ_MEDIUM_HORN, 56, 84, $18
 	anim_sound 0, 1, SFX_DOUBLE_KICK
 	anim_obj ANIM_OBJ_04, 136, 56, $0
 	anim_wait 12
-	anim_obj ANIM_OBJ_MEDIUM_HORN, 52, 88, $18
+	anim_obj ANIM_OBJ_MEDIUM_HORN, 60, 96, $18
 	anim_sound 0, 1, SFX_DOUBLE_KICK
 	anim_obj ANIM_OBJ_04, 128, 48, $0
 	anim_wait 12
 	anim_sound 0, 1, SFX_DOUBLE_KICK
-	anim_obj ANIM_OBJ_04, 132, 52, $0
-	anim_loop 2, .loop
+	anim_obj ANIM_OBJ_04, 137, 57, $0
 	anim_wait 16
 	anim_ret
 

@@ -217,12 +217,11 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const ANIM_OBJ_ENEMYFEETFOLLOW
 	const ANIM_OBJ_PLAYERHEADFOLLOW
 	const ANIM_OBJ_ENEMYHEADFOLLOW
-	const ANIM_OBJ_LEECH_LIFE
-	const ANIM_OBJ_DREAM_EATER
 	const ANIM_OBJ_MINIMIZE
 	const ANIM_OBJ_MEDIUM_HORN
 	const ANIM_OBJ_SAFARI_ROCK
 	const ANIM_OBJ_SAFARI_BAIT
+	const ANIM_OBJ_RISING_BUBBLE
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
 	const_def
@@ -496,6 +495,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const BATTLEANIMFRAMESET_B8
 	const BATTLEANIMFRAMESET_B9
 	const BATTLEANIMFRAMESET_BA
+	const BATTLEANIMFRAMESET_BB
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
 	const_def
@@ -860,6 +860,9 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const PAL_BTLCUSTOM_PURPLE   ; 6
 	const PAL_BTLCUSTOM_ICE      ; 7
 	const PAL_BTLCUSTOM_FIRE     ; 8
+	const PAL_BTLCUSTOM_GLOBE    ; 9
+	const PAL_BTLCUSTOM_WATER    ; a
+	const PAL_BTLCUSTOM_BUBBLE   ; b
 NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 
 PAL_BTLCUSTOM_DEFAULT EQU -1

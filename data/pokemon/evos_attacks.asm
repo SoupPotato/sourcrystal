@@ -637,10 +637,12 @@ GloomEvosAttacks:
 
 VileplumeEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, ABSORB
+	db 1, MEGA_DRAIN
 	db 1, SWEET_SCENT
 	db 1, STUN_SPORE
-	db 1, PETAL_DANCE
+	db 1, POISONPOWDER
+	db 50, PETAL_DANCE
+	db 60, SOLARBEAM
 	db 0 ; no more level-up moves
 
 ParasEvosAttacks:
@@ -2716,12 +2718,12 @@ AmpharosEvosAttacks:
 
 BellossomEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, ABSORB
+	db 1, MEGA_DRAIN
 	db 1, SWEET_SCENT
 	db 1, STUN_SPORE
-	db 1, PETAL_DANCE
-	db 47, PETAL_DANCE
-	db 55, SOLARBEAM
+	db 1, SLEEP_POWDER
+	db 50, PETAL_DANCE
+	db 60, SOLARBEAM
 	db 0 ; no more level-up moves
 
 MarillEvosAttacks:

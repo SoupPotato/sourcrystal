@@ -851,18 +851,20 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 ; custom bg/obj palettes (see gfx/battle_anims/custom.pal)
 ; the first 6 matches PAL_BATTLE_OB_GRAY/YELLOW/...
 	const_def
-	const PAL_BTLCUSTOM_GRAY     ; 0
-	const PAL_BTLCUSTOM_YELLOW   ; 1
-	const PAL_BTLCUSTOM_RED      ; 2
-	const PAL_BTLCUSTOM_GREEN    ; 3
-	const PAL_BTLCUSTOM_BLUE     ; 4
-	const PAL_BTLCUSTOM_BROWN    ; 5
-	const PAL_BTLCUSTOM_PURPLE   ; 6
-	const PAL_BTLCUSTOM_ICE      ; 7
-	const PAL_BTLCUSTOM_FIRE     ; 8
-	const PAL_BTLCUSTOM_GLOBE    ; 9
-	const PAL_BTLCUSTOM_WATER    ; a
-	const PAL_BTLCUSTOM_BUBBLE   ; b
+	const PAL_BTLCUSTOM_GRAY            ; 0
+	const PAL_BTLCUSTOM_YELLOW          ; 1
+	const PAL_BTLCUSTOM_RED             ; 2
+	const PAL_BTLCUSTOM_GREEN           ; 3
+	const PAL_BTLCUSTOM_BLUE            ; 4
+	const PAL_BTLCUSTOM_BROWN           ; 5
+	const PAL_BTLCUSTOM_PURPLE          ; 6
+	const PAL_BTLCUSTOM_ICE             ; 7
+	const PAL_BTLCUSTOM_FIRE            ; 8
+	const PAL_BTLCUSTOM_GLOBE           ; 9
+	const PAL_BTLCUSTOM_WATER           ; a
+	const PAL_BTLCUSTOM_BUBBLE          ; b
+	const PAL_BTLCUSTOM_DRAGONBREATH    ; c
+	const PAL_BTLCUSTOM_DRAGON_RAGE     ; d
 NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 
 PAL_BTLCUSTOM_DEFAULT EQU -1

@@ -814,6 +814,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const ANIM_GFX_ANGELS
 	const ANIM_GFX_MISC_2
 	const ANIM_GFX_AEROBLAST
+	const ANIM_GFX_BEAM_LIGHT
 
 ; battle_bg_effect struct members (see macros/wram.asm)
 	const_def
@@ -865,6 +866,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const PAL_BTLCUSTOM_BUBBLE          ; b
 	const PAL_BTLCUSTOM_DRAGONBREATH    ; c
 	const PAL_BTLCUSTOM_DRAGON_RAGE     ; d
+	const PAL_BTLCUSTOM_AURORA          ; e
 NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 
 PAL_BTLCUSTOM_DEFAULT EQU -1

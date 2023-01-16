@@ -47,5 +47,5 @@ AnimObjGFX:
 	anim_obj_gfx  2, AnimObjMisc2GFX
 	anim_obj_gfx 24, AnimObjAeroblastGFX
 	anim_obj_gfx 10, AnimObjBeamLightGFX
-	anim_obj_gfx  1, NULL
-	anim_obj_gfx  1, NULL
+	anim_obj_gfx  1, NULL ; ANIM_GFX_PLAYERHEAD
+	anim_obj_gfx  1, NULL ; ANIM_GFX_ENEMYFEET

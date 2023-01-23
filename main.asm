@@ -138,6 +138,12 @@ DudeBackpic:
 INCBIN "gfx/battle/dude.2bpp.lz"
 
 
+
+SECTION "Own Section", ROMX
+
+INCLUDE "engine/battle/swarm_shiny.asm"
+
+
 SECTION "bankB", ROMX
 
 INCLUDE "engine/battle/trainer_huds.asm"

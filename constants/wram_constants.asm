@@ -252,7 +252,7 @@ CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const_def
 	const DAILYFLAGS_KURT_MAKING_BALLS_F             ; 0
 	const DAILYFLAGS_BUG_CONTEST_F                   ; 1
-	const DAILYFLAGS_FISH_SWARM_F                    ; 2
+	const DAILYFLAGS_SWARM_F                         ; 2
 	const DAILYFLAGS_TIME_CAPSULE_F                  ; 3
 	const DAILYFLAGS_ALL_FRUIT_TREES_F               ; 4
 	const DAILYFLAGS_GOT_SHUCKIE_TODAY_F             ; 5

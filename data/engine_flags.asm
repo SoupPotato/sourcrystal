@@ -117,7 +117,7 @@ EngineFlags:
 
 	engine_flag wDailyFlags, DAILYFLAGS_KURT_MAKING_BALLS_F ; $50
 	engine_flag wDailyFlags, DAILYFLAGS_BUG_CONTEST_F
-	engine_flag wDailyFlags, DAILYFLAGS_FISH_SWARM_F
+	engine_flag wDailyFlags, DAILYFLAGS_SWARM_F
 	engine_flag wDailyFlags, DAILYFLAGS_TIME_CAPSULE_F
 	engine_flag wDailyFlags, DAILYFLAGS_ALL_FRUIT_TREES_F
 	engine_flag wDailyFlags, DAILYFLAGS_GOT_SHUCKIE_TODAY_F

@@ -528,3 +528,4 @@ ENDM
 	newgroup                                                      ; 28
 
 	map_const SAFARI_ZONE_AREA_3,                          21, 17 ;  1
+	map_const GOLDENROD_SWARM_SPEECH_HOUSE,                 4,  4 ;  2

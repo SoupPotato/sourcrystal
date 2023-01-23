@@ -753,11 +753,6 @@ Script_fruittree:
 	jp ScriptJump
 
 Script_swarm:
-; script command 0xa0
-; parameters: flag, map_group, map_id
-
-	call GetScriptByte
-	ld c, a
 	call GetScriptByte
 	ld d, a
 	call GetScriptByte

@@ -289,25 +289,35 @@ UnusedCheckUnusedTwoDayTimer:
 ActivateFishingSwarm:
 	ld a, [wScriptVar]
 	ld [wFishingSwarmFlag], a
-	ret
+	jr SetSwarmFlag
 
 
 StoreSwarmMapIndices::
-	ld a, c
-	and a
-	jr nz, .yanma
-; swarm dark cave violet entrance
 	ld a, d
-	ld [wDunsparceMapGroup], a
+	ld [wSwarmMapGroup], a
 	ld a, e
-	ld [wDunsparceMapNumber], a
+	ld [wSwarmMapNumber], a
+
+SetSwarmFlag:
+	ld hl, wDailyFlags
+	set DAILYFLAGS_SWARM_F, [hl]
 	ret
 
-.yanma
-	ld a, d
-	ld [wYanmaMapGroup], a
-	ld a, e
-	ld [wYanmaMapNumber], a
+CheckSwarmFlag::
+	ld hl, wDailyFlags
+	bit DAILYFLAGS_SWARM_F, [hl]
+	jr z, .clear_swarm
+	xor a
+	ld [wScriptVar], a
+	ret
+
+.clear_swarm
+	ld a, 1
+	ld [wScriptVar], a
+	xor a
+	ld [wFishingSwarmFlag], a
+	ld [wSwarmMapGroup], a
+	ld [wSwarmMapNumber], a
 	ret
 
 

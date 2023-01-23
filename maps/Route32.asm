@@ -172,8 +172,6 @@ TrainerFisherRalph1:
 	opentext
 	checkflag ENGINE_RALPH
 	iftrue .Rematch
-	checkflag ENGINE_FISH_SWARM
-	iftrue .Swarm
 	checkcellnum PHONE_FISHER_RALPH
 	iftrue .NumberAccepted
 	checkevent EVENT_RALPH_ASKED_FOR_PHONE_NUMBER
@@ -237,12 +235,6 @@ TrainerFisherRalph1:
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_RALPH
-	end
-
-.Swarm:
-	writetext FisherRalphSwarmText
-	waitbutton
-	closetext
 	end
 
 .AskNumber1:
@@ -636,17 +628,6 @@ FisherRalphAfterText:
 
 	para "#MON are life-"
 	line "long friends!"
-	done
-
-FisherRalphSwarmText:
-	text "One, two, three…"
-	line "Muahahaha, what a"
-
-	para "great haul!"
-	line "I'm done! Go ahead"
-
-	para "and catch as many"
-	line "as you can, kid!"
 	done
 
 ; --- start a segment of unused text

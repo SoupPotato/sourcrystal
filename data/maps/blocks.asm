@@ -167,7 +167,6 @@ LakeOfRageMagikarpHouse_Blocks:
 GoldenrodHappinessRater_Blocks:
 BillsFamilysHouse_Blocks:
 GoldenrodPPSpeechHouse_Blocks:
-GoldenrodSwarmSpeechHouse_Blocks:
 GoldenrodNameRater_Blocks:
 VermilionFishingSpeechHouse_Blocks:
 VermilionMagnetTrainSpeechHouse_Blocks:

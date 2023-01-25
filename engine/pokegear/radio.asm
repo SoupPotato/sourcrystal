@@ -125,6 +125,18 @@ RadioJumptable:
 	dw PokedexShow6 ; $55
 	dw PokedexShow7 ; $56
 	dw PokedexShow8 ; $57
+	dw OaksPKMNTalkSwarm1  ; $58
+	dw OaksPKMNTalkSwarm2  ; $59
+	dw OaksPKMNTalkSwarm3  ; $5a
+	dw OaksPKMNTalkSwarm4  ; $5b
+	dw OaksPKMNTalkSwarm5  ; $5c
+	dw OaksPKMNTalkSwarm6  ; $5d
+	dw OaksPKMNTalkSwarm7  ; $5e
+	dw OaksPKMNTalkSwarm8  ; $5f
+	dw OaksPKMNTalkSwarm9  ; $60
+	dw OaksPKMNTalkSwarm10 ; $61
+	dw OaksPKMNTalkSwarm11 ; $62
+	dw OaksPKMNTalkSwarm12 ; $63
 
 
 PrintRadioLine:
@@ -197,6 +209,123 @@ OaksPKMNTalk2:
 
 OaksPKMNTalk3:
 	ld hl, OPT_IntroText3
+	ld a, OAKS_POKEMON_TALK_SWARM_1
+	jp NextRadioLine
+
+
+OaksPKMNTalkSwarm1:
+	ld hl, wDailyFlags
+	bit DAILYFLAGS_SWARM_F, [hl]
+	jr z, .generate_number
+	jp OaksPKMNTalk4
+
+.generate_number
+	call Random ; generate a random number below 4
+	and %11 ; '3' in bit  (increase bit number with each new added swarm)
+	cp 3
+	jr z, .generate_number
+	cp 0
+	jr z, .yanma
+	cp 1
+	jr z, .dunsparce
+	cp 2
+	jr z, .qwilfish
+.finish
+	ld hl, OPT_SwarmText1
+	ld a, OAKS_POKEMON_TALK_SWARM_2
+	jp NextRadioLine
+
+.yanma
+	ld a, YANMA
+	call .store_mon_name
+	ld d, GROUP_ROUTE_35
+	ld e, MAP_ROUTE_35
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_35
+	farcall GetLandmarkName
+	jr .finish
+
+.dunsparce
+	ld a, DUNSPARCE
+	call .store_mon_name
+	ld d, GROUP_DARK_CAVE_VIOLET_ENTRANCE
+	ld e, MAP_DARK_CAVE_VIOLET_ENTRANCE
+	farcall StoreSwarmMapIndices
+	ld e, DARK_CAVE
+	farcall GetLandmarkName
+	jr .finish
+
+.qwilfish
+	ld a, QWILFISH
+	call .store_mon_name
+	ld d, GROUP_ROUTE_32
+	ld e, MAP_ROUTE_32
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_32
+	farcall GetLandmarkName
+	jr .finish
+
+.store_mon_name
+	ld [wNamedObjectIndexBuffer], a
+	call GetPokemonName
+	ld hl, wStringBuffer1
+	ld de, wMonOrItemNameBuffer
+	ld bc, MON_NAME_LENGTH
+	call CopyBytes
+	ret
+
+OaksPKMNTalkSwarm2:
+	ld hl, OPT_SwarmText2
+	ld a, OAKS_POKEMON_TALK_SWARM_3
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm3:
+	ld hl, OPT_SwarmText3
+	ld a, OAKS_POKEMON_TALK_SWARM_4
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm4:
+	ld hl, OPT_SwarmText4
+	ld a, OAKS_POKEMON_TALK_SWARM_5
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm5:
+	ld hl, OPT_SwarmText5
+	ld a, OAKS_POKEMON_TALK_SWARM_6
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm6:
+	ld hl, OPT_SwarmText6
+	ld a, OAKS_POKEMON_TALK_SWARM_7
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm7:
+	ld hl, OPT_SwarmText7
+	ld a, OAKS_POKEMON_TALK_SWARM_8
+	jp NextRadioLine
+	
+OaksPKMNTalkSwarm8:
+	ld hl, OPT_SwarmText8
+	ld a, OAKS_POKEMON_TALK_SWARM_9
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm9:
+	ld hl, OPT_SwarmText9
+	ld a, OAKS_POKEMON_TALK_SWARM_10
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm10:
+	ld hl, OPT_SwarmText10
+	ld a, OAKS_POKEMON_TALK_SWARM_11
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm11:
+	ld hl, OPT_SwarmText11
+	ld a, OAKS_POKEMON_TALK_SWARM_12
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm12:
+	ld hl, OPT_SwarmText12
 	ld a, OAKS_POKEMON_TALK_4
 	jp NextRadioLine
 
@@ -318,6 +447,66 @@ OPT_IntroText2:
 OPT_IntroText3:
 	; With me, MARY!
 	text_jump _OPT_IntroText3
+	db "@"
+
+OPT_SwarmText1:
+	; Breaking news!
+	text_jump _OPT_SwarmText1
+	db "@"
+
+OPT_SwarmText2:
+	; A group of
+	text_jump _OPT_SwarmText2
+	db "@"
+
+OPT_SwarmText3:
+	; @ 
+	text_jump _OPT_SwarmText3
+	db "@"
+
+OPT_SwarmText4:
+	; have be seen at
+	text_jump _OPT_SwarmText4
+	db "@"
+
+OPT_SwarmText5:
+	; @ .
+	text_jump _OPT_SwarmText5
+	db "@"
+
+OPT_SwarmText6:
+	; If any trainers
+	text_jump _OPT_SwarmText6
+	db "@"
+
+OPT_SwarmText7:
+	; want to catch a
+	text_jump _OPT_SwarmText7
+	db "@"
+
+OPT_SwarmText8:
+	; @ ,
+	text_jump _OPT_SwarmText8
+	db "@"
+
+OPT_SwarmText9:
+	; then head over to
+	text_jump _OPT_SwarmText9
+	db "@"
+
+OPT_SwarmText10:
+	; @ .
+	text_jump _OPT_SwarmText5
+	db "@"
+
+OPT_SwarmText11:
+	; Now, let's start
+	text_jump _OPT_SwarmText10
+	db "@"
+
+OPT_SwarmText12:
+	; the show!
+	text_jump _OPT_SwarmText11
 	db "@"
 
 OPT_OakText1:

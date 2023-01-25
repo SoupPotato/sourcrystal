@@ -93,6 +93,18 @@
 	const POKEDEX_SHOW_6         ; 55
 	const POKEDEX_SHOW_7         ; 56
 	const POKEDEX_SHOW_8         ; 57
+	const OAKS_POKEMON_TALK_SWARM_1  ; 58
+	const OAKS_POKEMON_TALK_SWARM_2  ; 59
+	const OAKS_POKEMON_TALK_SWARM_3  ; 5a
+	const OAKS_POKEMON_TALK_SWARM_4  ; 5b
+	const OAKS_POKEMON_TALK_SWARM_5  ; 5c
+	const OAKS_POKEMON_TALK_SWARM_6  ; 5d
+	const OAKS_POKEMON_TALK_SWARM_7  ; 5e
+	const OAKS_POKEMON_TALK_SWARM_8  ; 5f
+	const OAKS_POKEMON_TALK_SWARM_9  ; 60
+	const OAKS_POKEMON_TALK_SWARM_10 ; 61
+	const OAKS_POKEMON_TALK_SWARM_11 ; 62
+	const OAKS_POKEMON_TALK_SWARM_12 ; 63
 
 ; PlayRadio.StationPointers indexes (see engine/pokegear/pokegear.asm)
 	const_def

@@ -509,6 +509,66 @@ _OPT_IntroText3::
 	line "With me, MARY!"
 	done
 
+_OPT_SwarmText1::
+	text_start
+	line "Breaking news!"
+	done
+
+_OPT_SwarmText2::
+	text_start
+	line "A group of"
+	done
+
+_OPT_SwarmText3::
+	text_start
+	line "@"
+	text_from_ram wMonOrItemNameBuffer
+	db "@@"
+
+_OPT_SwarmText4::
+	text_start
+	line "have be seen at"
+	done
+
+_OPT_SwarmText5::
+	text_start
+	line "@"
+	text_from_ram wStringBuffer1
+	text "!"
+	done
+
+_OPT_SwarmText6::
+	text_start
+	line "If any trainers"
+	done
+
+_OPT_SwarmText7::
+	text_start
+	line "want to catch a"
+	done
+
+_OPT_SwarmText8::
+	text_start
+	line "@"
+	text_from_ram wMonOrItemNameBuffer
+	text ","
+	db "@@"
+
+_OPT_SwarmText9::
+	text_start
+	line "then head over to"
+	done
+
+_OPT_SwarmText10::
+	text_start
+	line "Now, let's start"
+	done
+
+_OPT_SwarmText11::
+	text_start
+	line "the show!"
+	done
+
 _OPT_OakText1::
 	text_start
 	line "OAK: @"

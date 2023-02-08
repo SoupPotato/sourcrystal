@@ -1994,14 +1994,6 @@ RadioChannels:
 	db -1
 
 .PKMNTalkAndPokedexShow:
-; Pokédex Show in the morning
-
-; Oak's Pokémon Talk in the afternoon and evening
-	call .InJohto
-	jr nc, .NoSignal
-	ld a, [wTimeOfDay]
-	and a
-	jp z, LoadStation_PokedexShow
 	jp LoadStation_OaksPokemonTalk
 
 .PokemonMusic:
@@ -2093,17 +2085,6 @@ LoadStation_OaksPokemonTalk:
 	ld hl, PlayRadioShow
 	call Radio_BackUpFarCallParams
 	ld de, OaksPKMNTalkName
-	ret
-
-LoadStation_PokedexShow:
-	ld a, POKEDEX_SHOW
-	ld [wCurrentRadioLine], a
-	xor a
-	ld [wNumRadioLinesPrinted], a
-	ld a, BANK(PlayRadioShow)
-	ld hl, PlayRadioShow
-	call Radio_BackUpFarCallParams
-	ld de, PokedexShowName
 	ret
 
 LoadStation_PokemonMusic:
@@ -2281,7 +2262,6 @@ NoRadioName:
 
 
 OaksPKMNTalkName:     db "OAK's <PK><MN> Talk@"
-PokedexShowName:      db "#DEX Show@"
 PokemonMusicName:     db "#MON Music@"
 LuckyChannelName:     db "Lucky Channel@"
 UnownStationName:     db "?????@"
@@ -2525,7 +2505,6 @@ PlayRadio:
 ; entries correspond to MAPRADIO_* constants
 	dw .OakOrPnP
 	dw LoadStation_OaksPokemonTalk
-	dw LoadStation_PokedexShow
 	dw LoadStation_PokemonMusic
 	dw LoadStation_LuckyChannel
 	dw LoadStation_UnownRadio
@@ -2541,7 +2520,6 @@ PlayRadio:
 	call UpdateTime
 	ld a, [wTimeOfDay]
 	and a
-	jp z, LoadStation_PokedexShow
 	jp LoadStation_OaksPokemonTalk
 
 .kanto

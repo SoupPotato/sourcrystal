@@ -99,6 +99,8 @@ GetFishGroupIndex:
 	jr z, .qwilfish
 	cp FISHGROUP_REMORAID
 	jr z, .remoraid
+	cp FISHGROUP_CHINCHOU
+	jr z, .chinchou
 
 .done
 	dec d
@@ -118,6 +120,13 @@ GetFishGroupIndex:
 	cp FISHSWARM_REMORAID
 	jr nz, .done
 	ld d, FISHGROUP_REMORAID_SWARM
+	jr .done
+
+.chinchou
+	ld a, [wFishingSwarmFlag]
+	cp FISHSWARM_CHINCHOU
+	jr nz, .done
+	ld d, FISHGROUP_CHINCHOU_SWARM
 	jr .done
 
 

@@ -20,16 +20,21 @@ FishGroups:
 	fishgroup 50 percent + 1, .Qwilfish_Old,         .Qwilfish_Good,         .Qwilfish_Super
 	fishgroup 50 percent + 1, .Remoraid_Old,         .Remoraid_Good,         .Remoraid_Super
 	fishgroup 50 percent + 1, .Qwilfish_NoSwarm_Old, .Qwilfish_NoSwarm_Good, .Qwilfish_NoSwarm_Super
+	fishgroup 50 percent + 1, .Chinchou_Old,         .Chinchou_Good,         .Chinchou_Super
+	fishgroup 50 percent + 1, .Chinchou_Swarm_Old,   .Chinchou_Swarm_Good,   .Chinchou_Swarm_Super
 
+.Chinchou_Old:
 .Shore_Old:
 	db  70 percent + 1, MAGIKARP,   10
 	db  85 percent + 1, MAGIKARP,   10
 	db 100 percent,     KRABBY,     10
+.Chinchou_Good:
 .Shore_Good:
 	db  35 percent,     MAGIKARP,   20
 	db  70 percent,     KRABBY,     20
 	db  90 percent + 1, KRABBY,     20
 	db 100 percent,     time_group 0
+.Chinchou_Super:
 .Shore_Super:
 	db  40 percent,     KRABBY,     40
 	db  70 percent,     time_group 1
@@ -203,6 +208,21 @@ FishGroups:
 	db  70 percent,     time_group 7
 	db  90 percent + 1, MAGIKARP,   40
 	db 100 percent,     REMORAID,   40
+
+.Chinchou_Swarm_Old:
+	db  70 percent + 1, MAGIKARP,   5
+	db  85 percent + 1, MAGIKARP,   5
+	db 100 percent,     CHINCHOU,   5
+.Chinchou_Swarm_Good:
+	db  35 percent,     MAGIKARP,   20
+	db  70 percent,     CHINCHOU,   20
+	db  90 percent + 1, CHINCHOU,   20
+	db 100 percent,     time_group 10
+.Chinchou_Swarm_Super:
+	db  40 percent,     CHINCHOU,   40
+	db  70 percent,     time_group 11
+	db  90 percent + 1, CHINCHOU,   40
+	db 100 percent,     CHINCHOU,   40
 
 
 TimeFishGroups:

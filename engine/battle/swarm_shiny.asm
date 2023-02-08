@@ -10,6 +10,14 @@ GenerateSwarmShiny:
 	jr z, .dunsparce
 	cp ROUTE_32
 	jr z, .qwilfish
+	cp MT_MORTAR
+	jr z, .marill
+	cp ROUTE_38
+	jr z, .magnemite
+	cp OLIVINE_CITY
+	jr z, .chinchou
+	cp ROUTE_44
+	jr z, .remoraid
 	jr .skipshine
 
 .yanma
@@ -25,6 +33,26 @@ GenerateSwarmShiny:
 .qwilfish
 	ld a, [wCurPartySpecies]
 	cp QWILFISH
+	jr nz, .skipshine
+	jr .rollshiny
+.marill
+	ld a, [wCurPartySpecies]
+	cp MARILL
+	jr nz, .skipshine
+	jr .rollshiny
+.magnemite
+	ld a, [wCurPartySpecies]
+	cp MAGNEMITE
+	jr nz, .skipshine
+	jr .rollshiny
+.chinchou
+	ld a, [wCurPartySpecies]
+	cp CHINCHOU
+	jr nz, .skipshine
+	jr .rollshiny
+.remoraid
+	ld a, [wCurPartySpecies]
+	cp REMORAID
 	jr nz, .skipshine
 	;fallthrough
 .rollshiny

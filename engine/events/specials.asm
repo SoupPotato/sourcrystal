@@ -297,10 +297,25 @@ StoreSwarmMapIndices::
 	ld [wSwarmMapGroup], a
 	ld a, e
 	ld [wSwarmMapNumber], a
-
+	;fallthrough
 SetSwarmFlag:
 	ld hl, wDailyFlags
 	set DAILYFLAGS_SWARM_F, [hl]
+	ld hl, wSwarmFlags
+	res SWARMFLAGS_ALT_SWARM_F, [hl]
+	ret
+
+StoreSwarmMapIndicesAlternate::
+	ld a, d
+	ld [wSwarmMapGroup], a
+	ld a, e
+	ld [wSwarmMapNumber], a
+	;fallthrough
+SetAltSwarmFlag:
+	ld hl, wSwarmFlags
+	set SWARMFLAGS_ALT_SWARM_F, [hl]
+	ld hl, wDailyFlags
+	res DAILYFLAGS_SWARM_F, [hl]
 	ret
 
 CheckSwarmFlag::

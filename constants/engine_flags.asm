@@ -249,6 +249,6 @@
 ; wPlayerSpriteSetupFlags
 	const ENGINE_KRIS_IN_CABLE_CLUB
 ; wSwarmFlags
-	const ENGINE_DUNSPARCE_SWARM ; a0
+	const ENGINE_ALT_SWARM ; a0
 	const ENGINE_YANMA_SWARM
 NUM_ENGINE_FLAGS EQU const_value

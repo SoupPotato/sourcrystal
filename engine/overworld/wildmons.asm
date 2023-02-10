@@ -391,7 +391,17 @@ LoadWildMonDataPointer:
 	jr z, _WaterWildmonLookup
 
 _GrassWildmonLookup:
+	ld hl, wSwarmFlags ; check if the flag is set
+	bit SWARMFLAGS_ALT_SWARM_F, [hl]
+	jr z, .check_normal_flag ;if not, then check for the alt swarm flag too
+	ld hl, SwarmGrassWildMonsAlt
+	jr .cont 
+.check_normal_flag
+	ld hl, wDailyFlags
+	bit DAILYFLAGS_SWARM_F, [hl]
+	jr z, .cont ; if not, then skip generating a swarm
 	ld hl, SwarmGrassWildMons
+.cont
 	ld bc, GRASS_WILDDATA_LENGTH
 	call _SwarmWildmonCheck
 	ret c
@@ -402,7 +412,11 @@ _GrassWildmonLookup:
 	jr _NormalWildmonOK
 
 _WaterWildmonLookup:
+	ld hl, wDailyFlags ; check if the flag is set
+	bit DAILYFLAGS_SWARM_F, [hl]
+	jr z, .cont ; if not, then skip generating a swarm
 	ld hl, SwarmWaterWildMons
+.cont
 	ld bc, WATER_WILDDATA_LENGTH
 	call _SwarmWildmonCheck
 	ret c
@@ -958,4 +972,5 @@ INCLUDE "data/wild/johto_water.asm"
 INCLUDE "data/wild/kanto_grass.asm"
 INCLUDE "data/wild/kanto_water.asm"
 INCLUDE "data/wild/swarm_grass.asm"
+INCLUDE "data/wild/swarm_grass_alt.asm"
 INCLUDE "data/wild/swarm_water.asm"

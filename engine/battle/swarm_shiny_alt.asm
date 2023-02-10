@@ -1,55 +1,19 @@
-GenerateSwarmShiny:
+GenerateAltSwarmShiny:
 	ld a, [wMapGroup]
 	ld b, a
 	ld a, [wMapNumber]
 	ld c, a
 	call GetWorldMapLocation
 	cp ROUTE_35
-	jr z, .yanma
-	cp DARK_CAVE
-	jr z, .dunsparce
-	cp ROUTE_32
-	jr z, .qwilfish
-	cp MT_MORTAR
-	jr z, .marill
-	cp ROUTE_38
-	jr z, .magnemite
-	cp OLIVINE_CITY
-	jr z, .chinchou
-	cp ROUTE_44
-	jr z, .remoraid
+	jr z, .murkrow
 	jr .skipshine
 
-.yanma
+.murkrow
 	ld a, [wCurPartySpecies]
-	cp YANMA
+	cp MURKROW
 	jr .next
-.dunsparce
-	ld a, [wCurPartySpecies]
-	cp DUNSPARCE
-	jr .next
-.qwilfish
-	ld a, [wCurPartySpecies]
-	cp QWILFISH
-	jr .next
-.marill
-	ld a, [wCurPartySpecies]
-	cp MARILL
-	jr .next
-.magnemite
-	ld a, [wCurPartySpecies]
-	cp MAGNEMITE
-	jr .next
-.chinchou
-	ld a, [wCurPartySpecies]
-	cp CHINCHOU
-	jr .next
-.remoraid
-	ld a, [wCurPartySpecies]
-	cp REMORAID
 .next
 	jr nz, .skipshine
-	;fallthrough
 .rollshiny
 	call Random
 	cp 7 ; adjust to desired percentage

@@ -142,6 +142,7 @@ INCBIN "gfx/battle/dude.2bpp.lz"
 SECTION "Own Section", ROMX
 
 INCLUDE "engine/battle/swarm_shiny.asm"
+INCLUDE "engine/battle/swarm_shiny_alt.asm"
 
 
 SECTION "bankB", ROMX

@@ -45,8 +45,6 @@ TrainerHikerAnthony:
 	opentext
 	checkflag ENGINE_ANTHONY
 	iftrue .Rematch
-	checkflag ENGINE_DUNSPARCE_SWARM
-	iftrue .Swarm
 	checkcellnum PHONE_HIKER_ANTHONY
 	iftrue .NumberAccepted
 	checkevent EVENT_ANTHONY_ASKED_FOR_PHONE_NUMBER
@@ -110,12 +108,6 @@ TrainerHikerAnthony:
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_ANTHONY
-	end
-
-.Swarm:
-	writetext HikerAnthonyDunsparceText
-	waitbutton
-	closetext
 	end
 
 .AskNumber1:
@@ -226,17 +218,6 @@ HikerAnthony2AfterText:
 	text "We HIKERS are at"
 	line "our best in the"
 	cont "mountains."
-	done
-
-HikerAnthonyDunsparceText:
-	text "Hey, did you get a"
-	line "DUNSPARCE?"
-
-	para "I caught one too."
-
-	para "Take a look at it"
-	line "in the light. It's"
-	cont "got a funny face!"
 	done
 
 Route33LassText:

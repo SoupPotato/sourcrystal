@@ -208,31 +208,63 @@ OaksPKMNTalk3:
 OaksPKMNTalkSwarm1:
 	ld hl, wDailyFlags
 	bit DAILYFLAGS_SWARM_F, [hl]
+	jr nz, .check_alt_swarm
+	jp .generate_flag
+
+.check_alt_swarm
+	ld hl, wSwarmFlags
+	bit SWARMFLAGS_ALT_SWARM_F, [hl]
+	jr nz, .done
+
+.generate_flag
+	call Random ; generate a random number below 8
+	and %11 ; '3' in bit  (increase bit number with each new added swarm)
+	cp 0
+	jr z, .normal_swarm
+	cp 1
+	jr z, .alternate_swarm
+	jp .generate_flag
+
+.normal_swarm
+	ld hl, wDailyFlags
+	bit DAILYFLAGS_SWARM_F, [hl]
 	jr z, .generate_number
+	jp .done
+	
+.alternate_swarm
+	ld hl, wSwarmFlags
+	bit SWARMFLAGS_ALT_SWARM_F, [hl]
+	jr z, .generate_alt_number
+	jp .done
+	
+.done
 	jp OaksPKMNTalk4
 
 .generate_number
 	call Random ; generate a random number below 8
 	and %111 ; '7' in bit  (increase bit number with each new added swarm)
 	cp 0
-	jr z, .yanma
+	jp z, .yanma
 	cp 1
-	jr z, .dunsparce
+	jp z, .dunsparce
 	cp 2
-	jr z, .qwilfish
+	jp z, .qwilfish
 	cp 3
-	jr z, .marill
+	jp z, .marill
 	cp 4
-	jr z, .magnemite
+	jp z, .magnemite
 	cp 5
 	jp z, .chinchou
 	cp 6
 	jp z, .remoraid
 	jp .generate_number
-.finish
-	ld hl, OPT_SwarmText1
-	ld a, OAKS_POKEMON_TALK_SWARM_2
-	jp NextRadioLine
+
+.generate_alt_number
+	call Random ; generate a random number below 8
+	and %11 ; '7' in bit  (increase bit number with each new added swarm)
+	cp 0
+	jp z, .murkrow
+	jp .generate_alt_number
 
 .yanma
 	ld a, YANMA
@@ -241,8 +273,15 @@ OaksPKMNTalkSwarm1:
 	ld e, MAP_ROUTE_35
 	farcall StoreSwarmMapIndices
 	ld e, ROUTE_35
-	farcall GetLandmarkName
-	jr .finish
+	jp .finish
+.murkrow
+	ld a, MURKROW
+	call .store_mon_name
+	ld d, GROUP_ROUTE_35
+	ld e, MAP_ROUTE_35
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_35
+	jp .finish
 
 .dunsparce
 	ld a, DUNSPARCE
@@ -251,8 +290,7 @@ OaksPKMNTalkSwarm1:
 	ld e, MAP_DARK_CAVE_VIOLET_ENTRANCE
 	farcall StoreSwarmMapIndices
 	ld e, DARK_CAVE
-	farcall GetLandmarkName
-	jr .finish
+	jp .finish
 
 .qwilfish
 	ld a, QWILFISH
@@ -263,8 +301,7 @@ OaksPKMNTalkSwarm1:
 	ld [wFishingSwarmFlag], a
 	farcall StoreSwarmMapIndices
 	ld e, ROUTE_32
-	farcall GetLandmarkName
-	jr .finish
+	jp .finish
 
 .marill
 	ld a, MARILL
@@ -273,8 +310,7 @@ OaksPKMNTalkSwarm1:
 	ld e, MAP_MOUNT_MORTAR_1F_OUTSIDE
 	farcall StoreSwarmMapIndices
 	ld e, MT_MORTAR
-	farcall GetLandmarkName
-	jr .finish
+	jp .finish
 
 .magnemite
 	ld a, MAGNEMITE
@@ -283,7 +319,6 @@ OaksPKMNTalkSwarm1:
 	ld e, MAP_ROUTE_38
 	farcall StoreSwarmMapIndices
 	ld e, ROUTE_38
-	farcall GetLandmarkName
 	jp .finish
 
 .chinchou
@@ -295,7 +330,6 @@ OaksPKMNTalkSwarm1:
 	ld [wFishingSwarmFlag], a
 	farcall StoreSwarmMapIndices
 	ld e, OLIVINE_CITY
-	farcall GetLandmarkName
 	jp .finish
 
 .remoraid
@@ -307,7 +341,6 @@ OaksPKMNTalkSwarm1:
 	ld [wFishingSwarmFlag], a
 	farcall StoreSwarmMapIndices
 	ld e, ROUTE_44
-	farcall GetLandmarkName
 	jp .finish
 
 .store_mon_name
@@ -318,6 +351,13 @@ OaksPKMNTalkSwarm1:
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
 	ret
+
+
+.finish
+	farcall GetLandmarkName
+	ld hl, OPT_SwarmText1
+	ld a, OAKS_POKEMON_TALK_SWARM_2
+	jp NextRadioLine
 
 OaksPKMNTalkSwarm2:
 	ld hl, OPT_SwarmText2

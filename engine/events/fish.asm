@@ -101,6 +101,8 @@ GetFishGroupIndex:
 	jr z, .remoraid
 	cp FISHGROUP_CHINCHOU
 	jr z, .chinchou
+	cp FISHGROUP_HORSEA
+	jr z, .horsea
 
 .done
 	dec d
@@ -123,11 +125,35 @@ GetFishGroupIndex:
 	jr .done
 
 .chinchou
+	ld hl, wSwarmFlags
+	bit SWARMFLAGS_ALT_SWARM_F, [hl]
+	jr nz, .corsola
 	ld a, [wFishingSwarmFlag]
 	cp FISHSWARM_CHINCHOU
 	jr nz, .done
 	ld d, FISHGROUP_CHINCHOU_SWARM
 	jr .done
+.corsola
+	ld a, [wFishingSwarmFlag]
+	cp FISHSWARM_CORSOLA
+	jr nz, .done
+	ld d, FISHGROUP_CORSOLA_SWARM
+	jr .done
 
+.horsea
+	ld hl, wSwarmFlags
+	bit SWARMFLAGS_ALT_SWARM_F, [hl]
+	jr nz, .mantine
+	ld a, [wFishingSwarmFlag]
+	cp FISHSWARM_HORSEA
+	jr nz, .done
+	ld d, FISHGROUP_HORSEA_SWARM
+	jr .done
+.mantine
+	ld a, [wFishingSwarmFlag]
+	cp FISHSWARM_MANTINE
+	jr nz, .done
+	ld d, FISHGROUP_MANTINE_SWARM
+	jr .done
 
 INCLUDE "data/wild/fish.asm"

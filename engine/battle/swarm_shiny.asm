@@ -5,61 +5,138 @@ GenerateSwarmShiny:
 	ld c, a
 	call GetWorldMapLocation
 	cp ROUTE_35
-	jr z, .yanma
+	jp z, .yanma
 	cp DARK_CAVE
-	jr z, .dunsparce
+	jp z, .dunsparce
 	cp ROUTE_32
-	jr z, .qwilfish
+	jp z, .qwilfish
 	cp MT_MORTAR
-	jr z, .marill
+	jp z, .marill
 	cp ROUTE_38
-	jr z, .magnemite
+	jp z, .magnemite
 	cp OLIVINE_CITY
-	jr z, .chinchou
+	jp z, .chinchou
 	cp ROUTE_44
-	jr z, .remoraid
-	jr .skipshine
+	jp z, .remoraid
+	cp ROUTE_46
+	jp z, .phanpy
+	cp ROUTE_30
+	jp z, .caterpie
+	cp ROUTE_31
+	jp z, .spinarak
+	cp ILEX_FOREST
+	jp z, .paras
+	cp ROUTE_29
+	jp z, .hoppip
+	cp ROUTE_34
+	jp z, .ditto
+	cp NATIONAL_PARK
+	jp z, .sunkern
+	cp ROUTE_36
+	jp z, .vulpix
+	cp ROUTE_39
+	jp z, .miltank
+	cp UNION_CAVE
+	jp z, .sandshrew
+	cp ROUTE_33
+	jp z, .ekans
+	cp RUINS_OF_ALPH
+	jp z, .smeargle
+	cp ROUTE_41
+	jp z, .horsea
+	jp .skipshine
 
 .yanma
 	ld a, [wCurPartySpecies]
 	cp YANMA
-	jr .next
+	jp .next
 .dunsparce
 	ld a, [wCurPartySpecies]
 	cp DUNSPARCE
-	jr .next
+	jp .next
 .qwilfish
 	ld a, [wCurPartySpecies]
 	cp QWILFISH
-	jr .next
+	jp .next
 .marill
 	ld a, [wCurPartySpecies]
 	cp MARILL
-	jr .next
+	jp .next
 .magnemite
 	ld a, [wCurPartySpecies]
 	cp MAGNEMITE
-	jr .next
+	jp .next
 .chinchou
 	ld a, [wCurPartySpecies]
 	cp CHINCHOU
-	jr .next
+	jp .next
 .remoraid
 	ld a, [wCurPartySpecies]
 	cp REMORAID
+	jp .next
+.phanpy
+	ld a, [wCurPartySpecies]
+	cp PHANPY
+	jp .next
+.caterpie
+	ld a, [wCurPartySpecies]
+	cp CATERPIE
+	jp .next
+.spinarak
+	ld a, [wCurPartySpecies]
+	cp SPINARAK
+	jp .next
+.paras
+	ld a, [wCurPartySpecies]
+	cp PARAS
+	jp .next
+.hoppip
+	ld a, [wCurPartySpecies]
+	cp HOPPIP
+	jp .next
+.ditto
+	ld a, [wCurPartySpecies]
+	cp DITTO
+	jp .next
+.sunkern
+	ld a, [wCurPartySpecies]
+	cp SUNKERN
+	jp .next
+.vulpix
+	ld a, [wCurPartySpecies]
+	cp VULPIX
+	jp .next
+.miltank
+	ld a, [wCurPartySpecies]
+	cp MILTANK
+.sandshrew
+	ld a, [wCurPartySpecies]
+	cp SANDSHREW
+	jp .next
+.ekans
+	ld a, [wCurPartySpecies]
+	cp EKANS
+	jp .next
+.smeargle
+	ld a, [wCurPartySpecies]
+	cp SMEARGLE
+	jp .next
+.horsea
+	ld a, [wCurPartySpecies]
+	cp HORSEA
 .next
 	jr nz, .skipshine
 	;fallthrough
 .rollshiny
 	call Random
-	cp 7 ; adjust to desired percentage
+	cp 255 ; adjust to desired percentage
 	jr nc, .trynext
 	ld b, ATKDEFDV_SHINY
 	ld c, SPDSPCDV_SHINY
 	jr .UpdateDVs
 .trynext:
 	call Random
-	cp 7 ; adjust to desired percentage
+	cp 255 ; adjust to desired percentage
 	jr nc, .skipshine
 	ld b, ATKDEFDV_SHINYF
 	ld c, SPDSPCDV_SHINY

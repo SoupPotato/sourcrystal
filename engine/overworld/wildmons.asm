@@ -412,7 +412,13 @@ _GrassWildmonLookup:
 	jr _NormalWildmonOK
 
 _WaterWildmonLookup:
-	ld hl, wDailyFlags ; check if the flag is set
+	ld hl, wSwarmFlags ; check if the flag is set
+	bit SWARMFLAGS_ALT_SWARM_F, [hl]
+	jr z, .check_normal_flag ;if not, then check for the alt swarm flag too
+	ld hl, SwarmWaterWildMonsAlt
+	jr .cont 
+.check_normal_flag
+	ld hl, wDailyFlags
 	bit DAILYFLAGS_SWARM_F, [hl]
 	jr z, .cont ; if not, then skip generating a swarm
 	ld hl, SwarmWaterWildMons
@@ -974,3 +980,4 @@ INCLUDE "data/wild/kanto_water.asm"
 INCLUDE "data/wild/swarm_grass.asm"
 INCLUDE "data/wild/swarm_grass_alt.asm"
 INCLUDE "data/wild/swarm_water.asm"
+INCLUDE "data/wild/swarm_water_alt.asm"

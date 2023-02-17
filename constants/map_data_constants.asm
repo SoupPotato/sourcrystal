@@ -56,6 +56,10 @@ IN_DARKNESS EQU 1 << IN_DARKNESS_F ; masked with a PALETTE_* constant
 	const FISHGROUP_QWILFISH_NO_SWARM
 	const FISHGROUP_CHINCHOU
 	const FISHGROUP_CHINCHOU_SWARM
+	const FISHGROUP_CORSOLA_SWARM
+	const FISHGROUP_HORSEA
+	const FISHGROUP_HORSEA_SWARM
+	const FISHGROUP_MANTINE_SWARM
 
 
 ; connection directions (see data/maps/data.asm)

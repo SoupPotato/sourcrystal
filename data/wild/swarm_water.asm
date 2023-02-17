@@ -23,4 +23,11 @@ SwarmWaterWildMons:
 	db 15, REMORAID
 	db 25, POLIWHIRL
 
+	; horsea
+	map_id ROUTE_41
+	db 6 percent ; encounter rate
+	db 20, HORSEA
+	db 20, HORSEA
+	db 20, MANTINE
+
 	db -1 ; end

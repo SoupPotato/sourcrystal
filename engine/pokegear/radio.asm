@@ -241,8 +241,8 @@ OaksPKMNTalkSwarm1:
 	jp OaksPKMNTalk4
 
 .generate_number
-	call Random ; generate a random number below 8
-	and %111 ; '7' in bit  (increase bit number with each new added swarm)
+	call Random ; generate a random number below 32
+	and %11111 ; '31' in bit  (increase bit number with each new added swarm)
 	cp 0
 	jp z, .yanma
 	cp 1
@@ -257,13 +257,77 @@ OaksPKMNTalkSwarm1:
 	jp z, .chinchou
 	cp 6
 	jp z, .remoraid
+	cp 7
+	jp z, .phanpy
+	cp 8
+	jp z, .caterpie
+	cp 9
+	jp z, .spinarak
+	cp 10
+	jp z, .paras
+	cp 11
+	jp z, .hoppip
+	cp 12
+	jp z, .ditto
+	cp 13
+	jp z, .sunkern
+	cp 14
+	jp z, .vulpix
+	cp 15
+	jp z, .miltank
+	cp 16
+	jp z, .sandshrew
+	cp 17
+	jp z, .ekans
+	cp 18
+	jp z, .smeargle
+	cp 19
+	jp z, .horsea
 	jp .generate_number
 
 .generate_alt_number
-	call Random ; generate a random number below 8
-	and %11 ; '7' in bit  (increase bit number with each new added swarm)
+	call Random ; generate a random number below 32
+	and %11111 ; '31' in bit  (increase bit number with each new added swarm)
 	cp 0
-	jp z, .murkrow
+	jp z, .psyduck
+	cp 1
+	jp z, .teddiursa
+	cp 2
+	jp z, .bellsprout
+	cp 3
+	jp z, .machop
+	cp 4
+	jp z, .tauros
+	cp 5
+	jp z, .lickitung
+	cp 6
+	jp z, .corsola
+	cp 7
+	jp z, .slowpoke
+	cp 8
+	jp z, .weedle
+	cp 9
+	jp z, .ledyba
+	cp 10
+	jp z, .oddish
+	cp 11
+	jp z, .pineco
+	cp 12
+	jp z, .drowzee
+	cp 13
+	jp z, .venonat
+	cp 14
+	jp z, .growlithe
+	cp 15
+	jp z, .stantler
+	cp 16
+	jp z, .wooper
+	cp 17
+	jp z, .aipom
+	cp 18
+	jp z, .koffing
+	cp 19
+	jp z, .mantine
 	jp .generate_alt_number
 
 .yanma
@@ -274,8 +338,8 @@ OaksPKMNTalkSwarm1:
 	farcall StoreSwarmMapIndices
 	ld e, ROUTE_35
 	jp .finish
-.murkrow
-	ld a, MURKROW
+.psyduck
+	ld a, PSYDUCK
 	call .store_mon_name
 	ld d, GROUP_ROUTE_35
 	ld e, MAP_ROUTE_35
@@ -291,15 +355,31 @@ OaksPKMNTalkSwarm1:
 	farcall StoreSwarmMapIndices
 	ld e, DARK_CAVE
 	jp .finish
+.teddiursa
+	ld a, TEDDIURSA
+	call .store_mon_name
+	ld d, GROUP_DARK_CAVE_VIOLET_ENTRANCE
+	ld e, MAP_DARK_CAVE_VIOLET_ENTRANCE
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, DARK_CAVE
+	jp .finish
 
 .qwilfish
 	ld a, QWILFISH
 	call .store_mon_name
 	ld d, GROUP_ROUTE_32
 	ld e, MAP_ROUTE_32
-	ld a, 1
+	ld a, 1 ; FISHSWARM_QWILFISH (script_constants.asm)
 	ld [wFishingSwarmFlag], a
 	farcall StoreSwarmMapIndices
+	ld e, ROUTE_32
+	jp .finish
+.bellsprout
+	ld a, BELLSPROUT
+	call .store_mon_name
+	ld d, GROUP_ROUTE_32
+	ld e, MAP_ROUTE_32
+	farcall StoreSwarmMapIndicesAlternate
 	ld e, ROUTE_32
 	jp .finish
 
@@ -311,6 +391,14 @@ OaksPKMNTalkSwarm1:
 	farcall StoreSwarmMapIndices
 	ld e, MT_MORTAR
 	jp .finish
+.machop
+	ld a, MACHOP
+	call .store_mon_name
+	ld d, GROUP_MOUNT_MORTAR_1F_OUTSIDE
+	ld e, MAP_MOUNT_MORTAR_1F_OUTSIDE
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, MT_MORTAR
+	jp .finish
 
 .magnemite
 	ld a, MAGNEMITE
@@ -319,6 +407,33 @@ OaksPKMNTalkSwarm1:
 	ld e, MAP_ROUTE_38
 	farcall StoreSwarmMapIndices
 	ld e, ROUTE_38
+	jp .finish
+.tauros
+	ld a, TAUROS
+	call .store_mon_name
+	ld d, GROUP_ROUTE_38
+	ld e, MAP_ROUTE_38
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_38
+	jp .finish
+
+.remoraid
+	ld a, REMORAID
+	call .store_mon_name
+	ld d, GROUP_ROUTE_44
+	ld e, MAP_ROUTE_44
+	ld a, 2  ; FISHSWARM_REMORAID (script_constants.asm)
+	ld [wFishingSwarmFlag], a
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_44
+	jp .finish
+.lickitung
+	ld a, LICKITUNG
+	call .store_mon_name
+	ld d, GROUP_ROUTE_44
+	ld e, MAP_ROUTE_44
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_44
 	jp .finish
 
 .chinchou
@@ -331,16 +446,241 @@ OaksPKMNTalkSwarm1:
 	farcall StoreSwarmMapIndices
 	ld e, OLIVINE_CITY
 	jp .finish
-
-.remoraid
-	ld a, REMORAID
+.corsola
+	ld a, CORSOLA
 	call .store_mon_name
-	ld d, GROUP_ROUTE_44
-	ld e, MAP_ROUTE_44
-	ld a, 2  ; FISHSWARM_REMORAID (script_constants.asm)
+	ld d, GROUP_OLIVINE_CITY
+	ld e, MAP_OLIVINE_CITY
+	ld a, 4  ; FISHSWARM_CORSOLA (script_constants.asm)
+	ld [wFishingSwarmFlag], a
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, OLIVINE_CITY
+	jp .finish
+
+.phanpy
+	ld a, PHANPY
+	call .store_mon_name
+	ld d, GROUP_ROUTE_46
+	ld e, MAP_ROUTE_46
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_46
+	jp .finish
+.slowpoke
+	ld a, SLOWPOKE
+	call .store_mon_name
+	ld d, GROUP_SLOWPOKE_WELL_B1F
+	ld e, MAP_SLOWPOKE_WELL_B1F
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, SLOWPOKE_WELL
+	jp .finish
+
+.caterpie
+	ld a, CATERPIE
+	call .store_mon_name
+	ld d, GROUP_ROUTE_30
+	ld e, MAP_ROUTE_30
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_30
+	jp .finish
+.weedle
+	ld a, WEEDLE
+	call .store_mon_name
+	ld d, GROUP_ROUTE_30
+	ld e, MAP_ROUTE_30
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_30
+	jp .finish
+
+.spinarak
+	ld a, SPINARAK
+	call .store_mon_name
+	ld d, GROUP_ROUTE_31
+	ld e, MAP_ROUTE_31
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_31
+	jp .finish
+.ledyba
+	ld a, LEDYBA
+	call .store_mon_name
+	ld d, GROUP_ROUTE_31
+	ld e, MAP_ROUTE_31
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_31
+	jp .finish
+
+.paras
+	ld a, PARAS
+	call .store_mon_name
+	ld d, GROUP_ILEX_FOREST
+	ld e, MAP_ILEX_FOREST
+	farcall StoreSwarmMapIndices
+	ld e, ILEX_FOREST
+	jp .finish
+.oddish
+	ld a, ODDISH
+	call .store_mon_name
+	ld d, GROUP_ILEX_FOREST
+	ld e, MAP_ILEX_FOREST
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ILEX_FOREST
+	jp .finish
+
+.hoppip
+	ld a, HOPPIP
+	call .store_mon_name
+	ld d, GROUP_ROUTE_29
+	ld e, MAP_ROUTE_29
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_29
+	jp .finish
+.pineco
+	ld a, PINECO
+	call .store_mon_name
+	ld d, GROUP_ROUTE_29
+	ld e, MAP_ROUTE_29
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_29
+	jp .finish
+
+.ditto
+	ld a, DITTO
+	call .store_mon_name
+	ld d, GROUP_ROUTE_34
+	ld e, MAP_ROUTE_34
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_34
+	jp .finish
+.drowzee
+	ld a, DROWZEE
+	call .store_mon_name
+	ld d, GROUP_ROUTE_34
+	ld e, MAP_ROUTE_34
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_34
+	jp .finish
+
+.miltank
+	ld a, MILTANK
+	call .store_mon_name
+	ld d, GROUP_ROUTE_39
+	ld e, MAP_ROUTE_39
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_39
+	jp .finish
+
+.stantler
+	ld a, STANTLER
+	call .store_mon_name
+	ld d, GROUP_ROUTE_37
+	ld e, MAP_ROUTE_37
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_37
+	jp .finish
+
+.sunkern
+	ld a, SUNKERN
+	call .store_mon_name
+	ld d, GROUP_NATIONAL_PARK
+	ld e, MAP_NATIONAL_PARK
+	farcall StoreSwarmMapIndices
+	ld e, NATIONAL_PARK
+	jp .finish
+.venonat
+	ld a, VENONAT
+	call .store_mon_name
+	ld d, GROUP_NATIONAL_PARK
+	ld e, MAP_NATIONAL_PARK
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, NATIONAL_PARK
+	jp .finish
+
+.vulpix
+	ld a, VULPIX
+	call .store_mon_name
+	ld d, GROUP_ROUTE_36
+	ld e, MAP_ROUTE_36
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_36
+	jp .finish
+.growlithe
+	ld a, GROWLITHE
+	call .store_mon_name
+	ld d, GROUP_ROUTE_36
+	ld e, MAP_ROUTE_36
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_36
+	jp .finish
+
+.sandshrew
+	ld a, SANDSHREW
+	call .store_mon_name
+	ld d, GROUP_UNION_CAVE_1F
+	ld e, MAP_UNION_CAVE_1F
+	farcall StoreSwarmMapIndices
+	ld e, UNION_CAVE
+	jp .finish
+.wooper
+	ld a, WOOPER
+	call .store_mon_name
+	ld d, GROUP_UNION_CAVE_1F
+	ld e, MAP_UNION_CAVE_1F
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, UNION_CAVE
+	jp .finish
+
+.ekans
+	ld a, EKANS
+	call .store_mon_name
+	ld d, GROUP_ROUTE_33
+	ld e, MAP_ROUTE_33
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_33
+	jp .finish
+.aipom
+	ld a, AIPOM
+	call .store_mon_name
+	ld d, GROUP_ROUTE_33
+	ld e, MAP_ROUTE_33
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_33
+	jp .finish
+
+.smeargle
+	ld a, SMEARGLE
+	call .store_mon_name
+	ld d, GROUP_RUINS_OF_ALPH_OUTSIDE
+	ld e, MAP_RUINS_OF_ALPH_OUTSIDE
+	farcall StoreSwarmMapIndices
+	ld e, RUINS_OF_ALPH
+	jp .finish
+.koffing
+	ld a, KOFFING
+	call .store_mon_name
+	ld d, GROUP_BURNED_TOWER_1F
+	ld e, MAP_BURNED_TOWER_1F
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, BURNED_TOWER
+	jp .finish
+
+.horsea
+	ld a, HORSEA
+	call .store_mon_name
+	ld d, GROUP_ROUTE_41
+	ld e, MAP_ROUTE_41
+	ld a, 5  ; FISHSWARM_HORSEA (script_constants.asm)
 	ld [wFishingSwarmFlag], a
 	farcall StoreSwarmMapIndices
-	ld e, ROUTE_44
+	ld e, ROUTE_41
+	jp .finish
+.mantine
+	ld a, MANTINE
+	call .store_mon_name
+	ld d, GROUP_ROUTE_41
+	ld e, MAP_ROUTE_41
+	ld a, 6  ; FISHSWARM_MANTINE (script_constants.asm)
+	ld [wFishingSwarmFlag], a
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_41
 	jp .finish
 
 .store_mon_name

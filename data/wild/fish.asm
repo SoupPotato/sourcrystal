@@ -22,6 +22,10 @@ FishGroups:
 	fishgroup 50 percent + 1, .Qwilfish_NoSwarm_Old, .Qwilfish_NoSwarm_Good, .Qwilfish_NoSwarm_Super
 	fishgroup 50 percent + 1, .Chinchou_Old,         .Chinchou_Good,         .Chinchou_Super
 	fishgroup 50 percent + 1, .Chinchou_Swarm_Old,   .Chinchou_Swarm_Good,   .Chinchou_Swarm_Super
+	fishgroup 50 percent + 1, .Corsola_Swarm_Old,    .Corsola_Swarm_Good,    .Corsola_Swarm_Super
+	fishgroup 50 percent + 1, .Horsea_Old,           .Horsea_Good,           .Horsea_Super
+	fishgroup 50 percent + 1, .Horsea_Swarm_Old,     .Horsea_Swarm_Good,     .Horsea_Swarm_Super
+	fishgroup 50 percent + 1, .Mantine_Swarm_Old,    .Mantine_Swarm_Good,    .Mantine_Swarm_Super
 
 .Chinchou_Old:
 .Shore_Old:
@@ -41,15 +45,18 @@ FishGroups:
 	db  90 percent + 1, KRABBY,     40
 	db 100 percent,     KINGLER,    40
 
+.Horsea_Old:
 .Ocean_Old:
 	db  70 percent + 1, MAGIKARP,   10
 	db  85 percent + 1, MAGIKARP,   10
 	db 100 percent,     TENTACOOL,  10
+.Horsea_Good:
 .Ocean_Good:
 	db  35 percent,     MAGIKARP,   20
 	db  70 percent,     TENTACOOL,  20
 	db  90 percent + 1, CHINCHOU,   20
 	db 100 percent,     time_group 2
+.Horsea_Super:
 .Ocean_Super:
 	db  40 percent,     CHINCHOU,   40
 	db  70 percent,     time_group 3
@@ -217,12 +224,57 @@ FishGroups:
 	db  35 percent,     MAGIKARP,   20
 	db  70 percent,     CHINCHOU,   20
 	db  90 percent + 1, CHINCHOU,   20
-	db 100 percent,     time_group 10
+	db 100 percent,     KRABBY,     20
 .Chinchou_Swarm_Super:
 	db  40 percent,     CHINCHOU,   40
-	db  70 percent,     time_group 11
+	db  70 percent,     CHINCHOU,   40
 	db  90 percent + 1, CHINCHOU,   40
-	db 100 percent,     CHINCHOU,   40
+	db 100 percent,     KINGLER,    40
+
+.Corsola_Swarm_Old:
+	db  70 percent + 1, MAGIKARP,   5
+	db  85 percent + 1, MAGIKARP,   5
+	db 100 percent,     CORSOLA,    5
+.Corsola_Swarm_Good:
+	db  35 percent,     MAGIKARP,   20
+	db  70 percent,     CORSOLA,    20
+	db  90 percent + 1, CORSOLA,    20
+	db 100 percent,     KRABBY,     20
+.Corsola_Swarm_Super:
+	db  40 percent,     CORSOLA,    40
+	db  70 percent,     CORSOLA,    40
+	db  90 percent + 1, CORSOLA,    40
+	db 100 percent,     KINGLER,    40
+
+.Horsea_Swarm_Old:
+	db  70 percent + 1, MAGIKARP,   10
+	db  85 percent + 1, MAGIKARP,   10
+	db 100 percent,     HORSEA,     10
+.Horsea_Swarm_Good:
+	db  35 percent,     MAGIKARP,   20
+	db  70 percent,     HORSEA,     20
+	db  90 percent + 1, HORSEA,     20
+	db 100 percent,     time_group 2
+.Horsea_Swarm_Super:
+	db  40 percent,     HORSEA,     40
+	db  70 percent,     HORSEA,     40
+	db  90 percent + 1, HORSEA,     40
+	db 100 percent,     LANTURN,    40
+
+.Mantine_Swarm_Old:
+	db  70 percent + 1, MAGIKARP,   10
+	db  85 percent + 1, MAGIKARP,   10
+	db 100 percent,     MANTINE,    10
+.Mantine_Swarm_Good:
+	db  35 percent,     MAGIKARP,   20
+	db  70 percent,     MANTINE,    20
+	db  90 percent + 1, MANTINE,    20
+	db 100 percent,     time_group 2
+.Mantine_Swarm_Super:
+	db  40 percent,     MANTINE,    40
+	db  70 percent,     MANTINE,    40
+	db  90 percent + 1, MANTINE,    40
+	db 100 percent,     LANTURN,    40
 
 
 TimeFishGroups:

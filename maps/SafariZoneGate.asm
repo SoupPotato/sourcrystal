@@ -83,6 +83,7 @@ SafariZoneGateGrampsMartScript:
 	opentext
 	writetext SafariZoneGateGrampsMartText
 	waitbutton
+	refreshscreen
 	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_4F
 	closetext
 	end
@@ -92,6 +93,7 @@ SafariZoneGateTeacherMartScript:
 	opentext
 	writetext SafariZoneGateTeacherMartText
 	waitbutton
+	refreshscreen
 	pokemart MARTTYPE_STANDARD, MART_SAFARI_GATE
 	closetext
 	end

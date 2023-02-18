@@ -26,6 +26,7 @@ FishGroups:
 	fishgroup 50 percent + 1, .Horsea_Old,           .Horsea_Good,           .Horsea_Super
 	fishgroup 50 percent + 1, .Horsea_Swarm_Old,     .Horsea_Swarm_Good,     .Horsea_Swarm_Super
 	fishgroup 50 percent + 1, .Mantine_Swarm_Old,    .Mantine_Swarm_Good,    .Mantine_Swarm_Super
+	fishgroup 50 percent + 1, .Dratini_Swarm_Old,    .Dratini_Swarm_Good,    .Dratini_Swarm_Super
 
 .Chinchou_Old:
 .Shore_Old:
@@ -106,6 +107,21 @@ FishGroups:
 	db  40 percent,     MAGIKARP,   40
 	db  70 percent,     time_group 9
 	db  90 percent + 1, MAGIKARP,   40
+	db 100 percent,     DRAGONAIR,  40
+
+.Dratini_Swarm_Old:
+	db  70 percent + 1, MAGIKARP,   10
+	db  85 percent + 1, MAGIKARP,   10
+	db 100 percent,     DRATINI,    10
+.Dratini_Swarm_Good:
+	db  35 percent,     MAGIKARP,   20
+	db  70 percent,     DRATINI,    20
+	db  90 percent + 1, DRATINI,    20
+	db 100 percent,     time_group 8
+.Dratini_Swarm_Super:
+	db  40 percent,     DRATINI,    40
+	db  70 percent,     time_group 9
+	db  90 percent + 1, DRATINI,    40
 	db 100 percent,     DRAGONAIR,  40
 
 .Qwilfish_Swarm_Old:

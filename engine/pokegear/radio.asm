@@ -206,6 +206,10 @@ OaksPKMNTalk3:
 
 
 OaksPKMNTalkSwarm1:
+	ld hl, wSwarmFlags
+	bit SWARMFLAGS_SWARM_ACTIVE, [hl]
+	jr nz, .done
+
 	ld hl, wDailyFlags
 	bit DAILYFLAGS_SWARM_F, [hl]
 	jr nz, .check_alt_swarm
@@ -228,19 +232,21 @@ OaksPKMNTalkSwarm1:
 .normal_swarm
 	ld hl, wDailyFlags
 	bit DAILYFLAGS_SWARM_F, [hl]
-	jr z, .generate_number
+	jp z, .generate_number
 	jp .done
 	
 .alternate_swarm
 	ld hl, wSwarmFlags
 	bit SWARMFLAGS_ALT_SWARM_F, [hl]
-	jr z, .generate_alt_number
+	jp z, .generate_alt_number
 	jp .done
 	
 .done
 	jp OaksPKMNTalk4
 
 .generate_number
+	ld hl, wSwarmFlags
+	set SWARMFLAGS_SWARM_ACTIVE, [hl]
 	call Random ; generate a random number below 32
 	and %11111 ; '31' in bit  (increase bit number with each new added swarm)
 	cp 0
@@ -283,9 +289,23 @@ OaksPKMNTalkSwarm1:
 	jp z, .smeargle
 	cp 19
 	jp z, .horsea
+	cp 20
+	jp z, .mankey
+	cp 21
+	jp z, .ponyta
+	cp 22
+	jp z, .diglett
+	cp 23
+	jp z, .dratini
+	cp 24
+	jp z, .swinub
+	cp 25
+	jp z, .gligar
 	jp .generate_number
 
 .generate_alt_number
+	ld hl, wSwarmFlags
+	set SWARMFLAGS_SWARM_ACTIVE, [hl]
 	call Random ; generate a random number below 32
 	and %11111 ; '31' in bit  (increase bit number with each new added swarm)
 	cp 0
@@ -328,6 +348,18 @@ OaksPKMNTalkSwarm1:
 	jp z, .koffing
 	cp 19
 	jp z, .mantine
+	cp 20
+	jp z, .mareep
+	cp 21
+	jp z, .girafarig
+	cp 22
+	jp z, .houndour
+	cp 23
+	jp z, .onix
+	cp 24
+	jp z, .sneasel
+	cp 25
+	jp z, .skarmory
 	jp .generate_alt_number
 
 .yanma
@@ -681,6 +713,111 @@ OaksPKMNTalkSwarm1:
 	ld [wFishingSwarmFlag], a
 	farcall StoreSwarmMapIndicesAlternate
 	ld e, ROUTE_41
+	jp .finish
+
+.mankey
+	ld a, MANKEY
+	call .store_mon_name
+	ld d, GROUP_ROUTE_42
+	ld e, MAP_ROUTE_42
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_42
+	jp .finish
+.mareep
+	ld a, MAREEP
+	call .store_mon_name
+	ld d, GROUP_ROUTE_42
+	ld e, MAP_ROUTE_42
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_42
+	jp .finish
+
+.ponyta
+	ld a, PONYTA
+	call .store_mon_name
+	ld d, GROUP_ROUTE_47
+	ld e, MAP_ROUTE_47
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_47
+	jp .finish
+
+.girafarig
+	ld a, GIRAFARIG
+	call .store_mon_name
+	ld d, GROUP_ROUTE_43
+	ld e, MAP_ROUTE_43
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_43
+	jp .finish
+
+.diglett
+	ld a, DIGLETT
+	call .store_mon_name
+	ld d, GROUP_ROUTE_48
+	ld e, MAP_ROUTE_48
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_48
+	jp .finish
+.houndour
+	ld a, HOUNDOUR
+	call .store_mon_name
+	ld d, GROUP_ROUTE_48
+	ld e, MAP_ROUTE_48
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_48
+	jp .finish
+
+.dratini
+	ld a, DRATINI
+	call .store_mon_name
+	ld d, GROUP_DRAGONS_DEN_B1F
+	ld e, MAP_DRAGONS_DEN_B1F
+	ld a, 7  ; FISHSWARM_DRATINI (script_constants.asm)
+	ld [wFishingSwarmFlag], a
+	farcall StoreSwarmMapIndices
+	ld e, DRAGONS_DEN
+	jp .finish
+.onix
+	ld a, ONIX
+	call .store_mon_name
+	ld d, GROUP_CLIFF_CAVE
+	ld e, MAP_CLIFF_CAVE
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, CLIFF_CAVE
+	jp .finish
+
+.swinub
+	ld a, SWINUB
+	call .store_mon_name
+	ld d, GROUP_ICE_PATH_1F
+	ld e, MAP_ICE_PATH_1F
+	farcall StoreSwarmMapIndices
+	ld e, ICE_PATH
+	jp .finish
+.sneasel
+	ld a, SNEASEL
+	call .store_mon_name
+	ld d, GROUP_ICE_PATH_B3F
+	ld e, MAP_ICE_PATH_B3F
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ICE_PATH
+	jp .finish
+
+.gligar
+	ld a, GLIGAR
+	call .store_mon_name
+	ld d, GROUP_ROUTE_45
+	ld e, MAP_ROUTE_45
+	farcall StoreSwarmMapIndices
+	ld e, ROUTE_45
+	jp .finish
+.skarmory
+	ld a, SKARMORY
+	call .store_mon_name
+	ld d, GROUP_ROUTE_45
+	ld e, MAP_ROUTE_45
+	farcall StoreSwarmMapIndicesAlternate
+	ld e, ROUTE_45
 	jp .finish
 
 .store_mon_name

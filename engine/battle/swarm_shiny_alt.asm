@@ -44,6 +44,18 @@ GenerateAltSwarmShiny:
 	jp z, .koffing
 	cp ROUTE_41
 	jp z, .mantine
+	cp ROUTE_42
+	jp z, .mareep
+	cp ROUTE_43
+	jp z, .girafarig
+	cp ROUTE_48
+	jp z, .houndour
+	cp CLIFF_CAVE
+	jp z, .onix
+	cp ICE_PATH
+	jp z, .sneasel
+	cp ROUTE_45
+	jp z, .skarmory
 	jp .skipshine
 
 .psyduck
@@ -125,6 +137,30 @@ GenerateAltSwarmShiny:
 .mantine
 	ld a, [wCurPartySpecies]
 	cp MANTINE
+	jp .next
+.mareep
+	ld a, [wCurPartySpecies]
+	cp MAREEP
+	jp .next
+.girafarig
+	ld a, [wCurPartySpecies]
+	cp GIRAFARIG
+	jp .next
+.houndour
+	ld a, [wCurPartySpecies]
+	cp HOUNDOUR
+	jp .next
+.onix
+	ld a, [wCurPartySpecies]
+	cp ONIX
+	jp .next
+.sneasel
+	ld a, [wCurPartySpecies]
+	cp SNEASEL
+	jp .next
+.skarmory
+	ld a, [wCurPartySpecies]
+	cp SKARMORY
 .next
 	jr nz, .skipshine
 	;fallthrough

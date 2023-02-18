@@ -2,14 +2,14 @@
 
 SwarmWaterWildMonsAlt:
 
-	; chinchou
+	; Corsola swarm
 	map_id OLIVINE_CITY
 	db 6 percent ; encounter rate
 	db 10, CORSOLA
 	db 15, CORSOLA
 	db 20, TENTACRUEL
 
-	; mantine
+	; Mantine swarm
 	map_id ROUTE_41
 	db 6 percent ; encounter rate
 	db 20, MANTINE

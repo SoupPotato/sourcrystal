@@ -103,6 +103,8 @@ GetFishGroupIndex:
 	jr z, .chinchou
 	cp FISHGROUP_HORSEA
 	jr z, .horsea
+	cp FISHGROUP_DRATINI
+	jr z, .dratini
 
 .done
 	dec d
@@ -154,6 +156,13 @@ GetFishGroupIndex:
 	cp FISHSWARM_MANTINE
 	jr nz, .done
 	ld d, FISHGROUP_MANTINE_SWARM
+	jr .done
+
+.dratini
+	ld a, [wFishingSwarmFlag]
+	cp FISHSWARM_DRATINI
+	jr nz, .done
+	ld d, FISHGROUP_DRATINI_SWARM
 	jr .done
 
 INCLUDE "data/wild/fish.asm"

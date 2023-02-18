@@ -4,7 +4,7 @@ SwarmGrassWildMons:
 
 ; Dunsparce swarm
 	map_id DARK_CAVE_VIOLET_ENTRANCE
-	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 3, GEODUDE
 	db 3, DUNSPARCE
@@ -340,7 +340,7 @@ SwarmGrassWildMons:
 
 ; Miltank swarm
 	map_id ROUTE_39
-	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 16, MILTANK
 	db 16, MILTANK
@@ -424,7 +424,7 @@ SwarmGrassWildMons:
 
 ; Smeargle swarm
 	map_id RUINS_OF_ALPH_OUTSIDE
-	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 20, SMEARGLE
 	db 22, SMEARGLE
@@ -449,5 +449,145 @@ SwarmGrassWildMons:
 	db 22, WOOPER
 	db 22, SMEARGLE
 	db 22, QUAGSIRE
+
+; Mankey swarm
+	map_id ROUTE_42
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 15, MANKEY
+	db 14, MANKEY
+	db 15, MAREEP
+	db 16, MANKEY
+	db 15, ARBOK
+	db 16, FEAROW
+	db 17, FLAAFFY
+	; day
+	db 15, MANKEY
+	db 14, MANKEY
+	db 15, MAREEP
+	db 16, MANKEY
+	db 15, ARBOK
+	db 16, FEAROW
+	db 17, FLAAFFY
+	; nite
+	db 15, MANKEY
+	db 14, MANKEY
+	db 15, MAREEP
+	db 16, MANKEY
+	db 15, ARBOK
+	db 16, GOLBAT
+	db 17, FLAAFFY
+
+; Ponyta swarm
+	map_id ROUTE_47
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 25, DITTO
+	db 25, PONYTA
+	db 24, FARFETCH_D
+	db 21, PONYTA
+	db 20, PONYTA
+	db 24, FEAROW
+	db 22, GLOOM
+	; day
+	db 25, DITTO
+	db 25, PONYTA
+	db 24, FARFETCH_D
+	db 22, PONYTA
+	db 23, PONYTA
+	db 24, FEAROW
+	db 22, GLOOM
+	; nite
+	db 25, DITTO
+	db 25, PONYTA
+	db 24, FARFETCH_D
+	db 21, PONYTA
+	db 20, PONYTA
+	db 24, NOCTOWL
+	db 22, GLOOM
+
+; Diglett swarm
+	map_id ROUTE_48
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 21, DIGLETT
+	db 24, GLOOM
+	db 20, DIGLETT
+	db 22, HOPPIP
+	db 21, FARFETCH_D
+	db 24, DIGLETT
+	db 20, GIRAFARIG
+	; day
+	db 21, DIGLETT
+	db 24, GLOOM
+	db 20, DIGLETT
+	db 22, HOPPIP
+	db 21, FARFETCH_D
+	db 24, DIGLETT
+	db 20, GIRAFARIG
+	; nite
+	db 21, DIGLETT
+	db 24, GLOOM
+	db 20, DIGLETT
+	db 22, HOUNDOUR
+	db 21, NOCTOWL
+	db 24, DIGLETT
+	db 20, GIRAFARIG
+
+; Swinub swarm
+	map_id ICE_PATH_1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 21, SWINUB
+	db 22, ZUBAT
+	db 22, SWINUB
+	db 23, SWINUB
+	db 24, GOLBAT
+	db 22, GOLBAT
+	db 22, GOLBAT
+	; day
+	db 21, SWINUB
+	db 22, ZUBAT
+	db 22, SWINUB
+	db 23, SWINUB
+	db 24, GOLBAT
+	db 22, GOLBAT
+	db 22, GOLBAT
+	; nite
+	db 21, SWINUB
+	db 22, ZUBAT
+	db 22, SWINUB
+	db 23, SWINUB
+	db 24, GOLBAT
+	db 22, DELIBIRD
+	db 22, DELIBIRD
+
+; Gligar swarm
+	map_id ROUTE_45
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 23, GLIGAR
+	db 23, GRAVELER
+	db 24, GLIGAR
+	db 25, DONPHAN
+	db 22, GLIGAR
+	db 27, SKARMORY
+	db 27, SKARMORY
+	; day
+	db 23, GLIGAR
+	db 23, GRAVELER
+	db 24, GLIGAR
+	db 25, DONPHAN
+	db 22, GLIGAR
+	db 27, SKARMORY
+	db 27, SKARMORY
+	; nite
+	db 23, GLIGAR
+	db 23, GRAVELER
+	db 24, GLIGAR
+	db 25, GRAVELER
+	db 22, GLIGAR
+	db 27, SKARMORY
+	db 27, SKARMORY
 
 	db -1 ; end

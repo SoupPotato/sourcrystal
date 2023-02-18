@@ -214,6 +214,7 @@ NUM_FRUIT_TREES EQU const_value + -1
 	const FISHSWARM_CORSOLA  ; 4
 	const FISHSWARM_HORSEA   ; 5
 	const FISHSWARM_MANTINE  ; 6
+	const FISHSWARM_DRATINI  ; 7
 
 ; SpecialGameboyCheck return values
 	const_def

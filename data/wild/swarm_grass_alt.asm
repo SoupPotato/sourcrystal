@@ -256,7 +256,7 @@ SwarmGrassWildMonsAlt:
 
 ; Oddish swarm
 	map_id ILEX_FOREST
-	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 5, ODDISH
 	db 5, ODDISH
@@ -480,7 +480,7 @@ SwarmGrassWildMonsAlt:
 
 ; Koffing swarm
 	map_id BURNED_TOWER_1F
-	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 13, KOFFING
 	db 14, KOFFING
@@ -506,4 +506,171 @@ SwarmGrassWildMonsAlt:
 	db 15, RATICATE
 	db 15, RATICATE
 
+; Mareep swarm
+	map_id ROUTE_42
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 15, MAREEP
+	db 14, MAREEP
+	db 15, MANKEY
+	db 16, MAREEP
+	db 15, ARBOK
+	db 16, FEAROW
+	db 17, FLAAFFY
+	; day
+	db 15, MAREEP
+	db 14, MAREEP
+	db 15, MANKEY
+	db 16, MAREEP
+	db 15, ARBOK
+	db 16, FEAROW
+	db 17, FLAAFFY
+	; nite
+	db 15, MAREEP
+	db 14, MAREEP
+	db 15, MANKEY
+	db 16, MAREEP
+	db 15, ARBOK
+	db 16, GOLBAT
+	db 17, FLAAFFY
+
+; Girafarig swarm
+	map_id ROUTE_43
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 15, GIRAFARIG
+	db 15, GIRAFARIG
+	db 16, PIDGEOTTO
+	db 16, FARFETCH_D
+	db 15, GIRAFARIG
+	db 17, FURRET
+	db 17, FURRET
+	; day
+	db 15, GIRAFARIG
+	db 15, GIRAFARIG
+	db 16, PIDGEOTTO
+	db 16, FARFETCH_D
+	db 15, GIRAFARIG
+	db 17, FURRET
+	db 17, FURRET
+	; nite
+	db 15, GIRAFARIG
+	db 15, GIRAFARIG
+	db 16, NOCTOWL
+	db 16, VENONAT
+	db 15, GIRAFARIG
+	db 17, VENOMOTH
+	db 17, VENOMOTH
+
+; Houndour swarm
+	map_id ROUTE_48
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 21, HOUNDOUR
+	db 20, HOUNDOUR
+	db 21, FEAROW
+	db 22, HOPPIP
+	db 21, FARFETCH_D
+	db 20, DIGLETT
+	db 20, GIRAFARIG
+	; day
+	db 21, HOUNDOUR
+	db 20, HOUNDOUR
+	db 21, FEAROW
+	db 22, HOPPIP
+	db 21, FARFETCH_D
+	db 20, DIGLETT
+	db 20, GIRAFARIG
+	; nite
+	db 21, HOUNDOUR
+	db 20, HOUNDOUR
+	db 21, FEAROW
+	db 22, HOUNDOUR
+	db 21, NOCTOWL
+	db 20, DIGLETT
+	db 20, GIRAFARIG
+
+; Onix swarm
+	map_id CLIFF_CAVE
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 18, ONIX
+	db 19, ONIX
+	db 20, KRABBY
+	db 22, GRAVELER
+	db 20, ONIX
+	db 22, MACHOKE
+	db 23, STEELIX
+	; day
+	db 18, ONIX
+	db 19, ONIX
+	db 20, KRABBY
+	db 22, GRAVELER
+	db 20, ONIX
+	db 22, MACHOKE
+	db 23, STEELIX
+	; nite
+	db 18, ONIX
+	db 19, ONIX
+	db 20, KRABBY
+	db 22, KINGLER
+	db 20, ONIX
+	db 20, MISDREAVUS
+	db 23, STEELIX
+
+; Sneasel swarm
+	map_id ICE_PATH_B3F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 24, SWINUB
+	db 22, SNEASEL
+	db 25, GOLBAT
+	db 26, SWINUB
+	db 24, SNEASEL
+	db 24, JYNX
+	db 26, JYNX
+	; day
+	db 24, SWINUB
+	db 22, SNEASEL
+	db 25, GOLBAT
+	db 26, SWINUB
+	db 24, SNEASEL
+	db 24, JYNX
+	db 26, JYNX
+	; nite
+	db 24, DELIBIRD
+	db 22, SNEASEL
+	db 25, GOLBAT
+	db 24, SNEASEL
+	db 22, SNEASEL
+	db 24, DELIBIRD
+	db 26, DELIBIRD
+
+; Skarmory swarm
+	map_id ROUTE_45
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 23, GEODUDE
+	db 23, SKARMORY
+	db 24, GLIGAR
+	db 25, DONPHAN
+	db 24, SKARMORY
+	db 27, SKARMORY
+	db 27, SKARMORY
+	; day
+	db 23, GEODUDE
+	db 23, SKARMORY
+	db 24, GLIGAR
+	db 25, DONPHAN
+	db 24, SKARMORY
+	db 27, SKARMORY
+	db 27, SKARMORY
+	; nite
+	db 23, GEODUDE
+	db 23, SKARMORY
+	db 24, GLIGAR
+	db 25, GRAVELER
+	db 24, SKARMORY
+	db 27, SKARMORY
+	db 27, SKARMORY
 	db -1 ; end

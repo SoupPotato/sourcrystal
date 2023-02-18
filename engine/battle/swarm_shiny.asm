@@ -44,6 +44,18 @@ GenerateSwarmShiny:
 	jp z, .smeargle
 	cp ROUTE_41
 	jp z, .horsea
+	cp ROUTE_42
+	jp z, .mankey
+	cp ROUTE_47
+	jp z, .ponyta
+	cp ROUTE_48
+	jp z, .diglett
+	cp DRAGONS_DEN
+	jp z, .dratini
+	cp ICE_PATH
+	jp z, .swinub
+	cp ROUTE_45
+	jp z, .gligar
 	jp .skipshine
 
 .yanma
@@ -124,6 +136,30 @@ GenerateSwarmShiny:
 .horsea
 	ld a, [wCurPartySpecies]
 	cp HORSEA
+	jp .next
+.mankey
+	ld a, [wCurPartySpecies]
+	cp MANKEY
+	jp .next
+.ponyta
+	ld a, [wCurPartySpecies]
+	cp PONYTA
+	jp .next
+.diglett
+	ld a, [wCurPartySpecies]
+	cp DIGLETT
+	jp .next
+.dratini
+	ld a, [wCurPartySpecies]
+	cp DRATINI
+	jp .next
+.swinub
+	ld a, [wCurPartySpecies]
+	cp SWINUB
+	jp .next
+.gligar
+	ld a, [wCurPartySpecies]
+	cp GLIGAR
 .next
 	jr nz, .skipshine
 	;fallthrough

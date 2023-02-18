@@ -329,7 +329,7 @@ CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const SWARMFLAGS_BUENAS_PASSWORD_F           ; 0
 	const SWARMFLAGS_GOLDENROD_DEPT_STORE_SALE_F ; 1
 	const SWARMFLAGS_ALT_SWARM_F                 ; 2
-	const SWARMFLAGS_YANMA_SWARM_F               ; 3
+	const SWARMFLAGS_SWARM_ACTIVE                ; 3
 	const SWARMFLAGS_MOBILE_4_F                  ; 4
 
 ; wLuckyNumberShowFlag:: ; dc9d

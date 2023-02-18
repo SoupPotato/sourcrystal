@@ -1994,6 +1994,13 @@ RadioChannels:
 	db -1
 
 .PKMNTalkAndPokedexShow:
+	call .InJohto
+	jr nc, .check_radio_card_expansion
+	jp LoadStation_OaksPokemonTalk
+.check_radio_card_expansion
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_EXPN_CARD_F, a
+	jr z, .NoSignal
 	jp LoadStation_OaksPokemonTalk
 
 .PokemonMusic:

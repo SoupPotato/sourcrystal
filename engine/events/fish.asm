@@ -105,6 +105,10 @@ GetFishGroupIndex:
 	jr z, .horsea
 	cp FISHGROUP_DRATINI
 	jr z, .dratini
+	cp FISHGROUP_STARYU
+	jr z, .staryu
+	cp FISHGROUP_SHELLDER
+	jr z, .shellder
 
 .done
 	dec d
@@ -163,6 +167,20 @@ GetFishGroupIndex:
 	cp FISHSWARM_DRATINI
 	jr nz, .done
 	ld d, FISHGROUP_DRATINI_SWARM
+	jr .done
+
+.staryu
+	ld a, [wFishingSwarmFlag]
+	cp FISHSWARM_STARYU
+	jr nz, .done
+	ld d, FISHGROUP_STARYU_SWARM
+	jr .done
+
+.shellder
+	ld a, [wFishingSwarmFlag]
+	cp FISHSWARM_SHELLDER
+	jr nz, .done
+	ld d, FISHGROUP_SHELLDER_SWARM
 	jr .done
 
 INCLUDE "data/wild/fish.asm"

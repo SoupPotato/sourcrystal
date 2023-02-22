@@ -56,6 +56,44 @@ GenerateSwarmShiny:
 	jp z, .swinub
 	cp ROUTE_45
 	jp z, .gligar
+	cp VICTORY_ROAD
+	jp z, .golbat
+	cp ROUTE_26
+	jp z, .doduo
+	cp ROUTE_1
+	jp z, .furret
+	cp VIRIDIAN_FOREST
+	jp z, .pikachu
+	cp POKEMON_MANSION
+	jp z, .magmar
+	cp MT_MOON
+	jp z, .geodude
+	cp ROUTE_5
+	jp z, .jigglypuff
+	cp ROUTE_6
+	jp z, .poliwag
+	cp ROUTE_11
+	jp z, .meowth
+	cp ROUTE_9
+	jp z, .fearow
+	cp ROCK_TUNNEL
+	jp z, .cubone
+	cp ROUTE_7
+	jp z, .murkrow
+	cp ROUTE_8
+	jp z, .haunter
+	cp ROUTE_16
+	jp z, .slugma
+	cp ROUTE_10
+	jp z, .voltorb
+	cp ROUTE_14
+	jp z, .nidorino
+	cp ROUTE_13
+	jp z, .farfetch_d
+	cp ROUTE_19
+	jp z, .staryu
+	cp SEAFOAM_ISLANDS
+	jp z, .seel
 	jp .skipshine
 
 .yanma
@@ -160,6 +198,82 @@ GenerateSwarmShiny:
 .gligar
 	ld a, [wCurPartySpecies]
 	cp GLIGAR
+	jp .next
+.golbat
+	ld a, [wCurPartySpecies]
+	cp GOLBAT
+	jp .next
+.doduo
+	ld a, [wCurPartySpecies]
+	cp DODUO
+	jp .next
+.furret
+	ld a, [wCurPartySpecies]
+	cp FURRET
+	jp .next
+.pikachu
+	ld a, [wCurPartySpecies]
+	cp PIKACHU
+	jp .next
+.magmar
+	ld a, [wCurPartySpecies]
+	cp MAGMAR
+	jp .next
+.geodude
+	ld a, [wCurPartySpecies]
+	cp GEODUDE
+	jp .next
+.jigglypuff
+	ld a, [wCurPartySpecies]
+	cp JIGGLYPUFF
+	jp .next
+.poliwag
+	ld a, [wCurPartySpecies]
+	cp POLIWAG
+	jp .next
+.meowth
+	ld a, [wCurPartySpecies]
+	cp MEOWTH
+	jp .next
+.fearow
+	ld a, [wCurPartySpecies]
+	cp FEAROW
+	jp .next
+.cubone
+	ld a, [wCurPartySpecies]
+	cp CUBONE
+	jp .next
+.murkrow
+	ld a, [wCurPartySpecies]
+	cp MURKROW
+	jp .next
+.haunter
+	ld a, [wCurPartySpecies]
+	cp HAUNTER
+	jp .next
+.slugma
+	ld a, [wCurPartySpecies]
+	cp SLUGMA
+	jp .next
+.voltorb
+	ld a, [wCurPartySpecies]
+	cp VOLTORB
+	jp .next
+.nidorino
+	ld a, [wCurPartySpecies]
+	cp NIDORINO
+	jp .next
+.farfetch_d
+	ld a, [wCurPartySpecies]
+	cp FARFETCH_D
+	jp .next
+.staryu
+	ld a, [wCurPartySpecies]
+	cp STARYU
+	jp .next
+.seel
+	ld a, [wCurPartySpecies]
+	cp SEEL
 .next
 	jr nz, .skipshine
 	;fallthrough

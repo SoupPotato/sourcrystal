@@ -56,6 +56,44 @@ GenerateAltSwarmShiny:
 	jp z, .sneasel
 	cp ROUTE_45
 	jp z, .skarmory
+	cp VICTORY_ROAD
+	jp z, .rhyhorn
+	cp ROUTE_21
+	jp z, .mr_mime
+	cp ROUTE_1
+	jp z, .raticate
+	cp VIRIDIAN_FOREST
+	jp z, .bulbasaur
+	cp ROUTE_22
+	jp z, .charmander
+	cp MT_MOON
+	jp z, .clefairy
+	cp ROUTE_5
+	jp z, .noctowl
+	cp ROUTE_6
+	jp z, .abra
+	cp ROUTE_11
+	jp z, .pidgeotto
+	cp ROUTE_25
+	jp z, .squirtle
+	cp ROCK_TUNNEL
+	jp z, .kangaskhan
+	cp ROUTE_10
+	jp z, .electabuzz
+	cp ROUTE_8
+	jp z, .tyrogue
+	cp ROUTE_17
+	jp z, .grimer
+	cp ROUTE_15
+	jp z, .exeggcute
+	cp ROUTE_14
+	jp z, .nidorina
+	cp ROUTE_13
+	jp z, .chansey
+	cp ROUTE_20
+	jp z, .shellder
+	cp SEAFOAM_ISLANDS
+	jp z, .jynx
 	jp .skipshine
 
 .psyduck
@@ -161,6 +199,82 @@ GenerateAltSwarmShiny:
 .skarmory
 	ld a, [wCurPartySpecies]
 	cp SKARMORY
+	jp .next
+.rhyhorn
+	ld a, [wCurPartySpecies]
+	cp RHYHORN
+	jp .next
+.mr_mime
+	ld a, [wCurPartySpecies]
+	cp MR__MIME
+	jp .next
+.raticate
+	ld a, [wCurPartySpecies]
+	cp RATICATE
+	jp .next
+.bulbasaur
+	ld a, [wCurPartySpecies]
+	cp BULBASAUR
+	jp .next
+.charmander
+	ld a, [wCurPartySpecies]
+	cp CHARMANDER
+	jp .next
+.clefairy
+	ld a, [wCurPartySpecies]
+	cp CLEFAIRY
+	jp .next
+.noctowl
+	ld a, [wCurPartySpecies]
+	cp NOCTOWL
+	jp .next
+.abra
+	ld a, [wCurPartySpecies]
+	cp ABRA
+	jp .next
+.pidgeotto
+	ld a, [wCurPartySpecies]
+	cp PIDGEOTTO
+	jp .next
+.squirtle
+	ld a, [wCurPartySpecies]
+	cp SQUIRTLE
+	jp .next
+.kangaskhan
+	ld a, [wCurPartySpecies]
+	cp KANGASKHAN
+	jp .next
+.electabuzz
+	ld a, [wCurPartySpecies]
+	cp ELECTABUZZ
+	jp .next
+.tyrogue
+	ld a, [wCurPartySpecies]
+	cp TYROGUE
+	jp .next
+.grimer
+	ld a, [wCurPartySpecies]
+	cp GRIMER
+	jp .next
+.exeggcute
+	ld a, [wCurPartySpecies]
+	cp EXEGGCUTE
+	jp .next
+.nidorina
+	ld a, [wCurPartySpecies]
+	cp NIDORINA
+	jp .next
+.chansey
+	ld a, [wCurPartySpecies]
+	cp CHANSEY
+	jp .next
+.shellder
+	ld a, [wCurPartySpecies]
+	cp SHELLDER
+	jp .next
+.jynx
+	ld a, [wCurPartySpecies]
+	cp JYNX
 .next
 	jr nz, .skipshine
 	;fallthrough

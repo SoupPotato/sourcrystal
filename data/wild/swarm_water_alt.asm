@@ -16,4 +16,11 @@ SwarmWaterWildMonsAlt:
 	db 20, MANTINE
 	db 20, TENTACRUEL
 
+	; Shellder swarm
+	map_id ROUTE_20
+	db 6 percent ; encounter rate
+	db 35, SHELLDER
+	db 30, SHELLDER
+	db 35, TENTACRUEL
+
 	db -1 ; end

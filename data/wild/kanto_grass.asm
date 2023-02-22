@@ -546,26 +546,26 @@ KantoGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 15, PIDGEY
-	db 15, BELLSPROUT
-	db 14, SNUBBULL
+	db 15, SNUBBULL
 	db 17, PIDGEOTTO
 	db 12, ABRA
+	db 14, JIGGLYPUFF
 	db 14, ABRA
 	db 14, ABRA
 	; day
-	db 15, PIDGEY
-	db 15, BELLSPROUT
-	db 14, SNUBBULL
-	db 17, PIDGEOTTO
+	db 13, PIDGEY
+	db 13, SNUBBULL
+	db 15, PIDGEOTTO
 	db 12, ABRA
+	db 14, JIGGLYPUFF
 	db 14, ABRA
 	db 14, ABRA
 	; nite
-	db 15, ODDISH
-	db 15, MEOWTH
-	db 14, BELLSPROUT
-	db 17, GLOOM
+	db 13, HOOTHOOT
+	db 13, MEOWTH
+	db 15, NOCTOWL
 	db 12, ABRA
+	db 14, JIGGLYPUFF
 	db 14, ABRA
 	db 14, ABRA
 
@@ -765,7 +765,7 @@ KantoGrassWildMons:
 	db 25, NIDORINA
 	db 28, PIDGEOTTO
 	db 25, HOPPIP
-	db 27, HOPPIP
+	db 27, FARFETCH_D
 	db 29, HOPPIP
 	db 31, CHANSEY
 	; day
@@ -773,7 +773,7 @@ KantoGrassWildMons:
 	db 25, NIDORINA
 	db 28, PIDGEOTTO
 	db 25, HOPPIP
-	db 27, HOPPIP
+	db 27, FARFETCH_D
 	db 29, HOPPIP
 	db 31, CHANSEY
 	; nite
@@ -781,7 +781,7 @@ KantoGrassWildMons:
 	db 25, QUAGSIRE
 	db 28, NOCTOWL
 	db 25, VENOMOTH
-	db 27, QUAGSIRE
+	db 27, FARFETCH_D
 	db 29, QUAGSIRE
 	db 31, CHANSEY
 
@@ -792,7 +792,7 @@ KantoGrassWildMons:
 	db 25, NIDORINA
 	db 28, PIDGEOTTO
 	db 25, HOPPIP
-	db 27, HOPPIP
+	db 27, FARFETCH_D
 	db 29, HOPPIP
 	db 31, CHANSEY
 	; day
@@ -800,7 +800,7 @@ KantoGrassWildMons:
 	db 25, NIDORINA
 	db 28, PIDGEOTTO
 	db 25, HOPPIP
-	db 27, HOPPIP
+	db 27, FARFETCH_D
 	db 29, HOPPIP
 	db 31, CHANSEY
 	; nite
@@ -808,7 +808,7 @@ KantoGrassWildMons:
 	db 25, QUAGSIRE
 	db 28, NOCTOWL
 	db 25, VENOMOTH
-	db 27, QUAGSIRE
+	db 27, FARFETCH_D
 	db 29, QUAGSIRE
 	db 31, CHANSEY
 

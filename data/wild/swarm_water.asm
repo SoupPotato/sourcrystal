@@ -32,9 +32,16 @@ SwarmWaterWildMons:
 
 	; Dratini swarm
 	map_id DRAGONS_DEN_B1F
-	db 4 percent ; encounter rate
+	db 6 percent ; encounter rate
 	db 15, DRATINI
 	db 10, DRATINI
 	db 15, MAGIKARP
+
+	; Staryu swarm
+	map_id ROUTE_19
+	db 6 percent ; encounter rate
+	db 35, STARYU
+	db 30, STARYU
+	db 35, TENTACRUEL
 
 	db -1 ; end

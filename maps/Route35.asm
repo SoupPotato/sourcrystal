@@ -55,7 +55,6 @@ TrainerJugglerIrwin:
 
 .Script:
 	writecode VAR_CALLERID, PHONE_JUGGLER_IRWIN
-	endifjustbattled
 	opentext
 	checkcellnum PHONE_JUGGLER_IRWIN
 	iftrue Route35NumberAcceptedM
@@ -154,7 +153,6 @@ TrainerBugCatcherArnie:
 
 .Script:
 	writecode VAR_CALLERID, PHONE_BUG_CATCHER_ARNIE
-	endifjustbattled
 	opentext
 	checkflag ENGINE_ARNIE
 	iftrue .WantsBattle

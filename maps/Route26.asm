@@ -46,7 +46,6 @@ TrainerCooltrainermGaven3:
 
 .Script:
 	writecode VAR_CALLERID, PHONE_COOLTRAINERM_GAVEN
-	endifjustbattled
 	opentext
 	checkflag ENGINE_GAVEN
 	iftrue .WantsBattle
@@ -141,7 +140,6 @@ TrainerCooltrainerfBeth1:
 
 .Script:
 	writecode VAR_CALLERID, PHONE_COOLTRAINERF_BETH
-	endifjustbattled
 	opentext
 	checkflag ENGINE_BETH
 	iftrue .WantsBattle

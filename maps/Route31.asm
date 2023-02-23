@@ -44,7 +44,6 @@ TrainerBugCatcherWade1:
 
 .Script:
 	writecode VAR_CALLERID, PHONE_BUG_CATCHER_WADE
-	endifjustbattled
 	opentext
 	checkflag ENGINE_WADE
 	iftrue .WadeRematch

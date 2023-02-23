@@ -40,7 +40,6 @@ TrainerBlackbeltKenji:
 
 .Script:
 	writecode VAR_CALLERID, PHONE_BLACKBELT_KENJI
-	endifjustbattled
 	opentext
 	checkcellnum PHONE_BLACKBELT_KENJI
 	iftrue .Registered
@@ -166,7 +165,6 @@ TrainerHikerParry:
 
 .Script:
 	writecode VAR_CALLERID, PHONE_HIKER_PARRY
-	endifjustbattled
 	opentext
 	checkflag ENGINE_PARRY
 	iftrue .WantsBattle

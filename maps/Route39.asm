@@ -45,7 +45,6 @@ TrainerPokefanmDerek:
 
 .Script:
 	writecode VAR_CALLERID, PHONE_POKEFANM_DEREK
-	endifjustbattled
 	opentext
 	checkflag ENGINE_DEREK_HAS_NUGGET
 	iftrue .HasNugget

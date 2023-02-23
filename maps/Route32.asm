@@ -168,7 +168,6 @@ TrainerFisherRalph1:
 
 .Script:
 	writecode VAR_CALLERID, PHONE_FISHER_RALPH
-	endifjustbattled
 	opentext
 	checkflag ENGINE_RALPH
 	iftrue .Rematch
@@ -281,7 +280,6 @@ TrainerPicnickerLiz1:
 
 .Script:
 	writecode VAR_CALLERID, PHONE_PICNICKER_LIZ
-	endifjustbattled
 	opentext
 	checkflag ENGINE_LIZ
 	iftrue .Rematch

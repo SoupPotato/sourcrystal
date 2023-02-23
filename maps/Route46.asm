@@ -59,7 +59,6 @@ TrainerPicnickerErin1:
 
 .Script:
 	writecode VAR_CALLERID, PHONE_PICNICKER_ERIN
-	endifjustbattled
 	opentext
 	checkflag ENGINE_ERIN
 	iftrue .WantsBattle

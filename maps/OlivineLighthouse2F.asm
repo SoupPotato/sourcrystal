@@ -23,7 +23,6 @@ TrainerSailorHuey:
 
 .Script:
 	writecode VAR_CALLERID, PHONE_SAILOR_HUEY
-	endifjustbattled
 	opentext
 	checkflag ENGINE_HUEY
 	iftrue .WantsBattle

@@ -625,7 +625,9 @@ JoeyPhoneScript1:
 	checkcode VAR_WEEKDAY
 	ifnotequal MONDAY, .NotMonday
 	checktime DAY
-	iftrue JoeyMondayAfternoon
+	iftrue JoeyWantsBattle
+	checktime EVE
+	iftrue JoeyWantsBattle
 
 .NotMonday:
 	special RandomPhoneMon
@@ -638,8 +640,6 @@ JoeyPhoneScript1:
 JoeyPhoneScript2:
 	trainertotext YOUNGSTER, JOEY1, MEM_BUFFER_0
 	farscall PhoneScript_GreetPhone_Male
-	checkflag ENGINE_JOEY
-	iftrue .Generic
 	checkflag ENGINE_JOEY_MONDAY_AFTERNOON
 	iftrue .Generic
 	farscall PhoneScript_Random3
@@ -648,9 +648,6 @@ JoeyPhoneScript2:
 
 .Generic:
 	farjump Phone_GenericCall_Male
-
-JoeyMondayAfternoon:
-	setflag ENGINE_JOEY_MONDAY_AFTERNOON
 
 JoeyWantsBattle:
 	landmarktotext ROUTE_30, MEM_BUFFER_2
@@ -671,7 +668,7 @@ WadePhoneScript1:
 	checkcode VAR_WEEKDAY
 	ifnotequal TUESDAY, .NotTuesday
 	checktime NITE
-	iftrue WadeTuesdayNight
+	iftrue WadeWantsBattle2
 
 .NotTuesday:
 	farscall PhoneScript_Random2
@@ -710,8 +707,6 @@ WadePhoneScript2:
 	ifequal SATURDAY, .ContestToday
 
 .NoContest:
-	checkflag ENGINE_WADE
-	iftrue .next
 	checkflag ENGINE_WADE_TUESDAY_NIGHT
 	iftrue .next
 	checkflag ENGINE_WADE_HAS_ITEM
@@ -730,9 +725,6 @@ WadePhoneScript2:
 
 .ContestToday:
 	farjump PhoneScript_BugCatchingContest
-
-WadeTuesdayNight:
-	setflag ENGINE_WADE_TUESDAY_NIGHT
 
 WadeWantsBattle2:
 	landmarktotext ROUTE_31, MEM_BUFFER_2
@@ -781,7 +773,7 @@ RalphPhoneScript1:
 	iftrue .Rematch
 	farscall PhoneScript_AnswerPhone_Male
 	checktime MORN
-	iftrue Ralph_WednesdayMorning
+	iftrue Ralph_FightMe
 	farjump UnknownScript_0xa0940
 
 .Rematch:
@@ -795,8 +787,6 @@ RalphPhoneScript2:
 	ifequal 0, Ralph_FightMe
 	farjump Phone_GenericCall_Male
 
-Ralph_WednesdayMorning:
-	setflag ENGINE_RALPH_WEDNESDAY_MORNING
 Ralph_FightMe:
 	landmarktotext ROUTE_32, MEM_BUFFER_2
 	setflag ENGINE_RALPH
@@ -814,7 +804,9 @@ LizPhoneScript1:
 	checkcode VAR_WEEKDAY
 	ifnotequal THURSDAY, .NotThursday
 	checktime DAY
-	iftrue LizThursdayAfternoon
+	iftrue LizWantsBattle
+	checktime EVE
+	iftrue LizWantsBattle
 
 .NotThursday:
 	special RandomPhoneMon
@@ -844,9 +836,6 @@ LizPhoneScript2:
 
 .Generic:
 	farjump Phone_GenericCall_Female
-
-LizThursdayAfternoon:
-	setflag ENGINE_LIZ_THURSDAY_AFTERNOON
 
 LizWantsBattle:
 	landmarktotext ROUTE_32, MEM_BUFFER_2
@@ -914,8 +903,14 @@ AnthonyPhoneScript1:
 	checkflag ENGINE_ANTHONY
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
+	checkflag ENGINE_ANTHONY_FRIDAY_NIGHT
+	iftrue .NotFriday
+	checkcode VAR_WEEKDAY
+	ifnotequal FRIDAY, .NotFriday
 	checktime NITE
 	iftrue AnthonyFridayNight
+
+.NotFriday
 	farjump UnknownScript_0xa0950
 
 .WantsBattle:
@@ -949,7 +944,7 @@ ToddPhoneScript1:
 	checkcode VAR_WEEKDAY
 	ifnotequal SATURDAY, .NotSaturday
 	checktime MORN
-	iftrue ToddSaturdayMorning
+	iftrue ToddWantsBattle
 
 .NotSaturday:
 	checkflag ENGINE_GOLDENROD_DEPT_STORE_SALE_IS_ON
@@ -984,9 +979,6 @@ ToddPhoneScript2:
 	ifequal 0, ToddFoundRare
 	farjump Phone_GenericCall_Male
 
-ToddSaturdayMorning:
-	setflag ENGINE_TODD_SATURDAY_MORNING
-
 ToddWantsBattle:
 	landmarktotext ROUTE_34, MEM_BUFFER_2
 	setflag ENGINE_TODD
@@ -1013,7 +1005,9 @@ GinaPhoneScript1:
 	checkcode VAR_WEEKDAY
 	ifnotequal SUNDAY, .NotSunday
 	checktime DAY
-	iftrue GinaSundayDay
+	iftrue GinaWantsBattle
+	checktime EVE
+	iftrue GinaWantsBattle
 
 .NotSunday:
 	checkflag ENGINE_ROCKETS_IN_RADIO_TOWER
@@ -1058,8 +1052,6 @@ GinaPhoneScript2:
 .Generic:
 	farjump Phone_GenericCall_Female
 
-GinaSundayDay:
-	setflag ENGINE_GINA_SUNDAY_AFTERNOON
 
 GinaWantsBattle:
 	landmarktotext ROUTE_34, MEM_BUFFER_2

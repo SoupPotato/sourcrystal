@@ -90,7 +90,6 @@ TrainerCamperTodd1:
 
 .Script:
 	writecode VAR_CALLERID, PHONE_CAMPER_TODD
-	endifjustbattled
 	opentext
 	checkflag ENGINE_TODD
 	iftrue .Rematch
@@ -200,7 +199,6 @@ TrainerPicnickerGina1:
 
 .Script:
 	writecode VAR_CALLERID, PHONE_PICNICKER_GINA
-	endifjustbattled
 	opentext
 	checkflag ENGINE_GINA
 	iftrue .Rematch

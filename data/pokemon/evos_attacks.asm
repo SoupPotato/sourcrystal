@@ -292,6 +292,7 @@ RaticateEvosAttacks:
 	db 1, QUICK_ATTACK
 	db 11, FOCUS_ENERGY
 	db 15, BITE
+	db 20, SCARY_FACE
 	db 22, PURSUIT
 	db 27, HYPER_FANG
 	db 32, CRUNCH

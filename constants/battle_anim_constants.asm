@@ -496,6 +496,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const BATTLEANIMFRAMESET_B9
 	const BATTLEANIMFRAMESET_BA
 	const BATTLEANIMFRAMESET_BB
+	const BATTLEANIMFRAMESET_BC
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
 	const_def

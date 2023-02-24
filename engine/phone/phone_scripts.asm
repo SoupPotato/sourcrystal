@@ -1095,8 +1095,14 @@ ArniePhoneScript1:
 	checkflag ENGINE_ARNIE
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
+	checkflag ENGINE_ARNIE_TUESDAY_MORNING
+	iftrue .NotTuesday
+	checkcode VAR_WEEKDAY
+	ifnotequal TUESDAY, .NotTuesday
 	checktime MORN
-	iftrue ArnieTuesdayMorning
+	iftrue ArnieWantsBattle
+
+.NotTuesday
 	farjump UnknownScript_0xa0968
 
 .WantsBattle:
@@ -1109,9 +1115,6 @@ ArniePhoneScript2:
 	farscall PhoneScript_Random2
 	ifequal 0, ArnieWantsBattle
 	farjump Phone_GenericCall_Male
-
-ArnieTuesdayMorning:
-	setflag ENGINE_ARNIE_TUESDAY_MORNING
 
 ArnieWantsBattle:
 	landmarktotext ROUTE_35, MEM_BUFFER_2
@@ -1132,7 +1135,9 @@ AlanPhoneScript1:
 	checkcode VAR_WEEKDAY
 	ifnotequal WEDNESDAY, .NotWednesday
 	checktime DAY
-	iftrue AlanWednesdayDay
+	iftrue AlanWantsBattle
+	checktime EVE
+	iftrue AlanWantsBattle
 
 .NotWednesday:
 	farjump UnknownScript_0xa0970
@@ -1148,8 +1153,6 @@ AlanPhoneScript1:
 AlanPhoneScript2:
 	trainertotext SCHOOLBOY, ALAN1, MEM_BUFFER_0
 	farscall PhoneScript_GreetPhone_Male
-	checkflag ENGINE_ALAN
-	iftrue .Generic
 	checkflag ENGINE_ALAN_WEDNESDAY_AFTERNOON
 	iftrue .Generic
 	checkflag ENGINE_ALAN_HAS_FIRE_STONE
@@ -1167,9 +1170,6 @@ AlanPhoneScript2:
 
 .Generic:
 	farjump Phone_GenericCall_Male
-
-AlanWednesdayDay:
-	setflag ENGINE_ALAN_WEDNESDAY_AFTERNOON
 
 AlanWantsBattle:
 	landmarktotext ROUTE_36, MEM_BUFFER_2
@@ -1195,7 +1195,7 @@ DanaPhoneScript1:
 	checkcode VAR_WEEKDAY
 	ifnotequal THURSDAY, .NotThursday
 	checktime NITE
-	iftrue DanaThursdayNight
+	iftrue DanaWantsBattle
 
 .NotThursday:
 	farjump UnknownScript_0xa0978
@@ -1211,8 +1211,6 @@ DanaPhoneScript1:
 DanaPhoneScript2:
 	trainertotext LASS, DANA1, MEM_BUFFER_0
 	farscall PhoneScript_GreetPhone_Female
-	checkflag ENGINE_DANA
-	iftrue .Generic
 	checkflag ENGINE_DANA_THURSDAY_NIGHT
 	iftrue .Generic
 	checkflag ENGINE_DANA_HAS_THUNDERSTONE
@@ -1232,9 +1230,6 @@ DanaPhoneScript2:
 	farscall PhoneScript_Random3
 	ifequal 0, DanaFoundRare
 	farjump Phone_GenericCall_Female
-
-DanaThursdayNight:
-	setflag ENGINE_DANA_THURSDAY_NIGHT
 
 DanaWantsBattle:
 	landmarktotext ROUTE_38, MEM_BUFFER_2
@@ -1261,7 +1256,7 @@ ChadPhoneScript1:
 	checkcode VAR_WEEKDAY
 	ifnotequal FRIDAY, .NotFriday
 	checktime MORN
-	iftrue ChadFridayMorning
+	iftrue ChadWantsBattle
 
 .NotFriday:
 	farjump UnknownScript_0xa0980
@@ -1275,8 +1270,6 @@ ChadPhoneScript2:
 	farscall PhoneScript_GreetPhone_Male
 	farscall PhoneScript_Random2
 	ifequal 0, ChadOakGossip
-	checkflag ENGINE_CHAD
-	iftrue .Generic
 	checkflag ENGINE_CHAD_FRIDAY_MORNING
 	iftrue .Generic
 	farscall PhoneScript_Random2
@@ -1286,9 +1279,6 @@ ChadPhoneScript2:
 	farscall PhoneScript_Random3
 	ifequal 0, ChadFoundRare
 	farjump Phone_GenericCall_Male
-
-ChadFridayMorning:
-	setflag ENGINE_CHAD_FRIDAY_MORNING
 
 ChadWantsBattle:
 	landmarktotext ROUTE_38, MEM_BUFFER_2

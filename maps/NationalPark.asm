@@ -191,8 +191,6 @@ TrainerPokefanfBeverly1:
 	iftrue .GiveNugget
 	checkcellnum PHONE_POKEFAN_BEVERLY
 	iftrue .NumberAccepted
-	checkpoke MARILL
-	iffalse .NoMarill
 	checkevent EVENT_BEVERLY_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskAgain
 	writetext UnknownText_0x5c5bd
@@ -220,12 +218,6 @@ TrainerPokefanfBeverly1:
 
 .NoRoom:
 	jump .PackFull
-
-.NoMarill:
-	writetext UnknownText_0x5c68a
-	waitbutton
-	closetext
-	end
 
 .AskNumber1:
 	jumpstd asknumber1f
@@ -440,17 +432,6 @@ PokefanmWilliamAfterBattleText:
 
 	para "the prize for"
 	line "being most lovely."
-	done
-
-UnknownText_0x5c68a:
-	text "My friend keeps a"
-	line "MARILL!"
-
-	para "I find them very"
-	line "endearing."
-
-	para "Oh, I wish for a"
-	line "MARILL of my own…"
 	done
 
 LassKriseSeenText:

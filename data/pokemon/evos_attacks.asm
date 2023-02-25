@@ -1126,6 +1126,7 @@ RapidashEvosAttacks:
 	db 36, AGILITY
 	db 40, FURY_ATTACK
 	db 48, FIRE_BLAST
+	db 56, MEGAHORN
 	db 0 ; no more level-up moves
 
 SlowpokeEvosAttacks:
@@ -1770,9 +1771,9 @@ GoldeenEvosAttacks:
 	db 1, PECK
 	db 1, TAIL_WHIP
 	db 8, SUPERSONIC
-	db 15, HORN_ATTACK
+	db 15, FURY_ATTACK
 	db 22, FLAIL
-	db 29, FURY_ATTACK
+	db 29, HORN_ATTACK
 	db 36, WATERFALL
 	db 43, AGILITY
 	db 50, MEGAHORN
@@ -1784,9 +1785,9 @@ SeakingEvosAttacks:
 	db 1, PECK
 	db 1, TAIL_WHIP
 	db 1, SUPERSONIC
-	db 15, HORN_ATTACK
+	db 15, FURY_ATTACK
 	db 22, FLAIL
-	db 29, FURY_ATTACK
+	db 29, HORN_ATTACK
 	db 37, WATERFALL
 	db 45, AGILITY
 	db 53, MEGAHORN

@@ -50,8 +50,6 @@ TrainerPokefanmDerek:
 	iftrue .HasNugget
 	checkcellnum PHONE_POKEFANM_DEREK
 	iftrue .NumberAccepted
-	checkpoke PIKACHU
-	iffalse .WantsPikachu
 	checkevent EVENT_DEREK_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext PokefanMDerekText_NotBragging
@@ -79,12 +77,6 @@ TrainerPokefanmDerek:
 
 .NoRoom:
 	jump .PackFull
-
-.WantsPikachu:
-	writetext PokefanMDerekPikachuIsItText
-	waitbutton
-	closetext
-	end
 
 .AskNumber1:
 	jumpstd asknumber1m
@@ -307,11 +299,6 @@ PokefanfRuthAfterBattleText:
 
 	para "I bet they're just"
 	line "adorable!"
-	done
-
-PokefanMDerekPikachuIsItText:
-	text "PIKACHU is it!"
-	line "Don't you agree?"
 	done
 
 PsychicNormanSeenText:

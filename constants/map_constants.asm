@@ -1,9 +1,9 @@
-newgroup: MACRO
+MACRO newgroup
 const_value = const_value + 1
 	enum_start 1
 ENDM
 
-map_const: MACRO
+MACRO map_const
 ;\1: map id
 ;\2: width: in blocks
 ;\3: height: in blocks

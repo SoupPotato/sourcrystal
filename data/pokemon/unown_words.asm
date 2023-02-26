@@ -1,4 +1,4 @@
-unownword: MACRO
+MACRO unownword
 x = 1
 rept STRLEN(\1)
 	db STRSUB(\1, x, 1) - $40

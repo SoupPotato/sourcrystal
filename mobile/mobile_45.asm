@@ -1,6 +1,7 @@
 SECTION "Mobile 45", ROMX
 
-	charmap " ", $20 ; revert to ascii
+	pushc
+	setcharmap ascii
 
 String_114000:
 	db "---", 0
@@ -6718,6 +6719,7 @@ Unknown_117356:
 	db $8f, $8f, $8f, $8f, $8f, $8f, $8f, $8f, $8f, $8f, $8f, $8f, $8f, $8f, $8f, $8f
 	db $8f, $8f, $8f, $8f, $08, $08, $08, $08, $08, $08, $08, $08, $08, $08, $08, $08
 
+	popc
 
 SECTION "Mobile Stadium", ROMX
 

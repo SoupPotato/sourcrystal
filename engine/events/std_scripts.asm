@@ -690,6 +690,7 @@ AskNumber1MScript:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 
 .Jack:
 	farwritetext JackAskNumber1Text
@@ -751,6 +752,9 @@ AskNumber1MScript:
 .Parry:
 	farwritetext ParryAskNumber1Text
 	end
+.Ian:
+	farwritetext IanAskNumber1Text
+	end
 
 AskNumber2MScript:
 	special RandomPhoneMon
@@ -775,6 +779,7 @@ AskNumber2MScript:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 
 .Jack:
 	farwritetext JackAskNumber2Text
@@ -836,6 +841,9 @@ AskNumber2MScript:
 .Parry:
 	farwritetext ParryAskNumber2Text
 	end
+.Ian:
+	farwritetext IanAskNumber2Text
+	end
 
 RegisteredNumberMScript:
 	farwritetext RegisteredNumber1Text
@@ -866,6 +874,8 @@ NumberAcceptedMScript:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
+
 
 .Jack:
 	farwritetext JackNumberAcceptedText
@@ -967,6 +977,11 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
+.Ian:
+	farwritetext IanNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedMScript:
 	checkcode VAR_CALLERID
@@ -990,6 +1005,7 @@ NumberDeclinedMScript:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 
 .Jack:
 	farwritetext JackNumberDeclinedText
@@ -1091,6 +1107,11 @@ NumberDeclinedMScript:
 	waitbutton
 	closetext
 	end
+.Ian:
+	farwritetext IanNumberDeclinedText
+	waitbutton
+	closetext
+	end
 
 PhoneFullMScript:
 	checkcode VAR_CALLERID
@@ -1114,6 +1135,7 @@ PhoneFullMScript:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 
 .Jack:
 	farwritetext JackPhoneFullText
@@ -1215,6 +1237,11 @@ PhoneFullMScript:
 	waitbutton
 	closetext
 	end
+.Ian:
+	farwritetext IanPhoneFullText
+	waitbutton
+	closetext
+	end
 
 RematchMScript:
 	checkcode VAR_CALLERID
@@ -1235,6 +1262,7 @@ RematchMScript:
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 
 .Jack:
 	farwritetext JackRematchText
@@ -1321,6 +1349,11 @@ RematchMScript:
 	waitbutton
 	closetext
 	end
+.Ian:
+	farwritetext IanRematchText
+	waitbutton
+	closetext
+	end
 
 GiftMScript:
 	checkcode VAR_CALLERID
@@ -1374,6 +1407,7 @@ PackFullMScript:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 
 .Huey:
 	farwritetext HueyPackFullText
@@ -1427,6 +1461,11 @@ PackFullMScript:
 	end
 .Parry:
 	farwritetext ParryPackFullText
+	waitbutton
+	closetext
+	end
+.Ian:
+	farwritetext IanPackFullText
 	waitbutton
 	closetext
 	end

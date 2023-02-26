@@ -1053,6 +1053,45 @@ GinaHasLeafStone:
 	landmarktotext ROUTE_34, MEM_BUFFER_2
 	farjump PhoneScript_FoundItem_Female
 
+; Ian
+
+IanPhoneScript1:
+	trainertotext YOUNGSTER, IAN1, MEM_BUFFER_0
+	checkflag ENGINE_IAN
+	iftrue .WantsBattle
+	farscall PhoneScript_AnswerPhone_Male
+	checkflag ENGINE_IAN_SATURDAY_MORNING
+	iftrue .NotSaturday
+	checkcode VAR_WEEKDAY
+	ifnotequal SATURDAY, .NotSaturday
+	checktime MORN
+	iftrue IanWantsBattle
+
+.NotSaturday:
+	farjump UnknownScript_0xa0918
+
+.WantsBattle:
+	landmarktotext ROUTE_26, MEM_BUFFER_2
+	farjump BethBattleReminderScript
+
+IanPhoneScript2:
+	trainertotext YOUNGSTER, IAN1, MEM_BUFFER_0
+	checkflag ENGINE_IAN
+	iftrue .Generic
+	farscall PhoneScript_GreetPhone_Female
+	checkflag ENGINE_IAN_SATURDAY_MORNING
+	iftrue .Generic
+	farscall PhoneScript_Random2
+	ifequal 0, IanWantsBattle
+
+.Generic:
+	farjump Phone_GenericCall_Male
+
+IanWantsBattle:
+	landmarktotext ROUTE_34, MEM_BUFFER_2
+	setflag ENGINE_IAN
+	farjump PhoneScript_WantsToBattle_Male
+
 ; Irwin
 
 IrwinPhoneScript1:

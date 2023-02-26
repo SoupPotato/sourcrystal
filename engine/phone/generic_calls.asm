@@ -44,6 +44,7 @@ PhoneScript_AnswerPhone_Male:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_HIKER_PARRY, .Ian
 
 .Jack:
 	farwritetext UnknownText_0x1b4dc5
@@ -145,6 +146,11 @@ PhoneScript_AnswerPhone_Male:
 	buttonsound
 	end
 
+.Ian:
+	farwritetext UnknownText_0x1b589a
+	buttonsound
+	end
+
 PhoneScript_AnswerPhone_Male_Day:
 	checkcode VAR_CALLERID
 	ifequal PHONE_SCHOOLBOY_JACK, .Jack
@@ -167,6 +173,7 @@ PhoneScript_AnswerPhone_Male_Day:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_HIKER_PARRY, .Ian
 
 .Jack:
 	farwritetext UnknownText_0x1b4ded
@@ -268,6 +275,11 @@ PhoneScript_AnswerPhone_Male_Day:
 	buttonsound
 	end
 
+.Ian:
+	farwritetext UnknownText_0x1b58c2
+	buttonsound
+	end
+
 PhoneScript_AnswerPhone_Male_Nite:
 	checkcode VAR_CALLERID
 	ifequal PHONE_SCHOOLBOY_JACK, .Jack
@@ -290,6 +302,7 @@ PhoneScript_AnswerPhone_Male_Nite:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_HIKER_PARRY, .Ian
 
 .Jack:
 	farwritetext UnknownText_0x1b4e16
@@ -388,6 +401,11 @@ PhoneScript_AnswerPhone_Male_Nite:
 
 .Parry:
 	farwritetext UnknownText_0x1b7417
+	buttonsound
+	end
+
+.Ian:
+	farwritetext UnknownText_0x1b58ea
 	buttonsound
 	end
 
@@ -574,6 +592,7 @@ PhoneScript_GreetPhone_Male:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 
 .Jack:
 	farwritetext UnknownText_0x1b4e3e
@@ -675,6 +694,11 @@ PhoneScript_GreetPhone_Male:
 	buttonsound
 	end
 
+.Ian:
+	farwritetext UnknownText_0x1b5912
+	buttonsound
+	end
+
 PhoneScript_GreetPhone_Male_Day:
 	checkcode VAR_CALLERID
 	ifequal PHONE_SCHOOLBOY_JACK, .Jack
@@ -697,6 +721,7 @@ PhoneScript_GreetPhone_Male_Day:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 
 .Jack:
 	farwritetext UnknownText_0x1b4e72
@@ -798,6 +823,11 @@ PhoneScript_GreetPhone_Male_Day:
 	buttonsound
 	end
 
+.Ian:
+	farwritetext UnknownText_0x1b5948
+	buttonsound
+	end
+
 PhoneScript_GreetPhone_Male_Nite:
 	checkcode VAR_CALLERID
 	ifequal PHONE_SCHOOLBOY_JACK, .Jack
@@ -820,6 +850,7 @@ PhoneScript_GreetPhone_Male_Nite:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 
 .Jack:
 	farwritetext UnknownText_0x1b4e9e
@@ -918,6 +949,11 @@ PhoneScript_GreetPhone_Male_Nite:
 
 .Parry:
 	farwritetext UnknownText_0x1b749b
+	buttonsound
+	end
+
+.Ian:
+	farwritetext UnknownText_0x1b597c
 	buttonsound
 	end
 
@@ -1097,6 +1133,7 @@ PhoneScript_Generic_Male:
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 
 .Jack:
 	farwritetext UnknownText_0x1b4ecd
@@ -1185,6 +1222,11 @@ PhoneScript_Generic_Male:
 
 .Parry:
 	farwritetext UnknownText_0x1b74c8
+	buttonsound
+	end
+
+.Ian:
+	farwritetext UnknownText_0x1b59b2
 	buttonsound
 	end
 

@@ -358,15 +358,153 @@ TrainerYoungsterSamuel:
 	closetext
 	end
 
-TrainerYoungsterIan:
-	trainer YOUNGSTER, IAN, EVENT_BEAT_YOUNGSTER_IAN, YoungsterIanSeenText, YoungsterIanBeatenText, 0, .Script
+TrainerYoungsterIan1:
+	trainer YOUNGSTER, IAN1, EVENT_BEAT_YOUNGSTER_IAN, YoungsterIan1SeenText, YoungsterIan1BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_YOUNGSTER_IAN
 	opentext
-	writetext YoungsterIanAfterText
+	checkevent EVENT_GOT_BERRY_FROM_YOUNGSTER_IAN
+	iftrue .TryBerry
+	checkflag ENGINE_IAN
+	iftrue .WantsBattle
+	checkcellnum PHONE_YOUNGSTER_IAN
+	iftrue .NumberAccepted
+	checkevent EVENT_IAN_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedAlready
+	writetext YoungsterIan1AfterText
+	buttonsound
+	setevent EVENT_IAN_ASKED_FOR_PHONE_NUMBER
+	scall .AskNumber1
+	jump .AskForNumber
+
+.AskedAlready:
+	scall .AskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_YOUNGSTER_IAN
+	ifequal PHONE_CONTACTS_FULL, .PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	trainertotext YOUNGSTER, IAN1, MEM_BUFFER_0
+	scall .RegisteredNumber
+	jump .NumberAccepted
+
+.WantsBattle:
+	scall .Rematch
+	winlosstext YoungsterIan1BeatenText, 0
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iftrue .LoadFight4
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .LoadFight3
+	checkevent EVENT_CLEARED_RADIO_TOWER
+	iftrue .LoadFight2
+	checkflag ENGINE_FLYPOINT_MAHOGANY
+	iftrue .LoadFight1
+	loadtrainer YOUNGSTER, IAN1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_IAN
+	end
+
+.LoadFight1:
+	loadtrainer YOUNGSTER, IAN2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_IAN
+	opentext
+	jump .TryBerry
+	end
+
+.LoadFight2:
+	loadtrainer YOUNGSTER, IAN3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_IAN
+	opentext
+	jump .TryBerry
+	end
+
+.LoadFight3:
+	loadtrainer YOUNGSTER, IAN4
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_IAN
+	opentext
+	jump .TryBerry
+	end
+
+.LoadFight4:
+	loadtrainer YOUNGSTER, IAN5
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_IAN
+	opentext
+	jump .TryBerry
+	end
+
+.TryBerry:
+	setevent EVENT_GOT_BERRY_FROM_YOUNGSTER_IAN
+	writetext YoungsterIanRematchGiftText
 	waitbutton
+	random 3
+	ifequal 0, .pechaberry
+	ifequal 1, .cheriberry
+	ifequal 2, .chestoberry
+
+.pechaberry:
+	verbosegiveitem PECHA_BERRY
+	iffalse .PackFull
+	clearevent EVENT_GOT_BERRY_FROM_YOUNGSTER_IAN
 	closetext
+	end
+
+.cheriberry:
+	verbosegiveitem CHERI_BERRY
+	iffalse .PackFull
+	clearevent EVENT_GOT_BERRY_FROM_YOUNGSTER_IAN
+	closetext
+	end
+
+.chestoberry:
+	verbosegiveitem CHESTO_BERRY
+	iffalse .PackFull
+	clearevent EVENT_GOT_BERRY_FROM_YOUNGSTER_IAN
+	closetext
+	end
+
+.AskNumber1:
+	jumpstd asknumber1m
+	end
+
+.AskNumber2:
+	jumpstd asknumber2m
+	end
+
+.RegisteredNumber:
+	jumpstd registerednumberm
+	end
+
+.NumberAccepted:
+	jumpstd numberacceptedm
+	end
+
+.NumberDeclined:
+	jumpstd numberdeclinedm
+	end
+
+.PhoneFull:
+	jumpstd phonefullm
+	end
+
+.Rematch:
+	jumpstd rematchm
+	end
+
+.PackFull:
+	jump .PackFullSTD
+	end
+
+.PackFullSTD:
+	jumpstd packfullm
 	end
 
 TrainerPokefanmBrandon:
@@ -504,20 +642,37 @@ YoungsterSamuelAfterText:
 	cont "a GYM LEADER."
 	done
 
-YoungsterIanSeenText:
+YoungsterIan1SeenText:
 	text "I'm the best in my"
 	line "class at #MON."
 	done
 
-YoungsterIanBeatenText:
+YoungsterIan1BeatenText:
 	text "No! There are bet-"
 	line "ter trainers…"
 	done
 
-YoungsterIanAfterText:
+YoungsterIan1AfterText:
 	text "I'm trying hard so"
 	line "I can be the star"
 	cont "in my class."
+	done
+
+YoungsterIanRematchGiftText:
+	text "I lost again…"
+	line "but thats alright."
+
+	para "I'm getting better"
+	line "at this and soon I"
+	
+	para "will be the star"
+	line "of my class again!"
+
+	para "Thanks for helping"
+	line "me get stronger,"
+
+	para "I want you to have"
+	line "this."
 	done
 
 CamperTodd1SeenText:
@@ -750,7 +905,7 @@ Route34_MapEvents:
 	db 13 ; object events
 	object_event 13,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerCamperTodd1, -1
 	object_event 15, 32, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterSamuel, -1
-	object_event 11, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterIan, -1
+	object_event 11, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterIan1, -1
 	object_event 10, 26, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerGina1, -1
 	object_event  9, 11, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OfficerKeithScript, -1
 	object_event 18, 28, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmBrandon, -1

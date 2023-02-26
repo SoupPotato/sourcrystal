@@ -1514,7 +1514,7 @@ Unreferenced_DebugTrade:
 	ret
 
 
-debugtrade: MACRO
+MACRO debugtrade
 ; species, ot name, ot id (?)
 	db \1, \2
 	dw \3

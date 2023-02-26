@@ -197,7 +197,7 @@
 	const MIRAGE_MAIL  ; $BD
 	const ITEM_BE      ; $BE
 
-add_tm: MACRO
+MACRO add_tm
 if !DEF(TM01)
 TM01 = const_value
 	enum_start 1
@@ -262,7 +262,7 @@ ENDM
 	add_tm NIGHTMARE    ; f2
 NUM_TMS = const_value - TM01 - 2 ; discount ITEM_C3 and ITEM_DC
 
-add_hm: MACRO
+MACRO add_hm
 if !DEF(HM01)
 HM01 = const_value
 endc
@@ -280,7 +280,7 @@ ENDM
 	add_hm WATERFALL    ; f9
 NUM_HMS = const_value - HM01
 
-add_mt: MACRO
+MACRO add_mt
 	enum \1_TMNUM
 ENDM
 

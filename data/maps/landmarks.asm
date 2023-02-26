@@ -1,4 +1,4 @@
-landmark: MACRO
+MACRO landmark
 ; x, y, name
 	db \1, \2
 	dw \3

@@ -1,4 +1,4 @@
-unownwall: MACRO
+MACRO unownwall
 rept _NARG
 if \1 == "-"
 x = $64

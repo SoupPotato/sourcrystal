@@ -549,6 +549,7 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 
 .Jack:
 	farwritetext UnknownText_0x1741e1
@@ -635,6 +636,11 @@ PhoneScript_RematchText_Male:
 	buttonsound
 	end
 
+.Ian:
+	farwritetext UnknownText_0x175693
+	buttonsound
+	end
+
 PhoneScript_RematchText_Female:
 	checkcode VAR_CALLERID
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
@@ -710,6 +716,7 @@ PhoneScript_HangupText_Male:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 
 .Jack:
 	farwritetext UnknownText_0x174251
@@ -789,6 +796,10 @@ PhoneScript_HangupText_Male:
 
 .Parry:
 	farwritetext UnknownText_0x670eb
+	end
+
+.Ian:
+	farwritetext UnknownText_0x17570a
 	end
 
 PhoneScript_HangupText_Female:

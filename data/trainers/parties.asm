@@ -459,6 +459,30 @@ YoungsterGroup:
 	db 40, ELECTRODE
 	db -1 ; end
 
+	; YOUNGSTER (16)
+	db "IAN@", TRAINERTYPE_NORMAL
+	db 20, MANKEY
+	db 22, DIGLETT
+	db -1 ; end
+
+	; YOUNGSTER (17)
+	db "IAN@", TRAINERTYPE_NORMAL
+	db 29, MANKEY
+	db 31, DUGTRIO
+	db -1 ; end
+
+	; YOUNGSTER (18)
+	db "IAN@", TRAINERTYPE_NORMAL
+	db 41, PRIMEAPE
+	db 43, DUGTRIO
+	db -1 ; end
+
+	; YOUNGSTER (19)
+	db "IAN@", TRAINERTYPE_MOVES
+	db 50, PRIMEAPE,  OUTRAGE, CROSS_CHOP, SWAGGER, SCREECH
+	db 52, DUGTRIO,   EARTHQUAKE, TRI_ATTACK, FISSURE, SLASH
+	db -1 ; end
+
 
 SchoolboyGroup:
 	; SCHOOLBOY (1)

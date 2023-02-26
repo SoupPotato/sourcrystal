@@ -1,4 +1,4 @@
-trainerclass: MACRO
+MACRO trainerclass
 	enum \1
 const_value = 1
 ENDM
@@ -116,7 +116,7 @@ KRIS EQU __enum__
 	const ALBERT
 	const GORDON
 	const SAMUEL
-	const IAN
+	const IAN1
 	const JOEY2
 	const JOEY3
 	const WARREN
@@ -126,6 +126,10 @@ KRIS EQU __enum__
 	const JOEY4
 	const JOEY5
 	const REGIS
+	const IAN2
+	const IAN3
+	const IAN4
+	const IAN5
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK1

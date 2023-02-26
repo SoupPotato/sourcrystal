@@ -186,7 +186,7 @@ NextChar::
 	jp PlaceNextChar
 
 CheckDict::
-dict: MACRO
+MACRO dict
 if \1 == 0
 	and a
 else
@@ -195,7 +195,7 @@ endc
 	jp z, \2
 ENDM
 
-dict2: MACRO
+MACRO dict2
 	cp \1
 	jr nz, ._\@
 	ld a, \2
@@ -251,7 +251,7 @@ DayOfWeekChar::
 	jp PlaceNextChar
 
 
-print_name: MACRO
+MACRO print_name
 	push de
 	ld de, \1
 	jp PlaceCommandCharacter

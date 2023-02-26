@@ -1,4 +1,4 @@
-icon_pals: MACRO
+MACRO icon_pals
 	dn PAL_ICON_\1, PAL_ICON_\2
 ENDM
 

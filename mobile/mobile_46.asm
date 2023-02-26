@@ -4028,7 +4028,10 @@ Function119e4f:
 .loop2
 	ld a, [de]
 	inc de
+pushc
+setcharmap ascii
 	cp "\n"
+popc
 	jr z, .newline
 	cp [hl]
 	jr nz, .unequal

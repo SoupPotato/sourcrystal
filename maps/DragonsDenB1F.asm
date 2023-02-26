@@ -115,7 +115,7 @@ TrainerTwinsLeaandpia1:
 	end
 
 TrainerTwinsLeaandpia2:
-	trainer TWINS, LEAANDPIA1, EVENT_BEAT_TWINS_LEA_AND_PIA, TwinsLeaandpia2SeenText, TwinsLeaandpia2BeatenText, 0, .Script
+	trainer TWINS, LEAANDPIA2, EVENT_BEAT_TWINS_LEA_AND_PIA, TwinsLeaandpia2SeenText, TwinsLeaandpia2BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled

@@ -1793,3 +1793,28 @@ UnknownText_0x17750e:
 	text_from_ram wStringBuffer5
 	text "!"
 	done
+
+IanBattleReminderText:
+	text "Hey, <PLAY_G>!"
+	line "You comming over?"
+
+	para "I'm itching to get"
+	line "better at battles!"
+
+	para "Don't forget,"
+	line "@"
+	text_from_ram wStringBuffer5
+	text "!"
+	done
+
+WaltBattleReminderText:
+	text "Hey, <PLAY_G>!"
+
+	para "Hope you won't be"
+	line "too long…"
+
+	para "Remember, I'm on"
+	line "@"
+	text_from_ram wStringBuffer5
+	text "!"
+	done

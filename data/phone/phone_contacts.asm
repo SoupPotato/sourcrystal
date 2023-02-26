@@ -19,7 +19,7 @@ PhoneContacts:
 	phone POKEFANF,     BEVERLY1,           NATIONAL_PARK,    ANYTIME, BeverlyPhoneScript1, ANYTIME, BeverlyPhoneScript2
 	phone SAILOR,       HUEY1,              OLIVINE_LIGHTHOUSE_2F, ANYTIME, HueyPhoneScript1, ANYTIME, HueyPhoneScript2
 	phone YOUNGSTER,    IAN1,               ROUTE_34,         ANYTIME, IanPhoneScript1,     ANYTIME, IanPhoneScript2
-	phone TRAINER_NONE, PHONE_00,           N_A,              0,       UnusedPhoneScript,   0,       UnusedPhoneScript
+	phone FIREBREATHER, WALT1,              ROUTE_35,         ANYTIME, WaltPhoneScript1,    ANYTIME, WaltPhoneScript2
 	phone TRAINER_NONE, PHONE_00,           N_A,              0,       UnusedPhoneScript,   0,       UnusedPhoneScript
 	phone COOLTRAINERM, GAVEN3,             ROUTE_26,         ANYTIME, GavenPhoneScript1,   ANYTIME, GavenPhoneScript2
 	phone COOLTRAINERF, BETH1,              ROUTE_26,         ANYTIME, BethPhoneScript1,    ANYTIME, BethPhoneScript2

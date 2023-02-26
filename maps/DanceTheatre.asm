@@ -15,7 +15,7 @@ DanceTheatre_MapScripts:
 	db 0 ; callbacks
 
 TrainerKimonoGirlNaoko2:
-	trainer KIMONO_GIRL, NAOKO2, EVENT_BEAT_KIMONO_GIRL_NAOKO, KimonoGirlNaoko2SeenText, KimonoGirlNaoko2BeatenText, 0, .Script
+	trainer KIMONO_GIRL, NAOKO, EVENT_BEAT_KIMONO_GIRL_NAOKO, KimonoGirlNaoko2SeenText, KimonoGirlNaoko2BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled

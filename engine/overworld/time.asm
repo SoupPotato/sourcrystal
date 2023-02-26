@@ -106,10 +106,6 @@ endr
 rept 4
 	ld [hli], a
 endr
-	ld hl, wDailyPhoneTimeOfDayFlags
-rept 4
-	ld [hli], a
-endr
 	ld hl, wKenjiBreakTimer
 	ld a, [hl]
 	and a

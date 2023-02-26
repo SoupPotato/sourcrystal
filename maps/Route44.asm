@@ -173,8 +173,6 @@ TrainerFisherWilton1:
 	opentext
 	checkflag ENGINE_WILTON
 	iftrue .WantsBattle
-	checkflag ENGINE_WILTON_HAS_ITEM
-	iftrue .HasItem
 	checkcellnum PHONE_FISHER_WILTON
 	iftrue Route44NumberAcceptedM
 	checkevent EVENT_WILTON_ASKED_FOR_PHONE_NUMBER
@@ -213,6 +211,8 @@ TrainerFisherWilton1:
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_WILTON
+	opentext
+	jump .TryBall
 	end
 
 .LoadFight2:
@@ -220,32 +220,39 @@ TrainerFisherWilton1:
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_WILTON
+	opentext
+	jump .TryBall
 	end
 
-.HasItem:
-	scall Route44GiftM
-	checkevent EVENT_WILTON_HAS_ULTRA_BALL
-	iftrue .UltraBall
-	checkevent EVENT_WILTON_HAS_GREAT_BALL
-	iftrue .GreatBall
-	checkevent EVENT_WILTON_HAS_POKE_BALL
-	iftrue .PokeBall
-.UltraBall:
-	verbosegiveitem ULTRA_BALL
-	iffalse .Route44PackFullM
-	jump .ItemReceived
+.TryBall:
+	setevent EVENT_GOT_BALL_FROM_FISHER_WILTON
+	writetext FisherWiltonRematchGiftText
+	waitbutton
+	random 3
+	ifequal 0, .pokeball
+	ifequal 1, .greatball
+	ifequal 2, .ultraball
 
-.GreatBall:
-	verbosegiveitem GREAT_BALL
-	iffalse .Route44PackFullM
-	jump .ItemReceived
-
-.PokeBall:
+.pokeball:
 	verbosegiveitem POKE_BALL
 	iffalse .Route44PackFullM
-.ItemReceived:
-	clearflag ENGINE_WILTON_HAS_ITEM
-	jump Route44NumberAcceptedM
+	clearevent EVENT_GOT_BALL_FROM_FISHER_WILTON
+	closetext
+	end
+
+.greatball:
+	verbosegiveitem GREAT_BALL
+	iffalse .Route44PackFullM
+	clearevent EVENT_GOT_BALL_FROM_FISHER_WILTON
+	closetext
+	end
+
+.ultraball:
+	verbosegiveitem ULTRA_BALL
+	iffalse .Route44PackFullM
+	clearevent EVENT_GOT_BALL_FROM_FISHER_WILTON
+	closetext
+	end
 
 .Route44PackFullM:
 	jump Route44PackFullM
@@ -378,6 +385,25 @@ FisherWiltonHugePoliwagText:
 
 	para "I swear it must've"
 	line "been 16 feet long!"
+	done
+
+FisherWiltonRematchGiftText:
+	text "Hoo boy!"
+	line "That was a splash!"
+
+	para "It's great to let"
+	line "off some steam"
+	
+	para "with a good"
+	line "battle!"
+	
+	para "Oh, that's right!"
+
+	para "I fished this up"
+	line "earlier…"
+	
+	para "Why don't you have"
+	line "it?"
 	done
 
 FisherEdgarSeenText:

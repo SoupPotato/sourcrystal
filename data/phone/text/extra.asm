@@ -933,17 +933,17 @@ UnknownText_0x65cf9:
 	line "loves it."
 
 	para "I'm certain your"
-	line "PIKACHU will love"
+	line "#MON will love"
 	cont "it too!"
 	done
 
 UnknownText_0x65d5c:
-	text "How is your"
-	line "PIKACHU doing?"
+	text "How are your"
+	line "#MON doing?"
 
 	para "Let's get together"
 	line "and brag about our"
-	cont "PIKACHU!"
+	cont "#MON!"
 	done
 
 UnknownText_0x65da6:

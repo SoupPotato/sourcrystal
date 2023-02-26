@@ -222,14 +222,104 @@ TrainerBugCatcherArnie:
 	end
 
 TrainerFirebreatherWalt:
-	trainer FIREBREATHER, WALT, EVENT_BEAT_FIREBREATHER_WALT, FirebreatherWaltSeenText, FirebreatherWaltBeatenText, 0, .Script
+	trainer FIREBREATHER, WALT1, EVENT_BEAT_FIREBREATHER_WALT, FirebreatherWaltSeenText, FirebreatherWaltBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_FIREBREATHER_WALT
 	opentext
+	checkflag ENGINE_WALT
+	iftrue .WantsBattle
+	checkcellnum PHONE_FIREBREATHER_WALT
+	iftrue .NumberAccepted
+	checkevent EVENT_WALT_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedAlready
 	writetext FirebreatherWaltAfterBattleText
-	waitbutton
-	closetext
+	buttonsound
+	setevent EVENT_WALT_ASKED_FOR_PHONE_NUMBER
+	scall .AskNumber1
+	jump .AskForNumber
+
+.AskedAlready:
+	scall .AskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_FIREBREATHER_WALT
+	ifequal PHONE_CONTACTS_FULL, .PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	trainertotext FIREBREATHER, WALT1, MEM_BUFFER_0
+	scall .RegisteredNumber
+	jump .NumberAccepted
+
+.WantsBattle:
+	scall .Rematch
+	winlosstext FirebreatherWaltBeatenText, 0
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iftrue .LoadFight4
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .LoadFight3
+	checkevent EVENT_CLEARED_RADIO_TOWER
+	iftrue .LoadFight2
+	checkflag ENGINE_FLYPOINT_CIANWOOD
+	iftrue .LoadFight1
+	loadtrainer FIREBREATHER, WALT1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_WALT
+	end
+
+.LoadFight1:
+	loadtrainer FIREBREATHER, WALT2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_WALT
+	end
+
+.LoadFight2:
+	loadtrainer FIREBREATHER, WALT3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_WALT
+	end
+
+.LoadFight3:
+	loadtrainer FIREBREATHER, WALT4
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_WALT
+	end
+
+.LoadFight4:
+	loadtrainer FIREBREATHER, WALT5
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_WALT
+	end
+
+.AskNumber1:
+	jumpstd asknumber1m
+	end
+
+.AskNumber2:
+	jumpstd asknumber2m
+	end
+
+.RegisteredNumber:
+	jumpstd registerednumberm
+	end
+
+.NumberAccepted:
+	jumpstd numberacceptedm
+	end
+
+.NumberDeclined:
+	jumpstd numberdeclinedm
+	end
+
+.PhoneFull:
+	jumpstd phonefullm
+	end
+
+.Rematch:
+	jumpstd rematchm
 	end
 
 TrainerOfficerDirk:

@@ -19,12 +19,12 @@ TrainerHouseReceptionistScript:
 	writetext TrainerHouseB1FIntroText
 	buttonsound
 	special TrainerHouse
-	iffalse .GetCal3Name
-	trainertotext CAL, CAL2, MEM_BUFFER_0
+	iffalse .GetCal1Name
+	trainertotext CAL, CAL1, MEM_BUFFER_0
 	jump .GotName
 
-.GetCal3Name:
-	trainertotext CAL, CAL3, MEM_BUFFER_0
+.GetCal1Name:
+	trainertotext CAL, CAL1, MEM_BUFFER_0
 .GotName:
 	writetext TrainerHouseB1FYourOpponentIsText
 	buttonsound
@@ -44,14 +44,14 @@ TrainerHouseReceptionistScript:
 	iffalse .NoSpecialBattle
 	winlosstext TrainerHouseB1FCalBeatenText, 0
 	setlasttalked TRAINERHOUSEB1F_CHRIS
-	loadtrainer CAL, CAL2
+	loadtrainer CAL, CAL1
 	startbattle
 	reloadmapafterbattle
 	iffalse .End
 .NoSpecialBattle:
 	winlosstext TrainerHouseB1FCalBeatenText, 0
 	setlasttalked TRAINERHOUSEB1F_CHRIS
-	loadtrainer CAL, CAL3
+	loadtrainer CAL, CAL1
 	startbattle
 	reloadmapafterbattle
 .End:

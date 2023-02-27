@@ -1451,7 +1451,7 @@ DerekPhoneScript2:
 	ifequal SATURDAY, .ContestToday
 
 .CheckNugget2:
-	checkflag ENGINE_GINA_GAVE_LEAF_STONE
+	checkflag ENGINE_DEREK_GAVE_NUGGET
 	iftrue GenericDerekCall
 	farscall PhoneScript_Random4
 	ifequal 0, DerekHasNugget
@@ -1588,20 +1588,31 @@ TiffanyPhoneScript1:
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Female
 	checkflag ENGINE_TIFFANY_HAS_SILK_SCARF
-	iftrue .HasItem
+	iftrue .HasSilkScarf
 	checkcode VAR_WEEKDAY
-	ifnotequal TUESDAY, .NotTuesday
+	ifnotequal TUESDAY, .CheckSilkScarfNotTuesday1
 	checktime DAY
 	iftrue TiffanyWantsBattle
+	checktime EVE
+	iftrue TiffanyWantsBattle
 
-.NotTuesday:
+.CheckSilkScarfNotTuesday1:
+	checkflag ENGINE_TIFFANY_HAS_SILK_SCARF
+	iftrue .HasSilkScarf
+	checkflag ENGINE_TIFFANY_GAVE_SILK_SCARF
+	iftrue .Generic
+	farscall PhoneScript_Random11
+	ifequal 0, TiffanyHasSilkScarf
+	setflag ENGINE_TIFFANY_GAVE_SILK_SCARF
+
+.Generic:
 	farjump UnknownScript_0xa09a0
 
 .WantsBattle:
 	landmarktotext ROUTE_43, MEM_BUFFER_2
 	farjump UnknownScript_0xa0a8c
 
-.HasItem:
+.HasSilkScarf:
 	landmarktotext ROUTE_43, MEM_BUFFER_2
 	farjump UnknownScript_0xa0ae5
 
@@ -1611,21 +1622,32 @@ TiffanyPhoneScript2:
 	ifequal 0, TiffanysFamilyMembers
 	farscall PhoneScript_GreetPhone_Female
 	checkflag ENGINE_TIFFANY_HAS_SILK_SCARF
-	iftrue .Generic
+	iftrue .HasItem
 	checkcode VAR_WEEKDAY
-	ifnotequal TUESDAY, .Generic
+	ifnotequal TUESDAY, CheckSilkScarfNotTuesday2
 	checktime DAY
-	iftrue .CheckSilkScarf
+	iftrue CheckSilkScarf
+	checktime DAY
+	iftrue CheckSilkScarf
 
-.Generic:
-	farjump Phone_GenericCall_Female
+.HasItem:
+	landmarktotext ROUTE_43, MEM_BUFFER_2
+	farjump UnknownScript_0xa0ae5
 
-.CheckSilkScarf:
-	checkevent EVENT_TIFFANY_GAVE_SILK_SCARF
+CheckSilkScarfNotTuesday2:
+	checkflag ENGINE_TIFFANY_GAVE_SILK_SCARF
+	iftrue GenericTiffanyCall
+	farscall PhoneScript_Random11
+	ifequal 0, TiffanyHasSilkScarf
+	setflag ENGINE_TIFFANY_GAVE_SILK_SCARF
+	jump GenericTiffanyCall
+
+CheckSilkScarf:
+	checkevent ENGINE_TIFFANY_GAVE_SILK_SCARF
 	iftrue TiffanyWantsBattle
 	farscall PhoneScript_Random11
 	ifequal 0, TiffanyHasSilkScarf
-	setflag EVENT_TIFFANY_GAVE_SILK_SCARF
+	setflag ENGINE_TIFFANY_GAVE_SILK_SCARF
 
 TiffanyWantsBattle:
 	landmarktotext ROUTE_43, MEM_BUFFER_2
@@ -1672,6 +1694,9 @@ TiffanyHasSilkScarf:
 	setflag ENGINE_TIFFANY_HAS_SILK_SCARF
 	landmarktotext ROUTE_43, MEM_BUFFER_2
 	farjump PhoneScript_FoundItem_Female
+
+GenericTiffanyCall:
+	farjump Phone_GenericCall_Female
 
 ; Vance
 

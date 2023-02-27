@@ -671,33 +671,31 @@ JoeyWantsBattle:
 
 ; Wade
 
-WadePhoneScript1:
+WadePhoneScript1:  ; You call Wade
 	trainertotext BUG_CATCHER, WADE1, MEM_BUFFER_0
 	checkflag ENGINE_WADE
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
-	checkflag ENGINE_WADE_HAS_ITEM
+	checkflag ENGINE_WADE_HAS_BERRY
 	iftrue .HasItem
 	checkcode VAR_WEEKDAY
-	ifnotequal TUESDAY, .NotTuesday
+	ifnotequal TUESDAY, .CheckWadeItemNotTuesday1
 	checktime NITE
-	iftrue WadeWantsBattle2
+	iftrue WadeWantsBattle
+	iffalse WadeContestToday
 
-.NotTuesday:
-	farscall PhoneScript_Random2
-	ifequal 0, .NoContest
-	checkflag ENGINE_DAILY_BUG_CONTEST
-	iftrue .NoContest
+.CheckWadeItemNotTuesday1:
+	checkflag ENGINE_WADE_HAS_BERRY
+	iftrue .HasItem
+	checkflag ENGINE_WADE_GAVE_BERRY
+	iftrue .Generic
 	checkcode VAR_WEEKDAY
-	ifequal TUESDAY, .ContestToday
-	ifequal THURSDAY, .ContestToday
-	ifequal SATURDAY, .ContestToday
-
-.NoContest:
-	farjump UnknownScript_0xa0938
-
-.ContestToday:
-	farjump PhoneScript_BugCatchingContest
+	ifequal THURSDAY, WadeContestToday
+	ifequal SATURDAY, WadeContestToday
+	farscall PhoneScript_Random5
+	ifequal 0, WadeHasItem
+	setflag ENGINE_WADE_GAVE_BERRY
+	jump .Generic
 
 .WantsBattle:
 	landmarktotext ROUTE_31, MEM_BUFFER_2
@@ -707,74 +705,50 @@ WadePhoneScript1:
 	landmarktotext ROUTE_31, MEM_BUFFER_2
 	farjump UnknownScript_0xa0ab5
 
-WadePhoneScript2:
+.Generic:
+	farjump UnknownScript_0xa0938
+
+WadePhoneScript2: ; Calls you
 	trainertotext BUG_CATCHER, WADE1, MEM_BUFFER_0
 	farscall PhoneScript_GreetPhone_Male
-	farscall PhoneScript_Random2
-	ifequal 0, .NoContest
-	checkflag ENGINE_DAILY_BUG_CONTEST
-	iftrue .NoContest
 	checkcode VAR_WEEKDAY
-	ifequal TUESDAY, .ContestToday
-	ifequal THURSDAY, .ContestToday
-	ifequal SATURDAY, .ContestToday
-
-.NoContest:
-	checkflag ENGINE_WADE_HAS_ITEM
-	iftrue .next
-	farscall PhoneScript_Random2
-	ifequal 0, WadeHasItem2
-	checkcode VAR_WEEKDAY
-	ifnotequal TUESDAY, .next
+	ifnotequal TUESDAY, .CheckWadeItemNotTuesday2
 	checktime NITE
-	iftrue WadeWantsBattle2
+	iftrue WadeWantsBattle
+	iffalse WadeContestToday
 
-.next:
-	farscall PhoneScript_Random3
-	ifequal 0, WadeFoundRare
-	farjump Phone_GenericCall_Male
+.CheckWadeItemNotTuesday2:
+	ifequal THURSDAY, WadeContestToday
+	ifequal SATURDAY, WadeContestToday
+	farscall PhoneScript_Random5
+	ifequal 0, WadeHasItem
+	setflag ENGINE_WADE_GAVE_BERRY
+	jump GenericWadeCall
 
-.ContestToday:
-	farjump PhoneScript_BugCatchingContest
+.HasItem:
+	landmarktotext ROUTE_31, MEM_BUFFER_2
+	farjump UnknownScript_0xa0ab5
 
-WadeWantsBattle2:
+WadeWantsBattle:
 	landmarktotext ROUTE_31, MEM_BUFFER_2
 	setflag ENGINE_WADE
 	farjump PhoneScript_WantsToBattle_Male
 
+WadeHasItem:
+	setflag ENGINE_WADE_HAS_BERRY
+	landmarktotext ROUTE_31, MEM_BUFFER_2
+	farjump PhoneScript_FoundItem_Male
+
+GenericWadeCall:
+	farscall PhoneScript_Random3
+	ifequal 0, WadeFoundRare
+	farjump Phone_GenericCall_Male
+
 WadeFoundRare:
 	farjump Phone_CheckIfUnseenRare_Male
 
-WadeHasItem2:
-	setflag ENGINE_WADE_HAS_ITEM
-	landmarktotext ROUTE_31, MEM_BUFFER_2
-	clearevent EVENT_WADE_HAS_BERRY
-	clearevent EVENT_WADE_HAS_PSNCUREBERRY
-	clearevent EVENT_WADE_HAS_PRZCUREBERRY
-	clearevent EVENT_WADE_HAS_BITTER_BERRY
-	random 4
-	ifequal 0, .Berry
-	ifequal 1, .PsnCureBerry
-	ifequal 2, .PrzCureBerry
-	ifequal 3, .Bitterberry
-
-.Berry:
-	setevent EVENT_WADE_HAS_BERRY
-	jump .FoundBerry
-
-.PsnCureBerry:
-	setevent EVENT_WADE_HAS_PSNCUREBERRY
-	jump .FoundBerry
-
-.PrzCureBerry:
-	setevent EVENT_WADE_HAS_PRZCUREBERRY
-	jump .FoundBerry
-
-.Bitterberry:
-	setevent EVENT_WADE_HAS_BITTER_BERRY
-
-.FoundBerry:
-	farjump PhoneScript_FoundItem_Male
+WadeContestToday:
+	farjump PhoneScript_BugCatchingContest
 
 ; Ralph
 
@@ -1739,33 +1713,75 @@ WiltonPhoneScript1:
 	checkflag ENGINE_WILTON
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
+	checkflag ENGINE_WILTON_HAS_BALL_ITEM
+	iftrue .HasItem
 	checkcode VAR_WEEKDAY
-	ifnotequal THURSDAY, .NotThursday
+	ifnotequal THURSDAY, .CheckWiltonItemNotThursday1
 	checktime MORN
 	iftrue WiltonWantsBattle
 
-.NotThursday:
+.CheckWiltonItemNotThursday1
+	checkflag ENGINE_WILTON_HAS_BALL_ITEM
+	iftrue .HasItem
+	checkflag ENGINE_WILTON_GAVE_BALL_ITEM
+	iftrue .Generic
+	farscall PhoneScript_Random5
+	ifequal 0, WiltonHasItem
+	setflag ENGINE_ALAN_GAVE_FIRE_STONE
+
+.Generic:
 	farjump WiltonHaventFoundAnything
 
 .WantsBattle:
 	landmarktotext ROUTE_44, MEM_BUFFER_2
 	farjump WiltonNotBiting
 
+.HasItem:
+	landmarktotext ROUTE_44, MEM_BUFFER_2
+	farjump WiltonWantThis
+
 WiltonPhoneScript2:
 	trainertotext FISHER, WILTON1, MEM_BUFFER_0
 	farscall PhoneScript_GreetPhone_Male
+	checkflag ENGINE_WILTON_HAS_BALL_ITEM
+	iftrue .HasItem
 	checkcode VAR_WEEKDAY
-	ifnotequal THURSDAY, .Generic
+	ifnotequal THURSDAY, CheckWiltonItemNotThursday2
 	checktime MORN
-	iftrue WiltonWantsBattle
+	iftrue WiltonCheckItem
+	jump CheckWiltonItemNotThursday2
 
-.Generic:
-	farjump Phone_GenericCall_Male
+.HasItem:
+	landmarktotext ROUTE_44, MEM_BUFFER_2
+	farjump WiltonWantThis
+
+CheckWiltonItemNotThursday2:
+	checkflag ENGINE_WILTON_GAVE_BALL_ITEM
+	iftrue GenericWiltonCall
+	farscall PhoneScript_Random5
+	ifequal 0, WiltonHasItem
+	setflag ENGINE_WILTON_GAVE_BALL_ITEM
+	jump GenericWiltonCall
+
+WiltonCheckItem:
+	checkflag ENGINE_WILTON_GAVE_BALL_ITEM
+	iftrue WiltonWantsBattle
+	farscall PhoneScript_Random11
+	ifequal 0, WiltonHasItem
+	setflag ENGINE_WILTON_GAVE_BALL_ITEM
 
 WiltonWantsBattle:
 	landmarktotext ROUTE_44, MEM_BUFFER_2
 	setflag ENGINE_WILTON
 	farjump PhoneScript_WantsToBattle_Male
+
+WiltonHasItem:
+	setflag ENGINE_WILTON_HAS_BALL_ITEM
+	landmarktotext ROUTE_44, MEM_BUFFER_2
+	farjump PhoneScript_FoundItem_Male
+
+GenericWiltonCall:
+	farjump Phone_GenericCall_Male
 
 ; Kenji
 

@@ -173,6 +173,8 @@ TrainerFisherWilton1:
 	opentext
 	checkflag ENGINE_WILTON
 	iftrue .WantsBattle
+	checkflag ENGINE_WILTON_HAS_BALL_ITEM
+	iftrue .HasItem
 	checkcellnum PHONE_FISHER_WILTON
 	iftrue Route44NumberAcceptedM
 	checkevent EVENT_WILTON_ASKED_FOR_PHONE_NUMBER
@@ -211,8 +213,6 @@ TrainerFisherWilton1:
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_WILTON
-	opentext
-	jump .TryBall
 	end
 
 .LoadFight2:
@@ -220,14 +220,10 @@ TrainerFisherWilton1:
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_WILTON
-	opentext
-	jump .TryBall
 	end
 
-.TryBall:
-	setevent EVENT_GOT_BALL_FROM_FISHER_WILTON
-	writetext FisherWiltonRematchGiftText
-	waitbutton
+.HasItem:
+	scall Route44GiftM
 	random 3
 	ifequal 0, .pokeball
 	ifequal 1, .greatball
@@ -236,23 +232,22 @@ TrainerFisherWilton1:
 .pokeball:
 	verbosegiveitem POKE_BALL
 	iffalse .Route44PackFullM
-	clearevent EVENT_GOT_BALL_FROM_FISHER_WILTON
-	closetext
-	end
+	jump .ItemReceived
 
 .greatball:
 	verbosegiveitem GREAT_BALL
 	iffalse .Route44PackFullM
-	clearevent EVENT_GOT_BALL_FROM_FISHER_WILTON
-	closetext
-	end
+	jump .ItemReceived
 
 .ultraball:
 	verbosegiveitem ULTRA_BALL
 	iffalse .Route44PackFullM
-	clearevent EVENT_GOT_BALL_FROM_FISHER_WILTON
-	closetext
-	end
+	jump .ItemReceived
+
+.ItemReceived:
+	clearflag ENGINE_WILTON_HAS_BALL_ITEM
+	setflag ENGINE_WILTON_GAVE_BALL_ITEM
+	jump Route44NumberAcceptedM
 
 .Route44PackFullM:
 	jump Route44PackFullM
@@ -385,25 +380,6 @@ FisherWiltonHugePoliwagText:
 
 	para "I swear it must've"
 	line "been 16 feet long!"
-	done
-
-FisherWiltonRematchGiftText:
-	text "Hoo boy!"
-	line "That was a splash!"
-
-	para "It's great to let"
-	line "off some steam"
-	
-	para "with a good"
-	line "battle!"
-	
-	para "Oh, that's right!"
-
-	para "I fished this up"
-	line "earlier…"
-	
-	para "Why don't you have"
-	line "it?"
 	done
 
 FisherEdgarSeenText:

@@ -226,7 +226,7 @@ EngineFlags:
 
 	engine_flag wDailyPhoneItemFlags, 0 ; beverly has nugget
 	engine_flag wDailyPhoneItemFlags, 1 ; jose has star piece
-	engine_flag wDailyPhoneItemFlags, 2 ; wade has item (see EVENT_WADE_HAS_*** in constants/event_flags.asm)
+	engine_flag wDailyPhoneItemFlags, 2 ; wade has berry
 	engine_flag wDailyPhoneItemFlags, 3 ; gina has leaf stone ; $80
 	engine_flag wDailyPhoneItemFlags, 4 ; alan has fire stone
 	engine_flag wDailyPhoneItemFlags, 5 ; dana has thunderstone
@@ -241,6 +241,9 @@ EngineFlags:
 	engine_flag wDailyPhoneItemFlags, 14 ; beverly gave a nugget today
 	engine_flag wDailyPhoneItemFlags, 15 ; jose gave a star piece today
 	engine_flag wDailyPhoneItemFlags, 16 ; derek gave a nugget today
+	engine_flag wDailyPhoneItemFlags, 17 ; wilton has a ball item today
+	engine_flag wDailyPhoneItemFlags, 18 ; wilton gave a ball item today
+	engine_flag wDailyPhoneItemFlags, 19 ; wade gave a berry today
 
 	engine_flag wPlayerSpriteSetupFlags, PLAYERSPRITESETUP_FEMALE_TO_MALE_F
 

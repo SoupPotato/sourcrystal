@@ -47,7 +47,7 @@ TrainerBugCatcherWade1:
 	opentext
 	checkflag ENGINE_WADE
 	iftrue .WadeRematch
-	checkflag ENGINE_WADE_HAS_ITEM
+	checkflag ENGINE_WADE_HAS_BERRY
 	iftrue .WadeItem
 	checkcellnum PHONE_BUG_CATCHER_WADE
 	iftrue .AcceptedNumberSTD
@@ -115,32 +115,36 @@ TrainerBugCatcherWade1:
 
 .WadeItem:
 	scall .ItemSTD
-	checkevent EVENT_WADE_HAS_BERRY
-	iftrue .Berry
-	checkevent EVENT_WADE_HAS_PSNCUREBERRY
-	iftrue .Psncureberry
-	checkevent EVENT_WADE_HAS_PRZCUREBERRY
-	iftrue .Przcureberry
-	checkevent EVENT_WADE_HAS_BITTER_BERRY
-	iftrue .BitterBerry
-.Berry:
+	random 4
+	ifequal 0, .oranberry
+	ifequal 1, .pechaberry
+	ifequal 2, .cheriberry
+	ifequal 3, .persimberry
+
+.oranberry:
 	verbosegiveitem ORAN_BERRY
 	iffalse .PackFull
 	jump .Done
-.Psncureberry:
+
+.pechaberry:
 	verbosegiveitem PECHA_BERRY
 	iffalse .PackFull
 	jump .Done
-.Przcureberry:
+
+.cheriberry:
 	verbosegiveitem CHERI_BERRY
 	iffalse .PackFull
 	jump .Done
-.BitterBerry:
+
+.persimberry:
 	verbosegiveitem PERSIM_BERRY
 	iffalse .PackFull
+
 .Done:
-	clearflag ENGINE_WADE_HAS_ITEM
+	clearflag ENGINE_WADE_HAS_BERRY
+	setflag ENGINE_WADE_GAVE_BERRY
 	jump .AcceptedNumberSTD
+
 .PackFull:
 	jump .PackFullSTD
 

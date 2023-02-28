@@ -385,6 +385,11 @@ AlfredPokemonBlurb:
 	buttonsound
 	jump PhoneScript_HangupText_Male
 
+DougStory:
+	farwritetext DougStoryText
+	buttonsound
+	jump PhoneScript_HangupText_Male
+
 UnknownScript_0xa0910:
 	farwritetext UnknownText_0x174c29
 	buttonsound
@@ -732,4 +737,8 @@ WaltBattleReminderScript:
 
 AlfredBattleReminderScript:
 	farwritetext AlfredBattleReminderText
+	end
+
+DougBattleReminderScript:
+	farwritetext DougBattleReminderText
 	end

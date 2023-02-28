@@ -350,7 +350,7 @@ KRIS EQU __enum__
 	const KEN
 	const WADE2
 	const WADE3
-	const DOUG
+	const DOUG1
 	const ARNIE2
 	const ARNIE3
 	const WADE4
@@ -363,6 +363,8 @@ KRIS EQU __enum__
 	const STACEY
 	const DION
 	const DANE
+	const DOUG2
+	const DOUG3
 
 	trainerclass FISHER ; 25
 	const JUSTIN

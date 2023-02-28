@@ -1882,7 +1882,7 @@ CheckWiltonItemNotThursday2:
 WiltonCheckItem:
 	checkflag ENGINE_WILTON_GAVE_BALL_ITEM
 	iftrue WiltonWantsBattle
-	farscall PhoneScript_Random11
+	farscall PhoneScript_Random5
 	ifequal 0, WiltonHasItem
 	setflag ENGINE_WILTON_GAVE_BALL_ITEM
 
@@ -1987,3 +1987,80 @@ ErinWantsBattle:
 	landmarktotext ROUTE_46, MEM_BUFFER_2
 	setflag ENGINE_ERIN
 	farjump PhoneScript_WantsToBattle_Female
+
+; Doug
+
+DougPhoneScript1: ; You call Doug
+	trainertotext BUG_CATCHER, DOUG1, MEM_BUFFER_0
+	checkflag ENGINE_DOUG
+	iftrue .WaitingForBattle
+	farscall PhoneScript_AnswerPhone_Male
+	checkflag ENGINE_DOUG_HAS_BERRY
+	iftrue .HasBerry
+	checkcode VAR_WEEKDAY
+	ifnotequal WEDNESDAY, .CheckDougBerryNotWednesday1
+	checktime MORN
+	iftrue DougWantsBattle
+
+.CheckDougBerryNotWednesday1
+	checkflag ENGINE_DOUG_HAS_BERRY
+	iftrue .HasBerry
+	checkflag ENGINE_DOUG_GAVE_BERRY
+	iftrue .Generic
+	farscall PhoneScript_Random5
+	ifequal 0, DougHasBerry
+	setflag ENGINE_DOUG_GAVE_BERRY
+
+.Generic:
+	farjump DougStory
+
+.WaitingForBattle:
+	landmarktotext ROUTE_2, MEM_BUFFER_2
+	farjump DougBattleReminderScript
+
+.HasBerry:
+	landmarktotext ROUTE_2, MEM_BUFFER_2
+	farjump UnknownScript_0xa0ab5
+
+DougPhoneScript2: ; Calls you
+	trainertotext BUG_CATCHER, DOUG1, MEM_BUFFER_0
+	farscall PhoneScript_GreetPhone_Male
+	checkflag ENGINE_DOUG_HAS_BERRY
+	iftrue .HasBerry
+	checkcode VAR_WEEKDAY
+	ifnotequal WEDNESDAY, CheckDougBerryNotWednesday2
+	checktime MORN
+	iftrue DougCheckBerry
+	jump CheckDougBerryNotWednesday2
+
+.HasBerry:
+	landmarktotext ROUTE_2, MEM_BUFFER_2
+	farjump UnknownScript_0xa0ab5
+
+CheckDougBerryNotWednesday2:
+	checkflag ENGINE_DOUG_GAVE_BERRY
+	iftrue GenericDougCall
+	farscall PhoneScript_Random5
+	ifequal 0, DougHasBerry
+	setflag ENGINE_DOUG_GAVE_BERRY
+	jump GenericDougCall
+
+DougCheckBerry:
+	checkflag ENGINE_DOUG_GAVE_BERRY
+	iftrue DougWantsBattle
+	farscall PhoneScript_Random5
+	ifequal 0, DougHasBerry
+	setflag ENGINE_DOUG_GAVE_BERRY
+
+DougWantsBattle:
+	landmarktotext ROUTE_2, MEM_BUFFER_2
+	setflag ENGINE_DOUG
+	farjump PhoneScript_WantsToBattle_Male
+
+DougHasBerry:
+	setflag ENGINE_DOUG_HAS_BERRY
+	landmarktotext ROUTE_2, MEM_BUFFER_2
+	farjump PhoneScript_FoundItem_Male
+
+GenericDougCall:
+	farjump Phone_GenericCall_Male

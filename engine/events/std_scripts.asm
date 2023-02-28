@@ -693,6 +693,7 @@ AskNumber1MScript:
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
 	ifequal PHONE_FIREBREATHER_WALT, .Walt
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
+	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 
 .Jack:
 	farwritetext JackAskNumber1Text
@@ -763,6 +764,9 @@ AskNumber1MScript:
 .Alfred:
 	farwritetext AlfredAskNumber1Text
 	end
+.Doug:
+	farwritetext DougAskNumber1Text
+	end
 
 AskNumber2MScript:
 	special RandomPhoneMon
@@ -790,6 +794,7 @@ AskNumber2MScript:
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
 	ifequal PHONE_FIREBREATHER_WALT, .Walt
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
+	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 
 .Jack:
 	farwritetext JackAskNumber2Text
@@ -860,6 +865,9 @@ AskNumber2MScript:
 .Alfred:
 	farwritetext AlfredAskNumber2Text
 	end
+.Doug:
+	farwritetext DougAskNumber2Text
+	end
 
 RegisteredNumberMScript:
 	farwritetext RegisteredNumber1Text
@@ -893,6 +901,7 @@ NumberAcceptedMScript:
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
 	ifequal PHONE_FIREBREATHER_WALT, .Walt
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
+	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 
 
 .Jack:
@@ -1010,6 +1019,11 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
+.Doug:
+	farwritetext DougNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedMScript:
 	checkcode VAR_CALLERID
@@ -1036,6 +1050,7 @@ NumberDeclinedMScript:
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
 	ifequal PHONE_FIREBREATHER_WALT, .Walt
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
+	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 
 .Jack:
 	farwritetext JackNumberDeclinedText
@@ -1149,6 +1164,11 @@ NumberDeclinedMScript:
 	end
 .Alfred:
 	farwritetext AlfredNumberDeclinedText
+	waitbutton
+	closetext
+	end
+.Doug:
+	farwritetext DougNumberDeclinedText
 	waitbutton
 	closetext
 	end
@@ -1317,6 +1337,7 @@ RematchMScript:
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
 	ifequal PHONE_FIREBREATHER_WALT, .Walt
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
+	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 
 .Jack:
 	farwritetext JackRematchText
@@ -1418,6 +1439,11 @@ RematchMScript:
 	waitbutton
 	closetext
 	end
+.Doug:
+	farwritetext DougRematchText
+	waitbutton
+	closetext
+	end
 
 GiftMScript:
 	checkcode VAR_CALLERID
@@ -1428,11 +1454,13 @@ GiftMScript:
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
+	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 
 .Jose:
 	farwritetext JoseGiftText
 	buttonsound
 	end
+.Doug:
 .Wade:
 	farwritetext WadeGiftText
 	buttonsound

@@ -25,14 +25,131 @@ TrainerBugCatcherRob:
 
 
 TrainerBugCatcherDoug:
-	trainer BUG_CATCHER, DOUG, EVENT_BEAT_BUG_CATCHER_DOUG, BugCatcherDougSeenText, BugCatcherDougBeatenText, 0, .Script
+	trainer BUG_CATCHER, DOUG1, EVENT_BEAT_BUG_CATCHER_DOUG, BugCatcherDougSeenText, BugCatcherDougBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_BUG_CATCHER_DOUG
 	opentext
+	checkflag ENGINE_DOUG
+	iftrue .WantsBattle
+	checkflag ENGINE_DOUG_HAS_BERRY
+	iftrue .DougItem
+	checkcellnum PHONE_BUG_CATCHER_DOUG
+	iftrue .NumberAccepted
+	checkevent EVENT_DOUG_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedBefore
 	writetext BugCatcherDougAfterBattleText
-	waitbutton
-	closetext
+	buttonsound
+	setevent EVENT_DOUG_ASKED_FOR_PHONE_NUMBER
+	scall .AskNumber1
+	jump .AskForNumber
+
+.AskedBefore:
+	scall .AskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_BUG_CATCHER_DOUG
+	ifequal PHONE_CONTACTS_FULL, .PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	trainertotext BUG_CATCHER, DOUG1, MEM_BUFFER_0
+	scall .RegisteredNumber
+	jump .NumberAccepted
+
+.WantsBattle:
+	scall .Rematch
+	winlosstext BugCatcherDougBeatenText, 0
+	checkevent EVENT_BEAT_BLUE
+	iftrue .LoadFight2
+	checkevent EVENT_BEAT_BLAINE
+	iftrue .LoadFight1
+	loadtrainer BUG_CATCHER, DOUG1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_DOUG
+	end
+
+.LoadFight1:
+	loadtrainer BUG_CATCHER, DOUG2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_DOUG
+	end
+
+.LoadFight2:
+	loadtrainer BUG_CATCHER, DOUG3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_DOUG
+	end
+
+.DougItem:
+	scall .GiftItem
+	random 4
+	ifequal 0, .chestoberry
+	ifequal 1, .leppaberry
+	ifequal 2, .lumberry
+	ifequal 3, .sitrusberry
+
+.chestoberry:
+	verbosegiveitem CHESTO_BERRY
+	iffalse .PackFull
+	jump .Done
+
+.leppaberry:
+	verbosegiveitem LEPPA_BERRY
+	iffalse .PackFull
+	jump .Done
+
+.lumberry:
+	verbosegiveitem LUM_BERRY
+	iffalse .PackFull
+	jump .Done
+
+.sitrusberry:
+	verbosegiveitem SITRUS_BERRY
+	iffalse .PackFull
+
+.Done:
+	clearflag ENGINE_DOUG_HAS_BERRY
+	setflag ENGINE_DOUG_GAVE_BERRY
+	jump .NumberAccepted
+
+.PackFullM:
+	jump Route44PackFullM
+
+.AskNumber1:
+	jumpstd asknumber1m
+	end
+
+.AskNumber2:
+	jumpstd asknumber2m
+	end
+
+.RegisteredNumber:
+	jumpstd registerednumberm
+	end
+
+.NumberAccepted:
+	jumpstd numberacceptedm
+	end
+
+.NumberDeclined:
+	jumpstd numberdeclinedm
+	end
+
+.PhoneFull:
+	jumpstd phonefullm
+	end
+
+.Rematch:
+	jumpstd rematchm
+	end
+
+.GiftItem:
+	jumpstd giftm
+	end
+
+.PackFull:
+	jumpstd packfullm
 	end
 
 Route2Sign:
@@ -40,7 +157,6 @@ Route2Sign:
 
 Route2DireHit:
 	itemball DIRE_HIT
-
 
 Route2Elixer:
 	itemball ELIXER

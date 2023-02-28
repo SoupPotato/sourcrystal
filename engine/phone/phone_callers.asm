@@ -552,6 +552,7 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
 	ifequal PHONE_FIREBREATHER_WALT, .Walt
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
+	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 
 .Jack:
 	farwritetext UnknownText_0x1741e1
@@ -650,6 +651,11 @@ PhoneScript_RematchText_Male:
 
 .Alfred:
 	farwritetext AlfredWantsRematchText
+	buttonsound
+	end
+
+.Doug:
+	farwritetext DougWantsRematchText
 	buttonsound
 	end
 
@@ -941,11 +947,13 @@ PhoneScript_FoundItem_Male:
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_FISHER_WILTON, .Wilton
+	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 
 .Jose:
 	farwritetext JoseFoundSomethingText
 	end
 
+.Doug:
 .Wade:
 	farwritetext WadeFoundBerryText
 	end

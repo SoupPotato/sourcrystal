@@ -20,7 +20,7 @@ PhoneContacts:
 	phone SAILOR,       HUEY1,              OLIVINE_LIGHTHOUSE_2F, ANYTIME, HueyPhoneScript1, ANYTIME, HueyPhoneScript2
 	phone YOUNGSTER,    IAN1,               ROUTE_34,         ANYTIME, IanPhoneScript1,     ANYTIME, IanPhoneScript2
 	phone FIREBREATHER, WALT1,              ROUTE_35,         ANYTIME, WaltPhoneScript1,    ANYTIME, WaltPhoneScript2
-	phone TRAINER_NONE, PHONE_00,           N_A,              0,       UnusedPhoneScript,   0,       UnusedPhoneScript
+	phone LASS,         KRISE1,             NATIONAL_PARK,    ANYTIME, KrisePhoneScript1,   ANYTIME, KrisePhoneScript2
 	phone COOLTRAINERM, GAVEN3,             ROUTE_26,         ANYTIME, GavenPhoneScript1,   ANYTIME, GavenPhoneScript2
 	phone COOLTRAINERF, BETH1,              ROUTE_26,         ANYTIME, BethPhoneScript1,    ANYTIME, BethPhoneScript2
 	phone BIRD_KEEPER,  JOSE2,              ROUTE_27,         ANYTIME, JosePhoneScript1,    ANYTIME, JosePhoneScript2

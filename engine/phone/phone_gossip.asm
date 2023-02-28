@@ -350,6 +350,11 @@ JackPhoneTips:
 	buttonsound
 	jump PhoneScript_HangupText_Male
 
+KriseMiniSkirt:
+	farwritetext KriseMiniSkirtText
+	buttonsound
+	jump PhoneScript_HangupText_Female
+
 UnknownScript_0xa0900:
 	farwritetext UnknownText_0x17485b
 	buttonsound

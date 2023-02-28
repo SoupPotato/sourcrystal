@@ -562,6 +562,7 @@ INCLUDE "data/phone/text/joey_overworld.asm"
 INCLUDE "data/phone/text/wade_overworld.asm"
 INCLUDE "data/phone/text/ralph_overworld.asm"
 INCLUDE "data/phone/text/liz_overworld.asm"
+INCLUDE "data/phone/text/krise_overworld.asm"
 
 
 SECTION "Special Phone Text", ROMX

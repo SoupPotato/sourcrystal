@@ -1505,6 +1505,7 @@ AskNumber1FScript:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_LASS_KRISE, .Krise
 
 .Beverly:
 	farwritetext BeverlyAskNumber1Text
@@ -1530,6 +1531,9 @@ AskNumber1FScript:
 .Erin:
 	farwritetext ErinAskNumber1Text
 	end
+.Krise:
+	farwritetext KriseAskNumber1Text
+	end
 
 AskNumber2FScript:
 	checkcode VAR_CALLERID
@@ -1541,6 +1545,7 @@ AskNumber2FScript:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_LASS_KRISE, .Krise
 
 .Beverly:
 	farwritetext BeverlyAskNumber2Text
@@ -1566,6 +1571,9 @@ AskNumber2FScript:
 .Erin:
 	farwritetext ErinAskNumber2Text
 	end
+.Krise:
+	farwritetext KriseAskNumber2Text
+	end
 
 RegisteredNumberFScript:
 	farwritetext RegisteredNumber2Text
@@ -1584,6 +1592,7 @@ NumberAcceptedFScript:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_LASS_KRISE, .Krise
 
 .Beverly:
 	farwritetext BeverlyNumberAcceptedText
@@ -1625,6 +1634,11 @@ NumberAcceptedFScript:
 	waitbutton
 	closetext
 	end
+.Krise:
+	farwritetext KriseNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedFScript:
 	checkcode VAR_CALLERID
@@ -1636,6 +1650,7 @@ NumberDeclinedFScript:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_LASS_KRISE, .Krise
 
 .Beverly:
 	farwritetext BeverlyNumberDeclinedText
@@ -1677,6 +1692,11 @@ NumberDeclinedFScript:
 	waitbutton
 	closetext
 	end
+.Krise:
+	farwritetext KriseNumberDeclinedText
+	waitbutton
+	closetext
+	end
 
 PhoneFullFScript:
 	checkcode VAR_CALLERID
@@ -1688,6 +1708,7 @@ PhoneFullFScript:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_LASS_KRISE, .Krise
 
 .Beverly:
 	farwritetext BeverlyPhoneFullText
@@ -1729,6 +1750,11 @@ PhoneFullFScript:
 	waitbutton
 	closetext
 	end
+.Krise:
+	farwritetext KrisePhoneFullText
+	waitbutton
+	closetext
+	end
 
 RematchFScript:
 	checkcode VAR_CALLERID
@@ -1739,6 +1765,7 @@ RematchFScript:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_LASS_KRISE, .Krise
 
 .Beth:
 	farwritetext BethRematchText
@@ -1772,6 +1799,11 @@ RematchFScript:
 	end
 .Erin:
 	farwritetext ErinRematchText
+	waitbutton
+	closetext
+	end
+.Krise:
+	farwritetext KriseRematchText
 	waitbutton
 	closetext
 	end

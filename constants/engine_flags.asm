@@ -212,6 +212,7 @@
 	const ENGINE_ERIN
 	const ENGINE_IAN
 	const ENGINE_WALT
+	const ENGINE_KRISE
 ; wDailyPhoneItemFlags
 	const ENGINE_BEVERLY_HAS_NUGGET
 	const ENGINE_JOSE_HAS_STAR_PIECE

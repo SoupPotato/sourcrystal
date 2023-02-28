@@ -197,6 +197,19 @@ UnknownText_0x1745c2:
 	cont "away and tell you."
 	done
 
+KriseMiniSkirtText:
+	text "It wasn't a very"
+	line "smart idea to"
+
+	para "come to the PARK"
+	line "in a miniskirt,"
+	cont "was it…?"
+
+	para "These leaves keep"
+	line "scratching my"
+	cont "legs…"
+	done
+
 UnknownText_0x174638:
 	text "Hey, <PLAY_G>!"
 

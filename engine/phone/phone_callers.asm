@@ -812,6 +812,7 @@ PhoneScript_HangupText_Female:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_LASS_KRISE, .Krise
 
 .Beverly:
 	farwritetext UnknownText_0x1747ac
@@ -843,6 +844,10 @@ PhoneScript_HangupText_Female:
 
 .Erin:
 	farwritetext UnknownText_0x67281
+	end
+
+.Krise:
+	farwritetext UnknownText_0x66a93
 	end
 
 Phone_CheckIfUnseenRare_Male:

@@ -252,14 +252,104 @@ TrainerPokefanfBeverly1:
 	end
 
 TrainerLassKrise:
-	trainer LASS, KRISE, EVENT_BEAT_LASS_KRISE, LassKriseSeenText, LassKriseBeatenText, 0, .Script
+	trainer LASS, KRISE1, EVENT_BEAT_LASS_KRISE, LassKriseSeenText, LassKriseBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_LASS_KRISE
 	opentext
+	checkflag ENGINE_KRISE
+	iftrue .Rematch
+	checkcellnum PHONE_LASS_KRISE
+	iftrue .NumberAccepted
+	checkevent EVENT_KRISE_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskAgain
 	writetext LassKriseAfterBattleText
-	waitbutton
-	closetext
+	buttonsound
+	setevent EVENT_KRISE_ASKED_FOR_PHONE_NUMBER
+	scall .AskNumber1
+	jump .RequestNumber
+
+.AskAgain:
+	scall .AskNumber2
+.RequestNumber:
+	askforphonenumber PHONE_LASS_KRISE
+	ifequal PHONE_CONTACTS_FULL, .PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	trainertotext LASS, KRISE1, MEM_BUFFER_0
+	scall .RegisteredNumber
+	jump .NumberAccepted
+
+.Rematch:
+	scall .RematchStd
+	winlosstext LassKriseBeatenText, 0
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iftrue .LoadFight4
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .LoadFight3
+	checkevent EVENT_CLEARED_RADIO_TOWER
+	iftrue .LoadFight2
+	checkflag ENGINE_FLYPOINT_OLIVINE
+	iftrue .LoadFight1
+	loadtrainer LASS, KRISE1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KRISE
+	end
+
+.LoadFight1:
+	loadtrainer LASS, KRISE2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KRISE
+	end
+
+.LoadFight2:
+	loadtrainer LASS, KRISE3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KRISE
+	end
+
+.LoadFight3:
+	loadtrainer LASS, KRISE4
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KRISE
+	end
+
+.LoadFight4:
+	loadtrainer LASS, KRISE5
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KRISE
+	end
+
+.AskNumber1:
+	jumpstd asknumber1f
+	end
+
+.AskNumber2:
+	jumpstd asknumber2f
+	end
+
+.RegisteredNumber:
+	jumpstd registerednumberf
+	end
+
+.NumberAccepted:
+	jumpstd numberacceptedf
+	end
+
+.NumberDeclined:
+	jumpstd numberdeclinedf
+	end
+
+.PhoneFull:
+	jumpstd phonefullf
+	end
+
+.RematchStd:
+	jumpstd rematchf
 	end
 
 NationalParkRelaxationSquareSign:

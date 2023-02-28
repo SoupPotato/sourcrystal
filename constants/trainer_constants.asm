@@ -191,7 +191,7 @@ KRIS EQU __enum__
 	const CARRIE
 	const BRIDGET
 	const ALICE
-	const KRISE
+	const KRISE1
 	const CONNIE1
 	const LINDA
 	const LAURA
@@ -203,6 +203,10 @@ KRIS EQU __enum__
 	const DANA3
 	const DANA4
 	const DANA5
+	const KRISE2
+	const KRISE3
+	const KRISE4
+	const KRISE5
 
 	trainerclass JANINE ; 1a
 	const JANINE1

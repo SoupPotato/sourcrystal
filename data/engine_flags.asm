@@ -223,6 +223,7 @@ EngineFlags:
 	engine_flag wDailyRematchFlags, 23 ; erin
 	engine_flag wDailyRematchFlags, 24 ; Ian
 	engine_flag wDailyRematchFlags, 25 ; Walt
+	engine_flag wDailyRematchFlags, 26 ; Krise
 
 	engine_flag wDailyPhoneItemFlags, 0 ; beverly has nugget
 	engine_flag wDailyPhoneItemFlags, 1 ; jose has star piece

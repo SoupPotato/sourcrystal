@@ -8,14 +8,93 @@ OlivineLighthouse2F_MapScripts:
 	db 0 ; callbacks
 
 TrainerGentlemanAlfred:
-	trainer GENTLEMAN, ALFRED, EVENT_BEAT_GENTLEMAN_ALFRED, GentlemanAlfredSeenText, GentlemanAlfredBeatenText, 0, .Script
+	trainer GENTLEMAN, ALFRED1, EVENT_BEAT_GENTLEMAN_ALFRED, GentlemanAlfredSeenText, GentlemanAlfredBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_GENTLEMAN_ALFRED
 	opentext
-	writetext GentlemanAlfredAfterBattleText
-	waitbutton
-	closetext
+	checkflag ENGINE_ALFRED
+	iftrue .WantsBattle
+	checkcellnum PHONE_GENTLEMAN_ALFRED
+	iftrue .NumberAccepted
+	checkevent EVENT_ALFRED_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedBefore
+	setevent EVENT_ALFRED_ASKED_FOR_PHONE_NUMBER
+	scall .AskNumber1
+	jump .AskForNumber
+
+.AskedBefore:
+	scall .AskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_GENTLEMAN_ALFRED
+	ifequal PHONE_CONTACTS_FULL, .PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	trainertotext GENTLEMAN, ALFRED1, MEM_BUFFER_0
+	scall .RegisteredNumber
+	jump .NumberAccepted
+
+.WantsBattle:
+	scall .Rematch
+	winlosstext GentlemanAlfredBeatenText, 0
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iftrue .LoadFight3
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .LoadFight2
+	checkevent EVENT_CLEARED_RADIO_TOWER
+	iftrue .LoadFight1
+	loadtrainer GENTLEMAN, ALFRED1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_ALFRED
+	end
+
+.LoadFight1:
+	loadtrainer GENTLEMAN, ALFRED2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_ALFRED
+	end
+
+.LoadFight2:
+	loadtrainer GENTLEMAN, ALFRED3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_ALFRED
+	end
+
+.LoadFight3:
+	loadtrainer GENTLEMAN, ALFRED4
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_ALFRED
+	end
+
+.AskNumber1:
+	jumpstd asknumber1m
+	end
+
+.AskNumber2:
+	jumpstd asknumber2m
+	end
+
+.RegisteredNumber:
+	jumpstd registerednumberm
+	end
+
+.NumberAccepted:
+	jumpstd numberacceptedm
+	end
+
+.NumberDeclined:
+	jumpstd numberdeclinedm
+	end
+
+.PhoneFull:
+	jumpstd phonefullm
+	end
+
+.Rematch:
+	jumpstd rematchm
 	end
 
 TrainerSailorHuey:

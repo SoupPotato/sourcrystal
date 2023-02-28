@@ -318,8 +318,11 @@ KRIS EQU __enum__
 	const PRESTON
 	const EDWARD
 	const GREGORY
-	const ALFRED
+	const ALFRED1
 	const MILTON
+	const ALFRED2
+	const ALFRED3
+	const ALFRED4
 
 	trainerclass SKIER ; 21
 	const ROXANNE

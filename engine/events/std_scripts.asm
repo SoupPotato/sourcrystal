@@ -691,6 +691,8 @@ AskNumber1MScript:
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
+	ifequal PHONE_FIREBREATHER_WALT, .Walt
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext JackAskNumber1Text
@@ -755,6 +757,12 @@ AskNumber1MScript:
 .Ian:
 	farwritetext IanAskNumber1Text
 	end
+.Walt:
+	farwritetext WaltAskNumber1Text
+	end
+.Alfred:
+	farwritetext AlfredAskNumber1Text
+	end
 
 AskNumber2MScript:
 	special RandomPhoneMon
@@ -780,6 +788,8 @@ AskNumber2MScript:
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
+	ifequal PHONE_FIREBREATHER_WALT, .Walt
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext JackAskNumber2Text
@@ -844,6 +854,12 @@ AskNumber2MScript:
 .Ian:
 	farwritetext IanAskNumber2Text
 	end
+.Walt:
+	farwritetext WaltAskNumber2Text
+	end
+.Alfred:
+	farwritetext AlfredAskNumber2Text
+	end
 
 RegisteredNumberMScript:
 	farwritetext RegisteredNumber1Text
@@ -875,6 +891,8 @@ NumberAcceptedMScript:
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
+	ifequal PHONE_FIREBREATHER_WALT, .Walt
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 
 .Jack:
@@ -982,6 +1000,16 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
+.Walt:
+	farwritetext WaltNumberAcceptedText
+	waitbutton
+	closetext
+	end
+.Alfred:
+	farwritetext AlfredNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedMScript:
 	checkcode VAR_CALLERID
@@ -1006,6 +1034,8 @@ NumberDeclinedMScript:
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
+	ifequal PHONE_FIREBREATHER_WALT, .Walt
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext JackNumberDeclinedText
@@ -1112,6 +1142,16 @@ NumberDeclinedMScript:
 	waitbutton
 	closetext
 	end
+.Walt:
+	farwritetext WaltNumberDeclinedText
+	waitbutton
+	closetext
+	end
+.Alfred:
+	farwritetext AlfredNumberDeclinedText
+	waitbutton
+	closetext
+	end
 
 PhoneFullMScript:
 	checkcode VAR_CALLERID
@@ -1136,6 +1176,8 @@ PhoneFullMScript:
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
+	ifequal PHONE_FIREBREATHER_WALT, .Walt
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext JackPhoneFullText
@@ -1242,6 +1284,16 @@ PhoneFullMScript:
 	waitbutton
 	closetext
 	end
+.Walt:
+	farwritetext WaltPhoneFullText
+	waitbutton
+	closetext
+	end
+.Alfred:
+	farwritetext AlfredPhoneFullText
+	waitbutton
+	closetext
+	end
 
 RematchMScript:
 	checkcode VAR_CALLERID
@@ -1263,6 +1315,8 @@ RematchMScript:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
+	ifequal PHONE_FIREBREATHER_WALT, .Walt
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext JackRematchText
@@ -1351,6 +1405,16 @@ RematchMScript:
 	end
 .Ian:
 	farwritetext IanRematchText
+	waitbutton
+	closetext
+	end
+.Walt:
+	farwritetext WaltRematchText
+	waitbutton
+	closetext
+	end
+.Alfred:
+	farwritetext AlfredRematchText
 	waitbutton
 	closetext
 	end

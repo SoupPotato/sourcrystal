@@ -1516,6 +1516,21 @@ GentlemanGroup:
 	db 45, GROWLITHE
 	db -1 ; end
 
+	; GENTLEMAN (6)
+	db "ALFRED@", TRAINERTYPE_NORMAL
+	db 36, NOCTOWL
+	db -1 ; end
+
+	; GENTLEMAN (7)
+	db "ALFRED@", TRAINERTYPE_NORMAL
+	db 42, NOCTOWL
+	db -1 ; end
+
+	; GENTLEMAN (8)
+	db "ALFRED@", TRAINERTYPE_MOVES
+	db 54, NOCTOWL,   HEADBUTT, HYPNOSIS, DREAM_EATER, SKY_ATTACK
+	db -1 ; end
+
 
 SkierGroup:
 	; SKIER (1)

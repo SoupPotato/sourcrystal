@@ -355,6 +355,11 @@ KriseMiniSkirt:
 	buttonsound
 	jump PhoneScript_HangupText_Female
 
+WaltNewTechnique:
+	farwritetext WaltNewTechniqueText
+	buttonsound
+	jump PhoneScript_HangupText_Male
+
 UnknownScript_0xa0900:
 	farwritetext UnknownText_0x17485b
 	buttonsound
@@ -362,6 +367,21 @@ UnknownScript_0xa0900:
 
 UnknownScript_0xa0908:
 	farwritetext UnknownText_0x17496b
+	buttonsound
+	jump PhoneScript_HangupText_Male
+
+WaltTypesOfPokemon:
+	farwritetext WaltTypesOfPokemonText
+	buttonsound
+	jump PhoneScript_HangupText_Male
+
+AlfredNoctowlTrade:
+	farwritetext AlfredNoctowlTradeText
+	buttonsound
+	jump PhoneScript_HangupText_Male
+	
+AlfredPokemonBlurb:
+	farwritetext AlfredPokemonBlurbText
 	buttonsound
 	jump PhoneScript_HangupText_Male
 
@@ -708,4 +728,8 @@ IanBattleReminderScript:
 
 WaltBattleReminderScript:
 	farwritetext WaltBattleReminderText
+	end
+
+AlfredBattleReminderScript:
+	farwritetext AlfredBattleReminderText
 	end

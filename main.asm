@@ -358,6 +358,8 @@ INCLUDE "data/phone/text/kenji_overworld.asm"
 INCLUDE "data/phone/text/parry_overworld.asm"
 INCLUDE "data/phone/text/erin_overworld.asm"
 INCLUDE "data/phone/text/ian_overworld.asm"
+INCLUDE "data/phone/text/walt_overworld.asm"
+INCLUDE "data/phone/text/alfred_overworld.asm"
 
 
 SECTION "bank2E", ROMX

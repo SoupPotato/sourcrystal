@@ -35,7 +35,7 @@ PhoneContacts:
 	phone JUGGLER,      IRWIN1,             ROUTE_35,         ANYTIME, IrwinPhoneScript1,   ANYTIME, IrwinPhoneScript2
 	phone BUG_CATCHER,  ARNIE1,             ROUTE_35,         ANYTIME, ArniePhoneScript1,   ANYTIME, ArniePhoneScript2
 	phone SCHOOLBOY,    ALAN1,              ROUTE_36,         ANYTIME, AlanPhoneScript1,    ANYTIME, AlanPhoneScript2
-	phone TRAINER_NONE, PHONE_00,           N_A,              0,       UnusedPhoneScript,   0,       UnusedPhoneScript
+	phone GENTLEMAN,    ALFRED1,            OLIVINE_LIGHTHOUSE_2F, ANYTIME, AlfredPhoneScript1, ANYTIME, AlfredPhoneScript2
 	phone LASS,         DANA1,              ROUTE_38,         ANYTIME, DanaPhoneScript1,    ANYTIME, DanaPhoneScript2
 	phone SCHOOLBOY,    CHAD1,              ROUTE_38,         ANYTIME, ChadPhoneScript1,    ANYTIME, ChadPhoneScript2
 	phone POKEFANM,     DEREK1,             ROUTE_39,         ANYTIME, DerekPhoneScript1,   ANYTIME, DerekPhoneScript2

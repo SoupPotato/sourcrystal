@@ -2755,7 +2755,6 @@ BattleAnim_DreamEater:
 	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_RED
 	anim_1gfx ANIM_GFX_CHARGE
 	anim_bgp $1b
-	anim_obp0 $27
 .loop
 	anim_sound 6, 3, SFX_WARP_TO
 	anim_obj ANIM_OBJ_ABSORB, 128, 48, $2

@@ -550,6 +550,8 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
+	ifequal PHONE_FIREBREATHER_WALT, .Walt
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext UnknownText_0x1741e1
@@ -641,6 +643,16 @@ PhoneScript_RematchText_Male:
 	buttonsound
 	end
 
+.Walt:
+	farwritetext WaltWantsRematchText
+	buttonsound
+	end
+
+.Alfred:
+	farwritetext AlfredWantsRematchText
+	buttonsound
+	end
+
 PhoneScript_RematchText_Female:
 	checkcode VAR_CALLERID
 	ifequal PHONE_COOLTRAINERF_BETH, .Beth
@@ -717,6 +729,7 @@ PhoneScript_HangupText_Male:
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext UnknownText_0x174251
@@ -802,6 +815,10 @@ PhoneScript_HangupText_Male:
 	farwritetext UnknownText_0x17570a
 	end
 
+.Alfred:
+	farwritetext AlfredHangUpText
+	end
+
 PhoneScript_HangupText_Female:
 	checkcode VAR_CALLERID
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly
@@ -874,6 +891,7 @@ PhoneScript_BugCatchingContest:
 	checkcode VAR_CALLERID
 	ifequal PHONE_BUG_CATCHER_WADE, .Wade
 	ifequal PHONE_POKEFANM_DEREK, .Derek
+	ifequal PHONE_FIREBREATHER_WALT, .Walt
 
 .Wade:
 	farwritetext WadeBugCatchingContestText
@@ -882,6 +900,11 @@ PhoneScript_BugCatchingContest:
 
 .Derek:
 	farwritetext DerekBugCatchingContestText
+	buttonsound
+	jump PhoneScript_HangupText_Male
+
+.Walt:
+	farwritetext WaltBugCatchingContestText
 	buttonsound
 	jump PhoneScript_HangupText_Male
 

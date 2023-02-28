@@ -430,6 +430,45 @@ BeverlyHasNugget:
 GenericBeverlyCall:
 	farjump Phone_GenericCall_Female
 
+; Alfred
+
+AlfredPhoneScript1: ; You call Alfred
+	trainertotext GENTLEMAN, ALFRED1, MEM_BUFFER_0
+	checkflag ENGINE_ALFRED
+	iftrue .WaitingForBattle
+	farscall PhoneScript_AnswerPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal TUESDAY, .NotTuesday
+	checktime DAY
+	iftrue AlfredWantsBattle
+	checktime EVE
+	iftrue AlfredWantsBattle
+
+.NotTuesday:
+	farjump AlfredPokemonBlurb
+
+.WaitingForBattle:
+	landmarktotext LIGHTHOUSE, MEM_BUFFER_2
+	farjump AlfredBattleReminderScript
+
+AlfredPhoneScript2: ; Calls you
+	trainertotext GENTLEMAN, ALFRED1, MEM_BUFFER_0
+	farscall PhoneScript_GreetPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal TUESDAY, .Generic
+	checktime DAY
+	iftrue WaltWantsBattle
+	checktime EVE
+	iftrue WaltWantsBattle
+
+.Generic:
+	farjump AlfredNoctowlTrade
+
+AlfredWantsBattle:
+	landmarktotext LIGHTHOUSE, MEM_BUFFER_2
+	setflag ENGINE_ALFRED
+	farjump PhoneScript_WantsToBattle_Male
+
 ; Huey
 
 HueyPhoneScript1:
@@ -1156,7 +1195,7 @@ IrwinPhoneScript2:
 
 ; Walt
 
-WaltPhoneScript1:
+WaltPhoneScript1: ; You call Walt
 	trainertotext FIREBREATHER, WALT1, MEM_BUFFER_0
 	checkflag ENGINE_WALT
 	iftrue .WaitingForBattle
@@ -1169,29 +1208,44 @@ WaltPhoneScript1:
 	iftrue WaltWantsBattle
 
 .NotMonday:
-	farjump UnknownScript_0xa0918
+	ifequal TUESDAY, WaltContestToday
+	ifequal THURSDAY, WaltContestToday
+	ifequal SATURDAY, WaltContestToday
+	farjump WaltTypesOfPokemon
 
 .WaitingForBattle:
 	landmarktotext ROUTE_35, MEM_BUFFER_2
 	farjump WaltBattleReminderScript
 
-WaltPhoneScript2:
+WaltPhoneScript2: ; Calls you
 	trainertotext FIREBREATHER, WALT1, MEM_BUFFER_0
 	farscall PhoneScript_GreetPhone_Male
 	checkcode VAR_WEEKDAY
-	ifnotequal MONDAY, .Generic
+	ifnotequal MONDAY, .NotMonday
 	checktime DAY
 	iftrue WaltWantsBattle
 	checktime EVE
 	iftrue WaltWantsBattle
 
-.Generic:
-	farjump Phone_GenericCall_Male
+.NotMonday:
+	ifequal TUESDAY, WaltContestToday
+	ifequal THURSDAY, WaltContestToday
+	ifequal SATURDAY, WaltContestToday
+	farscall PhoneScript_Random3
+	ifequal 0, WaltFoundRare
+	farjump WaltNewTechnique
 
 WaltWantsBattle:
 	landmarktotext ROUTE_35, MEM_BUFFER_2
 	setflag ENGINE_WALT
 	farjump PhoneScript_WantsToBattle_Male
+
+WaltFoundRare:
+	farjump Phone_CheckIfUnseenRare_Male
+
+WaltContestToday:
+	landmarktotext ROUTE_35, MEM_BUFFER_2
+	farjump PhoneScript_BugCatchingContest
 
 ; Arnie
 

@@ -925,6 +925,24 @@ DerekBugCatchingContestText:
 	line "off its cuteness."
 	done
 
+WaltBugCatchingContestText:
+	text "Did you know that"
+	line "The Bug-Catching"
+	cont "Contest is today?"
+
+	para "I'm not that into"
+	line "BUG-type #MON,"
+
+	para "but the NATIONAL"
+	line "PARK is close by"
+	cont "@"
+	text_from_ram wStringBuffer5
+	text "…"
+
+	para "I thought I might"
+	line "go check it out."
+	done
+
 UnknownText_0x65cf9:
 	text "I'd like you to"
 	line "have a NUGGET."

@@ -210,6 +210,40 @@ KriseMiniSkirtText:
 	cont "legs…"
 	done
 
+WaltNewTechniqueText:
+	text "Fwoooom!"
+
+	para "What do you think?"
+	line "I discovered a new"
+	
+	para "technique for"
+	line "breathing fire!"
+
+	para "Well, not like you"
+	line "can tell over the"
+	cont "phone…"
+	done
+
+WaltTypesOfPokemonText:
+	text "You know how there"
+	line "are so many diff-"
+	cont "erent types of"
+	cont "#MON right?"
+	
+	para "Each type has good"
+	line "and bad points,"
+
+	para "so it's not easy"
+	line "to say which type"
+	cont "is the best."
+
+	para "However…"
+
+	para "My choice has to"
+	line "be the FIRE-type!"
+	cont "Fwoooom!"
+	done
+
 UnknownText_0x174638:
 	text "Hey, <PLAY_G>!"
 
@@ -1820,14 +1854,123 @@ IanBattleReminderText:
 	text "!"
 	done
 
-WaltBattleReminderText:
-	text "Hey, <PLAY_G>!"
+WaltWantsRematchText:
+	text "Fwoooom!"
+	line "Today is a great"
+	cont "day!"
+	
+	para "You should have"
+	line "another battle"
+	cont "with me!"
 
-	para "Hope you won't be"
-	line "too long…"
-
-	para "Remember, I'm on"
+	para "I'm waiting on"
 	line "@"
 	text_from_ram wStringBuffer5
 	text "!"
+	done
+
+WaltBattleReminderText:
+	text "Hey, <PLAY_G>!"
+
+	para "I'm all ready, and"
+	line "waiting for you on"
+	cont "@"
+	text_from_ram wStringBuffer5
+	text ","
+	cont "so hurry up!"
+	done
+
+AlfredWantsRematchText:
+	text "Ha ha, would you"
+	line "like to battle"
+	cont "again?"
+	
+	para "I think that's a"
+	line "fine idea!"
+
+	para "I'll me you at"
+	line "@"
+	text_from_ram wStringBuffer5
+	text "!"
+	done
+
+AlfredBattleReminderText:
+	text "Oh, hey, good"
+	line "afternoon."
+
+	para "Is everything all"
+	line "right?"
+
+	para "Did you forget"
+	line "about our appoint-"
+	cont "ment?"
+
+	para "I'm waiting at"
+	line "@"
+	text_from_ram wStringBuffer5
+	text "."
+
+	para "I will see you"
+	line "there!"
+	done
+
+AlfredNoctowlTradeText:
+	text "It's kind of dis-"
+	line "appointing."
+
+	para "A few days ago, I"
+	line "received a NOCTOWL"
+	
+	para "when I traded with"
+	line "someone."
+
+	para "It was such a"
+	line "familiar NOCTOWL…"
+
+	para "I thought it was"
+	line "the NOCTOWL that I"
+	cont "had originally"
+	cont "trained!"
+
+	para "It'd somehow found"
+	line "its way back…"
+
+	para "I was so moved…"
+	
+	para "But when I looked"
+	line "closer, I saw that"
+
+	para "it wasn't the"
+	line "NOCTOWL I thought"
+	cont "it was."
+
+	para "That kind of thing"
+	line "can't truly happen"
+	cont "in this world,"
+	cont "right?"
+	done
+
+AlfredPokemonBlurbText:
+	text "Just like this,"
+	line "when calling a"
+
+	para "young persoan such"
+	line "as yourself, you"
+	
+	para "can trade in-"
+	line "formation."
+
+	para "Just like this,"
+	line "#MON bring"
+
+	para "people together,"
+	line "don't they?"
+
+	para "Truly, #MON"
+	line "are such extra-"
+	cont "ordinary beings."
+	done
+
+AlfredHangUpText:
+	text "Alight, goodbye!"
 	done

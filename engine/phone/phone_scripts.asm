@@ -2064,3 +2064,80 @@ DougHasBerry:
 
 GenericDougCall:
 	farjump Phone_GenericCall_Male
+
+; Rob
+
+RobPhoneScript1: ; You call Rob
+	trainertotext BUG_CATCHER, ROB1, MEM_BUFFER_0
+	checkflag ENGINE_ROB
+	iftrue .WaitingForBattle
+	farscall PhoneScript_AnswerPhone_Male
+	checkflag ENGINE_ROB_HAS_BERRY
+	iftrue .HasBerry
+	checkcode VAR_WEEKDAY
+	ifnotequal FRIDAY, .CheckRobBerryNotFriday1
+	checktime MORN
+	iftrue RobWantsBattle
+
+.CheckRobBerryNotFriday1
+	checkflag ENGINE_ROB_HAS_BERRY
+	iftrue .HasBerry
+	checkflag ENGINE_ROB_GAVE_BERRY
+	iftrue .Generic
+	farscall PhoneScript_Random5
+	ifequal 0, RobHasBerry
+	setflag ENGINE_ROB_GAVE_BERRY
+
+.Generic:
+	farjump RobStory
+
+.WaitingForBattle:
+	landmarktotext ROUTE_2, MEM_BUFFER_2
+	farjump RobBattleReminderScript
+
+.HasBerry:
+	landmarktotext ROUTE_2, MEM_BUFFER_2
+	farjump UnknownScript_0xa0ab5
+
+RobPhoneScript2: ; Calls you
+	trainertotext BUG_CATCHER, ROB1, MEM_BUFFER_0
+	farscall PhoneScript_GreetPhone_Male
+	checkflag ENGINE_ROB_HAS_BERRY
+	iftrue .HasBerry
+	checkcode VAR_WEEKDAY
+	ifnotequal FRIDAY, CheckRobBerryNotFriday2
+	checktime MORN
+	iftrue RobCheckBerry
+	jump CheckRobBerryNotFriday2
+
+.HasBerry:
+	landmarktotext ROUTE_2, MEM_BUFFER_2
+	farjump UnknownScript_0xa0ab5
+
+CheckRobBerryNotFriday2:
+	checkflag ENGINE_ROB_GAVE_BERRY
+	iftrue GenericRobCall
+	farscall PhoneScript_Random5
+	ifequal 0, RobHasBerry
+	setflag ENGINE_ROB_GAVE_BERRY
+	jump GenericRobCall
+
+RobCheckBerry:
+	checkflag ENGINE_ROB_GAVE_BERRY
+	iftrue RobWantsBattle
+	farscall PhoneScript_Random5
+	ifequal 0, RobHasBerry
+	setflag ENGINE_ROB_GAVE_BERRY
+
+RobWantsBattle:
+	landmarktotext ROUTE_2, MEM_BUFFER_2
+	setflag ENGINE_ROB
+	farjump PhoneScript_WantsToBattle_Male
+
+RobHasBerry:
+	setflag ENGINE_ROB_HAS_BERRY
+	landmarktotext ROUTE_2, MEM_BUFFER_2
+	farjump PhoneScript_FoundItem_Male
+
+GenericRobCall:
+	farjump Phone_GenericCall_Male

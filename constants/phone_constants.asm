@@ -38,6 +38,7 @@
 	const PHONE_HIKER_PARRY
 	const PHONE_PICNICKER_ERIN
 	const PHONE_BUG_CATCHER_DOUG
+	const PHONE_BUG_CATCHER_ROB
 	const PHONE_BUENA
 
 ; SpecialPhoneCallList indexes (see data/phone/special_calls.asm)

@@ -226,6 +226,7 @@ EngineFlags:
 	engine_flag wDailyRematchFlags, 26 ; Krise
 	engine_flag wDailyRematchFlags, 27 ; Alfred
 	engine_flag wDailyRematchFlags, 28 ; Doug
+	engine_flag wDailyRematchFlags, 29 ; Rob
 
 	engine_flag wDailyPhoneItemFlags, 0 ; beverly has nugget
 	engine_flag wDailyPhoneItemFlags, 1 ; jose has star piece
@@ -249,6 +250,8 @@ EngineFlags:
 	engine_flag wDailyPhoneItemFlags, 19 ; wade gave a berry today
 	engine_flag wDailyPhoneItemFlags, 20 ; doug has berry
 	engine_flag wDailyPhoneItemFlags, 21 ; doug gave a berry today
+	engine_flag wDailyPhoneItemFlags, 22 ; rob has berry
+	engine_flag wDailyPhoneItemFlags, 23 ; rob gave a berry today
 
 	engine_flag wPlayerSpriteSetupFlags, PLAYERSPRITESETUP_FEMALE_TO_MALE_F
 

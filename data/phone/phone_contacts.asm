@@ -48,4 +48,5 @@ PhoneContacts:
 	phone HIKER,        PARRY1,             ROUTE_45,         ANYTIME, ParryPhoneScript1,   ANYTIME, ParryPhoneScript2
 	phone PICNICKER,    ERIN1,              ROUTE_46,         ANYTIME, ErinPhoneScript1,    ANYTIME, ErinPhoneScript2
 	phone BUG_CATCHER,  DOUG1,              ROUTE_2_SOUTH,    ANYTIME, DougPhoneScript1,    ANYTIME, DougPhoneScript2
+	phone BUG_CATCHER,  ROB1,               ROUTE_2_SOUTH,    ANYTIME, RobPhoneScript1,     ANYTIME, RobPhoneScript2
 	phone TRAINER_NONE, PHONECONTACT_BUENA, GOLDENROD_DEPT_STORE_ROOF, ANYTIME, BuenaPhoneScript1, ANYTIME, BuenaPhoneScript2

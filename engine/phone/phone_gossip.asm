@@ -390,6 +390,11 @@ DougStory:
 	buttonsound
 	jump PhoneScript_HangupText_Male
 
+RobStory:
+	farwritetext RobStoryText
+	buttonsound
+	jump PhoneScript_HangupText_Male
+
 UnknownScript_0xa0910:
 	farwritetext UnknownText_0x174c29
 	buttonsound
@@ -741,4 +746,8 @@ AlfredBattleReminderScript:
 
 DougBattleReminderScript:
 	farwritetext DougBattleReminderText
+	end
+
+RobBattleReminderScript:
+	farwritetext RobBattleReminderText
 	end

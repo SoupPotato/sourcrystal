@@ -241,7 +241,8 @@ WaltTypesOfPokemonText:
 
 	para "My choice has to"
 	line "be the FIRE-type!"
-	cont "Fwoooom!"
+
+	para "Fwoooom!"
 	done
 
 UnknownText_0x174638:

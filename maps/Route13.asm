@@ -55,14 +55,113 @@ TrainerPicnickerGinger:
 	end
 
 TrainerCamperTanner:
-	trainer CAMPER, TANNER, EVENT_BEAT_CAMPER_TANNER, CamperTannerSeenText, CamperTannerBeatenText, 0, .Script
+	trainer CAMPER, TANNER1, EVENT_BEAT_CAMPER_TANNER, CamperTannerSeenText, CamperTannerBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_CAMPER_TANNER
 	opentext
+	checkflag ENGINE_TANNER
+	iftrue .ChooseRematch
+	checkflag ENGINE_TANNER_HAS_SUN_STONE
+	iftrue .GiveSunStone
+	checkcellnum PHONE_CAMPER_TANNER
+	iftrue .TannerDefeated
+	checkevent EVENT_TANNER_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskAgainForPhoneNumber
+	writetext CamperTannerAfterBattleText
+	waitbutton
+	setevent EVENT_TANNER_ASKED_FOR_PHONE_NUMBER
+	scall Route13AskNumber1
+	jump .ContinueAskForPhoneNumber
+
+.AskAgainForPhoneNumber:
+	scall Route13AskNumber2
+.ContinueAskForPhoneNumber:
+	askforphonenumber PHONE_CAMPER_TANNER
+	ifequal PHONE_CONTACTS_FULL, Route13PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, Route13NumberDeclined
+	trainertotext CAMPER, TANNER1, MEM_BUFFER_0
+	scall Route13RegisteredNumber
+	jump Route13NumberAccepted
+
+.ChooseRematch:
+	scall Route13Rematch
+	winlosstext CamperTannerBeatenText, 0
+	checkflag EVENT_BEAT_BLUE
+	iftrue .LoadFight2
+	checkflag ENGINE_FLYPOINT_PEWTER
+	iftrue .LoadFight1
+	loadtrainer CAMPER, TANNER1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_TANNER
+	end
+
+.LoadFight1:
+	loadtrainer CAMPER, TANNER2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_TANNER
+	end
+
+.LoadFight2:
+	loadtrainer CAMPER, TANNER3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_TANNER
+	end
+
+.GiveSunStone:
+	scall .Gift
+	verbosegiveitem SUN_STONE
+	iffalse .BagFull
+	clearflag ENGINE_TANNER_HAS_SUN_STONE
+	setevent ENGINE_TANNER_GAVE_SUN_STONE
+	jump Route13NumberAccepted
+
+.BagFull:
+	jump .PackFull
+
+.Gift:
+	jumpstd giftm
+	end
+
+.PackFull:
+	jumpstd packfullm
+	end
+
+.TannerDefeated:
 	writetext CamperTannerAfterBattleText
 	waitbutton
 	closetext
+	end
+
+Route13AskNumber1:
+	jumpstd asknumber1m
+	end
+
+Route13AskNumber2:
+	jumpstd asknumber2m
+	end
+
+Route13RegisteredNumber:
+	jumpstd registerednumberm
+	end
+
+Route13NumberAccepted:
+	jumpstd numberacceptedm
+	end
+
+Route13NumberDeclined:
+	jumpstd numberdeclinedm
+	end
+
+Route13PhoneFull:
+	jumpstd phonefullm
+	end
+
+Route13Rematch:
+	jumpstd rematchm
 	end
 
 TrainerCamperClark:

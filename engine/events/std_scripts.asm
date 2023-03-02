@@ -696,6 +696,7 @@ AskNumber1MScript:
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 	ifequal PHONE_FISHER_KYLE, .Kyle
+	ifequal PHONE_CAMPER_TANNER, .Tanner
 
 .Jack:
 	farwritetext JackAskNumber1Text
@@ -775,6 +776,9 @@ AskNumber1MScript:
 .Kyle:
 	farwritetext KyleAskNumber1Text
 	end
+.Tanner:
+	farwritetext TannerAskNumber1Text
+	end
 
 AskNumber2MScript:
 	special RandomPhoneMon
@@ -805,6 +809,7 @@ AskNumber2MScript:
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 	ifequal PHONE_FISHER_KYLE, .Kyle
+	ifequal PHONE_CAMPER_TANNER, .Tanner
 
 .Jack:
 	farwritetext JackAskNumber2Text
@@ -884,6 +889,9 @@ AskNumber2MScript:
 .Kyle:
 	farwritetext KyleAskNumber2Text
 	end
+.Tanner:
+	farwritetext TannerAskNumber2Text
+	end
 
 RegisteredNumberMScript:
 	farwritetext RegisteredNumber1Text
@@ -920,6 +928,7 @@ NumberAcceptedMScript:
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 	ifequal PHONE_FISHER_KYLE, .Kyle
+	ifequal PHONE_CAMPER_TANNER, .Tanner
 
 
 .Jack:
@@ -1052,6 +1061,11 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
+.Tanner:
+	farwritetext TannerNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedMScript:
 	checkcode VAR_CALLERID
@@ -1081,6 +1095,7 @@ NumberDeclinedMScript:
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 	ifequal PHONE_FISHER_KYLE, .Kyle
+	ifequal PHONE_CAMPER_TANNER, .Tanner
 
 .Jack:
 	farwritetext JackNumberDeclinedText
@@ -1209,6 +1224,11 @@ NumberDeclinedMScript:
 	end
 .Kyle:
 	farwritetext KyleNumberDeclinedText
+	waitbutton
+	closetext
+	end
+.Tanner:
+	farwritetext TannerNumberDeclinedText
 	waitbutton
 	closetext
 	end
@@ -1380,6 +1400,7 @@ RematchMScript:
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 	ifequal PHONE_FISHER_KYLE, .Kyle
+	ifequal PHONE_CAMPER_TANNER, .Tanner
 
 .Jack:
 	farwritetext JackRematchText
@@ -1496,6 +1517,11 @@ RematchMScript:
 	waitbutton
 	closetext
 	end
+.Tanner:
+	farwritetext TannerRematchText
+	waitbutton
+	closetext
+	end
 
 GiftMScript:
 	checkcode VAR_CALLERID
@@ -1508,6 +1534,7 @@ GiftMScript:
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
+	ifequal PHONE_CAMPER_TANNER, .Tanner
 
 .Jose:
 	farwritetext JoseGiftText
@@ -1519,6 +1546,7 @@ GiftMScript:
 	farwritetext WadeGiftText
 	buttonsound
 	end
+.Tanner:
 .Alan:
 	farwritetext AlanGiftText
 	buttonsound
@@ -1554,6 +1582,7 @@ PackFullMScript:
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
+	ifequal PHONE_CAMPER_TANNER, .Tanner
 
 .Huey:
 	farwritetext HueyPackFullText
@@ -1575,6 +1604,7 @@ PackFullMScript:
 	waitbutton
 	closetext
 	end
+.Tanner:
 .Alan:
 	farwritetext AlanPackFullText
 	waitbutton

@@ -395,6 +395,11 @@ KyleFishingTips:
 	buttonsound
 	jump PhoneScript_KyleConnectionLostText_Tully
 
+TannerCamping:
+	farwritetext TannerCampingText
+	buttonsound
+	jump PhoneScript_HangupText_Male
+
 RobStory:
 	farwritetext RobStoryText
 	buttonsound
@@ -760,3 +765,12 @@ RobBattleReminderScript:
 KyleBattleReminderScript:
 	farwritetext KyleBattleReminderText
 	end
+
+TannerBattleReminderScript:
+	farwritetext TannerBattleReminderText
+	end
+
+TannerGiftReminderScript:
+	farwritetext TannerGiftReminderText
+	buttonsound
+	jump PhoneScript_HangupText_Male

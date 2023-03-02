@@ -1753,3 +1753,36 @@ ErinComeBattleText:
 	text_from_ram wStringBuffer5
 	text "!"
 	done
+
+TannerFoundSomethingText:
+	text "Recently, I was"
+	line "digging a fire pit"
+
+	para "in the ground so I"
+	line "could cook supper,"
+
+	para "and I found an un-"
+	line "usual item!"
+
+	para "I think I'll give"
+	line "it to you."
+
+	para "I'm waiting on"
+	line "@"
+	text_from_ram wStringBuffer5
+	text "!"
+	done
+
+TannerGiftReminderText:
+	text "I still have that"
+	line "item I said I'd"
+	cont "give you!"
+
+	para "I'm waiting on"
+	line "@"
+	text_from_ram wStringBuffer5
+	text ","
+
+	para "so come and get it"
+	line "when you can!"
+	done

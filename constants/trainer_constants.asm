@@ -638,9 +638,11 @@ KRIS EQU __enum__
 	const QUENTIN
 	const GRANT
 	const VIKTOR
-	const TANNER
+	const TANNER1
 	const CLARK
 	const PEDRO
+	const TANNER2
+	const TANNER3
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1

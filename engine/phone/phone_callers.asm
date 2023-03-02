@@ -967,6 +967,7 @@ PhoneScript_FoundItem_Male:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
+	ifequal PHONE_CAMPER_TANNER, .Tanner
 
 .Jose:
 	farwritetext JoseFoundSomethingText
@@ -992,6 +993,10 @@ PhoneScript_FoundItem_Male:
 
 .Wilton:
 	farwritetext UnknownText_0x66c6b
+	end
+
+.Tanner:
+	farwritetext TannerFoundSomethingText
 	end
 
 PhoneScript_FoundItem_Female:

@@ -50,4 +50,5 @@ PhoneContacts:
 	phone BUG_CATCHER,  DOUG1,              ROUTE_2_SOUTH,    ANYTIME, DougPhoneScript1,    ANYTIME, DougPhoneScript2
 	phone BUG_CATCHER,  ROB1,               ROUTE_2_SOUTH,    ANYTIME, RobPhoneScript1,     ANYTIME, RobPhoneScript2
 	phone FISHER,       KYLE1,              ROUTE_12,         ANYTIME, KylePhoneScript1,    ANYTIME, KylePhoneScript2
+	phone CAMPER,       TANNER1,            ROUTE_13,         ANYTIME, TannerPhoneScript1,  ANYTIME, TannerPhoneScript2
 	phone TRAINER_NONE, PHONECONTACT_BUENA, GOLDENROD_DEPT_STORE_ROOF, ANYTIME, BuenaPhoneScript1, ANYTIME, BuenaPhoneScript2

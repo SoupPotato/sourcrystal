@@ -363,6 +363,7 @@ INCLUDE "data/phone/text/alfred_overworld.asm"
 INCLUDE "data/phone/text/doug_overworld.asm"
 INCLUDE "data/phone/text/rob_overworld.asm"
 INCLUDE "data/phone/text/kyle_overworld.asm"
+INCLUDE "data/phone/text/tanner_overworld.asm"
 
 
 SECTION "bank2E", ROMX

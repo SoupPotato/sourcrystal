@@ -695,6 +695,7 @@ AskNumber1MScript:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
+	ifequal PHONE_FISHER_KYLE, .Kyle
 
 .Jack:
 	farwritetext JackAskNumber1Text
@@ -771,6 +772,9 @@ AskNumber1MScript:
 .Rob:
 	farwritetext RobAskNumber1Text
 	end
+.Kyle:
+	farwritetext KyleAskNumber1Text
+	end
 
 AskNumber2MScript:
 	special RandomPhoneMon
@@ -800,6 +804,7 @@ AskNumber2MScript:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
+	ifequal PHONE_FISHER_KYLE, .Kyle
 
 .Jack:
 	farwritetext JackAskNumber2Text
@@ -876,6 +881,9 @@ AskNumber2MScript:
 .Rob:
 	farwritetext RobAskNumber2Text
 	end
+.Kyle:
+	farwritetext KyleAskNumber2Text
+	end
 
 RegisteredNumberMScript:
 	farwritetext RegisteredNumber1Text
@@ -911,6 +919,7 @@ NumberAcceptedMScript:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
+	ifequal PHONE_FISHER_KYLE, .Kyle
 
 
 .Jack:
@@ -1038,6 +1047,11 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
+.Kyle:
+	farwritetext KyleNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedMScript:
 	checkcode VAR_CALLERID
@@ -1066,6 +1080,7 @@ NumberDeclinedMScript:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
+	ifequal PHONE_FISHER_KYLE, .Kyle
 
 .Jack:
 	farwritetext JackNumberDeclinedText
@@ -1189,6 +1204,11 @@ NumberDeclinedMScript:
 	end
 .Rob:
 	farwritetext RobNumberDeclinedText
+	waitbutton
+	closetext
+	end
+.Kyle:
+	farwritetext KyleNumberDeclinedText
 	waitbutton
 	closetext
 	end
@@ -1359,6 +1379,7 @@ RematchMScript:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
+	ifequal PHONE_FISHER_KYLE, .Kyle
 
 .Jack:
 	farwritetext JackRematchText
@@ -1467,6 +1488,11 @@ RematchMScript:
 	end
 .Rob:
 	farwritetext RobRematchText
+	waitbutton
+	closetext
+	end
+.Kyle:
+	farwritetext KyleRematchText
 	waitbutton
 	closetext
 	end

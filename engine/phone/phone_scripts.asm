@@ -2141,3 +2141,44 @@ RobHasBerry:
 
 GenericRobCall:
 	farjump Phone_GenericCall_Male
+
+; Kyle
+
+KylePhoneScript1: ; You call Kyle
+	trainertotext FISHER, KYLE1, MEM_BUFFER_0
+	checkflag ENGINE_KYLE
+	iftrue .WaitingForBattle
+	farscall PhoneScript_AnswerPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal WEDNESDAY, .NotWednesday
+	checktime DAY
+	iftrue KyleWantsBattle
+	checktime EVE
+	iftrue KyleWantsBattle
+
+.NotWednesday:
+	farjump KyleFishingTips
+
+.WaitingForBattle:
+	landmarktotext ROUTE_12, MEM_BUFFER_2
+	farjump KyleBattleReminderScript
+
+KylePhoneScript2: ; Calls you
+	trainertotext FISHER, KYLE1, MEM_BUFFER_0
+	farscall PhoneScript_GreetPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal WEDNESDAY, .GenericKyleCall
+	checktime DAY
+	iftrue KyleWantsBattle
+	checktime EVE
+	iftrue KyleWantsBattle
+	jump .GenericKyleCall
+
+.GenericKyleCall:
+	farjump Phone_GenericCall_Male
+
+KyleWantsBattle:
+	landmarktotext ROUTE_12, MEM_BUFFER_2
+	setflag ENGINE_KYLE
+	farjump PhoneScript_WantsToBattle_Male
+

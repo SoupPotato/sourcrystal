@@ -227,6 +227,7 @@ EngineFlags:
 	engine_flag wDailyRematchFlags, 27 ; Alfred
 	engine_flag wDailyRematchFlags, 28 ; Doug
 	engine_flag wDailyRematchFlags, 29 ; Rob
+	engine_flag wDailyRematchFlags, 30 ; Kyle
 
 	engine_flag wDailyPhoneItemFlags, 0 ; beverly has nugget
 	engine_flag wDailyPhoneItemFlags, 1 ; jose has star piece

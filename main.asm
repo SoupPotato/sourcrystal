@@ -362,6 +362,7 @@ INCLUDE "data/phone/text/walt_overworld.asm"
 INCLUDE "data/phone/text/alfred_overworld.asm"
 INCLUDE "data/phone/text/doug_overworld.asm"
 INCLUDE "data/phone/text/rob_overworld.asm"
+INCLUDE "data/phone/text/kyle_overworld.asm"
 
 
 SECTION "bank2E", ROMX
@@ -639,3 +640,7 @@ SECTION "Battle Weather Images", ROMX
 
 INCLUDE "gfx/weather_images.asm"
 endc
+
+SECTION "Crystal Phone Text 3", ROMX
+
+INCLUDE "data/phone/text/extra3.asm"

@@ -29,21 +29,21 @@ TrainerBugCatcherRob:
 	writetext BugCatcherRobAfterBattleText
 	buttonsound
 	setevent EVENT_ROB_ASKED_FOR_PHONE_NUMBER
-	scall AskNumber1
+	scall Route2SouthAskNumber1
 	jump .AskForNumber
 
 .AskedBefore:
-	scall AskNumber2
+	scall Route2SouthAskNumber2
 .AskForNumber:
 	askforphonenumber PHONE_BUG_CATCHER_ROB
-	ifequal PHONE_CONTACTS_FULL, PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, NumberDeclined
+	ifequal PHONE_CONTACTS_FULL, Route2SouthPhoneFull
+	ifequal PHONE_CONTACT_REFUSED, Route2SouthNumberDeclined
 	trainertotext BUG_CATCHER, ROB1, MEM_BUFFER_0
-	scall RegisteredNumber
-	jump NumberAccepted
+	scall Route2SouthRegisteredNumber
+	jump Route2SouthNumberAccepted
 
 .WantsBattle:
-	scall Rematch
+	scall Route2SouthRematch
 	winlosstext BugCatcherRobBeatenText, 0
 	checkevent EVENT_BEAT_BLUE
 	iftrue .LoadFight2
@@ -70,7 +70,7 @@ TrainerBugCatcherRob:
 	end
 
 .RobItem:
-	scall GiftItem
+	scall Route2SouthGiftItem
 	random 4
 	ifequal 0, .chestoberry
 	ifequal 1, .leppaberry
@@ -79,27 +79,27 @@ TrainerBugCatcherRob:
 
 .chestoberry:
 	verbosegiveitem CHESTO_BERRY
-	iffalse PackFull
+	iffalse Route2SouthPackFull
 	jump .Done
 
 .leppaberry:
 	verbosegiveitem LEPPA_BERRY
-	iffalse PackFull
+	iffalse Route2SouthPackFull
 	jump .Done
 
 .lumberry:
 	verbosegiveitem LUM_BERRY
-	iffalse PackFull
+	iffalse Route2SouthPackFull
 	jump .Done
 
 .sitrusberry:
 	verbosegiveitem SITRUS_BERRY
-	iffalse PackFull
+	iffalse Route2SouthPackFull
 
 .Done:
 	clearflag ENGINE_ROB_HAS_BERRY
 	setflag ENGINE_ROB_GAVE_BERRY
-	jump NumberAccepted
+	jump Route2SouthNumberAccepted
 
 .RobDefeated:
 	writetext BugCatcherRobAfterBattleText
@@ -124,21 +124,21 @@ TrainerBugCatcherDoug:
 	writetext BugCatcherDougAfterBattleText
 	buttonsound
 	setevent EVENT_DOUG_ASKED_FOR_PHONE_NUMBER
-	scall AskNumber1
+	scall Route2SouthAskNumber1
 	jump .AskForNumber
 
 .AskedBefore:
-	scall AskNumber2
+	scall Route2SouthAskNumber2
 .AskForNumber:
 	askforphonenumber PHONE_BUG_CATCHER_DOUG
-	ifequal PHONE_CONTACTS_FULL, PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, NumberDeclined
+	ifequal PHONE_CONTACTS_FULL, Route2SouthPhoneFull
+	ifequal PHONE_CONTACT_REFUSED, Route2SouthNumberDeclined
 	trainertotext BUG_CATCHER, DOUG1, MEM_BUFFER_0
-	scall RegisteredNumber
-	jump NumberAccepted
+	scall Route2SouthRegisteredNumber
+	jump Route2SouthNumberAccepted
 
 .WantsBattle:
-	scall Rematch
+	scall Route2SouthRematch
 	winlosstext BugCatcherDougBeatenText, 0
 	checkevent EVENT_BEAT_BLUE
 	iftrue .LoadFight2
@@ -165,7 +165,7 @@ TrainerBugCatcherDoug:
 	end
 
 .DougItem:
-	scall GiftItem
+	scall Route2SouthGiftItem
 	random 4
 	ifequal 0, .chestoberry
 	ifequal 1, .leppaberry
@@ -174,27 +174,27 @@ TrainerBugCatcherDoug:
 
 .chestoberry:
 	verbosegiveitem CHESTO_BERRY
-	iffalse PackFull
+	iffalse Route2SouthPackFull
 	jump .Done
 
 .leppaberry:
 	verbosegiveitem LEPPA_BERRY
-	iffalse PackFull
+	iffalse Route2SouthPackFull
 	jump .Done
 
 .lumberry:
 	verbosegiveitem LUM_BERRY
-	iffalse PackFull
+	iffalse Route2SouthPackFull
 	jump .Done
 
 .sitrusberry:
 	verbosegiveitem SITRUS_BERRY
-	iffalse PackFull
+	iffalse Route2SouthPackFull
 
 .Done:
 	clearflag ENGINE_DOUG_HAS_BERRY
 	setflag ENGINE_DOUG_GAVE_BERRY
-	jump NumberAccepted
+	jump Route2SouthNumberAccepted
 
 .DougDefeated:
 	writetext BugCatcherDougAfterBattleText
@@ -202,39 +202,39 @@ TrainerBugCatcherDoug:
 	closetext
 	end
 
-AskNumber1:
+Route2SouthAskNumber1:
 	jumpstd asknumber1m
 	end
 
-AskNumber2:
+Route2SouthAskNumber2:
 	jumpstd asknumber2m
 	end
 
-RegisteredNumber:
+Route2SouthRegisteredNumber:
 	jumpstd registerednumberm
 	end
 
-NumberAccepted:
+Route2SouthNumberAccepted:
 	jumpstd numberacceptedm
 	end
 
-NumberDeclined:
+Route2SouthNumberDeclined:
 	jumpstd numberdeclinedm
 	end
 
-PhoneFull:
+Route2SouthPhoneFull:
 	jumpstd phonefullm
 	end
 
-Rematch:
+Route2SouthRematch:
 	jumpstd rematchm
 	end
 
-GiftItem:
+Route2SouthGiftItem:
 	jumpstd giftm
 	end
 
-PackFull:
+Route2SouthPackFull:
 	jumpstd packfullm
 	end
 

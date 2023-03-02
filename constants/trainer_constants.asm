@@ -372,7 +372,7 @@ KRIS EQU __enum__
 	const JUSTIN
 	const RALPH1
 	const ARNOLD
-	const KYLE
+	const KYLE1
 	const HENRY
 	const MARVIN
 	const TULLY1
@@ -398,6 +398,8 @@ KRIS EQU __enum__
 	const MURPHY
 	const LIAM
 	const GIDEON
+	const KYLE2
+	const KYLE3
 
 	trainerclass SWIMMERM ; 26
 	const HAROLD

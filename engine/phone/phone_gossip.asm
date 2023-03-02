@@ -390,6 +390,11 @@ DougStory:
 	buttonsound
 	jump PhoneScript_HangupText_Male
 
+KyleFishingTips:
+	farwritetext KyleFishingTipsText
+	buttonsound
+	jump PhoneScript_KyleConnectionLostText_Tully
+
 RobStory:
 	farwritetext RobStoryText
 	buttonsound
@@ -750,4 +755,8 @@ DougBattleReminderScript:
 
 RobBattleReminderScript:
 	farwritetext RobBattleReminderText
+	end
+
+KyleBattleReminderScript:
+	farwritetext KyleBattleReminderText
 	end

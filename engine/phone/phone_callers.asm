@@ -554,6 +554,7 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
+	ifequal PHONE_FISHER_KYLE, .Kyle
 
 .Jack:
 	farwritetext UnknownText_0x1741e1
@@ -662,6 +663,11 @@ PhoneScript_RematchText_Male:
 
 .Rob:
 	farwritetext RobWantsRematchText
+	buttonsound
+	end
+
+.Kyle:
+	farwritetext KyleWantsRematchText
 	buttonsound
 	end
 
@@ -830,6 +836,11 @@ PhoneScript_HangupText_Male:
 
 .Alfred:
 	farwritetext AlfredHangUpText
+	end
+
+
+PhoneScript_KyleConnectionLostText_Tully:
+	farwritetext KyleConnectionLostText
 	end
 
 PhoneScript_HangupText_Female:

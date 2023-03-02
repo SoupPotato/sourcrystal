@@ -216,6 +216,7 @@
 	const ENGINE_ALFRED
 	const ENGINE_DOUG
 	const ENGINE_ROB
+	const ENGINE_KYLE
 ; wDailyPhoneItemFlags
 	const ENGINE_BEVERLY_HAS_NUGGET
 	const ENGINE_JOSE_HAS_STAR_PIECE

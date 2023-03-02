@@ -12,14 +12,92 @@ Route12_MapScripts:
 	db 0 ; callbacks
 
 TrainerFisherKyle:
-	trainer FISHER, KYLE, EVENT_BEAT_FISHER_KYLE, FisherKyleSeenText, FisherKyleBeatenText, 0, .Script
+	trainer FISHER, KYLE1, EVENT_BEAT_FISHER_KYLE, FisherKyleSeenText, FisherKyleBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_FISHER_KYLE
 	opentext
+	checkflag ENGINE_KYLE
+	iftrue .WantsBattle
+	checkcellnum PHONE_FISHER_KYLE
+	iftrue .KyleDefeated
+	checkevent EVENT_KYLE_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedBefore
 	writetext FisherKyleAfterBattleText
-	waitbutton
+	buttonsound
+	setevent EVENT_KYLE_ASKED_FOR_PHONE_NUMBER
+	scall .AskNumber1
+	jump .AskForNumber
+
+.AskedBefore:
+	scall .AskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_FISHER_KYLE
+	ifequal PHONE_CONTACTS_FULL, .PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	trainertotext FISHER, KYLE1, MEM_BUFFER_0
+	scall .RegisteredNumber
+	jump .NumberAccepted
+
+.WantsBattle:
+	scall .Rematch
+	winlosstext FisherKyleBeatenText, 0
+	checkevent EVENT_BEAT_BLUE
+	iftrue .LoadFight2
+	checkevent ENGINE_FLYPOINT_PEWTER
+	iftrue .LoadFight1
+	loadtrainer FISHER, KYLE1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KYLE
+	end
+
+.LoadFight1:
+	loadtrainer FISHER, KYLE2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KYLE
+	end
+
+.LoadFight2:
+	loadtrainer FISHER, KYLE3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KYLE
+	end
+
+.KyleDefeated:
+	writetext FisherKyleAfterBattleText
+	buttonsound
 	closetext
+	end
+
+.AskNumber1:
+	jumpstd asknumber1m
+	end
+
+.AskNumber2:
+	jumpstd asknumber2m
+	end
+
+.RegisteredNumber:
+	jumpstd registerednumberm
+	end
+
+.NumberAccepted:
+	jumpstd numberacceptedm
+	end
+
+.NumberDeclined:
+	jumpstd numberdeclinedm
+	end
+
+.PhoneFull:
+	jumpstd phonefullm
+	end
+
+.Rematch:
+	jumpstd rematchm
 	end
 
 TrainerFisherKyler:

@@ -68,7 +68,7 @@ TrainerFisherTully:
 	checkflag ENGINE_TULLY_HAS_WATER_STONE
 	iftrue .HasWaterStone
 	checkcellnum PHONE_FISHER_TULLY
-	iftrue .NumberAccepted
+	iftrue .TullyDefeated
 	checkevent EVENT_TULLY_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext FisherTullyAfterBattleText
@@ -128,7 +128,7 @@ TrainerFisherTully:
 	verbosegiveitem WATER_STONE
 	iffalse .NoRoom
 	clearflag ENGINE_TULLY_HAS_WATER_STONE
-	setevent EVENT_TULLY_GAVE_WATER_STONE
+	setevent ENGINE_TULLY_GAVE_WATER_STONE
 	jump .NumberAccepted
 
 .NoRoom:
@@ -168,6 +168,12 @@ TrainerFisherTully:
 
 .PackFull:
 	jumpstd packfullm
+	end
+
+.TullyDefeated:
+	writetext FisherTullyAfterBattleText
+	buttonsound
+	closetext
 	end
 
 TrainerPokemaniacShane:

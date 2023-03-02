@@ -45,7 +45,7 @@ TrainerHikerAnthony:
 	checkflag ENGINE_ANTHONY
 	iftrue .Rematch
 	checkcellnum PHONE_HIKER_ANTHONY
-	iftrue .NumberAccepted
+	iftrue .AnthonyDefeated
 	checkevent EVENT_ANTHONY_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskAgain
 	writetext HikerAnthony2AfterText
@@ -135,6 +135,12 @@ TrainerHikerAnthony:
 
 .RematchStd:
 	jumpstd rematchm
+	end
+	
+.AnthonyDefeated:
+	writetext HikerAnthony2AfterText
+	buttonsound
+	closetext
 	end
 
 Route33Sign:

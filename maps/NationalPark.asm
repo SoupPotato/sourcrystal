@@ -78,24 +78,24 @@ TrainerSchoolboyJack1:
 	checkflag ENGINE_JACK
 	iftrue .Rematch
 	checkcellnum PHONE_SCHOOLBOY_JACK
-	iftrue .NumberAccepted
+	iftrue .JackDefeated
 	checkevent EVENT_JACK_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskAgain
-	writetext UnknownText_0x5c4f3
+	writetext SchoolboyJack1AfterBattleText
 	buttonsound
 	setevent EVENT_JACK_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
+	scall NationalParkAskNumber1
 	jump .RequestNumber
 
 .AskAgain:
-	scall .AskNumber2
+	scall NationalParkAskNumber2
 .RequestNumber:
 	askforphonenumber PHONE_SCHOOLBOY_JACK
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	ifequal PHONE_CONTACTS_FULL, NationalParkPhoneFull
+	ifequal PHONE_CONTACT_REFUSED, NationalParkNumberDeclined
 	trainertotext SCHOOLBOY, JACK1, MEM_BUFFER_0
-	scall .RegisteredNumber
-	jump .NumberAccepted
+	scall NationalParkRegisteredNumber
+	jump NationalParkNumberAccepted
 
 .Rematch:
 	scall .RematchStd
@@ -142,28 +142,10 @@ TrainerSchoolboyJack1:
 	clearflag ENGINE_JACK
 	end
 
-.AskNumber1:
-	jumpstd asknumber1m
-	end
-
-.AskNumber2:
-	jumpstd asknumber2m
-	end
-
-.RegisteredNumber:
-	jumpstd registerednumberm
-	end
-
-.NumberAccepted:
-	jumpstd numberacceptedm
-	end
-
-.NumberDeclined:
-	jumpstd numberdeclinedm
-	end
-
-.PhoneFull:
-	jumpstd phonefullm
+.JackDefeated:
+	writetext SchoolboyJack1AfterBattleText
+	buttonsound
+	closetext
 	end
 
 .RematchStd:
@@ -190,64 +172,70 @@ TrainerPokefanfBeverly1:
 	checkflag ENGINE_BEVERLY_HAS_NUGGET
 	iftrue .GiveNugget
 	checkcellnum PHONE_POKEFAN_BEVERLY
-	iftrue .NumberAccepted
+	iftrue .BeverlyDefeated
 	checkevent EVENT_BEVERLY_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskAgain
 	writetext UnknownText_0x5c5bd
 	buttonsound
 	setevent EVENT_BEVERLY_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
+	scall NationalParkAskNumber1
 	jump .RequestNumber
 
 .AskAgain:
-	scall .AskNumber2
+	scall NationalParkAskNumber2
 .RequestNumber:
 	askforphonenumber PHONE_POKEFAN_BEVERLY
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	ifequal PHONE_CONTACTS_FULL, NationalParkPhoneFull
+	ifequal PHONE_CONTACT_REFUSED, NationalParkNumberDeclined
 	trainertotext POKEFANF, BEVERLY1, MEM_BUFFER_0
-	scall .RegisteredNumber
-	jump .NumberAccepted
+	scall NationalParkRegisteredNumber
+	jump NationalParkNumberAccepted
 
 .GiveNugget:
-	scall .Gift
+	scall NationalParkGift
 	verbosegiveitem NUGGET
 	iffalse .NoRoom
 	clearflag ENGINE_BEVERLY_HAS_NUGGET
-	jump .NumberAccepted
+	jump NationalParkNumberAccepted
 
 .NoRoom:
-	jump .PackFull
+	jump NationalParkPackFull
 
-.AskNumber1:
+.BeverlyDefeated:
+	writetext UnknownText_0x5c5bd
+	buttonsound
+	closetext
+	end
+
+NationalParkAskNumber1:
 	jumpstd asknumber1f
 	end
 
-.AskNumber2:
+NationalParkAskNumber2:
 	jumpstd asknumber2f
 	end
 
-.RegisteredNumber:
+NationalParkRegisteredNumber:
 	jumpstd registerednumberf
 	end
 
-.NumberAccepted:
+NationalParkNumberAccepted:
 	jumpstd numberacceptedf
 	end
 
-.NumberDeclined:
+NationalParkNumberDeclined:
 	jumpstd numberdeclinedf
 	end
 
-.PhoneFull:
+NationalParkPhoneFull:
 	jumpstd phonefullf
 	end
 
-.Gift:
+NationalParkGift:
 	jumpstd giftf
 	end
 
-.PackFull:
+NationalParkPackFull:
 	jumpstd packfullf
 	end
 
@@ -260,24 +248,24 @@ TrainerLassKrise:
 	checkflag ENGINE_KRISE
 	iftrue .Rematch
 	checkcellnum PHONE_LASS_KRISE
-	iftrue .NumberAccepted
+	iftrue .KriseDefeated
 	checkevent EVENT_KRISE_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskAgain
 	writetext LassKriseAfterBattleText
 	buttonsound
 	setevent EVENT_KRISE_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
+	scall NationalParkAskNumber1
 	jump .RequestNumber
 
 .AskAgain:
-	scall .AskNumber2
+	scall NationalParkAskNumber2
 .RequestNumber:
 	askforphonenumber PHONE_LASS_KRISE
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	ifequal PHONE_CONTACTS_FULL, NationalParkPhoneFull
+	ifequal PHONE_CONTACT_REFUSED, NationalParkNumberDeclined
 	trainertotext LASS, KRISE1, MEM_BUFFER_0
-	scall .RegisteredNumber
-	jump .NumberAccepted
+	scall NationalParkRegisteredNumber
+	jump NationalParkNumberAccepted
 
 .Rematch:
 	scall .RematchStd
@@ -324,32 +312,14 @@ TrainerLassKrise:
 	clearflag ENGINE_KRISE
 	end
 
-.AskNumber1:
-	jumpstd asknumber1f
-	end
-
-.AskNumber2:
-	jumpstd asknumber2f
-	end
-
-.RegisteredNumber:
-	jumpstd registerednumberf
-	end
-
-.NumberAccepted:
-	jumpstd numberacceptedf
-	end
-
-.NumberDeclined:
-	jumpstd numberdeclinedf
-	end
-
-.PhoneFull:
-	jumpstd phonefullf
-	end
-
 .RematchStd:
 	jumpstd rematchf
+	end
+
+.KriseDefeated:
+	writetext LassKriseAfterBattleText
+	buttonsound
+	closetext
 	end
 
 NationalParkRelaxationSquareSign:
@@ -470,7 +440,7 @@ SchoolboyJack1BeatenText:
 	text "Wha-wha-what?"
 	done
 
-UnknownText_0x5c4f3:
+SchoolboyJack1AfterBattleText:
 	text "There is a lot"
 	line "to learn."
 

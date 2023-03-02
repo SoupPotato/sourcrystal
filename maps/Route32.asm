@@ -172,7 +172,7 @@ TrainerFisherRalph1:
 	checkflag ENGINE_RALPH
 	iftrue .Rematch
 	checkcellnum PHONE_FISHER_RALPH
-	iftrue .NumberAccepted
+	iftrue .RalphDefeated
 	checkevent EVENT_RALPH_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskAgain
 	writetext FisherRalphAfterText
@@ -264,6 +264,12 @@ TrainerFisherRalph1:
 	jumpstd rematchm
 	end
 
+.RalphDefeated:
+	writetext FisherRalphAfterText
+	buttonsound
+	closetext
+	end
+
 TrainerFisherHenry:
 	trainer FISHER, HENRY, EVENT_BEAT_FISHER_HENRY, FisherHenrySeenText, FisherHenryBeatenText, 0, .Script
 
@@ -284,7 +290,7 @@ TrainerPicnickerLiz1:
 	checkflag ENGINE_LIZ
 	iftrue .Rematch
 	checkcellnum PHONE_PICNICKER_LIZ
-	iftrue .NumberAccepted
+	iftrue .LizDefeated
 	checkevent EVENT_LIZ_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskAgain
 	writetext PicnickerLiz1AfterText
@@ -374,6 +380,12 @@ TrainerPicnickerLiz1:
 
 .RematchStd:
 	jumpstd rematchf
+	end
+
+.LizDefeated:
+	writetext PicnickerLiz1AfterText
+	buttonsound
+	closetext
 	end
 
 TrainerYoungsterAlbert:

@@ -208,10 +208,10 @@ TrainerSchoolboyAlan1:
 	checkflag ENGINE_ALAN_HAS_FIRE_STONE
 	iftrue .GiveFireStone
 	checkcellnum PHONE_SCHOOLBOY_ALAN
-	iftrue .NumberAccepted
+	iftrue .AlanDefeated
 	checkevent EVENT_ALAN_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskAgainForPhoneNumber
-	writetext UnknownText_0x1947aa
+	writetext SchoolboyAlan1AfterBattleText
 	buttonsound
 	setevent EVENT_ALAN_ASKED_FOR_PHONE_NUMBER
 	scall .AskNumber1
@@ -277,7 +277,7 @@ TrainerSchoolboyAlan1:
 	verbosegiveitem FIRE_STONE
 	iffalse .BagFull
 	clearflag ENGINE_ALAN_HAS_FIRE_STONE
-	setevent EVENT_ALAN_GAVE_FIRE_STONE
+	setevent ENGINE_ALAN_GAVE_FIRE_STONE
 	jump .NumberAccepted
 
 .BagFull:
@@ -317,6 +317,12 @@ TrainerSchoolboyAlan1:
 
 .PackFull:
 	jumpstd packfullm
+	end
+
+.AlanDefeated:
+	writetext SchoolboyAlan1AfterBattleText
+	buttonsound
+	closetext
 	end
 
 TrainerPsychicMark:
@@ -642,7 +648,7 @@ SchoolboyAlan1BeatenText:
 	line "error?"
 	done
 
-UnknownText_0x1947aa:
+SchoolboyAlan1AfterBattleText:
 	text "Darn. I study five"
 	line "hours a day too."
 

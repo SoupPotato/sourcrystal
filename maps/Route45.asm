@@ -169,7 +169,7 @@ TrainerHikerParry:
 	checkflag ENGINE_PARRY
 	iftrue .WantsBattle
 	checkcellnum PHONE_HIKER_PARRY
-	iftrue Route45NumberAcceptedM
+	iftrue .ParryDefeated
 	checkevent EVENT_PARRY_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext HikerParryAfterBattleText
@@ -235,6 +235,12 @@ TrainerHikerParry:
 	clearevent EVENT_PARRY_IRON
 	setevent EVENT_GOT_IRON_FROM_PARRY
 	jump Route45NumberAcceptedM
+
+.ParryDefeated:
+	writetext HikerParryAfterBattleText
+	buttonsound
+	closetext
+	end
 
 TrainerHikerTimothy:
 	trainer HIKER, TIMOTHY, EVENT_BEAT_HIKER_TIMOTHY, HikerTimothySeenText, HikerTimothyBeatenText, 0, .Script

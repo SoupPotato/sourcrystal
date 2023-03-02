@@ -57,7 +57,7 @@ TrainerJugglerIrwin:
 	writecode VAR_CALLERID, PHONE_JUGGLER_IRWIN
 	opentext
 	checkcellnum PHONE_JUGGLER_IRWIN
-	iftrue Route35NumberAcceptedM
+	iftrue .IrwinDefeated
 	checkevent EVENT_IRWIN_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext JugglerIrwinAfterBattleText
@@ -75,6 +75,12 @@ TrainerJugglerIrwin:
 	trainertotext JUGGLER, IRWIN1, MEM_BUFFER_0
 	scall Route35RegisteredNumberM
 	jump Route35NumberAcceptedM
+
+.IrwinDefeated:
+	writetext JugglerIrwinAfterBattleText
+	buttonsound
+	closetext
+	end
 
 Route35AskNumber1M:
 	jumpstd asknumber1m
@@ -157,7 +163,7 @@ TrainerBugCatcherArnie:
 	checkflag ENGINE_ARNIE
 	iftrue .WantsBattle
 	checkcellnum PHONE_BUG_CATCHER_ARNIE
-	iftrue Route35NumberAcceptedM
+	iftrue .ArnieDefeated
 	checkevent EVENT_ARNIE_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext BugCatcherArnieAfterBattleText
@@ -221,6 +227,12 @@ TrainerBugCatcherArnie:
 	clearflag ENGINE_ARNIE
 	end
 
+.ArnieDefeated:
+	writetext BugCatcherArnieAfterBattleText
+	buttonsound
+	closetext
+	end
+
 TrainerFirebreatherWalt:
 	trainer FIREBREATHER, WALT1, EVENT_BEAT_FIREBREATHER_WALT, FirebreatherWaltSeenText, FirebreatherWaltBeatenText, 0, .Script
 
@@ -230,27 +242,27 @@ TrainerFirebreatherWalt:
 	checkflag ENGINE_WALT
 	iftrue .WantsBattle
 	checkcellnum PHONE_FIREBREATHER_WALT
-	iftrue .NumberAccepted
+	iftrue .WaltDefeated
 	checkevent EVENT_WALT_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext FirebreatherWaltAfterBattleText
 	buttonsound
 	setevent EVENT_WALT_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
+	scall Route35AskNumber1M
 	jump .AskForNumber
 
 .AskedAlready:
-	scall .AskNumber2
+	scall Route35AskNumber2M
 .AskForNumber:
 	askforphonenumber PHONE_FIREBREATHER_WALT
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	ifequal PHONE_CONTACTS_FULL, Route35PhoneFullM
+	ifequal PHONE_CONTACT_REFUSED, Route35NumberDeclinedM
 	trainertotext FIREBREATHER, WALT1, MEM_BUFFER_0
-	scall .RegisteredNumber
-	jump .NumberAccepted
+	scall Route35RegisteredNumberM
+	jump Route35NumberAcceptedM
 
 .WantsBattle:
-	scall .Rematch
+	scall Route35RematchM
 	winlosstext FirebreatherWaltBeatenText, 0
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight4
@@ -294,32 +306,10 @@ TrainerFirebreatherWalt:
 	clearflag ENGINE_WALT
 	end
 
-.AskNumber1:
-	jumpstd asknumber1m
-	end
-
-.AskNumber2:
-	jumpstd asknumber2m
-	end
-
-.RegisteredNumber:
-	jumpstd registerednumberm
-	end
-
-.NumberAccepted:
-	jumpstd numberacceptedm
-	end
-
-.NumberDeclined:
-	jumpstd numberdeclinedm
-	end
-
-.PhoneFull:
-	jumpstd phonefullm
-	end
-
-.Rematch:
-	jumpstd rematchm
+.WaltDefeated:
+	writetext FirebreatherWaltAfterBattleText
+	buttonsound
+	closetext
 	end
 
 TrainerOfficerDirk:

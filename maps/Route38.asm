@@ -62,10 +62,10 @@ TrainerLassDana1:
 	checkflag ENGINE_DANA_HAS_THUNDERSTONE
 	iftrue .TryGiveThunderstone
 	checkcellnum PHONE_LASS_DANA
-	iftrue .NumberAccepted
+	iftrue .DanaDefeated
 	checkevent EVENT_DANA_ASKED_FOR_PHONE_NUMBER
 	iftrue .SecondTimeAsking
-	writetext UnknownText_0x1a20ec
+	writetext LassDana1AfterBattleText
 	buttonsound
 	setevent EVENT_DANA_ASKED_FOR_PHONE_NUMBER
 	scall .AskNumber1F
@@ -131,7 +131,7 @@ TrainerLassDana1:
 	verbosegiveitem THUNDERSTONE
 	iffalse .NoRoomForThunderstone
 	clearflag ENGINE_DANA_HAS_THUNDERSTONE
-	setevent EVENT_DANA_GAVE_THUNDERSTONE
+	setevent ENGINE_DANA_GAVE_THUNDERSTONE
 	jump .NumberAccepted
 
 .NoRoomForThunderstone:
@@ -173,6 +173,12 @@ TrainerLassDana1:
 	jumpstd packfullf
 	end
 
+.DanaDefeated:
+	writetext LassDana1AfterBattleText
+	buttonsound
+	closetext
+	end
+
 TrainerSchoolboyChad1:
 	trainer SCHOOLBOY, CHAD1, EVENT_BEAT_SCHOOLBOY_CHAD, SchoolboyChad1SeenText, SchoolboyChad1BeatenText, 0, .Script
 
@@ -182,10 +188,10 @@ TrainerSchoolboyChad1:
 	checkflag ENGINE_CHAD
 	iftrue .ChadRematch
 	checkcellnum PHONE_SCHOOLBOY_CHAD
-	iftrue .HaveChadsNumber
+	iftrue .ChadDefeated
 	checkevent EVENT_CHAD_ASKED_FOR_PHONE_NUMBER
 	iftrue .SecondTimeAsking
-	writetext UnknownText_0x1a200e
+	writetext SchoolboyChad1AfterBattleText
 	buttonsound
 	setevent EVENT_CHAD_ASKED_FOR_PHONE_NUMBER
 	scall .AskPhoneNumber1
@@ -276,6 +282,12 @@ TrainerSchoolboyChad1:
 
 .Rematch:
 	jumpstd rematchm
+	end
+
+.ChadDefeated:
+	writetext SchoolboyChad1AfterBattleText
+	buttonsound
+	closetext
 	end
 
 TrainerBeautyValerie:
@@ -382,7 +394,7 @@ SchoolboyChad1BeatenText:
 	line "enough, I guess."
 	done
 
-UnknownText_0x1a200e:
+SchoolboyChad1AfterBattleText:
 	text "I have to take so"
 	line "many tests, I"
 
@@ -408,7 +420,7 @@ LassDana1BeatenText:
 	line "battle that way."
 	done
 
-UnknownText_0x1a20ec:
+LassDana1AfterBattleText:
 	text "I know something"
 	line "good!"
 

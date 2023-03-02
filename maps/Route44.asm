@@ -42,7 +42,7 @@ TrainerBirdKeeperVance1:
 	checkflag ENGINE_VANCE
 	iftrue .WantsBattle
 	checkcellnum PHONE_BIRDKEEPER_VANCE
-	iftrue Route44NumberAcceptedM
+	iftrue .VanceDefeated
 	checkevent EVENT_VANCE_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext BirdKeeperVanceLegendaryBirdsText
@@ -108,6 +108,12 @@ TrainerBirdKeeperVance1:
 	clearevent EVENT_VANCE_CARBOS
 	setevent EVENT_GOT_CARBOS_FROM_VANCE
 	jump Route44NumberAcceptedM
+
+.VanceDefeated:
+	writetext BirdKeeperVanceLegendaryBirdsText
+	buttonsound
+	closetext
+	end
 
 Route44AskNumber1M:
 	jumpstd asknumber1m
@@ -176,7 +182,7 @@ TrainerFisherWilton1:
 	checkflag ENGINE_WILTON_HAS_BALL_ITEM
 	iftrue .HasItem
 	checkcellnum PHONE_FISHER_WILTON
-	iftrue Route44NumberAcceptedM
+	iftrue .WiltonDefeated
 	checkevent EVENT_WILTON_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext FisherWiltonHugePoliwagText
@@ -251,6 +257,12 @@ TrainerFisherWilton1:
 
 .Route44PackFullM:
 	jump Route44PackFullM
+	
+.WiltonDefeated:
+	writetext FisherWiltonHugePoliwagText
+	buttonsound
+	closetext
+	end
 
 TrainerFisherEdgar:
 	trainer FISHER, EDGAR, EVENT_BEAT_FISHER_EDGAR, FisherEdgarSeenText, FisherEdgarBeatenText, 0, .Script

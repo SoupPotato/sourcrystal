@@ -50,7 +50,7 @@ TrainerCooltrainermGaven3:
 	checkflag ENGINE_GAVEN
 	iftrue .WantsBattle
 	checkcellnum PHONE_COOLTRAINERM_GAVEN
-	iftrue .NumberAccepted
+	iftrue .GavenDefeated
 	checkevent EVENT_GAVEN_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext CooltrainermGavenAfterText
@@ -124,6 +124,12 @@ TrainerCooltrainermGaven3:
 	jumpstd rematchm
 	end
 
+.GavenDefeated:
+	writetext CooltrainermGavenAfterText
+	buttonsound
+	closetext
+	end
+
 TrainerCooltrainerfJoyce:
 	trainer COOLTRAINERF, JOYCE, EVENT_BEAT_COOLTRAINERF_JOYCE, CooltrainerfJoyceSeenText, CooltrainerfJoyceBeatenText, 0, .Script
 
@@ -144,7 +150,7 @@ TrainerCooltrainerfBeth1:
 	checkflag ENGINE_BETH
 	iftrue .WantsBattle
 	checkcellnum PHONE_COOLTRAINERF_BETH
-	iftrue .NumberAccepted
+	iftrue .BethDefeated
 	checkevent EVENT_BETH_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext CooltrainerfBethAfterText
@@ -216,6 +222,12 @@ TrainerCooltrainerfBeth1:
 
 .Rematch:
 	jumpstd rematchf
+	end
+
+.BethDefeated:
+	writetext CooltrainerfBethAfterText
+	buttonsound
+	closetext
 	end
 
 TrainerPsychicRichard:

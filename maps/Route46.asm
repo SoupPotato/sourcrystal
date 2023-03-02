@@ -63,7 +63,7 @@ TrainerPicnickerErin1:
 	checkflag ENGINE_ERIN
 	iftrue .WantsBattle
 	checkcellnum PHONE_PICNICKER_ERIN
-	iftrue Route46NumberAcceptedF
+	iftrue .ErinDefeated
 	checkevent EVENT_ERIN_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext PicnickerErinAfterBattleText
@@ -129,6 +129,12 @@ TrainerPicnickerErin1:
 	clearevent EVENT_ERIN_CALCIUM
 	setevent EVENT_GOT_CALCIUM_FROM_ERIN
 	jump Route46NumberAcceptedF
+
+.ErinDefeated:
+	writetext PicnickerErinAfterBattleText
+	buttonsound
+	closetext
+	end
 
 Route46AskNumber1F:
 	jumpstd asknumber1f

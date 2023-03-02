@@ -96,7 +96,7 @@ TrainerCamperTodd1:
 	checkflag ENGINE_GOLDENROD_DEPT_STORE_SALE_IS_ON
 	iftrue .SaleIsOn
 	checkcellnum PHONE_CAMPER_TODD
-	iftrue .NumberAccepted
+	iftrue .ToddDefeated
 	checkevent EVENT_TODD_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskAgain
 	writetext CamperTodd1AfterText
@@ -193,6 +193,12 @@ TrainerCamperTodd1:
 .RematchStd:
 	jumpstd rematchm
 	end
+	
+.ToddDefeated:
+	writetext CamperTodd1AfterText
+	buttonsound
+	closetext
+	end
 
 TrainerPicnickerGina1:
 	trainer PICNICKER, GINA1, EVENT_BEAT_PICNICKER_GINA, PicnickerGina1SeenText, PicnickerGina1BeatenText, 0, .Script
@@ -205,7 +211,7 @@ TrainerPicnickerGina1:
 	checkflag ENGINE_GINA_HAS_LEAF_STONE
 	iftrue .LeafStone
 	checkcellnum PHONE_PICNICKER_GINA
-	iftrue .NumberAccepted
+	iftrue .GinaDefeated
 	checkevent EVENT_GINA_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskAgain
 	writetext PicnickerGina1AfterText
@@ -315,6 +321,12 @@ TrainerPicnickerGina1:
 .PackFull:
 	jumpstd packfullf
 	end
+	
+.GinaDefeated:
+	writetext PicnickerGina1AfterText
+	buttonsound
+	closetext
+	end
 
 OfficerKeithScript:
 	faceplayer
@@ -369,7 +381,7 @@ TrainerYoungsterIan1:
 	checkflag ENGINE_IAN
 	iftrue .WantsBattle
 	checkcellnum PHONE_YOUNGSTER_IAN
-	iftrue .NumberAccepted
+	iftrue .IanDefeated
 	checkevent EVENT_IAN_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext YoungsterIan1AfterText
@@ -505,6 +517,12 @@ TrainerYoungsterIan1:
 
 .PackFullSTD:
 	jumpstd packfullm
+	end
+
+.IanDefeated:
+	writetext YoungsterIan1AfterText
+	buttonsound
+	closetext
 	end
 
 TrainerPokefanmBrandon:

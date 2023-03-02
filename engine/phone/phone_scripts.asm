@@ -1413,19 +1413,19 @@ DanaPhoneScript2:
 	farjump PhoneScript_FoundItem_Female
 
 CheckThunderstoneNotThursday2:
-	checkevent EVENT_DANA_GAVE_THUNDERSTONE
+	checkevent ENGINE_DANA_GAVE_THUNDERSTONE
 	iftrue GenericDanaCall
 	farscall PhoneScript_Random11
 	ifequal 0, DanaHasThunderstone
-	setflag EVENT_DANA_GAVE_THUNDERSTONE
+	setflag ENGINE_DANA_GAVE_THUNDERSTONE
 	jump GenericDanaCall
 
 CheckThunderstone:
-	checkevent EVENT_DANA_GAVE_THUNDERSTONE
+	checkevent ENGINE_DANA_GAVE_THUNDERSTONE
 	iftrue DanaWantsBattle
 	farscall PhoneScript_Random11
 	ifequal 0, DanaHasThunderstone
-	setflag EVENT_DANA_GAVE_THUNDERSTONE
+	setflag ENGINE_DANA_GAVE_THUNDERSTONE
 
 DanaWantsBattle:
 	landmarktotext ROUTE_38, MEM_BUFFER_2
@@ -1610,11 +1610,11 @@ CheckWaterStoneNotSunday2:
 	jump GenericTullyCall
 
 CheckWaterStone:
-	checkevent EVENT_TULLY_GAVE_WATER_STONE
+	checkevent ENGINE_TULLY_GAVE_WATER_STONE
 	iftrue TullyWantsBattle
 	farscall PhoneScript_Random11
 	ifequal 0, TullyHasWaterStone
-	setflag EVENT_TULLY_GAVE_WATER_STONE
+	setflag ENGINE_TULLY_GAVE_WATER_STONE
 
 TullyWantsBattle:
 	landmarktotext ROUTE_42, MEM_BUFFER_2

@@ -16,25 +16,27 @@ TrainerGentlemanAlfred:
 	checkflag ENGINE_ALFRED
 	iftrue .WantsBattle
 	checkcellnum PHONE_GENTLEMAN_ALFRED
-	iftrue .NumberAccepted
+	iftrue .AlfredDefeated
 	checkevent EVENT_ALFRED_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedBefore
+	writetext GentlemanAlfredAfterBattleText
+	buttonsound
 	setevent EVENT_ALFRED_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
+	scall OlivineLighthouse2FAskNumber1
 	jump .AskForNumber
 
 .AskedBefore:
-	scall .AskNumber2
+	scall OlivineLighthouse2FAskNumber2
 .AskForNumber:
 	askforphonenumber PHONE_GENTLEMAN_ALFRED
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	ifequal PHONE_CONTACTS_FULL, OlivineLighthouse2FPhoneFull
+	ifequal PHONE_CONTACT_REFUSED, OlivineLighthouse2FNumberDeclined
 	trainertotext GENTLEMAN, ALFRED1, MEM_BUFFER_0
-	scall .RegisteredNumber
-	jump .NumberAccepted
+	scall OlivineLighthouse2FRegisteredNumber
+	jump OlivineLighthouse2FNumberAccepted
 
 .WantsBattle:
-	scall .Rematch
+	scall OlivineLighthouse2FRematch
 	winlosstext GentlemanAlfredBeatenText, 0
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight3
@@ -69,32 +71,10 @@ TrainerGentlemanAlfred:
 	clearflag ENGINE_ALFRED
 	end
 
-.AskNumber1:
-	jumpstd asknumber1m
-	end
-
-.AskNumber2:
-	jumpstd asknumber2m
-	end
-
-.RegisteredNumber:
-	jumpstd registerednumberm
-	end
-
-.NumberAccepted:
-	jumpstd numberacceptedm
-	end
-
-.NumberDeclined:
-	jumpstd numberdeclinedm
-	end
-
-.PhoneFull:
-	jumpstd phonefullm
-	end
-
-.Rematch:
-	jumpstd rematchm
+.AlfredDefeated:
+	writetext GentlemanAlfredAfterBattleText
+	buttonsound
+	closetext
 	end
 
 TrainerSailorHuey:
@@ -106,25 +86,27 @@ TrainerSailorHuey:
 	checkflag ENGINE_HUEY
 	iftrue .WantsBattle
 	checkcellnum PHONE_SAILOR_HUEY
-	iftrue .NumberAccepted
+	iftrue .HueyDefeated
 	checkevent EVENT_HUEY_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedBefore
+	writetext SailorHueyAfterBattleText
+	buttonsound
 	setevent EVENT_HUEY_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
+	scall OlivineLighthouse2FAskNumber1
 	jump .AskForNumber
 
 .AskedBefore:
-	scall .AskNumber2
+	scall OlivineLighthouse2FAskNumber2
 .AskForNumber:
 	askforphonenumber PHONE_SAILOR_HUEY
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	ifequal PHONE_CONTACTS_FULL, OlivineLighthouse2FPhoneFull
+	ifequal PHONE_CONTACT_REFUSED, OlivineLighthouse2FNumberDeclined
 	trainertotext SAILOR, HUEY1, MEM_BUFFER_0
-	scall .RegisteredNumber
-	jump .NumberAccepted
+	scall OlivineLighthouse2FRegisteredNumber
+	jump OlivineLighthouse2FNumberAccepted
 
 .WantsBattle:
-	scall .Rematch
+	scall OlivineLighthouse2FRematch
 	winlosstext SailorHueyBeatenText, 0
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight3
@@ -165,7 +147,7 @@ TrainerSailorHuey:
 	verbosegiveitem PROTEIN
 	iffalse .PackFull
 	setevent EVENT_GOT_PROTEIN_FROM_HUEY
-	jump .NumberAccepted
+	jump OlivineLighthouse2FNumberAccepted
 
 .SkipGift:
 	end
@@ -178,35 +160,8 @@ TrainerSailorHuey:
 	iffalse .PackFull
 	clearevent EVENT_HUEY_PROTEIN
 	setevent EVENT_GOT_PROTEIN_FROM_HUEY
-	jump .NumberAccepted
+	jump OlivineLighthouse2FNumberAccepted
 
-.AskNumber1:
-	jumpstd asknumber1m
-	end
-
-.AskNumber2:
-	jumpstd asknumber2m
-	end
-
-.RegisteredNumber:
-	jumpstd registerednumberm
-	end
-
-.NumberAccepted:
-	jumpstd numberacceptedm
-	end
-
-.NumberDeclined:
-	jumpstd numberdeclinedm
-	end
-
-.PhoneFull:
-	jumpstd phonefullm
-	end
-
-.Rematch:
-	jumpstd rematchm
-	end
 
 .PackFull:
 	setevent EVENT_HUEY_PROTEIN
@@ -215,6 +170,40 @@ TrainerSailorHuey:
 
 .RematchGift:
 	jumpstd rematchgiftm
+	end
+
+.HueyDefeated:
+	writetext SailorHueyAfterBattleText
+	buttonsound
+	closetext
+	end
+
+OlivineLighthouse2FAskNumber1:
+	jumpstd asknumber1m
+	end
+
+OlivineLighthouse2FAskNumber2:
+	jumpstd asknumber2m
+	end
+
+OlivineLighthouse2FRegisteredNumber:
+	jumpstd registerednumberm
+	end
+
+OlivineLighthouse2FNumberAccepted:
+	jumpstd numberacceptedm
+	end
+
+OlivineLighthouse2FNumberDeclined:
+	jumpstd numberdeclinedm
+	end
+
+OlivineLighthouse2FPhoneFull:
+	jumpstd phonefullm
+	end
+
+OlivineLighthouse2FRematch:
+	jumpstd rematchm
 	end
 
 SailorHueySeenText:
@@ -228,8 +217,7 @@ SailorHueyBeatenText:
 	line "I lose!"
 	done
 
-SailorHueyUnusedText:
-; unused
+SailorHueyAfterBattleText:
 	text "What power!"
 	line "How would you like"
 

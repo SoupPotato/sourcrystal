@@ -77,7 +77,7 @@ TrainerYoungsterJoey:
 	checkflag ENGINE_JOEY
 	iftrue .Rematch
 	checkcellnum PHONE_YOUNGSTER_JOEY
-	iftrue .NumberAccepted
+	iftrue .JoeyDefeated
 	checkevent EVENT_JOEY_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskAgain
 	writetext YoungsterJoey1AfterText
@@ -197,6 +197,12 @@ TrainerYoungsterJoey:
 
 .RematchGift:
 	jumpstd rematchgiftm
+	end
+
+.JoeyDefeated:
+	writetext YoungsterJoey1AfterText
+	buttonsound
+	closetext
 	end
 
 TrainerYoungsterMikey:

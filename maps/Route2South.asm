@@ -26,6 +26,8 @@ TrainerBugCatcherRob:
 	iftrue .RobDefeated
 	checkevent EVENT_ROB_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedBefore
+	writetext BugCatcherRobAfterBattleText
+	buttonsound
 	setevent EVENT_ROB_ASKED_FOR_PHONE_NUMBER
 	scall AskNumber1
 	jump .AskForNumber
@@ -119,6 +121,8 @@ TrainerBugCatcherDoug:
 	iftrue .DougDefeated
 	checkevent EVENT_DOUG_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedBefore
+	writetext BugCatcherDougAfterBattleText
+	buttonsound
 	setevent EVENT_DOUG_ASKED_FOR_PHONE_NUMBER
 	scall AskNumber1
 	jump .AskForNumber

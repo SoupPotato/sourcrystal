@@ -72,7 +72,7 @@ TrainerPokemaniacBrent:
 	checkflag ENGINE_BRENT
 	iftrue .WantsBattle
 	checkcellnum PHONE_POKEMANIAC_BRENT
-	iftrue .NumberAccepted
+	iftrue .BrentDefeated
 	checkevent EVENT_BRENT_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext PokemaniacBrentAfterBattleText
@@ -155,6 +155,12 @@ TrainerPokemaniacBrent:
 	jumpstd rematchm
 	end
 
+.BrentDefeated:
+	writetext PokemaniacBrentAfterBattleText
+	buttonsound
+	closetext
+	end
+
 TrainerPokemaniacRon:
 	trainer POKEMANIAC, RON, EVENT_BEAT_POKEMANIAC_RON, PokemaniacRonSeenText, PokemaniacRonBeatenText, 0, .Script
 
@@ -188,7 +194,7 @@ TrainerPicnickerTiffany:
 	checkflag ENGINE_TIFFANY_HAS_SILK_SCARF
 	iftrue .HasPinkBow
 	checkcellnum PHONE_PICNICKER_TIFFANY
-	iftrue .NumberAccepted
+	iftrue .TiffanyDefeated
 	checkevent EVENT_TIFFANY_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext PicnickerTiffanyWantsPicnicText
@@ -248,7 +254,7 @@ TrainerPicnickerTiffany:
 	verbosegiveitem SILK_SCARF
 	iffalse .NoRoom
 	clearflag ENGINE_TIFFANY_HAS_SILK_SCARF
-	setevent EVENT_TIFFANY_GAVE_SILK_SCARF
+	setevent ENGINE_TIFFANY_GAVE_SILK_SCARF
 	jump .NumberAccepted
 
 .NoRoom:
@@ -288,6 +294,12 @@ TrainerPicnickerTiffany:
 
 .PackFull:
 	jumpstd packfullf
+	end
+
+.TiffanyDefeated:
+	writetext PicnickerTiffanyWantsPicnicText
+	buttonsound
+	closetext
 	end
 
 Route43Sign1:

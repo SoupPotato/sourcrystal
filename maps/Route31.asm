@@ -50,11 +50,11 @@ TrainerBugCatcherWade1:
 	checkflag ENGINE_WADE_HAS_BERRY
 	iftrue .WadeItem
 	checkcellnum PHONE_BUG_CATCHER_WADE
-	iftrue .AcceptedNumberSTD
+	iftrue .WadeDefeated
 	checkevent EVENT_WADE_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskAgain
 	writetext BugCatcherWade1AfterText
-	waitbutton
+	buttonsound
 	setevent EVENT_WADE_ASKED_FOR_PHONE_NUMBER
 	scall .AskPhoneNumberSTD
 	jump .Continue
@@ -182,6 +182,12 @@ TrainerBugCatcherWade1:
 
 .PackFullSTD:
 	jumpstd packfullm
+	end
+
+.WadeDefeated:
+	writetext BugCatcherWade1AfterText
+	buttonsound
+	closetext
 	end
 
 Route31MailRecipientScript:

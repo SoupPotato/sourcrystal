@@ -68,7 +68,7 @@ TrainerBirdKeeperJose2:
 	checkflag ENGINE_JOSE_HAS_STAR_PIECE
 	iftrue .HasStarPiece
 	checkcellnum PHONE_BIRDKEEPER_JOSE
-	iftrue .NumberAccepted
+	iftrue .JoseDefeated
 	checkevent EVENT_JOSE_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext BirdKeeperJose2AfterBattleText
@@ -160,6 +160,13 @@ TrainerBirdKeeperJose2:
 	jumpstd packfullm
 	end
 
+.JoseDefeated:
+	writetext BirdKeeperJose2AfterBattleText
+	buttonsound
+	closetext
+	end
+
+
 TrainerCooltrainermBlake:
 	trainer COOLTRAINERM, BLAKE, EVENT_BEAT_COOLTRAINERM_BLAKE, CooltrainermBlakeSeenText, CooltrainermBlakeBeatenText, 0, .Script
 
@@ -191,7 +198,7 @@ TrainerCooltrainerfReena:
 	checkflag ENGINE_REENA
 	iftrue .WantsBattle
 	checkcellnum PHONE_COOLTRAINERF_REENA
-	iftrue .NumberAccepted
+	iftrue .ReenaDefeated
 	checkevent EVENT_REENA_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext CooltrainerfReenaAfterBattleText
@@ -263,6 +270,12 @@ TrainerCooltrainerfReena:
 
 .Rematch:
 	jumpstd rematchf
+	end
+
+.ReenaDefeated:
+	writetext CooltrainerfReenaAfterBattleText
+	buttonsound
+	closetext
 	end
 
 TrainerCooltrainerfMegan:

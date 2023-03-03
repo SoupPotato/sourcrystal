@@ -697,6 +697,7 @@ AskNumber1MScript:
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 	ifequal PHONE_FISHER_KYLE, .Kyle
 	ifequal PHONE_CAMPER_TANNER, .Tanner
+	ifequal PHONE_HIKER_KENNY, .Kenny
 
 .Jack:
 	farwritetext JackAskNumber1Text
@@ -779,6 +780,9 @@ AskNumber1MScript:
 .Tanner:
 	farwritetext TannerAskNumber1Text
 	end
+.Kenny:
+	farwritetext KennyAskNumber1Text
+	end
 
 AskNumber2MScript:
 	special RandomPhoneMon
@@ -810,6 +814,7 @@ AskNumber2MScript:
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 	ifequal PHONE_FISHER_KYLE, .Kyle
 	ifequal PHONE_CAMPER_TANNER, .Tanner
+	ifequal PHONE_HIKER_KENNY, .Kenny
 
 .Jack:
 	farwritetext JackAskNumber2Text
@@ -892,6 +897,9 @@ AskNumber2MScript:
 .Tanner:
 	farwritetext TannerAskNumber2Text
 	end
+.Kenny:
+	farwritetext KennyAskNumber2Text
+	end
 
 RegisteredNumberMScript:
 	farwritetext RegisteredNumber1Text
@@ -929,6 +937,7 @@ NumberAcceptedMScript:
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 	ifequal PHONE_FISHER_KYLE, .Kyle
 	ifequal PHONE_CAMPER_TANNER, .Tanner
+	ifequal PHONE_HIKER_KENNY, .Kenny
 
 
 .Jack:
@@ -1066,6 +1075,11 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
+.Kenny:
+	farwritetext KennyNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedMScript:
 	checkcode VAR_CALLERID
@@ -1096,6 +1110,7 @@ NumberDeclinedMScript:
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 	ifequal PHONE_FISHER_KYLE, .Kyle
 	ifequal PHONE_CAMPER_TANNER, .Tanner
+	ifequal PHONE_HIKER_KENNY, .Kenny
 
 .Jack:
 	farwritetext JackNumberDeclinedText
@@ -1229,6 +1244,11 @@ NumberDeclinedMScript:
 	end
 .Tanner:
 	farwritetext TannerNumberDeclinedText
+	waitbutton
+	closetext
+	end
+.Kenny:
+	farwritetext KennyNumberDeclinedText
 	waitbutton
 	closetext
 	end
@@ -1401,6 +1421,7 @@ RematchMScript:
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 	ifequal PHONE_FISHER_KYLE, .Kyle
 	ifequal PHONE_CAMPER_TANNER, .Tanner
+	ifequal PHONE_HIKER_KENNY, .Kenny
 
 .Jack:
 	farwritetext JackRematchText
@@ -1519,6 +1540,11 @@ RematchMScript:
 	end
 .Tanner:
 	farwritetext TannerRematchText
+	waitbutton
+	closetext
+	end
+.Kenny:
+	farwritetext KennyRematchText
 	waitbutton
 	closetext
 	end

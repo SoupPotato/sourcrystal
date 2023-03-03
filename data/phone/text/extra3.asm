@@ -163,3 +163,59 @@ TannerBattleReminderText:
 	line "no trouble find-"
 	cont "ing me!"
 	done
+
+KennyWantsRematchText:
+	text "We must have an-"
+	line "other battle!"
+
+	para "That's why we're"
+	line "talking right now!"
+
+	para "Am I right?"
+	line "I hope I am!"
+
+	para "I'll be waiting on"
+	line "@"
+	text_from_ram wStringBuffer5
+	text "!"
+	done
+
+KennyBathsText:
+	text "That's right… I'm"
+	line "on this mountain"
+	
+	para "almost the whole"
+	line "year round…"
+	
+	para "Baths? There's no"
+	line "such thing on a"
+	cont "mountain!"
+	
+	para "Instead, I just"
+	line "look for a river,"
+
+	para "and wash myself"
+	line "off in that."
+
+	para "That's right!"
+
+	para "A few days ago,"
+	line "when I was bathing"
+	cont "in the river,"
+	
+	para "someone mistook me"
+	line "for a SWIMMER!"
+	done
+
+KennyBattleReminderText:
+	text "We're having a"
+	line "battle on"
+	cont "@"
+	text_from_ram wStringBuffer5
+	text ","
+	cont "remember?"
+	
+	para "I'm out here wait-"
+	line "ing in the midst"
+	cont "of nature!"
+	done

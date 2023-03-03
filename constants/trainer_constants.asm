@@ -497,7 +497,7 @@ KRIS EQU __enum__
 	const TIM
 	const NOLAND
 	const SIDNEY
-	const KENNY
+	const KENNY1
 	const JIM
 	const DANIEL
 	const PARRY2
@@ -508,6 +508,8 @@ KRIS EQU __enum__
 	const EDWIN
 	const BRUCE
 	const DWIGHT
+	const KENNY2
+	const KENNY3
 
 	trainerclass BIKER ; 2d
 	const DWAYNE

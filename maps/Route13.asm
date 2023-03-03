@@ -220,11 +220,61 @@ TrainerBirdKeeperBret:
 	end
 
 TrainerHikerKenny:
-	trainer HIKER, KENNY, EVENT_BEAT_HIKER_KENNY, HikerKennySeenText, HikerKennyBeatenText, 0, .Script
+	trainer HIKER, KENNY1, EVENT_BEAT_HIKER_KENNY, HikerKennySeenText, HikerKennyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_HIKER_KENNY
 	opentext
+	checkflag ENGINE_KENNY
+	iftrue .WantsBattle
+	checkcellnum PHONE_HIKER_KENNY
+	iftrue .KennyDefeated
+	checkevent EVENT_KENNY_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedBefore
+	writetext HikerKennyAfterBattleText
+	waitbutton
+	setevent EVENT_KENNY_ASKED_FOR_PHONE_NUMBER
+	scall Route13AskNumber1
+	jump .AskForNumber
+
+.AskedBefore:
+	scall Route13AskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_HIKER_KENNY
+	ifequal PHONE_CONTACTS_FULL, Route13PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, Route13NumberDeclined
+	trainertotext HIKER, KENNY1, MEM_BUFFER_0
+	scall Route13RegisteredNumber
+	jump Route13NumberAccepted
+
+.WantsBattle:
+	scall Route13Rematch
+	winlosstext HikerKennyBeatenText, 0
+	checkevent EVENT_BEAT_BLUE
+	iftrue .LoadFight2
+	checkevent ENGINE_FLYPOINT_PEWTER
+	iftrue .LoadFight1
+	loadtrainer HIKER, KENNY1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KENNY
+	end
+
+.LoadFight1:
+	loadtrainer HIKER, KENNY2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KENNY
+	end
+
+.LoadFight2:
+	loadtrainer HIKER, KENNY3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KENNY
+	end
+
+.KennyDefeated:
 	writetext HikerKennyAfterBattleText
 	waitbutton
 	closetext

@@ -400,6 +400,11 @@ TannerCamping:
 	buttonsound
 	jump PhoneScript_HangupText_Male
 
+KennyBaths:
+	farwritetext KennyBathsText
+	buttonsound
+	jump PhoneScript_HangupText_Male
+
 RobStory:
 	farwritetext RobStoryText
 	buttonsound
@@ -774,3 +779,7 @@ TannerGiftReminderScript:
 	farwritetext TannerGiftReminderText
 	buttonsound
 	jump PhoneScript_HangupText_Male
+
+KennyBattleReminderScript:
+	farwritetext KennyBattleReminderText
+	end

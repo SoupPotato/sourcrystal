@@ -41,6 +41,7 @@
 	const PHONE_BUG_CATCHER_ROB
 	const PHONE_FISHER_KYLE
 	const PHONE_CAMPER_TANNER
+	const PHONE_HIKER_KENNY
 	const PHONE_BUENA
 
 ; SpecialPhoneCallList indexes (see data/phone/special_calls.asm)

@@ -29,12 +29,6 @@ TannerNumberDeclinedText:
 	line "CAMPER…"
 	done
 
-TannerPhoneFullText:
-	text "Your phone list"
-	line "has no room for my"
-	cont "number."
-	done
-
 TannerRematchText:
 	text "Hey, you're back!"
 	

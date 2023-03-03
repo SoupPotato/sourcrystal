@@ -2266,3 +2266,42 @@ TannerHasSunStone:
 GenericTannerCall:
 	farjump Phone_GenericCall_Male
 
+; Kenny
+
+KennyPhoneScript1: ; You call Kenny
+	trainertotext HIKER, KENNY1, MEM_BUFFER_0
+	checkflag ENGINE_KENNY
+	iftrue .WaitingForBattle
+	farscall PhoneScript_AnswerPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal SATURDAY, .NotSaturday
+	checktime DAY
+	iftrue KennyWantsBattle
+	checktime EVE
+	iftrue KennyWantsBattle
+
+.NotSaturday:
+	farjump KennyBaths
+
+.WaitingForBattle:
+	landmarktotext ROUTE_13, MEM_BUFFER_2
+	farjump KennyBattleReminderScript
+
+KennyPhoneScript2: ; Calls you
+	trainertotext HIKER, KENNY1, MEM_BUFFER_0
+	farscall PhoneScript_GreetPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal SATURDAY, .GenericKennyCall
+	checktime DAY
+	iftrue KennyWantsBattle
+	checktime EVE
+	iftrue KennyWantsBattle
+	jump .GenericKennyCall
+
+.GenericKennyCall:
+	farjump Phone_GenericCall_Male
+
+KennyWantsBattle:
+	landmarktotext ROUTE_13, MEM_BUFFER_2
+	setflag ENGINE_KENNY
+	farjump PhoneScript_WantsToBattle_Male

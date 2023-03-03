@@ -229,6 +229,7 @@ EngineFlags:
 	engine_flag wDailyRematchFlags, 29 ; Rob
 	engine_flag wDailyRematchFlags, 30 ; Kyle
 	engine_flag wDailyRematchFlags, 31 ; Tanner
+	engine_flag wDailyRematchFlags, 32 ; Kenny
 
 	engine_flag wDailyPhoneItemFlags, 0 ; beverly has nugget
 	engine_flag wDailyPhoneItemFlags, 1 ; jose has star piece

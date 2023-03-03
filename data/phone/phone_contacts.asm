@@ -52,4 +52,5 @@ PhoneContacts:
 	phone FISHER,       KYLE1,              ROUTE_12,         ANYTIME, KylePhoneScript1,    ANYTIME, KylePhoneScript2
 	phone CAMPER,       TANNER1,            ROUTE_13,         ANYTIME, TannerPhoneScript1,  ANYTIME, TannerPhoneScript2
 	phone HIKER,        KENNY1,             ROUTE_13,         ANYTIME, KennyPhoneScript1,   ANYTIME, KennyPhoneScript2
+	phone COUPLE,       TIMANDSUE1,         ROUTE_13,         ANYTIME, TimAndSuePhoneScript1, ANYTIME, TimAndSuePhoneScript2
 	phone TRAINER_NONE, PHONECONTACT_BUENA, GOLDENROD_DEPT_STORE_ROOF, ANYTIME, BuenaPhoneScript1, ANYTIME, BuenaPhoneScript2

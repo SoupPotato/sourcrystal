@@ -42,6 +42,7 @@
 	const PHONE_FISHER_KYLE
 	const PHONE_CAMPER_TANNER
 	const PHONE_HIKER_KENNY
+	const PHONE_COUPLE_TIM_AND_SUE
 	const PHONE_BUENA
 
 ; SpecialPhoneCallList indexes (see data/phone/special_calls.asm)

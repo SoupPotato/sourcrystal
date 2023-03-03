@@ -55,7 +55,7 @@ TrainerBlackBeltAnder:
 	end
 
 TrainerCoolDuoZacandJen1:
-	trainer COOL_DUO, ZACANDJEN1, EVENT_BEAT_COOL_DUO_ZAC_AND_JEN, CoolDuoZacandJenSeenText, CoolDuoZacandJenBeatenText, 0, .Script
+	trainer COOL_DUO, ZACANDJEN, EVENT_BEAT_COOL_DUO_ZAC_AND_JEN, CoolDuoZacandJenSeenText, CoolDuoZacandJenBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -66,7 +66,7 @@ TrainerCoolDuoZacandJen1:
 	end
 
 TrainerCoolDuoZacandJen2:
-	trainer COOL_DUO, ZACANDJEN2, EVENT_BEAT_COOL_DUO_ZAC_AND_JEN, CoolDuoZacandJenSeenText, CoolDuoZacandJenBeatenText, 0, .Script
+	trainer COOL_DUO, ZACANDJEN, EVENT_BEAT_COOL_DUO_ZAC_AND_JEN, CoolDuoZacandJenSeenText, CoolDuoZacandJenBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled

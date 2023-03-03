@@ -2305,3 +2305,43 @@ KennyWantsBattle:
 	landmarktotext ROUTE_13, MEM_BUFFER_2
 	setflag ENGINE_KENNY
 	farjump PhoneScript_WantsToBattle_Male
+
+; Tim & Sue
+
+TimAndSuePhoneScript1: ; You call Tim & Sue
+	trainertotext COUPLE, TIMANDSUE1, MEM_BUFFER_0
+	checkflag ENGINE_TIME_AND_SUE
+	iftrue .WaitingForBattle
+	farscall PhoneScript_AnswerPhone_Female
+	checkcode VAR_WEEKDAY
+	ifnotequal FRIDAY, .NotFriday
+	checktime DAY
+	iftrue TimAndSueWantsBattle
+	checktime EVE
+	iftrue TimAndSueWantsBattle
+
+.NotFriday:
+	farjump TimAndSueWildMon
+
+.WaitingForBattle:
+	landmarktotext ROUTE_13, MEM_BUFFER_2
+	farjump TimAndSueBattleReminderScript
+
+TimAndSuePhoneScript2: ; Calls you
+	trainertotext COUPLE, TIMANDSUE1, MEM_BUFFER_0
+	farscall PhoneScript_GreetPhone_Female
+	checkcode VAR_WEEKDAY
+	ifnotequal FRIDAY, .GenericTimAndSueCall
+	checktime DAY
+	iftrue TimAndSueWantsBattle
+	checktime EVE
+	iftrue TimAndSueWantsBattle
+	jump .GenericTimAndSueCall
+
+.GenericTimAndSueCall:
+	farjump Phone_GenericCall_Female
+
+TimAndSueWantsBattle:
+	landmarktotext ROUTE_13, MEM_BUFFER_2
+	setflag ENGINE_TIME_AND_SUE
+	farjump PhoneScript_WantsToBattle_Female

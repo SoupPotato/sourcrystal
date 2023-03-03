@@ -84,7 +84,7 @@ TrainerSupernerdTom:
 	end
 
 TrainerCoupleMoeandLulu1:
-	trainer COUPLE, MOEANDLULU1, EVENT_BEAT_TWINS_MOEANDLULU, TrainerCoupleMoeandLuluSeenText, TrainerCoupleMoeandLuluBeatenText, 0, .Script
+	trainer COUPLE, MOEANDLULU, EVENT_BEAT_TWINS_MOEANDLULU, TrainerCoupleMoeandLuluSeenText, TrainerCoupleMoeandLuluBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -95,7 +95,7 @@ TrainerCoupleMoeandLulu1:
 	end
 
 TrainerCoupleMoeandLulu2:
-	trainer COUPLE, MOEANDLULU2, EVENT_BEAT_TWINS_MOEANDLULU, TrainerCoupleMoeandLuluSeenText, TrainerCoupleMoeandLuluBeatenText, 0, .Script
+	trainer COUPLE, MOEANDLULU, EVENT_BEAT_TWINS_MOEANDLULU, TrainerCoupleMoeandLuluSeenText, TrainerCoupleMoeandLuluBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled

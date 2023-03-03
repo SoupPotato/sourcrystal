@@ -1708,6 +1708,7 @@ AskNumber1FScript:
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beverly:
 	farwritetext BeverlyAskNumber1Text
@@ -1736,6 +1737,9 @@ AskNumber1FScript:
 .Krise:
 	farwritetext KriseAskNumber1Text
 	end
+.TimAndSue:
+	farwritetext TimAndSueAskNumber1Text
+	end
 
 AskNumber2FScript:
 	checkcode VAR_CALLERID
@@ -1748,6 +1752,7 @@ AskNumber2FScript:
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beverly:
 	farwritetext BeverlyAskNumber2Text
@@ -1776,6 +1781,9 @@ AskNumber2FScript:
 .Krise:
 	farwritetext KriseAskNumber2Text
 	end
+.TimAndSue:
+	farwritetext TimAndSueAskNumber2Text
+	end
 
 RegisteredNumberFScript:
 	farwritetext RegisteredNumber2Text
@@ -1795,6 +1803,7 @@ NumberAcceptedFScript:
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beverly:
 	farwritetext BeverlyNumberAcceptedText
@@ -1841,6 +1850,11 @@ NumberAcceptedFScript:
 	waitbutton
 	closetext
 	end
+.TimAndSue:
+	farwritetext TimAndSueNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedFScript:
 	checkcode VAR_CALLERID
@@ -1853,6 +1867,7 @@ NumberDeclinedFScript:
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beverly:
 	farwritetext BeverlyNumberDeclinedText
@@ -1896,6 +1911,11 @@ NumberDeclinedFScript:
 	end
 .Krise:
 	farwritetext KriseNumberDeclinedText
+	waitbutton
+	closetext
+	end
+.TimAndSue:
+	farwritetext TimAndSueNumberDeclinedText
 	waitbutton
 	closetext
 	end
@@ -1968,6 +1988,7 @@ RematchFScript:
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beth:
 	farwritetext BethRematchText
@@ -2006,6 +2027,11 @@ RematchFScript:
 	end
 .Krise:
 	farwritetext KriseRematchText
+	waitbutton
+	closetext
+	end
+.TimAndSue:
+	farwritetext TimAndSueRematchText
 	waitbutton
 	closetext
 	end

@@ -84,7 +84,7 @@ CamperGrantBeatenText:
 	done
 
 GenericTrainerCoolDuoThomandkae1:
-	trainer COOL_DUO, THOMANDKAE1, EVENT_BEAT_COOL_DUO_THOM_AND_KAE, CoolDuoThomandkaeSeenText, CoolDuoThomandkaeBeatenText, 0, .Script
+	trainer COOL_DUO, THOMANDKAE, EVENT_BEAT_COOL_DUO_THOM_AND_KAE, CoolDuoThomandkaeSeenText, CoolDuoThomandkaeBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -101,7 +101,7 @@ CoolDuoThomandkae1AfterBattleText:
 	done
 
 GenericTrainerCoolDuoThomandkae2:
-	trainer COOL_DUO, THOMANDKAE2, EVENT_BEAT_COOL_DUO_THOM_AND_KAE, CoolDuoThomandkaeSeenText, CoolDuoThomandkaeBeatenText, 0, .Script
+	trainer COOL_DUO, THOMANDKAE, EVENT_BEAT_COOL_DUO_THOM_AND_KAE, CoolDuoThomandkaeSeenText, CoolDuoThomandkaeBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -140,7 +140,7 @@ CoolDuoThomandkaeBeatenText:
 	done
 
 GenericTrainerCoupleDuffandeda1:
-	trainer COUPLE, DUFFANDEDA1, EVENT_BEAT_COUPLE_DUFF_AND_EDA, CoupleDuffandeadSeenText, CoupleDuffandeadBeatenText, 0, .Script
+	trainer COUPLE, DUFFANDEDA, EVENT_BEAT_COUPLE_DUFF_AND_EDA, CoupleDuffandeadSeenText, CoupleDuffandeadBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -156,7 +156,7 @@ CoupleDuffandead1AfterBattleText:
 	done
 
 GenericTrainerCoupleDuffandeda2:
-	trainer COUPLE, DUFFANDEDA2, EVENT_BEAT_COUPLE_DUFF_AND_EDA, CoupleDuffandeadSeenText, CoupleDuffandeadBeatenText, 0, .Script
+	trainer COUPLE, DUFFANDEDA, EVENT_BEAT_COUPLE_DUFF_AND_EDA, CoupleDuffandeadSeenText, CoupleDuffandeadBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled

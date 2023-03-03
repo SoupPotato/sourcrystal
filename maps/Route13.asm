@@ -14,22 +14,113 @@ TrainerCoupleTimandSue1:
 	trainer COUPLE, TIMANDSUE1, EVENT_BEAT_COUPLE_TIMANDSUE, CoupleTimandSueSeenText, CoupleTimandSueBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_COUPLE_TIM_AND_SUE
 	opentext
+	checkflag ENGINE_TIME_AND_SUE
+	iftrue TimAndSueWantsBattle
+	checkcellnum PHONE_COUPLE_TIM_AND_SUE
+	iftrue TimAndSue1Defeated
+	checkevent EVENT_TIM_AND_SUE_ASKED_FOR_PHONE_NUMBER
+	iftrue TimAndSueAskedBefore
+	writetext CoupleTimandSueAfterBattleText1
+	waitbutton
+	setevent EVENT_TIM_AND_SUE_ASKED_FOR_PHONE_NUMBER
+	scall TimAndSueAskNumber1
+	jump TimAndSueAskForNumber
+
+TimAndSueAskedBefore:
+	scall TimAndSueAskNumber2
+TimAndSueAskForNumber:
+	askforphonenumber PHONE_COUPLE_TIM_AND_SUE
+	ifequal PHONE_CONTACTS_FULL, TimAndSuePhoneFull
+	ifequal PHONE_CONTACT_REFUSED, TimAndSueNumberDeclined
+	trainertotext COUPLE, TIMANDSUE1, MEM_BUFFER_0
+	scall TimAndSueRegisteredNumber
+	jump TimAndSueNumberAccepted
+
+TimAndSueWantsBattle:
+	scall TimAndSueRematch
+	winlosstext CoupleTimandSueSeenText, 0
+	checkevent EVENT_BEAT_BLUE
+	iftrue TimAndSueLoadFight2
+	checkevent ENGINE_FLYPOINT_PEWTER
+	iftrue TimAndSueLoadFight1
+	loadtrainer COUPLE, TIMANDSUE1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_TIME_AND_SUE
+	end
+
+TrainerCoupleTimandSue2:
+	trainer COUPLE, TIMANDSUE1, EVENT_BEAT_COUPLE_TIMANDSUE, CoupleTimandSueSeenText, CoupleTimandSueBeatenText, 0, .Script
+
+.Script:
+	writecode VAR_CALLERID, PHONE_COUPLE_TIM_AND_SUE
+	opentext
+	checkflag ENGINE_TIME_AND_SUE
+	iftrue TimAndSueWantsBattle
+	checkcellnum PHONE_COUPLE_TIM_AND_SUE
+	iftrue TimAndSue2Defeated
+	checkevent EVENT_TIM_AND_SUE_ASKED_FOR_PHONE_NUMBER
+	iftrue TimAndSueAskedBefore
+	writetext CoupleTimandSueAfterBattleText2
+	waitbutton
+	setevent EVENT_TIM_AND_SUE_ASKED_FOR_PHONE_NUMBER
+	scall TimAndSueAskNumber1
+	jump TimAndSueAskForNumber
+
+TimAndSueLoadFight1:
+	loadtrainer COUPLE, TIMANDSUE2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_TIME_AND_SUE
+	end
+
+TimAndSueLoadFight2:
+	loadtrainer COUPLE, TIMANDSUE3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_TIME_AND_SUE
+	end
+
+TimAndSue1Defeated:
 	writetext CoupleTimandSueAfterBattleText1
 	waitbutton
 	closetext
 	end
 
-TrainerCoupleTimandSue2:
-	trainer COUPLE, TIMANDSUE2, EVENT_BEAT_COUPLE_TIMANDSUE, CoupleTimandSueSeenText, CoupleTimandSueBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
+TimAndSue2Defeated:
 	writetext CoupleTimandSueAfterBattleText2
 	waitbutton
 	closetext
+	end
+
+TimAndSueAskNumber1:
+	jumpstd asknumber1f
+	end
+
+TimAndSueAskNumber2:
+	jumpstd asknumber2f
+	end
+
+TimAndSueRegisteredNumber:
+	jumpstd registerednumberf
+	end
+
+TimAndSueNumberAccepted:
+	jumpstd numberacceptedf
+	end
+
+TimAndSueNumberDeclined:
+	jumpstd numberdeclinedf
+	end
+
+TimAndSuePhoneFull:
+	jumpstd phonefullf
+	end
+
+TimAndSueRematch:
+	jumpstd rematchf
 	end
 
 TrainerPicnickerPiper:

@@ -745,21 +745,16 @@ KRIS EQU __enum__
 	const EUSINE
 
 	trainerclass COUPLE ; 44
-	const DUFFANDEDA1
-	const DUFFANDEDA2
-	const MOEANDLULU1
-	const MOEANDLULU2
-	const VICANDTARA1
-	const VICANDTARA2
+	const DUFFANDEDA
+	const MOEANDLULU
+	const VICANDTARA
 	const TIMANDSUE1
 	const TIMANDSUE2
+	const TIMANDSUE3
 
 	trainerclass COOL_DUO ; 45
-	const THOMANDKAE1
-	const THOMANDKAE2
-	const ZACANDJEN1
-	const ZACANDJEN2
-	const ELANANDIDA1
-	const ELANANDIDA2
+	const THOMANDKAE
+	const ZACANDJEN
+	const ELANANDIDA
 
 NUM_TRAINER_CLASSES EQU __enum__

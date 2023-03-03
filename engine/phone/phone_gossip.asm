@@ -783,3 +783,14 @@ TannerGiftReminderScript:
 KennyBattleReminderScript:
 	farwritetext KennyBattleReminderText
 	end
+
+TimAndSueWildMon:
+	special RandomPhoneWildMon
+	farwritetext TimAndSueWildMonText
+	buttonsound
+	jump PhoneScript_HangupText_Female
+	end
+
+TimAndSueBattleReminderScript:
+	farwritetext TimAndSueBattleReminderText
+	end

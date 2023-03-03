@@ -167,7 +167,7 @@ TrainerBirdKeeperGail:
 	end
 
 TrainerCoupleVicandTara1:
-	trainer COUPLE, VICANDTARA1, EVENT_BEAT_COUPLE_VICANDTARA, TrainerCoupleVicandTaraSeenText, TrainerCoupleVicandTaraBeatenText, 0, .Script
+	trainer COUPLE, VICANDTARA, EVENT_BEAT_COUPLE_VICANDTARA, TrainerCoupleVicandTaraSeenText, TrainerCoupleVicandTaraBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -178,7 +178,7 @@ TrainerCoupleVicandTara1:
 	end
 
 TrainerCoupleVicandTara2:
-	trainer COUPLE, VICANDTARA2, EVENT_BEAT_COUPLE_VICANDTARA, TrainerCoupleVicandTaraSeenText, TrainerCoupleVicandTaraBeatenText, 0, .Script
+	trainer COUPLE, VICANDTARA, EVENT_BEAT_COUPLE_VICANDTARA, TrainerCoupleVicandTaraSeenText, TrainerCoupleVicandTaraBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled

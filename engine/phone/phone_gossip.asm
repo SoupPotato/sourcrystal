@@ -808,3 +808,12 @@ JamieGiftReminderScript:
 	farwritetext JamieGiftReminderText
 	buttonsound
 	jump PhoneScript_HangupText_Male
+
+TorinBattleReminderScript:
+	farwritetext TorinBattleReminderText
+	end
+
+TorinSchool:
+	farwritetext TorinSchoolText
+	buttonsound
+	jump PhoneScript_HangupText_Male

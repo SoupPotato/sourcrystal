@@ -183,11 +183,61 @@ TrainerSchoolboyConnor:
 	end
 
 TrainerSchoolboyTorin:
-	trainer SCHOOLBOY, TORIN, EVENT_BEAT_SCHOOLBOY_TORIN, SchoolboyTorinSeenText, SchoolboyTorinBeatenText, 0, .Script
+	trainer SCHOOLBOY, TORIN1, EVENT_BEAT_SCHOOLBOY_TORIN, SchoolboyTorinSeenText, SchoolboyTorinBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_SCHOOLBOY_TORIN
 	opentext
+	checkflag ENGINE_TORIN
+	iftrue .WantsBattle
+	checkcellnum PHONE_SCHOOLBOY_TORIN
+	iftrue .TorinDefeated
+	checkevent EVENT_TORIN_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedBefore
+	writetext SchoolboyTorinAfterBattleText
+	waitbutton
+	setevent EVENT_TORIN_ASKED_FOR_PHONE_NUMBER
+	scall Route14AskNumber1
+	jump .AskForNumber
+
+.AskedBefore:
+	scall Route14AskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_SCHOOLBOY_TORIN
+	ifequal PHONE_CONTACTS_FULL, Route14PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, Route14NumberDeclined
+	trainertotext SCHOOLBOY, TORIN1, MEM_BUFFER_0
+	scall Route14RegisteredNumber
+	jump Route14NumberAccepted
+
+.WantsBattle:
+	scall Route14Rematch
+	winlosstext SchoolboyTorinBeatenText, 0
+	checkevent EVENT_BEAT_BLUE
+	iftrue .LoadFight2
+	checkevent ENGINE_FLYPOINT_PEWTER
+	iftrue .LoadFight1
+	loadtrainer SCHOOLBOY, TORIN1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_TORIN
+	end
+
+.LoadFight1:
+	loadtrainer SCHOOLBOY, TORIN2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_TORIN
+	end
+
+.LoadFight2:
+	loadtrainer SCHOOLBOY, TORIN3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_TORIN
+	end
+
+.TorinDefeated:
 	writetext SchoolboyTorinAfterBattleText
 	waitbutton
 	closetext
@@ -320,9 +370,6 @@ SchoolboyTorinAfterBattleText:
 	text "All right!"
 	line "Next time, I won't"
 	cont "make any mistakes!"
-
-	para "identify where I"
-	line "got my #MON…"
 	done
 
 SchoolboyTravisSeenText:

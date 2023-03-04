@@ -307,7 +307,7 @@ JamieWantsRematchText:
 
 	para "Sounds like a good"
 	line "idea?"
-	
+
 	para "I'll be waiting!"
 	done
 
@@ -321,24 +321,68 @@ JamieSneezingText:
 
 	para "denly began flap-"
 	line "ping its wings…"
-	
+
 	para "so there's dust"
 	line "and stuff from"
-	
+
 	para "their wings float-"
 	line "ing near my face…"
-	
+
 	para "Ah… Ah… Now my"
 	line "nose is itchy…"
-	
+
 	para "Achoooo!"
 	done
 
 JamieBattleReminderText:
 	text "I'm waiting on"
+	line "@"
+	text_from_ram wStringBuffer5
+	text "."
+
+	para "Don't forget!"
+	done
+
+TorinWantsRematchText:
+	text "Hey, come battle"
+	line "me again."
+	
+	para "I'll be waiting at"
+	line "@"
+	text_from_ram wStringBuffer5
+	text "!"
+	done
+
+TorinSchoolText:
+	text "Huh? The only time"
+	line "you ever see me is"
+
+	para "when I'm on my way"
+	line "home from school?"
+
+	para "I suppose you're"
+	line "right…"
+
+	para "But when I'm on my"
+	line "way to school, I'm"
+
+	para "always in a rush"
+	line "so that I'm not"
+	cont "late."
+	
+	para "I don't have any"
+	line "time for #MON"
+	cont "battles then!"
+	done
+
+TorinBattleReminderText:
+	text "Hello?"
+	line "I'm at"
 	cont "@"
 	text_from_ram wStringBuffer5
 	text "."
 	
-	para "Don't forget!"
+	para "We were going to"
+	line "battle, right?"
+	cont "Hurry on over!"
 	done

@@ -699,6 +699,7 @@ AskNumber1MScript:
 	ifequal PHONE_CAMPER_TANNER, .Tanner
 	ifequal PHONE_HIKER_KENNY, .Kenny
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
+	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 
 .Jack:
 	farwritetext JackAskNumber1Text
@@ -787,6 +788,9 @@ AskNumber1MScript:
 .Jamie:
 	farwritetext JamieAskNumber1Text
 	end
+.Torin:
+	farwritetext TorinAskNumber1Text
+	end
 
 AskNumber2MScript:
 	special RandomPhoneMon
@@ -820,6 +824,7 @@ AskNumber2MScript:
 	ifequal PHONE_CAMPER_TANNER, .Tanner
 	ifequal PHONE_HIKER_KENNY, .Kenny
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
+	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 
 .Jack:
 	farwritetext JackAskNumber2Text
@@ -908,6 +913,9 @@ AskNumber2MScript:
 .Jamie:
 	farwritetext JamieAskNumber2Text
 	end
+.Torin:
+	farwritetext TorinAskNumber2Text
+	end
 
 RegisteredNumberMScript:
 	farwritetext RegisteredNumber1Text
@@ -947,6 +955,7 @@ NumberAcceptedMScript:
 	ifequal PHONE_CAMPER_TANNER, .Tanner
 	ifequal PHONE_HIKER_KENNY, .Kenny
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
+	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 
 
 .Jack:
@@ -1094,6 +1103,11 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
+.Torin:
+	farwritetext TorinNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedMScript:
 	checkcode VAR_CALLERID
@@ -1126,6 +1140,7 @@ NumberDeclinedMScript:
 	ifequal PHONE_CAMPER_TANNER, .Tanner
 	ifequal PHONE_HIKER_KENNY, .Kenny
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
+	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 
 .Jack:
 	farwritetext JackNumberDeclinedText
@@ -1269,6 +1284,11 @@ NumberDeclinedMScript:
 	end
 .Jamie:
 	farwritetext JamieNumberDeclinedText
+	waitbutton
+	closetext
+	end
+.Torin:
+	farwritetext TorinNumberDeclinedText
 	waitbutton
 	closetext
 	end
@@ -1443,6 +1463,7 @@ RematchMScript:
 	ifequal PHONE_CAMPER_TANNER, .Tanner
 	ifequal PHONE_HIKER_KENNY, .Kenny
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
+	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 
 .Jack:
 	farwritetext JackRematchText
@@ -1571,6 +1592,11 @@ RematchMScript:
 	end
 .Jamie:
 	farwritetext JamieRematchText
+	waitbutton
+	closetext
+	end
+.Torin:
+	farwritetext TorinRematchText
 	waitbutton
 	closetext
 	end

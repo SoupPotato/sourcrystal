@@ -156,8 +156,10 @@ KRIS EQU __enum__
 	const CHAD5
 	const SHERMAN
 	const CONNOR
-	const TORIN
+	const TORIN1
 	const TRAVIS
+	const TORIN2
+	const TORIN3
 
 	trainerclass BIRD_KEEPER ; 18
 	const ROD

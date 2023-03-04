@@ -2422,3 +2422,39 @@ JamieHasMoonStone:
 
 GenericJamieCall:
 	farjump Phone_GenericCall_Male
+
+; Torin
+
+TorinPhoneScript1: ; You call Torin
+	trainertotext SCHOOLBOY, TORIN1, MEM_BUFFER_0
+	checkflag ENGINE_TORIN
+	iftrue .WaitingForBattle
+	farscall PhoneScript_AnswerPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal WEDNESDAY, .NotWednesday
+	checktime NITE
+	iftrue TorinWantsBattle
+
+.NotWednesday:
+	farjump TorinSchool
+
+.WaitingForBattle:
+	landmarktotext ROUTE_14, MEM_BUFFER_2
+	farjump TorinBattleReminderScript
+
+TorinPhoneScript2: ; Calls you
+	trainertotext SCHOOLBOY, TORIN1, MEM_BUFFER_0
+	farscall PhoneScript_GreetPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal WEDNESDAY, .GenericTorinCall
+	checktime NITE
+	iftrue TorinWantsBattle
+	jump .GenericTorinCall
+
+.GenericTorinCall:
+	farjump Phone_GenericCall_Male
+
+TorinWantsBattle:
+	landmarktotext ROUTE_14, MEM_BUFFER_2
+	setflag ENGINE_TORIN
+	farjump PhoneScript_WantsToBattle_Male

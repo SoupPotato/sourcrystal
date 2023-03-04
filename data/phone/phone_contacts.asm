@@ -54,4 +54,5 @@ PhoneContacts:
 	phone HIKER,        KENNY1,             ROUTE_13,         ANYTIME, KennyPhoneScript1,   ANYTIME, KennyPhoneScript2
 	phone COUPLE,       TIMANDSUE1,         ROUTE_13,         ANYTIME, TimAndSuePhoneScript1, ANYTIME, TimAndSuePhoneScript2
 	phone BIRD_KEEPER,  JAMIE1,             ROUTE_14,         ANYTIME, JamiePhoneScript1,   ANYTIME, JamiePhoneScript2
+	phone SCHOOLBOY,    TORIN1,             ROUTE_14,         ANYTIME, TorinPhoneScript1,   ANYTIME, TorinPhoneScript2
 	phone TRAINER_NONE, PHONECONTACT_BUENA, GOLDENROD_DEPT_STORE_ROOF, ANYTIME, BuenaPhoneScript1, ANYTIME, BuenaPhoneScript2

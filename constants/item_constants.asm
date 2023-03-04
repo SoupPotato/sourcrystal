@@ -30,7 +30,7 @@
 	const FIRE_STONE   ; $16
 	const THUNDERSTONE ; $17
 	const WATER_STONE  ; $18
-	const COVENANT_ORB ; $19
+	const LINKING_CORD ; $19
 	const HP_UP        ; $1A
 	const PROTEIN      ; $1B
 	const IRON         ; $1C

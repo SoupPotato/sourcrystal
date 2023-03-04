@@ -286,7 +286,7 @@ GoldenrodGameCornerItemVendorScript:
 	closewindow
 	ifequal 1, .DragonScale
 	ifequal 2, .Up_Grade
-	ifequal 3, .CovenantOrb
+	ifequal 3, .LinkingCord
 	jump GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
 
 .DragonScale:
@@ -311,13 +311,13 @@ GoldenrodGameCornerItemVendorScript:
 	takecoins 2000
 	jump GoldenrodGameCornerItemVendor_FinishScript
 
-.CovenantOrb:
+.LinkingCord:
 	checkcoins 3000
 	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
-	itemtotext COVENANT_ORB, MEM_BUFFER_0
+	itemtotext LINKING_CORD, MEM_BUFFER_0
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
-	giveitem COVENANT_ORB
+	giveitem LINKING_CORD
 	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
 	takecoins 3000
 	jump GoldenrodGameCornerItemVendor_FinishScript
@@ -374,7 +374,7 @@ GoldenrodGameCornerItemVendorMenu2Header:
 	db 4 ; items
 	db "DRAGON SCALE 2000@"
 	db "UP-GRADE     2000@"
-	db "COVENANT ORB 3000@"
+	db "LINKING CORD 3000@"
 	db "CANCEL@"
 
 GoldenrodGameCornerPrizeMonVendorScript:

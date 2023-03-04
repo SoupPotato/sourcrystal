@@ -24,7 +24,7 @@ ItemDescriptions:
 	dw FireStoneDesc
 	dw ThunderStoneDesc
 	dw WaterStoneDesc
-	dw CovenantOrbDesc
+	dw LinkingCordDesc
 	dw HPUpDesc
 	dw ProteinDesc
 	dw IronDesc
@@ -351,7 +351,7 @@ WaterStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
 
-CovenantOrbDesc:
+LinkingCordDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
 

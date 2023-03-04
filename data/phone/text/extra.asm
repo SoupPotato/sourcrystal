@@ -1786,3 +1786,36 @@ TannerGiftReminderText:
 	para "so come and get it"
 	line "when you can!"
 	done
+
+JamieFoundSomethingText:
+	text "My FEAROW was"
+	line "holding some sort"
+	
+	para "of item in its"
+	line "beak recently."
+	
+	para "I was surprised."
+	line "Wouldn't you be?"
+	
+	para "…so I'll just give"
+	line "it to you!"
+
+	para "I'm waiting on"
+	line "@"
+	text_from_ram wStringBuffer5
+	text "!"
+
+	para "Come get it!"
+	done
+
+JamieGiftReminderText:
+	text "You still want"
+	line "this item, right?"
+
+	para "I'm on"
+	line "@"
+	text_from_ram wStringBuffer5
+	text "."
+
+	para "Come get it!"
+	done

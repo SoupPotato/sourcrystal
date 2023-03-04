@@ -16,7 +16,7 @@ TrainerCoupleTimandSue1:
 .Script:
 	writecode VAR_CALLERID, PHONE_COUPLE_TIM_AND_SUE
 	opentext
-	checkflag ENGINE_TIME_AND_SUE
+	checkflag ENGINE_TIM_AND_SUE
 	iftrue TimAndSueWantsBattle
 	checkcellnum PHONE_COUPLE_TIM_AND_SUE
 	iftrue TimAndSue1Defeated
@@ -40,7 +40,7 @@ TimAndSueAskForNumber:
 
 TimAndSueWantsBattle:
 	scall TimAndSueRematch
-	winlosstext CoupleTimandSueSeenText, 0
+	winlosstext CoupleTimandSueBeatenText, 0
 	checkevent EVENT_BEAT_BLUE
 	iftrue TimAndSueLoadFight2
 	checkevent ENGINE_FLYPOINT_PEWTER
@@ -48,7 +48,7 @@ TimAndSueWantsBattle:
 	loadtrainer COUPLE, TIMANDSUE1
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_TIME_AND_SUE
+	clearflag ENGINE_TIM_AND_SUE
 	end
 
 TrainerCoupleTimandSue2:
@@ -57,7 +57,7 @@ TrainerCoupleTimandSue2:
 .Script:
 	writecode VAR_CALLERID, PHONE_COUPLE_TIM_AND_SUE
 	opentext
-	checkflag ENGINE_TIME_AND_SUE
+	checkflag ENGINE_TIM_AND_SUE
 	iftrue TimAndSueWantsBattle
 	checkcellnum PHONE_COUPLE_TIM_AND_SUE
 	iftrue TimAndSue2Defeated
@@ -73,14 +73,14 @@ TimAndSueLoadFight1:
 	loadtrainer COUPLE, TIMANDSUE2
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_TIME_AND_SUE
+	clearflag ENGINE_TIM_AND_SUE
 	end
 
 TimAndSueLoadFight2:
 	loadtrainer COUPLE, TIMANDSUE3
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_TIME_AND_SUE
+	clearflag ENGINE_TIM_AND_SUE
 	end
 
 TimAndSue1Defeated:

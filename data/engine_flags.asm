@@ -231,6 +231,7 @@ EngineFlags:
 	engine_flag wDailyRematchFlags, 31 ; Tanner
 	engine_flag wDailyRematchFlags, 32 ; Kenny
 	engine_flag wDailyRematchFlags, 33 ; Tim & Sue
+	engine_flag wDailyRematchFlags, 34 ; Jamie
 
 	engine_flag wDailyPhoneItemFlags, 0 ; beverly has nugget
 	engine_flag wDailyPhoneItemFlags, 1 ; jose has star piece

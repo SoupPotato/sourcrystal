@@ -308,10 +308,11 @@ SpearowEvosAttacks:
 	db 6, LEER
 	db 11, FURY_ATTACK
 	db 16, PURSUIT
-	db 22, MIRROR_MOVE
-	db 27, FAINT_ATTACK
-	db 33, DRILL_PECK
-	db 39, AGILITY
+	db 21, MIRROR_MOVE
+	db 26, FOCUS_ENERGY
+	db 32, FAINT_ATTACK
+	db 38, DRILL_PECK
+	db 44, AGILITY
 	db 0 ; no more level-up moves
 
 FearowEvosAttacks:
@@ -321,10 +322,11 @@ FearowEvosAttacks:
 	db 1, LEER
 	db 1, FURY_ATTACK
 	db 16, PURSUIT
-	db 23, MIRROR_MOVE
-	db 29, FAINT_ATTACK
-	db 36, DRILL_PECK
-	db 43, AGILITY
+	db 22, MIRROR_MOVE
+	db 28, FOCUS_ENERGY
+	db 34, FAINT_ATTACK
+	db 41, DRILL_PECK
+	db 48, AGILITY
 	db 0 ; no more level-up moves
 
 EkansEvosAttacks:

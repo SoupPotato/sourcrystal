@@ -40,14 +40,113 @@ TrainerBirdKeeperRoy:
 	end
 
 TrainerBirdKeeperJamie:
-	trainer BIRD_KEEPER, JAMIE, EVENT_BEAT_BIRD_KEEPER_JAMIE, BirdKeeperJamieSeenText, BirdKeeperJamieBeatenText, 0, .Script
+	trainer BIRD_KEEPER, JAMIE1, EVENT_BEAT_BIRD_KEEPER_JAMIE, BirdKeeperJamieSeenText, BirdKeeperJamieBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_BIRDKEEPER_JAMIE
 	opentext
+	checkflag ENGINE_JAMIE
+	iftrue .ChooseRematch
+	checkflag ENGINE_JAMIE_HAS_MOON_STONE
+	iftrue .GiveMoonStone
+	checkcellnum PHONE_BIRDKEEPER_JAMIE
+	iftrue .JamieDefeated
+	checkevent EVENT_JAMIE_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskAgainForPhoneNumber
+	writetext BirdKeeperJamieAfterBattleText
+	waitbutton
+	setevent EVENT_JAMIE_ASKED_FOR_PHONE_NUMBER
+	scall Route14AskNumber1
+	jump .ContinueAskForPhoneNumber
+
+.AskAgainForPhoneNumber:
+	scall Route14AskNumber2
+.ContinueAskForPhoneNumber:
+	askforphonenumber PHONE_BIRDKEEPER_JAMIE
+	ifequal PHONE_CONTACTS_FULL, Route14PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, Route14NumberDeclined
+	trainertotext BIRD_KEEPER, JAMIE1, MEM_BUFFER_0
+	scall Route14RegisteredNumber
+	jump Route14NumberAccepted
+
+.ChooseRematch:
+	scall Route14Rematch
+	winlosstext BirdKeeperJamieBeatenText, 0
+	checkflag EVENT_BEAT_BLUE
+	iftrue .LoadFight2
+	checkflag ENGINE_FLYPOINT_PEWTER
+	iftrue .LoadFight1
+	loadtrainer BIRD_KEEPER, JAMIE1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_JAMIE
+	end
+
+.LoadFight1:
+	loadtrainer BIRD_KEEPER, JAMIE2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_JAMIE
+	end
+
+.LoadFight2:
+	loadtrainer BIRD_KEEPER, JAMIE3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_JAMIE
+	end
+
+.GiveMoonStone:
+	scall .Gift
+	verbosegiveitem MOON_STONE
+	iffalse .BagFull
+	clearflag ENGINE_JAMIE_HAS_MOON_STONE
+	setevent ENGINE_JAMIE_GAVE_MOON_STONE
+	jump Route14NumberAccepted
+
+.BagFull:
+	jump .PackFull
+
+.Gift:
+	jumpstd giftm
+	end
+
+.PackFull:
+	jumpstd packfullm
+	end
+
+.JamieDefeated:
 	writetext BirdKeeperJamieAfterBattleText
 	waitbutton
 	closetext
+	end
+
+Route14AskNumber1:
+	jumpstd asknumber1m
+	end
+
+Route14AskNumber2:
+	jumpstd asknumber2m
+	end
+
+Route14RegisteredNumber:
+	jumpstd registerednumberm
+	end
+
+Route14NumberAccepted:
+	jumpstd numberacceptedm
+	end
+
+Route14NumberDeclined:
+	jumpstd numberdeclinedm
+	end
+
+Route14PhoneFull:
+	jumpstd phonefullm
+	end
+
+Route14Rematch:
+	jumpstd rematchm
 	end
 
 TrainerPokefanmTrevor:

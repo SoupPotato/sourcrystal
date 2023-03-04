@@ -794,3 +794,17 @@ TimAndSueWildMon:
 TimAndSueBattleReminderScript:
 	farwritetext TimAndSueBattleReminderText
 	end
+
+JamieBattleReminderScript:
+	farwritetext JamieBattleReminderText
+	end
+
+JamieSneezing:
+	farwritetext JamieSneezingText
+	buttonsound
+	jump PhoneScript_HangupText_Male
+
+JamieGiftReminderScript:
+	farwritetext JamieGiftReminderText
+	buttonsound
+	jump PhoneScript_HangupText_Male

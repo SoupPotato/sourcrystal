@@ -292,3 +292,53 @@ TimAndSueBattleReminderText:
 	text ","
 	cont "so please hurry."
 	done
+
+JamieWantsRematchText:
+	text "Where are you now?"
+
+	para "I'm always on"
+	line "@"
+	text_from_ram wStringBuffer5
+	text " myself."
+
+	para "What do you think"
+	line "about battling"
+	cont "with me again?"
+
+	para "Sounds like a good"
+	line "idea?"
+	
+	para "I'll be waiting!"
+	done
+
+JamieSneezingText:
+	text "Ah… Ah… Achoo!"
+
+	para "Oh, it's nothing."
+	
+	para "It's just that my"
+	line "bird #MON sud-"
+
+	para "denly began flap-"
+	line "ping its wings…"
+	
+	para "so there's dust"
+	line "and stuff from"
+	
+	para "their wings float-"
+	line "ing near my face…"
+	
+	para "Ah… Ah… Now my"
+	line "nose is itchy…"
+	
+	para "Achoooo!"
+	done
+
+JamieBattleReminderText:
+	text "I'm waiting on"
+	cont "@"
+	text_from_ram wStringBuffer5
+	text "."
+	
+	para "Don't forget!"
+	done

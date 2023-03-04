@@ -2310,7 +2310,7 @@ KennyWantsBattle:
 
 TimAndSuePhoneScript1: ; You call Tim & Sue
 	trainertotext COUPLE, TIMANDSUE1, MEM_BUFFER_0
-	checkflag ENGINE_TIME_AND_SUE
+	checkflag ENGINE_TIM_AND_SUE
 	iftrue .WaitingForBattle
 	farscall PhoneScript_AnswerPhone_Female
 	checkcode VAR_WEEKDAY
@@ -2343,5 +2343,82 @@ TimAndSuePhoneScript2: ; Calls you
 
 TimAndSueWantsBattle:
 	landmarktotext ROUTE_13, MEM_BUFFER_2
-	setflag ENGINE_TIME_AND_SUE
+	setflag ENGINE_TIM_AND_SUE
 	farjump PhoneScript_WantsToBattle_Female
+
+; Jamie
+
+JamiePhoneScript1: ; You call Jamie
+	trainertotext BIRD_KEEPER, JAMIE1, MEM_BUFFER_0
+	checkflag ENGINE_JAMIE
+	iftrue .WaitingForBattle
+	farscall PhoneScript_AnswerPhone_Male
+	checkflag ENGINE_JAMIE_HAS_MOON_STONE
+	iftrue .HasMoonStone
+	checkcode VAR_WEEKDAY
+	ifnotequal TUESDAY, .CheckMoonStoneNotTuesday1
+	checktime NITE
+	iftrue CheckMoonStone
+
+.CheckMoonStoneNotTuesday1:
+	checkflag ENGINE_JAMIE_HAS_MOON_STONE
+	iftrue .HasMoonStone
+	checkflag ENGINE_JAMIE_GAVE_MOON_STONE
+	iftrue .Generic
+	farscall PhoneScript_Random11
+	ifequal 0, JamieHasMoonStone
+	setflag ENGINE_JAMIE_GAVE_MOON_STONE
+
+.Generic:
+	farjump JamieSneezing
+
+.WaitingForBattle:
+	landmarktotext ROUTE_14, MEM_BUFFER_2
+	farjump JamieBattleReminderScript
+
+.HasMoonStone:
+	landmarktotext ROUTE_14, MEM_BUFFER_2
+	farjump JamieGiftReminderScript
+
+JamiePhoneScript2:  ; Calls you
+	trainertotext BIRD_KEEPER, JAMIE1, MEM_BUFFER_0
+	farscall PhoneScript_GreetPhone_Male
+	checkflag ENGINE_JAMIE_HAS_MOON_STONE
+	iftrue .HasMoonStone
+	checkcode VAR_WEEKDAY
+	ifnotequal TUESDAY, CheckMoonStoneNotTuesday2
+	checktime NITE
+	iftrue CheckMoonStone
+	jump CheckMoonStoneNotTuesday2
+
+.HasMoonStone:
+	landmarktotext ROUTE_14, MEM_BUFFER_2
+	farjump JamieGiftReminderScript
+
+CheckMoonStoneNotTuesday2:
+	checkflag ENGINE_JAMIE_GAVE_MOON_STONE
+	iftrue GenericJamieCall
+	farscall PhoneScript_Random11
+	ifequal 0, JamieHasMoonStone
+	setflag ENGINE_JAMIE_GAVE_MOON_STONE
+	jump GenericJamieCall
+
+CheckMoonStone:
+	checkflag ENGINE_JAMIE_GAVE_MOON_STONE
+	iftrue JamieWantsBattle
+	farscall PhoneScript_Random11
+	ifequal 0, JamieHasMoonStone
+	setflag ENGINE_JAMIE_GAVE_MOON_STONE
+
+JamieWantsBattle:
+	landmarktotext ROUTE_14, MEM_BUFFER_2
+	setflag ENGINE_JAMIE
+	farjump PhoneScript_WantsToBattle_Male
+
+JamieHasMoonStone:
+	setflag ENGINE_JAMIE_HAS_MOON_STONE
+	landmarktotext ROUTE_14, MEM_BUFFER_2
+	farjump PhoneScript_FoundItem_Male
+
+GenericJamieCall:
+	farjump Phone_GenericCall_Male

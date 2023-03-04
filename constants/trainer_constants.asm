@@ -181,11 +181,13 @@ KRIS EQU __enum__
 	const VANCE3
 	const JACOB
 	const GAIL
-	const JAMIE
+	const JAMIE1
 	const BERT
 	const ERNIE
 	const KINSLEY
 	const EASTON
+	const JAMIE2
+	const JAMIE3
 
 	trainerclass LASS ; 19
 	const CARRIE

@@ -817,3 +817,12 @@ TorinSchool:
 	farwritetext TorinSchoolText
 	buttonsound
 	jump PhoneScript_HangupText_Male
+
+BillyBattleReminderScript:
+	farwritetext BillyBattleReminderText
+	end
+
+BillyResearch:
+	farwritetext BillyResearchText
+	buttonsound
+	jump PhoneScript_HangupText_Male

@@ -138,7 +138,7 @@ KRIS EQU __enum__
 	const TOMMY
 	const DUDLEY
 	const JOE
-	const BILLY
+	const BILLY1
 	const CHAD1
 	const NATE
 	const RICKY
@@ -160,6 +160,8 @@ KRIS EQU __enum__
 	const TRAVIS
 	const TORIN2
 	const TORIN3
+	const BILLY2
+	const BILLY3
 
 	trainerclass BIRD_KEEPER ; 18
 	const ROD

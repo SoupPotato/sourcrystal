@@ -2458,3 +2458,39 @@ TorinWantsBattle:
 	landmarktotext ROUTE_14, MEM_BUFFER_2
 	setflag ENGINE_TORIN
 	farjump PhoneScript_WantsToBattle_Male
+
+; Billy
+
+BillyPhoneScript1: ; You call Billy
+	trainertotext SCHOOLBOY, BILLY1, MEM_BUFFER_0
+	checkflag ENGINE_BILLY
+	iftrue .WaitingForBattle
+	farscall PhoneScript_AnswerPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal FRIDAY, .NotFriday
+	checktime NITE
+	iftrue BillyWantsBattle
+
+.NotFriday:
+	farjump BillyResearch
+
+.WaitingForBattle:
+	landmarktotext ROUTE_15, MEM_BUFFER_2
+	farjump BillyBattleReminderScript
+
+BillyPhoneScript2: ; Calls you
+	trainertotext SCHOOLBOY, BILLY1, MEM_BUFFER_0
+	farscall PhoneScript_GreetPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal FRIDAY, .GenericBillyCall
+	checktime NITE
+	iftrue BillyWantsBattle
+	jump .GenericBillyCall
+
+.GenericBillyCall:
+	farjump Phone_GenericCall_Male
+
+BillyWantsBattle:
+	landmarktotext ROUTE_15, MEM_BUFFER_2
+	setflag ENGINE_BILLY
+	farjump PhoneScript_WantsToBattle_Male

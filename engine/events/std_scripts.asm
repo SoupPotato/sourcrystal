@@ -700,6 +700,7 @@ AskNumber1MScript:
 	ifequal PHONE_HIKER_KENNY, .Kenny
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
+	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 
 .Jack:
 	farwritetext JackAskNumber1Text
@@ -791,6 +792,9 @@ AskNumber1MScript:
 .Torin:
 	farwritetext TorinAskNumber1Text
 	end
+.Billy:
+	farwritetext BillyAskNumber1Text
+	end
 
 AskNumber2MScript:
 	special RandomPhoneMon
@@ -825,6 +829,7 @@ AskNumber2MScript:
 	ifequal PHONE_HIKER_KENNY, .Kenny
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
+	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 
 .Jack:
 	farwritetext JackAskNumber2Text
@@ -916,6 +921,9 @@ AskNumber2MScript:
 .Torin:
 	farwritetext TorinAskNumber2Text
 	end
+.Billy:
+	farwritetext BillyAskNumber2Text
+	end
 
 RegisteredNumberMScript:
 	farwritetext RegisteredNumber1Text
@@ -956,6 +964,7 @@ NumberAcceptedMScript:
 	ifequal PHONE_HIKER_KENNY, .Kenny
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
+	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 
 
 .Jack:
@@ -1108,6 +1117,11 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
+.Billy:
+	farwritetext BillyNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedMScript:
 	checkcode VAR_CALLERID
@@ -1141,6 +1155,7 @@ NumberDeclinedMScript:
 	ifequal PHONE_HIKER_KENNY, .Kenny
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
+	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 
 .Jack:
 	farwritetext JackNumberDeclinedText
@@ -1289,6 +1304,11 @@ NumberDeclinedMScript:
 	end
 .Torin:
 	farwritetext TorinNumberDeclinedText
+	waitbutton
+	closetext
+	end
+.Billy:
+	farwritetext BillyNumberDeclinedText
 	waitbutton
 	closetext
 	end
@@ -1464,6 +1484,7 @@ RematchMScript:
 	ifequal PHONE_HIKER_KENNY, .Kenny
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
+	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 
 .Jack:
 	farwritetext JackRematchText
@@ -1597,6 +1618,11 @@ RematchMScript:
 	end
 .Torin:
 	farwritetext TorinRematchText
+	waitbutton
+	closetext
+	end
+.Billy:
+	farwritetext BillyRematchText
 	waitbutton
 	closetext
 	end

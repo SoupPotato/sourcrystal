@@ -45,6 +45,7 @@
 	const PHONE_COUPLE_TIM_AND_SUE
 	const PHONE_BIRDKEEPER_JAMIE
 	const PHONE_SCHOOLBOY_TORIN
+	const PHONE_SCHOOLBOY_BILLY
 	const PHONE_BUENA
 
 ; SpecialPhoneCallList indexes (see data/phone/special_calls.asm)

@@ -112,14 +112,92 @@ TrainerSchoolboyJohnny:
 	end
 
 TrainerSchoolboyBilly:
-	trainer SCHOOLBOY, BILLY, EVENT_BEAT_SCHOOLBOY_BILLY, SchoolboyBillySeenText, SchoolboyBillyBeatenText, 0, .Script
+	trainer SCHOOLBOY, BILLY1, EVENT_BEAT_SCHOOLBOY_BILLY, SchoolboyBillySeenText, SchoolboyBillyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_SCHOOLBOY_BILLY
 	opentext
+	checkflag ENGINE_BILLY
+	iftrue .WantsBattle
+	checkcellnum PHONE_SCHOOLBOY_BILLY
+	iftrue .BillyDefeated
+	checkevent EVENT_BILLY_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedBefore
+	writetext SchoolboyBillyAfterBattleText
+	waitbutton
+	setevent EVENT_BILLY_ASKED_FOR_PHONE_NUMBER
+	scall .AskNumber1
+	jump .AskForNumber
+
+.AskedBefore:
+	scall .AskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_SCHOOLBOY_BILLY
+	ifequal PHONE_CONTACTS_FULL, .PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	trainertotext SCHOOLBOY, BILLY1, MEM_BUFFER_0
+	scall .RegisteredNumber
+	jump .NumberAccepted
+
+.WantsBattle:
+	scall .Rematch
+	winlosstext SchoolboyBillyBeatenText, 0
+	checkevent EVENT_BEAT_BLUE
+	iftrue .LoadFight2
+	checkevent ENGINE_FLYPOINT_PEWTER
+	iftrue .LoadFight1
+	loadtrainer SCHOOLBOY, BILLY1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_BILLY
+	end
+
+.LoadFight1:
+	loadtrainer SCHOOLBOY, BILLY2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_BILLY
+	end
+
+.LoadFight2:
+	loadtrainer SCHOOLBOY, BILLY3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_BILLY
+	end
+
+.BillyDefeated:
 	writetext SchoolboyBillyAfterBattleText
 	waitbutton
 	closetext
+	end
+
+.AskNumber1:
+	jumpstd asknumber1m
+	end
+
+.AskNumber2:
+	jumpstd asknumber2m
+	end
+
+.RegisteredNumber:
+	jumpstd registerednumberm
+	end
+
+.NumberAccepted:
+	jumpstd numberacceptedm
+	end
+
+.NumberDeclined:
+	jumpstd numberdeclinedm
+	end
+
+.PhoneFull:
+	jumpstd phonefullm
+	end
+
+.Rematch:
+	jumpstd rematchm
 	end
 
 Route15Sign:

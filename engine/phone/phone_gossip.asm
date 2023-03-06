@@ -826,3 +826,12 @@ BillyResearch:
 	farwritetext BillyResearchText
 	buttonsound
 	jump PhoneScript_HangupText_Male
+
+HillaryBattleReminderScript:
+	farwritetext HillaryBattleReminderText
+	end
+
+HillaryCutestThing:
+	farwritetext HillaryCutestThingText
+	buttonsound
+	jump PhoneScript_HangupText_Female

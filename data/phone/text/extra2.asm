@@ -299,8 +299,8 @@ UnknownText_0x174734:
 	done
 
 UnknownText_0x1747ac:
-	text "You can expect a"
-	line "call from me."
+	text "Alright, I'll talk"
+	line "to you later."
 	done
 
 BeverlyFoundNuggetText:
@@ -774,7 +774,7 @@ UnknownText_0x17549b:
 	line "just because you"
 
 	para "happened to beat"
-	line "me… "
+	line "me…"
 
 	para "It was a fluke!"
 	done

@@ -153,7 +153,7 @@ PhoneScript_AnswerPhone_Male:
 	end
 
 .Alfred:
-	farwritetext AlfredHangUpText
+	farwritetext UnknownText_0x1b4f4d
 	buttonsound
 	end
 
@@ -288,7 +288,7 @@ PhoneScript_AnswerPhone_Male_Day:
 	end
 
 .Alfred:
-	farwritetext UnknownText_0x1b4f4d
+	farwritetext UnknownText_0x1b4f21
 	buttonsound
 	end
 

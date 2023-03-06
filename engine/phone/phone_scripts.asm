@@ -2494,3 +2494,39 @@ BillyWantsBattle:
 	landmarktotext ROUTE_15, MEM_BUFFER_2
 	setflag ENGINE_BILLY
 	farjump PhoneScript_WantsToBattle_Male
+
+; Hillary
+
+HillaryPhoneScript1: ; You call Hillary
+	trainertotext TEACHER, HILLARY1, MEM_BUFFER_0
+	checkflag ENGINE_HILLARY
+	iftrue .WaitingForBattle
+	farscall PhoneScript_AnswerPhone_Female
+	checkcode VAR_WEEKDAY
+	ifnotequal THURSDAY, .NotFriday
+	checktime NITE
+	iftrue HillaryWantsBattle
+
+.NotFriday:
+	farjump HillaryCutestThing
+
+.WaitingForBattle:
+	landmarktotext ROUTE_15, MEM_BUFFER_2
+	farjump HillaryBattleReminderScript
+
+HillaryPhoneScript2: ; Calls you
+	trainertotext TEACHER, HILLARY1, MEM_BUFFER_0
+	farscall PhoneScript_GreetPhone_Female
+	checkcode VAR_WEEKDAY
+	ifnotequal THURSDAY, .GenericHillaryCall
+	checktime NITE
+	iftrue HillaryWantsBattle
+	jump .GenericHillaryCall
+
+.GenericHillaryCall:
+	farjump Phone_GenericCall_Female
+
+HillaryWantsBattle:
+	landmarktotext ROUTE_15, MEM_BUFFER_2
+	setflag ENGINE_HILLARY
+	farjump PhoneScript_WantsToBattle_Female

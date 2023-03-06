@@ -68,14 +68,92 @@ TrainerTeacherColette:
 	end
 
 TrainerTeacherHillary:
-	trainer TEACHER, HILLARY, EVENT_BEAT_TEACHER_HILLARY, TeacherHillarySeenText, TeacherHillaryBeatenText, 0, .Script
+	trainer TEACHER, HILLARY1, EVENT_BEAT_TEACHER_HILLARY, TeacherHillarySeenText, TeacherHillaryBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_TEACHER_HILLARY
 	opentext
+	checkflag ENGINE_HILLARY
+	iftrue .WantsBattle
+	checkcellnum PHONE_TEACHER_HILLARY
+	iftrue .HillaryDefeated
+	checkevent EVENT_HILLARY_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedBefore
+	writetext TeacherHillaryAfterBattleText
+	waitbutton
+	setevent EVENT_HILLARY_ASKED_FOR_PHONE_NUMBER
+	scall Route15FAskNumber1
+	jump .AskForNumber
+
+.AskedBefore:
+	scall Route15FAskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_TEACHER_HILLARY
+	ifequal PHONE_CONTACTS_FULL, Route15FPhoneFull
+	ifequal PHONE_CONTACT_REFUSED, Route15FNumberDeclined
+	trainertotext TEACHER, HILLARY1, MEM_BUFFER_0
+	scall Route15FRegisteredNumber
+	jump Route15FNumberAccepted
+
+.WantsBattle:
+	scall Route15FRematch
+	winlosstext TeacherHillaryBeatenText, 0
+	checkevent EVENT_BEAT_BLUE
+	iftrue .LoadFight2
+	checkevent ENGINE_FLYPOINT_PEWTER
+	iftrue .LoadFight1
+	loadtrainer TEACHER, HILLARY1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_HILLARY
+	end
+
+.LoadFight1:
+	loadtrainer TEACHER, HILLARY2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_HILLARY
+	end
+
+.LoadFight2:
+	loadtrainer TEACHER, HILLARY3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_HILLARY
+	end
+
+.HillaryDefeated:
 	writetext TeacherHillaryAfterBattleText
 	waitbutton
 	closetext
+	end
+
+Route15FAskNumber1:
+	jumpstd asknumber1f
+	end
+
+Route15FAskNumber2:
+	jumpstd asknumber2f
+	end
+
+Route15FRegisteredNumber:
+	jumpstd registerednumberf
+	end
+
+Route15FNumberAccepted:
+	jumpstd numberacceptedf
+	end
+
+Route15FNumberDeclined:
+	jumpstd numberdeclinedf
+	end
+
+Route15FPhoneFull:
+	jumpstd phonefullf
+	end
+
+Route15FRematch:
+	jumpstd rematchf
 	end
 
 TrainerSchoolboyKipp:

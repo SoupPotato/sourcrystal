@@ -1597,8 +1597,8 @@ TeacherGroup:
 
 	; TEACHER (2)
 	db "HILLARY@", TRAINERTYPE_NORMAL
-	db 32, AIPOM
-	db 36, CUBONE
+	db 41, SUNKERN
+	db 31, AIPOM
 	db -1 ; end
 
 	; TEACHER (3)
@@ -1606,10 +1606,22 @@ TeacherGroup:
 	db 35, JIGGLYPUFF
 	db -1 ; end
 
-	; TEACHER (5)
+	; TEACHER (4)
 	db "CLARICE@", TRAINERTYPE_NORMAL
 	db 41, EEVEE
 	db 43, SKIPLOOM
+	db -1 ; end
+
+	; TEACHER (5)
+	db "HILLARY@", TRAINERTYPE_NORMAL
+	db 49, AIPOM
+	db 49, SUNFLORA
+	db -1 ; end
+
+	; TEACHER (6)
+	db "HILLARY@", TRAINERTYPE_NORMAL
+	db 55, AIPOM
+	db 55, SUNFLORA
 	db -1 ; end
 
 

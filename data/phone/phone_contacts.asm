@@ -56,4 +56,5 @@ PhoneContacts:
 	phone BIRD_KEEPER,  JAMIE1,             ROUTE_14,         ANYTIME, JamiePhoneScript1,   ANYTIME, JamiePhoneScript2
 	phone SCHOOLBOY,    TORIN1,             ROUTE_14,         ANYTIME, TorinPhoneScript1,   ANYTIME, TorinPhoneScript2
 	phone SCHOOLBOY,    BILLY1,             ROUTE_15,         ANYTIME, BillyPhoneScript1,   ANYTIME, BillyPhoneScript2
+	phone TEACHER,      HILLARY1,           ROUTE_15,         ANYTIME, HillaryPhoneScript1, ANYTIME, HillaryPhoneScript2
 	phone TRAINER_NONE, PHONECONTACT_BUENA, GOLDENROD_DEPT_STORE_ROOF, ANYTIME, BuenaPhoneScript1, ANYTIME, BuenaPhoneScript2

@@ -1789,6 +1789,7 @@ AskNumber1FScript:
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
 	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
+	ifequal PHONE_TEACHER_HILLARY, .Hillary
 
 .Beverly:
 	farwritetext BeverlyAskNumber1Text
@@ -1820,6 +1821,9 @@ AskNumber1FScript:
 .TimAndSue:
 	farwritetext TimAndSueAskNumber1Text
 	end
+.Hillary:
+	farwritetext HillaryAskNumber1Text
+	end
 
 AskNumber2FScript:
 	checkcode VAR_CALLERID
@@ -1833,6 +1837,7 @@ AskNumber2FScript:
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
 	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
+	ifequal PHONE_TEACHER_HILLARY, .Hillary
 
 .Beverly:
 	farwritetext BeverlyAskNumber2Text
@@ -1864,6 +1869,9 @@ AskNumber2FScript:
 .TimAndSue:
 	farwritetext TimAndSueAskNumber2Text
 	end
+.Hillary:
+	farwritetext HillaryAskNumber2Text
+	end
 
 RegisteredNumberFScript:
 	farwritetext RegisteredNumber2Text
@@ -1884,6 +1892,7 @@ NumberAcceptedFScript:
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
 	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
+	ifequal PHONE_TEACHER_HILLARY, .Hillary
 
 .Beverly:
 	farwritetext BeverlyNumberAcceptedText
@@ -1935,6 +1944,11 @@ NumberAcceptedFScript:
 	waitbutton
 	closetext
 	end
+.Hillary:
+	farwritetext HillaryNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedFScript:
 	checkcode VAR_CALLERID
@@ -1948,6 +1962,7 @@ NumberDeclinedFScript:
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
 	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
+	ifequal PHONE_TEACHER_HILLARY, .Hillary
 
 .Beverly:
 	farwritetext BeverlyNumberDeclinedText
@@ -1996,6 +2011,11 @@ NumberDeclinedFScript:
 	end
 .TimAndSue:
 	farwritetext TimAndSueNumberDeclinedText
+	waitbutton
+	closetext
+	end
+.Hillary:
+	farwritetext HillaryNumberDeclinedText
 	waitbutton
 	closetext
 	end
@@ -2069,6 +2089,7 @@ RematchFScript:
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
 	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
+	ifequal PHONE_TEACHER_HILLARY, .Hillary
 
 .Beth:
 	farwritetext BethRematchText
@@ -2112,6 +2133,11 @@ RematchFScript:
 	end
 .TimAndSue:
 	farwritetext TimAndSueRematchText
+	waitbutton
+	closetext
+	end
+.Hillary:
+	farwritetext HillaryRematchText
 	waitbutton
 	closetext
 	end

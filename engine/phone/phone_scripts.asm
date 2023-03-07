@@ -2530,3 +2530,39 @@ HillaryWantsBattle:
 	landmarktotext ROUTE_15, MEM_BUFFER_2
 	setflag ENGINE_HILLARY
 	farjump PhoneScript_WantsToBattle_Female
+
+; Kay & Tia
+
+KayAndTiaPhoneScript1: ; You call Kay & Tia
+	trainertotext TWINS, KAYANDTIA1, MEM_BUFFER_0
+	checkflag ENGINE_KAY_AND_TIA
+	iftrue .WaitingForBattle
+	farscall PhoneScript_AnswerPhone_Female
+	checkcode VAR_WEEKDAY
+	ifnotequal SATURDAY, .NotSaturday
+	checktime NITE
+	iftrue KayAndTiaWantsBattle
+
+.NotSaturday:
+	farjump KayAndTiaQuiz
+
+.WaitingForBattle:
+	landmarktotext ROUTE_15, MEM_BUFFER_2
+	farjump KayAndTiaBattleReminderScript
+
+KayAndTiaPhoneScript2: ; Calls you
+	trainertotext TWINS, KAYANDTIA1, MEM_BUFFER_0
+	farscall PhoneScript_GreetPhone_Female
+	checkcode VAR_WEEKDAY
+	ifnotequal SATURDAY, .GenericKayAndTiaCall
+	checktime NITE
+	iftrue KayAndTiaWantsBattle
+	jump .GenericKayAndTiaCall
+
+.GenericKayAndTiaCall:
+	farjump Phone_GenericCall_Female
+
+KayAndTiaWantsBattle:
+	landmarktotext ROUTE_15, MEM_BUFFER_2
+	setflag ENGINE_KAY_AND_TIA
+	farjump PhoneScript_WantsToBattle_Female

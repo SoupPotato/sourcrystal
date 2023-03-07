@@ -183,14 +183,14 @@ KennyWantsRematchText:
 KennyBathsText:
 	text "That's right… I'm"
 	line "on this mountain"
-	
+
 	para "almost the whole"
 	line "year round…"
-	
+
 	para "Baths? There's no"
 	line "such thing on a"
 	cont "mountain!"
-	
+
 	para "Instead, I just"
 	line "look for a river,"
 
@@ -202,7 +202,7 @@ KennyBathsText:
 	para "A few days ago,"
 	line "when I was bathing"
 	cont "in the river,"
-	
+
 	para "someone mistook me"
 	line "for a SWIMMER!"
 	done
@@ -214,7 +214,7 @@ KennyBattleReminderText:
 	text_from_ram wStringBuffer5
 	text ","
 	cont "remember?"
-	
+
 	para "I'm out here wait-"
 	line "ing in the midst"
 	cont "of nature!"
@@ -237,7 +237,7 @@ TimAndSueWantRematchText:
 
 TimAndSueWildMonText:
 	text "This is SUE!"
-	
+
 	para "How have you been"
 	line "feeling since our"
 	cont "last talk?"
@@ -256,7 +256,7 @@ TimAndSueWildMonText:
 	text_from_ram wStringBuffer4
 	text_start
 	cont "get way recently!"
-	
+
 	para "He sometimes says"
 	line "the strangest… Ah!"
 
@@ -279,10 +279,10 @@ TimAndSueWildMonText:
 TimAndSueBattleReminderText:
 	text "Hey, did you for-"
 	line "get our promise?"
-	
+
 	para "I'm here with TIM,"
 	line "so I'm not getting"
-	
+
 	para "too bored, but"
 	line "still…"
 
@@ -315,7 +315,7 @@ JamieSneezingText:
 	text "Ah… Ah… Achoo!"
 
 	para "Oh, it's nothing."
-	
+
 	para "It's just that my"
 	line "bird #MON sud-"
 
@@ -346,7 +346,7 @@ JamieBattleReminderText:
 TorinWantsRematchText:
 	text "Hey, come battle"
 	line "me again."
-	
+
 	para "I'll be waiting at"
 	line "@"
 	text_from_ram wStringBuffer5
@@ -369,7 +369,7 @@ TorinSchoolText:
 	para "always in a rush"
 	line "so that I'm not"
 	cont "late."
-	
+
 	para "I don't have any"
 	line "time for #MON"
 	cont "battles then!"
@@ -381,7 +381,7 @@ TorinBattleReminderText:
 	cont "@"
 	text_from_ram wStringBuffer5
 	text "."
-	
+
 	para "We were going to"
 	line "battle, right?"
 	cont "Hurry on over!"
@@ -394,7 +394,7 @@ BillyWantsRematchText:
 
 	para "Let's battle"
 	line "again, OK?"
-	
+
 	para "I'll be waiting on"
 	line "@"
 	text_from_ram wStringBuffer5
@@ -435,7 +435,7 @@ HillaryWantsRematchText:
 
 	para "We should have an-"
 	line "other battle!"
-	
+
 	para "I'm always on"
 	line "@"
 	text_from_ram wStringBuffer5
@@ -447,41 +447,41 @@ HillaryWantsRematchText:
 
 HillaryCutestThingText:
 	text "That's right…"
-	
+
 	para "If you ask me"
 	line "which is cuter," 
-	
+
 	para "my students or "
 	line "#MON,"
-	
+
 	para "I'll have a hard"
 	line "time making that"
 	cont "decision."
-	
+
 	para "Come to think of"
 	line "it, for a lot of"
-	
+
 	para "kids, their first"
 	line "#MON is the"
-	
+
 	para "cutest one in the"
 	line "world in their"
 	cont "young eyes."
 
 	para "And there's no-"
 	line "thing that can be"
-	
+
 	para "said to change"
 	line "that opinion."
 	done
 
 HillaryBattleReminderText:
 	text "Hey!"
-	
+
 	para "Do you remember"
 	line "you made plans"
 	cont "with me?"
-	
+
 	para "We said we were"
 	line "going to meet on"
 	cont "@"
@@ -490,11 +490,114 @@ HillaryBattleReminderText:
 
 	para "and have a battle,"
 	line "right?"
-	
+
 	para "Don't forget!"
 	done
 
 HillaryHangUpText:
 	text "Alright, I'll talk"
 	line "to you later."
+	done
+
+KayAndTiaWantsRematchText:
+	text "We should have an-"
+	line "other battle, just"
+	cont "the three of us."
+
+	para "We're on"
+	line "@"
+	text_from_ram wStringBuffer5
+	text ","
+
+	para "so come on over"
+	line "when you get the"
+	cont "chance."
+	done
+
+KayAndTiaQuizText:
+	text "Well, since we're"
+	line "on the phone, how"
+
+	para "about we give you"
+	line "a quiz?"
+
+	para"…"
+
+	para "So, who's speaking"
+	line "right now?"
+	cont "KAY or TIA?"
+
+	para"…"
+
+	para"…"
+
+	para"…"
+
+	para "The correct answer"
+	line "is…" 
+
+	para "ELEANOR from the"
+	line "#MON Fan club,"
+
+	para "who's standing"
+	line "next to the twins!"
+	done
+
+KayAndTiaBattleReminderText:
+	text "Didn't we make"
+	line "plans to have an-"
+	cont "other battle?"
+
+	para "We're waiting on"
+	line "@"
+	text_from_ram wStringBuffer5
+	text ","
+
+	para "so don't forget,"
+	line "OK?"
+	done
+
+KayAndTiaRanAwayText:
+	text "Earlier we saw a"
+	line "@"
+	text_from_ram wStringBuffer4
+	text_start
+	cont "suddenly come out"
+	cont "of nowhere."
+
+	para "Didn't we, TIA?"
+	
+	para "Yeah, and we were"
+	line "so surprised we"
+	cont "just ran away."
+
+	para "Didn't we, KAY?"
+
+	para "I keep thinking"
+	line "about it, TIA,"
+	
+	para "I think we should"
+	line "have just battled"
+	cont "it, right?"
+
+	para "Is it hard to tell"
+	line "who's who when"
+	
+	para "you're talking to"
+	line "both of us on the"
+	cont "phone?"
+	done
+
+KayAndTiaBeatWildText:
+	text "Our QUAGSIRE is"
+	line "much stronger now!"
+	
+	para "We were battling a"
+	line "a @"
+	text_from_ram wStringBuffer4
+	text_start
+	
+	para "recently and it"
+	line "was over before we"
+	cont "knew it!"
 	done

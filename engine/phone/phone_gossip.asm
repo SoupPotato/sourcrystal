@@ -835,3 +835,12 @@ HillaryCutestThing:
 	farwritetext HillaryCutestThingText
 	buttonsound
 	jump PhoneScript_HangupText_Female
+
+KayAndTiaBattleReminderScript:
+	farwritetext KayAndTiaBattleReminderText
+	end
+
+KayAndTiaQuiz:
+	farwritetext KayAndTiaQuizText
+	buttonsound
+	jump PhoneScript_HangupText_Female

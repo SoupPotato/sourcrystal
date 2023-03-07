@@ -722,6 +722,7 @@ KRIS EQU __enum__
 	const DAYANDDANI2
 	const KAYANDTIA1
 	const KAYANDTIA2
+	const KAYANDTIA3
 
 	trainerclass POKEFANF ; 3e
 	const BEVERLY1

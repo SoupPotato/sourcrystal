@@ -16,19 +16,82 @@ TrainerTwinsKayandTia1:
 	trainer TWINS, KAYANDTIA1, EVENT_BEAT_TWINS_KAYANDTIA, TwinsKayandTiaSeenText, TwinsKayandTiaBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_TWINS_KAY_AND_TIA
 	opentext
+	checkflag ENGINE_KAY_AND_TIA
+	iftrue KayandTiaWantsBattle
+	checkcellnum PHONE_TWINS_KAY_AND_TIA
+	iftrue KayandTia1Defeated
+	checkevent EVENT_KAY_AND_TIA_ASKED_FOR_PHONE_NUMBER
+	iftrue KayandTiaAskedBefore
+	writetext TwinsKayandTiaAfterBattleText1
+	waitbutton
+	setevent EVENT_KAY_AND_TIA_ASKED_FOR_PHONE_NUMBER
+	scall Route15FAskNumber1
+	jump KayandTiaAskForNumber
+
+KayandTiaAskedBefore:
+	scall Route15FAskNumber2
+KayandTiaAskForNumber:
+	askforphonenumber PHONE_TWINS_KAY_AND_TIA
+	ifequal PHONE_CONTACTS_FULL, Route15FPhoneFull
+	ifequal PHONE_CONTACT_REFUSED, Route15FNumberDeclined
+	trainertotext TWINS, KAYANDTIA1, MEM_BUFFER_0
+	scall Route15FRegisteredNumber
+	jump Route15FNumberAccepted
+
+KayandTiaWantsBattle:
+	scall Route15FRematch
+	winlosstext TwinsKayandTiaBeatenText, 0
+	checkevent EVENT_BEAT_BLUE
+	iftrue KayandTiaLoadFight2
+	checkevent ENGINE_FLYPOINT_PEWTER
+	iftrue KayandTiaLoadFight1
+	loadtrainer TWINS, KAYANDTIA1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KAY_AND_TIA
+	end
+
+TrainerTwinsKayandTia2:
+	trainer TWINS, KAYANDTIA1, EVENT_BEAT_TWINS_KAYANDTIA, TwinsKayandTiaSeenText, TwinsKayandTiaBeatenText, 0, .Script
+
+.Script:
+	writecode VAR_CALLERID, PHONE_TWINS_KAY_AND_TIA
+	opentext
+	checkflag ENGINE_KAY_AND_TIA
+	iftrue KayandTiaWantsBattle
+	checkcellnum PHONE_TWINS_KAY_AND_TIA
+	iftrue KayandTia2Defeated
+	checkevent EVENT_KAY_AND_TIA_ASKED_FOR_PHONE_NUMBER
+	iftrue KayandTiaAskedBefore
+	writetext TwinsKayandTiaAfterBattleText2
+	waitbutton
+	setevent EVENT_KAY_AND_TIA_ASKED_FOR_PHONE_NUMBER
+	scall Route15FAskNumber1
+	jump KayandTiaAskForNumber
+
+KayandTiaLoadFight1:
+	loadtrainer TWINS, KAYANDTIA2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KAY_AND_TIA
+	end
+
+KayandTiaLoadFight2:
+	loadtrainer TWINS, KAYANDTIA3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KAY_AND_TIA
+	end
+
+KayandTia1Defeated:
 	writetext TwinsKayandTiaAfterBattleText1
 	waitbutton
 	closetext
 	end
 
-TrainerTwinsKayandTia2:
-	trainer TWINS, KAYANDTIA2, EVENT_BEAT_TWINS_KAYANDTIA, TwinsKayandTiaSeenText, TwinsKayandTiaBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
+KayandTia2Defeated:
 	writetext TwinsKayandTiaAfterBattleText2
 	waitbutton
 	closetext
@@ -319,7 +382,7 @@ TwinsKayandTiaAfterBattleText2:
 	done
 
 PokefanBooneSeenText:
-	text "Hey, your"
+	text "HeY, your"
 	line "#MON…"
 
 	para "Show me. Show me."

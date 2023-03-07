@@ -327,6 +327,7 @@ Phone_WhoDefeatedMon_Female:
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 	ifequal PHONE_TEACHER_HILLARY, .Hillary
+	ifequal PHONE_TWINS_KAY_AND_TIA, .KayAndTia
 
 .Beverly:
 	farwritetext UnknownText_0x1746c3
@@ -367,6 +368,11 @@ Phone_WhoDefeatedMon_Female:
 
 .Erin:
 	farwritetext UnknownText_0x671a4
+	buttonsound
+	end
+
+.KayAndTia:
+	farwritetext KayAndTiaBeatWildText
 	buttonsound
 	end
 
@@ -486,6 +492,7 @@ Phone_WhoLostAMon_Female:
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_TEACHER_HILLARY, .Hillary
+	ifequal PHONE_TWINS_KAY_AND_TIA, .KayAndTia
 
 .Beverly:
 	farwritetext UnknownText_0x174734
@@ -525,6 +532,11 @@ Phone_WhoLostAMon_Female:
 
 .Erin:
 	farwritetext UnknownText_0x671eb
+	buttonsound
+	end
+
+.KayAndTia:
+	farwritetext KayAndTiaRanAwayText
 	buttonsound
 	end
 
@@ -719,6 +731,7 @@ PhoneScript_RematchText_Female:
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 	ifequal PHONE_TEACHER_HILLARY, .Hillary
+	ifequal PHONE_TWINS_KAY_AND_TIA, .KayAndTia
 
 .Beth:
 	farwritetext UnknownText_0x174e4e
@@ -762,6 +775,10 @@ PhoneScript_RematchText_Female:
 
 .Hillary:
 	farwritetext HillaryWantsRematchText
+	buttonsound
+	end
+.KayAndTia:
+	farwritetext KayAndTiaWantsRematchText
 	buttonsound
 	end
 
@@ -904,6 +921,7 @@ PhoneScript_HangupText_Female:
 	ifequal PHONE_LASS_KRISE, .Krise
 	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 	ifequal PHONE_TEACHER_HILLARY, .Hillary
+	ifequal PHONE_TWINS_KAY_AND_TIA, .KayAndTia
 
 .Beverly:
 	farwritetext UnknownText_0x1747ac
@@ -941,6 +959,7 @@ PhoneScript_HangupText_Female:
 	farwritetext UnknownText_0x66a93
 	end
 
+.KayAndTia:
 .TimAndSue:
 	farwritetext UnknownText_0x174eb7
 	end

@@ -862,3 +862,12 @@ EoinBikerMons:
 	farwritetext EoinBikerMonsText
 	buttonsound
 	jump PhoneScript_HangupText_Male
+
+ReeseBattleReminderScript:
+	farwritetext ReeseBattleReminderText
+	end
+
+ReeseBikers:
+	farwritetext ReeseBikersText
+	buttonsound
+	jump PhoneScript_HangupText_Male

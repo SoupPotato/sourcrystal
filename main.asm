@@ -297,6 +297,7 @@ INCLUDE "engine/printer/printer_serial.asm"
 INCLUDE "engine/printer/printer.asm"
 INCLUDE "gfx/battle_anims.asm"
 INCLUDE "engine/events/halloffame.asm"
+INCLUDE "engine/games/slot_machine.asm"
 
 
 SECTION "Crystal Features 2", ROMX
@@ -328,7 +329,6 @@ INCLUDE "engine/phone/phone.asm"
 INCLUDE "engine/rtc/timeset.asm"
 INCLUDE "engine/pokegear/pokegear.asm"
 INCLUDE "engine/events/fish.asm"
-INCLUDE "engine/games/slot_machine.asm"
 
 
 SECTION "Phone Engine", ROMX
@@ -373,6 +373,7 @@ INCLUDE "data/phone/text/hillary_overworld.asm"
 INCLUDE "data/phone/text/kayandtia_overworld.asm"
 INCLUDE "data/phone/text/aiden_overworld.asm"
 INCLUDE "data/phone/text/eoin_overworld.asm"
+INCLUDE "data/phone/text/reese_overworld.asm"
 
 
 SECTION "bank2E", ROMX

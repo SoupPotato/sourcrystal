@@ -703,6 +703,7 @@ AskNumber1MScript:
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
+	ifequal PHONE_BIKER_REESE, .Reese
 
 .Jack:
 	farwritetext JackAskNumber1Text
@@ -803,6 +804,9 @@ AskNumber1MScript:
 .Eoin:
 	farwritetext EoinAskNumber1Text
 	end
+.Reese:
+	farwritetext ReeseAskNumber1Text
+	end
 
 AskNumber2MScript:
 	special RandomPhoneMon
@@ -840,6 +844,7 @@ AskNumber2MScript:
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
+	ifequal PHONE_BIKER_REESE, .Reese
 
 .Jack:
 	farwritetext JackAskNumber2Text
@@ -940,6 +945,9 @@ AskNumber2MScript:
 .Eoin:
 	farwritetext EoinAskNumber2Text
 	end
+.Reese:
+	farwritetext ReeseAskNumber2Text
+	end
 
 RegisteredNumberMScript:
 	farwritetext RegisteredNumber1Text
@@ -983,6 +991,7 @@ NumberAcceptedMScript:
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
+	ifequal PHONE_BIKER_REESE, .Reese
 
 
 .Jack:
@@ -1150,6 +1159,11 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
+.Reese:
+	farwritetext ReeseNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedMScript:
 	checkcode VAR_CALLERID
@@ -1186,6 +1200,7 @@ NumberDeclinedMScript:
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
+	ifequal PHONE_BIKER_REESE, .Reese
 
 .Jack:
 	farwritetext JackNumberDeclinedText
@@ -1349,6 +1364,11 @@ NumberDeclinedMScript:
 	end
 .Eoin:
 	farwritetext EoinNumberDeclinedText
+	waitbutton
+	closetext
+	end
+.Reese:
+	farwritetext ReeseNumberDeclinedText
 	waitbutton
 	closetext
 	end
@@ -1527,6 +1547,7 @@ RematchMScript:
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
+	ifequal PHONE_BIKER_REESE, .Reese
 
 .Jack:
 	farwritetext JackRematchText
@@ -1675,6 +1696,11 @@ RematchMScript:
 	end
 .Eoin:
 	farwritetext EoinRematchText
+	waitbutton
+	closetext
+	end
+.Reese:
+	farwritetext ReeseRematchText
 	waitbutton
 	closetext
 	end

@@ -2642,3 +2642,39 @@ EoinWantsBattle:
 	landmarktotext ROUTE_17, MEM_BUFFER_2
 	setflag ENGINE_EOIN
 	farjump PhoneScript_WantsToBattle_Male
+
+; Reese
+
+ReesePhoneScript1: ; You call Reese
+	trainertotext BIKER, REESE1, MEM_BUFFER_0
+	checkflag ENGINE_REESE
+	iftrue .WaitingForBattle
+	farscall PhoneScript_AnswerPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal SUNDAY, .NotSunday
+	checktime NITE
+	iftrue ReeseWantsBattle
+
+.NotSunday:
+	farjump ReeseBikers
+
+.WaitingForBattle:
+	landmarktotext ROUTE_17, MEM_BUFFER_2
+	farjump ReeseBattleReminderScript
+
+ReesePhoneScript2: ; Calls you
+	trainertotext BIKER, REESE1, MEM_BUFFER_0
+	farscall PhoneScript_GreetPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal SUNDAY, .GenericReeseCall
+	checktime NITE
+	iftrue ReeseWantsBattle
+	jump .GenericReeseCall
+
+.GenericReeseCall:
+	farjump Phone_GenericCall_Male
+
+ReeseWantsBattle:
+	landmarktotext ROUTE_17, MEM_BUFFER_2
+	setflag ENGINE_REESE
+	farjump PhoneScript_WantsToBattle_Male

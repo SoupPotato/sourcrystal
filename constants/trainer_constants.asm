@@ -527,7 +527,7 @@ KRIS EQU __enum__
 	const RILEY
 	const JOEL
 	const GLENN
-	const REESE
+	const REESE1
 	const JOSEPH
 	const EOIN1
 	const AIDEN1
@@ -539,6 +539,8 @@ KRIS EQU __enum__
 	const AIDEN3
 	const EOIN2
 	const EOIN3
+	const REESE2
+	const REESE3
 
 	trainerclass BLAINE ; 2e
 	const BLAINE1

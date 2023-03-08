@@ -16,11 +16,61 @@ Route17_MapScripts:
 	return
 
 TrainerBikerReese:
-	trainer BIKER, REESE, EVENT_BEAT_BIKER_REESE, BikerReeseSeenText, BikerReeseBeatenText, 0, .Script
+	trainer BIKER, REESE1, EVENT_BEAT_BIKER_REESE, BikerReeseSeenText, BikerReeseBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_BIKER_REESE
 	opentext
+	checkflag ENGINE_REESE
+	iftrue .WantsBattle
+	checkcellnum PHONE_BIKER_REESE
+	iftrue .ReeseDefeated
+	checkevent EVENT_REESE_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedBefore
+	writetext BikerReeseAfterBattleText
+	waitbutton
+	setevent EVENT_REESE_ASKED_FOR_PHONE_NUMBER
+	scall Route17AskNumber1
+	jump .AskForNumber
+
+.AskedBefore:
+	scall Route17AskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_BIKER_REESE
+	ifequal PHONE_CONTACTS_FULL, Route17PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, Route17NumberDeclined
+	trainertotext BIKER, REESE1, MEM_BUFFER_0
+	scall Route17RegisteredNumber
+	jump Route17NumberAccepted
+
+.WantsBattle:
+	scall Route17Rematch
+	winlosstext BikerReeseBeatenText, 0
+	checkevent EVENT_BEAT_BLUE
+	iftrue .LoadFight2
+	checkevent ENGINE_FLYPOINT_PEWTER
+	iftrue .LoadFight1
+	loadtrainer BIKER, REESE1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_REESE
+	end
+
+.LoadFight1:
+	loadtrainer BIKER, REESE2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_REESE
+	end
+
+.LoadFight2:
+	loadtrainer BIKER, REESE3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_REESE
+	end
+
+.ReeseDefeated:
 	writetext BikerReeseAfterBattleText
 	waitbutton
 	closetext

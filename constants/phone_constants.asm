@@ -50,6 +50,7 @@
 	const PHONE_TWINS_KAY_AND_TIA
 	const PHONE_BIKER_AIDEN
 	const PHONE_BIKER_EOIN
+	const PHONE_BIKER_REESE
 	const PHONE_BUENA
 
 ; SpecialPhoneCallList indexes (see data/phone/special_calls.asm)

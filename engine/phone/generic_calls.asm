@@ -48,12 +48,14 @@ PhoneScript_AnswerPhone_Male:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
+	ifequal PHONE_BIKER_REESE, .Reese
 
 .Jack:
 	farwritetext UnknownText_0x1b4dc5
 	buttonsound
 	end
 
+.Reese:
 .Eoin:
 .Aiden:
 .Huey:
@@ -187,12 +189,14 @@ PhoneScript_AnswerPhone_Male_Day:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
+	ifequal PHONE_BIKER_REESE, .Reese
 
 .Jack:
 	farwritetext UnknownText_0x1b4ded
 	buttonsound
 	end
 
+.Reese:
 .Eoin:
 .Aiden:
 .Huey:
@@ -326,12 +330,14 @@ PhoneScript_AnswerPhone_Male_Nite:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
+	ifequal PHONE_BIKER_REESE, .Reese
 
 .Jack:
 	farwritetext UnknownText_0x1b4e16
 	buttonsound
 	end
 
+.Reese:
 .Eoin:
 .Aiden:
 .Huey:
@@ -626,12 +632,14 @@ PhoneScript_GreetPhone_Male:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
+	ifequal PHONE_BIKER_REESE, .Reese
 
 .Jack:
 	farwritetext UnknownText_0x1b4e3e
 	buttonsound
 	end
 
+.Reese:
 .Eoin:
 .Aiden:
 .Huey:
@@ -765,12 +773,14 @@ PhoneScript_GreetPhone_Male_Day:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
+	ifequal PHONE_BIKER_REESE, .Reese
 
 .Jack:
 	farwritetext UnknownText_0x1b4e72
 	buttonsound
 	end
 
+.Reese:
 .Eoin:
 .Aiden:
 .Huey:
@@ -904,12 +914,14 @@ PhoneScript_GreetPhone_Male_Nite:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
+	ifequal PHONE_BIKER_REESE, .Reese
 
 .Jack:
 	farwritetext UnknownText_0x1b4e9e
 	buttonsound
 	end
 
+.Reese:
 .Eoin:
 .Aiden:
 .Huey:

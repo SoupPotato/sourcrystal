@@ -74,12 +74,14 @@ Phone_WhosBragging_Male:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 .Jack:
 	farwritetext JackIntelligenceText
 	buttonsound
 	end
 
+.Eoin:
 .Aiden:
 .Gaven:
 	farwritetext GavenGreaterText
@@ -232,12 +234,14 @@ Phone_WhoDefeatedMon_Male:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 .Jack:
 	farwritetext JackDefeatedMonText
 	buttonsound
 	end
 
+.Eoin:
 .Aiden:
 .Gaven:
 	farwritetext UnknownText_0x174a80
@@ -400,12 +404,14 @@ Phone_WhoLostAMon_Male:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 .Jack:
 	farwritetext UnknownText_0x174165
 	buttonsound
 	end
 
+.Eoin:
 .Aiden:
 .Gaven:
 	farwritetext UnknownText_0x174b2d
@@ -585,6 +591,7 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 .Jack:
 	farwritetext UnknownText_0x1741e1
@@ -728,6 +735,11 @@ PhoneScript_RematchText_Male:
 
 .Aiden:
 	farwritetext AidenWantsRematchText
+	buttonsound
+	end
+
+.Eoin:
+	farwritetext EoinWantsRematchText
 	buttonsound
 	end
 

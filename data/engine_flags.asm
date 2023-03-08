@@ -237,6 +237,7 @@ EngineFlags:
 	engine_flag wDailyRematchFlags, 37 ; Hillary
 	engine_flag wDailyRematchFlags, 38 ; Kay & Tia
 	engine_flag wDailyRematchFlags, 39 ; Aiden
+	engine_flag wDailyRematchFlags, 40 ; Eoin
 
 	engine_flag wDailyPhoneItemFlags, 0 ; beverly has nugget
 	engine_flag wDailyPhoneItemFlags, 1 ; jose has star piece

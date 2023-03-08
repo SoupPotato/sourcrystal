@@ -372,6 +372,7 @@ INCLUDE "data/phone/text/billy_overworld.asm"
 INCLUDE "data/phone/text/hillary_overworld.asm"
 INCLUDE "data/phone/text/kayandtia_overworld.asm"
 INCLUDE "data/phone/text/aiden_overworld.asm"
+INCLUDE "data/phone/text/eoin_overworld.asm"
 
 
 SECTION "bank2E", ROMX

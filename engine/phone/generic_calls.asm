@@ -44,15 +44,17 @@ PhoneScript_AnswerPhone_Male:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
-	ifequal PHONE_HIKER_PARRY, .Ian
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 .Jack:
 	farwritetext UnknownText_0x1b4dc5
 	buttonsound
 	end
 
+.Eoin:
 .Aiden:
 .Huey:
 	farwritetext UnknownText_0x1b5073
@@ -181,15 +183,17 @@ PhoneScript_AnswerPhone_Male_Day:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
-	ifequal PHONE_HIKER_PARRY, .Ian
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 .Jack:
 	farwritetext UnknownText_0x1b4ded
 	buttonsound
 	end
 
+.Eoin:
 .Aiden:
 .Huey:
 	farwritetext UnknownText_0x1b509b
@@ -318,15 +322,17 @@ PhoneScript_AnswerPhone_Male_Nite:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
-	ifequal PHONE_HIKER_PARRY, .Ian
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 .Jack:
 	farwritetext UnknownText_0x1b4e16
 	buttonsound
 	end
 
+.Eoin:
 .Aiden:
 .Huey:
 	farwritetext UnknownText_0x1b50c2
@@ -619,12 +625,14 @@ PhoneScript_GreetPhone_Male:
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 .Jack:
 	farwritetext UnknownText_0x1b4e3e
 	buttonsound
 	end
 
+.Eoin:
 .Aiden:
 .Huey:
 	farwritetext UnknownText_0x1b50e9
@@ -756,12 +764,14 @@ PhoneScript_GreetPhone_Male_Day:
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 .Jack:
 	farwritetext UnknownText_0x1b4e72
 	buttonsound
 	end
 
+.Eoin:
 .Aiden:
 .Huey:
 	farwritetext UnknownText_0x1b511a
@@ -893,12 +903,14 @@ PhoneScript_GreetPhone_Male_Nite:
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 .Jack:
 	farwritetext UnknownText_0x1b4e9e
 	buttonsound
 	end
 
+.Eoin:
 .Aiden:
 .Huey:
 	farwritetext UnknownText_0x1b5154

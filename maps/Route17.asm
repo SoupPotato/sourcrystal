@@ -38,11 +38,61 @@ TrainerBikerJoseph:
 	end
 
 TrainerBikerEoin:
-	trainer BIKER, EOIN, EVENT_BEAT_BIKER_EOIN, BikerEoinSeenText, BikerEoinBeatenText, 0, .Script
+	trainer BIKER, EOIN1, EVENT_BEAT_BIKER_EOIN, BikerEoinSeenText, BikerEoinBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_BIKER_EOIN
 	opentext
+	checkflag ENGINE_EOIN
+	iftrue .WantsBattle
+	checkcellnum PHONE_BIKER_EOIN
+	iftrue .EoinDefeated
+	checkevent EVENT_EOIN_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedBefore
+	writetext BikerEoinAfterBattleText
+	waitbutton
+	setevent EVENT_EOIN_ASKED_FOR_PHONE_NUMBER
+	scall Route17AskNumber1
+	jump .AskForNumber
+
+.AskedBefore:
+	scall Route17AskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_BIKER_EOIN
+	ifequal PHONE_CONTACTS_FULL, Route17PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, Route17NumberDeclined
+	trainertotext BIKER, EOIN1, MEM_BUFFER_0
+	scall Route17RegisteredNumber
+	jump Route17NumberAccepted
+
+.WantsBattle:
+	scall Route17Rematch
+	winlosstext BikerEoinBeatenText, 0
+	checkevent EVENT_BEAT_BLUE
+	iftrue .LoadFight2
+	checkevent ENGINE_FLYPOINT_PEWTER
+	iftrue .LoadFight1
+	loadtrainer BIKER, EOIN1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_EOIN
+	end
+
+.LoadFight1:
+	loadtrainer BIKER, EOIN2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_EOIN
+	end
+
+.LoadFight2:
+	loadtrainer BIKER, EOIN3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_EOIN
+	end
+
+.EoinDefeated:
 	writetext BikerEoinAfterBattleText
 	waitbutton
 	closetext
@@ -63,21 +113,21 @@ TrainerBikerAiden:
 	writetext BikerAidenAfterBattleText
 	waitbutton
 	setevent EVENT_AIDEN_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
+	scall Route17AskNumber1
 	jump .AskForNumber
 
 .AskedBefore:
-	scall .AskNumber2
+	scall Route17AskNumber2
 .AskForNumber:
 	askforphonenumber PHONE_BIKER_AIDEN
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	ifequal PHONE_CONTACTS_FULL, Route17PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, Route17NumberDeclined
 	trainertotext BIKER, AIDEN1, MEM_BUFFER_0
-	scall .RegisteredNumber
-	jump .NumberAccepted
+	scall Route17RegisteredNumber
+	jump Route17NumberAccepted
 
 .WantsBattle:
-	scall .Rematch
+	scall Route17Rematch
 	winlosstext BikerAidenBeatenText, 0
 	checkevent EVENT_BEAT_BLUE
 	iftrue .LoadFight2
@@ -109,31 +159,31 @@ TrainerBikerAiden:
 	closetext
 	end
 
-.AskNumber1:
+Route17AskNumber1:
 	jumpstd asknumber1m
 	end
 
-.AskNumber2:
+Route17AskNumber2:
 	jumpstd asknumber2m
 	end
 
-.RegisteredNumber:
+Route17RegisteredNumber:
 	jumpstd registerednumberm
 	end
 
-.NumberAccepted:
+Route17NumberAccepted:
 	jumpstd numberacceptedm
 	end
 
-.NumberDeclined:
+Route17NumberDeclined:
 	jumpstd numberdeclinedm
 	end
 
-.PhoneFull:
+Route17PhoneFull:
 	jumpstd phonefullm
 	end
 
-.Rematch:
+Route17Rematch:
 	jumpstd rematchm
 	end
 
@@ -275,8 +325,7 @@ BikerEoinSeenText:
 
 BikerEoinBeatenText:
 	text "Hnnff…hnnff…"
-	line "I'm out of"
-	cont "breath…"
+	line "I'm out of breath…"
 	done
 
 BikerEoinAfterBattleText:

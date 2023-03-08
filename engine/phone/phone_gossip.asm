@@ -853,3 +853,12 @@ AidenTalkOnBike:
 	farwritetext AidenTalkOnBikeText
 	buttonsound
 	jump PhoneScript_HangupText_Male
+
+EoinBattleReminderScript:
+	farwritetext EoinBattleReminderText
+	end
+
+EoinBikerMons:
+	farwritetext EoinBikerMonsText
+	buttonsound
+	jump PhoneScript_HangupText_Male

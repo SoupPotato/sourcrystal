@@ -529,7 +529,7 @@ KRIS EQU __enum__
 	const GLENN
 	const REESE
 	const JOSEPH
-	const EOIN
+	const EOIN1
 	const AIDEN1
 	const THERON
 	const TEDDY
@@ -537,6 +537,8 @@ KRIS EQU __enum__
 	const DAN
 	const AIDEN2
 	const AIDEN3
+	const EOIN2
+	const EOIN3
 
 	trainerclass BLAINE ; 2e
 	const BLAINE1

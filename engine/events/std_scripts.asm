@@ -702,6 +702,7 @@ AskNumber1MScript:
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 .Jack:
 	farwritetext JackAskNumber1Text
@@ -799,6 +800,9 @@ AskNumber1MScript:
 .Aiden:
 	farwritetext AidenAskNumber1Text
 	end
+.Eoin:
+	farwritetext EoinAskNumber1Text
+	end
 
 AskNumber2MScript:
 	special RandomPhoneMon
@@ -835,6 +839,7 @@ AskNumber2MScript:
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 .Jack:
 	farwritetext JackAskNumber2Text
@@ -932,6 +937,9 @@ AskNumber2MScript:
 .Aiden:
 	farwritetext AidenAskNumber2Text
 	end
+.Eoin:
+	farwritetext EoinAskNumber2Text
+	end
 
 RegisteredNumberMScript:
 	farwritetext RegisteredNumber1Text
@@ -974,6 +982,7 @@ NumberAcceptedMScript:
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 
 .Jack:
@@ -1136,6 +1145,11 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
+.Eoin:
+	farwritetext EoinNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedMScript:
 	checkcode VAR_CALLERID
@@ -1171,6 +1185,7 @@ NumberDeclinedMScript:
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 .Jack:
 	farwritetext JackNumberDeclinedText
@@ -1329,6 +1344,11 @@ NumberDeclinedMScript:
 	end
 .Aiden:
 	farwritetext AidenNumberDeclinedText
+	waitbutton
+	closetext
+	end
+.Eoin:
+	farwritetext EoinNumberDeclinedText
 	waitbutton
 	closetext
 	end
@@ -1506,6 +1526,7 @@ RematchMScript:
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 	ifequal PHONE_BIKER_AIDEN, .Aiden
+	ifequal PHONE_BIKER_EOIN, .Eoin
 
 .Jack:
 	farwritetext JackRematchText
@@ -1649,6 +1670,11 @@ RematchMScript:
 	end
 .Aiden:
 	farwritetext AidenRematchText
+	waitbutton
+	closetext
+	end
+.Eoin:
+	farwritetext EoinRematchText
 	waitbutton
 	closetext
 	end

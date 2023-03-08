@@ -663,3 +663,67 @@ AidenBattleReminderText:
 	para "Without a #MON,"
 	line "we can't battle!"
 	done
+
+EoinWantsRematchText:
+	text "Yo! So, I really"
+	line "wanna battle you"
+	cont "again."
+	
+	para "I mean, I'm really"
+	line "itching to show"
+	cont "off!"
+	
+	para "I'm always hanging"
+	line "out on"
+	cont "@"
+	text_from_ram wStringBuffer5
+	text "."
+	
+	para "Don't get all"
+	line "nervous and run"
+	cont "away, got it?!"
+	done
+
+EoinBikerMonsText:
+	text "We're a BIKER"
+	line "gang, you know."
+	
+	para "Got #MON with"
+	line "poison," 
+	
+	para "with spikes all"
+	line "over their bodies,"
+	
+	para "with fangs, and we"
+	line "even have some"
+
+	para "GHOST-type"
+	line "#MON!"
+	
+	para "It's all a big"
+	line "show of how tough"
+	cont "we are."
+	
+	para "But…"
+	line "As for me…"
+	
+	para "I really like cute"
+	line "#MON like"
+	cont "MARILL!"
+	done
+
+EoinBattleReminderText:
+	text "What's going on"
+	line "with you?"
+	
+	para "I'm waiting on"
+	line "@"
+	text_from_ram wStringBuffer5
+	text "!"
+	
+	para "You wouldn't for-"
+	line "get a promise you"
+	
+	para "made with a buddy,"
+	line "would you?"
+	done

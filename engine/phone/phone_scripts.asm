@@ -2602,3 +2602,43 @@ AidenWantsBattle:
 	landmarktotext ROUTE_17, MEM_BUFFER_2
 	setflag ENGINE_AIDEN
 	farjump PhoneScript_WantsToBattle_Male
+
+; Eoin
+
+EoinPhoneScript1: ; You call Eoin
+	trainertotext BIKER, EOIN1, MEM_BUFFER_0
+	checkflag ENGINE_EOIN
+	iftrue .WaitingForBattle
+	farscall PhoneScript_AnswerPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal SUNDAY, .NotSunday
+	checktime DAY
+	iftrue EoinWantsBattle
+	checktime EVE
+	iftrue EoinWantsBattle
+
+.NotSunday:
+	farjump EoinBikerMons
+
+.WaitingForBattle:
+	landmarktotext ROUTE_17, MEM_BUFFER_2
+	farjump EoinBattleReminderScript
+
+EoinPhoneScript2: ; Calls you
+	trainertotext BIKER, EOIN1, MEM_BUFFER_0
+	farscall PhoneScript_GreetPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal SUNDAY, .GenericEoinCall
+	checktime DAY
+	iftrue EoinWantsBattle
+	checktime EVE
+	iftrue EoinWantsBattle
+	jump .GenericEoinCall
+
+.GenericEoinCall:
+	farjump Phone_GenericCall_Male
+
+EoinWantsBattle:
+	landmarktotext ROUTE_17, MEM_BUFFER_2
+	setflag ENGINE_EOIN
+	farjump PhoneScript_WantsToBattle_Male

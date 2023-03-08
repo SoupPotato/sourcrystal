@@ -48,6 +48,7 @@
 	const PHONE_SCHOOLBOY_BILLY
 	const PHONE_TEACHER_HILLARY
 	const PHONE_TWINS_KAY_AND_TIA
+	const PHONE_BIKER_AIDEN
 	const PHONE_BUENA
 
 ; SpecialPhoneCallList indexes (see data/phone/special_calls.asm)

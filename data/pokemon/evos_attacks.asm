@@ -1033,12 +1033,13 @@ TentacoolEvosAttacks:
 	db 1, WATER_GUN
 	db 6, SUPERSONIC
 	db 12, CONSTRICT
-	db 19, ACID
-	db 25, BUBBLEBEAM
-	db 30, WRAP
-	db 36, BARRIER
-	db 43, SCREECH
-	db 49, HYDRO_PUMP
+	db 17, ACID
+	db 23, BUBBLEBEAM
+	db 28, WRAP
+	db 34, BARRIER
+	db 39, SLUDGE_BOMB
+	db 45, SCREECH
+	db 50, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 TentacruelEvosAttacks:
@@ -1047,12 +1048,13 @@ TentacruelEvosAttacks:
 	db 1, WATER_GUN
 	db 1, SUPERSONIC
 	db 1, CONSTRICT
-	db 19, ACID
-	db 25, BUBBLEBEAM
-	db 30, WRAP
-	db 38, BARRIER
-	db 47, SCREECH
-	db 55, HYDRO_PUMP
+	db 17, ACID
+	db 23, BUBBLEBEAM
+	db 28, WRAP
+	db 37, BARRIER
+	db 43, SLUDGE_BOMB
+	db 50, SCREECH
+	db 56, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 GeodudeEvosAttacks:

@@ -701,6 +701,7 @@ AskNumber1MScript:
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
+	ifequal PHONE_BIKER_AIDEN, .Aiden
 
 .Jack:
 	farwritetext JackAskNumber1Text
@@ -795,6 +796,9 @@ AskNumber1MScript:
 .Billy:
 	farwritetext BillyAskNumber1Text
 	end
+.Aiden:
+	farwritetext AidenAskNumber1Text
+	end
 
 AskNumber2MScript:
 	special RandomPhoneMon
@@ -830,6 +834,7 @@ AskNumber2MScript:
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
+	ifequal PHONE_BIKER_AIDEN, .Aiden
 
 .Jack:
 	farwritetext JackAskNumber2Text
@@ -924,6 +929,9 @@ AskNumber2MScript:
 .Billy:
 	farwritetext BillyAskNumber2Text
 	end
+.Aiden:
+	farwritetext AidenAskNumber2Text
+	end
 
 RegisteredNumberMScript:
 	farwritetext RegisteredNumber1Text
@@ -965,6 +973,7 @@ NumberAcceptedMScript:
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
+	ifequal PHONE_BIKER_AIDEN, .Aiden
 
 
 .Jack:
@@ -1122,6 +1131,11 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
+.Aiden:
+	farwritetext AidenNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedMScript:
 	checkcode VAR_CALLERID
@@ -1156,6 +1170,7 @@ NumberDeclinedMScript:
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
+	ifequal PHONE_BIKER_AIDEN, .Aiden
 
 .Jack:
 	farwritetext JackNumberDeclinedText
@@ -1309,6 +1324,11 @@ NumberDeclinedMScript:
 	end
 .Billy:
 	farwritetext BillyNumberDeclinedText
+	waitbutton
+	closetext
+	end
+.Aiden:
+	farwritetext AidenNumberDeclinedText
 	waitbutton
 	closetext
 	end
@@ -1485,6 +1505,7 @@ RematchMScript:
 	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
 	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
 	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
+	ifequal PHONE_BIKER_AIDEN, .Aiden
 
 .Jack:
 	farwritetext JackRematchText
@@ -1623,6 +1644,11 @@ RematchMScript:
 	end
 .Billy:
 	farwritetext BillyRematchText
+	waitbutton
+	closetext
+	end
+.Aiden:
+	farwritetext AidenRematchText
 	waitbutton
 	closetext
 	end

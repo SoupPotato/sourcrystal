@@ -49,14 +49,92 @@ TrainerBikerEoin:
 	end
 
 TrainerBikerAiden:
-	trainer BIKER, AIDEN, EVENT_BEAT_BIKER_AIDEN, BikerAidenSeenText, BikerAidenBeatenText, 0, .Script
+	trainer BIKER, AIDEN1, EVENT_BEAT_BIKER_AIDEN, BikerAidenSeenText, BikerAidenBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	writecode VAR_CALLERID, PHONE_BIKER_AIDEN
 	opentext
+	checkflag ENGINE_AIDEN
+	iftrue .WantsBattle
+	checkcellnum PHONE_BIKER_AIDEN
+	iftrue .AidenDefeated
+	checkevent EVENT_AIDEN_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedBefore
+	writetext BikerAidenAfterBattleText
+	waitbutton
+	setevent EVENT_AIDEN_ASKED_FOR_PHONE_NUMBER
+	scall .AskNumber1
+	jump .AskForNumber
+
+.AskedBefore:
+	scall .AskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_BIKER_AIDEN
+	ifequal PHONE_CONTACTS_FULL, .PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	trainertotext BIKER, AIDEN1, MEM_BUFFER_0
+	scall .RegisteredNumber
+	jump .NumberAccepted
+
+.WantsBattle:
+	scall .Rematch
+	winlosstext BikerAidenBeatenText, 0
+	checkevent EVENT_BEAT_BLUE
+	iftrue .LoadFight2
+	checkevent ENGINE_FLYPOINT_PEWTER
+	iftrue .LoadFight1
+	loadtrainer BIKER, AIDEN1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_AIDEN
+	end
+
+.LoadFight1:
+	loadtrainer BIKER, AIDEN2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_AIDEN
+	end
+
+.LoadFight2:
+	loadtrainer BIKER, AIDEN3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_AIDEN
+	end
+
+.AidenDefeated:
 	writetext BikerAidenAfterBattleText
 	waitbutton
 	closetext
+	end
+
+.AskNumber1:
+	jumpstd asknumber1m
+	end
+
+.AskNumber2:
+	jumpstd asknumber2m
+	end
+
+.RegisteredNumber:
+	jumpstd registerednumberm
+	end
+
+.NumberAccepted:
+	jumpstd numberacceptedm
+	end
+
+.NumberDeclined:
+	jumpstd numberdeclinedm
+	end
+
+.PhoneFull:
+	jumpstd phonefullm
+	end
+
+.Rematch:
+	jumpstd rematchm
 	end
 
 TrainerBikerTheron:

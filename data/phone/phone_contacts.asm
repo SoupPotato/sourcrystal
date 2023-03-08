@@ -58,4 +58,5 @@ PhoneContacts:
 	phone SCHOOLBOY,    BILLY1,             ROUTE_15,         ANYTIME, BillyPhoneScript1,   ANYTIME, BillyPhoneScript2
 	phone TEACHER,      HILLARY1,           ROUTE_15,         ANYTIME, HillaryPhoneScript1, ANYTIME, HillaryPhoneScript2
 	phone TWINS,        KAYANDTIA1,         ROUTE_15,         ANYTIME, KayAndTiaPhoneScript1, ANYTIME, KayAndTiaPhoneScript2
+	phone BIKER,        AIDEN1,             ROUTE_17,         ANYTIME, AidenPhoneScript1,   ANYTIME, AidenPhoneScript2
 	phone TRAINER_NONE, PHONECONTACT_BUENA, GOLDENROD_DEPT_STORE_ROOF, ANYTIME, BuenaPhoneScript1, ANYTIME, BuenaPhoneScript2

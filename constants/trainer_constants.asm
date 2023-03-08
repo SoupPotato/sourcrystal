@@ -530,11 +530,13 @@ KRIS EQU __enum__
 	const REESE
 	const JOSEPH
 	const EOIN
-	const AIDEN
+	const AIDEN1
 	const THERON
 	const TEDDY
 	const MARKEY
 	const DAN
+	const AIDEN2
+	const AIDEN3
 
 	trainerclass BLAINE ; 2e
 	const BLAINE1

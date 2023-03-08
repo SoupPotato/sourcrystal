@@ -2566,3 +2566,39 @@ KayAndTiaWantsBattle:
 	landmarktotext ROUTE_15, MEM_BUFFER_2
 	setflag ENGINE_KAY_AND_TIA
 	farjump PhoneScript_WantsToBattle_Female
+
+; Aiden
+
+AidenPhoneScript1: ; You call Aiden
+	trainertotext BIKER, AIDEN1, MEM_BUFFER_0
+	checkflag ENGINE_AIDEN
+	iftrue .WaitingForBattle
+	farscall PhoneScript_AnswerPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal MONDAY, .NotMonday
+	checktime MORN
+	iftrue AidenWantsBattle
+
+.NotMonday:
+	farjump AidenTalkOnBike
+
+.WaitingForBattle:
+	landmarktotext ROUTE_17, MEM_BUFFER_2
+	farjump AidenBattleReminderScript
+
+AidenPhoneScript2: ; Calls you
+	trainertotext BIKER, AIDEN1, MEM_BUFFER_0
+	farscall PhoneScript_GreetPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal MONDAY, .GenericAidenCall
+	checktime MORN
+	iftrue AidenWantsBattle
+	jump .GenericAidenCall
+
+.GenericAidenCall:
+	farjump Phone_GenericCall_Male
+
+AidenWantsBattle:
+	landmarktotext ROUTE_17, MEM_BUFFER_2
+	setflag ENGINE_AIDEN
+	farjump PhoneScript_WantsToBattle_Male

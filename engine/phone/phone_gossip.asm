@@ -844,3 +844,12 @@ KayAndTiaQuiz:
 	farwritetext KayAndTiaQuizText
 	buttonsound
 	jump PhoneScript_HangupText_Female
+
+AidenBattleReminderScript:
+	farwritetext AidenBattleReminderText
+	end
+
+AidenTalkOnBike:
+	farwritetext AidenTalkOnBikeText
+	buttonsound
+	jump PhoneScript_HangupText_Male

@@ -14,7 +14,7 @@ KayAndTiaAskNumber1Text:
 	done
 
 KayAndTiaAskNumber2Text:
-	text "Did you decide yoU"
+	text "Did you decide you"
 	line "wanted to trade"
 	cont "numbers after all?"
 	done

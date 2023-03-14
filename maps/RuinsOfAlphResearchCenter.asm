@@ -57,6 +57,271 @@ RuinsOfAlphResearchCenter_MapScripts:
 	special RestartMapMusic
 	end
 
+RuinsOfAlphResearchCenterFossilScientistScript:
+	faceplayer
+	opentext
+	checkevent EVENT_FOSSIL_SCIENTIST_WORKING_HELIX
+	iftrue .check_fossil_step_count_helix
+	checkevent EVENT_FOSSIL_SCIENTIST_WORKING_DOME
+	iftrue .check_fossil_step_count_dome
+	checkevent EVENT_FOSSIL_SCIENTIST_WORKING_AMBER
+	iftrue .check_fossil_step_count_amber
+	writetext RuinsOfAlphResearchCenterFossilScientistDoYouHaveFossilText
+	waitbutton
+	checkitem HELIX_FOSSIL
+	iftrue .own_helix
+	checkitem DOME_FOSSIL
+	iftrue .own_dome
+	checkitem OLD_AMBER
+	iftrue IsOldAmber
+	writetext RuinsOfAlphResearchCenterFossilScientistNoFossilText
+	waitbutton
+	closetext
+	end
+
+.check_fossil_step_count_helix
+	callasm FossilCheckStepCount
+	iftrue .give_omanyte
+	writetext RuinsOfAlphResearchCenterFossilScientistNotDoneYetText
+	waitbutton
+	closetext
+	end
+
+.check_fossil_step_count_dome
+	callasm FossilCheckStepCount
+	iftrue .give_kabuto
+	writetext RuinsOfAlphResearchCenterFossilScientistNotDoneYetText
+	waitbutton
+	closetext
+	end
+
+.check_fossil_step_count_amber
+	callasm FossilCheckStepCount
+	iftrue .give_aerodactyl
+	writetext RuinsOfAlphResearchCenterFossilScientistNotDoneYetText
+	waitbutton
+	closetext
+	end
+
+
+.give_omanyte
+	writetext RuinsOfAlphResearchCenterFossilScientistDoneOmanyteText
+	waitbutton
+	checkcode VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .No_Room
+	writetext RuinsOfAlphResearchCenterPlayerReceivedOmanyteText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	givepoke OMANYTE, 5
+	writetext RuinsOfAlphResearchCenterFossilScientistTakeGoodCareOfItText
+	waitbutton
+	closetext
+	clearevent EVENT_FOSSIL_SCIENTIST_WORKING_HELIX
+	end
+
+.give_kabuto
+	writetext RuinsOfAlphResearchCenterFossilScientistDoneKabutoText
+	waitbutton
+	checkcode VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .No_Room
+	writetext RuinsOfAlphResearchCenterPlayerReceivedKabutoText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	givepoke KABUTO, 5
+	writetext RuinsOfAlphResearchCenterFossilScientistTakeGoodCareOfItText
+	waitbutton
+	closetext
+	clearevent EVENT_FOSSIL_SCIENTIST_WORKING_DOME
+	end
+
+.give_aerodactyl
+	writetext RuinsOfAlphResearchCenterFossilScientistDoneAerodactylText
+	waitbutton
+	checkcode VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .No_Room
+	writetext RuinsOfAlphResearchCenterPlayerReceivedAerodactylText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	givepoke AERODACTYL, 5
+	writetext RuinsOfAlphResearchCenterFossilScientistTakeGoodCareOfItText
+	waitbutton
+	closetext
+	clearevent EVENT_FOSSIL_SCIENTIST_WORKING_AMBER
+	end
+
+.No_Room
+	writetext RuinsOfAlphResearchCenterFossilScientistNoRoomForFossilPokemonText
+	waitbutton
+	closetext
+	end
+
+
+.own_helix
+	checkitem DOME_FOSSIL
+	iftrue .own_helix_and_dome
+	checkitem OLD_AMBER
+	iftrue .ask_helix_amber
+	writetext RuinsOfAlphResearchCenterFossilScientistIsHelixFossilText
+	yesorno
+	iftrue IsHelixFossil
+	jump .no_fossil
+
+.own_dome
+	checkitem OLD_AMBER
+	iftrue .ask_dome_amber
+	writetext RuinsOfAlphResearchCenterFossilScientistIsDomeFossilText
+	yesorno
+	iftrue IsDomeFossil
+	jump .no_fossil
+
+.own_helix_and_dome
+	checkitem OLD_AMBER
+	iftrue .ask_helix_dome_amber
+	loadmenu HelixDomeMenuDataHeader
+	verticalmenu
+	closewindow
+	ifequal $1, IsHelixFossil
+	ifequal $2, IsDomeFossil
+	jump .no_fossil
+
+.ask_helix_amber
+	loadmenu HelixAmberMenuDataHeader
+	verticalmenu
+	closewindow
+	ifequal $1, IsHelixFossil
+	ifequal $2, IsOldAmber
+	jump .no_fossil
+
+.ask_dome_amber
+	loadmenu DomeAmberMenuDataHeader
+	verticalmenu
+	closewindow
+	ifequal $1, IsDomeFossil
+	ifequal $2, IsOldAmber
+	jump .no_fossil
+
+.ask_helix_dome_amber
+	loadmenu HelixDomeAmberMenuDataHeader
+	verticalmenu
+	closewindow
+	ifequal $1, IsHelixFossil
+	ifequal $2, IsDomeFossil
+	ifequal $3, IsOldAmber
+.no_fossil:
+	writetext RuinsOfAlphResearchCenterFossilScientistNoFossilText
+	waitbutton
+	closetext
+	end
+
+HelixDomeMenuDataHeader:
+	db $40 ; flags
+	db 04, 00 ; start coords
+	db 11, 15 ; end coords
+	dw .MenuData2
+	db 1 ; default option
+
+.MenuData2:
+	db $80 ; flags
+	db 3 ; items
+	db "HELIX FOSSIL@"
+	db "DOME FOSSIL@"
+	db "CANCEL@"
+
+HelixAmberMenuDataHeader:
+	db $40 ; flags
+	db 04, 00 ; start coords
+	db 11, 15 ; end coords
+	dw .MenuData2
+	db 1 ; default option
+
+.MenuData2:
+	db $80 ; flags
+	db 3 ; items
+	db "HELIX FOSSIL@"
+	db "OLD AMBER@"
+	db "CANCEL@"
+
+DomeAmberMenuDataHeader:
+	db $40 ; flags
+	db 04, 00 ; start coords
+	db 11, 14 ; end coords
+	dw .MenuData2
+	db 1 ; default option
+
+.MenuData2:
+	db $80 ; flags
+	db 3 ; items
+	db "DOME FOSSIL@"
+	db "OLD AMBER@"
+	db "CANCEL@"
+
+HelixDomeAmberMenuDataHeader:
+	db $40 ; flags
+	db 02, 00 ; start coords
+	db 11, 15 ; end coords
+	dw .MenuData2
+	db 1 ; default option
+
+.MenuData2:
+	db $80 ; flags
+	db 4 ; items
+	db "HELIX FOSSIL@"
+	db "DOME FOSSIL@"
+	db "OLD AMBER@"
+	db "CANCEL@"
+
+IsHelixFossil:
+	writetext RuinsOfAlphResearchCenterFossilScientistIsHelixFossilText
+	yesorno
+	iffalse DeniedRessurection
+	jump GaveHelixFossil
+
+IsDomeFossil:
+	writetext RuinsOfAlphResearchCenterFossilScientistIsDomeFossilText
+	yesorno
+	iffalse DeniedRessurection
+	jump GaveDomeFossil
+
+IsOldAmber:
+	writetext RuinsOfAlphResearchCenterFossilScientistIsOldAmberText
+	yesorno
+	iffalse DeniedRessurection
+	jump GaveOldAmber
+
+DeniedRessurection:
+	writetext RuinsOfAlphResearchCenterFossilScientistNoFossilText
+	waitbutton
+	closetext
+	end
+
+GaveHelixFossil:
+	writetext RuinsOfAlphResearchCenterFossilScientistGaveFossilText
+	waitbutton
+	closetext
+	takeitem HELIX_FOSSIL
+	setevent EVENT_FOSSIL_SCIENTIST_WORKING_HELIX
+	callasm FossilSetStepCount
+	end
+
+GaveDomeFossil:
+	writetext RuinsOfAlphResearchCenterFossilScientistGaveFossilText
+	waitbutton
+	closetext
+	takeitem DOME_FOSSIL
+	setevent EVENT_FOSSIL_SCIENTIST_WORKING_DOME
+	callasm FossilSetStepCount
+	end
+
+GaveOldAmber:
+	writetext RuinsOfAlphResearchCenterFossilScientistGaveFossilText
+	waitbutton
+	closetext
+	takeitem OLD_AMBER
+	setevent EVENT_FOSSIL_SCIENTIST_WORKING_AMBER
+	callasm FossilSetStepCount
+	end
+
+
 RuinsOfAlphResearchCenterScientist3Script:
 	faceplayer
 	opentext
@@ -188,6 +453,23 @@ MovementData_0x59274:
 MovementData_0x59276:
 	step UP
 	step_end
+
+FossilSetStepCount:
+	ld a, 50
+	ld [wFossilStepCount], a
+	ret
+
+FossilCheckStepCount:
+	ld a, [wFossilStepCount]
+	cp 0
+	jr z, .yes
+	ld a, FALSE
+	ld [wScriptVar], a
+	ret
+.yes
+	ld a, TRUE
+	ld [wScriptVar], a
+	ret
 
 RuinsOfAlphResearchCenterModifiedDexText:
 	text "Done!"
@@ -391,6 +673,170 @@ RuinsOfAlphResearchCenterAcademicBooksText:
 	cont "Ancients…"
 	done
 
+RuinsOfAlphResearchCenterFossilScientistDoYouHaveFossilText:
+	text "Hiya!"
+
+	para "I am important"
+	line "doctor!"
+
+	para "I come here to"
+	line "find fossils at"
+	cont "RUINS!"
+
+	para "But I am not hav-"
+	line "ing the luck!"
+
+	para "I must do the"
+	line "fossil studying"
+
+	para "so that I can be"
+	line "bringing the"
+
+	para "ancient #MON"
+	line "back to life with"
+
+	para "my Resurrection"
+	line "Machine!"
+
+	para "Do you have fossil"
+	line "maybe?"
+	done
+
+RuinsOfAlphResearchCenterFossilScientistNoFossilText:
+	text "No fossil!"
+	line "Is too bad!"
+	done
+
+RuinsOfAlphResearchCenterFossilScientistIsHelixFossilText:
+	text "Oh! That is"
+	line "HELIX FOSSIL!"
+
+	para "Is Fossil of"
+	line "OMANYTE, a"
+	cont "#MON that is"
+	cont "being extinct!"
+
+	para "You are wanting"
+	line "me to bring the"
+
+	para "OMANYTE back"
+	line "to life?"
+	done
+
+RuinsOfAlphResearchCenterFossilScientistIsDomeFossilText:
+	text "Oh! That is"
+	line "DOME FOSSIL!"
+
+	para "Is Fossil of"
+	line "KABUTO, a"
+	cont "#MON that is"
+	cont "being extinct!"
+
+	para "You are wanting"
+	line "me to bring the"
+
+	para "KABUTO back"
+	line "to life?"
+	done
+
+RuinsOfAlphResearchCenterFossilScientistIsOldAmberText:
+	text "Oh! That is"
+	line "OLD AMBER!"
+
+	para "Is Fossil of"
+	line "AERODACTYL, a"
+	cont "#MON that is"
+	cont "being extinct!"
+
+	para "You are wanting"
+	line "me to bring the"
+
+	para "AERODACTYL back"
+	line "to life?"
+	done
+
+RuinsOfAlphResearchCenterFossilScientistGaveFossilText:
+	text "Is good!"
+	
+	para "But I take a"
+	line "little time!"
+	
+	para "You go for walk"
+	line "a little while…"
+	done
+
+RuinsOfAlphResearchCenterFossilScientistNotDoneYetText:
+	text "I am not being"
+	line "done yet."
+	
+	para "I take a little"
+	line "time!"
+	
+	para "You go walk."
+	line "I am the busy!"
+	done
+
+RuinsOfAlphResearchCenterFossilScientistDoneOmanyteText:
+	text "Where were you?"
+	
+	para "Your fossil is"
+	line "back to life!"
+	
+	para "It was OMANYTE"
+	line "like I think!"
+	done
+
+RuinsOfAlphResearchCenterFossilScientistDoneKabutoText:
+	text "Where were you?"
+	
+	para "Your fossil is"
+	line "back to life!"
+	
+	para "It was KABUTO"
+	line "like I think!"
+	done
+
+RuinsOfAlphResearchCenterFossilScientistDoneAerodactylText:
+	text "Where were you?"
+	
+	para "Your fossil is"
+	line "back to life!"
+	
+	para "It was AERODACTYL"
+	line "like I think!"
+	done
+
+RuinsOfAlphResearchCenterFossilScientistTakeGoodCareOfItText:
+	text "Is very good!"
+	
+	para "You take good"
+	line "care of it!"
+	done
+
+RuinsOfAlphResearchCenterFossilScientistNoRoomForFossilPokemonText:
+	text "You having no"
+	line "room for it!"
+
+	para "I hold onto it so"
+	line "you go make room,"
+	cont "OK?"
+	done
+
+RuinsOfAlphResearchCenterPlayerReceivedOmanyteText:
+	text "<PLAYER> received"
+	line "OMANYTE!"
+	done
+
+RuinsOfAlphResearchCenterPlayerReceivedKabutoText:
+	text "<PLAYER> received"
+	line "KABUTO!"
+	done
+
+RuinsOfAlphResearchCenterPlayerReceivedAerodactylText:
+	text "<PLAYER> received"
+	line "AERODACTYL!"
+	done
+
 RuinsOfAlphResearchCenter_MapEvents:
 	db 0, 0 ; filler
 
@@ -405,7 +851,8 @@ RuinsOfAlphResearchCenter_MapEvents:
 	bg_event  3,  4, BGEVENT_READ, RuinsOfAlphResearchCenterComputer
 	bg_event  7,  1, BGEVENT_READ, RuinsOfAlphResearchCenterPrinter
 
-	db 3 ; object events
+	db 4 ; object events
 	object_event  4,  5, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphResearchCenterScientist1Script, -1
 	object_event  5,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_WANDER, 2, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphResearchCenterScientist2Script, -1
 	object_event  2,  5, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphResearchCenterScientist3Script, EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_SCIENTIST
+	object_event  0,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphResearchCenterFossilScientistScript, -1

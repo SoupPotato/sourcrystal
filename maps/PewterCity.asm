@@ -229,12 +229,8 @@ PewterGymSignText:
 	done
 
 PewterMuseumSignText:
-	text "There's a notice"
-	line "here…"
-
-	para "PEWTER MUSEUM OF"
-	line "SCIENCE is closed"
-	cont "for renovations…"
+	text "PEWTER MUSEUM"
+	line "OF SCIENCE"
 	done
 
 PewterCityMtMoonGiftShopSignText:
@@ -288,12 +284,14 @@ PewterCityNothingHereText:
 PewterCity_MapEvents:
 	db 0, 0 ; filler
 
-	db 5 ; warp events
+	db 7 ; warp events
 	warp_event 29, 13, PEWTER_NIDORAN_SPEECH_HOUSE, 1
 	warp_event 16, 17, PEWTER_GYM, 1
 	warp_event 23, 17, PEWTER_MART, 2
 	warp_event 13, 25, PEWTER_POKECENTER_1F, 1
 	warp_event  7, 29, PEWTER_SNOOZE_SPEECH_HOUSE, 1
+	warp_event 14,  7, PEWTER_MUSEUM_1F, 1
+	warp_event 19,  5, PEWTER_MUSEUM_1F, 3
 
 	db 0 ; coord events
 
@@ -305,8 +303,8 @@ PewterCity_MapEvents:
 	bg_event 19, 29, BGEVENT_READ, PewterCityWelcomeSign
 	bg_event 14, 25, BGEVENT_READ, PewterCityPokecenterSign
 	bg_event 24, 17, BGEVENT_READ, PewterCityMartSign
-	bg_event 27,  5, BGEVENT_READ, PewterCityNoBerry
-	bg_event 29,  5, BGEVENT_READ, PewterCityNoBerry
+	bg_event 31,  5, BGEVENT_READ, PewterCityNoBerry
+	bg_event 33,  5, BGEVENT_READ, PewterCityNoBerry
 	bg_event 31,  3, BGEVENT_READ, PewterCityNoApricorn
 	bg_event 29,  3, BGEVENT_READ, PewterCityNoApricorn
 
@@ -314,7 +312,7 @@ PewterCity_MapEvents:
 	object_event 19, 11, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PewterCityCooltrainerFScript, -1
 	object_event 14, 29, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PewterCityBugCatcherScript, -1
 	object_event 29, 17, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityGrampsScript, -1
-	object_event 29,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PewterCityBerryTree, EVENT_PEWTER_BERRY
-	object_event 27,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityBerryTree2, EVENT_PEWTER_BERRY2
+	object_event 33,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PewterCityBerryTree, EVENT_PEWTER_BERRY
+	object_event 31,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityBerryTree2, EVENT_PEWTER_BERRY2
 	object_event 31,  3, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityApricornTree, EVENT_PEWTER_APRICORN
 	object_event 29,  3, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, PewterCityApricornTree2, EVENT_PEWTER_APRICORN2

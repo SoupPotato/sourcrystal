@@ -103,6 +103,12 @@ BetaVioletCity_Blocks:
 PewterCity_Blocks:
 	INCBIN "maps/PewterCity.blk"
 
+PewterMuseum1F_Blocks:
+	INCBIN "maps/PewterMuseum1F.blk"
+
+PewterMuseum2F_Blocks:
+	INCBIN "maps/PewterMuseum2F.blk"
+
 BetaIlexForest_Blocks:
 	INCBIN "maps/unused/BetaIlexForest.blk"
 

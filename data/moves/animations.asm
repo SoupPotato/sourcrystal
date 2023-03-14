@@ -3050,13 +3050,13 @@ BattleAnim_Waterfall:
 	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_WATER
 	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BUBBLE
 	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_BUBBLE
-	anim_sound 0, 1, SFX_UNKNOWN_7F
+	anim_sound 0, 1, SFX_TOXIC
 	anim_obj ANIM_OBJ_RISING_BUBBLE, 64, 104, $0
 	anim_wait 16
-	anim_sound 0, 1, SFX_UNKNOWN_7F
+	anim_sound 0, 1, SFX_TOXIC
 	anim_obj ANIM_OBJ_RISING_BUBBLE, 32, 104, $0
 	anim_wait 16
-	anim_sound 0, 1, SFX_UNKNOWN_7F
+	anim_sound 0, 1, SFX_TOXIC
 	anim_obj ANIM_OBJ_RISING_BUBBLE, 48, 104, $0
 	anim_wait 32
 	anim_clearobjs
@@ -4869,13 +4869,13 @@ BattleAnim_SludgeBomb_branch_cbc15:
 BattleAnim_Sludge_branch_cbc15:
 BattleAnim_Toxic_branch_cbc15:
 .loop
-	anim_sound 0, 1, SFX_UNKNOWN_7F
+	anim_sound 0, 1, SFX_TOXIC
 	anim_obj ANIM_OBJ_SLUDGE, 132, 72, $0
 	anim_wait 8
-	anim_sound 0, 1, SFX_UNKNOWN_7F
+	anim_sound 0, 1, SFX_TOXIC
 	anim_obj ANIM_OBJ_SLUDGE, 116, 72, $0
 	anim_wait 8
-	anim_sound 0, 1, SFX_UNKNOWN_7F
+	anim_sound 0, 1, SFX_TOXIC
 	anim_obj ANIM_OBJ_SLUDGE, 148, 72, $0
 	anim_wait 8
 	anim_loop 5, .loop

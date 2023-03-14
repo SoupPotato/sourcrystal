@@ -193,6 +193,10 @@ TilesetDarkCaveAnim:
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw vTiles2 tile $40, WriteTileFromBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
+	dw WhirlpoolFrames9, AnimateWhirlpoolTile
+	dw WhirlpoolFrames10, AnimateWhirlpoolTile
+	dw WhirlpoolFrames11, AnimateWhirlpoolTile
+	dw WhirlpoolFrames12, AnimateWhirlpoolTile
 	dw NULL,  DoneTileAnimation
 
 TilesetIcePathAnim:
@@ -1066,7 +1070,17 @@ WhirlpoolFrames6: dw vTiles2 tile $63, WhirlpoolTiles2
 WhirlpoolFrames7: dw vTiles2 tile $72, WhirlpoolTiles3
 WhirlpoolFrames8: dw vTiles2 tile $73, WhirlpoolTiles4
 
+WhirlpoolFrames9:  dw vTiles2 tile $60, WhirlpoolDarkTiles1
+WhirlpoolFrames10: dw vTiles2 tile $61, WhirlpoolDarkTiles2
+WhirlpoolFrames11: dw vTiles2 tile $70, WhirlpoolDarkTiles3
+WhirlpoolFrames12: dw vTiles2 tile $71, WhirlpoolDarkTiles4
+
 WhirlpoolTiles1: INCBIN "gfx/tilesets/whirlpool/1.2bpp"
 WhirlpoolTiles2: INCBIN "gfx/tilesets/whirlpool/2.2bpp"
 WhirlpoolTiles3: INCBIN "gfx/tilesets/whirlpool/3.2bpp"
 WhirlpoolTiles4: INCBIN "gfx/tilesets/whirlpool/4.2bpp"
+
+WhirlpoolDarkTiles1: INCBIN "gfx/tilesets/whirlpool/5.2bpp"
+WhirlpoolDarkTiles2: INCBIN "gfx/tilesets/whirlpool/6.2bpp"
+WhirlpoolDarkTiles3: INCBIN "gfx/tilesets/whirlpool/7.2bpp"
+WhirlpoolDarkTiles4: INCBIN "gfx/tilesets/whirlpool/8.2bpp"

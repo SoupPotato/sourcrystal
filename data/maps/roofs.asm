@@ -37,6 +37,7 @@ MapGroupRoofs:
 	db -1             ; 25
 	db ROOF_NEW_BARK  ; 26 (Cherrygrove)
 	db ROOF_OLIVINE   ; 27 (Route 48)
+	db -1             ; 28
 
 Roofs:
 ; entries correspond to ROOF_* constants

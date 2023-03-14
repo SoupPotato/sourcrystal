@@ -4,22 +4,22 @@ LoadSpecialMapPalette:
 	jr z, .not_dark
 	ld a, [wStatusFlags]
 	bit STATUSFLAGS_FLASH_F, a
-	jr z, .darkness
+	jp z, .darkness
 
 .not_dark
 	ld a, [wMapTileset]
 	cp TILESET_POKECOM_CENTER
-	jr z, .pokecom_2f
+	jp z, .pokecom_2f
 	cp TILESET_BATTLE_TOWER
-	jr z, .battle_tower
+	jp z, .battle_tower
 	cp TILESET_ICE_PATH
-	jr z, .ice_path
+	jp z, .ice_path
 	cp TILESET_HOUSE
-	jr z, .house
+	jp z, .house
 	cp TILESET_RADIO_TOWER
-	jr z, .radio_tower
+	jp z, .radio_tower
 	cp TILESET_MANSION
-	jr z, .mansion_mobile
+	jp z, .mansion_mobile
 	ld a, [wMapGroup]
 	cp GROUP_POKEMON_MANSION_B1F
 	jp nz, .not_Pokemon_Mansion_B1F
@@ -48,6 +48,20 @@ LoadSpecialMapPalette:
 	cp MAP_SAFARI_ZONE_AREA_4
 	jp z, .SundriedBGPalettes
 .not_safari_zone_area_4
+	ld a, [wMapGroup]
+	cp GROUP_PEWTER_MUSEUM_1F
+	jp nz, .not_pewter_museum_1f
+	ld a, [wMapNumber]
+	cp MAP_PEWTER_MUSEUM_1F
+	jp z, .MuseumBGPalettes
+.not_pewter_museum_1f
+	ld a, [wMapGroup]
+	cp GROUP_PEWTER_MUSEUM_2F
+	jp nz, .not_pewter_museum_2f
+	ld a, [wMapNumber]
+	cp MAP_PEWTER_MUSEUM_2F
+	jp z, .MuseumBGPalettes
+.not_pewter_museum_2f
 	jp .do_nothing
 
 .darkness
@@ -86,6 +100,11 @@ LoadSpecialMapPalette:
 
 .mansion_mobile
 	call LoadMansionPalette
+	scf
+	ret
+
+.MuseumBGPalettes
+	call LoadMuseumPalette
 	scf
 	ret
 
@@ -233,6 +252,17 @@ LoadMansionPalette:
 MansionPalette2:
 INCLUDE "gfx/tilesets/mansion_2.pal"
 
+LoadMuseumPalette:
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	ld hl, MuseumPalette
+	ld bc, 8 palettes
+	call FarCopyWRAM
+	ret
+
+MuseumPalette:
+INCLUDE "gfx/tilesets/museum.pal"
+
 LoadSpecialMapOBPalette:
 	ld a, [wMapGroup]
 	cp GROUP_ROUTE_30
@@ -359,7 +389,7 @@ LoadSpecialMapOBPalette:
 	jr nz, .not_dancetheater
 	ld a, [wMapNumber]
 	cp MAP_DANCE_THEATRE
-	jr z, .GrayOverRockOBPalette
+	jp z, .GrayOverRockOBPalette
 
 .not_dancetheater
 	ld a, [wMapGroup]
@@ -375,7 +405,7 @@ LoadSpecialMapOBPalette:
 	jr nz, .not_ceruleancave
 	ld a, [wMapNumber]
 	cp MAP_CERULEAN_CAVE_B1F
-	jr z, .PurpleOverPinkOBPalette
+	jp z, .PurpleOverPinkOBPalette
 
 .not_ceruleancave
 	ld a, [wMapGroup]
@@ -383,7 +413,7 @@ LoadSpecialMapOBPalette:
 	jr nz, .not_fujis_house
 	ld a, [wMapNumber]
 	cp MAP_MR_FUJIS_HOUSE
-	jr z, .PurpleOverRockYellowOverPinkOBPalette
+	jp z, .PurpleOverRockYellowOverPinkOBPalette
 
 .not_fujis_house
 	ld a, [wMapGroup]
@@ -396,10 +426,26 @@ LoadSpecialMapOBPalette:
 .not_safari_zone_area_2
 	ld a, [wMapGroup]
 	cp GROUP_SAFARI_ZONE_AREA_3
-	jr nz, .do_nothing
+	jr nz, .not_safari_zone_area_3
 	ld a, [wMapNumber]
 	cp MAP_SAFARI_ZONE_AREA_3
 	jp z, .SwampOverTreeOBPalette
+
+.not_safari_zone_area_3
+	ld a, [wMapGroup]
+	cp GROUP_PEWTER_MUSEUM_1F
+	jr nz, .not_pewter_museum_1f
+	ld a, [wMapNumber]
+	cp MAP_PEWTER_MUSEUM_1F
+	jp z, .YellowOverRockOBPalette
+
+.not_pewter_museum_1f
+	ld a, [wMapGroup]
+	cp GROUP_PEWTER_MUSEUM_2F
+	jr nz, .do_nothing
+	ld a, [wMapNumber]
+	cp MAP_PEWTER_MUSEUM_2F
+	jp z, .YellowOverRockOBPalette
 
 .do_nothing
 	and a

@@ -95,7 +95,7 @@
 	const BIG_MUSHROOM ; $57
 	const SILVERPOWDER ; $58
 	const BLU_APRICORN ; $59
-	const ITEM_5A      ; $5A
+	const HELIX_FOSSIL ; $5A
 	const AMULET_COIN  ; $5B
 	const YLW_APRICORN ; $5C
 	const GRN_APRICORN ; $5D
@@ -105,7 +105,7 @@
 	const WHT_APRICORN ; $61
 	const BLACKBELT    ; $62
 	const BLK_APRICORN ; $63
-	const ITEM_64      ; $64
+	const DOME_FOSSIL  ; $64
 	const PNK_APRICORN ; $65
 	const BLACKGLASSES ; $66
 	const SLOWPOKETAIL ; $67
@@ -125,7 +125,7 @@
 	const MIRACLE_SEED ; $75
 	const THICK_CLUB   ; $76
 	const FOCUS_BAND   ; $77
-	const ITEM_78      ; $78
+	const OLD_AMBER    ; $78
 	const ENERGYPOWDER ; $79
 	const ENERGY_ROOT  ; $7A
 	const HEAL_POWDER  ; $7B

@@ -2733,7 +2733,9 @@ wPlayerMonSelection:: ds 3
 wdc5f:: ds 1
 wdc60:: ds 19
 
-ds 4
+ds 3
+
+wFossilStepCount:: ds 1
 
 wStepCount:: db ; dc73
 wPoisonStepCount:: db ; dc74

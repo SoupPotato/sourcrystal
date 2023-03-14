@@ -577,14 +577,15 @@ ZubatEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, LEECH_LIFE
 	db 5, SUPERSONIC
-	db 9, BITE
-	db 13, SWIFT
-	db 17, CONFUSE_RAY
-	db 21, HAZE
-	db 25, WING_ATTACK
+	db 8, BITE
+	db 12, GUST
+	db 15, CONFUSE_RAY
+	db 19, SWIFT
+	db 22, HAZE
+	db 26, WING_ATTACK
 	db 29, CRUNCH
 	db 33, MEAN_LOOK
-	db 37, TOXIC
+	db 36, TOXIC
 	db 0 ; no more level-up moves
 
 GolbatEvosAttacks:
@@ -593,14 +594,15 @@ GolbatEvosAttacks:
 	db 1, SCREECH
 	db 1, LEECH_LIFE
 	db 1, SUPERSONIC
-	db 9, BITE
-	db 13, SWIFT
-	db 17, CONFUSE_RAY
-	db 21, HAZE
+	db 8, BITE
+	db 12, GUST
+	db 15, CONFUSE_RAY
+	db 19, SWIFT
+	db 22, HAZE
 	db 27, WING_ATTACK
 	db 33, CRUNCH
-	db 39, MEAN_LOOK
-	db 45, TOXIC
+	db 38, MEAN_LOOK
+	db 44, TOXIC
 	db 0 ; no more level-up moves
 
 OddishEvosAttacks:

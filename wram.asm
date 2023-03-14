@@ -2607,8 +2607,9 @@ wMobileBattleRoomSceneID::                        db ; d9c0
 wPokemonMansion1FSceneID::                        db ; d9c1
 wPokemonMansionB1FSceneID::                       db ; d9c2
 wSafariZoneEntranceSceneID::                      db ; d9c3
+wPewterMuseumSceneID::                            db ; d9c4
 
-	ds 46
+	ds 45
 
 ; fight counts
 wJackFightCount::    db ; d9f2

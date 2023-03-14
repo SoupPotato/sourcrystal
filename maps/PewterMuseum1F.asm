@@ -7,9 +7,20 @@
 	const PEWTER_MUSEUM_1F_OLD_AMBER
 
 PewterMuseum1F_MapScripts:
-	db 0 ; scene scripts
+	db 2 ; scene scripts
+	scene_script .DummyScene0 ; SCENE_
+	scene_script .DummyScene1 ; SCENE_PEWTER_MUSEUM_1F_RECEPTION_PAYED
 
 	db 0 ; callbacks
+
+.DummyScene0:
+.DummyScene1:
+	end
+
+ReceptionScene:
+	turnobject PLAYER, RIGHT
+	jump PewterMuseum1F_Reception_Scientist_Script
+	end
 
 PewterMuseum1F_Reception_Scientist_Script:
 	faceplayer
@@ -18,9 +29,34 @@ PewterMuseum1F_Reception_Scientist_Script:
 	ifequal DOWN, .DontSneakIn
 	ifequal LEFT, .DontSneakIn
 	writetext PewterMuseum1F_Scientist_ReceptionText
+	special PlaceMoneyTopRight
+	yesorno
+	iffalse .Refused
+	checkmoney YOUR_MONEY, 50
+	ifequal HAVE_LESS, .NotEnoughMoney
+	waitsfx
+	playsound SFX_TRANSACTION
+	takemoney YOUR_MONEY, 50
+	special PlaceMoneyTopRight
+	writetext PewterMuseum1F_Scientist_TicketThankYouText
+	waitbutton
+	closetext
+	setscene SCENE_PEWTER_MUSEUM_1F_RECEPTION_PAYED
+	end
+
+.NotEnoughMoney:
+	writetext PewterMuseum1F_Scientist_NotEnoughMoneyText
+	waitbutton
+	closetext
+	applymovement PLAYER, MovementData_Player_Walks_Museum_Entrance
+	end
+
+.Refused:
+	writetext PewterMuseum1F_Scientist_ComeAgainText
 	waitbutton
 	closetext
 	turnobject PEWTER_MUSEUM_1F_SCIENTIST_1, LEFT
+	applymovement PLAYER, MovementData_Player_Walks_Museum_Entrance
 	end
 
 .DontSneakIn:
@@ -60,6 +96,45 @@ PewterMuseum1F_Old_Amber_Scientist_Script:
 PewterMuseum1F_Amber_Script:
 	opentext
 	writetext PewterMuseum1F_AmberText
+	waitbutton
+	closetext
+	end
+
+PewterMuseum1F_Gramps_Script:
+	faceplayer
+	opentext
+	writetext PewterMuseum1F_Gramps_Text
+	waitbutton
+	closetext
+	turnobject PEWTER_MUSEUM_1F_GRAMPS, UP
+	end
+
+PewterMuseum1F_SuperNerd_Script:
+	faceplayer
+	opentext
+	writetext PewterMuseum1F_SuperNerd_Text
+	waitbutton
+	closetext
+	end
+
+PewterMuseum1FKabutopsFossilDisplay:
+	refreshscreen
+	pokepic MAGMAR
+	waitbutton
+	closepokepic
+	opentext
+	writetext KabutopsFossilDisplayText
+	waitbutton
+	closetext
+	end
+
+PewterMuseum1FAerodactylFossilDisplay:
+	refreshscreen
+	pokepic MAGMAR
+	waitbutton
+	closepokepic
+	opentext
+	writetext AerodactylFossilDisplayText
 	waitbutton
 	closetext
 	end
@@ -132,8 +207,62 @@ PewterMuseum1F_AmberText:
 	done
 
 PewterMuseum1F_Scientist_ReceptionText:
-	text "TEST"
+	text "Welcome!"
+	
+	para "It's ¥50 for a"
+	line "child's ticket."
+
+	para "Would you like to"
+	line "view the exhibit?"
 	done
+
+PewterMuseum1F_Scientist_ComeAgainText:
+	text "Come again!"
+	done
+
+PewterMuseum1F_Scientist_TicketThankYouText:
+	text "That's ¥50 then,"
+	line "thank you!"
+	done
+
+PewterMuseum1F_Scientist_NotEnoughMoneyText:
+	text "You don't have"
+	line "enough money!"
+	done
+
+PewterMuseum1F_Gramps_Text:
+	text "My, my, what an"
+	line "impressive fossil!"
+	done
+
+PewterMuseum1F_SuperNerd_Text:
+	text "After being to the"
+	line "RUINS OF ALPH,"
+
+	para "this MUSEUM is the"
+	line "best place to"
+	cont "visit!"
+
+	para "So much history…"
+	done
+
+KabutopsFossilDisplayText:
+	text "KABUTOPS FOSSIL"
+
+	para "A primitive and"
+	line "rare #MON."
+	done
+
+AerodactylFossilDisplayText:
+	text "AERODACTYL FOSSIL"
+
+	para "A primitive and"
+	line "rare #MON."
+	done
+
+MovementData_Player_Walks_Museum_Entrance:
+	step DOWN
+	step_end
 
 PewterMuseum1F_MapEvents:
 	db 0, 0 ; filler
@@ -145,15 +274,19 @@ PewterMuseum1F_MapEvents:
 	warp_event 17,  7, PEWTER_CITY, 7
 	warp_event  7,  7, PEWTER_MUSEUM_2F, 1
 
-	db 0 ; coord events
+	db 2 ; coord events
+	coord_event  9,  4, SCENE_DEFAULT, ReceptionScene
+	coord_event 10,  4, SCENE_DEFAULT, ReceptionScene
 
-	db 0 ; bg events
+	db 2 ; bg events
+	bg_event  3,  6, BGEVENT_READ, PewterMuseum1FKabutopsFossilDisplay
+	bg_event  3,  3, BGEVENT_READ, PewterMuseum1FAerodactylFossilDisplay
 
 	db 6 ; object events
 	object_event 12,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterMuseum1F_Reception_Scientist_Script, -1
 	object_event 15,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 2, 2, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterMuseum1F_Old_Amber_Scientist_Script, -1
 	object_event 17,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_SPINRANDOM_SLOW, 2, 2, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterMuseum1F_Fossil_Scientist_Script, -1
-	object_event  2,  4, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
-	object_event  8,  2, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
+	object_event  2,  4, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PewterMuseum1F_Gramps_Script, -1
+	object_event  8,  2, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PewterMuseum1F_SuperNerd_Script, -1
 	object_event 16,  2, SPRITE_OLD_AMBER, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, PewterMuseum1F_Amber_Script, EVENT_PEWTER_MUSEUM_OBTAINED_OLD_AMBER
 

@@ -16,6 +16,7 @@ PewterCity_MapScripts:
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_PEWTER
+	setmapscene PEWTER_MUSEUM_1F, SCENE_DEFAULT
 	return
 
 .Fruittrees

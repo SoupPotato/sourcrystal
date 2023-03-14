@@ -247,6 +247,8 @@ INCLUDE "maps/BrunosRoom.asm"
 INCLUDE "maps/KarensRoom.asm"
 INCLUDE "maps/LancesRoom.asm"
 INCLUDE "maps/HallOfFame.asm"
+INCLUDE "maps/PewterMuseum1F.asm"
+INCLUDE "maps/PewterMuseum2F.asm"
 
 
 SECTION "Map Scripts 14", ROMX
@@ -419,8 +421,6 @@ INCLUDE "maps/PewterMart.asm"
 INCLUDE "maps/PewterPokecenter1F.asm"
 INCLUDE "maps/PewterPokecenter2FBeta.asm"
 INCLUDE "maps/PewterSnoozeSpeechHouse.asm"
-INCLUDE "maps/PewterMuseum1F.asm"
-INCLUDE "maps/PewterMuseum2F.asm"
 
 
 SECTION "Map Scripts 22", ROMX

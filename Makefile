@@ -144,7 +144,7 @@ gfx/pokemon/%/front.animated.tilemap: gfx/pokemon/%/front.2bpp gfx/pokemon/%/fro
 gfx/new_game/shrink1.2bpp: rgbgfx += -h
 gfx/new_game/shrink2.2bpp: rgbgfx += -h
 
-gfx/trainers/%.2bpp: rgbgfx += -h
+gfx/trainers/%.2bpp: rgbgfx += -Z
 gfx/trainers/%.pal: gfx/trainers/%.gbcpal
 	tools/palette -p $< > $@
 gfx/trainers/%.gbcpal: gfx/trainers/%.png

@@ -772,4 +772,8 @@ KRIS EQU __enum__
 	const ZACANDJEN
 	const ELANANDIDA
 
+	trainerclass KABUTOPS_FOSSIL ; 56
+
+	trainerclass AERODACTYL_FOSSIL ; 47
+
 NUM_TRAINER_CLASSES EQU __enum__

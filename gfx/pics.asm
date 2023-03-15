@@ -724,6 +724,8 @@ UrsaringFrontpic:    INCBIN "gfx/pokemon/ursaring/front.animated.2bpp.lz"
 CouplePic:           INCBIN "gfx/trainers/couple.2bpp.lz"
 CoolduoPic:          INCBIN "gfx/trainers/cool_duo.2bpp.lz"
 ButterfreeFrontpic:  INCBIN "gfx/pokemon/butterfree/front.animated.2bpp.lz"
+KabutopsFossilPic:   INCBIN "gfx/trainers/kabutops_fossil.2bpp.lz"
+AerodactylFossilPic: INCBIN "gfx/trainers/aerodactyl_fossil.2bpp.lz"
 
 
 SECTION "Pics 21", ROMX

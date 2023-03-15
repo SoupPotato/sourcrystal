@@ -1058,3 +1058,9 @@ ENDM
 MACRO checksave
 	db checksave_command
 ENDM
+
+	enum trainerpic_command ; $aa
+MACRO trainerpic
+	db trainerpic_command
+	db \1 ; trainer
+ENDM

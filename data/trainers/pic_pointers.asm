@@ -71,3 +71,5 @@ TrainerPicPointers::
 	dba_pic MysticalmanPic
 	dba_pic CouplePic
 	dba_pic CoolduoPic
+	dba_pic KabutopsFossilPic
+	dba_pic AerodactylFossilPic

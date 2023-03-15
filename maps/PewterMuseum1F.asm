@@ -119,7 +119,7 @@ PewterMuseum1F_SuperNerd_Script:
 
 PewterMuseum1FKabutopsFossilDisplay:
 	refreshscreen
-	pokepic MAGMAR
+	trainerpic KABUTOPS_FOSSIL
 	waitbutton
 	closepokepic
 	opentext
@@ -130,7 +130,7 @@ PewterMuseum1FKabutopsFossilDisplay:
 
 PewterMuseum1FAerodactylFossilDisplay:
 	refreshscreen
-	pokepic MAGMAR
+	trainerpic AERODACTYL_FOSSIL
 	waitbutton
 	closepokepic
 	opentext

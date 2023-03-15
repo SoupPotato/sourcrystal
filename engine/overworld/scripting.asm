@@ -237,6 +237,7 @@ endc
 	dw Script_name                       ; a7
 	dw Script_wait                       ; a8
 	dw Script_checksave                  ; a9
+	dw Script_trainerpic                 ; aa
 
 StartScript:
 	ld hl, wScriptFlags
@@ -2831,6 +2832,21 @@ Script_checksave:
 
 .byte
 	db 0
+
+Script_trainerpic:
+; script command 0xac
+; parameters:
+;     trainer (TrainerParam)
+
+	call GetScriptByte
+	and a
+	jr nz, .ok
+	ld a, [wScriptVar]
+.ok
+	ld [wTrainerClass], a
+	callba Trainerpic
+	ret
+; 96f29
 
 AppendTMHMMoveName::
 ; a = item ID

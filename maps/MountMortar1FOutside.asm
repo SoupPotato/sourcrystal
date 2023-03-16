@@ -24,8 +24,9 @@ MountMortar1FHelixFossil:
 	yesorno
 	iffalse .nope
 	disappear MOUNTMORTAR1FOUTSIDE_HELIX_FOSSIL
-	setevent EVENT_MT_MORTAR_OBTAINED_FOSSIL
+	setevent EVENT_MT_MORTAR_OBTAINED_HELIX_FOSSIL
 	setevent EVENT_DOME_FOSSIL_AT_MT_MOON
+	setevent EVENT_MT_MORTAR_OBTAINED_FOSSIL
 	verbosegiveitem HELIX_FOSSIL
 	closetext
 rept 6
@@ -73,8 +74,9 @@ MountMortar1FDomeFossil:
 	yesorno
 	iffalse .nope
 	disappear MOUNTMORTAR1FOUTSIDE_DOME_FOSSIL
-	setevent EVENT_MT_MORTAR_OBTAINED_FOSSIL
+	setevent EVENT_MT_MORTAR_OBTAINED_DOME_FOSSIL
 	setevent EVENT_HELIX_FOSSIL_AT_MT_MOON
+	setevent EVENT_MT_MORTAR_OBTAINED_FOSSIL
 	verbosegiveitem DOME_FOSSIL
 	closetext
 rept 6

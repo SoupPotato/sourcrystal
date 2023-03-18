@@ -26,7 +26,7 @@ UsedMoveText:
 
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
-	ld [wd265], a
+	ld [wTempSpecies], a
 
 	push hl
 	farcall CheckUserIsCharging
@@ -34,7 +34,7 @@ UsedMoveText:
 	jr nz, .ok
 
 	; update last move
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [hl], a
 	ld [de], a
 

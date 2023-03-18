@@ -1221,7 +1221,7 @@ Text_BreedingIsNotPossible::
 UnknownText_0x1bd0d8::
 	text "The compatibility"
 	line "is @"
-	deciram wd265, 1, 3
+	deciram wTempSpecies, 1, 3
 	text "."
 	cont "Should they breed?"
 	done

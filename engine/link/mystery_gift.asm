@@ -1434,7 +1434,7 @@ Function105688:
 	ld de, wMysteryGiftTrainerData
 	farcall Function8ac70
 	ld a, c
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ld hl, Text_CardNotRegistered
 	jr c, PrintTextAndExit_JP
 	ld hl, Text_ListedCardAsNumber

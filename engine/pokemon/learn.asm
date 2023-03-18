@@ -36,7 +36,7 @@ LearnMove:
 
 	push hl
 	push de
-	ld [wd265], a
+	ld [wTempSpecies], a
 
 	ld b, a
 	ld a, [wBattleMode]

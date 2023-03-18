@@ -733,7 +733,7 @@ CantUseItemText:
 
 PartyMonItemName:
 	ld a, [wCurItem]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetItemName
 	call CopyName1
 	ret
@@ -946,17 +946,17 @@ TryGiveItemToPartymon:
 	ret
 
 .already_holding_item
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetItemName
 	ld hl, SwitchAlreadyHoldingText
 	call StartMenuYesNo
 	jr c, .abort
 
 	call GiveItemToPokemon
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	push af
 	ld a, [wCurItem]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	pop af
 	ld [wCurItem], a
 	call ReceiveItemFromPokemon
@@ -964,13 +964,13 @@ TryGiveItemToPartymon:
 
 	ld hl, TookAndMadeHoldText
 	call MenuTextBoxBackup
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [wCurItem], a
 	call GivePartyItem
 	ret
 
 .bag_full
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [wCurItem], a
 	call ReceiveItemFromPokemon
 	ld hl, ItemStorageIsFullText
@@ -1009,7 +1009,7 @@ TakePartyItem:
 	farcall ItemIsMail
 	call GetPartyItemLocation
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ld [hl], NO_ITEM
 	call GetItemName
 	ld hl, TookFromText
@@ -1713,7 +1713,7 @@ SetUpMoveScreenBG:
 	ld hl, wPartySpecies
 	add hl, de
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ld e, $2
 	farcall LoadMenuMonIcon
 	hlcoord 0, 1
@@ -1814,8 +1814,8 @@ PlaceMoveData:
 	hlcoord 16, 12
 	cp 2
 	jr c, .no_power
-	ld [wd265], a
-	ld de, wd265
+	ld [wTempSpecies], a
+	ld de, wTempSpecies
 	lb bc, 1, 3
 	call PrintNum
 	jr .description

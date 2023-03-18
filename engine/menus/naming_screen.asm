@@ -88,13 +88,13 @@ NamingScreen:
 
 .Pokemon:
 	ld a, [wCurPartySpecies]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ld hl, LoadMenuMonIcon
 	ld a, BANK(LoadMenuMonIcon)
 	ld e, $1
 	rst FarCall ;  ; indirect jump to LoadMenuMonIcon (8e83f (23:683f))
 	ld a, [wCurPartySpecies]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetPokemonName
 	hlcoord 5, 2
 	call PlaceString

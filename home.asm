@@ -217,7 +217,7 @@ INCLUDE "home/hp_pals.asm"
 
 CountSetBits::
 ; Count the number of set bits in b bytes starting from hl.
-; Return in a, c and [wd265].
+; Return in a, c and [wTempSpecies].
 	ld c, 0
 .next
 	ld a, [hli]
@@ -236,7 +236,7 @@ CountSetBits::
 	jr nz, .next
 
 	ld a, c
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ret
 
 GetWeekday::

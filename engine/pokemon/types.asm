@@ -77,9 +77,9 @@ PrintType:
 
 
 GetTypeName:
-; Copy the name of type [wd265] to wStringBuffer1.
+; Copy the name of type [wTempSpecies] to wStringBuffer1.
 
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld hl, TypeNames
 	ld e, a
 	ld d, 0

@@ -1037,7 +1037,7 @@ PCMonInfo:
 	cp -1
 	ret z
 
-	ld [wd265], a
+	ld [wTempSpecies], a
 	hlcoord 1, 4
 	xor a
 	ld b, 7
@@ -1059,7 +1059,7 @@ PCMonInfo:
 	jr nz, .row
 
 	call BillsPC_LoadMonStats
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [wCurPartySpecies], a
 	ld [wCurSpecies], a
 	ld hl, wTempMonDVs
@@ -1070,7 +1070,7 @@ PCMonInfo:
 	xor a
 	ld [wBillsPC_MonHasMail], a
 	ld a, [wCurPartySpecies]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	cp EGG
 	ret z
 
@@ -1678,9 +1678,9 @@ StatsScreenDPad:
 	and a
 	jr z, .did_nothing
 	call BillsPC_GetSelectedPokemonSpecies
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call BillsPC_LoadMonStats
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [wCurPartySpecies], a
 	ld [wCurSpecies], a
 	ld hl, wTempMonDVs
@@ -1896,7 +1896,7 @@ ReleasePKMN_ByePKMN:
 .skip_cry
 
 	ld a, [wCurPartySpecies]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetPokemonName
 	hlcoord 1, 16
 	ld de, PCString_ReleasedPKMN
@@ -2316,9 +2316,9 @@ BillsPC_PrintBoxCountAndCapacity:
 	ld de, .Pokemon
 	call PlaceString
 	call GetBoxCount
-	ld [wd265], a
+	ld [wTempSpecies], a
 	hlcoord 13, 11
-	ld de, wd265
+	ld de, wTempSpecies
 	lb bc, 1, 2
 	call PrintNum
 	ld de, .out_of_20

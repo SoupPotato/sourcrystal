@@ -262,7 +262,7 @@ UnknownText_0x1c0531::
 	text_from_ram wc850
 	text "'s CARD was"
 	line "listed as no.@"
-	deciram wd265, 1, 2
+	deciram wTempSpecies, 1, 2
 	text "."
 	prompt
 

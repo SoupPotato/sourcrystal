@@ -406,7 +406,7 @@ FlyFunction_InitGFX:
 	ld d, 0
 	add hl, de
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ld e, $84
 	farcall FlyFunction_GetMonIcon
 	xor a

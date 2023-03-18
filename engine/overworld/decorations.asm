@@ -562,7 +562,7 @@ GetDecoName:
 
 .getpokename
 	push bc
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetPokemonName
 	pop bc
 	jr .copy

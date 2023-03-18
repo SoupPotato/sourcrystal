@@ -23,7 +23,7 @@ GetName::
 	jr nz, .NotPokeName
 
 	ld a, [wCurSpecies]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetPokemonName
 	ld hl, MON_NAME_LENGTH
 	add hl, de
@@ -111,7 +111,7 @@ GetBasePokemonName::
 
 
 GetPokemonName::
-; Get Pokemon name wd265.
+; Get Pokemon name wTempSpecies.
 
 	ld a, [hROMBank]
 	push af
@@ -120,7 +120,7 @@ GetPokemonName::
 	rst Bankswitch
 
 ; Each name is ten characters
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	dec a
 	ld d, 0
 	ld e, a
@@ -148,11 +148,11 @@ GetPokemonName::
 	ret
 
 GetItemName::
-; Get item name wd265.
+; Get item name wTempSpecies.
 
 	push hl
 	push bc
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 
 	cp TM01
 	jr nc, .TM
@@ -171,12 +171,12 @@ GetItemName::
 	ret
 
 GetTMHMName::
-; Get TM/HM name by item id wd265.
+; Get TM/HM name by item id wTempSpecies.
 
 	push hl
 	push de
 	push bc
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	push af
 
 ; TM/HM prefix
@@ -198,7 +198,7 @@ GetTMHMName::
 
 ; TM/HM number
 	push de
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld c, a
 	callfar GetTMHMNumber
 	pop de
@@ -236,7 +236,7 @@ GetTMHMName::
 	ld [de], a
 
 	pop af
-	ld [wd265], a
+	ld [wTempSpecies], a
 	pop bc
 	pop de
 	pop hl

@@ -178,7 +178,7 @@ StartMenu_PrintBugContestStatus:
 	and a
 	ld de, .None
 	jr z, .no_contest_mon
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetPokemonName
 
 .no_contest_mon

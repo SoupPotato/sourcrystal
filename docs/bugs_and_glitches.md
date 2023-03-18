@@ -1106,7 +1106,7 @@ The exact cause is unknown, but a workaround exists for `DexEntryScreen_MenuActi
 ```asm
 .Cry:
 	call Pokedex_GetSelectedMon
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	call GetCryIndex
 	ld e, c
 	ld d, b

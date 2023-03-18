@@ -55,7 +55,7 @@ DoWeatherModifiers:
 	ld de, WeatherTypeModifiers
 	ld a, [wBattleWeather]
 	ld b, a
-	ld a, [wd265] ; move type
+	ld a, [wTempSpecies] ; move type
 	ld c, a
 
 .CheckWeatherType:
@@ -180,7 +180,7 @@ DoBadgeTypeBoosts:
 	rr c
 	jr nc, .NextBadge
 
-	ld a, [wd265] ; move type
+	ld a, [wTempSpecies] ; move type
 	cp [hl]
 	jr z, .ApplyBoost
 

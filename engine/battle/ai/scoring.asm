@@ -173,7 +173,7 @@ AI_Types:
 	pop bc
 	pop hl
 
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	and a
 	jr z, .immune
 	cp 10 ; 1.0
@@ -421,7 +421,7 @@ AI_Smart_LeechHit:
 	pop hl
 
 ; 60% chance to discourage this move if not very effective.
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	cp 10 ; 1.0
 	jr c, .asm_38815
 
@@ -498,7 +498,7 @@ AI_Smart_LockOn:
 	push hl
 	push bc
 	farcall BattleCheckTypeMatchup
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	cp $a
 	pop bc
 	pop hl
@@ -1332,7 +1332,7 @@ AI_Smart_Mimic:
 	ld [hBattleTurn], a
 	callfar BattleCheckTypeMatchup
 
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	cp $a
 	pop hl
 	jr c, .asm_38bef
@@ -1451,7 +1451,7 @@ AI_Smart_Encore:
 	predef CheckTypeMatchup
 
 	pop hl
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	cp $a
 	jr nc, .asm_38c68
 
@@ -1732,7 +1732,7 @@ AI_Smart_Conversion2:
 
 	callfar BattleCheckTypeMatchup
 
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	cp $a
 	pop hl
 	jr c, .asm_38dc9
@@ -2369,7 +2369,7 @@ AI_Smart_HiddenPower:
 	pop hl
 
 ; Discourage Hidden Power if not very effective.
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	cp 10
 	jr c, .bad
 
@@ -2379,7 +2379,7 @@ AI_Smart_HiddenPower:
 	jr c, .bad
 
 ; Encourage Hidden Power if super-effective.
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	cp 11
 	jr nc, .good
 
@@ -3233,7 +3233,7 @@ AI_Status:
 	pop bc
 	pop hl
 
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	and a
 	jr nz, .checkmove
 

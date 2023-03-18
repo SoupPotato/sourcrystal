@@ -3907,7 +3907,7 @@ Function17f1d0:
 	ld a, [hl]
 	ld a, $1
 	ld [rSVBK], a
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetPokemonName
 	pop hl
 	call PlaceString
@@ -4026,7 +4026,7 @@ Function17f27b:
 	ld a, [hl]
 	ld a, $1
 	ld [rSVBK], a
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetItemName
 	pop hl
 	call PlaceString

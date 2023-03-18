@@ -250,9 +250,9 @@ TMHM_ShowTMMoveDescription:
 	ld a, [wCurItem]
 	cp NUM_TMS + NUM_HMS + 1
 	jr nc, TMHM_JoypadLoop
-	ld [wd265], a
+	ld [wTempSpecies], a
 	predef GetTMHMMove
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [wCurSpecies], a
 	hlcoord 1, 14
 	call PrintMoveDesc
@@ -260,14 +260,14 @@ TMHM_ShowTMMoveDescription:
 
 TMHM_ChooseTMorHM:
 	call TMHM_PlaySFX_ReadText2
-	call CountTMsHMs ; This stores the count to wd265.
+	call CountTMsHMs ; This stores the count to wTempSpecies.
 	ld a, [wMenuCursorY]
 	dec a
 	ld b, a
 	ld a, [wTMHMPocketScrollPosition]
 	add b
 	ld b, a
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	cp b
 	jr z, _TMHM_ExitPack ; our cursor was hovering over CANCEL
 TMHM_CheckHoveringOverCancel:
@@ -353,16 +353,16 @@ TMHM_DisplayPocketItems:
 	jr z, .loop2
 	ld b, a
 	ld a, c
-	ld [wd265], a
+	ld [wTempSpecies], a
 	push hl
 	push de
 	push bc
 	call TMHMPocket_GetCurrentLineCoord
 	push hl
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	cp NUM_TMS + 1
 	jr nc, .HM
-	ld de, wd265
+	ld de, wTempSpecies
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
 	call PrintNum
 	jr .okay
@@ -370,17 +370,17 @@ TMHM_DisplayPocketItems:
 .HM:
 	push af
 	sub NUM_TMS
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ld [hl], "H"
 	inc hl
-	ld de, wd265
+	ld de, wTempSpecies
 	lb bc, PRINTNUM_RIGHTALIGN | 1, 2
 	call PrintNum
 	pop af
-	ld [wd265], a
+	ld [wTempSpecies], a
 .okay
 	predef GetTMHMMove
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [wPutativeTMHMMove], a
 	call GetMoveName
 	pop hl
@@ -424,7 +424,7 @@ Unreferenced_Function2ca95:
 	ld bc, 3
 	add hl, bc
 	predef GetTMHMMove
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [wPutativeTMHMMove], a
 	call GetMoveName
 	push hl
@@ -487,7 +487,7 @@ Unreferenced_Function2cadf:
 	db "@"
 
 .CheckHaveRoomForTMHM:
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	dec a
 	ld hl, wTMsHMs
 	ld b, 0
@@ -513,7 +513,7 @@ CountTMsHMs:
 	dec c
 	jr nz, .loop
 	ld a, b
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ret
 
 PrintMoveDesc:

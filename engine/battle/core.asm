@@ -402,7 +402,7 @@ HandleBerserkGene:
 	push bc
 	callfar GetUserItem
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	sub BERSERK_GENE
 	pop bc
 	pop de
@@ -1204,7 +1204,7 @@ HandlePerishSong:
 	ret z
 	dec [hl]
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	push af
 	ld hl, PerishCountText
 	call StdBattleTextBox
@@ -1278,7 +1278,7 @@ HandleWrap:
 	ret nz
 
 	ld a, [de]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ld [wFXAnimID], a
 	call GetMoveName
 	dec [hl]
@@ -1361,7 +1361,7 @@ HandleLeftovers:
 
 	callfar GetUserItem
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetItemName
 	ld a, b
 	cp HELD_LEFTOVERS
@@ -1470,7 +1470,7 @@ HandleMysteryberry:
 	push bc
 	push bc
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ld de, wBattleMonMoves - 1
 	ld hl, wBattleMonPP
 	ld a, [hBattleTurn]
@@ -1490,7 +1490,7 @@ HandleMysteryberry:
 	pop de
 	pop bc
 
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	cp [hl]
 	jr nz, .skip_checks
 	ld a, [hBattleTurn]
@@ -1507,7 +1507,7 @@ HandleMysteryberry:
 .skip_checks
 	callfar GetUserItem
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	xor a
 	ld [hl], a
 	call GetPartymonItem
@@ -2263,6 +2263,8 @@ UpdateBattleStateAndExperienceAfterEnemyFaint:
 	ld a, [wBattleResult]
 	and BATTLERESULT_BITMASK
 	ld [wBattleResult], a ; WIN
+	; fallthrough
+ApplyExperienceAfterEnemyCaught:
 	call IsAnyMonHoldingExpShare
 	jr z, .skip_exp
 	ld hl, wEnemyMonBaseStats
@@ -3418,7 +3420,7 @@ LookUpTheEffectivenessOfEveryMove:
 	pop bc
 	pop de
 	pop hl
-	ld a, [wd265] ; Get The Effectiveness Modifier
+	ld a, [wTempSpecies] ; Get The Effectiveness Modifier
 	cp 10 + 1 ; 1.0 + 0.1
 	jr c, .loop
 	ld hl, wBuffer1
@@ -3450,13 +3452,13 @@ IsThePlayerMonTypesEffectiveAgainstOTMon:
 	ld [wPlayerMoveStruct + MOVE_TYPE], a
 	call SetPlayerTurn
 	callfar BattleCheckTypeMatchup
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	cp 10 + 1 ; 1.0 + 0.1
 	jr nc, .super_effective
 	ld a, [wBattleMonType2]
 	ld [wPlayerMoveStruct + MOVE_TYPE], a
 	callfar BattleCheckTypeMatchup
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	cp 10 + 1 ; 1.0 + 0.1
 	jr nc, .super_effective
 	pop bc
@@ -3835,7 +3837,7 @@ TryToRunAwayFromBattle:
 	push hl
 	push de
 	ld a, [wBattleMonItem]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ld b, a
 	callfar GetItemHeldEffect
 	ld a, b
@@ -4571,7 +4573,7 @@ UseConfusionHealingItem:
 
 .heal_status
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVarAddr
 	res SUBSTATUS_CONFUSED, [hl]
@@ -4638,7 +4640,7 @@ HandleStatBoostingHeldItems:
 	jr nz, .loop
 	pop bc
 	ld a, [bc]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	push bc
 	dec hl
 	dec hl
@@ -5553,7 +5555,7 @@ PassedBattleMonEntrance:
 	call AddBattleParticipant
 	call InitBattleMon
 	xor a
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call ApplyStatLevelMultiplierOnAllStats
 	call SendOutPlayerMon
 	call EmptyBattleTextBox
@@ -6664,7 +6666,7 @@ LoadEnemyMon:
 	ld [de], a
 
 	ld a, [wTempEnemyMonSpecies]
-	ld [wd265], a
+	ld [wTempSpecies], a
 
 	call GetPokemonName
 
@@ -6963,7 +6965,7 @@ ApplyStatLevelMultiplierOnAllStats:
 ApplyStatLevelMultiplier:
 	push bc
 	push bc
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	and a
 	ld a, c
 	ld hl, wBattleMonAttack
@@ -7489,7 +7491,7 @@ GiveExperiencePoints:
 	add hl, bc
 	ld a, [hl]
 	ld [wCurSpecies], a
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetBaseData
 	ld hl, MON_MAXHP + 1
 	add hl, bc
@@ -7554,7 +7556,7 @@ GiveExperiencePoints:
 
 .transformed
 	xor a
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call ApplyStatLevelMultiplierOnAllStats
 	callfar ApplyStatusEffectOnPlayerStats
 	callfar BadgeStatBoosts
@@ -7596,7 +7598,7 @@ GiveExperiencePoints:
 	xor a ; PARTYMON
 	ld [wMonType], a
 	ld a, [wCurSpecies]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ld a, [wCurPartyLevel]
 	push af
 	ld c, a
@@ -7656,7 +7658,7 @@ GiveExperiencePoints:
 	cp 2
 	ret c
 
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ld hl, wEnemyMonBaseStats
 	ld c, wEnemyMonEnd - wEnemyMonBaseStats
 .count_loop2
@@ -7664,7 +7666,7 @@ GiveExperiencePoints:
 	ld [hDividend + 0], a
 	ld a, [hl]
 	ld [hDividend + 1], a
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [hDivisor], a
 	ld b, 2
 	call Divide

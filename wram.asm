@@ -2195,7 +2195,7 @@ wCurTMHM::
 wTempTMHM::
 wTypeMatchup::
 wFoundMatchingIDInParty::
-wd265::
+wTempSpecies::
 	db
 
 wFailedToFlee:: db

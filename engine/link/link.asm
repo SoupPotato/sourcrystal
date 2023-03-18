@@ -149,13 +149,13 @@ Gen2ToGen1LinkComms:
 	ld a, [hli]
 	cp -1
 	jr z, .done_party
-	ld [wd265], a
+	ld [wTempSpecies], a
 	push hl
 	push de
 	callfar ConvertMon_1to2
 	pop de
 	pop hl
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [de], a
 	inc de
 	jr .party_loop
@@ -651,13 +651,13 @@ Link_PrepPartyData_Gen1:
 	ld a, [hli]
 	cp -1
 	jr z, .done_party
-	ld [wd265], a
+	ld [wTempSpecies], a
 	push hl
 	push de
 	callfar ConvertMon_2to1
 	pop de
 	pop hl
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [de], a
 	inc de
 	jr .loop2
@@ -692,11 +692,11 @@ Link_PrepPartyData_Gen1:
 	push de
 	push bc
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	callfar ConvertMon_2to1
 	pop bc
 	pop de
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [de], a
 	inc de
 	ld hl, MON_HP
@@ -976,11 +976,11 @@ Function2868a:
 	inc de
 	push bc
 	push de
-	ld [wd265], a
+	ld [wTempSpecies], a
 	callfar ConvertMon_1to2
 	pop de
 	pop bc
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [bc], a
 	ld [wCurSpecies], a
 	ld hl, MON_HP
@@ -1463,7 +1463,7 @@ Function28926:
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetPokemonName
 	hlcoord 0, 12
 	ld b, 4
@@ -1623,7 +1623,7 @@ LinkTrade:
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetPokemonName
 	ld hl, wStringBuffer1
 	ld de, wd004
@@ -1635,7 +1635,7 @@ LinkTrade:
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetPokemonName
 	ld hl, UnknownText_0x28eb8
 	bccoord 1, 14
@@ -2052,14 +2052,14 @@ CheckTimeCapsuleCompatibility:
 	jr .done
 
 .mon_too_new
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetPokemonName
 	ld a, $1
 	jr .done
 
 .move_too_new
 	push bc
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetMoveName
 	call CopyName1
 	pop bc
@@ -2084,7 +2084,7 @@ Function29c67:
 	ld hl, wPartyCount
 	add hl, bc
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetPokemonName
 	ret
 
@@ -2151,13 +2151,13 @@ WaitForOtherPlayerToExit:
 SetBitsForLinkTradeRequest:
 	ld a, LINK_TRADECENTER - 1
 	ld [wPlayerLinkAction], a
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ret
 
 SetBitsForBattleRequest:
 	ld a, LINK_COLOSSEUM - 1
 	ld [wPlayerLinkAction], a
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ret
 
 SetBitsForTimeCapsuleRequest:
@@ -2171,7 +2171,7 @@ SetBitsForTimeCapsuleRequest:
 	ld [rSC], a
 	xor a ; LINK_TIMECAPSULE - 1
 	ld [wPlayerLinkAction], a
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ret
 
 WaitForLinkedFriend:
@@ -2378,7 +2378,7 @@ Link_CheckCommunicationError:
 	ret
 
 TryQuickSave:
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	push af
 	farcall Link_SaveGame
 	ld a, TRUE
@@ -2387,11 +2387,11 @@ TryQuickSave:
 .return_result
 	ld [wScriptVar], a
 	pop af
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ret
 
 CheckBothSelectedSameRoom:
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	call Link_EnsureSync
 	push af
 	call LinkDataReceived
@@ -2399,10 +2399,10 @@ CheckBothSelectedSameRoom:
 	call LinkDataReceived
 	pop af
 	ld b, a
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	cp b
 	jr nz, .fail
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	inc a
 	ld [wLinkMode], a
 	xor a

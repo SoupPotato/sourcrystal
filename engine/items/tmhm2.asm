@@ -33,14 +33,14 @@ CanLearnTMHMMove:
 	ret
 
 GetTMHMMove:
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	dec a
 	ld hl, TMHMMoves
 	ld b, 0
 	ld c, a
 	add hl, bc
 	ld a, [hl]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	ret
 
 

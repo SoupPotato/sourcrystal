@@ -705,8 +705,8 @@ PrintHour:
 	inc hl
 	pop bc
 	call AdjustHourForAMorPM
-	ld [wd265], a
-	ld de, wd265
+	ld [wTempSpecies], a
+	ld de, wTempSpecies
 	call PrintTwoDigitNumberRightAlign
 	ret
 

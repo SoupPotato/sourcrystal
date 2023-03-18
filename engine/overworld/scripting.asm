@@ -635,7 +635,7 @@ INCLUDE "data/items/pocket_names.asm"
 
 CurItemName:
 	ld a, [wCurItem]
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetItemName
 	ret
 
@@ -1878,7 +1878,7 @@ Script_pokenamemem:
 	jr nz, .gotit
 	ld a, [wScriptVar]
 .gotit
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetPokemonName
 	ld de, wStringBuffer1
 
@@ -1905,7 +1905,7 @@ Script_itemtotext:
 	jr nz, .ok
 	ld a, [wScriptVar]
 .ok
-	ld [wd265], a
+	ld [wTempSpecies], a
 	call GetItemName
 	ld de, wStringBuffer1
 	jr ConvertMemToText

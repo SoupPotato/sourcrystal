@@ -19,7 +19,7 @@ SetMenuMonIconColor:
 	push bc
 	push af
 
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [wCurPartySpecies], a
 	call GetMenuMonIconPalette
 	ld hl, wVirtualOAMSprite00Attributes
@@ -31,7 +31,7 @@ SetMenuMonIconColor_NoShiny:
 	push bc
 	push af
 
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	ld [wCurPartySpecies], a
 	and a
 	call GetMenuMonIconPalette_PredeterminedShininess
@@ -328,7 +328,7 @@ SetPartyMonIconAnimSpeed:
 NamingScreen_InitAnimatedMonIcon:
 	ld hl, wTempMonDVs
 	call SetMenuMonIconColor
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	call ReadMonMenuIcon
 	ld [wCurIcon], a
 	xor a
@@ -345,7 +345,7 @@ MoveList_InitAnimatedMonIcon:
 	ld a, MON_DVS
 	call GetPartyParamLocation
 	call SetMenuMonIconColor
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	call ReadMonMenuIcon
 	ld [wCurIcon], a
 	xor a
@@ -360,7 +360,7 @@ MoveList_InitAnimatedMonIcon:
 	ret
 
 Trade_LoadMonIconGFX:
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	call ReadMonMenuIcon
 	ld [wCurIcon], a
 	ld a, $62
@@ -374,7 +374,7 @@ GetSpeciesIcon:
 	ld a, MON_DVS
 	call GetPartyParamLocation
 	call SetMenuMonIconColor
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	call ReadMonMenuIcon
 	ld [wCurIcon], a
 	pop de
@@ -385,7 +385,7 @@ GetSpeciesIcon:
 GetFlyIcon: ; 8e9ac
 ; Load species icon into VRAM at tile a
 	push de
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	call FlyMonMenuIcon
 	ld [wCurIcon], a
 	pop de
@@ -396,7 +396,7 @@ GetFlyIcon: ; 8e9ac
 
 FlyFunction_GetMonIcon:
 	push de
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	call FlyMonMenuIcon
 	ld [wCurIcon], a
 	pop de
@@ -406,7 +406,7 @@ FlyFunction_GetMonIcon:
 
 Unreferenced_GetMonIcon2:
 	push de
-	ld a, [wd265]
+	ld a, [wTempSpecies]
 	call ReadMonMenuIcon
 	ld [wCurIcon], a
 	pop de

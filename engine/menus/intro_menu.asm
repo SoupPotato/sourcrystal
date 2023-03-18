@@ -595,7 +595,7 @@ Continue_DisplayBadgeCount:
 	ld b, 2
 	call CountSetBits
 	pop hl
-	ld de, wd265
+	ld de, wTempSpecies
 	lb bc, 1, 2
 	jp PrintNum
 
@@ -612,7 +612,7 @@ else
 endc
 	call CountSetBits
 	pop hl
-	ld de, wd265
+	ld de, wTempSpecies
 	lb bc, 1, 3
 	jp PrintNum
 

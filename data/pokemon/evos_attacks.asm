@@ -239,6 +239,7 @@ PidgeyEvosAttacks:
 	db 33, AGILITY
 	db 39, MIRROR_MOVE
 	db 45, RAZOR_WIND
+	db 49, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 PidgeottoEvosAttacks:
@@ -254,6 +255,7 @@ PidgeottoEvosAttacks:
 	db 35, AGILITY
 	db 42, MIRROR_MOVE
 	db 48, RAZOR_WIND
+	db 54, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 PidgeotEvosAttacks:
@@ -268,6 +270,7 @@ PidgeotEvosAttacks:
 	db 37, AGILITY
 	db 45, MIRROR_MOVE
 	db 53, RAZOR_WIND
+	db 61, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 RattataEvosAttacks:

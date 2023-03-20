@@ -78,7 +78,7 @@ CharmanderEvosAttacks:
 	db 1, GROWL
 	db 7, EMBER
 	db 13, SMOKESCREEN
-	db 19, RAGE
+	db 19, DRAGONBREATH
 	db 25, SCARY_FACE
 	db 31, FLAMETHROWER
 	db 37, SLASH
@@ -93,7 +93,7 @@ CharmeleonEvosAttacks:
 	db 1, GROWL
 	db 1, EMBER
 	db 13, SMOKESCREEN
-	db 20, RAGE
+	db 20, DRAGONBREATH
 	db 27, SCARY_FACE
 	db 34, FLAMETHROWER
 	db 41, SLASH
@@ -107,7 +107,7 @@ CharizardEvosAttacks:
 	db 1, GROWL
 	db 1, EMBER
 	db 1, SMOKESCREEN
-	db 20, RAGE
+	db 20, DRAGONBREATH
 	db 27, SCARY_FACE
 	db 34, FLAMETHROWER
 	db 36, WING_ATTACK
@@ -239,6 +239,7 @@ PidgeyEvosAttacks:
 	db 33, AGILITY
 	db 39, MIRROR_MOVE
 	db 45, RAZOR_WIND
+	db 49, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 PidgeottoEvosAttacks:
@@ -254,6 +255,7 @@ PidgeottoEvosAttacks:
 	db 35, AGILITY
 	db 42, MIRROR_MOVE
 	db 48, RAZOR_WIND
+	db 54, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 PidgeotEvosAttacks:
@@ -268,6 +270,7 @@ PidgeotEvosAttacks:
 	db 37, AGILITY
 	db 45, MIRROR_MOVE
 	db 53, RAZOR_WIND
+	db 61, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 RattataEvosAttacks:

@@ -1292,7 +1292,7 @@ JohtoGrassWildMons:
 	db 23, STEELIX
 	; nite
 	db 18, ZUBAT
-	db 19, MACHOP
+	db 19, WOOPER
 	db 20, KRABBY
 	db 22, KINGLER
 	db 20, ONIX

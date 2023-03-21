@@ -35,350 +35,350 @@ JohtoGrassWildMons:
 	db 3, RATTATA
 	db 4, RATTATA
 	db 5, RATTATA
-	db 3, RATTATA
+	db 4, RATTATA
+	db 7, RATTATA
 	db 6, RATTATA
-	db 5, RATTATA
-	db 5, RATTATA
+	db 6, RATTATA
 	; day
 	db 3, RATTATA
 	db 4, RATTATA
 	db 5, RATTATA
-	db 3, RATTATA
+	db 4, RATTATA
+	db 7, RATTATA
 	db 6, RATTATA
-	db 5, RATTATA
-	db 5, RATTATA
+	db 6, RATTATA
 	; nite
 	db 3, GASTLY
 	db 4, GASTLY
 	db 5, GASTLY
-	db 3, RATTATA
-	db 6, GASTLY
-	db 5, RATTATA
-	db 5, RATTATA
+	db 4, RATTATA
+	db 7, GASTLY
+	db 6, RATTATA
+	db 6, RATTATA
 
 	map_id TIN_TOWER_2F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, GASTLY
+	db 34, HAUNTER
+	db 35, GASTLY
+	db 35, HAUNTER
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, HAUNTER
 
 	map_id TIN_TOWER_3F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, GASTLY
+	db 34, HAUNTER
+	db 35, GASTLY
+	db 35, HAUNTER
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, HAUNTER
 
 	map_id TIN_TOWER_4F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, GASTLY
+	db 34, HAUNTER
+	db 35, GASTLY
+	db 35, HAUNTER
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, HAUNTER
 
 	map_id TIN_TOWER_5F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, GASTLY
+	db 34, HAUNTER
+	db 35, GASTLY
+	db 35, HAUNTER
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, HAUNTER
 
 	map_id TIN_TOWER_6F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, GASTLY
+	db 34, HAUNTER
+	db 35, GASTLY
+	db 35, HAUNTER
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, HAUNTER
 
 	map_id TIN_TOWER_7F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, GASTLY
+	db 34, HAUNTER
+	db 35, GASTLY
+	db 35, HAUNTER
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, HAUNTER
 
 	map_id TIN_TOWER_8F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, GASTLY
+	db 34, HAUNTER
+	db 35, GASTLY
+	db 35, HAUNTER
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, HAUNTER
 
 	map_id TIN_TOWER_9F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; day
-	db 20, RATTATA
-	db 21, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, RATTATA
+	db 34, RATICATE
+	db 35, RATTATA
+	db 35, RATICATE
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, RATICATE
 	; nite
-	db 20, GASTLY
-	db 21, GASTLY
-	db 22, GASTLY
-	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 33, GASTLY
+	db 34, HAUNTER
+	db 35, GASTLY
+	db 35, HAUNTER
+	db 36, RATTATA
+	db 37, RATICATE
+	db 37, HAUNTER
 
 	map_id BURNED_TOWER_1F
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	db 13, RATTATA
-	db 14, KOFFING
-	db 15, RATTATA
-	db 14, ZUBAT
-	db 15, RATTATA
-	db 15, RATICATE
-	db 15, RATICATE
+	db 19, RATTATA
+	db 20, KOFFING
+	db 21, RATICATE
+	db 20, ZUBAT
+	db 21, KOFFING
+	db 22, RATICATE
+	db 21, RATICATE
 	; day
-	db 13, RATTATA
-	db 14, KOFFING
-	db 15, RATTATA
-	db 14, ZUBAT
-	db 15, RATTATA
-	db 15, RATICATE
-	db 15, RATICATE
+	db 19, RATTATA
+	db 20, KOFFING
+	db 21, RATICATE
+	db 20, ZUBAT
+	db 21, KOFFING
+	db 22, RATICATE
+	db 21, RATICATE
 	; nite
-	db 13, RATTATA
-	db 14, KOFFING
-	db 15, RATTATA
-	db 14, ZUBAT
-	db 15, RATTATA
-	db 15, RATICATE
-	db 15, RATICATE
+	db 19, RATTATA
+	db 20, KOFFING
+	db 21, RATICATE
+	db 20, ZUBAT
+	db 21, KOFFING
+	db 22, RATICATE
+	db 21, RATICATE
 
 	map_id BURNED_TOWER_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 14,RATTATA
-	db 14,KOFFING
-	db 16,KOFFING
-	db 16,RATTATA
-	db 15,ZUBAT
-	db 14,MAGMAR
-	db 14,MAGMAR
+	db 19,RATTATA
+	db 19,KOFFING
+	db 21,KOFFING
+	db 21,RATICATE
+	db 20,ZUBAT
+	db 19,MAGMAR
+	db 19,MAGMAR
 	; day
-	db 14,RATTATA
-	db 14,KOFFING
-	db 16,KOFFING
-	db 16,MAGMAR
-	db 15,ZUBAT
-	db 14,RATTATA
-	db 14,RATTATA
+	db 19,RATTATA
+	db 19,KOFFING
+	db 21,KOFFING
+	db 21,MAGMAR
+	db 20,ZUBAT
+	db 19,RATICATE
+	db 19,RATICATE
 	; nite
-	db 14,RATTATA
-	db 14,KOFFING
-	db 16,KOFFING
-	db 16,RATTATA
-	db 15,ZUBAT
-	db 14,MAGMAR
-	db 14,MAGMAR
+	db 19,RATTATA
+	db 19,KOFFING
+	db 21,KOFFING
+	db 21,RATICATE
+	db 20,ZUBAT
+	db 19,MAGMAR
+	db 19,MAGMAR
 
 	map_id NATIONAL_PARK
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 12, NIDORAN_M
-	db 12, NIDORAN_F
-	db 14, LEDYBA
-	db 13, PIDGEY
-	db 10, CATERPIE
-	db 10, WEEDLE
-	db 10, WEEDLE
+	db 15, NIDORAN_M
+	db 15, NIDORAN_F
+	db 16, LEDYBA
+	db 18, PIDGEY
+	db 17, CATERPIE
+	db 18, WEEDLE
+	db 18, WEEDLE
 	; day
-	db 12, NIDORAN_F
-	db 12, NIDORAN_M
-	db 14, SUNKERN
-	db 13, PIDGEY
-	db 10, CATERPIE
-	db 10, WEEDLE
-	db 10, WEEDLE
+	db 15, NIDORAN_F
+	db 15, NIDORAN_M
+	db 16, SUNKERN
+	db 18, PIDGEY
+	db 17, CATERPIE
+	db 18, WEEDLE
+	db 18, WEEDLE
 	; nite
-	db 12, PSYDUCK
-	db 13, HOOTHOOT
-	db 14, SPINARAK
+	db 15, PSYDUCK
 	db 15, HOOTHOOT
-	db 10, VENONAT
-	db 12, VENONAT
-	db 12, VENONAT
+	db 16, SPINARAK
+	db 18, HOOTHOOT
+	db 17, VENONAT
+	db 18, VENONAT
+	db 18, VENONAT
 
 	map_id RUINS_OF_ALPH_OUTSIDE
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, NATU
-	db 22, NATU
-	db 18, NATU
-	db 24, NATU
-	db 20, SMEARGLE
-	db 22, SMEARGLE
-	db 22, SMEARGLE
+	db 25, NATU
+	db 27, NATU
+	db 23, NATU
+	db 29, NATU
+	db 25, SMEARGLE
+	db 27, SMEARGLE
+	db 27, SMEARGLE
 	; day
-	db 20, NATU
-	db 22, NATU
-	db 18, NATU
-	db 24, NATU
-	db 20, SMEARGLE
-	db 22, SMEARGLE
-	db 22, SMEARGLE
+	db 25, NATU
+	db 27, NATU
+	db 23, NATU
+	db 29, NATU
+	db 25, SMEARGLE
+	db 27, SMEARGLE
+	db 27, SMEARGLE
 	; nite
-	db 20, NATU
-	db 22, NATU
-	db 18, NATU
-	db 24, NATU
-	db 22, WOOPER
-	db 22, QUAGSIRE
-	db 22, QUAGSIRE
+	db 25, NATU
+	db 27, NATU
+	db 23, NATU
+	db 29, NATU
+	db 25, SMEARGLE
+	db 27, SMEARGLE
+	db 27, SMEARGLE
 
 	map_id RUINS_OF_ALPH_INNER_CHAMBER
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite

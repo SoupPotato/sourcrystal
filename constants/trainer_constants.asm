@@ -729,10 +729,8 @@ KRIS EQU __enum__
 	const KAYANDTIA3
 
 	trainerclass POKEFANF ; 3e
-	const BEVERLY1
+	const BEVERLY
 	const RUTH
-	const BEVERLY2
-	const BEVERLY3
 	const GEORGIA
 	const JAIME
 	const ELEANOR

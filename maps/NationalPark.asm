@@ -164,7 +164,7 @@ TrainerPokefanmWilliam:
 	end
 
 TrainerPokefanfBeverly1:
-	trainer POKEFANF, BEVERLY1, EVENT_BEAT_POKEFANF_BEVERLY, PokefanfBeverly1SeenText, PokefanfBeverly1BeatenText, 0, .Script
+	trainer POKEFANF, BEVERLY, EVENT_BEAT_POKEFANF_BEVERLY, PokefanfBeverly1SeenText, PokefanfBeverly1BeatenText, 0, .Script
 
 .Script:
 	writecode VAR_CALLERID, PHONE_POKEFAN_BEVERLY
@@ -187,7 +187,7 @@ TrainerPokefanfBeverly1:
 	askforphonenumber PHONE_POKEFAN_BEVERLY
 	ifequal PHONE_CONTACTS_FULL, NationalParkPhoneFull
 	ifequal PHONE_CONTACT_REFUSED, NationalParkNumberDeclined
-	trainertotext POKEFANF, BEVERLY1, MEM_BUFFER_0
+	trainertotext POKEFANF, BEVERLY, MEM_BUFFER_0
 	scall NationalParkRegisteredNumber
 	jump NationalParkNumberAccepted
 

@@ -1113,27 +1113,27 @@ JohtoGrassWildMons:
 	map_id SILVER_CAVE_ROOM_1
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 53, GRAVELER
+	db 56, GRAVELER
 	db 54, ONIX
-	db 54, URSARING
-	db 54, DONPHAN
-	db 55, GOLBAT
+	db 55, URSARING
+	db 55, DONPHAN
+	db 57, GOLBAT
 	db 40, LARVITAR
 	db 45, LARVITAR
 	; day
-	db 53, GRAVELER
+	db 56, GRAVELER
 	db 54, ONIX
-	db 54, URSARING
-	db 54, DONPHAN
-	db 55, GOLBAT
+	db 55, URSARING
+	db 55, DONPHAN
+	db 57, GOLBAT
 	db 40, LARVITAR
 	db 45, LARVITAR
 	; nite
-	db 53, GRAVELER
+	db 56, GRAVELER
 	db 54, ONIX
-	db 54, URSARING
-	db 54, DONPHAN
-	db 55, GOLBAT
+	db 55, URSARING
+	db 55, DONPHAN
+	db 57, GOLBAT
 	db 40, LARVITAR
 	db 45, LARVITAR
 
@@ -1221,83 +1221,83 @@ JohtoGrassWildMons:
 	map_id DARK_CAVE_VIOLET_ENTRANCE
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	db 3, GEODUDE
-	db 2, ZUBAT
-	db 2, GEODUDE
 	db 4, GEODUDE
+	db 3, ZUBAT
+	db 3, GEODUDE
+	db 5, GEODUDE
 	db 2, TEDDIURSA
-	db 4, ZUBAT
-	db 4, DUNSPARCE
+	db 5, ZUBAT
+	db 5, DUNSPARCE
 	; day
-	db 3, GEODUDE
-	db 2, ZUBAT
-	db 2, GEODUDE
 	db 4, GEODUDE
+	db 3, ZUBAT
+	db 3, GEODUDE
+	db 5, GEODUDE
 	db 2, TEDDIURSA
-	db 4, ZUBAT
-	db 4, DUNSPARCE
+	db 5, ZUBAT
+	db 5, DUNSPARCE
 	; nite
-	db 3, GEODUDE
-	db 2, ZUBAT
-	db 2, GEODUDE
 	db 4, GEODUDE
+	db 3, ZUBAT
+	db 3, GEODUDE
+	db 5, GEODUDE
 	db 2, TEDDIURSA
-	db 4, ZUBAT
-	db 4, DUNSPARCE
+	db 5, ZUBAT
+	db 5, DUNSPARCE
 
 	map_id DARK_CAVE_BLACKTHORN_ENTRANCE
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	db 23, GEODUDE
-	db 23, ZUBAT
-	db 25, GRAVELER
-	db 25, URSARING
-	db 20, TEDDIURSA
-	db 23, GOLBAT
-	db 23, WOBBUFFET
+	db 39, GRAVELER
+	db 39, GOLBAT
+	db 40, GRAVELER
+	db 40, URSARING
+	db 38, TEDDIURSA
+	db 39, ZUBAT
+	db 38, WOBBUFFET
 	; day
-	db 23, GEODUDE
-	db 23, ZUBAT
-	db 25, GRAVELER
-	db 25, URSARING
-	db 30, URSARING
-	db 23, GOLBAT
-	db 23, WOBBUFFET
+	db 39, GRAVELER
+	db 39, GOLBAT
+	db 40, GRAVELER
+	db 40, URSARING
+	db 38, URSARING
+	db 39, ZUBAT
+	db 38, WOBBUFFET
 	; nite
-	db 23, GEODUDE
-	db 23, ZUBAT
-	db 25, GRAVELER
-	db 20, WOBBUFFET
-	db 25, WOBBUFFET
-	db 23, GOLBAT
-	db 23, GOLBAT
+	db 39, GRAVELER
+	db 39, GOLBAT
+	db 40, GRAVELER
+	db 40, WOBBUFFET
+	db 38, WOBBUFFET
+	db 39, ZUBAT
+	db 38, GOLBAT
 
 	map_id CLIFF_CAVE
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 18, GEODUDE
-	db 19, MACHOP
-	db 20, KRABBY
-	db 22, GRAVELER
-	db 20, ONIX
-	db 22, MACHOKE
-	db 23, STEELIX
+	db 27, GEODUDE
+	db 27, MACHOP
+	db 28, KRABBY
+	db 28, GRAVELER
+	db 28, ONIX
+	db 28, MACHOKE
+	db 31, STEELIX
 	; day
-	db 18, GEODUDE
-	db 19, MACHOP
-	db 20, KRABBY
-	db 22, GRAVELER
-	db 20, ONIX
-	db 22, MACHOKE
-	db 23, STEELIX
+	db 27, GEODUDE
+	db 27, MACHOP
+	db 28, KRABBY
+	db 28, GRAVELER
+	db 28, ONIX
+	db 28, MACHOKE
+	db 31, STEELIX
 	; nite
-	db 18, ZUBAT
-	db 19, MACHOP
-	db 20, KRABBY
-	db 22, KINGLER
-	db 20, ONIX
-	db 20, MISDREAVUS
-	db 23, STEELIX
+	db 27, GOLBAT
+	db 27, WOOPER
+	db 28, KRABBY
+	db 28, KINGLER
+	db 28, ONIX
+	db 28, MISDREAVUS
+	db 31, STEELIX
 
 	map_id ROUTE_29
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite

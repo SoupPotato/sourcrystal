@@ -41,7 +41,7 @@ Route39Miltank:
 	end
 
 TrainerPokefanmDerek:
-	trainer POKEFANM, DEREK1, EVENT_BEAT_POKEFANM_DEREK, PokefanmDerekSeenText, PokefanmDerekBeatenText, 0, .Script
+	trainer POKEFANM, DEREK, EVENT_BEAT_POKEFANM_DEREK, PokefanmDerekSeenText, PokefanmDerekBeatenText, 0, .Script
 
 .Script:
 	writecode VAR_CALLERID, PHONE_POKEFANM_DEREK
@@ -64,7 +64,7 @@ TrainerPokefanmDerek:
 	askforphonenumber PHONE_POKEFANM_DEREK
 	ifequal PHONE_CONTACTS_FULL, .PhoneFull
 	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	trainertotext POKEFANM, DEREK1, MEM_BUFFER_0
+	trainertotext POKEFANM, DEREK, MEM_BUFFER_0
 	scall .RegisteredNumber
 	jump .NumberAccepted
 

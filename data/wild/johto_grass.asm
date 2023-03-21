@@ -376,9 +376,9 @@ JohtoGrassWildMons:
 	db 22, NATU
 	db 18, NATU
 	db 24, NATU
-	db 22, WOOPER
-	db 22, QUAGSIRE
-	db 22, QUAGSIRE
+	db 20, SMEARGLE
+	db 22, SMEARGLE
+	db 22, SMEARGLE
 
 	map_id RUINS_OF_ALPH_INNER_CHAMBER
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite

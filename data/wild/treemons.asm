@@ -127,20 +127,20 @@ TreeMonSet_Forest:
 
 TreeMonSet_Safari:
 ; common
-	db 50, HOOTHOOT,   15
-	db 15, PINECO,     15
-	db 15, PINECO,     15
-	db 10, EXEGGCUTE,  15
-	db  5, EXEGGCUTE,  15
-	db  5, EXEGGCUTE,  15
+	db 50, HOOTHOOT,   18
+	db 15, PINECO,     18
+	db 15, PINECO,     18
+	db 10, EXEGGCUTE,  18
+	db  5, EXEGGCUTE,  18
+	db  5, EXEGGCUTE,  18
 	db -1
 ; rare
-	db 50, HOOTHOOT,   15
-	db 15, PINECO,     15
-	db 15, AIPOM,      15
-	db 10, AIPOM,      15
-	db  5, SKARMORY,   15
-	db  5, SKARMORY,   15
+	db 50, HOOTHOOT,   18
+	db 15, PINECO,     18
+	db 15, AIPOM,      18
+	db 10, AIPOM,      18
+	db  5, SKARMORY,   18
+	db  5, SKARMORY,   18
 	db -1
 
 TreeMonSet_Rock:

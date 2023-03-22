@@ -382,7 +382,7 @@ KriseFoundRare:
 ; Beverly
 
 BeverlyPhoneScript1:
-	trainertotext POKEFANF, BEVERLY1, MEM_BUFFER_0
+	trainertotext POKEFANF, BEVERLY, MEM_BUFFER_0
 	farscall PhoneScript_AnswerPhone_Female
 	checkflag ENGINE_BEVERLY_HAS_NUGGET
 	iftrue .HasNugget
@@ -404,7 +404,7 @@ BeverlyPhoneScript1:
 	farjump UnknownScript_0xa0aa5
 
 BeverlyPhoneScript2:
-	trainertotext POKEFANF, BEVERLY1, MEM_BUFFER_0
+	trainertotext POKEFANF, BEVERLY, MEM_BUFFER_0
 	farscall PhoneScript_GreetPhone_Female
 	checkflag ENGINE_BEVERLY_HAS_NUGGET
 	iftrue .HasNugget
@@ -1500,7 +1500,7 @@ ChadOakGossip:
 ; Derek
 
 DerekPhoneScript1:
-	trainertotext POKEFANM, DEREK1, MEM_BUFFER_0
+	trainertotext POKEFANM, DEREK, MEM_BUFFER_0
 	farscall PhoneScript_AnswerPhone_Male
 	checkflag ENGINE_DEREK_HAS_NUGGET
 	iftrue .HasNugget
@@ -1531,7 +1531,7 @@ DerekPhoneScript1:
 	farjump UnknownScript_0xa0ad5
 
 DerekPhoneScript2:
-	trainertotext POKEFANM, DEREK1, MEM_BUFFER_0
+	trainertotext POKEFANM, DEREK, MEM_BUFFER_0
 	farscall PhoneScript_GreetPhone_Male
 	checkflag ENGINE_DAILY_BUG_CONTEST
 	iftrue .CheckNugget2

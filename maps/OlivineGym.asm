@@ -35,6 +35,7 @@ OlivineGymJasmineScript:
 	verbosegiveitem TM_IRON_TAIL
 	iffalse .NoRoomForIronTail
 	setevent EVENT_GOT_TM23_IRON_TAIL
+	setmapscene ROUTE_42_ECRUTEAK_GATE, SCENE_ROUTE_42_ECRUTEAK_GATE_CLEAR
 	writetext Jasmine_IronTailSpeech
 	waitbutton
 	closetext

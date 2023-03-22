@@ -165,3 +165,8 @@ SCENE_FINISHED EQU 1
 	const_def 
 	const SCENE_PEWTER_MUSEUM_1F_NOTHING            ; 0
 	const SCENE_PEWTER_MUSEUM_1F_RECEPTION_PAYED    ; 1
+
+; wRoute42EcruteakGateSceneID
+	const_def 
+	const SCENE_ROUTE_42_ECRUTEAK_GATE_BLOCKED      ; 0
+	const SCENE_ROUTE_42_ECRUTEAK_GATE_CLEAR        ; 1

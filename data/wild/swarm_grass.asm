@@ -6,141 +6,141 @@ SwarmGrassWildMons:
 	map_id DARK_CAVE_VIOLET_ENTRANCE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 3, GEODUDE
+	db 4, GEODUDE
 	db 3, DUNSPARCE
-	db 2, ZUBAT
-	db 2, GEODUDE
+	db 3, ZUBAT
+	db 5, GEODUDE
 	db 2, TEDDIURSA
-	db 4, DUNSPARCE
-	db 4, DUNSPARCE
+	db 5, DUNSPARCE
+	db 5, DUNSPARCE
 	; day
-	db 3, GEODUDE
+	db 4, GEODUDE
 	db 3, DUNSPARCE
-	db 2, ZUBAT
-	db 2, GEODUDE
+	db 3, ZUBAT
+	db 5, GEODUDE
 	db 2, TEDDIURSA
-	db 4, DUNSPARCE
-	db 4, DUNSPARCE
+	db 5, DUNSPARCE
+	db 5, DUNSPARCE
 	; nite
-	db 3, GEODUDE
+	db 4, GEODUDE
 	db 3, DUNSPARCE
-	db 2, ZUBAT
-	db 2, GEODUDE
+	db 3, ZUBAT
+	db 5, GEODUDE
 	db 2, TEDDIURSA
-	db 4, DUNSPARCE
-	db 4, DUNSPARCE
+	db 5, DUNSPARCE
+	db 5, DUNSPARCE
 
 ; Yanma swarm
 	map_id ROUTE_35
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 12, SNUBBULL
-	db 14, PIDGEY
-	db 12, YANMA
-	db 14, YANMA
-	db 12, JIGGLYPUFF
-	db 10, DITTO
-	db 10, DITTO
+	db 15, SNUBBULL
+	db 15, PIDGEY
+	db 13, YANMA
+	db 15, YANMA
+	db 15, JIGGLYPUFF
+	db 16, DITTO
+	db 16, DITTO
 	; day
-	db 12, SNUBBULL
-	db 14, PIDGEY
-	db 12, YANMA
-	db 14, YANMA
-	db 12, JIGGLYPUFF
-	db 10, DITTO
-	db 10, DITTO
+	db 15, SNUBBULL
+	db 15, PIDGEY
+	db 13, YANMA
+	db 15, YANMA
+	db 15, JIGGLYPUFF
+	db 16, DITTO
+	db 16, DITTO
 	; nite
-	db 12, DROWZEE
-	db 14, HOOTHOOT
-	db 12, YANMA
-	db 14, YANMA
-	db 12, JIGGLYPUFF
-	db 10, DITTO
-	db 10, DITTO
+	db 15, DROWZEE
+	db 15, HOOTHOOT
+	db 13, YANMA
+	db 15, YANMA
+	db 15, JIGGLYPUFF
+	db 16, DITTO
+	db 16, DITTO
 
 ; Marill swarm
 	map_id MOUNT_MORTAR_1F_OUTSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 13, MARILL
-	db 13, ZUBAT
-	db 15, MARILL
-	db 13, MACHOP
-	db 14, GEODUDE
-	db 16, RATTATA
-	db 16, RATICATE
+	db 23, MARILL
+	db 25, ZUBAT
+	db 24, MARILL
+	db 24, MACHOP
+	db 24, GEODUDE
+	db 25, RATTATA
+	db 26, RATICATE
 	; day
-	db 13, MARILL
-	db 13, ZUBAT
-	db 13, MARILL
-	db 13, MACHOP
-	db 14, GEODUDE
-	db 16, RATTATA
-	db 16, RATICATE
+	db 23, MARILL
+	db 25, ZUBAT
+	db 24, MARILL
+	db 24, MACHOP
+	db 24, GEODUDE
+	db 25, RATTATA
+	db 26, RATICATE
 	; nite
-	db 13, MARILL
-	db 13, ZUBAT
-	db 15, MARILL
-	db 13, GOLBAT
-	db 14, GEODUDE
-	db 16, RATTATA
-	db 16, RATICATE
+	db 23, MARILL
+	db 25, ZUBAT
+	db 24, MARILL
+	db 24, GOLBAT
+	db 24, GEODUDE
+	db 25, RATTATA
+	db 26, RATICATE
 
 ; Magnemite swarm
 	map_id ROUTE_38
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 14, MAGNEMITE
-	db 16, RATICATE
-	db 16, MAGNEMITE
-	db 16, PIDGEOTTO
-	db 13, TAUROS
-	db 13, MILTANK
-	db 13, MILTANK
+	db 20, MAGNEMITE
+	db 21, RATICATE
+	db 20, MAGNEMITE
+	db 20, PIDGEOTTO
+	db 18, TAUROS
+	db 18, MILTANK
+	db 18, MILTANK
 	; day
-	db 14, MAGNEMITE
-	db 16, RATICATE
-	db 16, MAGNEMITE
-	db 16, PIDGEOTTO
-	db 13, TAUROS
-	db 13, MILTANK
-	db 13, MILTANK
+	db 20, MAGNEMITE
+	db 21, RATICATE
+	db 20, MAGNEMITE
+	db 20, PIDGEOTTO
+	db 18, TAUROS
+	db 18, MILTANK
+	db 18, MILTANK
 	; nite
-	db 14, MAGNEMITE
-	db 16, RATICATE
-	db 16, MAGNEMITE
-	db 16, NOCTOWL
-	db 16, MEOWTH
-	db 16, MEOWTH
-	db 16, MEOWTH
+	db 20, MAGNEMITE
+	db 21, RATICATE
+	db 20, MAGNEMITE
+	db 20, NOCTOWL
+	db 18, MEOWTH
+	db 18, MEOWTH
+	db 18, MEOWTH
 
 ; Phanpy swarm
 	map_id ROUTE_46
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 2, PHANPY
+	db 3, PHANPY
 	db 2, SPEAROW
 	db 3, GEODUDE
 	db 3, PHANPY
 	db 2, PHANPY
-	db 2, RATTATA
-	db 2, RATTATA
+	db 4, RATTATA
+	db 4, RATTATA
 	; day
-	db 2, PHANPY
+	db 3, PHANPY
 	db 2, SPEAROW
 	db 3, GEODUDE
 	db 3, PHANPY
 	db 2, PHANPY
-	db 2, RATTATA
-	db 2, RATTATA
+	db 4, RATTATA
+	db 4, RATTATA
 	; nite
-	db 2, PHANPY
+	db 3, PHANPY
 	db 2, RATTATA
 	db 3, GEODUDE
 	db 3, PHANPY
 	db 2, PHANPY
-	db 2, RATTATA
-	db 2, RATTATA
+	db 4, RATTATA
+	db 4, RATTATA
 
 ; Caterpie swarm
 	map_id ROUTE_30
@@ -175,82 +175,82 @@ SwarmGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 4, LEDYBA
-	db 4, SPINARAK
-	db 5, BELLSPROUT
-	db 5, PIDGEY
-	db 4, SPINARAK
 	db 5, SPINARAK
-	db 5, HOPPIP
+	db 4, BELLSPROUT
+	db 5, PIDGEY
+	db 5, SPINARAK
+	db 5, SPINARAK
+	db 6, HOPPIP
 	; day
 	db 4, PIDGEY
-	db 4, SPINARAK
-	db 5, BELLSPROUT
-	db 5, PIDGEY
-	db 4, SPINARAK
 	db 5, SPINARAK
-	db 5, HOPPIP
+	db 4, BELLSPROUT
+	db 5, PIDGEY
+	db 5, SPINARAK
+	db 5, SPINARAK
+	db 6, HOPPIP
 	; nite
 	db 4, SPINARAK
-	db 4, SPINARAK
-	db 5, BELLSPROUT
+	db 5, SPINARAK
+	db 4, BELLSPROUT
 	db 5, HOOTHOOT
-	db 4, SPINARAK
+	db 5, SPINARAK
 	db 5, POLIWAG
-	db 5, GASTLY
+	db 6, GASTLY
 
 ; Paras swarm
 	map_id ILEX_FOREST
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	db 5, PARAS
-	db 5, PARAS
-	db 7, METAPOD
-	db 7, KAKUNA
-	db 7, ZUBAT
-	db 6, CATERPIE
-	db 6, WEEDLE
+	db 7, PARAS
+	db 7, PARAS
+	db 9, METAPOD
+	db 9, KAKUNA
+	db 11, ZUBAT
+	db 9, CATERPIE
+	db 10, WEEDLE
 	; day
-	db 5, PARAS
-	db 5, PARAS
-	db 7, METAPOD
-	db 7, KAKUNA
-	db 7, ZUBAT
-	db 6, CATERPIE
-	db 6, WEEDLE
+	db 7, PARAS
+	db 7, PARAS
+	db 9, METAPOD
+	db 9, KAKUNA
+	db 11, ZUBAT
+	db 9, CATERPIE
+	db 10, WEEDLE
 	; nite
-	db 5, PARAS
-	db 5, PARAS
-	db 7, ODDISH
-	db 7, PSYDUCK
-	db 7, ZUBAT
-	db 6, VENONAT
-	db 6, VENONAT
+	db 7, PARAS
+	db 7, PARAS
+	db 9, ODDISH
+	db 9, PSYDUCK
+	db 11, ZUBAT
+	db 9, VENONAT
+	db 10, VENONAT
 
 ; Hoppip swarm
 	map_id ROUTE_29
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 2, HOPPIP
-	db 2, PIDGEY
+	db 3, PIDGEY
 	db 3, HOPPIP
 	db 3, SENTRET
-	db 2, RATTATA
+	db 4, RATTATA
 	db 3, HOPPIP
 	db 3, HOPPIP
 	; day
 	db 2, HOPPIP
-	db 2, PIDGEY
+	db 3, PIDGEY
 	db 3, HOPPIP
 	db 3, SENTRET
-	db 2, RATTATA
+	db 4, RATTATA
 	db 3, HOPPIP
 	db 3, HOPPIP
 	; nite
 	db 2, HOPPIP
-	db 2, HOOTHOOT
+	db 3, HOOTHOOT
 	db 3, HOPPIP
 	db 3, RATTATA
-	db 2, RATTATA
+	db 4, RATTATA
 	db 3, HOOTHOOT
 	db 3, HOOTHOOT
 
@@ -258,812 +258,812 @@ SwarmGrassWildMons:
 	map_id ROUTE_34
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 10, SNUBBULL
-	db 11, DITTO
-	db 12, PIDGEY
-	db 10, ABRA
-	db 12, JIGGLYPUFF
-	db 10, DITTO
-	db 10, RATTATA
+	db 14, SNUBBULL
+	db 12, DITTO
+	db 13, PIDGEY
+	db 12, ABRA
+	db 14, JIGGLYPUFF
+	db 12, DITTO
+	db 15, RATTATA
 	; day
-	db 10, SNUBBULL
-	db 11, DITTO
-	db 12, PIDGEY
-	db 10, ABRA
-	db 12, JIGGLYPUFF
-	db 10, DITTO
-	db 10, RATTATA
+	db 14, SNUBBULL
+	db 12, DITTO
+	db 13, PIDGEY
+	db 12, ABRA
+	db 14, JIGGLYPUFF
+	db 12, DITTO
+	db 15, RATTATA
 	; nite
-	db 12, DROWZEE
-	db 11, DITTO
-	db 12, HOOTHOOT
-	db 10, ABRA
-	db 12, JIGGLYPUFF
-	db 10, DITTO
-	db 10, RATTATA
+	db 14, DROWZEE
+	db 12, DITTO
+	db 13, HOOTHOOT
+	db 12, ABRA
+	db 14, JIGGLYPUFF
+	db 12, DITTO
+	db 15, RATTATA
 
 ; Sunkern swarm
 	map_id NATIONAL_PARK
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 12, SUNKERN
-	db 12, SUNKERN
-	db 14, NIDORAN_F
-	db 13, NIDORAN_M
-	db 10, CATERPIE
-	db 10, WEEDLE
-	db 10, WEEDLE
+	db 15, SUNKERN
+	db 15, SUNKERN
+	db 16, NIDORAN_F
+	db 18, NIDORAN_M
+	db 17, CATERPIE
+	db 18, WEEDLE
+	db 18, WEEDLE
 	; day
-	db 12, SUNKERN
-	db 12, SUNKERN
-	db 14, NIDORAN_F
-	db 13, NIDORAN_M
-	db 10, CATERPIE
-	db 10, WEEDLE
-	db 10, WEEDLE
+	db 15, SUNKERN
+	db 15, SUNKERN
+	db 16, NIDORAN_F
+	db 18, NIDORAN_M
+	db 17, CATERPIE
+	db 18, WEEDLE
+	db 18, WEEDLE
 	; nite
-	db 12, SUNKERN
-	db 12, SUNKERN
-	db 14, HOOTHOOT
-	db 13, HOOTHOOT
-	db 10, VENONAT
-	db 12, VENONAT
-	db 12, VENONAT
+	db 15, SUNKERN
+	db 15, SUNKERN
+	db 16, HOOTHOOT
+	db 18, HOOTHOOT
+	db 17, VENONAT
+	db 18, VENONAT
+	db 18, VENONAT
 
 ; Vulpix swarm
 	map_id ROUTE_36
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 4, LEDYBA
-	db 4, VULPIX
-	db 5, BELLSPROUT
-	db 5, GROWLITHE
+	db 5, LEDYBA
 	db 5, VULPIX
-	db 6, PIDGEY
-	db 6, PIDGEY
+	db 6, BELLSPROUT
+	db 6, GROWLITHE
+	db 6, VULPIX
+	db 7, PIDGEY
+	db 7, PIDGEY
 	; day
-	db 4, PIDGEY
-	db 4, VULPIX
-	db 5, BELLSPROUT
-	db 5, GROWLITHE
+	db 5, PIDGEY
 	db 5, VULPIX
-	db 6, PIDGEY
-	db 6, PIDGEY
+	db 6, BELLSPROUT
+	db 6, GROWLITHE
+	db 6, VULPIX
+	db 7, PIDGEY
+	db 7, PIDGEY
 	; nite
-	db 4, SPINARAK
-	db 4, VULPIX
-	db 5, BELLSPROUT
-	db 5, HOOTHOOT
+	db 5, SPINARAK
 	db 5, VULPIX
-	db 5, GASTLY
-	db 5, GASTLY
+	db 6, BELLSPROUT
+	db 6, HOOTHOOT
+	db 6, VULPIX
+	db 7, GASTLY
+	db 7, GASTLY
 
 ; Miltank swarm
 	map_id ROUTE_39
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 16, MILTANK
-	db 16, RATICATE
-	db 16, MAGNEMITE
-	db 15, MILTANK
-	db 15, TAUROS
-	db 14, ELECTABUZZ
-	db 14, ELECTABUZZ
+	db 21, MILTANK
+	db 22, RATICATE
+	db 21, MAGNEMITE
+	db 21, MILTANK
+	db 21, TAUROS
+	db 20, ELECTABUZZ
+	db 20, ELECTABUZZ
 	; day
-	db 16, MILTANK
-	db 16, RATICATE
-	db 16, MAGNEMITE
-	db 16, ELECTABUZZ
-	db 15, MILTANK
-	db 15, TAUROS
-	db 15, TAUROS
+	db 21, MILTANK
+	db 22, RATICATE
+	db 21, MAGNEMITE
+	db 21, ELECTABUZZ
+	db 21, MILTANK
+	db 20, TAUROS
+	db 20, TAUROS
 	; nite
-	db 16, MILTANK
-	db 16, RATICATE
-	db 16, MAGNEMITE
-	db 16, MEOWTH
-	db 15, MILTANK
-	db 14, ELECTABUZZ
-	db 14, ELECTABUZZ
+	db 21, MILTANK
+	db 22, RATICATE
+	db 21, MAGNEMITE
+	db 21, MEOWTH
+	db 21, MILTANK
+	db 20, ELECTABUZZ
+	db 20, ELECTABUZZ
 
 ; Ekans swarm
 	map_id ROUTE_33
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 6, EKANS
-	db 6, SPEAROW
-	db 6, GEODUDE
-	db 6, HOPPIP
-	db 7, EKANS
-	db 7, HOPPIP
-	db 7, RATTATA
+	db 8, EKANS
+	db 10, SPEAROW
+	db 8, GEODUDE
+	db 10, HOPPIP
+	db 11, EKANS
+	db 10, HOPPIP
+	db 12, RATTATA
 	; day
-	db 6, EKANS
-	db 6, SPEAROW
-	db 6, GEODUDE
-	db 6, HOPPIP
-	db 7, EKANS
-	db 7, HOPPIP
-	db 7, RATTATA
+	db 8, EKANS
+	db 10, SPEAROW
+	db 8, GEODUDE
+	db 10, HOPPIP
+	db 11, EKANS
+	db 10, HOPPIP
+	db 12, RATTATA
 	; nite
-	db 6, EKANS
-	db 6, ZUBAT
-	db 6, GEODUDE
-	db 6, ZUBAT
-	db 7, EKANS
-	db 7, RATTATA
-	db 7, RATTATA
+	db 8, EKANS
+	db 10, ZUBAT
+	db 8, GEODUDE
+	db 10, ZUBAT
+	db 11, EKANS
+	db 10, RATTATA
+	db 12, RATTATA
 
 ; Sandshrew swarm
 	map_id UNION_CAVE_1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 6, SANDSHREW
-	db 6, SANDSHREW
-	db 5, ZUBAT
-	db 4, GEODUDE
-	db 7, RATTATA
-	db 6, ONIX
-	db 6, ONIX
+	db 7, SANDSHREW
+	db 7, SANDSHREW
+	db 8, ZUBAT
+	db 7, GEODUDE
+	db 8, RATTATA
+	db 9, ONIX
+	db 10, ONIX
 	; day
-	db 6, SANDSHREW
-	db 6, SANDSHREW
-	db 5, ZUBAT
-	db 4, GEODUDE
-	db 7, RATTATA
-	db 6, ONIX
-	db 6, ONIX
+	db 7, SANDSHREW
+	db 7, SANDSHREW
+	db 8, ZUBAT
+	db 7, GEODUDE
+	db 8, RATTATA
+	db 9, ONIX
+	db 10, ONIX
 	; nite
-	db 6, SANDSHREW
-	db 6, SANDSHREW
-	db 5, ZUBAT
-	db 4, WOOPER
-	db 7, RATTATA
-	db 6, ONIX
-	db 6, ONIX
+	db 7, SANDSHREW
+	db 7, SANDSHREW
+	db 8, ZUBAT
+	db 7, WOOPER
+	db 8, RATTATA
+	db 9, ONIX
+	db 10, ONIX
 
 ; Smeargle swarm
 	map_id RUINS_OF_ALPH_OUTSIDE
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 20, SMEARGLE
-	db 22, NATU
-	db 18, NATU
-	db 24, NATU
-	db 20, SMEARGLE
-	db 22, SMEARGLE
-	db 22, SMEARGLE
+	db 25, SMEARGLE
+	db 27, NATU
+	db 23, NATU
+	db 29, NATU
+	db 25, SMEARGLE
+	db 27, SMEARGLE
+	db 27, SMEARGLE
 	; day
-	db 20, SMEARGLE
-	db 22, NATU
-	db 18, NATU
-	db 24, NATU
-	db 20, SMEARGLE
-	db 22, SMEARGLE
-	db 22, SMEARGLE
+	db 25, SMEARGLE
+	db 27, NATU
+	db 23, NATU
+	db 29, NATU
+	db 25, SMEARGLE
+	db 27, SMEARGLE
+	db 27, SMEARGLE
 	; nite
-	db 20, SMEARGLE
-	db 22, NATU
-	db 18, NATU
-	db 24, NATU
-	db 22, WOOPER
-	db 22, SMEARGLE
-	db 22, QUAGSIRE
+	db 25, SMEARGLE
+	db 27, NATU
+	db 23, NATU
+	db 29, NATU
+	db 25, WOOPER
+	db 27, SMEARGLE
+	db 27, QUAGSIRE
 
 ; Mankey swarm
 	map_id ROUTE_42
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 15, MANKEY
-	db 14, MANKEY
-	db 15, EKANS
-	db 16, MAREEP
-	db 15, ARBOK
-	db 16, FEAROW
-	db 17, FLAAFFY
+	db 25, MANKEY
+	db 23, MANKEY
+	db 24, EKANS
+	db 26, MAREEP
+	db 25, ARBOK
+	db 27, FEAROW
+	db 27, FLAAFFY
 	; day
-	db 15, MANKEY
-	db 14, MANKEY
-	db 15, EKANS
-	db 16, MAREEP
-	db 15, ARBOK
-	db 16, FEAROW
-	db 17, FLAAFFY
+	db 25, MANKEY
+	db 23, MANKEY
+	db 24, EKANS
+	db 26, MAREEP
+	db 25, ARBOK
+	db 27, FEAROW
+	db 27, FLAAFFY
 	; nite
-	db 15, MANKEY
-	db 14, MANKEY
-	db 15, EKANS
-	db 16, MAREEP
-	db 15, ARBOK
-	db 16, GOLBAT
-	db 17, FLAAFFY
+	db 25, MANKEY
+	db 23, MANKEY
+	db 24, EKANS
+	db 26, MAREEP
+	db 25, ARBOK
+	db 27, GOLBAT
+	db 27, FLAAFFY
 
 ; Ponyta swarm
 	map_id ROUTE_47
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 25, DITTO
-	db 25, PONYTA
-	db 24, FARFETCH_D
-	db 21, PONYTA
-	db 20, PONYTA
-	db 24, FEAROW
-	db 22, GLOOM
-	; day
-	db 25, DITTO
-	db 25, PONYTA
-	db 24, FARFETCH_D
+	db 27, DITTO
 	db 22, PONYTA
+	db 22, FARFETCH_D
 	db 23, PONYTA
-	db 24, FEAROW
-	db 22, GLOOM
+	db 22, PONYTA
+	db 23, FEAROW
+	db 26, GLOOM
+	; day
+	db 27, DITTO
+	db 22, PONYTA
+	db 22, FARFETCH_D
+	db 23, PONYTA
+	db 22, PONYTA
+	db 23, FEAROW
+	db 26, GLOOM
 	; nite
-	db 25, DITTO
-	db 25, PONYTA
-	db 24, FARFETCH_D
-	db 21, PONYTA
-	db 20, PONYTA
-	db 24, NOCTOWL
-	db 22, GLOOM
+	db 27, DITTO
+	db 22, PONYTA
+	db 22, FARFETCH_D
+	db 23, PONYTA
+	db 22, PONYTA
+	db 23, NOCTOWL
+	db 26, GLOOM
 
 ; Diglett swarm
 	map_id ROUTE_48
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 21, DIGLETT
-	db 24, GLOOM
-	db 20, DIGLETT
-	db 22, HOPPIP
-	db 21, FARFETCH_D
-	db 24, FEAROW
-	db 20, GIRAFARIG
+	db 27, DIGLETT
+	db 27, GLOOM
+	db 24, DIGLETT
+	db 26, HOPPIP
+	db 24, FARFETCH_D
+	db 23, FEAROW
+	db 23, GIRAFARIG
 	; day
-	db 21, DIGLETT
-	db 24, GLOOM
-	db 20, DIGLETT
-	db 22, HOPPIP
-	db 21, FARFETCH_D
-	db 24, FEAROW
-	db 20, GIRAFARIG
+	db 27, DIGLETT
+	db 27, GLOOM
+	db 24, DIGLETT
+	db 26, HOPPIP
+	db 24, FARFETCH_D
+	db 23, FEAROW
+	db 23, GIRAFARIG
 	; nite
-	db 21, DIGLETT
-	db 24, GLOOM
-	db 20, DIGLETT
-	db 22, HOUNDOUR
-	db 21, NOCTOWL
-	db 24, FEAROW
-	db 20, GIRAFARIG
+	db 27, DIGLETT
+	db 27, GLOOM
+	db 24, DIGLETT
+	db 26, HOUNDOUR
+	db 24, NOCTOWL
+	db 23, FEAROW
+	db 23, GIRAFARIG
 
 ; Swinub swarm
 	map_id ICE_PATH_1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 21, SWINUB
-	db 22, ZUBAT
-	db 22, SWINUB
-	db 23, SWINUB
-	db 24, GOLBAT
-	db 22, GOLBAT
-	db 22, GOLBAT
+	db 34, SWINUB
+	db 34, ZUBAT
+	db 35, SWINUB
+	db 36, SWINUB
+	db 36, GOLBAT
+	db 37, GOLBAT
+	db 35, JYNX
 	; day
-	db 21, SWINUB
-	db 22, ZUBAT
-	db 22, SWINUB
-	db 23, SWINUB
-	db 24, GOLBAT
-	db 22, GOLBAT
-	db 22, GOLBAT
+	db 34, SWINUB
+	db 34, ZUBAT
+	db 35, SWINUB
+	db 36, SWINUB
+	db 36, GOLBAT
+	db 37, GOLBAT
+	db 35, JYNX
 	; nite
-	db 21, SWINUB
-	db 22, ZUBAT
-	db 22, SWINUB
-	db 23, SWINUB
-	db 24, GOLBAT
-	db 22, DELIBIRD
-	db 22, DELIBIRD
+	db 34, SWINUB
+	db 34, ZUBAT
+	db 35, SWINUB
+	db 36, SWINUB
+	db 36, DELIBIRD
+	db 37, GOLBAT
+	db 35, JYNX
 
 ; Gligar swarm
 	map_id ROUTE_45
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 23, GLIGAR
-	db 23, GRAVELER
-	db 24, GLIGAR
-	db 25, DONPHAN
-	db 20, PHANPY
-	db 27, SKARMORY
-	db 27, SKARMORY
+	db 37, GLIGAR
+	db 39, GRAVELER
+	db 37, GLIGAR
+	db 35, DONPHAN
+	db 39, PHANPY
+	db 39, SKARMORY
+	db 41, SKARMORY
 	; day
-	db 23, GLIGAR
-	db 23, GRAVELER
-	db 24, GLIGAR
-	db 25, DONPHAN
-	db 30, DONPHAN
-	db 27, SKARMORY
-	db 27, SKARMORY
+	db 37, GLIGAR
+	db 39, GRAVELER
+	db 37, GLIGAR
+	db 35, DONPHAN
+	db 39, DONPHAN
+	db 39, SKARMORY
+	db 41, SKARMORY
 	; nite
-	db 23, GLIGAR
-	db 23, GRAVELER
-	db 24, GLIGAR
-	db 25, GRAVELER
-	db 27, GRAVELER
-	db 27, SKARMORY
-	db 27, SKARMORY
+	db 37, GLIGAR
+	db 39, GRAVELER
+	db 37, GLIGAR
+	db 35, GRAVELER
+	db 39, GRAVELER
+	db 39, SKARMORY
+	db 41, SKARMORY
 
 ; Golbat swarm
 	map_id VICTORY_ROAD
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 34, GOLBAT
-	db 32, GOLBAT
-	db 33, DONPHAN
-	db 34, ONIX
-	db 35, URSARING
-	db 35, RHYHORN
-	db 36, RHYDON
+	db 45, GOLBAT
+	db 43, GOLBAT
+	db 44, DONPHAN
+	db 45, ONIX
+	db 46, URSARING
+	db 46, RHYHORN
+	db 47, RHYDON
 	; day
-	db 34, GOLBAT
-	db 32, GOLBAT
-	db 33, DONPHAN
-	db 34, ONIX
-	db 35, URSARING
-	db 35, RHYHORN
-	db 36, RHYDON
+	db 45, GOLBAT
+	db 43, GOLBAT
+	db 44, DONPHAN
+	db 45, ONIX
+	db 46, URSARING
+	db 46, RHYHORN
+	db 47, RHYDON
 	; nite
-	db 34, GOLBAT
-	db 32, GOLBAT
-	db 33, DONPHAN
-	db 34, ONIX
-	db 35, URSARING
-	db 35, RHYHORN
-	db 36, RHYDON
+	db 45, GOLBAT
+	db 43, GOLBAT
+	db 44, DONPHAN
+	db 45, ONIX
+	db 46, URSARING
+	db 46, RHYHORN
+	db 47, RHYDON
 
 ; Doduo swarm
 	map_id ROUTE_26
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 28, DODUO
-	db 28, SANDSLASH
-	db 32, DODUO
-	db 30, DODUO
-	db 30, RATICATE
-	db 30, PONYTA
-	db 30, ARBOK
+	db 42, DODUO
+	db 42, SANDSLASH
+	db 46, DODUO
+	db 44, DODUO
+	db 44, RATICATE
+	db 44, PONYTA
+	db 44, ARBOK
 	; day
-	db 28, DODUO
-	db 28, SANDSLASH
-	db 32, DODUO
-	db 30, DODUO
-	db 30, RATICATE
-	db 30, PONYTA
-	db 30, ARBOK
+	db 42, DODUO
+	db 42, SANDSLASH
+	db 46, DODUO
+	db 44, DODUO
+	db 44, RATICATE
+	db 44, PONYTA
+	db 44, ARBOK
 	; nite
-	db 28, DODUO
-	db 28, SANDSLASH
-	db 32, DODUO
-	db 30, QUAGSIRE
-	db 30, RATICATE
-	db 30, PONYTA
-	db 30, ARBOK
+	db 42, DODUO
+	db 42, SANDSLASH
+	db 46, DODUO
+	db 44, QUAGSIRE
+	db 44, RATICATE
+	db 44, PONYTA
+	db 44, ARBOK
 
 ; Furret swarm
 	map_id ROUTE_1
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 6, FURRET
-	db 3, RATTATA
-	db 4, SENTRET
-	db 4, RATTATA
-	db 7, FURRET
-	db 6, PIDGEY
-	db 7, PIDGEY
+	db 14, FURRET
+	db 15, RATTATA
+	db 16, SENTRET
+	db 16, RATTATA
+	db 19, FURRET
+	db 18, PIDGEY
+	db 19, PIDGEY
 	; day
-	db 6, FURRET
-	db 3, RATTATA
-	db 4, SENTRET
-	db 4, RATTATA
-	db 7, FURRET
-	db 6, PIDGEY
-	db 7, PIDGEY
+	db 14, FURRET
+	db 15, RATTATA
+	db 16, SENTRET
+	db 16, RATTATA
+	db 19, FURRET
+	db 18, PIDGEY
+	db 19, PIDGEY
 	; nite
-	db 6, FURRET
-	db 3, RATTATA
-	db 4, RATTATA
-	db 4, HOOTHOOT
-	db 7, FURRET
-	db 6, HOOTHOOT
-	db 7, HOOTHOOT
+	db 14, FURRET
+	db 15, RATTATA
+	db 16, RATTATA
+	db 16, HOOTHOOT
+	db 19, FURRET
+	db 18, HOOTHOOT
+	db 19, HOOTHOOT
 
 ; Pikachu swarm
 	map_id VIRIDIAN_FOREST
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 3, PIKACHU
-	db 4, PIKACHU
-	db 5, METAPOD
-	db 5, KAKUNA
-	db 7, PIKACHU
-	db 8, BUTTERFREE
-	db 8, BEEDRILL
+	db 15, PIKACHU
+	db 15, PIKACHU
+	db 17, METAPOD
+	db 17, KAKUNA
+	db 19, PIKACHU
+	db 20, BUTTERFREE
+	db 20, BEEDRILL
 	; day
-	db 3, PIKACHU
-	db 4, PIKACHU
-	db 5, METAPOD
-	db 5, KAKUNA
-	db 7, PIKACHU
-	db 8, BUTTERFREE
-	db 8, BEEDRILL
+	db 15, PIKACHU
+	db 15, PIKACHU
+	db 17, METAPOD
+	db 17, KAKUNA
+	db 19, PIKACHU
+	db 20, BUTTERFREE
+	db 20, BEEDRILL
 	; nite
-	db 3, PIKACHU
-	db 4, PIKACHU
-	db 5, HOOTHOOT
-	db 5, NOCTOWL
-	db 7, PIKACHU
-	db 8, NOCTOWL
-	db 8, NOCTOWL
+	db 15, PIKACHU
+	db 15, PIKACHU
+	db 17, HOOTHOOT
+	db 17, NOCTOWL
+	db 19, PIKACHU
+	db 20, NOCTOWL
+	db 20, NOCTOWL
 
 ; Magmar swarm
 	map_id POKEMON_MANSION_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 37, MAGMAR
-	db 35, SLUGMA
-	db 36, MAGMAR
-	db 35, KOFFING
-	db 40, MAGMAR
-	db 32, DITTO
-	db 42, WEEZING
+	db 46, MAGMAR
+	db 45, SLUGMA
+	db 46, MAGMAR
+	db 47, KOFFING
+	db 52, MAGMAR
+	db 42, DITTO
+	db 50, WEEZING
 	; day
-	db 37, MAGMAR
-	db 35, SLUGMA
-	db 36, MAGMAR
-	db 35, KOFFING
-	db 40, MAGMAR
-	db 32, DITTO
-	db 42, WEEZING
+	db 46, MAGMAR
+	db 45, SLUGMA
+	db 46, MAGMAR
+	db 47, KOFFING
+	db 52, MAGMAR
+	db 42, DITTO
+	db 50, WEEZING
 	; nite
-	db 37, MAGMAR
-	db 35, SLUGMA
-	db 36, MAGMAR
-	db 35, KOFFING
-	db 40, MAGMAR
-	db 32, DITTO
-	db 42, WEEZING
+	db 46, MAGMAR
+	db 45, SLUGMA
+	db 46, MAGMAR
+	db 47, KOFFING
+	db 52, MAGMAR
+	db 42, DITTO
+	db 50, WEEZING
 
 ; Geodude swarm
 	map_id MOUNT_MOON
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 8, GEODUDE
-	db 10, GEODUDE
-	db 12, SANDSHREW
-	db 12, PARAS
-	db 11, ZUBAT
-	db 10, CLEFAIRY
-	db 12, CLEFAIRY
+	db 18, GEODUDE
+	db 20, GEODUDE
+	db 22, SANDSHREW
+	db 22, PARAS
+	db 21, ZUBAT
+	db 20, CLEFAIRY
+	db 22, CLEFAIRY
 	; day
-	db 8, GEODUDE
-	db 10, GEODUDE
-	db 12, SANDSHREW
-	db 12, PARAS
-	db 11, ZUBAT
-	db 10, CLEFAIRY
-	db 12, CLEFAIRY
+	db 18, GEODUDE
+	db 20, GEODUDE
+	db 22, SANDSHREW
+	db 22, PARAS
+	db 21, ZUBAT
+	db 20, CLEFAIRY
+	db 22, CLEFAIRY
 	; nite
-	db 8, GEODUDE
-	db 10, GEODUDE
-	db 12, SANDSHREW
-	db 12, PARAS
-	db 11, ZUBAT
-	db 10, CLEFAIRY
-	db 12, CLEFAIRY
+	db 18, GEODUDE
+	db 20, GEODUDE
+	db 22, SANDSHREW
+	db 22, PARAS
+	db 21, ZUBAT
+	db 20, CLEFAIRY
+	db 22, CLEFAIRY
 
 ; Jigglypuff swarm
 	map_id ROUTE_5
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 15, JIGGLYPUFF
-	db 15, SNUBBULL
-	db 17, JIGGLYPUFF
-	db 12, PIDGEY
-	db 14, JIGGLYPUFF
-	db 14, PIDGEOTTO
-	db 14, ABRA
+	db 25, JIGGLYPUFF
+	db 25, SNUBBULL
+	db 27, JIGGLYPUFF
+	db 22, PIDGEY
+	db 24, JIGGLYPUFF
+	db 24, PIDGEOTTO
+	db 24, ABRA
 	; day
-	db 15, JIGGLYPUFF
-	db 15, SNUBBULL
-	db 17, JIGGLYPUFF
-	db 12, PIDGEY
-	db 14, JIGGLYPUFF
-	db 14, PIDGEOTTO
-	db 14, ABRA
+	db 25, JIGGLYPUFF
+	db 25, SNUBBULL
+	db 27, JIGGLYPUFF
+	db 22, PIDGEY
+	db 24, JIGGLYPUFF
+	db 24, PIDGEOTTO
+	db 24, ABRA
 	; nite
-	db 15, JIGGLYPUFF
-	db 15, MEOWTH
-	db 17, JIGGLYPUFF
-	db 12, HOOTHOOT
-	db 14, JIGGLYPUFF
-	db 14, NOCTOWL
-	db 14, ABRA
+	db 25, JIGGLYPUFF
+	db 25, MEOWTH
+	db 27, JIGGLYPUFF
+	db 22, HOOTHOOT
+	db 24, JIGGLYPUFF
+	db 24, NOCTOWL
+	db 24, ABRA
 
 ; Meowth swarm
 	map_id ROUTE_11
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 18, MEOWTH
-	db 20, RATICATE
-	db 19, MAGNEMITE
-	db 20, MEOWTH
-	db 17, MEOWTH
-	db 18, HOPPIP
-	db 18, HOPPIP
+	db 28, MEOWTH
+	db 30, RATICATE
+	db 29, MAGNEMITE
+	db 30, MEOWTH
+	db 27, MEOWTH
+	db 28, HOPPIP
+	db 28, HOPPIP
 	; day
-	db 18, MEOWTH
-	db 20, RATICATE
-	db 19, MAGNEMITE
-	db 20, MEOWTH
-	db 17, MEOWTH
-	db 18, HOPPIP
-	db 18, HOPPIP
+	db 28, MEOWTH
+	db 30, RATICATE
+	db 29, MAGNEMITE
+	db 30, MEOWTH
+	db 27, MEOWTH
+	db 28, HOPPIP
+	db 28, HOPPIP
 	; nite
-	db 18, MEOWTH
-	db 16, DROWZEE
-	db 19, MAGNEMITE
-	db 20, MEOWTH
-	db 17, MEOWTH
-	db 18, HYPNO
-	db 18, HYPNO
+	db 28, MEOWTH
+	db 26, DROWZEE
+	db 29, MAGNEMITE
+	db 30, MEOWTH
+	db 27, MEOWTH
+	db 28, HYPNO
+	db 28, HYPNO
 
 ; Fearow swarm
 	map_id ROUTE_9
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 18, FEAROW
-	db 16, MANKEY
-	db 17, SPEAROW
-	db 20, FEAROW
-	db 19, FEAROW
-	db 18, PRIMEAPE
-	db 18, PRIMEAPE
+	db 25, FEAROW
+	db 23, MANKEY
+	db 24, SPEAROW
+	db 27, FEAROW
+	db 26, FEAROW
+	db 25, PRIMEAPE
+	db 25, PRIMEAPE
 	; day
-	db 18, FEAROW
-	db 16, MANKEY
-	db 17, SPEAROW
-	db 20, FEAROW
-	db 19, FEAROW
-	db 18, PRIMEAPE
-	db 18, PRIMEAPE
+	db 25, FEAROW
+	db 23, MANKEY
+	db 24, SPEAROW
+	db 27, FEAROW
+	db 26, FEAROW
+	db 25, PRIMEAPE
+	db 25, PRIMEAPE
 	; nite
-	db 18, FEAROW
-	db 16, MANKEY
-	db 17, VENONAT
-	db 20, FEAROW
-	db 19, FEAROW
-	db 18, VENOMOTH
-	db 18, PRIMEAPE
+	db 25, FEAROW
+	db 23, MANKEY
+	db 24, VENONAT
+	db 27, FEAROW
+	db 26, FEAROW
+	db 25, VENOMOTH
+	db 25, PRIMEAPE
 
 ; Cubone swarm
 	map_id ROCK_TUNNEL_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 17, CUBONE
-	db 17, ONIX
-	db 18, CUBONE
-	db 20, CUBONE
-	db 22, MAROWAK
-	db 20, KANGASKHAN
-	db 22, KANGASKHAN
+	db 24, CUBONE
+	db 24, ONIX
+	db 25, CUBONE
+	db 27, CUBONE
+	db 29, MAROWAK
+	db 27, KANGASKHAN
+	db 29, KANGASKHAN
 	; day
-	db 17, CUBONE
-	db 17, ONIX
-	db 18, CUBONE
-	db 20, CUBONE
-	db 22, MAROWAK
-	db 20, KANGASKHAN
-	db 22, KANGASKHAN
+	db 24, CUBONE
+	db 24, ONIX
+	db 25, CUBONE
+	db 27, CUBONE
+	db 29, MAROWAK
+	db 27, KANGASKHAN
+	db 29, KANGASKHAN
 	; nite
-	db 17, CUBONE
-	db 17, ONIX
-	db 18, CUBONE
-	db 20, CUBONE
-	db 22, MAROWAK
-	db 20, KANGASKHAN
-	db 22, KANGASKHAN
+	db 24, CUBONE
+	db 24, ONIX
+	db 25, CUBONE
+	db 27, CUBONE
+	db 29, MAROWAK
+	db 27, KANGASKHAN
+	db 29, KANGASKHAN
 
 ; Murkrow swarm
 	map_id ROUTE_7
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 22, MURKROW
-	db 22, MURKROW
-	db 20, SNUBBULL
-	db 24, RATICATE
-	db 20, JIGGLYPUFF
-	db 19, ABRA
-	db 19, ABRA
+	db 29, MURKROW
+	db 29, MURKROW
+	db 27, SNUBBULL
+	db 31, RATICATE
+	db 27, JIGGLYPUFF
+	db 26, ABRA
+	db 26, ABRA
 	; day
-	db 22, MURKROW
-	db 22, MURKROW
-	db 20, SNUBBULL
-	db 24, RATICATE
-	db 20, JIGGLYPUFF
-	db 19, ABRA
-	db 19, ABRA
+	db 29, MURKROW
+	db 29, MURKROW
+	db 27, SNUBBULL
+	db 31, RATICATE
+	db 27, JIGGLYPUFF
+	db 26, ABRA
+	db 26, ABRA
 	; nite
-	db 22, MURKROW
-	db 22, MURKROW
-	db 20, HOUNDOUR
-	db 24, PERSIAN
-	db 20, JIGGLYPUFF
-	db 19, ABRA
-	db 19, ABRA
+	db 29, MURKROW
+	db 29, MURKROW
+	db 27, HOUNDOUR
+	db 31, PERSIAN
+	db 27, JIGGLYPUFF
+	db 26, ABRA
+	db 26, ABRA
 
 ; Haunter swarm
 	map_id ROUTE_8
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 22, SNUBBULL
-	db 24, HAUNTER
-	db 19, ABRA
-	db 24, HAUNTER
-	db 24, HAUNTER
-	db 20, KADABRA
+	db 29, SNUBBULL
+	db 31, HAUNTER
+	db 26, ABRA
+	db 31, HAUNTER
+	db 31, HAUNTER
 	db 27, KADABRA
+	db 34, KADABRA
 	; day
-	db 22, SNUBBULL
-	db 24, HAUNTER
-	db 19, ABRA
-	db 24, HAUNTER
-	db 24, HAUNTER
-	db 20, KADABRA
+	db 29, SNUBBULL
+	db 31, HAUNTER
+	db 26, ABRA
+	db 31, HAUNTER
+	db 31, HAUNTER
 	db 27, KADABRA
+	db 34, KADABRA
 	; nite
-	db 22, MEOWTH
-	db 24, HAUNTER
-	db 19, ABRA
-	db 24, HAUNTER
-	db 24, HAUNTER
-	db 20, KADABRA
+	db 29, MEOWTH
+	db 31, HAUNTER
+	db 26, ABRA
+	db 31, HAUNTER
+	db 31, HAUNTER
 	db 27, KADABRA
+	db 34, KADABRA
 
 ; Slugma swarm
 	map_id ROUTE_16
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 26, GRIMER
-	db 27, SLUGMA
-	db 28, GRIMER
-	db 29, SLUGMA
-	db 29, SLUGMA
-	db 30, MUK
-	db 30, MUK
+	db 36, GRIMER
+	db 37, SLUGMA
+	db 38, GRIMER
+	db 39, SLUGMA
+	db 39, SLUGMA
+	db 40, MUK
+	db 40, MUK
 	; day
-	db 26, GRIMER
-	db 27, SLUGMA
-	db 28, GRIMER
-	db 29, SLUGMA
-	db 29, SLUGMA
-	db 30, MUK
-	db 30, MUK
+	db 36, GRIMER
+	db 37, SLUGMA
+	db 38, GRIMER
+	db 39, SLUGMA
+	db 39, SLUGMA
+	db 40, MUK
+	db 40, MUK
 	; nite
-	db 26, GRIMER
-	db 27, SLUGMA
-	db 28, GRIMER
-	db 29, SLUGMA
-	db 29, SLUGMA
-	db 30, MUK
-	db 30, MUK
+	db 36, GRIMER
+	db 37, SLUGMA
+	db 38, GRIMER
+	db 39, SLUGMA
+	db 39, SLUGMA
+	db 40, MUK
+	db 40, MUK
 
 ; Voltorb swarm
 	map_id ROUTE_10_NORTH
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 18, VOLTORB
-	db 16, MANKEY
-	db 17, VOLTORB
-	db 17, MAGNEMITE
-	db 20, VOLTORB
-	db 18, PRIMEAPE
-	db 18, PRIMEAPE
+	db 28, VOLTORB
+	db 26, MANKEY
+	db 27, VOLTORB
+	db 27, MAGNEMITE
+	db 30, VOLTORB
+	db 28, PRIMEAPE
+	db 28, PRIMEAPE
 	; day
-	db 18, VOLTORB
-	db 16, MANKEY
-	db 17, VOLTORB
-	db 17, MAGNEMITE
-	db 20, VOLTORB
-	db 18, PRIMEAPE
-	db 18, PRIMEAPE
+	db 28, VOLTORB
+	db 26, MANKEY
+	db 27, VOLTORB
+	db 27, MAGNEMITE
+	db 30, VOLTORB
+	db 28, PRIMEAPE
+	db 28, PRIMEAPE
 	; nite
-	db 18, VOLTORB
-	db 16, MANKEY
-	db 17, VOLTORB
-	db 17, MAGNEMITE
-	db 20, VOLTORB
-	db 18, PRIMEAPE
-	db 18, PRIMEAPE
+	db 28, VOLTORB
+	db 26, MANKEY
+	db 27, VOLTORB
+	db 27, MAGNEMITE
+	db 30, VOLTORB
+	db 28, PRIMEAPE
+	db 28, PRIMEAPE
 
 ; Nidorino swarm
 	map_id ROUTE_14
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 28, NIDORINO
-	db 28, NIDORINA
-	db 30, PIDGEOTTO
-	db 28, NIDORINO
-	db 30, NIDORINO
-	db 30, SKIPLOOM
-	db 30, CHANSEY
+	db 38, NIDORINO
+	db 38, NIDORINA
+	db 40, PIDGEOTTO
+	db 38, NIDORINO
+	db 40, NIDORINO
+	db 40, SKIPLOOM
+	db 40, CHANSEY
 	; day
-	db 28, NIDORINO
-	db 28, NIDORINA
-	db 30, PIDGEOTTO
-	db 28, NIDORINO
-	db 30, NIDORINO
-	db 30, SKIPLOOM
-	db 30, CHANSEY
+	db 38, NIDORINO
+	db 38, NIDORINA
+	db 40, PIDGEOTTO
+	db 38, NIDORINO
+	db 40, NIDORINO
+	db 40, SKIPLOOM
+	db 40, CHANSEY
 	; nite
-	db 28, NIDORINO
-	db 28, QUAGSIRE
-	db 30, NOCTOWL
-	db 28, NIDORINO
-	db 30, NIDORINO
-	db 30, QUAGSIRE
-	db 30, CHANSEY
+	db 38, NIDORINO
+	db 38, QUAGSIRE
+	db 40, NOCTOWL
+	db 38, NIDORINO
+	db 40, NIDORINO
+	db 40, QUAGSIRE
+	db 40, CHANSEY
 
 ; Farfetch'd swarm
 	map_id ROUTE_13
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 25, NIDORINO
-	db 25, NIDORINA
-	db 28, FARFETCH_D
-	db 25, FARFETCH_D
-	db 27, FARFETCH_D
-	db 29, HOPPIP
-	db 31, CHANSEY
+	db 35, NIDORINO
+	db 35, NIDORINA
+	db 38, FARFETCH_D
+	db 35, FARFETCH_D
+	db 37, FARFETCH_D
+	db 39, HOPPIP
+	db 41, CHANSEY
 	; day
-	db 25, NIDORINO
-	db 25, NIDORINA
-	db 28, FARFETCH_D
-	db 25, FARFETCH_D
-	db 27, FARFETCH_D
-	db 29, HOPPIP
-	db 31, CHANSEY
+	db 35, NIDORINO
+	db 35, NIDORINA
+	db 38, FARFETCH_D
+	db 35, FARFETCH_D
+	db 37, FARFETCH_D
+	db 39, HOPPIP
+	db 41, CHANSEY
 	; nite
-	db 25, VENONAT
-	db 25, QUAGSIRE
-	db 28, FARFETCH_D
-	db 25, FARFETCH_D
-	db 27, FARFETCH_D
-	db 29, QUAGSIRE
-	db 31, CHANSEY
+	db 35, VENONAT
+	db 35, QUAGSIRE
+	db 38, FARFETCH_D
+	db 35, FARFETCH_D
+	db 37, FARFETCH_D
+	db 39, QUAGSIRE
+	db 41, CHANSEY
 
 ; Seel swarm
 	map_id SEAFOAM_ISLANDS_B4F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 38, SEEL
-	db 34, PSYDUCK
-	db 38, GOLDUCK
-	db 34, SEEL
-	db 40, DEWGONG
-	db 40, JYNX
-	db 40, JYNX
+	db 52, SEEL
+	db 50, PSYDUCK
+	db 50, GOLDUCK
+	db 46, SEEL
+	db 46, DEWGONG
+	db 52, JYNX
+	db 52, JYNX
 	; day
-	db 38, SEEL
-	db 34, PSYDUCK
-	db 38, GOLDUCK
-	db 34, SEEL
-	db 40, DEWGONG
-	db 40, JYNX
-	db 40, JYNX
+	db 52, SEEL
+	db 50, PSYDUCK
+	db 50, GOLDUCK
+	db 46, SEEL
+	db 46, DEWGONG
+	db 52, JYNX
+	db 52, JYNX
 	; nite
-	db 38, SEEL
-	db 34, PSYDUCK
-	db 38, GOLDUCK
-	db 34, SEEL
-	db 40, DEWGONG
-	db 40, JYNX
-	db 40, JYNX
+	db 52, SEEL
+	db 50, PSYDUCK
+	db 50, GOLDUCK
+	db 46, SEEL
+	db 46, DEWGONG
+	db 52, JYNX
+	db 52, JYNX
 
 	db -1 ; end

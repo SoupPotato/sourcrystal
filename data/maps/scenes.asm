@@ -88,4 +88,5 @@ MapScenes::
 	scene_var POKEMON_MANSION_B1F,                         wPokemonMansionB1FSceneID
 	scene_var SAFARI_ZONE_ENTRANCE,                        wSafariZoneEntranceSceneID
 	scene_var PEWTER_MUSEUM_1F,                            wPewterMuseumSceneID
+	scene_var ROUTE_42_ECRUTEAK_GATE,                      wRoute42EcruteakGateSceneID
 	db -1

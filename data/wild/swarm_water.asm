@@ -44,4 +44,11 @@ SwarmWaterWildMons:
 	db 30, STARYU
 	db 35, TENTACRUEL
 
+	; Poliwag swarm
+	map_id ROUTE_6
+	db 2 percent ; encounter rate
+	db 10, POLIWAG
+	db 5, POLIWAG
+	db 10, GOLDUCK
+
 	db -1 ; end

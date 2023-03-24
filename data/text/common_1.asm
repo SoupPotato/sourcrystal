@@ -523,11 +523,12 @@ _OPT_SwarmText3::
 	text_start
 	line "@"
 	text_from_ram wMonOrItemNameBuffer
+	text " has"
 	db "@@"
 
 _OPT_SwarmText4::
 	text_start
-	line "have be seen at"
+	line "been spotted at"
 	done
 
 _OPT_SwarmText5::
@@ -544,12 +545,12 @@ _OPT_SwarmText6::
 
 _OPT_SwarmText7::
 	text_start
-	line "want to catch a"
+	line "want to catch"
 	done
 
 _OPT_SwarmText8::
 	text_start
-	line "@"
+	line "a @"
 	text_from_ram wMonOrItemNameBuffer
 	text ","
 	db "@@"

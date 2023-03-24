@@ -1,7 +1,7 @@
 GenerateSwarmShiny:
-	ld a, [wMapGroup]
+	ld a, [wSwarmMapGroup]
 	ld b, a
-	ld a, [wMapNumber]
+	ld a, [wSwarmMapNumber]
 	ld c, a
 	call GetWorldMapLocation
 	cp ROUTE_35

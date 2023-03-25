@@ -159,6 +159,7 @@ GenerateSwarmShiny:
 .miltank
 	ld a, [wCurPartySpecies]
 	cp MILTANK
+	jp .next
 .sandshrew
 	ld a, [wCurPartySpecies]
 	cp SANDSHREW

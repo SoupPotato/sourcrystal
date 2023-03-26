@@ -112,7 +112,7 @@ RuinsOfAlphResearchCenterFossilScientistScript:
 	writetext RuinsOfAlphResearchCenterPlayerReceivedOmanyteText
 	playsound SFX_CAUGHT_MON
 	waitsfx
-	givepoke OMANYTE, 5
+	givepoke OMANYTE, 20
 	writetext RuinsOfAlphResearchCenterFossilScientistTakeGoodCareOfItText
 	waitbutton
 	closetext
@@ -127,7 +127,7 @@ RuinsOfAlphResearchCenterFossilScientistScript:
 	writetext RuinsOfAlphResearchCenterPlayerReceivedKabutoText
 	playsound SFX_CAUGHT_MON
 	waitsfx
-	givepoke KABUTO, 5
+	givepoke KABUTO, 20
 	writetext RuinsOfAlphResearchCenterFossilScientistTakeGoodCareOfItText
 	waitbutton
 	closetext
@@ -142,7 +142,7 @@ RuinsOfAlphResearchCenterFossilScientistScript:
 	writetext RuinsOfAlphResearchCenterPlayerReceivedAerodactylText
 	playsound SFX_CAUGHT_MON
 	waitsfx
-	givepoke AERODACTYL, 5
+	givepoke AERODACTYL, 20
 	writetext RuinsOfAlphResearchCenterFossilScientistTakeGoodCareOfItText
 	waitbutton
 	closetext

@@ -163,7 +163,7 @@ RuinsOfAlphResearchCenterFossilScientistScript:
 	iftrue .ask_helix_amber
 	writetext RuinsOfAlphResearchCenterFossilScientistIsHelixFossilText
 	yesorno
-	iftrue IsHelixFossil
+	iftrue GaveHelixFossil
 	jump .no_fossil
 
 .own_dome
@@ -171,7 +171,7 @@ RuinsOfAlphResearchCenterFossilScientistScript:
 	iftrue .ask_dome_amber
 	writetext RuinsOfAlphResearchCenterFossilScientistIsDomeFossilText
 	yesorno
-	iftrue IsDomeFossil
+	iftrue GaveDomeFossil
 	jump .no_fossil
 
 .own_helix_and_dome

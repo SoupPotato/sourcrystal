@@ -24,7 +24,7 @@ Oak:
 	setevent EVENT_TALKED_TO_OAK_IN_KANTO
 .CheckBadges:
 	checkcode VAR_BADGES
-	ifequal NUM_BADGES, .OpenMtSilver
+	ifequal NUM_BADGES, .SpecialEgg
 	ifequal NUM_JOHTO_BADGES, .Complain
 	jump .AhGood
 
@@ -52,6 +52,49 @@ Oak:
 	writetext OakYesKantoBadgesText
 	buttonsound
 	jump .CheckPokedex
+
+.SpecialEgg:
+	writetext OakGiveEggText
+	waitbutton
+	checkevent EVENT_GOT_TOTODILE_FROM_ELM
+	iftrue .HaveTotodileGiveChikorita
+	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
+	iftrue .HaveChikoritaGiveCyndaquil
+	checkcode VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
+	giveegg TOTODILE, 5
+	stringtotext .eggname, MEM_BUFFER_1
+	scall .GetStarterEgg
+	jump .OpenMtSilver
+
+.HaveChikoritaGiveCyndaquil
+	checkcode VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
+	giveegg CYNDAQUIL, 5
+	stringtotext .eggname, MEM_BUFFER_1
+	scall .GetStarterEgg
+	jump .OpenMtSilver
+	
+.HaveTotodileGiveChikorita
+	checkcode VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
+	giveegg CHIKORITA, 5
+	stringtotext .eggname, MEM_BUFFER_1
+	scall .GetStarterEgg
+	jump .OpenMtSilver
+	
+.eggname
+	db "EGG@"
+	
+.GetStarterEgg:
+	jumpstd receivetogepiegg
+	end
+	
+.PartyFull
+	writetext OakNoRoomForSpecialEgg
+	waitbutton
+	closetext
+	end
 
 OaksAssistant1Script:
 	jumptextfaceplayer OaksAssistant1Text
@@ -104,7 +147,7 @@ OakLabGoodbyeText:
 	cont "come visit again."
 	done
 
-OakOpenMtSilverText:
+OakGiveEggText:
 	text "OAK: Wow! That's"
 	line "excellent!"
 
@@ -121,6 +164,27 @@ OakOpenMtSilverText:
 	para "arrangements so"
 	line "that you can go to"
 	cont "MT.SILVER."
+	
+	para "But first, I want"
+	line "you to have this"
+	cont "EGG!"
+	
+	para "It's a small gift"
+	line "for obtaining all"
+	cont "sixteen badges!"
+	done
+
+OakNoRoomForSpecialEgg:
+	text "Oh, wait! You have"
+	line "no room for this!"
+	
+	para "I will hold onto"
+	line "the EGG while you"
+	cont "make room."
+	done
+
+OakOpenMtSilverText:
+	text "Now then…"
 
 	para "MT.SILVER is a big"
 	line "mountain that is"

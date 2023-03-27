@@ -3677,13 +3677,13 @@ SuicuneEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BITE
 	db 1, LEER
-	db 8, BUBBLEBEAM
+	db 8, WATER_GUN
 	db 15, RAIN_DANCE
 	db 22, GUST
 	db 29, AURORA_BEAM
-	db 36, MIST
-	db 43, MIRROR_COAT
-	db 50, ICE_BEAM
+	db 36, BUBBLEBEAM
+	db 43, MIST
+	db 50, MIRROR_COAT
 	db 57, PSYCHIC_M
 	db 64, HYDRO_PUMP
 	db 71, AMNESIA

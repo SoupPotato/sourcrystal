@@ -3,9 +3,9 @@
 	const ROUTE42ECRUTEAKGATE_FISHER
 
 Route42EcruteakGate_MapScripts:
-	db 2 ; scene scripts
-	scene_script .DummyScene0 ; SCENE_ROUTE_42_ECRUTEAK_GATE_BLOCKED
-	scene_script .DummyScene1 ; SCENE_ROUTE_42_ECRUTEAK_GATE_CLEAR
+	db 0 ; scene scripts
+;	scene_script .DummyScene0 ; SCENE_ROUTE_42_ECRUTEAK_GATE_BLOCKED
+;	scene_script .DummyScene1 ; SCENE_ROUTE_42_ECRUTEAK_GATE_CLEAR
 
 	db 0 ; callbacks
 
@@ -81,11 +81,11 @@ Route42EcruteakGate_MapEvents:
 	warp_event  9,  4, ROUTE_42, 1
 	warp_event  9,  5, ROUTE_42, 2
 
-	db 1 ; coord events
-	coord_event 6,  5, SCENE_DEFAULT, Route42EcruteakGateFisherStopScript
+	db 0 ; coord events
+;	coord_event 6,  5, SCENE_DEFAULT, Route42EcruteakGateFisherStopScript
 
 	db 0 ; bg events
 
-	db 2 ; object events
+	db 1 ; object events
 	object_event  5,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route42EcruteakGateOfficerScript, -1
-	object_event  6,  4, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route42EcruteakGateFisherScript, EVENT_BEAT_JASMINE
+;	object_event  6,  4, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route42EcruteakGateFisherScript, EVENT_BEAT_JASMINE

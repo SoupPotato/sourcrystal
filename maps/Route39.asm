@@ -10,12 +10,22 @@
 	const ROUTE39_BERRY
 	const ROUTE39_APRICORN
 	const ROUTE39_POKEFAN_F2
+	const ROUTE39_GENTLEMAN_BOBOA
 
 Route39_MapScripts:
-	db 0 ; scene scripts
+	db 2 ; scene scripts
+	scene_script .DummyScene0 ; SCENE_ROUTE_39_DEFAULT
+	scene_script .DummyScene1 ; SCENE_ROUTE_39_BOBOA_GONE
+
 
 	db 1 ; callbacks
 	callback MAPCALLBACK_OBJECTS, .Fruittrees
+
+.DummyScene0:
+	end
+
+.DummyScene1:
+	end
 
 .Fruittrees
 .Berry:
@@ -228,6 +238,44 @@ Route39NoApricorn:
 	closetext
 	end
 
+Route39Baoba1:
+	turnobject ROUTE39_GENTLEMAN_BOBOA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BOBOA, 15
+	applymovement ROUTE39_GENTLEMAN_BOBOA, MovementData_Route39_Baoba_Approach1
+	jump Route39BaobaScript
+
+Route39Baoba2:
+	turnobject ROUTE39_GENTLEMAN_BOBOA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BOBOA, 15
+	applymovement ROUTE39_GENTLEMAN_BOBOA, MovementData_Route39_Baoba_Approach2
+	jump Route39BaobaScript
+
+Route39Baoba3:
+	turnobject ROUTE39_GENTLEMAN_BOBOA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BOBOA, 15
+	applymovement ROUTE39_GENTLEMAN_BOBOA, MovementData_Route39_Baoba_Approach3
+	jump Route39BaobaScript
+
+Route39Baoba4:
+	turnobject ROUTE39_GENTLEMAN_BOBOA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BOBOA, 15
+	applymovement ROUTE39_GENTLEMAN_BOBOA, MovementData_Route39_Baoba_Approach4
+	jump Route39BaobaScript
+
+Route39BaobaScript:
+	opentext
+	writetext Route39BaobaIntroText
+	waitbutton
+	verbosegiveitem EXP_SHARE
+	writetext Route39BaobaLeavingText
+	waitbutton
+	closetext
+	setevent EVENT_ROUTE39_BAOBA_GAVE_EXP_SHARE
+	setscene SCENE_ROUTE_39_BAOBA_GONE
+	applymovement ROUTE39_GENTLEMAN_BOBOA, MovementData_Route39_Baoba_Leaves
+	disappear ROUTE39_GENTLEMAN_BOBOA
+	end
+
 Route39HiddenNugget:
 	hiddenitem NUGGET, EVENT_ROUTE_39_HIDDEN_NUGGET
 
@@ -412,6 +460,79 @@ Route39NothingHereText:
 	line "here…"
 	done
 
+Route39BaobaIntroText:
+	text "BAOBA: …Ohh!"
+
+	para "Is that a #DEX?"
+
+	para "I haven't seen one"
+	line "of those in ages."
+
+	para "My name is BAOBA!"
+
+	para "I run a SAFARI"
+	line "ZONE just beyond"
+	cont "CIANWOOD CITY."
+
+	para "I'm sure a young"
+	line "trainer such as"
+
+	para "yourself would be"
+	line "quite interested"
+
+	para "in the rare and"
+	line "exotic #MON"
+	cont "found there."
+
+	para "I certainly hope"
+	line "you will consider"
+	cont "taking a look."
+	
+	para "Anyway, I had"
+	line "better get back."
+
+	para "Please take this"
+	line "as a token of our"
+	cont "meeting…"
+	done
+
+Route39BaobaLeavingText:
+	text "Remember, the"
+	line "SAFARI ZONE is"
+
+	para "west beyond"
+	line "CIANWOOD CITY."
+
+	para "Best of luck to"
+	line "you!"
+	done
+
+MovementData_Route39_Baoba_Approach1:
+	step_up
+MovementData_Route39_Baoba_Approach2:
+	step_right
+	step_right
+	step_end
+
+MovementData_Route39_Baoba_Approach4:
+	step_down
+MovementData_Route39_Baoba_Approach3:
+	step_down
+	step_right
+	step_right
+	step_end
+
+MovementData_Route39_Baoba_Leaves:
+	step_left
+	step_left
+	step_down
+	step_down
+	step_down
+	step_down
+	step_down
+	step_down
+	step_end
+
 Route39_MapEvents:
 	db 0, 0 ; filler
 
@@ -419,7 +540,11 @@ Route39_MapEvents:
 	warp_event  1,  3, ROUTE_39_BARN, 1
 	warp_event  5,  3, ROUTE_39_FARMHOUSE, 1
 
-	db 0 ; coord events
+	db 4 ; coord events
+	coord_event 16,  8, SCENE_DEFAULT, Route39Baoba1
+	coord_event 16,  9, SCENE_DEFAULT, Route39Baoba2
+	coord_event 16, 10, SCENE_DEFAULT, Route39Baoba3
+	coord_event 16, 11, SCENE_DEFAULT, Route39Baoba4
 
 	db 6 ; bg events
 	bg_event  5, 31, BGEVENT_READ, Route39TrainerTips
@@ -429,7 +554,7 @@ Route39_MapEvents:
 	bg_event  6, 13, BGEVENT_READ, Route39NoBerry
 	bg_event  9,  3, BGEVENT_READ, Route39NoApricorn
 
-	db 11 ; object events
+	db 12 ; object events
 	object_event 13, 29, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerSailorEugene, -1
 	object_event 10, 22, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerPokefanmDerek, -1
 	object_event 11, 19, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerPokefanfRuth, -1
@@ -437,7 +562,8 @@ Route39_MapEvents:
 	object_event  6, 11, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
 	object_event  4, 15, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
 	object_event  8, 13, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
-	object_event 13,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPsychicNorman, -1
+	object_event 14, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPsychicNorman, -1
 	object_event  6, 13, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route39BerryTree, EVENT_ROUTE39_BERRY
 	object_event  9,  3, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route39ApricornTree, EVENT_ROUTE39_APRICORN
 	object_event  4, 22, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, TrainerPokefanfJaime, -1
+	object_event 13,  9, SPRITE_GENTLEMAN, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE39_BAOBA_GAVE_EXP_SHARE

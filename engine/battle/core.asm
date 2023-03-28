@@ -5078,6 +5078,7 @@ BattleMenu_Fight:
 	ret
 
 BattleMenu_Rock:
+	call SetPlayerTurn
 	ld hl, BattleText_ThrewRock
 	call StdBattleTextBox
 	ld hl, wEnemyMonCatchRate
@@ -5366,6 +5367,7 @@ BattleMenuPKMN_Loop:
 	ret
 
 BattleMenu_Bait:
+	call SetPlayerTurn
 	ld hl, BattleText_ThrewBait
 	call StdBattleTextBox
 	ld hl, wEnemyMonCatchRate

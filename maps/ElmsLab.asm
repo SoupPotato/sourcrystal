@@ -92,7 +92,7 @@ ProfElmScript:
 	checkevent EVENT_GOT_SS_TICKET_FROM_ELM
 	iftrue ElmCheckMasterBall
 	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue ElmGiveTicketScript
+	iftrue ElmGiveSpecialEggScript
 ElmCheckMasterBall:
 	checkevent EVENT_GOT_MASTER_BALL_FROM_ELM
 	iftrue ElmCheckEverstone
@@ -418,6 +418,49 @@ ElmGiveMasterBallScript:
 	writetext ElmGiveMasterBallText2
 	waitbutton
 .notdone
+	closetext
+	end
+
+ElmGiveSpecialEggScript:
+	writetext ElmGiveEggText
+	waitbutton
+	checkevent EVENT_GOT_TOTODILE_FROM_ELM
+	iftrue .HaveTotodileGiveCyndaquil
+	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
+	iftrue .HaveChikoritaGiveTotodile
+	checkcode VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
+	giveegg CHIKORITA, 5
+	stringtotext .eggname, MEM_BUFFER_1
+	scall .GetStarterEgg
+	jump ElmGiveTicketScript
+
+.HaveChikoritaGiveTotodile
+	checkcode VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
+	giveegg TOTODILE, 5
+	stringtotext .eggname, MEM_BUFFER_1
+	scall .GetStarterEgg
+	jump ElmGiveTicketScript
+	
+.HaveTotodileGiveCyndaquil
+	checkcode VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
+	giveegg CYNDAQUIL, 5
+	stringtotext .eggname, MEM_BUFFER_1
+	scall .GetStarterEgg
+	jump ElmGiveTicketScript
+	
+.eggname
+	db "EGG@"
+	
+.GetStarterEgg:
+	jumpstd receivetogepiegg
+	end
+	
+.PartyFull
+	writetext ElmNoRoomForSpecialEgg
+	waitbutton
 	closetext
 	end
 
@@ -1223,12 +1266,24 @@ ElmGiveMasterBallText2:
 	line "can, <PLAY_G>!"
 	done
 
-ElmGiveTicketText1:
+ElmGiveEggText:
 	text "ELM: <PLAY_G>!"
 	line "There you are!"
 
 	para "I called because I"
 	line "have something for"
+	cont "you."
+
+	para "It's a very special"
+	line "EGG."
+
+	para "I hope you take"
+	line "good care of it!"
+	done
+
+ElmGiveTicketText1:
+	text "Now, I have one"
+	line "more thing to give"
 	cont "you."
 
 	para "See? It's an"
@@ -1415,6 +1470,15 @@ ElmsLabPCText:
 GotPagerCardText:
 	text "<PLAYER>'s #GEAR"
 	line "now has a PPS!"
+	done
+
+ElmNoRoomForSpecialEgg:
+	text "Oh, wait! You have"
+	line "no room for this!"
+	
+	para "I will hold onto"
+	line "the EGG while you"
+	cont "make room."
 	done
 
 ElmsLab_MapEvents:

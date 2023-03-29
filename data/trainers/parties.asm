@@ -3618,23 +3618,13 @@ PokefanMGroup:
 	db -1 ; end
 
 	; POKEFANM (10)
-	db "DEREK@", TRAINERTYPE_ITEM
-	db 19, PIKACHU,    ORAN_BERRY
-	db -1 ; end
-
-	; POKEFANM (11)
-	db "DEREK@", TRAINERTYPE_ITEM
-	db 36, PIKACHU,    ORAN_BERRY
-	db -1 ; end
-
-	; POKEFANM (12)
 	db "ALEX@", TRAINERTYPE_ITEM
 	db 29, NIDOKING,   ORAN_BERRY
 	db 29, SLOWKING,   ORAN_BERRY
 	db 29, SEAKING,    ORAN_BERRY
 	db -1 ; end
 
-	; POKEFANM (13)
+	; POKEFANM (11)
 	db "BOONE@", TRAINERTYPE_ITEM
 	db 43, AIPOM,      ORAN_BERRY
 	db 41, ARIADOS,    ORAN_BERRY
@@ -3772,16 +3762,6 @@ PokefanFGroup:
 	db -1 ; end
 
 	; POKEFANF (3)
-	db "BEVERLY@", TRAINERTYPE_ITEM
-	db 18, SNUBBULL,   ORAN_BERRY
-	db -1 ; end
-
-	; POKEFANF (4)
-	db "BEVERLY@", TRAINERTYPE_ITEM
-	db 30, GRANBULL,   ORAN_BERRY
-	db -1 ; end
-
-	; POKEFANF (5)
 	db "GEORGIA@", TRAINERTYPE_ITEM
 	db 31, SENTRET,    ORAN_BERRY
 	db 31, SENTRET,    ORAN_BERRY
@@ -3790,12 +3770,12 @@ PokefanFGroup:
 	db 31, SENTRET,    ORAN_BERRY
 	db -1 ; end
 
-	; POKEFANF (6)
+	; POKEFANF (4)
 	db "JAIME@", TRAINERTYPE_ITEM
 	db 16, MEOWTH,     ORAN_BERRY
 	db -1 ; end
 
-	; POKEFANF (7)
+	; POKEFANF (5)
 	db "ELEANOR@", TRAINERTYPE_ITEM
 	db 43, AIPOM,      ORAN_BERRY
 	db 41, LEDIAN,     ORAN_BERRY

@@ -693,7 +693,7 @@ KRIS EQU __enum__
 
 	trainerclass POKEFANM ; 3b
 	const WILLIAM
-	const DEREK1
+	const DEREK
 	const ROBERT
 	const JOSHUA
 	const CARTER
@@ -701,8 +701,6 @@ KRIS EQU __enum__
 	const BRANDON
 	const JEREMY
 	const COLIN
-	const DEREK2
-	const DEREK3
 	const ALEX
 	const BOONE
 
@@ -731,10 +729,8 @@ KRIS EQU __enum__
 	const KAYANDTIA3
 
 	trainerclass POKEFANF ; 3e
-	const BEVERLY1
+	const BEVERLY
 	const RUTH
-	const BEVERLY2
-	const BEVERLY3
 	const GEORGIA
 	const JAIME
 	const ELEANOR

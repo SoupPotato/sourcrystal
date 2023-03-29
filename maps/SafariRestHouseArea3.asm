@@ -37,7 +37,7 @@ SafariRestHouseArea3FisherScript_Text:
 SafariRestHouseArea3CooltrainerFScript_Text:
 	text "Using BAIT makes"
 	line "the wild #MON"
-	cont "less likley to"
+	cont "less likely to"
 	cont "flee…"
 	
 	para "But it also makes"
@@ -47,7 +47,7 @@ SafariRestHouseArea3CooltrainerFScript_Text:
 	para "Likewise, throwing"
 	line "a ROCK makes them"
 	cont "easier to catch"
-	cont "but more likley to"
+	cont "but more likely to"
 	cont "flee…"
 	
 	para "It's a difficult"

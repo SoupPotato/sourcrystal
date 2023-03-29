@@ -276,7 +276,7 @@ SafariZoneEntranceBaobo_Text:
 	line "SAFARI ZONE in"
 	cont "FUCHSIA CITY, but"
 	cont "I decided to ex-"
-	cont "pand the buisness"
+	cont "pand the business"
 	cont "to JOHTO."
 	
 	para "I hope you enjoy"

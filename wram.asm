@@ -2608,8 +2608,10 @@ wPokemonMansion1FSceneID::                        db ; d9c1
 wPokemonMansionB1FSceneID::                       db ; d9c2
 wSafariZoneEntranceSceneID::                      db ; d9c3
 wPewterMuseumSceneID::                            db ; d9c4
+wRoute42EcruteakGateSceneID::                     db ; d9c5
+wRoute39SceneID::                                 db ; d9c6
 
-	ds 45
+	ds 43
 
 ; fight counts
 wJackFightCount::    db ; d9f2

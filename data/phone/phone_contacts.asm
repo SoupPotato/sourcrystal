@@ -16,7 +16,7 @@ PhoneContacts:
 	phone TRAINER_NONE, PHONECONTACT_BILL,  N_A,              ANYTIME, BillPhoneScript1,    0,       BillPhoneScript2
 	phone TRAINER_NONE, PHONECONTACT_ELM,   ELMS_LAB,         ANYTIME, ElmPhoneScript1,     0,       ElmPhoneScript2
 	phone SCHOOLBOY,    JACK1,              NATIONAL_PARK,    ANYTIME, JackPhoneScript1,    ANYTIME, JackPhoneScript2
-	phone POKEFANF,     BEVERLY1,           NATIONAL_PARK,    ANYTIME, BeverlyPhoneScript1, ANYTIME, BeverlyPhoneScript2
+	phone POKEFANF,     BEVERLY,            NATIONAL_PARK,    ANYTIME, BeverlyPhoneScript1, ANYTIME, BeverlyPhoneScript2
 	phone SAILOR,       HUEY1,              OLIVINE_LIGHTHOUSE_2F, ANYTIME, HueyPhoneScript1, ANYTIME, HueyPhoneScript2
 	phone YOUNGSTER,    IAN1,               ROUTE_34,         ANYTIME, IanPhoneScript1,     ANYTIME, IanPhoneScript2
 	phone FIREBREATHER, WALT1,              ROUTE_35,         ANYTIME, WaltPhoneScript1,    ANYTIME, WaltPhoneScript2
@@ -38,7 +38,7 @@ PhoneContacts:
 	phone GENTLEMAN,    ALFRED1,            OLIVINE_LIGHTHOUSE_2F, ANYTIME, AlfredPhoneScript1, ANYTIME, AlfredPhoneScript2
 	phone LASS,         DANA1,              ROUTE_38,         ANYTIME, DanaPhoneScript1,    ANYTIME, DanaPhoneScript2
 	phone SCHOOLBOY,    CHAD1,              ROUTE_38,         ANYTIME, ChadPhoneScript1,    ANYTIME, ChadPhoneScript2
-	phone POKEFANM,     DEREK1,             ROUTE_39,         ANYTIME, DerekPhoneScript1,   ANYTIME, DerekPhoneScript2
+	phone POKEFANM,     DEREK,              ROUTE_39,         ANYTIME, DerekPhoneScript1,   ANYTIME, DerekPhoneScript2
 	phone FISHER,       TULLY1,             ROUTE_42,         ANYTIME, TullyPhoneScript1,   ANYTIME, TullyPhoneScript2
 	phone POKEMANIAC,   BRENT1,             ROUTE_43,         ANYTIME, BrentPhoneScript1,   ANYTIME, BrentPhoneScript2
 	phone PICNICKER,    TIFFANY3,           ROUTE_43,         ANYTIME, TiffanyPhoneScript1, ANYTIME, TiffanyPhoneScript2

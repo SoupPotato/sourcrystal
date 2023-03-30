@@ -76,7 +76,7 @@
 	tilecoll FLOOR, HEADBUTT_TREE, WALL, HEADBUTT_TREE ; 4b
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 4c
 	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 4d
-	tilecoll HEADBUTT_TREE, HEADBUTT_TREE, FLOOR, HEADBUTT_TREE ; 4e
+	tilecoll WALL, WALL, WALL, WALL ; 4e
 	tilecoll WALL, WALL, WALL, WALL ; 4f
 	tilecoll WALL, WALL, WALL, DOOR ; 50
 	tilecoll WALL, WALL, WALL, WALL ; 51
@@ -167,4 +167,3 @@
 	tilecoll WALL, WALL, WALL, WALL ; a6
 	tilecoll WALL, WALL, WALL, WALL ; a7
 	tilecoll WALL, FLOOR, WALL, FLOOR ; a8
-	tilecoll WALL, WALL, WALL, WALL ; a9

@@ -37,7 +37,7 @@ Moves:
 	move STOMP,        EFFECT_STOMP,              65, NORMAL,   100, 20,  30
 	move DOUBLE_KICK,  EFFECT_DOUBLE_HIT,         30, FIGHTING, 100, 30,   0
 	move MEGA_KICK,    EFFECT_NORMAL_HIT,        120, NORMAL,    75,  5,   0
-	move JUMP_KICK,    EFFECT_JUMP_KICK,          70, FIGHTING,  95, 25,   0
+	move JUMP_KICK,    EFFECT_JUMP_KICK,         100, FIGHTING,  95, 10,   0 ; OLD POWER: 70, OLD PP: 25
 	move ROLLING_KICK, EFFECT_FLINCH_HIT,         60, FIGHTING,  85, 15,  30
 	move SAND_ATTACK,  EFFECT_ACCURACY_DOWN,       0, GROUND,   100, 15,   0
 	move HEADBUTT,     EFFECT_FLINCH_HIT,         70, NORMAL,   100, 15,  30
@@ -147,7 +147,7 @@ Moves:
 	move AMNESIA,      EFFECT_SP_DEF_UP_2,         0, PSYCHIC,  100, 20,   0
 	move KINESIS,      EFFECT_ACCURACY_DOWN,       0, PSYCHIC,   80, 15,   0
 	move SOFTBOILED,   EFFECT_HEAL,                0, NORMAL,   100, 10,   0
-	move HI_JUMP_KICK, EFFECT_JUMP_KICK,          85, FIGHTING,  90, 20,   0
+	move HI_JUMP_KICK, EFFECT_JUMP_KICK,         130, FIGHTING,  90, 10,   0 ; OLD POWER: 85, OLD PP: 20
 	move GLARE,        EFFECT_PARALYZE,            0, NORMAL,   100, 30,   0 ; OLD ACCURACY: 75
 	move DREAM_EATER,  EFFECT_DREAM_EATER,       100, PSYCHIC,  100, 15,   0
 	move POISON_GAS,   EFFECT_POISON,              0, POISON,    90, 40,   0 ; OLD ACCURACY: 55

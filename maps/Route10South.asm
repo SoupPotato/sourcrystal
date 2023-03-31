@@ -67,6 +67,9 @@ ZapdosText:
 Route10Sign:
 	jumptext Route10SignText
 
+PowerPlantSign:
+	jumptext PowerPlantSignText
+
 HikerJimSeenText:
 	text "Hahahah!"
 	done
@@ -106,6 +109,10 @@ Route10SignText:
 
 	para "CERULEAN CITY -"
 	line "LAVENDER TOWN"
+	done
+
+PowerPlantSignText:
+	text "KANTO POWER PLANT"
 	done
 
 Route10South_MapEvents:

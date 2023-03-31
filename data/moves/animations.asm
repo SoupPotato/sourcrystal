@@ -2501,12 +2501,30 @@ BattleAnim_Swift:
 	anim_ret
 
 BattleAnim_Crabhammer:
-	anim_1gfx ANIM_GFX_HIT
-	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $40, $2, $0
-	anim_wait 48
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_WATER
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BUBBLE
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_BUBBLE
+	anim_sound 3, 0, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 08, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 16, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 24, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 32, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 40, $0
+	anim_wait 1
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 48, $0
+	anim_wait 1
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_Y, $40, $1, $20
+	anim_sound 0, 1, SFX_EGG_BOMB
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $3
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 56, $5c
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 56, $e8
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 56, $d0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 56, $50
 .loop
-	anim_sound 0, 1, SFX_MEGA_PUNCH
 	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
 	anim_wait 12
 	anim_loop 3, .loop
@@ -3070,18 +3088,28 @@ BattleAnim_Waterfall:
 	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
 	anim_sound 0, 1, SFX_LICK
 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 56, $d0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 56, $50
 	anim_wait 3
 	anim_sound 0, 1, SFX_LICK
 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 48, $0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 48, $d0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 48, $50
 	anim_wait 3
 	anim_sound 0, 1, SFX_LICK
 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 40, $0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 40, $d0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 40, $50
 	anim_wait 3
 	anim_sound 0, 1, SFX_LICK
 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 32, $0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 32, $d0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 32, $50
 	anim_wait 3
 	anim_sound 0, 1, SFX_LICK
 	anim_obj ANIM_OBJ_HIT_YFIX, 136, 24, $0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 24, $d0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 24, $50
 	anim_wait 8
 	anim_ret
 

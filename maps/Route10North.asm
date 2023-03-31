@@ -6,15 +6,8 @@ Route10North_MapScripts:
 
 	db 0 ; callbacks
 
-PowerPlantSign:
-	jumptext PowerPlantSignText
-
 Route10PokecenterSign:
 	jumpstd pokecentersign
-
-PowerPlantSignText:
-	text "KANTO POWER PLANT"
-	done
 
 Route10North_MapEvents:
 	db 0, 0 ; filler

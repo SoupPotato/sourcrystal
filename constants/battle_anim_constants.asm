@@ -222,6 +222,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const ANIM_OBJ_SAFARI_ROCK
 	const ANIM_OBJ_SAFARI_BAIT
 	const ANIM_OBJ_RISING_BUBBLE
+	const ANIM_OBJ_BUBBLE_SPLASH
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
 	const_def
@@ -305,6 +306,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const BATTLEANIMFUNC_4D
 	const BATTLEANIMFUNC_4E
 	const BATTLEANIMFUNC_4F
+	const BATTLEANIMFUNC_50
 
 ; BattleAnimFrameData indexes (see data/battle_anims/framesets.asm)
 	const_def
@@ -497,6 +499,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const BATTLEANIMFRAMESET_BA
 	const BATTLEANIMFRAMESET_BB
 	const BATTLEANIMFRAMESET_BC
+	const BATTLEANIMFRAMESET_BD
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
 	const_def
@@ -717,6 +720,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const BATTLEANIMOAMSET_D6
 	const BATTLEANIMOAMSET_D7
 	const BATTLEANIMOAMSET_D8
+	const BATTLEANIMOAMSET_D9
 
 ; BattleBGEffects indexes (see engine/battle_anims/bg_effects.asm)
 	const_def 1

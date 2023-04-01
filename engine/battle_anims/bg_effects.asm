@@ -133,6 +133,7 @@ BattleBGEffects:
 	dw BattleBGEffect_VibrateMon
 	dw BattleBGEffect_WobblePlayer
 	dw BattleBGEffect_WobbleScreen
+	dw BattleBGEffect_Recoil
 
 
 BattleBGEffect_End:
@@ -2927,5 +2928,40 @@ BattleBGEffects_Cosine:
 	ld e, a
 	callfar BattleAnim_Cosine_e
 	ld a, e
+	ret
+
+BattleBGEffect_Recoil: ; Copy of BG_TACKLE but reversed
+	call BattleBGEffects_AnonJumptable
+.anon_dw
+	dw .zero
+	dw Tackle_BGEffect25_2d_one
+	dw Tackle_BGEffect25_2d_two
+	dw .three
+
+
+.zero
+	call BattleBGEffects_IncrementJumptable
+	call BattleBGEffects_ClearLYOverrides
+	ld a, rSCX - $ff00
+	call BattleBGEffect_SetLCDStatCustoms1
+	ld a, [hLYOverrideEnd]
+	inc a
+	ld [hLYOverrideEnd], a
+	ld hl, BG_EFFECT_STRUCT_03
+	add hl, bc
+	ld [hl], $0
+	call BGEffect_CheckBattleTurn
+	jr nz, .player_side
+	ld a, -2
+	jr .okay
+
+.player_side
+	ld a, 2
+.okay
+	ld [hl], a
+	ret
+
+.three
+	call BattleAnim_ResetLCDStatCustom
 	ret
 

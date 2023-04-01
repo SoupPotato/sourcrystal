@@ -2520,14 +2520,14 @@ BattleAnim_Crabhammer:
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_Y, $40, $1, $20
 	anim_sound 0, 1, SFX_EGG_BOMB
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $3
-	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 56, $5c
-	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 56, $e8
-	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 56, $d0
-	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 56, $50
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 64, $5c
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 64, $e8
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 64, $d0
+	anim_obj ANIM_OBJ_BUBBLE_SPLASH, 140, 64, $50
 .loop
 	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
 	anim_wait 12
-	anim_loop 3, .loop
+	anim_loop 4, .loop
 	anim_ret
 
 BattleAnim_SkullBash:
@@ -3662,19 +3662,29 @@ BattleAnim_MudSlap:
 	anim_ret
 
 BattleAnim_Octazooka:
-	anim_3gfx ANIM_GFX_HAZE, ANIM_GFX_EGG, ANIM_GFX_SMOKE
-	anim_sound 6, 2, SFX_SLUDGE_BOMB
+	anim_3gfx ANIM_GFX_EGG, ANIM_GFX_SMOKE_PUFF, ANIM_GFX_POISON
+	anim_obp0 $f0
+	anim_sound 6, 2, SFX_TACKLE
 	anim_obj ANIM_OBJ_OCTAZOOKA, 64, 92, $4
-	anim_wait 16
-	anim_obj ANIM_OBJ_BALL_POOF, 132, 56, $10
-	anim_wait 8
-	anim_if_param_equal $0, .done
-.loop
-	anim_obj ANIM_OBJ_SMOKE, 132, 60, $20
-	anim_wait 8
-	anim_loop 5, .loop
-	anim_wait 128
-.done
+	anim_wait 2
+	anim_obj ANIM_OBJ_OCTAZOOKA_SMOKE, 64, 92, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_OCTAZOOKA_SMOKE, 80, 84, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_OCTAZOOKA_SMOKE, 96, 76, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_OCTAZOOKA_SMOKE, 112, 68, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_OCTAZOOKA_SMOKE, 126, 60, $0
+	anim_wait 4
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $14, $2, $0
+	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, $0, $40
+	anim_sound 0, 0, SFX_AEROBLAST
+	anim_obj ANIM_OBJ_INK_SPLASH, 140, 56, $5c
+	anim_obj ANIM_OBJ_INK_SPLASH, 140, 56, $e8
+	anim_obj ANIM_OBJ_INK_SPLASH, 140, 56, $d0
+	anim_obj ANIM_OBJ_INK_SPLASH, 140, 56, $50
+	anim_wait 40
 	anim_ret
 
 BattleAnim_Spikes:

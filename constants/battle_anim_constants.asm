@@ -223,6 +223,8 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const ANIM_OBJ_SAFARI_BAIT
 	const ANIM_OBJ_RISING_BUBBLE
 	const ANIM_OBJ_BUBBLE_SPLASH
+	const ANIM_OBJ_OCTAZOOKA_SMOKE
+	const ANIM_OBJ_INK_SPLASH
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
 	const_def
@@ -500,6 +502,8 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const BATTLEANIMFRAMESET_BB
 	const BATTLEANIMFRAMESET_BC
 	const BATTLEANIMFRAMESET_BD
+	const BATTLEANIMFRAMESET_BE
+	const BATTLEANIMFRAMESET_BF
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
 	const_def
@@ -720,7 +724,6 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const BATTLEANIMOAMSET_D6
 	const BATTLEANIMOAMSET_D7
 	const BATTLEANIMOAMSET_D8
-	const BATTLEANIMOAMSET_D9
 
 ; BattleBGEffects indexes (see engine/battle_anims/bg_effects.asm)
 	const_def 1
@@ -777,6 +780,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const ANIM_BG_VIBRATE_MON
 	const ANIM_BG_WOBBLE_PLAYER
 	const ANIM_BG_WOBBLE_SCREEN
+	const ANIM_BG_RECOIL
 
 ; AnimObjGFX indexes (see data/battle_anims/object_gfx.asm)
 	const_def 1
@@ -820,6 +824,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const ANIM_GFX_MISC_2
 	const ANIM_GFX_AEROBLAST
 	const ANIM_GFX_BEAM_LIGHT
+	const ANIM_GFX_SMOKE_PUFF
 
 ; battle_bg_effect struct members (see macros/wram.asm)
 	const_def

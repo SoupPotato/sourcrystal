@@ -3666,6 +3666,7 @@ BattleAnim_Octazooka:
 	anim_obp0 $f0
 	anim_sound 6, 2, SFX_TACKLE
 	anim_obj ANIM_OBJ_OCTAZOOKA, 64, 92, $4
+	anim_wait 2
 	anim_obj ANIM_OBJ_OCTAZOOKA_SMOKE, 64, 92, $0
 	anim_wait 2
 	anim_obj ANIM_OBJ_OCTAZOOKA_SMOKE, 80, 84, $0
@@ -3675,7 +3676,7 @@ BattleAnim_Octazooka:
 	anim_obj ANIM_OBJ_OCTAZOOKA_SMOKE, 112, 68, $0
 	anim_wait 2
 	anim_obj ANIM_OBJ_OCTAZOOKA_SMOKE, 126, 60, $0
-	anim_wait 2
+	anim_wait 4
 	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $14, $2, $0
 	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, $0, $40
 	anim_sound 0, 0, SFX_AEROBLAST

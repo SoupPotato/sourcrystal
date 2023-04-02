@@ -62,6 +62,34 @@ LoadSpecialMapPalette:
 	cp MAP_PEWTER_MUSEUM_2F
 	jp z, .MuseumBGPalettes
 .not_pewter_museum_2f
+	ld a, [wMapGroup]
+	cp GROUP_BLACKTHORN_GYM_1F
+	jp nz, .not_blackthorn_gym_1f
+	ld a, [wMapNumber]
+	cp MAP_BLACKTHORN_GYM_1F
+	jp z, .BlackThornGymBGPalettes
+.not_blackthorn_gym_1f
+	ld a, [wMapGroup]
+	cp GROUP_BLACKTHORN_GYM_2F
+	jp nz, .not_blackthorn_gym_2f
+	ld a, [wMapNumber]
+	cp MAP_BLACKTHORN_GYM_2F
+	jp z, .BlackThornGymBGPalettes
+.not_blackthorn_gym_2f
+	ld a, [wMapGroup]
+	cp GROUP_BRUNOS_ROOM
+	jp nz, .not_brunos_room
+	ld a, [wMapNumber]
+	cp MAP_BRUNOS_ROOM
+	jp z, .BlackThornGymBGPalettes
+.not_brunos_room
+	ld a, [wMapGroup]
+	cp GROUP_KARENS_ROOM
+	jp nz, .not_karens_room
+	ld a, [wMapNumber]
+	cp MAP_KARENS_ROOM
+	jp z, .KarensRoomBGPalettes
+.not_karens_room
 	jp .do_nothing
 
 .darkness
@@ -147,6 +175,24 @@ LoadSpecialMapPalette:
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
 	call AddNTimes
+	ld de, wBGPals1
+	ld a, BANK(wBGPals1)
+	call FarCopyWRAM
+	scf
+	ret
+
+.BlackThornGymBGPalettes
+	ld hl, BlackThornGymPals
+	ld bc, 8 palettes
+	ld de, wBGPals1
+	ld a, BANK(wBGPals1)
+	call FarCopyWRAM
+	scf
+	ret
+
+.KarensRoomBGPalettes
+	ld hl, KarensRoomPals
+	ld bc, 8 palettes
 	ld de, wBGPals1
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM

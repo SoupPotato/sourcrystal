@@ -129,8 +129,8 @@ TrainerFisherGideon:
 	closetext
 	end
 
-TrainerBirdkeeperKinsley:
-	trainer BIRD_KEEPER, KARTER, EVENT_BEAT_BIRD_KEEPER_KINSLEY, BirdkeeperKarterSeenText, BirdkeeperKarterBeatenText, 0, .Script
+TrainerBirdkeeperKarter:
+	trainer BIRD_KEEPER, KARTER, EVENT_BEAT_BIRD_KEEPER_KARTER, BirdkeeperKarterSeenText, BirdkeeperKarterBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -428,7 +428,7 @@ Route21_MapEvents:
 	object_event  5, 26, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherMurphy, -1
 	object_event  6, 40, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherLiam, -1
 	object_event  8, 47, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherGideon, -1
-	object_event  6, 23, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdkeeperKinsley, -1
+	object_event  6, 23, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdkeeperKarter, -1
 	object_event  4, 54, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdkeeperEaston, -1
 	object_event  9, 63, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_CINNABAR_MANSION_ROCK_SMASHED
 	object_event 16, 61, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1

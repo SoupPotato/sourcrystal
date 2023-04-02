@@ -90,6 +90,20 @@ LoadSpecialMapPalette:
 	cp MAP_KARENS_ROOM
 	jp z, .KarensRoomBGPalettes
 .not_karens_room
+	ld a, [wMapGroup]
+	cp GROUP_KOGAS_ROOM
+	jp nz, .not_kogas_room
+	ld a, [wMapNumber]
+	cp MAP_KOGAS_ROOM
+	jp z, .KogasRoomBGPalettes
+.not_kogas_room
+	ld a, [wMapGroup]
+	cp GROUP_WILLS_ROOM
+	jp nz, .not_wills_room
+	ld a, [wMapNumber]
+	cp MAP_WILLS_ROOM
+	jp z, .WillsRoomBGPalettes
+.not_wills_room
 	jp .do_nothing
 
 .darkness
@@ -138,12 +152,7 @@ LoadSpecialMapPalette:
 
 .LavaOverRedCoalOverBrownBGPalette
 	ld hl, LavaOverRedCoalOverBrown
-	ld bc, 8 palettes
-	ld de, wBGPals1
-	ld a, BANK(wBGPals1)
-	call FarCopyWRAM
-	scf
-	ret
+	jp .next
 
 .SandOverBrownBGPalette:
 	ld hl, SandOverRock
@@ -151,11 +160,7 @@ LoadSpecialMapPalette:
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
 	call AddNTimes
-	ld de, wBGPals1
-	ld a, BANK(wBGPals1)
-	call FarCopyWRAM
-	scf
-	ret
+	jp .next_TimeOfDay
 
 .SwampBGPalettes:
 	ld hl, SwampPals
@@ -163,11 +168,7 @@ LoadSpecialMapPalette:
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
 	call AddNTimes
-	ld de, wBGPals1
-	ld a, BANK(wBGPals1)
-	call FarCopyWRAM
-	scf
-	ret
+	jp .next_TimeOfDay
 
 .SundriedBGPalettes:
 	ld hl, SundriedPals
@@ -183,16 +184,21 @@ LoadSpecialMapPalette:
 
 .BlackThornGymBGPalettes
 	ld hl, BlackThornGymPals
-	ld bc, 8 palettes
-	ld de, wBGPals1
-	ld a, BANK(wBGPals1)
-	call FarCopyWRAM
-	scf
-	ret
+	jp .next
 
 .KarensRoomBGPalettes
 	ld hl, KarensRoomPals
+	jp .next
+
+.KogasRoomBGPalettes
+	ld hl, KogasRoomPals
+	jp .next
+
+.WillsRoomBGPalettes
+	ld hl, WillsRoomPals
+.next
 	ld bc, 8 palettes
+.next_TimeOfDay
 	ld de, wBGPals1
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM

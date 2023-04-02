@@ -130,12 +130,12 @@ TrainerFisherGideon:
 	end
 
 TrainerBirdkeeperKinsley:
-	trainer BIRD_KEEPER, KARTER, EVENT_BEAT_BIRD_KEEPER_KINSLEY, BirdkeeperKarterSeenText, BirdkeeperKarterBeatenText, 0, .Script
+	trainer BIRD_KEEPER, KINSLEY, EVENT_BEAT_BIRD_KEEPER_KINSLEY, BirdkeeperKinsleySeenText, BirdkeeperKinsleyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext BirdkeeperKarterAfterBattleText
+	writetext BirdkeeperKinsleyAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -355,7 +355,7 @@ FisherGideonAfterBattleText:
 	cont "#MON Trainer?"
 	done
 
-BirdkeeperKarterSeenText:
+BirdkeeperKinsleySeenText:
 	text "Surrounding your-"
 	line "self with bird"
 
@@ -367,11 +367,11 @@ BirdkeeperKarterSeenText:
 	cont "too!"
 	done
 
-BirdkeeperKarterBeatenText:
+BirdkeeperKinsleyBeatenText:
 	text "I couldn't fly…"
 	done
 
-BirdkeeperKarterAfterBattleText:
+BirdkeeperKinsleyAfterBattleText:
 	text "I guess I just"
 	line "need to practice"
 

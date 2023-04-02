@@ -188,7 +188,7 @@ KRIS EQU __enum__
 	const JAMIE1
 	const BERT
 	const ERNIE
-	const KARTER
+	const KINSLEY
 	const EASTON
 	const JAMIE2
 	const JAMIE3

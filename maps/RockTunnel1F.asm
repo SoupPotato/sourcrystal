@@ -24,7 +24,7 @@ RockTunnel1F_MapEvents:
 
 	db 6 ; warp events
 	warp_event 15,  3, ROUTE_10_NORTH, 2
-	warp_event 11, 25, ROUTE_10_SOUTH, 1
+	warp_event 11, 25, ROUTE_10_SOUTH, 2
 	warp_event  5,  3, ROCK_TUNNEL_B1F, 3
 	warp_event 15,  9, ROCK_TUNNEL_B1F, 2
 	warp_event 27,  3, ROCK_TUNNEL_B1F, 4

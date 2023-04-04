@@ -223,9 +223,6 @@ MountMoonDomeFossilText:
 	line "current must have"
 	cont "carried it here…"
 
-	para "underground"
-	line "current…"
-
 	para "Will you take the"
 	line "DOME FOSSIL?"
 	done

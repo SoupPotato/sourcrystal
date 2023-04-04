@@ -381,11 +381,20 @@ LoadSpecialMapOBPalette:
 
 .not_pewter
 	ld a, [wMapGroup]
+	cp GROUP_PEWTER_NIDORAN_SPEECH_HOUSE
+	jr nz, .not_pewter_nidoran_speech_house
+	ld a, [wMapNumber]
+	cp MAP_PEWTER_NIDORAN_SPEECH_HOUSE
+	jp z, .PurpleOverRockOBPalette
+
+.not_pewter_nidoran_speech_house
+	ld a, [wMapGroup]
 	cp GROUP_ROUTE_8
 	jr nz, .not_route8
 	ld a, [wMapNumber]
 	cp MAP_ROUTE_8
 	jp z, .PurpleOverRockYellowOverPinkOBPalette
+
 
 .not_route8
 	ld a, [wMapGroup]

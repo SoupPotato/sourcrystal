@@ -1943,6 +1943,7 @@ TaurosEvosAttacks:
 	db 42, SWAGGER
 	db 48, THRASH
 	db 53, DOUBLE_EDGE
+	db 59, OUTRAGE
 	db 0 ; no more level-up moves
 
 MagikarpEvosAttacks:
@@ -1959,8 +1960,8 @@ GyaradosEvosAttacks:
 	db 1, BITE
 	db 20, BITE
 	db 23, LEER
-	db 27, DRAGON_RAGE
-	db 30, TWISTER
+	db 27, TWISTER
+	db 30, DRAGON_RAGE
 	db 34, SCARY_FACE
 	db 37, CRUNCH
 	db 41, RAIN_DANCE
@@ -1974,14 +1975,15 @@ LaprasEvosAttacks:
 	db 1, WATER_GUN
 	db 1, GROWL
 	db 1, SING
-	db 8, MIST
-	db 15, BODY_SLAM
-	db 22, CONFUSE_RAY
+	db 7, MIST
+	db 12, BUBBLEBEAM
+	db 18, BODY_SLAM
+	db 23, CONFUSE_RAY
 	db 29, PERISH_SONG
-	db 36, ICE_BEAM
-	db 43, RAIN_DANCE
-	db 50, SAFEGUARD
-	db 57, HYDRO_PUMP
+	db 34, ICE_BEAM
+	db 40, RAIN_DANCE
+	db 45, SAFEGUARD
+	db 51, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 DittoEvosAttacks:

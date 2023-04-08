@@ -1357,6 +1357,7 @@ GastlyEvosAttacks:
 	db 35, SHADOW_BALL
 	db 41, DREAM_EATER
 	db 48, DESTINY_BOND
+	db 55, NIGHTMARE
 	db 0 ; no more level-up moves
 
 HaunterEvosAttacks:
@@ -1375,6 +1376,7 @@ HaunterEvosAttacks:
 	db 39, SHADOW_BALL
 	db 46, DREAM_EATER
 	db 53, DESTINY_BOND
+	db 60, NIGHTMARE
 	db 0 ; no more level-up moves
 
 GengarEvosAttacks:
@@ -1391,6 +1393,7 @@ GengarEvosAttacks:
 	db 39, SHADOW_BALL
 	db 46, DREAM_EATER
 	db 53, DESTINY_BOND
+	db 60, NIGHTMARE
 	db 0 ; no more level-up moves
 
 OnixEvosAttacks:
@@ -1547,34 +1550,34 @@ ExeggutorEvosAttacks:
 CuboneEvosAttacks:
 	db EVOLVE_LEVEL, 28, MAROWAK
 	db 0 ; no more evolutions
+	db 1, MUD_SLAP
 	db 1, GROWL
-	db 5, TAIL_WHIP
+	db 5, LEER
 	db 9, BONE_CLUB
 	db 13, HEADBUTT
-	db 17, LEER
-	db 21, FOCUS_ENERGY
-	db 25, BONE_RUSH
-	db 29, RAGE
-	db 33, FALSE_SWIPE
-	db 37, THRASH
-	db 41, BONEMERANG
-	db 45, DOUBLE_EDGE
+	db 17, FOCUS_ENERGY
+	db 21, BONE_RUSH
+	db 25, RAGE
+	db 29, FALSE_SWIPE
+	db 33, THRASH
+	db 37, BONEMERANG
+	db 41, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 MarowakEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, MUD_SLAP
 	db 1, GROWL
-	db 1, TAIL_WHIP
+	db 1, LEER
 	db 1, BONE_CLUB
-	db 1, HEADBUTT
-	db 17, LEER
-	db 21, FOCUS_ENERGY
-	db 25, BONE_RUSH
-	db 32, RAGE
-	db 38, FALSE_SWIPE
-	db 44, THRASH
-	db 50, BONEMERANG
-	db 56, DOUBLE_EDGE
+	db 13, HEADBUTT
+	db 17, FOCUS_ENERGY
+	db 21, BONE_RUSH
+	db 25, RAGE
+	db 32, FALSE_SWIPE
+	db 38, THRASH
+	db 44, BONEMERANG
+	db 50, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 HitmonleeEvosAttacks:
@@ -1871,8 +1874,6 @@ JynxEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POUND
 	db 1, LICK
-	db 1, LOVELY_KISS
-	db 1, POWDER_SNOW
 	db 6, LOVELY_KISS
 	db 10, POWDER_SNOW
 	db 15, DOUBLESLAP

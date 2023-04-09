@@ -2140,8 +2140,8 @@ AerodactylEvosAttacks:
 	db 7, BITE
 	db 15, SCARY_FACE
 	db 21, ROAR
-	db 29, ANCIENTPOWER
-	db 35, AGILITY
+	db 29, AGILITY
+	db 35, ANCIENTPOWER
 	db 43, CRUNCH
 	db 49, TAKE_DOWN
 	db 57, HYPER_BEAM

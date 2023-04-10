@@ -3349,15 +3349,15 @@ CorsolaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 6, HARDEN
-	db 12, BUBBLE
-	db 17, RECOVER
-	db 17, ENDURE
-	db 23, BUBBLEBEAM
-	db 28, BARRIER
+	db 11, BUBBLE
+	db 15, RECOVER
+	db 20, ENDURE
+	db 25, BUBBLEBEAM
+	db 29, BARRIER
 	db 34, ANCIENTPOWER
 	db 39, SPIKE_CANNON
-	db 45, MIRROR_COAT
-	db 50, FLAIL
+	db 43, MIRROR_COAT
+	db 48, FLAIL
 	db 0 ; no more level-up moves
 
 RemoraidEvosAttacks:

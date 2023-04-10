@@ -3700,14 +3700,15 @@ LarvitarEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BITE
 	db 1, LEER
-	db 8, SANDSTORM
-	db 15, SCREECH
-	db 22, ROCK_SLIDE
-	db 29, THRASH
-	db 36, SCARY_FACE
+	db 7, ROCK_THROW
+	db 13, SANDSTORM
+	db 19, SCREECH
+	db 25, ROCK_SLIDE
+	db 31, THRASH
+	db 37, SCARY_FACE
 	db 43, CRUNCH
-	db 50, EARTHQUAKE
-	db 57, HYPER_BEAM
+	db 49, EARTHQUAKE
+	db 55, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 PupitarEvosAttacks:
@@ -3715,15 +3716,14 @@ PupitarEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BITE
 	db 1, LEER
-	db 1, SANDSTORM
-	db 1, SCREECH
-	db 8, SANDSTORM
-	db 15, SCREECH
-	db 22, ROCK_SLIDE
-	db 29, THRASH
-	db 38, SCARY_FACE
-	db 47, CRUNCH
-	db 56, EARTHQUAKE
+	db 1, ROCK_THROW
+	db 13, SANDSTORM
+	db 19, SCREECH
+	db 25, ROCK_SLIDE
+	db 33, THRASH
+	db 41, SCARY_FACE
+	db 49, CRUNCH
+	db 57, EARTHQUAKE
 	db 65, HYPER_BEAM
 	db 0 ; no more level-up moves
 
@@ -3731,14 +3731,13 @@ TyranitarEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BITE
 	db 1, LEER
-	db 1, SANDSTORM
-	db 1, SCREECH
-	db 8, SANDSTORM
-	db 15, SCREECH
-	db 22, ROCK_SLIDE
-	db 29, THRASH
-	db 38, SCARY_FACE
-	db 47, CRUNCH
+	db 1, ROCK_THROW
+	db 13, SANDSTORM
+	db 19, SCREECH
+	db 25, ROCK_SLIDE
+	db 33, THRASH
+	db 41, SCARY_FACE
+	db 49, CRUNCH
 	db 61, EARTHQUAKE
 	db 75, HYPER_BEAM
 	db 0 ; no more level-up moves

@@ -2862,11 +2862,13 @@ AipomEvosAttacks:
 	db 1, SCRATCH
 	db 1, TAIL_WHIP
 	db 6, SAND_ATTACK
-	db 12, BATON_PASS
-	db 19, FURY_SWIPES
-	db 27, SWIFT
-	db 36, SCREECH
-	db 46, AGILITY
+	db 10, BATON_PASS
+	db 16, FURY_SWIPES
+	db 20, SWIFT
+	db 26, MUD_SLAP
+	db 30, SCREECH
+	db 36, AGILITY
+	db 40, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 SunkernEvosAttacks:
@@ -2976,7 +2978,7 @@ UmbreonEvosAttacks:
 	db 27, SCREECH
 	db 33, MEAN_LOOK
 	db 38, MOONLIGHT
-	db 45, CURSE
+	db 45, CRUNCH
 	db 0 ; no more level-up moves
 
 MurkrowEvosAttacks:

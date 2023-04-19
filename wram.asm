@@ -2736,7 +2736,10 @@ wPlayerMonSelection:: ds 3
 wdc5f:: ds 1
 wdc60:: ds 19
 
-ds 3
+wSwarmSpecies:: db
+wSwarmLandmark:: db
+
+ds 1
 
 wFossilStepCount:: ds 1
 

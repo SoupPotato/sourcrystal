@@ -255,6 +255,7 @@ OaksPKMNTalkSwarm1:
 	ld bc, 5
 	call AddNTimes
 	ld a, [hli]
+	ld [wSwarmSpecies], a
 	push hl
 	call .store_mon_name
 	pop hl
@@ -265,8 +266,9 @@ OaksPKMNTalkSwarm1:
 	push hl
 	farcall StoreSwarmMapIndices
 	pop hl
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld [wSwarmLandmark], a
+	ld e, a
 	ld a, [hl]
 	and a
 	jp z, .finish
@@ -284,6 +286,7 @@ OaksPKMNTalkSwarm1:
 	ld bc, 5
 	call AddNTimes
 	ld a, [hli]
+	ld [wSwarmSpecies], a
 	push hl
 	call .store_mon_name
 	pop hl
@@ -294,8 +297,9 @@ OaksPKMNTalkSwarm1:
 	push hl
 	farcall StoreSwarmMapIndicesAlternate
 	pop hl
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld [wSwarmLandmark], a
+	ld e, a
 	ld a, [hl]
 	and a
 	jr z, .finish
@@ -309,6 +313,7 @@ OaksPKMNTalkSwarm1:
 	ld bc, 5
 	call AddNTimes
 	ld a, [hli]
+	ld [wSwarmSpecies], a
 	push hl
 	call .store_mon_name
 	pop hl
@@ -319,8 +324,9 @@ OaksPKMNTalkSwarm1:
 	push hl
 	farcall StoreSwarmMapIndices
 	pop hl
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld [wSwarmLandmark], a
+	ld e, a
 	ld a, [hl]
 	and a
 	jr z, .finish
@@ -334,6 +340,7 @@ OaksPKMNTalkSwarm1:
 	ld bc, 5
 	call AddNTimes
 	ld a, [hli]
+	ld [wSwarmSpecies], a
 	push hl
 	call .store_mon_name
 	pop hl
@@ -344,8 +351,9 @@ OaksPKMNTalkSwarm1:
 	push hl
 	farcall StoreSwarmMapIndicesAlternate
 	pop hl
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
+	ld [wSwarmLandmark], a
+	ld e, a
 	ld a, [hl]
 	and a
 	jr z, .finish

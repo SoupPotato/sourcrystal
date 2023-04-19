@@ -682,6 +682,24 @@ InitPartyMenuOBPals:
 	call FarCopyWRAM
 	ret
 
+InitPokegearSwarmOBPal:
+	ld a, d
+	ld hl, PartyMenuOBPals
+	ld bc, 1 palettes
+	call AddNTimes
+	ld de, wOBPals1 palette 4
+	ld bc, 1 palettes
+	ld a, BANK(wOBPals1)
+	call FarCopyWRAM
+	ld hl, wOBPals1 palette 4
+	ld de, wOBPals2 palette 4
+	ld bc, 1 palettes
+	ld a, BANK(wOBPals1)
+	call FarCopyWRAM
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	ret
+
 GetBattlemonBackpicPalettePointer:
 	push de
 	farcall GetPartyMonDVs

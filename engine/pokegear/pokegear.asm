@@ -178,6 +178,15 @@ Pokegear_LoadGFX:
 	jr .pager
 
 
+Pokegear_CopySwarmIcon:
+	ld a, [wSwarmSpecies]
+	ld [wTempSpecies], a
+	ld e, $60
+	farcall FlyFunction_GetMonIcon
+	ld hl, wSwarmFlags
+	res SWARMFLAGS_LOAD_POKEGEAR_GFX_F, [hl]
+	ret
+
 FastShipGFX:
 INCBIN "gfx/pokegear/fast_ship.2bpp"
 
@@ -618,6 +627,7 @@ PokegearMap_Init:
 	call InitPokegearTilemap
 	ld a, [wPokegearMapPlayerIconLandmark]
 	call PokegearMap_InitPlayerIcon
+	call PokegearMap_InitSwarmIcon
 	ld a, [wPokegearMapCursorLandmark]
 	call PokegearMap_InitCursor
 	ld a, c
@@ -750,6 +760,57 @@ PokegearMap_InitPlayerIcon:
 	ld [hl], d
 	ret
 
+PokegearMap_InitSwarmIcon:
+	ld hl, wSwarmFlags
+	bit SWARMFLAGS_SWARM_ACTIVE, [hl]
+	ret z
+	set SWARMFLAGS_LOAD_POKEGEAR_GFX_F, [hl]
+	call Pokegear_CopySwarmIcon
+
+	ld a, [wSwarmLandmark]
+	push af
+	depixel 0, 0
+	ld a, SPRITE_ANIM_INDEX_PARTY_MON
+	call _InitSpriteAnimStruct
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld [hl], $60
+	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
+	add hl, bc
+	ld [hl], SPRITE_ANIM_SEQ_NULL
+	pop af
+	ld e, a
+	push bc
+	farcall GetLandmarkCoords
+	pop bc
+	ld hl, SPRITEANIMSTRUCT_XCOORD
+	add hl, bc
+	ld [hl], e
+	ld hl, SPRITEANIMSTRUCT_YCOORD
+	add hl, bc
+	ld [hl], d
+	ld a, [wSwarmSpecies]
+	dec a
+	ld b, 0
+	ld c, a
+	ld hl, MonMenuIconPals
+	add hl, bc
+	ld a, BANK(MonMenuIconPals)
+	call GetFarByte
+	and $f0
+	swap a
+	ld d, a
+	farcall InitPokegearSwarmOBPal
+	ld a, 4
+	ld hl, wVirtualOAMSprite08Attributes
+	ld c, 4
+	ld de, 4
+.loop
+	ld [hl], a
+	add hl, de
+	dec c
+	jr nz, .loop
+	ret
 
 PokegearMap_InitCursor:
 	push af

@@ -485,8 +485,14 @@ GetIconBank:
 GetGFXUnlessMobile:
 	ld a, [wLinkMode]
 	cp LINK_MOBILE
-	jp nz, Request2bpp
+	jp nz, .not_mobile
 	jp Get2bpp_2
+.not_mobile
+	ld a, [wSwarmFlags]
+	and (1 << SWARMFLAGS_LOAD_POKEGEAR_GFX_F)
+	jp z, Request2bpp
+	ld c, 8
+	jp Get2bpp
 
 FreezeMonIcons:
 	ld hl, wSpriteAnimationStructs

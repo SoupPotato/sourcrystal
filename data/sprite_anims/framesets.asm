@@ -70,6 +70,7 @@ SpriteAnimFrameData:
 	dw .Frameset_PagerMonBlue
 	dw .Frameset_PagerMonGreen
 	dw .Frameset_PagerMonBrown
+	dw .Frameset_PagerMonGrey
 
 .Frameset_00:
 	frame SPRITE_ANIM_OAMSET_RED_WALK_1, 32
@@ -471,4 +472,9 @@ SpriteAnimFrameData:
 .Frameset_PagerMonBrown:
 	frame SPRITE_ANIM_OAMSET_BROWN_WALK_1,  8
 	frame SPRITE_ANIM_OAMSET_BROWN_WALK_2,  8
+	dorestart
+
+.Frameset_PagerMonGrey:
+	frame SPRITE_ANIM_OAMSET_GREY_WALK_1,  8
+	frame SPRITE_ANIM_OAMSET_GREY_WALK_2,  8
 	dorestart

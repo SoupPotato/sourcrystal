@@ -2630,14 +2630,15 @@ BattleAnim_Flash:
 	anim_ret
 
 BattleAnim_Substitute:
-	anim_sound 0, 0, SFX_SURF
+	anim_sound 0, 0, SFX_RAZOR_WIND
 	anim_if_param_equal $3, BattleAnim_Substitute_branch_ca77c
 	anim_if_param_equal $2, BattleAnim_Substitute_branch_ca76e
 	anim_if_param_equal $1, BattleAnim_Substitute_branch_ca760
 	anim_1gfx ANIM_GFX_SMOKE
 	anim_bgeffect ANIM_BG_REMOVE_MON, $0, $1, $0
-	anim_wait 48
+	anim_wait 32
 	anim_raisesub
+	anim_sound 0, 0, SFX_THROW_BALL
 	anim_obj ANIM_OBJ_BALL_POOF, 48, 96, $0
 	anim_bgeffect ANIM_BG_ENTER_MON, $0, $1, $0
 	anim_wait 32
@@ -2645,26 +2646,23 @@ BattleAnim_Substitute:
 
 BattleAnim_Substitute_branch_ca760:
 	anim_bgeffect ANIM_BG_REMOVE_MON, $0, $1, $0
-	anim_wait 48
+	anim_wait 32
 	anim_dropsub
 	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
-	anim_wait 32
 	anim_ret
 
 BattleAnim_Substitute_branch_ca76e:
 	anim_bgeffect ANIM_BG_REMOVE_MON, $0, $1, $0
-	anim_wait 48
+	anim_wait 32
 	anim_raisesub
 	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
-	anim_wait 32
 	anim_ret
 
 BattleAnim_Substitute_branch_ca77c:
 	anim_bgeffect ANIM_BG_HIDE_MON, $0, $1, $0
-	anim_wait 48
+	anim_wait 32
 	anim_dropsub
 	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
-	anim_wait 32
 	anim_ret
 
 BattleAnim_Minimize:

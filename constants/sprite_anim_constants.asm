@@ -70,6 +70,7 @@ NUM_SPRITE_ANIM_STRUCTS EQU 10 ; see wSpriteAnimationStructs
 	const SPRITE_ANIM_INDEX_PAGER_MON_BLUE           ; 2e
 	const SPRITE_ANIM_INDEX_PAGER_MON_GREEN          ; 2f
 	const SPRITE_ANIM_INDEX_PAGER_MON_BROWN          ; 30
+	const SPRITE_ANIM_INDEX_PAGER_MON_GREY           ; 31
 
 ; DoAnimFrame.Jumptable indexes (see engine/gfx/sprite_anims.asm)
 	const_def
@@ -182,6 +183,7 @@ NUM_SPRITE_ANIM_STRUCTS EQU 10 ; see wSpriteAnimationStructs
 	const SPRITE_ANIM_FRAMESET_PAGER_MON_BLUE           ; 43
 	const SPRITE_ANIM_FRAMESET_PAGER_MON_GREEN          ; 44
 	const SPRITE_ANIM_FRAMESET_PAGER_MON_BROWN          ; 45
+	const SPRITE_ANIM_FRAMESET_PAGER_MON_GREY           ; 46
 
 ; SpriteAnimOAMData indexes (see data/sprite_anims/oam.asm)
 	const_def
@@ -329,3 +331,5 @@ NUM_SPRITE_ANIM_STRUCTS EQU 10 ; see wSpriteAnimationStructs
 	const SPRITE_ANIM_OAMSET_BROWN_WALK_2               ; 8d
 	const SPRITE_ANIM_OAMSET_PARTY_MON_1                ; 8e
 	const SPRITE_ANIM_OAMSET_PARTY_MON_2                ; 8f
+	const SPRITE_ANIM_OAMSET_GREY_WALK_1                ; 90
+	const SPRITE_ANIM_OAMSET_GREY_WALK_2                ; 91

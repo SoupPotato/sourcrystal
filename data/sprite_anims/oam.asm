@@ -145,6 +145,8 @@ SpriteAnimOAMData:
 	dbw $04, .OAMData_BrownWalk                ; SPRITE_ANIM_OAMSET_BROWN_WALK_2
 	dbw $00, .OAMData_PartyMon                 ; SPRITE_ANIM_OAMSET_PARTY_MON_1
 	dbw $04, .OAMData_PartyMon                 ; SPRITE_ANIM_OAMSET_PARTY_MON_2
+	dbw $00, .OAMData_GreyWalk                 ; SPRITE_ANIM_OAMSET_GREY_WALK_1
+	dbw $04, .OAMData_GreyWalk                 ; SPRITE_ANIM_OAMSET_GREY_WALK_2
 
 .OAMData_1x1_Palette0:
 	db 1
@@ -1144,3 +1146,10 @@ SpriteAnimOAMData:
 	dsprite -1,  0,  0,  0, $01, PAL_OW_BROWN
 	dsprite  0,  0, -1,  0, $02, PAL_OW_BROWN
 	dsprite  0,  0,  0,  0, $03, PAL_OW_BROWN
+
+.OAMData_GreyWalk:
+	db 4
+	dsprite -1,  0, -1,  0, $00, PAL_OW_SILVER
+	dsprite -1,  0,  0,  0, $01, PAL_OW_SILVER
+	dsprite  0,  0, -1,  0, $02, PAL_OW_SILVER
+	dsprite  0,  0,  0,  0, $03, PAL_OW_SILVER

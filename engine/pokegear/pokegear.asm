@@ -800,8 +800,8 @@ PokegearMap_InitSwarmIcon:
 	and $f0
 	swap a
 	ld d, a
-	farcall InitPokegearSwarmOBPal
-	ld a, 4
+	farcall InitPokegearOBPal
+	ld a, 5
 	ld hl, wVirtualOAMSprite08Attributes
 	ld c, 4
 	ld de, 4
@@ -1420,6 +1420,8 @@ PokegearPager_Init:
 	ld [wPokegearPagerCursorPosition], a
 	call InitPokegearTilemap
 	call ExitPokegearRadio_HandleMusic
+	ld d, PAL_OW_SILVER 
+	farcall InitPokegearOBPal
 	ld hl, PagerCardSprites
 .loop
 	; sprite anim index

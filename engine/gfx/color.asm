@@ -682,17 +682,17 @@ InitPartyMenuOBPals:
 	call FarCopyWRAM
 	ret
 
-InitPokegearSwarmOBPal:
+InitPokegearOBPal:
 	ld a, d
 	ld hl, PartyMenuOBPals
 	ld bc, 1 palettes
 	call AddNTimes
-	ld de, wOBPals1 palette 4
+	ld de, wOBPals1 palette 5
 	ld bc, 1 palettes
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
-	ld hl, wOBPals1 palette 4
-	ld de, wOBPals2 palette 4
+	ld hl, wOBPals1 palette 5
+	ld de, wOBPals2 palette 5
 	ld bc, 1 palettes
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM

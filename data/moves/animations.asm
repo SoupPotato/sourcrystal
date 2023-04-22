@@ -2630,7 +2630,7 @@ BattleAnim_Flash:
 	anim_ret
 
 BattleAnim_Substitute:
-	anim_sound 0, 0, SFX_RAZOR_WIND
+	anim_sound 0, 0, SFX_SHARPEN
 	anim_if_param_equal $3, BattleAnim_Substitute_branch_ca77c
 	anim_if_param_equal $2, BattleAnim_Substitute_branch_ca76e
 	anim_if_param_equal $1, BattleAnim_Substitute_branch_ca760

@@ -280,14 +280,14 @@ GenerateSwarmShiny:
 	;fallthrough
 .rollshiny
 	call Random
-	cp 7 ; adjust to desired percentage
+	cp 2 ; adjust to desired percentage
 	jr nc, .trynext
 	ld b, ATKDEFDV_SHINY
 	ld c, SPDSPCDV_SHINY
 	jr .UpdateDVs
 .trynext:
 	call Random
-	cp 7 ; adjust to desired percentage
+	cp 2 ; adjust to desired percentage
 	jr nc, .skipshine
 	ld b, ATKDEFDV_SHINYF
 	ld c, SPDSPCDV_SHINY

@@ -593,8 +593,8 @@ BattleAnim_InNightmare:
 	anim_ret
 
 BattleAnim_InWhirlpool:
-	anim_1gfx ANIM_GFX_WIND
 	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_WATER
+	anim_1gfx ANIM_GFX_WIND
 	anim_bgeffect ANIM_BG_WHIRLPOOL, $0, $0, $0
 	anim_sound 0, 1, SFX_SURF
 .loop
@@ -1523,8 +1523,8 @@ BattleAnim_HyperBeam:
 	anim_ret
 
 BattleAnim_AuroraBeam:
-	anim_1gfx ANIM_GFX_BEAM_LIGHT
 	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_AURORA
+	anim_1gfx ANIM_GFX_BEAM_LIGHT
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $2, $0
 	anim_wait 64

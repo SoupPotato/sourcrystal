@@ -27,13 +27,13 @@ SafariMonsArea1: ; DAY/EVE
 
 SafariMonsArea1_Nite: ; NITE
 	;   %, species,   min, max
-	db 25, RATTATA,       22, 22
+	db 25, PSYDUCK,       22, 22
 	db 15, MURKROW,       24, 24
 	db 15, PIKACHU,       20, 20
 	db 10, STANTLER,      23, 23
 	db 10, DROWZEE,       26, 26
 	db 10, CLEFAIRY,      21, 21
-	db  5, RATICATE,      24, 24
+	db  5, GOLDUCK,       24, 24
 	db  5, GIRAFARIG,     23, 23
 	db  4, MR__MIME,      25, 25
 	db  1, CHANSEY,       27, 27

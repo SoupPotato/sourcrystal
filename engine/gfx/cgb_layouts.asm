@@ -83,6 +83,12 @@ SetDefaultBattlePalette:
 	push af
 	ld a, BANK(wTempBattleMonSpecies)
 	ldh [rSVBK], a
+	call .do_it
+	pop af
+	ldh [rSVBK], a
+	ret
+
+.do_it
 	ld a, b
 	and a ; PAL_BATTLE_BG_PLAYER
 	jr z, SetBattlePal_Player
@@ -109,10 +115,7 @@ SetDefaultBattlePalette:
 	ld hl, BattleObjectPals - 1 palettes
 	ld bc, 1 palettes
 	call AddNTimes
-	call FarCopyWRAM
-	pop af
-	ldh [rSVBK], a
-	ret
+	jp FarCopyWRAM
 
 SetBattlePal_Player:
 	call GetBattlemonBackpicPalettePointer

@@ -62,6 +62,7 @@ LancesRoomLanceScript:
 	dontrestartmapmusic
 	reloadmapafterbattle
 	setevent EVENT_BEAT_CHAMPION_LANCE
+	clearevent EVENT_ROUTE_36_SUDOWOODO
 	opentext
 	writetext LanceBattleAfterText
 	waitbutton

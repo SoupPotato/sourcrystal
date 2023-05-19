@@ -6,7 +6,7 @@ SECTION "rst0", ROM0[$0000]
 
 SECTION "rst8", ROM0[$0008]
 FarCall::
-	jp FarCall_hl
+	jp RstFarCall
 
 SwapHLDE::
 	push de
@@ -22,8 +22,6 @@ Bankswitch::
 	ret
 
 SECTION "rst18", ROM0[$0018]
-BetterFarCall::
-	jp RstBetterFarCall
 
 SECTION "rst20", ROM0[$0020]
 	rst $38

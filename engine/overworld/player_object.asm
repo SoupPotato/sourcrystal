@@ -462,7 +462,6 @@ CopyTempObjectToObjectStruct:
 	ret
 
 .InitYCoord:
-	ld hl, OBJECT_INIT_Y
 	add hl, de
 	ld [hl], a
 

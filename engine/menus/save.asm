@@ -236,7 +236,7 @@ LoadStorageSystem:
 	call CopyStorageSystem
 
 	; Initialize allocation information.
-	newfarjp FlushStorageSystem
+	farjp FlushStorageSystem
 
 SaveStorageSystem:
 ; Copy active storage system to backup.

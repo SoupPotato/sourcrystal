@@ -219,7 +219,7 @@ PokeBallEffect:
 	cp PARTY_LENGTH
 	jr nz, .room_in_party
 
-	newfarcall NewStorageBoxPointer
+	farcall NewStorageBoxPointer
 	jp c, Ball_BoxIsFullMessage
 
 .room_in_party
@@ -608,7 +608,7 @@ PokeBallEffect:
 
 	farcall SetBoxMonCaughtData
 
-	newfarcall NewStorageBoxPointer
+	farcall NewStorageBoxPointer
 	jr nc, .BoxNotFullYet
 	ld hl, wBattleResult
 	set BATTLERESULT_BOX_FULL, [hl]
@@ -653,7 +653,7 @@ PokeBallEffect:
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
 
-	newfarcall UpdateStorageBoxMonFromTemp
+	farcall UpdateStorageBoxMonFromTemp
 
 	; Switch current Box if it was full. We can check this by checking if
 	; the buffermon's box location matches the current box.
@@ -666,7 +666,7 @@ PokeBallEffect:
 
 	push bc
 	ld b, a
-	newfarcall GetBoxName
+	farcall GetBoxName
 	ld hl, CurBoxFullText
 	call PrintText
 	pop bc
@@ -680,7 +680,7 @@ PokeBallEffect:
 	ld a, [wCurBox]
 	inc a
 	ld b, a
-	newfarcall GetBoxName
+	farcall GetBoxName
 
 	ld hl, BallSentToPCText
 	call PrintText

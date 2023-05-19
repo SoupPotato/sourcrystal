@@ -136,7 +136,7 @@ StartMenu::
 	ld h, [hl]
 	ld l, a
 	ld a, [wQueuedScriptBank]
-	rst FarCall
+	call FarCall_hl
 	jr .ReturnEnd2
 
 .ReturnRedraw:

@@ -10,7 +10,7 @@ _MemoryGame:
 	call DisableLCD
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
-	callfar ClearSpriteAnims
+	farcall ClearSpriteAnims
 	ld hl, MemoryGameLZ
 	ld de, vTiles2 tile $00
 	call Decompress
@@ -47,7 +47,7 @@ _MemoryGame:
 	bit 7, a
 	jr nz, .quit
 	call .ExecuteJumptable
-	callfar PlaySpriteAnimations
+	farcall PlaySpriteAnimations
 	call DelayFrame
 	and a
 	ret

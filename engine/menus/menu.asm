@@ -1,7 +1,7 @@
 _2DMenu_::
 	ld hl, CopyMenuData
 	ld a, [wMenuData_2DMenuItemStringsBank]
-	rst FarCall
+	call FarCall_hl
 
 	call Draw2DMenu
 	call UpdateSprites
@@ -12,7 +12,7 @@ _2DMenu_::
 _InterpretBattleMenu::
 	ld hl, CopyMenuData
 	ld a, [wMenuData_2DMenuItemStringsBank]
-	rst FarCall
+	call FarCall_hl
 
 	call Draw2DMenu
 	farcall MobileTextBorder
@@ -24,7 +24,7 @@ _InterpretBattleMenu::
 _InterpretMobileMenu::
 	ld hl, CopyMenuData
 	ld a, [wMenuData_2DMenuItemStringsBank]
-	rst FarCall
+	call FarCall_hl
 
 	call Draw2DMenu
 	farcall MobileTextBorder
@@ -153,8 +153,7 @@ Place2DMenuItemStrings:
 	or h
 	ret z
 	ld a, [wMenuData_2DMenuFunctionBank]
-	rst FarCall
-	ret
+	jp FarCall_hl
 
 Init2DMenuCursorPosition:
 	call GetMenuTextStartCoord
@@ -355,7 +354,7 @@ Menu_WasButtonPressed:
 	ld a, [w2DMenuFlags1]
 	bit 6, a
 	jr z, .skip_to_joypad
-	callfar PlaySpriteAnimationsAndDelayFrame
+	farcall PlaySpriteAnimationsAndDelayFrame
 
 .skip_to_joypad
 	call JoyTextDelay

@@ -52,7 +52,7 @@ CheckPartyFullAfterContest:
 	xor a
 	ld [wMonType], a
 	ld de, wMonOrItemNameBuffer
-	callfar InitNickname
+	farcall InitNickname
 
 .Party_SkipNickname:
 	ld a, [wPartyCount]
@@ -86,7 +86,7 @@ CheckPartyFullAfterContest:
 	ret
 
 .TryAddToBox:
-	newfarcall NewStorageBoxPointer
+	farcall NewStorageBoxPointer
 	jr c, .BoxFull
 	push bc
 	xor a
@@ -108,21 +108,21 @@ CheckPartyFullAfterContest:
 	ld [wBufferMonBox], a
 	ld a, c
 	ld [wBufferMonSlot], a
-	newfarcall UpdateStorageBoxMonFromTemp
+	farcall UpdateStorageBoxMonFromTemp
 	call GiveANickname_YesNo
 	ld hl, wStringBuffer1
 	jr c, .Box_SkipNickname
 	ld a, BUFFERMON
 	ld [wMonType], a
 	ld de, wMonOrItemNameBuffer
-	callfar InitNickname
+	farcall InitNickname
 	ld hl, wMonOrItemNameBuffer
 
 .Box_SkipNickname:
 	ld de, wBufferMonNickname
 	ld bc, MON_NAME_LENGTH
 	call CopyBytes
-	newfarcall UpdateStorageBoxMonFromTemp
+	farcall UpdateStorageBoxMonFromTemp
 
 .BoxFull:
 	ld a, [wBufferMonLevel]
@@ -134,7 +134,7 @@ CheckPartyFullAfterContest:
 	ld b, LANDMARK_NATIONAL_PARK
 	or b
 	ld [hl], a
-	newfarcall UpdateStorageBoxMonFromTemp
+	farcall UpdateStorageBoxMonFromTemp
 	xor a
 	ld [wContestMon], a
 	ld a, BUGCONTEST_BOXED_MON
@@ -196,12 +196,12 @@ SetBoxmonOrEggmonCaughtData:
 SetBoxMonCaughtData:
 	ld hl, wBufferMonCaughtData
 	call SetBoxmonOrEggmonCaughtData
-	newfarjp UpdateStorageBoxMonFromTemp
+	farjp UpdateStorageBoxMonFromTemp
 
 SetGiftBoxMonCaughtData:
 	ld hl, wBufferMonCaughtLevel
 	call SetGiftMonCaughtData
-	newfarjp UpdateStorageBoxMonFromTemp
+	farjp UpdateStorageBoxMonFromTemp
 
 SetGiftPartyMonCaughtData:
 	ld a, [wPartyCount]

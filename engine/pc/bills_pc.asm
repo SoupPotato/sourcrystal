@@ -139,7 +139,7 @@ SwapStorageBoxSlots:
 	jr c, .pop_bcde_and_return
 
 	; Otherwise, check if it is our last healthy mon.
-	newfarcall CheckCurPartyMonFainted
+	farcall CheckCurPartyMonFainted
 	jr nc, .not_last_healthy
 
 	; Doing this would lose us our last healthy mon, so abort.
@@ -1005,7 +1005,7 @@ SetTempPartyMonData:
 .not_egg
 	ld hl, wBufferMonMoves
 	ld de, wBufferMonPP
-	newfarcall RestoreBufferPP
+	farcall RestoreBufferPP
 	or 1
 	ret
 

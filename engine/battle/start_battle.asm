@@ -188,7 +188,7 @@ ClearBattleRAM:
 	xor a
 	call ByteFill
 
-	callfar ResetEnemyStatLevels
+	farcall ResetEnemyStatLevels
 
 	call ClearWindowData
 

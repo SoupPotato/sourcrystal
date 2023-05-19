@@ -24,7 +24,7 @@ SplashScreen:
 	call DelayFrames
 
 ; Draw copyright screen
-	callfar Copyright
+	farcall Copyright
 	call WaitBGMap
 	ld c, 100
 	call DelayFrames

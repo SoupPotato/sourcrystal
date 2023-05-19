@@ -23,12 +23,12 @@ Load2DMenuData::
 	ret
 
 StaticMenuJoypad::
-	callfar _StaticMenuJoypad
+	farcall _StaticMenuJoypad
 	call GetMenuJoypad
 	ret
 
 ScrollingMenuJoypad::
-	callfar _ScrollingMenuJoypad
+	farcall _ScrollingMenuJoypad
 	call GetMenuJoypad
 	ret
 
@@ -64,17 +64,17 @@ HideCursor::
 	ret
 
 PushWindow::
-	callfar _PushWindow
+	farcall _PushWindow
 	ret
 
 ExitMenu::
 	push af
-	callfar _ExitMenu
+	farcall _ExitMenu
 	pop af
 	ret
 
 InitVerticalMenuCursor::
-	callfar _InitVerticalMenuCursor
+	farcall _InitVerticalMenuCursor
 	ret
 
 CloseWindow::
@@ -426,7 +426,7 @@ PlaceGenericTwoOptionBox:: ; unreferenced
 	jr InterpretTwoOptionMenu
 
 NoYesBox::
-	newfarjp _NoYesBox
+	farjp _NoYesBox
 
 _YesNoBox::
 ; Return nc (yes) or c (no).

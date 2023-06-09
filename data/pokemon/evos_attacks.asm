@@ -657,31 +657,29 @@ ParasEvosAttacks:
 	db EVOLVE_LEVEL, 24, PARASECT
 	db 0 ; no more evolutions
 	db 1, SCRATCH
-	db 4, SLEEP_POWDER
 	db 6, STUN_SPORE
-	db 8, POISONPOWDER
-	db 11, ABSORB
-	db 13, LEECH_LIFE
-	db 17, FURY_CUTTER
-	db 22, SPORE
-	db 27, SLASH
-	db 33, GROWTH
-	db 38, GIGA_DRAIN
+	db 6, POISONPOWDER
+	db 11, LEECH_LIFE
+	db 15, ABSORB
+	db 20, FURY_CUTTER
+	db 25, SPORE
+	db 29, SLASH
+	db 34, GROWTH
+	db 39, GIGA_DRAIN
 	db 0 ; no more level-up moves
 
 ParasectEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
-	db 1, SLEEP_POWDER
-	db 6, STUN_SPORE
-	db 8, POISONPOWDER
-	db 11, ABSORB
-	db 13, LEECH_LIFE
-	db 17, FURY_CUTTER
-	db 22, SPORE
-	db 29, SLASH
-	db 37, GROWTH
-	db 44, GIGA_DRAIN
+	db 1, STUN_SPORE
+	db 1, POISONPOWDER
+	db 11, LEECH_LIFE
+	db 15, ABSORB
+	db 20, FURY_CUTTER
+	db 27, SPORE
+	db 33, SLASH
+	db 40, GROWTH
+	db 47, GIGA_DRAIN
 	db 0 ; no more level-up moves
 
 VenonatEvosAttacks:

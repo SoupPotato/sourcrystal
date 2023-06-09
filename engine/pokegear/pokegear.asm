@@ -764,6 +764,24 @@ PokegearMap_InitSwarmIcon:
 	ld hl, wSwarmFlags
 	bit SWARMFLAGS_SWARM_ACTIVE, [hl]
 	ret z
+
+	farcall RegionCheck
+	ld a, [wSwarmLandmark]
+	jr c, .kanto
+	ld a, e
+	cp JOHTO_REGION
+	ld a, [wSwarmLandmark]
+	jr z, .johto
+.kanto
+	cp KANTO_LANDMARK
+	ret c
+	jr .region_check_done
+.johto
+	cp KANTO_LANDMARK
+	ret nc
+	ret z
+.region_check_done
+	ld hl, wSwarmFlags
 	set SWARMFLAGS_LOAD_POKEGEAR_GFX_F, [hl]
 	call Pokegear_CopySwarmIcon
 

@@ -159,3 +159,4 @@ MoveEffectsPointers:
 	dw Fly
 	dw DefenseCurl
 	dw WeightDamage
+	dw Growth

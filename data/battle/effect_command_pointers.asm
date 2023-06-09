@@ -181,3 +181,4 @@ BattleCommandPointers:
 	dw BattleCommand_Curl
 	dw BattleCommand_DefrostTarget
 	dw BattleCommand_WeightDamage
+	dw BattleCommand_Growth

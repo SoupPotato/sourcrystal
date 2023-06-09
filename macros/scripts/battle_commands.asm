@@ -182,6 +182,7 @@ ENDM
 	command curl                    ; af
 	command defrosttarget           ; b0
 	command weightdamage            ; b1
+	command growth                  ; b2
 
 	enum_start $fe
 	command endturn                 ; fe

@@ -2121,3 +2121,9 @@ WeightDamage:
 	kingsrock
 	endmove
 
+Growth:
+	checkobedience
+	usedmovetext
+	doturn
+	growth
+	endmove

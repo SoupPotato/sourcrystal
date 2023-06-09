@@ -52,6 +52,7 @@ RegionCheck:
 ; Checks if the player is in Kanto or Johto.
 ; If in Johto, returns 0 in e.
 ; If in Kanto, returns 1 in e.
+; If in Victory Road, returns 0 in e and sets carry flag.
 	ld a, [wMapGroup]
 	ld b, a
 	ld a, [wMapNumber]
@@ -76,10 +77,15 @@ RegionCheck:
 ; Victory Road area is considered to be Johto.
 	cp VICTORY_ROAD
 	jr c, .kanto
+	ld e, JOHTO_REGION
+	scf
+	ret
 
 .johto
+	xor a
 	ld e, JOHTO_REGION
 	ret
 .kanto
+	xor a
 	ld e, KANTO_REGION
 	ret

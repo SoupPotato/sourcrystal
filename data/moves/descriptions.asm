@@ -557,8 +557,8 @@ LeechSeedDescription:
 	next "foe on every turn.@"
 
 GrowthDescription:
-	db   "Raises the SP."
-	next "ATK rating.@"
+	db   "Raises the user's"
+	next "ATK and SP.ATK.@"
 
 RazorLeafDescription:
 	db   "Has a high criti-"

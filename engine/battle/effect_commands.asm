@@ -1259,8 +1259,7 @@ BattleCommand_Critical:
 	pop bc
 	jr nc, .ScopeLens
 
-; +2 critical level
-	inc c
+; +1 critical level
 	inc c
 
 .ScopeLens:

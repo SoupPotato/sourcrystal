@@ -246,12 +246,10 @@ GameFreakLogo_Bounce:
 	jr nc, .no_negative
 	add 32
 .no_negative
-
-	ld e, a
-	farcall BattleAnim_Sine_e ; e = d * sin(e * pi/32)
+	farcall Sine
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
-	ld [hl], e
+	ld [hl], a
 
 ; Decrement the sine offset
 	ld hl, SPRITEANIMSTRUCT_VAR2 ; sine offset

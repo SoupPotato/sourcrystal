@@ -376,7 +376,7 @@ StartTrainerBattle_SineWave:
 	push af
 	push de
 	ld a, e
-	call StartTrainerBattle_DrawSineWave
+	farcall Sine
 	ld [bc], a
 	inc bc
 	pop de
@@ -782,9 +782,6 @@ WipeLYOverrides:
 	dec c
 	jr nz, .loop
 	ret
-
-StartTrainerBattle_DrawSineWave:
-	calc_sine_wave
 
 StartTrainerBattle_ZoomToBlack:
 	vc_hook Stop_reducing_battle_transition_flashing_ZoomToBlack

@@ -13,7 +13,7 @@ BattleCommand_BatonPass:
 	call UpdateBattleMonInParty
 	call AnimateCurrentMove
 
-	ld c, 50
+	ld c, 32
 	call DelayFrames
 
 ; Transition into switchmon menu
@@ -27,8 +27,8 @@ BattleCommand_BatonPass:
 	farcall _LoadBattleFontsHPBar
 	call CloseWindow
 	call ClearSprites
-	hlcoord 1, 0
-	lb bc, 4, 10
+	hlcoord 9, 7
+	lb bc, 5, 11
 	call ClearBox
 	ld b, SCGB_BATTLE_COLORS
 	call GetSGBLayout

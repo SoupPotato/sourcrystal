@@ -19,10 +19,11 @@ BattleCommand_Teleport:
 	ld a, [hBattleTurn]
 	and a
 	jr nz, .enemy_turn
-; Can't teleport from a trainer battle
+; Switch, don't run, in trainer battles
 	ld a, [wBattleMode]
 	dec a
-	jr nz, .failed
+	jr nz, .trainer_battle
+
 ; If your level is greater than the opponent's, you run without fail.
 	ld a, [wCurPartyLevel]
 	ld b, a
@@ -88,3 +89,7 @@ BattleCommand_Teleport:
 	ld hl, FledFromBattleText
 	jp StdBattleTextBox
 
+.trainer_battle
+	call CheckAnyOtherAliveMons
+	jr z, .failed
+	jp BattleCommand_BatonPass

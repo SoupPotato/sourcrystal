@@ -884,11 +884,12 @@ GetMovePriority:
 	cp -1
 	jr nz, .loop
 
-	ld a, BASE_PRIORITY
+	xor a
 	ret
 
 .done
 	ld a, [hl]
+	xor $80 ; treat it as a signed byte
 	ret
 
 INCLUDE "data/moves/effects_priorities.asm"

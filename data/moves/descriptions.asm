@@ -661,8 +661,8 @@ RageDescription:
 	next "the user is hit.@"
 
 TeleportDescription:
-	db   "A move for fleeing"
-	next "from battle.@"
+	db   "Switches #MON."
+	next "Flees from wild.@"
 
 NightShadeDescription:
 	db   "The user's level"

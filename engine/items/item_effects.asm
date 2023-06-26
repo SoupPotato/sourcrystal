@@ -500,6 +500,8 @@ PokeBallEffect:
 	ld hl, Text_GotchaMonWasCaught
 	call PrintText
 
+	call ClearSprites
+
 	ld a, [wTempSpecies]
 	ld l, a
 	ld a, [wCurPartyLevel]
@@ -512,8 +514,6 @@ PokeBallEffect:
 	ld [wTempSpecies], a
 	ld a, h
 	ld [wCurPartyLevel], a
-
-	call ClearSprites
 
 	ld a, [wTempSpecies]
 	dec a

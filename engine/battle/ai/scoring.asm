@@ -1715,7 +1715,7 @@ AI_Smart_Thief:
 AI_Smart_Conversion2:
 	ld a, [wLastPlayerMove]
 	and a
-	jr nz, .asm_38dc9
+	jr z, .discourage
 
 	push hl
 	dec a
@@ -1735,7 +1735,7 @@ AI_Smart_Conversion2:
 	ld a, [wTempSpecies]
 	cp $a
 	pop hl
-	jr c, .asm_38dc9
+	jr c, .discourage
 	ret z
 
 	call AI_50_50
@@ -1744,7 +1744,7 @@ AI_Smart_Conversion2:
 	dec [hl]
 	ret
 
-.asm_38dc9
+.discourage
 	call Random
 	cp 10 percent
 	ret c

@@ -10,12 +10,12 @@
 	const ROUTE39_BERRY
 	const ROUTE39_APRICORN
 	const ROUTE39_POKEFAN_F2
-	const ROUTE39_GENTLEMAN_BOBOA
+	const ROUTE39_GENTLEMAN_BAOBA
 
 Route39_MapScripts:
 	db 2 ; scene scripts
 	scene_script .DummyScene0 ; SCENE_ROUTE_39_DEFAULT
-	scene_script .DummyScene1 ; SCENE_ROUTE_39_BOBOA_GONE
+	scene_script .DummyScene1 ; SCENE_ROUTE_39_BAOBA_GONE
 
 
 	db 1 ; callbacks
@@ -239,27 +239,27 @@ Route39NoApricorn:
 	end
 
 Route39Baoba1:
-	turnobject ROUTE39_GENTLEMAN_BOBOA, RIGHT
-	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BOBOA, 15
-	applymovement ROUTE39_GENTLEMAN_BOBOA, MovementData_Route39_Baoba_Approach1
+	turnobject ROUTE39_GENTLEMAN_BAOBA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BAOBA, 15
+	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach1
 	jump Route39BaobaScript
 
 Route39Baoba2:
-	turnobject ROUTE39_GENTLEMAN_BOBOA, RIGHT
-	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BOBOA, 15
-	applymovement ROUTE39_GENTLEMAN_BOBOA, MovementData_Route39_Baoba_Approach2
+	turnobject ROUTE39_GENTLEMAN_BAOBA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BAOBA, 15
+	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach2
 	jump Route39BaobaScript
 
 Route39Baoba3:
-	turnobject ROUTE39_GENTLEMAN_BOBOA, RIGHT
-	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BOBOA, 15
-	applymovement ROUTE39_GENTLEMAN_BOBOA, MovementData_Route39_Baoba_Approach3
+	turnobject ROUTE39_GENTLEMAN_BAOBA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BAOBA, 15
+	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach3
 	jump Route39BaobaScript
 
 Route39Baoba4:
-	turnobject ROUTE39_GENTLEMAN_BOBOA, RIGHT
-	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BOBOA, 15
-	applymovement ROUTE39_GENTLEMAN_BOBOA, MovementData_Route39_Baoba_Approach4
+	turnobject ROUTE39_GENTLEMAN_BAOBA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BAOBA, 15
+	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach4
 	jump Route39BaobaScript
 
 Route39BaobaScript:
@@ -272,8 +272,8 @@ Route39BaobaScript:
 	closetext
 	setevent EVENT_ROUTE39_BAOBA_GAVE_EXP_SHARE
 	setscene SCENE_ROUTE_39_BAOBA_GONE
-	applymovement ROUTE39_GENTLEMAN_BOBOA, MovementData_Route39_Baoba_Leaves
-	disappear ROUTE39_GENTLEMAN_BOBOA
+	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Leaves
+	disappear ROUTE39_GENTLEMAN_BAOBA
 	end
 
 Route39HiddenNugget:

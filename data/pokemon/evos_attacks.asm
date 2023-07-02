@@ -1208,8 +1208,8 @@ FarfetchDEvosAttacks:
 	db 1, PECK
 	db 1, SAND_ATTACK
 	db 4, LEER
-	db 9, FURY_CUTTER
-	db 13, FURY_ATTACK
+	db 9, FURY_ATTACK
+	db 13, FURY_CUTTER
 	db 19, WING_ATTACK
 	db 25, FAINT_ATTACK
 	db 31, SLASH

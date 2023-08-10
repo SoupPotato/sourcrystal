@@ -1666,7 +1666,7 @@ BattleAnim_Recover:
 	anim_wait 32
 	anim_incbgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING
 	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
-	anim_call BattleAnim_Recover_branch_cbc6a
+	anim_call BattleAnimSub_Glimmer
 	anim_ret
 
 BattleAnim_Recover_branch:
@@ -4438,11 +4438,11 @@ BattleAnim_MorningSun:
 	anim_loop 5, .loop
 	anim_wait 32
 	anim_if_param_equal 0, .zero
-	anim_call BattleAnim_MorningSun_branch_cbc6a
+	anim_call BattleAnimSub_Glimmer
 	anim_ret
 
 .zero
-	anim_call BattleAnim_MorningSun_branch_cbc80
+	anim_call BattleAnimSub_Glimmer2
 	anim_ret
 
 BattleAnim_Synthesis:
@@ -4455,11 +4455,11 @@ BattleAnim_Synthesis:
 	anim_incbgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING
 	anim_call BattleAnim_ShowMon_0
 	anim_if_param_equal $1, .one
-	anim_call BattleAnim_Synthesis_branch_cbc6a
+	anim_call BattleAnimSub_Glimmer
 	anim_ret
 
 .one
-	anim_call BattleAnim_Synthesis_branch_cbc80
+	anim_call BattleAnimSub_Glimmer2
 	anim_ret
 
 BattleAnim_Crunch:
@@ -4491,11 +4491,11 @@ BattleAnim_Moonlight:
 	anim_sound 0, 0, SFX_MOONLIGHT
 	anim_wait 63
 	anim_if_param_equal $3, .three
-	anim_call BattleAnim_Moonlight_branch_cbc6a
+	anim_call BattleAnimSub_Glimmer
 	anim_ret
 
 .three
-	anim_call BattleAnim_Moonlight_branch_cbc80
+	anim_call BattleAnimSub_Glimmer2
 	anim_ret
 
 BattleAnim_HiddenPower:
@@ -4951,10 +4951,7 @@ BattleAnim_SandAttack_branch_cbc5b:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_Moonlight_branch_cbc6a:
-BattleAnim_MorningSun_branch_cbc6a:
-BattleAnim_Synthesis_branch_cbc6a:
-BattleAnim_Recover_branch_cbc6a:
+BattleAnimSub_Glimmer:
 	anim_sound 0, 0, SFX_METRONOME
 	anim_obj ANIM_OBJ_GLIMMER, 44, 64, $0
 	anim_wait 5
@@ -4964,9 +4961,7 @@ BattleAnim_Recover_branch_cbc6a:
 	anim_wait 21
 	anim_ret
 
-BattleAnim_Moonlight_branch_cbc80:
-BattleAnim_MorningSun_branch_cbc80:
-BattleAnim_Synthesis_branch_cbc80:
+BattleAnimSub_Glimmer2:
 	anim_sound 0, 0, SFX_METRONOME
 .loop
 	anim_obj ANIM_OBJ_GLIMMER, 24, 64, $0

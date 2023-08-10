@@ -133,10 +133,9 @@ SetFacingCounterclockwiseSpin2:
 	jp SetFacingStanding
 
 CounterclockwiseSpinAction:
-; Here, OBJECT_STEP_FRAME consists of two 2-bit components,
-; using only bits 0,1 and 4,5.
-; bits 0,1 is a timer (4 overworld frames)
-; bits 4,5 determines the facing - the direction is counterclockwise.
+; Here, OBJECT_STEP_FRAME consists of two components,
+; bits 0,1,2 form a 3-bit timer (8 overworld frames) 
+; and bits 4,5 form a 2-bit value that determines the facing - the direction is counterclockwise.
 	ld hl, OBJECT_STEP_FRAME
 	add hl, bc
 	ld a, [hl]
@@ -147,7 +146,7 @@ CounterclockwiseSpinAction:
 	inc a
 	and %00001111
 	ld d, a
-	cp 2
+	cp 8
 	jr c, .ok
 
 	ld d, 0

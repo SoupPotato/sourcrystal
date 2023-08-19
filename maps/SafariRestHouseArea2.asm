@@ -58,8 +58,8 @@ SafariRestHouseArea2TwinScript_Text:
 	text "I wonder what the"
 	line "BAIT tastes like?"
 	
-	para "My daddy wont let"
-	line "taste it."
+	para "My daddy won't let"
+	line "me taste it."
 	done
 
 SafariRestHouseArea2_MapEvents:

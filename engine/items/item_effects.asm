@@ -218,10 +218,14 @@ PokeBallEffect:
 .room_in_party
 	xor a
 	ld [wWildMon], a
-	ld a, [wCurItem]
-	cp PARK_BALL
+	ld a, [wBattleType]
+	cp BATTLETYPE_CONTEST
 	jr z, .skip_return_to_battle
-	cp SAFARI_BALL
+	cp BATTLETYPE_SAFARI
+	jr z, .skip_return_to_battle
+	cp BATTLETYPE_SAFARI_FISH
+	jr z, .skip_return_to_battle
+	cp BATTLETYPE_SAFARI_TREE
 	jr z, .skip_return_to_battle
 	call ReturnToBattle_UseBall
 
@@ -724,6 +728,10 @@ PokeBallEffect:
 	cp BATTLETYPE_CONTEST
 	jr z, .used_park_ball
 	cp BATTLETYPE_SAFARI
+	jr z, .used_safari_ball
+	cp BATTLETYPE_SAFARI_FISH
+	jr z, .used_safari_ball
+	cp BATTLETYPE_SAFARI_TREE
 	jr z, .used_safari_ball
 
 	ld a, [wWildMon]

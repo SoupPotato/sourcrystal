@@ -878,6 +878,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const PAL_BTLCUSTOM_DRAGON_RAGE     ; d
 	const PAL_BTLCUSTOM_AURORA          ; e
 	const PAL_BTLCUSTOM_SPORE           ; f
+	const PAL_BTLCUSTOM_PEACH           ; 10
 NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 
 PAL_BTLCUSTOM_DEFAULT EQU -1

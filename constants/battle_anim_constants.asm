@@ -225,6 +225,7 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const ANIM_OBJ_BUBBLE_SPLASH
 	const ANIM_OBJ_OCTAZOOKA_SMOKE
 	const ANIM_OBJ_INK_SPLASH
+	const ANIM_OBJ_DAZZLE
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
 	const_def
@@ -879,6 +880,8 @@ NUM_ANIM_OBJECTS EQU 10 ; see wActiveAnimObjects
 	const PAL_BTLCUSTOM_AURORA          ; e
 	const PAL_BTLCUSTOM_SPORE           ; f
 	const PAL_BTLCUSTOM_PEACH           ; 10
+	const PAL_BTLCUSTOM_LIGHT_SCREEN    ; 11
+	const PAL_BTLCUSTOM_MIRROR_COAT     ; 12
 NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 
 PAL_BTLCUSTOM_DEFAULT EQU -1

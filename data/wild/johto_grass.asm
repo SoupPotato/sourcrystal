@@ -583,9 +583,9 @@ JohtoGrassWildMons:
 	db 5, MR__MIME
 	db 5, CHANSEY
 	db 5, SUNKERN
-	db 5, RATTATA
+	db 5, PSYDUCK
 	db 5, MURKROW
-	db 5, RATICATE
+	db 5, GOLDUCK
 	db 5, STANTLER
 	; nite
 	db 5, DROWZEE

@@ -430,13 +430,13 @@ BattleBGEffect_FeetFollow:
 	push bc
 	call BGEffect_CheckBattleTurn
 	jr nz, .player_turn
-	ld a, ANIM_OBJ_PLAYERFEETFOLLOW
+	ld a, ANIM_OBJ_ENEMYFEET_1ROW
 	ld [wBattleAnimTemp0], a
 	ld a, 16 * 8 + 4
 	jr .okay
 
 .player_turn
-	ld a, ANIM_OBJ_ENEMYFEETFOLLOW
+	ld a, ANIM_OBJ_PLAYERHEAD_1ROW
 	ld [wBattleAnimTemp0], a
 	ld a, 6 * 8
 .okay
@@ -498,13 +498,13 @@ BattleBGEffect_HeadFollow:
 	push bc
 	call BGEffect_CheckBattleTurn
 	jr nz, .player_turn
-	ld a, ANIM_OBJ_PLAYERHEADFOLLOW
+	ld a, ANIM_OBJ_ENEMYFEET_2ROW
 	ld [wBattleAnimTemp0], a
 	ld a, 16 * 8 + 4
 	jr .okay
 
 .player_turn
-	ld a, ANIM_OBJ_ENEMYHEADFOLLOW
+	ld a, ANIM_OBJ_PLAYERHEAD_2ROW
 	ld [wBattleAnimTemp0], a
 	ld a, 6 * 8
 .okay

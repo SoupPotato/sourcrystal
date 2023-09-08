@@ -63,6 +63,11 @@ SafariZoneEntranceMainOfficerScript:
 	writetext SafariZoneEntranceMainOfficer_Text
 	yesorno
 	iffalse .SafariZoneEntranceMainOfficer_Declined
+	checkcode VAR_PARTYCOUNT
+	ifless PARTY_LENGTH, .ContinueOfficer
+	checkcode VAR_BOXSPACE
+	ifequal 0, .BoxFull
+.ContinueOfficer:
 	checkmoney YOUR_MONEY, 500
 	ifequal HAVE_LESS, .NotEnoughMoney
 	setflag ENGINE_SAFARI_ZONE
@@ -85,6 +90,12 @@ SafariZoneEntranceMainOfficerScript:
 	warpfacing UP, SAFARI_ZONE_AREA_1, 18, 25
 	setevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE
 	clearevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_ACTIVE
+	end
+
+.BoxFull:
+	writetext SafariZoneBoxFullText
+	waitbutton
+	closetext
 	end
 
 .SafariZoneEntrance_EnterSafari:
@@ -281,6 +292,24 @@ SafariZoneEntranceBaobo_Text:
 	
 	para "I hope you enjoy"
 	line "your time here!"
+	done
+
+SafariZoneBoxFullText:
+	text "Uh-oh…"
+	line "Both your party"
+
+	para "and your PC BOX"
+	line "are full."
+
+	para "You have no room"
+	line "for any #MON"
+	cont "you catch."
+
+	para "Please make room"
+	line "in your party or"
+
+	para "your PC BOX, then"
+	line "come see me."
 	done
 
 SafariZoneEntrance_MapEvents:

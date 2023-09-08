@@ -17,7 +17,7 @@ NormalHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -47,7 +47,7 @@ PoisonHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	poisontarget
 	endmove
@@ -68,7 +68,7 @@ LeechHit:
 	criticaltext
 	supereffectivetext
 	draintarget
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -89,7 +89,7 @@ BurnHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	burntarget
 	endmove
@@ -110,7 +110,7 @@ FreezeHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	freezetarget
 	endmove
@@ -131,7 +131,7 @@ ParalyzeHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	paralyzetarget
 	endmove
@@ -152,7 +152,7 @@ Selfdestruct:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -173,7 +173,7 @@ DreamEater:
 	criticaltext
 	supereffectivetext
 	eatdream
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	endmove
 
@@ -551,7 +551,7 @@ AttackDownHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	attackdown
 	statdownmessage
@@ -573,7 +573,7 @@ DefenseDownHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	defensedown
 	statdownmessage
@@ -595,7 +595,7 @@ SpeedDownHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	speeddown
 	statdownmessage
@@ -617,7 +617,7 @@ SpecialAttackDownHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	specialattackdown
 	statdownmessage
@@ -639,7 +639,7 @@ SpecialDefenseDownHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	specialdefensedown
 	statdownmessage
@@ -661,7 +661,7 @@ AccuracyDownHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	accuracydown
 	statdownmessage
@@ -683,7 +683,7 @@ EvasionDownHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	evasiondown
 	statdownmessage
@@ -705,10 +705,10 @@ DefenseUpHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
-	buildopponentrage
 	defenseup
 	statupmessage
+	checkfaint
+	buildopponentrage
 	endmove
 
 AttackUpHit:
@@ -727,10 +727,10 @@ AttackUpHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
-	buildopponentrage
 	attackup
 	statupmessage
+	checkfaint
+	buildopponentrage
 	endmove
 
 AllUpHit:
@@ -749,9 +749,9 @@ AllUpHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
-	buildopponentrage
 	allstatsup
+	checkfaint
+	buildopponentrage
 	endmove
 
 PayDay:
@@ -770,7 +770,7 @@ PayDay:
 	criticaltext
 	supereffectivetext
 	payday
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -800,7 +800,7 @@ Bide:
 	moveanim
 	bidefailtext
 	applydamage
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -823,7 +823,7 @@ Rampage:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -855,7 +855,7 @@ MultiHit:
 	criticaltext
 	cleartext
 	supereffectivelooptext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	endloop
 	raisesub
@@ -882,7 +882,7 @@ PoisonMultiHit:
 	criticaltext
 	cleartext
 	supereffectivelooptext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	endloop
 	raisesub
@@ -906,7 +906,7 @@ FlinchHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	flinchtarget
 	endmove
@@ -922,7 +922,7 @@ OHKOHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	endmove
 
@@ -942,7 +942,7 @@ RecoilHit:
 	criticaltext
 	supereffectivetext
 	recoil
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -986,7 +986,7 @@ ConfuseHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	confusetarget
 	endmove
@@ -1028,7 +1028,7 @@ TriAttack:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	tristatuschance
 	endmove
@@ -1072,7 +1072,7 @@ SkyAttack:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	flinchtarget
 	kingsrock
@@ -1101,7 +1101,7 @@ HyperBeam:
 	criticaltext
 	supereffectivetext
 	rechargenextturn
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	endmove
 
@@ -1122,7 +1122,7 @@ Rage:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1182,7 +1182,7 @@ RazorWind:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1205,7 +1205,7 @@ Fly:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1226,7 +1226,7 @@ TrapTarget:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	defrosttarget
 	traptarget
@@ -1244,7 +1244,7 @@ StaticDamage:
 	moveanim
 	failuretext
 	applydamage
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1260,7 +1260,7 @@ Reversal:
 	failuretext
 	applydamage
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1273,7 +1273,7 @@ Counter:
 	moveanim
 	failuretext
 	applydamage
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1311,7 +1311,7 @@ Snore:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	flinchtarget
 	kingsrock
@@ -1385,7 +1385,7 @@ FalseSwipe:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1417,7 +1417,7 @@ TripleKick:
 	criticaltext
 	cleartext
 	supereffectivelooptext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kickcounter
 	endloop
@@ -1442,7 +1442,7 @@ Thief:
 	criticaltext
 	supereffectivetext
 	thief
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1478,7 +1478,7 @@ FlameWheel:
 	criticaltext
 	supereffectivetext
 	defrost
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	burntarget
 	endmove
@@ -1550,7 +1550,7 @@ Rollout:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1589,7 +1589,7 @@ FuryCutter:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1618,7 +1618,7 @@ Return:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1639,7 +1639,7 @@ Present:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1660,7 +1660,7 @@ Frustration:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1689,7 +1689,7 @@ SacredFire:
 	criticaltext
 	supereffectivetext
 	defrost
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	burntarget
 	endmove
@@ -1711,7 +1711,7 @@ Magnitude:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1739,7 +1739,7 @@ Pursuit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1760,11 +1760,11 @@ RapidSpin:
 	criticaltext
 	supereffectivetext
 	clearhazards
-	checkdestinybond
-	buildopponentrage
-	kingsrock
 	speedup
 	statupmessage
+	checkfaint
+	buildopponentrage
+	kingsrock
 	endmove
 
 MorningSun:
@@ -1803,7 +1803,7 @@ HiddenPower:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	defrosttarget
 	kingsrock
@@ -1855,7 +1855,7 @@ MirrorCoat:
 	moveanim
 	failuretext
 	applydamage
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -1877,7 +1877,7 @@ SkullBash:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endturn
@@ -1902,7 +1902,7 @@ Twister:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	flinchtarget
 	endmove
@@ -1924,7 +1924,7 @@ Earthquake:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	endmove
 
@@ -1941,7 +1941,7 @@ FutureSight:
 	moveanimnosub
 	failuretext
 	applydamage
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	endmove
 
@@ -1961,7 +1961,7 @@ Gust:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	endmove
 
@@ -1982,7 +1982,7 @@ Stomp:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	flinchtarget
 	endmove
@@ -2004,7 +2004,7 @@ BodySlam:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	paralyzetarget
 	endmove
@@ -2027,7 +2027,7 @@ Solarbeam:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove
@@ -2049,7 +2049,7 @@ Thunder:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	paralyzetarget
 	endmove
@@ -2080,7 +2080,7 @@ BeatUp:
 	criticaltext
 	cleartext
 	supereffectivelooptext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	endloop
 	beatupfailtext
@@ -2116,7 +2116,7 @@ WeightDamage:
 	applydamage
 	criticaltext
 	supereffectivetext
-	checkdestinybond
+	checkfaint
 	buildopponentrage
 	kingsrock
 	endmove

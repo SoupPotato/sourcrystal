@@ -3231,14 +3231,15 @@ HeracrossEvosAttacks:
 	db 1, TACKLE
 	db 1, LEER
 	db 6, FURY_ATTACK
-	db 12, ENDURE
-	db 18, COUNTER
-	db 24, HORN_ATTACK
-	db 30, PIN_MISSILE
-	db 36, THRASH
-	db 42, SWORDS_DANCE
-	db 48, REVERSAL
-	db 54, MEGAHORN
+	db 11, ENDURE
+	db 17, ROCK_SMASH
+	db 22, HORN_ATTACK
+	db 28, COUNTER
+	db 33, PIN_MISSILE
+	db 39, THRASH
+	db 44, SWORDS_DANCE
+	db 50, REVERSAL
+	db 55, MEGAHORN
 	db 0 ; no more level-up moves
 
 SneaselEvosAttacks:

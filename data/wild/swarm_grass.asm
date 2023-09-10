@@ -446,9 +446,9 @@ SwarmGrassWildMons:
 	db 22, NATU
 	db 18, NATU
 	db 24, NATU
-	db 22, WOOPER
 	db 22, SMEARGLE
-	db 22, QUAGSIRE
+	db 22, SMEARGLE
+	db 22, SMEARGLE
 
 ; Mankey swarm
 	map_id ROUTE_42

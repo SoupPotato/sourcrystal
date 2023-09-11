@@ -6736,7 +6736,7 @@ CheckSleepingTreeMon:
 	jp .next
 .check_safari_zone
 	cp BATTLETYPE_SAFARI_TREE
-	jr nz, .NotSleeping
+	jr z, .NotSleeping
 
 .next
 ; Get list for the time of day

@@ -370,6 +370,13 @@ BattleText_StringBuffer1GrewToLevel:
 	sound_dex_fanfare_50_79
 	db "@@"
 
+BattleText_WildMonIsWatching:
+	text "Wild @"
+	text_from_ram wEnemyMonNick
+	text_start
+	line "is being cautious."
+	prompt
+
 BattleText_WildMonIsEating:
 	text "Wild @"
 	text_from_ram wEnemyMonNick

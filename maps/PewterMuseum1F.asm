@@ -25,6 +25,8 @@ ReceptionScene:
 PewterMuseum1F_Reception_Scientist_Script:
 	faceplayer
 	opentext
+	checkscene
+	iftrue .AlreadyPayed
 	checkcode VAR_FACING
 	ifequal DOWN, .DontSneakIn
 	ifequal LEFT, .DontSneakIn
@@ -64,6 +66,12 @@ PewterMuseum1F_Reception_Scientist_Script:
 	waitbutton
 	closetext
 	turnobject PEWTER_MUSEUM_1F_SCIENTIST_1, LEFT
+	end
+
+.AlreadyPayed:
+	writetext PewterMuseum1F_Scientist_TakeYourTimeText
+	waitbutton
+	closetext
 	end
 
 PewterMuseum1F_Fossil_Scientist_Script:
@@ -228,6 +236,12 @@ PewterMuseum1F_Scientist_TicketThankYouText:
 PewterMuseum1F_Scientist_NotEnoughMoneyText:
 	text "You don't have"
 	line "enough money!"
+	done
+
+PewterMuseum1F_Scientist_TakeYourTimeText:
+	text "Please take plenty"
+	line "of time to enjoy"
+	cont "the exhibit!"
 	done
 
 PewterMuseum1F_Gramps_Text:

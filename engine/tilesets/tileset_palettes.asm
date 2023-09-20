@@ -104,6 +104,13 @@ LoadSpecialMapPalette:
 	cp MAP_WILLS_ROOM
 	jp z, .WillsRoomBGPalettes
 .not_wills_room
+	ld a, [wMapGroup]
+	cp GROUP_VIRIDIAN_GYM
+	jp nz, .not_viridian_gym
+	ld a, [wMapNumber]
+	cp MAP_VIRIDIAN_GYM
+	jp z, .ViridianGymBGPalettes
+.not_viridian_gym
 	jp .do_nothing
 
 .darkness
@@ -196,6 +203,10 @@ LoadSpecialMapPalette:
 
 .WillsRoomBGPalettes
 	ld hl, WillsRoomPals
+	jp .next
+
+.ViridianGymBGPalettes
+	ld hl, ViridianGymPals
 .next
 	ld bc, 8 palettes
 .next_TimeOfDay
@@ -204,6 +215,8 @@ LoadSpecialMapPalette:
 	call FarCopyWRAM
 	scf
 	ret
+
+
 
 .do_nothing
 	and a

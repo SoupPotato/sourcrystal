@@ -113,7 +113,6 @@ CheckPhoneCall::
 	jr z, .no_call
 
 	call .timecheck
-	nop
 	jr nc, .no_call
 
 	; 50% chance for a call
@@ -389,8 +388,6 @@ LoadOutOfAreaScript:
 	endcallback
 
 LoadCallerScript:
-	nop
-	nop
 	ld a, e
 	ld [wCurCaller], a
 	and a

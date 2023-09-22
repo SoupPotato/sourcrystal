@@ -189,9 +189,6 @@ endc
 	db -1
 
 MainMenu_GetWhichMenu:
-	nop
-	nop
-	nop
 	ld a, [wSaveFileExists]
 	and a
 	jr nz, .next

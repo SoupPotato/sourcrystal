@@ -5002,7 +5002,6 @@ Function17ff23:
 	ret
 
 Function17ff3c:
-	nop
 	ld a, [wMobileErrorCodeBuffer]
 	cp $d0
 	ret c

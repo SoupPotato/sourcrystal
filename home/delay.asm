@@ -6,7 +6,7 @@ DelayFrame::
 ; Wait for the next VBlank, halting to conserve battery
 .halt
 	halt
-	nop
+	nop ; no-optimize nops
 	ld a, [wVBlankOccurred]
 	and a
 	jr nz, .halt

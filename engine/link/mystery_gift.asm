@@ -41,7 +41,7 @@ DoMysteryGift:
 if DEF(_CRYSTAL11_VC)
 	farcall StagePartyDataForMysteryGift
 	call ClearMysteryGiftTrainer
-	nop
+	nop ; no-optimize nops
 else
 	ld a, 2
 	ld [wMysteryGiftMessageCount], a
@@ -279,12 +279,12 @@ if DEF(_CRYSTAL11_VC)
 	or a
 	jr nz, .loop
 	vc_hook Infrared_ExchangeMysteryGiftData_loop_done
-	nop
+	nop ; no-optimize nops
 	cp MG_CANCELED
 .restart ; same location as unpatched .restart
 	ret z
-	nop
-	nop
+	nop ; no-optimize nops
+	nop ; no-optimize nops
 	cp MG_OKAY
 	jr nz, ExchangeMysteryGiftData
 	ret
@@ -492,7 +492,7 @@ SendMysteryGiftDataPayload:
 	ret
 
 EndOrContinueMysteryGiftIRCommunication:
-	nop
+	nop ; no-optimize nops
 	ldh a, [hMGStatusFlags]
 	; Quit if player canceled
 	cp MG_CANCELED
@@ -689,7 +689,7 @@ SendNameCardDataPayload:
 	ret
 
 EndNameCardIRCommunication:
-	nop
+	nop ; no-optimize nops
 	ldh a, [hMGStatusFlags]
 	push af
 	call EndIRCommunication
@@ -799,7 +799,7 @@ ReceiveInfraredLEDOn:
 	xor a
 	ldh [rIF], a
 	halt
-	nop
+	nop ; no-optimize nops
 	ldh a, [c]
 	bit rRP_RECEIVING, a
 	jr z, .recv_loop
@@ -814,7 +814,7 @@ ReceiveInfraredLEDOff:
 	xor a
 	ldh [rIF], a
 	halt
-	nop
+	nop ; no-optimize nops
 	ldh a, [c]
 	bit rRP_RECEIVING, a
 	jr nz, .no_recv_loop
@@ -831,7 +831,7 @@ SendInfraredLEDOn:
 	xor a
 	ldh [rIF], a
 	halt
-	nop
+	nop ; no-optimize nops
 	jr .wait
 
 SendInfraredLEDOff:
@@ -844,7 +844,7 @@ SendInfraredLEDOff:
 	xor a
 	ldh [rIF], a
 	halt
-	nop
+	nop ; no-optimize nops
 	jr .wait
 
 InitializeIRCommunicationRoles:
@@ -1041,7 +1041,7 @@ SendIRDataMessage:
 	xor a
 	ldh [rIF], a
 	halt
-	nop
+	nop ; no-optimize nops
 	ld a, rRP_ENABLE_READ_MASK | (1 << rRP_LED_ON)
 	ldh [rRP], a
 	; Turn the LED off for longer if the bit is 1
@@ -1062,7 +1062,7 @@ SendIRDataMessage:
 	xor a
 	ldh [rIF], a
 	halt
-	nop
+	nop ; no-optimize nops
 .no_halt
 	ldh a, [hMGNumBits]
 	dec a
@@ -1076,7 +1076,7 @@ SendIRDataMessage:
 	xor a
 	ldh [rIF], a
 	halt
-	nop
+	nop ; no-optimize nops
 
 	ld d, 5
 	call SendInfraredLEDOn

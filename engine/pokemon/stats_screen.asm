@@ -941,7 +941,6 @@ StatsScreen_GetAnimationParam:
 	ret
 
 StatsScreen_LoadTextboxSpaceGFX:
-	nop
 	push hl
 	push de
 	push bc

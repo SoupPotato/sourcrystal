@@ -9,8 +9,6 @@ ResetGameTime::
 	ret
 
 GameTimer::
-	nop
-
 	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wGameTime)

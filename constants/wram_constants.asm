@@ -345,3 +345,8 @@ DAYCAREMAN_ACTIVE_F          EQU 7
 ; wDayCareLady:: ; df2c
 DAYCARELADY_HAS_MON_F        EQU 0
 DAYCARELADY_ACTIVE_F         EQU 7
+
+; wChallengeMode::
+	const_def
+	const GAME_NORMAL_MODE
+	const GAME_CHALLENGE_MODE

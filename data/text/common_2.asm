@@ -660,6 +660,24 @@ Text_AreYouABoyOrAreYouAGirl::
 	line "Or are you a girl?"
 	done
 
+Text_ThisGameHasTwoGameModes::
+	text "This game has two"
+	line "difficulty modes."
+
+	para "Which mode would"
+	line "you like to play?"
+	prompt
+
+Text_NormalModeDesc::
+	text "#MON levels"
+	line "remain unchanged."
+	done
+
+Text_ChallengeModeDesc::
+	text "Higher #MON"
+	line "levels."
+	done
+
 UnknownText_0x1c0cc6::
 	text "<USER>'s"
 	line "@"

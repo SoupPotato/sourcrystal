@@ -37,6 +37,7 @@ InitGender:
 	ld a, [wMenuCursorY]
 	dec a
 	ld [wPlayerGender], a
+.loop
 	ld hl, TextJump_ThisGameHasTwoGameModes
 	call PrintText
 	hlcoord 0, 0
@@ -55,6 +56,21 @@ InitGender:
 	ld a, [wMenuCursorY]
 	dec a
 	ld [wChallengeMode], a
+	call ClearGenderScreen
+	call LoadGenderScreenPal
+	call LoadGenderScreenLightBlueTile
+	call WaitBGMap2
+	call SetPalettes
+	ld hl, TextJump_ThisCannotBeChanged
+	call PrintText
+	ld hl, MenuHeader_GameModeAreYouSure
+	call LoadMenuHeader
+	call WaitBGMap2
+	call VerticalMenu
+	call CloseWindow
+	ld a, [wMenuCursorY]
+	dec a
+	jr nz, .loop
 	ld c, 10
 	call DelayFrames
 	ret
@@ -70,6 +86,22 @@ InitGender:
 	db 2 ; items
 	db "Boy@"
 	db "Girl@"
+
+MenuHeader_GameModeAreYouSure:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 6, 4, 12, 9
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR | STATICMENU_WRAP | STATICMENU_DISABLE_B ; flags
+	db 2 ; items
+	db "YES@"
+	db "NO@"
+
+TextJump_ThisCannotBeChanged:
+	text_jump Text_ThisCannotBeChanged
+	db "@"
 
 TextJump_AreYouABoyOrAreYouAGirl:
 	; Are you a boy? Or are you a girl?
@@ -169,6 +201,16 @@ InitGenderScreen:
 	xor a
 	call ByteFill
 	ret
+
+ClearGenderScreen:
+	hlcoord 0, 0
+	ld bc, (TEXTBOX_Y - 1)  * SCREEN_WIDTH
+	xor a
+	call ByteFill
+	hlcoord 0, 0, wAttrMap
+	ld bc, (TEXTBOX_Y - 1) * SCREEN_WIDTH
+	xor a
+	jp ByteFill
 
 LoadGenderScreenPal:
 	ld hl, .Palette

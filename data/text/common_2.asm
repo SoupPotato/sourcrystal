@@ -678,6 +678,12 @@ Text_ChallengeModeDesc::
 	line "levels."
 	done
 
+Text_ThisCannotBeChanged::
+	text "This cannot be"
+	line "changed. Proceed?"
+	done
+
+
 UnknownText_0x1c0cc6::
 	text "<USER>'s"
 	line "@"

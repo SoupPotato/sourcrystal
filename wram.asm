@@ -2375,7 +2375,8 @@ wGameTimeMinutes:: db ; d4c6
 wGameTimeSeconds:: db ; d4c7
 wGameTimeFrames::  db ; d4c8
 
-	ds 2
+wChallengeMode:: db
+	ds 1
 
 wCurDay:: db ; d4cb
 

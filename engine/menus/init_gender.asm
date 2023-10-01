@@ -37,6 +37,24 @@ InitGender:
 	ld a, [wMenuCursorY]
 	dec a
 	ld [wPlayerGender], a
+	ld hl, TextJump_ThisGameHasTwoGameModes
+	call PrintText
+	hlcoord 0, 0
+	ld b, 4
+	ld c, 18
+	call TextBoxBorder
+	hlcoord 0, 6
+	ld b, 1
+	ld c, 14
+	call TextBoxBorder
+	ld hl, MenuHeader_GameModes
+	call LoadMenuHeader
+	call WaitBGMap2
+	call ScrollingMenu
+	call CloseWindow
+	ld a, [wMenuCursorY]
+	dec a
+	ld [wChallengeMode], a
 	ld c, 10
 	call DelayFrames
 	ret
@@ -56,6 +74,78 @@ InitGender:
 TextJump_AreYouABoyOrAreYouAGirl:
 	; Are you a boy? Or are you a girl?
 	text_jump Text_AreYouABoyOrAreYouAGirl
+	db "@"
+
+MenuHeader_GameModes:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 1, 1, SCREEN_WIDTH - 2, TEXTBOX_Y - 8
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData
+	db SCROLLINGMENU_ENABLE_FUNCTION3 ; flags
+	db 2, 0 ; rows, columns
+	db SCROLLINGMENU_ITEMS_NORMAL ; item format
+	dba .MenuItems
+	dba PlaceMenuGameMode
+	dba .DoNothing
+	dba UpdateEndgameLvlText
+
+.MenuItems
+	db 1
+
+.DoNothing
+	ret
+
+PlaceMenuGameMode:
+	push de
+	ld a, [wScrollingMenuCursorPosition]
+	and a
+	ld de, .NormalMode
+	jr z, .done
+	ld de, .ChallengeMode
+.done
+	pop hl
+	jp PlaceString
+
+.NormalMode
+	db "NORMAL MODE@"
+.ChallengeMode
+	db "CHALLENGE MODE@"
+
+TextJump_ThisGameHasTwoGameModes:
+	text_jump Text_ThisGameHasTwoGameModes
+	db "@"
+
+UpdateEndgameLvlText:
+	ld a, [wMenuCursorY]
+	dec a
+	ld de, .NormalMode
+	jr z, .done
+	ld de, .ChallengeMode
+.done
+	hlcoord 1, 7
+	call PlaceString
+
+	ld a, [wMenuCursorY]
+	dec a
+	ld hl, .NormalModeDescJump
+	jr z, .done_two
+	ld hl, .ChallengeModeDescJump
+.done_two
+	jp PrintText
+
+.NormalMode:
+	db "Endgame: Lv40@"
+.ChallengeMode:
+	db "Endgame: Lv50@"
+
+.NormalModeDescJump
+	text_jump Text_NormalModeDesc
+	db "@"
+
+.ChallengeModeDescJump
+	text_jump Text_ChallengeModeDesc
 	db "@"
 
 InitGenderScreen:

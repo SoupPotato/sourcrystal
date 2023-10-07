@@ -54,8 +54,12 @@ InitGender:
 	call ScrollingMenu
 	call CloseWindow
 	ld a, [wMenuCursorY]
+	ld hl, wChallengeMode
 	dec a
-	ld [wChallengeMode], a
+	res GAME_CHALLENGE_MODE_F, [hl]
+	jr z, .no_challenge
+	set GAME_CHALLENGE_MODE_F, [hl]
+.no_challenge
 	call ClearGenderScreen
 	call LoadGenderScreenPal
 	call LoadGenderScreenLightBlueTile

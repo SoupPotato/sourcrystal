@@ -266,9 +266,12 @@ EngineFlags:
 	engine_flag wDailyPhoneItemFlags, 23 ; rob gave a berry today
 	engine_flag wDailyPhoneItemFlags, 24 ; tanner has sun stone
 	engine_flag wDailyPhoneItemFlags, 25 ; tanner gave a sun stone today
+	engine_flag wDailyPhoneItemFlags, 26 ; jamie has moon stone
+	engine_flag wDailyPhoneItemFlags, 27 ; jamie gave a moon stone today
 
 	engine_flag wPlayerSpriteSetupFlags, PLAYERSPRITESETUP_FEMALE_TO_MALE_F
 
 	engine_flag wSwarmFlags, SWARMFLAGS_ALT_SWARM_F ; $a0
 	engine_flag wSwarmFlags, SWARMFLAGS_SWARM_ACTIVE
 
+	engine_flag wChallengeMode, GAME_CHALLENGE_MODE_F

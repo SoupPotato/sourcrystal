@@ -348,5 +348,4 @@ DAYCARELADY_ACTIVE_F         EQU 7
 
 ; wChallengeMode::
 	const_def
-	const GAME_NORMAL_MODE
-	const GAME_CHALLENGE_MODE
+	const GAME_CHALLENGE_MODE_F ; 0

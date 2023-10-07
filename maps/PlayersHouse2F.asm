@@ -51,6 +51,18 @@ PlayersHousePosterScript:
 	describedecoration DECODESC_POSTER
 
 PlayersHouseRadioScript:
+; testing
+	opentext
+	checkflag ENGINE_CHALLENGE_MODE_ACTIVE
+	iftrue .omanyte_challenge_mode
+	givepoke OMANYTE, 20
+	jump .omanyte_finish
+.omanyte_challenge_mode
+	givepoke OMANYTE, 25
+.omanyte_finish
+	closetext
+
+
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue .NormalRadio
 	checkevent EVENT_LISTENED_TO_INITIAL_RADIO

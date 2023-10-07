@@ -262,4 +262,6 @@
 ; wSwarmFlags
 	const ENGINE_ALT_SWARM ; a0
 	const ENGINE_SWARM_ACTIVE
+; wChallengeMode
+	const ENGINE_CHALLENGE_MODE_ACTIVE
 NUM_ENGINE_FLAGS EQU const_value

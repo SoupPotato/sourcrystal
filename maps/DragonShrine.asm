@@ -213,7 +213,13 @@ DragonShrineElder1Script:
 	writetext DragonShrinePlayerReceivedDratiniText
 	playsound SFX_CAUGHT_MON
 	waitsfx
+	checkflag ENGINE_CHALLENGE_MODE_ACTIVE
+	iftrue .dratini_challenge_mode
 	givepoke DRATINI, 15
+	jump .dratini_finish
+.dratini_challenge_mode
+	givepoke DRATINI, 25
+.dratini_finish
 	checkevent EVENT_ANSWERED_DRAGON_MASTER_QUIZ_WRONG
 	special GiveDratini
 	setevent EVENT_GOT_DRATINI

@@ -52,7 +52,7 @@ SafariMonsArea2_Morn: ; MORNING
 	db  4, MAROWAK,        23, 23
 	db  1, RAPIDASH,       24, 24
 
-SafariMonsArea2: : ; DAY/EVE
+SafariMonsArea2: ; DAY/EVE
 	;   %, species,   min, max
 	db 25, SANDSHREW,      20, 20
 	db 15, NIDORAN_M,      18, 18
@@ -92,7 +92,7 @@ SafariMonsArea3_Morn: ; MORNING
 	db  4, FARFETCH_D,    22, 22
 	db  1, MUK,           25, 25
 
-SafariMonsArea3: : ; DAY/EVE
+SafariMonsArea3: ; DAY/EVE
 	;   %, species,   min, max
 	db 25, EKANS,         18, 18
 	db 15, BELLSPROUT,    21, 21
@@ -132,7 +132,7 @@ SafariMonsArea4_Morn: ; MORNING
 	db  4, KANGASKHAN,  22, 22
 	db  1, LARVITAR,    17, 17
 
-SafariMonsArea4: : ; DAY/EVE
+SafariMonsArea4: ; DAY/EVE
 	;   %, species,   min, max
 	db 25, MACHOP,      19, 19
 	db 15, GEODUDE,     18, 18

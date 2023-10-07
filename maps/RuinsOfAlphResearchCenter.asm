@@ -112,7 +112,13 @@ RuinsOfAlphResearchCenterFossilScientistScript:
 	writetext RuinsOfAlphResearchCenterPlayerReceivedOmanyteText
 	playsound SFX_CAUGHT_MON
 	waitsfx
+	checkflag ENGINE_CHALLENGE_MODE_ACTIVE
+	iftrue .omanyte_challenge_mode
 	givepoke OMANYTE, 20
+	jump .omanyte_finish
+.omanyte_challenge_mode
+	givepoke OMANYTE, 25
+.omanyte_finish
 	writetext RuinsOfAlphResearchCenterFossilScientistTakeGoodCareOfItText
 	waitbutton
 	closetext
@@ -127,7 +133,13 @@ RuinsOfAlphResearchCenterFossilScientistScript:
 	writetext RuinsOfAlphResearchCenterPlayerReceivedKabutoText
 	playsound SFX_CAUGHT_MON
 	waitsfx
+	checkflag ENGINE_CHALLENGE_MODE_ACTIVE
+	iftrue .kabuto_challenge_mode
 	givepoke KABUTO, 20
+	jump .kabuto_finish
+.kabuto_challenge_mode
+	givepoke KABUTO, 25
+.kabuto_finish
 	writetext RuinsOfAlphResearchCenterFossilScientistTakeGoodCareOfItText
 	waitbutton
 	closetext
@@ -142,7 +154,13 @@ RuinsOfAlphResearchCenterFossilScientistScript:
 	writetext RuinsOfAlphResearchCenterPlayerReceivedAerodactylText
 	playsound SFX_CAUGHT_MON
 	waitsfx
+	checkflag ENGINE_CHALLENGE_MODE_ACTIVE
+	iftrue .aerodactyl_challenge_mode
 	givepoke AERODACTYL, 20
+	jump .aerodactyl_finish
+.aerodactyl_challenge_mode
+	givepoke AERODACTYL, 25
+.aerodactyl_finish
 	writetext RuinsOfAlphResearchCenterFossilScientistTakeGoodCareOfItText
 	waitbutton
 	closetext
@@ -323,6 +341,7 @@ GaveOldAmber:
 
 
 RuinsOfAlphResearchCenterScientist3Script:
+	setflag ENGINE_CHALLENGE_MODE_ACTIVE
 	faceplayer
 	opentext
 	checkcode VAR_UNOWNCOUNT

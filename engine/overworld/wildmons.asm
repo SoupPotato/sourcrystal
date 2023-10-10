@@ -39,6 +39,7 @@ FindNest:
 ; Parameters:
 ; e: 0 = Johto, 1 = Kanto
 ; wNamedObjectIndexBuffer: species
+	call InitWildMonBank
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	xor a
@@ -91,13 +92,14 @@ FindNest:
 	jp .FindWater
 
 .FindGrass:
-	ld a, [hl]
+	call GetNextWildMonDataByte
+	dec hl
 	cp -1
 	ret z
 	push hl
-	ld a, [hli]
+	call GetNextWildMonDataByte
 	ld b, a
-	ld a, [hli]
+	call GetNextWildMonDataByte
 	ld c, a
 	inc hl
 	inc hl
@@ -115,13 +117,14 @@ FindNest:
 	jr .FindGrass
 
 .FindWater:
-	ld a, [hl]
+	call GetNextWildMonDataByte
+	dec hl
 	cp -1
 	ret z
 	push hl
-	ld a, [hli]
+	call GetNextWildMonDataByte
 	ld b, a
-	ld a, [hli]
+	call GetNextWildMonDataByte
 	ld c, a
 	inc hl
 	ld a, NUM_WATERMON
@@ -141,7 +144,7 @@ FindNest:
 .ScanMapLoop:
 	push af
 	ld a, [wNamedObjectIndexBuffer]
-	cp [hl]
+	call CompareWildMonDataByte
 	jr z, .found
 	inc hl
 	inc hl
@@ -162,7 +165,7 @@ FindNest:
 	hlcoord 0, 0
 	ld de, SCREEN_WIDTH * SCREEN_HEIGHT
 .AppendNestLoop:
-	ld a, [hli]
+	call GetNextWildMonDataByte
 	cp c
 	jr z, .found_nest
 	dec de
@@ -1071,6 +1074,12 @@ InitWildMonBank:
 .done
     ld [wWildMonBank], a
     ret
+
+GetNextWildMonDataByte:
+	ld a, [wWildMonBank]
+	call GetFarByte
+	inc hl
+	ret
 
 CompareWildMonDataByte:
     push bc

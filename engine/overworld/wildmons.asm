@@ -1,4 +1,5 @@
 LoadWildMonData:
+	call InitWildMonBank
 	call _GrassWildmonLookup
 	jr c, .copy
 	ld hl, wMornEncounterRate
@@ -14,7 +15,8 @@ LoadWildMonData:
 	inc hl
 	ld de, wMornEncounterRate
 	ld bc, 3
-	call CopyBytes
+	ld a, [wWildMonBank]
+	call FarCopyBytes
 	ld a, [wNiteEncounterRate]
 	ld [wEveEncounterRate], a
 .done_copy
@@ -291,6 +293,7 @@ ApplyCleanseTagEffectOnEncounterRate::
 	ret
 
 ChooseWildEncounter:
+	call InitWildMonBank
 	call LoadWildMonDataPointer
 	jp nc, .nowildbattle
 	call CheckEncounterRoamMon
@@ -333,7 +336,7 @@ ChooseWildEncounter:
 	ld b, 0
 	pop hl
 	add hl, bc ; this selects our mon
-	ld a, [hli]
+	call GetNextWildMonDataByte
 	ld b, a
 ; If the Pokemon is encountered by surfing, we need to give the levels some variety.
 	call CheckOnWater
@@ -356,8 +359,9 @@ ChooseWildEncounter:
 .ok
 	ld a, b
 	ld [wCurPartyLevel], a
-	ld b, [hl]
-	ld a, b
+	call GetNextWildMonDataByte
+	dec hl
+	ld b, a
 	call ValidateTempWildMonSpecies
 	jr c, .nowildbattle
 
@@ -448,8 +452,14 @@ _GrassWildmonLookup:
 	ld bc, GRASS_WILDDATA_LENGTH
 	call _SwarmWildmonCheck
 	ret c
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
 	ld hl, JohtoGrassWildMons
 	ld de, KantoGrassWildMons
+	jr z, .done
+	ld hl, JohtoGrassWildMonsChallenge
+	ld de, KantoGrassWildMonsChallenge
+.done
 	call _JohtoWildmonCheck
 	ld bc, GRASS_WILDDATA_LENGTH
 	jr _NormalWildmonOK
@@ -481,8 +491,14 @@ _WaterWildmonLookup:
 	ld bc, WATER_WILDDATA_LENGTH
 	call _SwarmWildmonCheck
 	ret c
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
 	ld hl, JohtoWaterWildMons
 	ld de, KantoWaterWildMons
+	jr z, .done
+	ld hl, JohtoWaterWildMonsChallenge
+	ld de, KantoWaterWildMonsChallenge
+.done
 	call _JohtoWildmonCheck
 	ld bc, WATER_WILDDATA_LENGTH
 	jr _NormalWildmonOK
@@ -526,15 +542,16 @@ CopyCurrMapDE:
 LookUpWildmonsForMapDE:
 .loop
 	push hl
-	ld a, [hl]
+	call GetNextWildMonDataByte
+	dec hl
 	inc a
 	jr z, .nope
 	ld a, d
-	cp [hl]
+	call CompareWildMonDataByte
 	jr nz, .next
 	inc hl
 	ld a, e
-	cp [hl]
+	call CompareWildMonDataByte
 	jr z, .yup
 
 .next
@@ -877,14 +894,16 @@ RandomUnseenWildMon:
 	add hl, bc
 ; We now have the pointer to one of the last (rarest) three wild Pokemon found in that area.
 	inc hl
-	ld c, [hl] ; Contains the species index of this rare Pokemon
+	call GetNextWildMonDataByte
+	dec hl
+	ld c, a ; Contains the species index of this rare Pokemon
 	pop hl
 	ld de, 5 + 0 * 2
 	add hl, de
 	inc hl ; Species index of the most common Pokemon on that route
 	ld b, 4
 .loop2
-	ld a, [hli]
+	call GetNextWildMonDataByte
 	cp c ; Compare this most common Pokemon with the rare one stored in c.
 	jr z, .done
 	inc hl
@@ -964,7 +983,8 @@ RandomPhoneWildMon:
 	add hl, bc
 	add hl, bc
 	inc hl
-	ld a, [hl]
+	call GetNextWildMonDataByte
+	dec hl
 	ld [wNamedObjectIndexBuffer], a
 	call GetPokemonName
 	ld hl, wStringBuffer1
@@ -1054,16 +1074,6 @@ RandomPhoneMon:
 	ld de, wStringBuffer4
 	ld bc, MON_NAME_LENGTH
 	jp CopyBytes
-
-
-INCLUDE "data/wild/johto_grass.asm"
-INCLUDE "data/wild/johto_water.asm"
-INCLUDE "data/wild/kanto_grass.asm"
-INCLUDE "data/wild/kanto_water.asm"
-INCLUDE "data/wild/swarm_grass.asm"
-INCLUDE "data/wild/swarm_grass_alt.asm"
-INCLUDE "data/wild/swarm_water.asm"
-INCLUDE "data/wild/swarm_water_alt.asm"
 
 InitWildMonBank:
     ld a, [wChallengeMode]

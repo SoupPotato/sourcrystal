@@ -445,7 +445,7 @@ _GrassWildmonLookup:
 	ld bc, GRASS_WILDDATA_LENGTH
 	call _SwarmWildmonCheck
 	ret c
-	ld hl, JohtoGrassWildMon
+	ld hl, JohtoGrassWildMons
 	ld de, KantoGrassWildMons
 	call _JohtoWildmonCheck
 	ld bc, GRASS_WILDDATA_LENGTH

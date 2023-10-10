@@ -47,18 +47,18 @@ FindNest:
 	and a
 	jr nz, .kanto
 	decoord 0, 0
-	ld hl, wChallengeMode
-	bit GAME_CHALLENGE_MODE_F, [hl]
-	jp z, .ChallengeModeGrass
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jp nz, .ChallengeModeGrass
 	ld hl, JohtoGrassWildMons
 	jp .LoadedGrassMons
 .ChallengeModeGrass
 	ld hl, JohtoGrassWildMonsChallenge
 .LoadedGrassMons
 	call .FindGrass
-	ld hl, wChallengeMode
-	bit GAME_CHALLENGE_MODE_F, [hl]
-	jp z, .ChallengeModeWater
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jp nz, .ChallengeModeWater
 	ld hl, JohtoWaterWildMons
 	jp .LoadedWaterMons
 .ChallengeModeWater
@@ -71,18 +71,18 @@ FindNest:
 
 .kanto
 	decoord 0, 0
-	ld hl, wChallengeMode
-	bit GAME_CHALLENGE_MODE_F, [hl]
-	jp z, .KantoChallengeModeGrass
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jp nz, .KantoChallengeModeGrass
 	ld hl, KantoGrassWildMons
 	jp .LoadedKantoGrassMons
 .KantoChallengeModeGrass
 	ld hl, KantoGrassWildMonsChallenge
 .LoadedKantoGrassMons
 	call .FindGrass
-	ld hl, wChallengeMode
-	bit GAME_CHALLENGE_MODE_F, [hl]
-	jp z, .KantoChallengeModeWater
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jp nz, .KantoChallengeModeWater
 	ld hl, KantoWaterWildMons
 	jp .LoadedKantoWaterMons
 .KantoChallengeModeWater
@@ -422,9 +422,9 @@ _GrassWildmonLookup:
 	ld hl, wSwarmFlags ; check if the flag is set
 	bit SWARMFLAGS_ALT_SWARM_F, [hl]
 	jr z, .check_normal_flag ;if not, then check for the alt swarm flag too
-	ld hl, wChallengeMode
-	bit GAME_CHALLENGE_MODE_F, [hl]
-	jp z, .ChallengeModeSwarmGrassAlt
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jp nz, .ChallengeModeSwarmGrassAlt
 	ld hl, SwarmGrassWildMonsAlt
 	jp .cont 
 .ChallengeModeSwarmGrassAlt
@@ -434,9 +434,9 @@ _GrassWildmonLookup:
 	ld hl, wDailyFlags
 	bit DAILYFLAGS_SWARM_F, [hl]
 	jr z, .cont ; if not, then skip generating a swarm
-	ld hl, wChallengeMode
-	bit GAME_CHALLENGE_MODE_F, [hl]
-	jp z, .ChallengeModeSwarmGrass
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jp nz, .ChallengeModeSwarmGrass
 	ld hl, SwarmGrassWildMons
 	jp .cont 
 .ChallengeModeSwarmGrass
@@ -455,9 +455,9 @@ _WaterWildmonLookup:
 	ld hl, wSwarmFlags ; check if the flag is set
 	bit SWARMFLAGS_ALT_SWARM_F, [hl]
 	jr z, .check_normal_flag ;if not, then check for the alt swarm flag too
-	ld hl, wChallengeMode
-	bit GAME_CHALLENGE_MODE_F, [hl]
-	jp z, .ChallengeModeSwarmWaterAlt
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jp nz, .ChallengeModeSwarmWaterAlt
 	ld hl, SwarmWaterWildMonsAlt
 	jp .cont 
 .ChallengeModeSwarmWaterAlt
@@ -467,9 +467,9 @@ _WaterWildmonLookup:
 	ld hl, wDailyFlags
 	bit DAILYFLAGS_SWARM_F, [hl]
 	jr z, .cont ; if not, then skip generating a swarm
-	ld hl, wChallengeMode
-	bit GAME_CHALLENGE_MODE_F, [hl]
-	jp z, .ChallengeModeSwarmWater
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jp nz, .ChallengeModeSwarmWater
 	ld hl, SwarmWaterWildMons
 	jp .cont 
 .ChallengeModeSwarmWater
@@ -834,9 +834,9 @@ RandomUnseenWildMon:
 	farcall GetCallerLocation
 	ld d, b
 	ld e, c
-	ld hl, wChallengeMode
-	bit GAME_CHALLENGE_MODE_F, [hl]
-	jp z, .ChallengeModeGrass
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jp nz, .ChallengeModeGrass
 	ld hl, JohtoGrassWildMons
 	jp .LoadedGrassMons
 .ChallengeModeGrass
@@ -845,9 +845,9 @@ RandomUnseenWildMon:
 	ld bc, GRASS_WILDDATA_LENGTH
 	call LookUpWildmonsForMapDE
 	jr c, .GetGrassmon
-	ld hl, wChallengeMode
-	bit GAME_CHALLENGE_MODE_F, [hl]
-	jp z, .KantoChallengeModeGrass
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jp nz, .KantoChallengeModeGrass
 	ld hl, KantoGrassWildMons
 	jp .LoadedKantoGrassMons
 .KantoChallengeModeGrass
@@ -920,9 +920,9 @@ RandomPhoneWildMon:
 	farcall GetCallerLocation
 	ld d, b
 	ld e, c
-	ld hl, wChallengeMode
-	bit GAME_CHALLENGE_MODE_F, [hl]
-	jp z, .ChallengeModeGrass
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jp nz, .ChallengeModeGrass
 	ld hl, JohtoGrassWildMons
 	jp .LoadedGrassMons
 .ChallengeModeGrass
@@ -931,9 +931,9 @@ RandomPhoneWildMon:
 	ld bc, GRASS_WILDDATA_LENGTH
 	call LookUpWildmonsForMapDE
 	jr c, .ok
-	ld hl, wChallengeMode
-	bit GAME_CHALLENGE_MODE_F, [hl]
-	jp z, .KantoChallengeModeGrass
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jp nz, .KantoChallengeModeGrass
 	ld hl, KantoGrassWildMons
 	jp .LoadedKantoGrassMons
 .KantoChallengeModeGrass
@@ -1061,15 +1061,3 @@ INCLUDE "data/wild/swarm_grass.asm"
 INCLUDE "data/wild/swarm_grass_alt.asm"
 INCLUDE "data/wild/swarm_water.asm"
 INCLUDE "data/wild/swarm_water_alt.asm"
-
-
-; ------ challenge mode ------
-
-INCLUDE "data/wild/challenge_mode/johto_grass.asm"
-INCLUDE "data/wild/challenge_mode/johto_water.asm"
-INCLUDE "data/wild/challenge_mode/kanto_grass.asm"
-INCLUDE "data/wild/challenge_mode/kanto_water.asm"
-INCLUDE "data/wild/challenge_mode/swarm_grass.asm"
-INCLUDE "data/wild/challenge_mode/swarm_grass_alt.asm"
-INCLUDE "data/wild/challenge_mode/swarm_water.asm"
-INCLUDE "data/wild/challenge_mode/swarm_water_alt.asm"

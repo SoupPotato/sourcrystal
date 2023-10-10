@@ -1268,7 +1268,8 @@ wEnemyHPPal:: db ; cd9a
 wHPPals:: ds PARTY_LENGTH
 wCurHPPal:: db
 
-	ds 7
+wWildMonBank:: db
+	ds 6
 
 wSGBPals:: ds 48 ; cda9
 

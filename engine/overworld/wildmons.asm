@@ -1061,3 +1061,24 @@ INCLUDE "data/wild/swarm_grass.asm"
 INCLUDE "data/wild/swarm_grass_alt.asm"
 INCLUDE "data/wild/swarm_water.asm"
 INCLUDE "data/wild/swarm_water_alt.asm"
+
+InitWildMonBank:
+    ld a, [wChallengeMode]
+    bit GAME_CHALLENGE_MODE_F, a
+    ld a, BANK(JohtoGrassWildMons)
+    jr z, .done
+    ld a, BANK(JohtoGrassWildMonsChallenge)
+.done
+    ld [wWildMonBank], a
+    ret
+
+CompareWildMonDataByte:
+    push bc
+    ld b, a
+    ld a, [wWildMonBank]
+    call GetFarByte
+    ld c, a
+    ld a, b
+    cp c
+    pop bc
+    ret

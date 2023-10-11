@@ -418,3 +418,19 @@ SetTrainerBattleLevel:
 	ld a, [hl]
 	ld [wCurPartyLevel], a
 	ret
+
+InitTrainerPartyBank:
+    ld a, [wChallengeMode]
+    bit GAME_CHALLENGE_MODE_F, a
+    ld a, BANK(TrainerGroups)
+    jr z, .done
+    ld a, BANK(TrainerGroupsChallenge)
+.done
+    ld [wTrainerPartyBank], a
+    ret
+
+GetNextTrainerPartyDataByte:
+	ld a, [wTrainerPartyBank]
+	call GetFarByte
+	inc hl
+	ret

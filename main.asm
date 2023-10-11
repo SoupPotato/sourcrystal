@@ -669,6 +669,11 @@ INCLUDE "data/wild/challenge_mode/swarm_water.asm"
 INCLUDE "data/wild/challenge_mode/swarm_water_alt.asm"
 
 
+SECTION "Challenge Mode 2", ROMX
+
+INCLUDE "data/trainers/challenge_mode/parties.asm"
+INCLUDE "data/trainers/challenge_mode/pointers.asm"
+
 SECTION "Mobile Stadium 2", ROMX
 
 if DEF(_CRYSTAL11)

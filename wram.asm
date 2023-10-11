@@ -1269,7 +1269,8 @@ wHPPals:: ds PARTY_LENGTH
 wCurHPPal:: db
 
 wWildMonBank:: db
-	ds 6
+wTrainerPartyBank:: db
+	ds 5
 
 wSGBPals:: ds 48 ; cda9
 

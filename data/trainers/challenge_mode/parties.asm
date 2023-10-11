@@ -1,6 +1,4 @@
-INCLUDE "data/trainers/party_pointers.asm"
-
-Trainers:
+TrainersChallenge:
 ; Trainer data structure:
 ; - db "NAME@", TRAINERTYPE_* constant
 ; - 1 to 6 Pokémon:
@@ -11,7 +9,7 @@ Trainers:
 ; - db -1 ; end
 
 
-FalknerGroup:
+FalknerGroupChallenge:
 	; FALKNER (1)
 	db "FALKNER@", TRAINERTYPE_MOVES
 	db  11, PIDGEY,     TACKLE, MUD_SLAP, GUST, NO_MOVE
@@ -19,7 +17,7 @@ FalknerGroup:
 	db -1 ; end
 
 
-WhitneyGroup:
+WhitneyGroupChallenge:
 	; WHITNEY (1)
 	db "WHITNEY@", TRAINERTYPE_MOVES
 	db 20, CLEFAIRY,   DOUBLESLAP, MIMIC, ENCORE, METRONOME
@@ -27,7 +25,7 @@ WhitneyGroup:
 	db -1 ; end
 
 
-BugsyGroup:
+BugsyGroupChallenge:
 	; BUGSY (1)
 	db "BUGSY@", TRAINERTYPE_MOVES
 	db 17, METAPOD,    TACKLE, NO_MOVE, NO_MOVE, NO_MOVE
@@ -36,7 +34,7 @@ BugsyGroup:
 	db -1 ; end
 
 
-MortyGroup:
+MortyGroupChallenge:
 	; MORTY (1)
 	db "MORTY@", TRAINERTYPE_MOVES
 	db 24, GASTLY,     NIGHT_SHADE, SPITE, MEAN_LOOK, CURSE
@@ -46,7 +44,7 @@ MortyGroup:
 	db -1 ; end
 
 
-PryceGroup:
+PryceGroupChallenge:
 	; PRYCE (1)
 	db "PRYCE@", TRAINERTYPE_MOVES
 	db 36, SEEL,       WATERFALL, ICY_WIND, AURORA_BEAM, REST
@@ -56,7 +54,7 @@ PryceGroup:
 	db -1 ; end
 
 
-JasmineGroup:
+JasmineGroupChallenge:
 	; JASMINE (1)
 	db "JASMINE@", TRAINERTYPE_MOVES
 	db 33, MAGNEMITE,  THUNDERBOLT, SUPERSONIC, SONICBOOM, THUNDER_WAVE
@@ -66,7 +64,7 @@ JasmineGroup:
 	db -1 ; end
 
 
-ChuckGroup:
+ChuckGroupChallenge:
 	; CHUCK (1)
 	db "CHUCK@", TRAINERTYPE_MOVES
 	db 33, PRIMEAPE,   LEER, DOUBLE_TEAM, KARATE_CHOP, ROCK_SLIDE
@@ -74,7 +72,7 @@ ChuckGroup:
 	db -1 ; end
 
 
-ClairGroup:
+ClairGroupChallenge:
 	; CLAIR (1)
 	db "CLAIR@", TRAINERTYPE_MOVES
 	db 45, GYARADOS,   WATERFALL, CRUNCH, SCARY_FACE, DRAGONBREATH
@@ -84,7 +82,7 @@ ClairGroup:
 	db -1 ; end
 
 
-Rival1Group:
+Rival1GroupChallenge:
 	; RIVAL1 (1)
 	db "?@", TRAINERTYPE_NORMAL
 	db  5, CHIKORITA
@@ -203,10 +201,10 @@ Rival1Group:
 	db -1 ; end
 
 
-PokemonProfGroup:
+PokemonProfGroupChallenge:
 
 
-WillGroup:
+WillGroupChallenge:
 	; WILL (1)
 	db "WILL@", TRAINERTYPE_MOVES
 	db 48, XATU,       QUICK_ATTACK, FUTURE_SIGHT, CONFUSE_RAY, PSYCHIC_M
@@ -217,7 +215,7 @@ WillGroup:
 	db -1 ; end
 
 
-PKMNTrainerGroup:
+PKMNTrainerGroupChallenge:
 	; CAL (1)
 	db "CAL@", TRAINERTYPE_NORMAL
 	db 60, MEGANIUM
@@ -226,7 +224,7 @@ PKMNTrainerGroup:
 	db -1 ; end
 
 
-BrunoGroup:
+BrunoGroupChallenge:
 	; BRUNO (1)
 	db "BRUNO@", TRAINERTYPE_MOVES
 	db 50, HITMONTOP,  COUNTER, QUICK_ATTACK, DIG, TRIPLE_KICK
@@ -237,7 +235,7 @@ BrunoGroup:
 	db -1 ; end
 
 
-KarenGroup:
+KarenGroupChallenge:
 	; KAREN (1)
 	db "KAREN@", TRAINERTYPE_MOVES
 	db 50, UMBREON,    DOUBLE_TEAM, CONFUSE_RAY, FAINT_ATTACK, SCREECH
@@ -248,7 +246,7 @@ KarenGroup:
 	db -1 ; end
 
 
-KogaGroup:
+KogaGroupChallenge:
 	; KOGA (1)
 	db "KOGA@", TRAINERTYPE_MOVES
 	db 48, ARIADOS,    DOUBLE_TEAM, SLUDGE_BOMB, BATON_PASS, PIN_MISSILE
@@ -259,7 +257,7 @@ KogaGroup:
 	db -1 ; end
 
 
-ChampionGroup:
+ChampionGroupChallenge:
 	; CHAMPION (1)
 	db "LANCE@", TRAINERTYPE_MOVES
 	db 54, GYARADOS,   EARTHQUAKE, CRUNCH, SURF, HYPER_BEAM
@@ -271,7 +269,7 @@ ChampionGroup:
 	db -1 ; end
 
 
-BrockGroup:
+BrockGroupChallenge:
 	; BROCK (1)
 	db "BROCK@", TRAINERTYPE_MOVES
 	db 59, GOLEM,      DEFENSE_CURL, ROCK_SLIDE, ROLLOUT, EARTHQUAKE
@@ -282,7 +280,7 @@ BrockGroup:
 	db -1 ; end
 
 
-MistyGroup:
+MistyGroupChallenge:
 	; MISTY (1)
 	db "MISTY@", TRAINERTYPE_MOVES
 	db 57, GOLDUCK,    SURF, DISABLE, PSYCH_UP, PSYCHIC_M
@@ -293,7 +291,7 @@ MistyGroup:
 	db -1 ; end
 
 
-LtSurgeGroup:
+LtSurgeGroupChallenge:
 	; LT_SURGE (1)
 	db "LT.SURGE@", TRAINERTYPE_MOVES
 	db 59, RAICHU,     THUNDER_WAVE, IRON_TAIL, THUNDERBOLT, DOUBLE_TEAM
@@ -304,7 +302,7 @@ LtSurgeGroup:
 	db -1 ; end
 
 
-ScientistGroup:
+ScientistGroupChallenge:
 	; SCIENTIST (1)
 	db "ROSS@", TRAINERTYPE_NORMAL
 	db 32, KOFFING
@@ -351,7 +349,7 @@ ScientistGroup:
 	db -1 ; end
 
 
-ErikaGroup:
+ErikaGroupChallenge:
 	; ERIKA (1)
 	db "ERIKA@", TRAINERTYPE_MOVES
 	db 59, JUMPLUFF,   SUNNY_DAY, LEECH_SEED, STUN_SPORE, GIGA_DRAIN
@@ -362,7 +360,7 @@ ErikaGroup:
 	db -1 ; end
 
 
-YoungsterGroup:
+YoungsterGroupChallenge:
 	; YOUNGSTER (1)
 	db "JOEY@", TRAINERTYPE_NORMAL
 	db  5, RATTATA
@@ -474,7 +472,7 @@ YoungsterGroup:
 	db -1 ; end
 
 
-SchoolboyGroup:
+SchoolboyGroupChallenge:
 	; SCHOOLBOY (1)
 	db "JACK@", TRAINERTYPE_NORMAL
 	db 15, ODDISH
@@ -681,7 +679,7 @@ SchoolboyGroup:
 	db -1 ; end
 
 
-BirdKeeperGroup:
+BirdKeeperGroupChallenge:
 	; BIRD_KEEPER (1)
 	db "ROD@", TRAINERTYPE_NORMAL
 	db  8, PIDGEY
@@ -857,7 +855,7 @@ BirdKeeperGroup:
 	db 65, SKARMORY,   DRILL_PECK, STEEL_WING, SLASH, AGILITY
 	db -1 ; end
 
-LassGroup:
+LassGroupChallenge:
 	; LASS (1)
 	db "CARRIE@", TRAINERTYPE_MOVES
 	db 20, SNUBBULL,   SCARY_FACE, CHARM, BITE, LICK
@@ -977,7 +975,7 @@ LassGroup:
 	db -1 ; end
 
 
-JanineGroup:
+JanineGroupChallenge:
 	; JANINE (1)
 	db "JANINE@", TRAINERTYPE_MOVES
 	db 55, CROBAT,     SCREECH, SLUDGE_BOMB, CONFUSE_RAY, WING_ATTACK
@@ -988,7 +986,7 @@ JanineGroup:
 	db -1 ; end
 
 
-CooltrainerMGroup:
+CooltrainerMGroupChallenge:
 	; COOLTRAINERM (1)
 	db "NICK@", TRAINERTYPE_MOVES
 	db 30, CHARMANDER, EMBER, SMOKESCREEN, RAGE, DRAGONBREATH
@@ -1111,7 +1109,7 @@ CooltrainerMGroup:
 	db -1 ; end
 
 
-CooltrainerFGroup:
+CooltrainerFGroupChallenge:
 	; COOLTRAINERF (1)
 	db "GWEN@", TRAINERTYPE_NORMAL
 	db 30, EEVEE
@@ -1253,7 +1251,7 @@ CooltrainerFGroup:
 
 
 
-BeautyGroup:
+BeautyGroupChallenge:
 	; BEAUTY (1)
 	db "VICTORIA@", TRAINERTYPE_NORMAL
 	db 12, SENTRET
@@ -1292,7 +1290,7 @@ BeautyGroup:
 	db -1 ; end
 
 
-PokemaniacGroup:
+PokemaniacGroupChallenge:
 	; POKEMANIAC (1)
 	db "LARRY@", TRAINERTYPE_NORMAL
 	db 14, SLOWPOKE
@@ -1374,7 +1372,7 @@ PokemaniacGroup:
 	db -1 ; end
 
 
-GruntMGroup:
+GruntMGroupChallenge:
 	; GRUNTM (1)
 	db "GRUNT@", TRAINERTYPE_NORMAL
 	db 15, ZUBAT
@@ -1534,7 +1532,7 @@ GruntMGroup:
 	db -1 ; end
 
 
-GentlemanGroup:
+GentlemanGroupChallenge:
 	; GENTLEMAN (1)
 	db "PRESTON@", TRAINERTYPE_NORMAL
 	db 22, GROWLITHE
@@ -1579,7 +1577,7 @@ GentlemanGroup:
 	db -1 ; end
 
 
-SkierGroup:
+SkierGroupChallenge:
 	; SKIER (1)
 	db "ROXANNE@", TRAINERTYPE_NORMAL
 	db 35, JYNX
@@ -1596,7 +1594,7 @@ SkierGroup:
 	db -1 ; end
 
 
-TeacherGroup:
+TeacherGroupChallenge:
 	; TEACHER (1)
 	db "COLETTE@", TRAINERTYPE_NORMAL
 	db 57, CLEFAIRY
@@ -1633,7 +1631,7 @@ TeacherGroup:
 	db -1 ; end
 
 
-SabrinaGroup:
+SabrinaGroupChallenge:
 	; SABRINA (1)
 	db "SABRINA@", TRAINERTYPE_MOVES
 	db 59, ESPEON,     SHADOW_BALL, SAND_ATTACK, MORNING_SUN, PSYCHIC_M
@@ -1643,7 +1641,7 @@ SabrinaGroup:
 	db -1 ; end
 
 
-BugCatcherGroup:
+BugCatcherGroupChallenge:
 	; BUG_CATCHER (1)
 	db "DON@", TRAINERTYPE_NORMAL
 	db  4, CATERPIE
@@ -1821,7 +1819,7 @@ BugCatcherGroup:
 	db -1 ; end
 
 
-FisherGroup:
+FisherGroupChallenge:
 	; FISHER (1)
 	db "JUSTIN@", TRAINERTYPE_NORMAL
 	db  5, MAGIKARP
@@ -2025,7 +2023,7 @@ FisherGroup:
 	db -1 ; end
 
 
-SwimmerMGroup:
+SwimmerMGroupChallenge:
 	; SWIMMERM (1)
 	db "HAROLD@", TRAINERTYPE_NORMAL
 	db 54, REMORAID
@@ -2128,7 +2126,7 @@ SwimmerMGroup:
 	db -1 ; end
 
 
-SwimmerFGroup:
+SwimmerFGroupChallenge:
 	; SWIMMERF (1)
 	db "ELAINE@", TRAINERTYPE_NORMAL
 	db 26, STARYU
@@ -2234,7 +2232,7 @@ SwimmerFGroup:
 	db -1 ; end
 
 
-SailorGroup:
+SailorGroupChallenge:
 	; SAILOR (1)
 	db "EUGENE@", TRAINERTYPE_NORMAL
 	db 21, POLIWHIRL
@@ -2327,7 +2325,7 @@ SailorGroup:
 	db -1 ; end
 
 
-SuperNerdGroup:
+SuperNerdGroupChallenge:
 	; SUPER_NERD (1)
 	db "ERIC@", TRAINERTYPE_NORMAL
 	db 15, GRIMER
@@ -2393,7 +2391,7 @@ SuperNerdGroup:
 	db -1 ; end
 
 
-Rival2Group:
+Rival2GroupChallenge:
 	; RIVAL2 (1)
 	db "?@", TRAINERTYPE_MOVES
 	db 58, SNEASEL,    ICY_WIND, SLASH, FAINT_ATTACK, FURY_CUTTER
@@ -2455,7 +2453,7 @@ Rival2Group:
 	db -1 ; end
 
 
-GuitaristGroup:
+GuitaristGroupChallenge:
 	; GUITARIST (1)
 	db "CLYDE@", TRAINERTYPE_NORMAL
 	db 54, ELECTABUZZ
@@ -2469,7 +2467,7 @@ GuitaristGroup:
 	db -1 ; end
 
 
-HikerGroup:
+HikerGroupChallenge:
 	; HIKER (1)
 	db "ANTHONY@", TRAINERTYPE_NORMAL
 	db 24, GRAVELER
@@ -2654,7 +2652,7 @@ HikerGroup:
 	db -1 ; end
 
 
-BikerGroup:
+BikerGroupChallenge:
 	; BIKER (1)
 	db "DWAYNE@", TRAINERTYPE_NORMAL
 	db 50, KOFFING
@@ -2781,7 +2779,7 @@ BikerGroup:
 	db -1 ; end
 
 
-BlaineGroup:
+BlaineGroupChallenge:
 	; BLAINE (1)
 	db "BLAINE@", TRAINERTYPE_MOVES
 	db 62, MAGCARGO,   SUNNY_DAY, RECOVER, FIRE_BLAST, ROCK_SLIDE
@@ -2791,7 +2789,7 @@ BlaineGroup:
 	db -1 ; end
 
 
-BurglarGroup:
+BurglarGroupChallenge:
 	; BURGLAR (1)
 	db "DUNCAN@", TRAINERTYPE_NORMAL
 	db 35, KOFFING
@@ -2814,7 +2812,7 @@ BurglarGroup:
 	db -1 ; end
 
 
-FirebreatherGroup:
+FirebreatherGroupChallenge:
 	; FIREBREATHER (1)
 	db "OTIS@", TRAINERTYPE_NORMAL
 	db 55, MAGMAR
@@ -2890,7 +2888,7 @@ FirebreatherGroup:
 	db -1 ; end
 
 
-JugglerGroup:
+JugglerGroupChallenge:
 	; JUGGLER (1)
 	db "IRWIN@", TRAINERTYPE_NORMAL
 	db  5, VOLTORB
@@ -2914,7 +2912,7 @@ JugglerGroup:
 	db -1 ; end
 
 
-BlackbeltGroup:
+BlackbeltGroupChallenge:
 	; BLACKBELT_T (1)
 	db "KENJI@", TRAINERTYPE_NORMAL
 	db 27, ONIX
@@ -2985,7 +2983,7 @@ BlackbeltGroup:
 	db -1 ; end
 
 
-ExecutiveMGroup:
+ExecutiveMGroupChallenge:
 	; EXECUTIVEM (1)
 	db "EXECUTIVE@", TRAINERTYPE_MOVES
 	db 44, HOUNDOUR,   FLAMETHROWER, ROAR, IRON_TAIL, FAINT_ATTACK
@@ -3017,7 +3015,7 @@ ExecutiveMGroup:
 	db -1 ; end
 
 
-PsychicGroup:
+PsychicGroupChallenge:
 	; PSYCHIC_T (1)
 	db "NATHAN@", TRAINERTYPE_NORMAL
 	db 29, GIRAFARIG
@@ -3091,7 +3089,7 @@ PsychicGroup:
 	db -1 ; end
 
 
-PicnickerGroup:
+PicnickerGroupChallenge:
 	; PICNICKER (1)
 	db "LIZ@", TRAINERTYPE_NORMAL
 	db 10, NIDORAN_F
@@ -3273,7 +3271,7 @@ PicnickerGroup:
 	db 45, PARASECT
 	db -1 ; end
 
-CamperGroup:
+CamperGroupChallenge:
 	; CAMPER (1)
 	db "ROLAND@", TRAINERTYPE_NORMAL
 	db 11, NIDORAN_M
@@ -3415,7 +3413,7 @@ CamperGroup:
 	db -1 ; end
 
 
-ExecutiveFGroup:
+ExecutiveFGroupChallenge:
 	; EXECUTIVEF (1)
 	db "EXECUTIVE@", TRAINERTYPE_MOVES
 	db 42, ARBOK,      DIG, SLUDGE_BOMB, CRUNCH, GLARE
@@ -3431,7 +3429,7 @@ ExecutiveFGroup:
 	db -1 ; end
 
 
-SageGroup:
+SageGroupChallenge:
 	; SAGE (1)
 	db "CHOW@", TRAINERTYPE_NORMAL
 	db  4, BELLSPROUT
@@ -3509,7 +3507,7 @@ SageGroup:
 	db -1 ; end
 
 
-MediumGroup:
+MediumGroupChallenge:
 	; MEDIUM (1)
 	db "MARTHA@", TRAINERTYPE_NORMAL
 	db 21, GASTLY
@@ -3536,7 +3534,7 @@ MediumGroup:
 	db -1 ; end
 
 
-BoarderGroup:
+BoarderGroupChallenge:
 	; BOARDER (1)
 	db "RONALD@", TRAINERTYPE_NORMAL
 	db 31, SEEL
@@ -3570,7 +3568,7 @@ BoarderGroup:
 	db -1 ; end
 
 
-PokefanMGroup:
+PokefanMGroupChallenge:
 	; POKEFANM (1)
 	db "WILLIAM@", TRAINERTYPE_ITEM
 	db 19, RAICHU,     ORAN_BERRY
@@ -3640,7 +3638,7 @@ PokefanMGroup:
 	db -1 ; end
 
 
-KimonoGirlGroup:
+KimonoGirlGroupChallenge:
 	; KIMONO_GIRL (1)
 	db "NAOKO@", TRAINERTYPE_NORMAL
 	db 20, FLAREON
@@ -3667,7 +3665,7 @@ KimonoGirlGroup:
 	db -1 ; end
 
 
-TwinsGroup:
+TwinsGroupChallenge:
 	; TWINS (1)
 	db "AMY & MAY@", TRAINERTYPE_NORMAL
 	db 13, SPINARAK
@@ -3759,7 +3757,7 @@ TwinsGroup:
 	db -1 ; end
 
 
-PokefanFGroup:
+PokefanFGroupChallenge:
 	; POKEFANF (1)
 	db "BEVERLY@", TRAINERTYPE_ITEM
 	db 19, SNUBBULL,   ORAN_BERRY
@@ -3791,7 +3789,7 @@ PokefanFGroup:
 	db -1 ; end
 
 
-RedGroup:
+RedGroupChallenge:
 	; RED (1)
 	db "RED@", TRAINERTYPE_MOVES
 	db 88, PIKACHU,    CHARM, QUICK_ATTACK, THUNDERBOLT, IRON_TAIL
@@ -3803,7 +3801,7 @@ RedGroup:
 	db -1 ; end
 
 
-BlueGroup:
+BlueGroupChallenge:
 	; BLUE (1)
 	db "BLUE@", TRAINERTYPE_MOVES
 	db 64, PIDGEOT,    QUICK_ATTACK, WHIRLWIND, FLY, MIRROR_MOVE
@@ -3815,7 +3813,7 @@ BlueGroup:
 	db -1 ; end
 
 
-OfficerGroup:
+OfficerGroupChallenge:
 	; OFFICER (1)
 	db "KEITH@", TRAINERTYPE_NORMAL
 	db 20, GROWLITHE
@@ -3828,7 +3826,7 @@ OfficerGroup:
 	db -1 ; end
 
 
-GruntFGroup:
+GruntFGroupChallenge:
 	; GRUNTF (1)
 	db "GRUNT@", TRAINERTYPE_NORMAL
 	db 11, ZUBAT
@@ -3861,7 +3859,7 @@ GruntFGroup:
 	db -1 ; end
 
 
-MysticalmanGroup:
+MysticalmanGroupChallenge:
 	; MYSTICALMAN (1)
 	db "EUSINE@", TRAINERTYPE_MOVES
 	db 31, DROWZEE,    DREAM_EATER, HYPNOSIS, DISABLE, CONFUSION
@@ -3869,7 +3867,7 @@ MysticalmanGroup:
 	db 33, ELECTRODE,  SCREECH, SONICBOOM, THUNDER, ROLLOUT
 	db -1 ; end
 
-CoupleGroup:
+CoupleGroupChallenge:
 	; COUPLE (1)
 	db "DUFF & EDA@", TRAINERTYPE_MOVES
 	db 27, ONIX,        BIND, RAGE, ROCK_THROW, SANDSTORM
@@ -3906,7 +3904,7 @@ CoupleGroup:
 	db 66, GOLDUCK,     ICE_BEAM, SURF, LIGHT_SCREEN, PSYCHIC_M
 	db -1 ; end
 
-CoolDuoGroup:
+CoolDuoGroupChallenge:
 	; COOL_DUO (1)
 	db "THOM & KAE@", TRAINERTYPE_NORMAL
 	db 30, MAGMAR

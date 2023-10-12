@@ -57,13 +57,80 @@ if DEF(_DEBUG)
 	setflag ENGINE_POKEGEAR
 	setflag ENGINE_PHONE_CARD
 	setflag ENGINE_MAP_CARD
+	setflag ENGINE_PAGER_CARD
 	setflag ENGINE_RADIO_CARD
 	setflag ENGINE_EXPN_CARD
+; wPagerFlags
+	setflag ENGINE_PAGER_CUT
+	setflag ENGINE_PAGER_FLY
+	setflag ENGINE_PAGER_SURF
+	setflag ENGINE_PAGER_STRENGTH
+	setflag ENGINE_PAGER_FLASH
+	setflag ENGINE_PAGER_WHIRLPOOL
+	setflag ENGINE_PAGER_ROCK_SMASH
 	; pokedex
 	setflag ENGINE_POKEDEX
 	; useful items
 	giveitem MAX_REPEL, 99
 	giveitem MASTER_BALL, 99
+	giveitem RARE_CANDY, 99
+	giveitem TM_DYNAMICPUNCH
+	giveitem TM_HEADBUTT
+	giveitem TM_CURSE
+	giveitem TM_ROLLOUT
+	giveitem TM_ROAR
+	giveitem TM_TOXIC
+	giveitem TM_ZAP_CANNON
+	giveitem TM_ROCK_SMASH
+	giveitem TM_PSYCH_UP
+	giveitem TM_HIDDEN_POWER
+	giveitem TM_SUNNY_DAY
+	giveitem TM_SWEET_SCENT
+	giveitem TM_SNORE
+	giveitem TM_BLIZZARD
+	giveitem TM_HYPER_BEAM
+	giveitem TM_ICY_WIND
+	giveitem TM_PROTECT
+	giveitem TM_RAIN_DANCE
+	giveitem TM_GIGA_DRAIN
+	giveitem TM_ENDURE
+	giveitem TM_FRUSTRATION
+	giveitem TM_SOLARBEAM
+	giveitem TM_IRON_TAIL
+	giveitem TM_DRAGONBREATH
+	giveitem TM_THUNDER
+	giveitem TM_EARTHQUAKE
+	giveitem TM_RETURN
+	giveitem TM_DIG
+	giveitem TM_PSYCHIC_M
+	giveitem TM_SHADOW_BALL
+	giveitem TM_MUD_SLAP
+	giveitem TM_DOUBLE_TEAM
+	giveitem TM_ICE_PUNCH
+	giveitem TM_SWAGGER
+	giveitem TM_SLEEP_TALK
+	giveitem TM_SLUDGE_BOMB
+	giveitem TM_SANDSTORM
+	giveitem TM_FIRE_BLAST
+	giveitem TM_SWIFT
+	giveitem TM_DEFENSE_CURL
+	giveitem TM_THUNDERPUNCH
+	giveitem TM_DREAM_EATER
+	giveitem TM_DETECT
+	giveitem TM_REST
+	giveitem TM_ATTRACT
+	giveitem TM_THIEF
+	giveitem TM_STEEL_WING
+	giveitem TM_FIRE_PUNCH
+	giveitem TM_FURY_CUTTER
+	giveitem TM_NIGHTMARE
+	giveitem HM_CUT
+	giveitem HM_FLY
+	giveitem HM_SURF
+	giveitem HM_STRENGTH
+	giveitem HM_FLASH
+	giveitem HM_WHIRLPOOL
+	giveitem HM_WATERFALL
 	; all badges
 	setflag ENGINE_ZEPHYRBADGE
 	setflag ENGINE_HIVEBADGE
@@ -123,25 +190,54 @@ if DEF(_DEBUG)
 	setflag ENGINE_FLYPOINT_FUCHSIA
 	setflag ENGINE_FLYPOINT_SAFFRON
 	setflag ENGINE_FLYPOINT_CINNABAR
+	setflag ENGINE_FLYPOINT_SAFARI_ZONE_GATE
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke MEWTWO, 100, BRIGHTPOWDER
-	; hm slaves
-	givepoke MEW, 100, LEFTOVERS
-	givepoke MEW, 100, LEFTOVERS
-	loadvar wPartyMon2Moves+0, FLY
-	loadvar wPartyMon2Moves+1, SURF
-	loadvar wPartyMon2Moves+2, STRENGTH
-	loadvar wPartyMon2Moves+3, CUT
-	loadvar wPartyMon3Moves+0, FLASH
-	loadvar wPartyMon3Moves+1, ROCK_SMASH
-	loadvar wPartyMon3Moves+2, HEADBUTT
-	loadvar wPartyMon3Moves+3, WATERFALL
-	; misc pokemon for testing
-	givepoke PIKACHU, 50
-	givepoke GENGAR, 50
-	givepoke DITTO, 50
+	givepoke SEADRA, 50, LEFTOVERS
+	givepoke VENOMOTH, 50, LEFTOVERS
+	givepoke VICTREEBEL, 50, LEFTOVERS
+	givepoke WEEZING, 50, LEFTOVERS
+	givepoke MAGMAR, 50, LEFTOVERS
+	givepoke MAGNETON, 50, LEFTOVERS
+	loadvar wPartyMon1Moves+0, AURORA_BEAM
+	loadvar wPartyMon1Moves+1, DRAGONBREATH
+	loadvar wPartyMon1Moves+2, BUBBLEBEAM
+	loadvar wPartyMon1Moves+3, DRAGON_RAGE
+	loadvar wPartyMon2Moves+0, PSYCHIC_M
+	loadvar wPartyMon2Moves+1, GUST
+	loadvar wPartyMon2Moves+2, SLEEP_POWDER
+	loadvar wPartyMon2Moves+3, LEECH_LIFE
+	loadvar wPartyMon2DVs+0, $ea
+	loadvar wPartyMon2DVs+1, $aa
+	loadvar wPartyMon3Moves+0, RAZOR_LEAF
+	loadvar wPartyMon3Moves+1, ACID
+	loadvar wPartyMon3Moves+2, WRAP
+	loadvar wPartyMon3Moves+3, SLEEP_POWDER
+	loadvar wPartyMon3DVs+0, $ea
+	loadvar wPartyMon3DVs+1, $aa
+	loadvar wPartyMon4Moves+0, SLUDGE_BOMB
+	loadvar wPartyMon4Moves+1, SMOKESCREEN
+	loadvar wPartyMon4Moves+2, FAINT_ATTACK
+	loadvar wPartyMon4Moves+3, EXPLOSION
+	loadvar wPartyMon4DVs+0, $ea
+	loadvar wPartyMon4DVs+1, $aa
+	loadvar wPartyMon5Moves+0, FLAMETHROWER
+	loadvar wPartyMon5Moves+1, THUNDERPUNCH
+	loadvar wPartyMon5Moves+2, FAINT_ATTACK
+	loadvar wPartyMon5Moves+3, DIZZY_PUNCH
+	loadvar wPartyMon5DVs+0, $ea
+	loadvar wPartyMon5DVs+1, $aa
+	loadvar wPartyMon6Moves+0, SPARK
+	loadvar wPartyMon6Moves+1, SONICBOOM
+	loadvar wPartyMon6Moves+2, DOUBLE_TEAM
+	loadvar wPartyMon6Moves+3, THUNDER_WAVE
+	loadvar wPartyMon6DVs+0, $ea
+	loadvar wPartyMon6DVs+1, $aa
+;	; Grant All Pokemon
+;	for x, NUM_POKEMON
+;	givepoke BULBASAUR + x, 50
+;endr
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1

@@ -279,7 +279,26 @@ else
 endc
 
 PlayersHouseBookshelfScript:
+if DEF(_DEBUG)
+	opentext
+	checkflag ENGINE_CHALLENGE_MODE_ACTIVE
+	iftrue .TurnOffChallengeMode
+	playsound SFX_PAY_DAY
+	setflag ENGINE_CHALLENGE_MODE_ACTIVE
+	writetext PlayersHouseBookshelfChallengeModeActivatedText
+.cont:
+	waitbutton
+	closetext
+	end
+
+.TurnOffChallengeMode:
+	playsound SFX_SHUT_DOWN_PC
+	clearflag ENGINE_CHALLENGE_MODE_ACTIVE
+	writetext PlayersHouseBookshelfChallengeModeDeactivatedText
+	jump .cont
+else
 	jumpstd picturebookshelf
+endc
 
 PlayersHousePCScript:
 	opentext
@@ -309,6 +328,16 @@ PlayersRadioText3:
 PlayersRadioText4:
 	text "#MON!"
 	line "#MON CHANNEL…"
+	done
+
+PlayersHouseBookshelfChallengeModeActivatedText:
+	text "CHALLENGE MODE"
+	line "ACTIVATED!"
+	done
+
+PlayersHouseBookshelfChallengeModeDeactivatedText:
+	text "CHALLENGE MODE"
+	line "DEACTIVATED!"
 	done
 
 PlayersHouse2F_MapEvents:

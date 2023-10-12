@@ -341,7 +341,6 @@ GaveOldAmber:
 
 
 RuinsOfAlphResearchCenterScientist3Script:
-	setflag ENGINE_CHALLENGE_MODE_ACTIVE
 	faceplayer
 	opentext
 	checkcode VAR_UNOWNCOUNT

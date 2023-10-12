@@ -2252,6 +2252,7 @@ wDudeNumItems:: db
 wDudeItems:: ds 2 * 4
 wDudeItemsEnd:: db
 
+wDudeNumBerries::
 wDudeNumKeyItems:: db ; d292
 wDudeKeyItems:: ds 18
 wDudeKeyItemsEnd:: db
@@ -2408,7 +2409,14 @@ wObjectStructsEnd:: ; d6de
 
 wStoneTableAddress:: dw
 
-	ds 62
+	ds 24
+
+
+wBerryPocketCursor::    db
+wBerryPocketScrollPosition::    db
+wNumBerries:: db
+wBerries:: ds MAX_BERRIES * 2 + 1
+
 
 wMapObjects:: ; d71e
 wPlayerObject:: map_object wPlayer

@@ -283,7 +283,11 @@ DoPlayerMovement::
 
 ; Downhill riding is slower when not moving down.
 	call .BikeCheck
+if DEF(_DEBUG)
+	jr nz, .HandleDebugRun
+else
 	jr nz, .walk
+endc
 
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_DOWNHILL_F, [hl]
@@ -332,6 +336,13 @@ DoPlayerMovement::
 	xor a
 	ld [wSpinning], a
 	ret
+
+.HandleDebugRun
+	ldh a, [hJoypadDown]
+	and B_BUTTON
+	cp B_BUTTON
+	jr nz, .walk
+	jr .fast
 
 .TrySurf:
 
@@ -617,9 +628,9 @@ DoPlayerMovement::
 	ld h, [hl]
 	ld l, a
 if DEF(_DEBUG)
-	ldh a, [hJoyDown]
-	or ~(A_BUTTON | B_BUTTON)
-	inc a
+	ldh a, [hJoypadDown]
+	and B_BUTTON
+	cp B_BUTTON
 	ld a, [hl]
 	jr nz, .no_wtw
 	cp COLL_01

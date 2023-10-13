@@ -217,6 +217,13 @@ FindNest:
 	ret
 
 TryWildEncounter::
+if DEF(_DEBUG)
+	ldh a, [hJoypadDown]
+	and B_BUTTON
+	cp B_BUTTON
+	jr z, .no_battle ; ignore encounters
+else
+endc
 ; Try to trigger a wild encounter.
 	call .EncounterRate
 	jr nc, .no_battle

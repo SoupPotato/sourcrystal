@@ -36,22 +36,12 @@ GoldenrodCity_MapScripts:
 	iffalse .MoveTutorDone
 	checkitem COIN_CASE
 	iffalse .MoveTutorDisappear
-	checkcode VAR_WEEKDAY
-	ifequal MONDAY, .MoveTutorAppear
-	ifequal TUESDAY, .MoveTutorAppear
-	ifequal WEDNESDAY, .MoveTutorAppear
-	ifequal THURSDAY, .MoveTutorAppear
-	ifequal FRIDAY, .MoveTutorAppear
-	ifequal SATURDAY, .MoveTutorAppear
-	ifequal SUNDAY, .MoveTutorAppear
-.MoveTutorDisappear:
-	disappear GOLDENRODCITY_POKEFAN_M2
-	return
-
-.MoveTutorAppear:
 	checkflag ENGINE_DAILY_MOVE_TUTOR
 	iftrue .MoveTutorDone
 	appear GOLDENRODCITY_POKEFAN_M2
+	jump .MoveTutorDone
+.MoveTutorDisappear:
+	disappear GOLDENRODCITY_POKEFAN_M2
 .MoveTutorDone:
 	return
 
@@ -65,7 +55,7 @@ MoveTutorScript:
 	writetext UnknownText_0x199090
 	yesorno
 	iffalse .Refused2
-	checkcoins 3000
+	checkcoins 4000
 	ifequal HAVE_LESS, .NotEnoughMoney
 	writetext UnknownText_0x1990ce
 	loadmenu .MoveMenuHeader
@@ -133,19 +123,6 @@ MoveTutorScript:
 	writetext UnknownText_0x19918b
 	waitbutton
 	closetext
-	checkcode VAR_FACING
-	ifequal LEFT, .WalkAroundPlayer
-	applymovement GOLDENRODCITY_POKEFAN_M2, MovementData_0x198a5f
-	jump .GoInside
-
-.WalkAroundPlayer:
-	applymovement GOLDENRODCITY_POKEFAN_M2, MovementData_0x198a63
-.GoInside:
-	playsound SFX_ENTER_DOOR
-	disappear GOLDENRODCITY_POKEFAN_M2
-	clearevent EVENT_GOLDENROD_GAME_CORNER_MOVE_TUTOR
-	setflag ENGINE_DAILY_MOVE_TUTOR
-	waitsfx
 	end
 
 .Incompatible:
@@ -271,20 +248,6 @@ GoldenrodCityPokecenterSign:
 
 GoldenrodCityFlowerShopSign:
 	jumptext GoldenrodCityFlowerShopSignText
-
-MovementData_0x198a5f:
-	step RIGHT
-	step RIGHT
-	step UP
-	step_end
-
-MovementData_0x198a63:
-	step DOWN
-	step RIGHT
-	step RIGHT
-	step UP
-	step UP
-	step_end
 
 GoldenrodCityPokefanMText:
 	text "They built the new"
@@ -530,15 +493,15 @@ UnknownText_0x199107:
 UnknownText_0x19913a:
 	text "If you understand"
 	line "what's so amazing"
-
-	para "about this move,"
-	line "you've made it as"
-	cont "a trainer."
+	cont "about this move,"
+	
+	para "then you've made"
+	line "it as a trainer."
 	done
 
 UnknownText_0x19918b:
 	text "Wahahah!"
-	line "Farewell, kid!"
+	line "Take care, kid!"
 	done
 
 UnknownText_0x1991a4:

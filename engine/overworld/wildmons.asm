@@ -1096,14 +1096,14 @@ RandomPhoneMon:
 	jp CopyBytes
 
 InitWildMonBank:
-    ld a, [wChallengeMode]
-    bit GAME_CHALLENGE_MODE_F, a
-    ld a, BANK(JohtoGrassWildMons)
-    jr z, .done
-    ld a, BANK(JohtoGrassWildMonsChallenge)
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	ld a, BANK(JohtoGrassWildMons)
+	jr z, .done
+	ld a, BANK(JohtoGrassWildMonsChallenge)
 .done
-    ld [wWildMonBank], a
-    ret
+	ld [wWildMonBank], a
+	ret
 
 GetNextWildMonDataByte:
 	ld a, [wWildMonBank]
@@ -1112,12 +1112,12 @@ GetNextWildMonDataByte:
 	ret
 
 CompareWildMonDataByte:
-    push bc
-    ld b, a
-    ld a, [wWildMonBank]
-    call GetFarByte
-    ld c, a
-    ld a, b
-    cp c
-    pop bc
-    ret
+	push bc
+	ld b, a
+	ld a, [wWildMonBank]
+	call GetFarByte
+	ld c, a
+	ld a, b
+	cp c
+	pop bc
+	ret

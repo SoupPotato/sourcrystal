@@ -1269,7 +1269,7 @@ wHPPals:: ds PARTY_LENGTH
 wCurHPPal:: db
 
 wWildMonBank:: db
-wTrainerPartyBank:: db
+wTrainerGroupBank:: db
 	ds 5
 
 wSGBPals:: ds 48 ; cda9
@@ -2379,7 +2379,7 @@ wGameTimeSeconds:: db ; d4c7
 wGameTimeFrames::  db ; d4c8
 
 wChallengeMode:: db
-	ds 1
+wOtherTrainerType:: db
 
 wCurDay:: db ; d4cb
 

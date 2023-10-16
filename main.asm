@@ -179,6 +179,9 @@ INCLUDE "engine/battle/read_trainer_attributes.asm"
 INCLUDE "engine/battle/read_trainer_party.asm"
 
 
+INCLUDE "data/trainers/parties.asm"
+
+
 SECTION "Battle Core", ROMX
 
 INCLUDE "engine/battle/core.asm"
@@ -670,12 +673,6 @@ INCLUDE "data/wild/challenge_mode/swarm_grass.asm"
 INCLUDE "data/wild/challenge_mode/swarm_grass_alt.asm"
 INCLUDE "data/wild/challenge_mode/swarm_water.asm"
 INCLUDE "data/wild/challenge_mode/swarm_water_alt.asm"
-
-
-SECTION "Challenge Mode 2", ROMX
-
-INCLUDE "data/trainers/challenge_mode/parties.asm"
-INCLUDE "data/trainers/challenge_mode/pointers.asm"
 
 SECTION "Mobile Stadium 2", ROMX
 

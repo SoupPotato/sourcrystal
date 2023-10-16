@@ -1966,6 +1966,7 @@ wTempMon:: party_struct wTempMon ; d10e
 wSpriteFlags:: db ; d13e
 
 wHandlePlayerStep:: dw ; d13f
+wCurIconMonHasItemOrMail:: db
 
 wPartyMenuActionText:: db ; d141
 
@@ -2007,7 +2008,7 @@ wUsedSprites:: ds 64
 wUsedSpritesEnd::
 
 NEXTU ; d154
-	ds 31
+	ds 30
 wd173:: db ; related to command queue type 3
 ENDU ; d194
 

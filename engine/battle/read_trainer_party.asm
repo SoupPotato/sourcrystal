@@ -71,10 +71,13 @@ ReadTrainerPartyPieces:
 ; Variable?
 	bit TRAINERTYPE_VARIABLE_F, a
 	jr z, .not_variable
-	; get badge count in c
+	; check if challenge mode is active
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .continue
 	push hl
-	ld hl, wBadges
-	ld b, 2
+	ld hl, $2 ; number of maximum variable trainer parties per trainer
+	ld b, 2 
 	call CountSetBits
 	pop hl
 	; Skip that many $fe delimiters

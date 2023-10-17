@@ -1568,7 +1568,6 @@ BirdKeeperGroup:
 
 	; BIRD_KEEPER (2)  ; does not change between Normal & Challenge Mode
 	db "ABE@", TRAINERTYPE_NORMAL
-	db TRAINERTYPE_NORMAL
 	db  9, SPEAROW
 	db -1 ; end
 

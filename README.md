@@ -50,7 +50,7 @@ are now Physical. This will allow the majority of said types to use their stab a
 ## See also
 
 - [**FAQ**](FAQ.md)
-- [**Documentation**](docs/)
+- [**Documentation**][docs]
 - [**Wiki**][wiki] (includes [tutorials][tutorials])
 - **Discord:** [pret][discord]
-- **IRC:** [freenode#pret][irc]
+- **IRC:** [libera#pret][irc]

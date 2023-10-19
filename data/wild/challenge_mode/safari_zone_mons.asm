@@ -1,8 +1,8 @@
 ; AREA 1
 SafariMonsArea1_MornChallenge: ; MORNING
 	;   %, species,   min, max
-	db 25, SENTRET,       22, 22
-	db 15, JIGGLYPUFF,    24, 24
+	db 20, SENTRET,       22, 22
+	db 20, JIGGLYPUFF,    24, 24
 	db 15, PIKACHU,       20, 20
 	db 10, GIRAFARIG,     23, 23
 	db 10, JIGGLYPUFF,    26, 26
@@ -14,8 +14,8 @@ SafariMonsArea1_MornChallenge: ; MORNING
 	
 SafariMonsArea1Challenge: ; DAY/EVE
 	;   %, species,   min, max
-	db 25, SENTRET,       22, 22
-	db 15, JIGGLYPUFF,    24, 24
+	db 20, SENTRET,       22, 22
+	db 20, JIGGLYPUFF,    24, 24
 	db 15, PIKACHU,       20, 20
 	db 10, GIRAFARIG,     23, 23
 	db 10, SUNKERN,       26, 26
@@ -27,8 +27,8 @@ SafariMonsArea1Challenge: ; DAY/EVE
 
 SafariMonsArea1_NiteChallenge: ; NITE
 	;   %, species,   min, max
-	db 25, PSYDUCK,       22, 22
-	db 15, MURKROW,       24, 24
+	db 20, PSYDUCK,       22, 22
+	db 20, MURKROW,       24, 24
 	db 15, PIKACHU,       20, 20
 	db 10, STANTLER,      23, 23
 	db 10, DROWZEE,       26, 26
@@ -41,10 +41,10 @@ SafariMonsArea1_NiteChallenge: ; NITE
 ; AREA 2
 	;   %, species,   min, max
 SafariMonsArea2_MornChallenge: ; MORNING
-	db 25, SANDSHREW,      23, 23
-	db 15, NIDORAN_M,      21, 21
-	db 15, NIDORAN_F,      22, 22
-	db 10, CUBONE,         22, 22
+	db 20, NIDORAN_M,      22, 22
+	db 20, NIDORAN_F,      22, 22
+	db 15, SANDSHREW,      23, 23
+	db 10, CUBONE,         21, 21
 	db 10, PONYTA,         23, 23
 	db 10, SANDSLASH,      26, 26
 	db  5, GLIGAR,         24, 24
@@ -54,10 +54,10 @@ SafariMonsArea2_MornChallenge: ; MORNING
 
 SafariMonsArea2Challenge: : ; DAY/EVE
 	;   %, species,   min, max
-	db 25, SANDSHREW,      23, 23
-	db 15, NIDORAN_M,      21, 21
-	db 15, NIDORAN_F,      22, 22
-	db 10, CUBONE,         22, 22
+	db 20, NIDORAN_M,      22, 22
+	db 20, NIDORAN_F,      22, 22
+	db 15, SANDSHREW,      23, 23
+	db 10, CUBONE,         21, 21
 	db 10, PONYTA,         23, 23
 	db 10, SANDSLASH,      26, 26
 	db  5, GLIGAR,         24, 24
@@ -67,10 +67,10 @@ SafariMonsArea2Challenge: : ; DAY/EVE
 
 SafariMonsArea2_NiteChallenge: ; NITE
 	;   %, species,   min, max
-	db 25, SANDSHREW,      23, 23
-	db 15, NIDORINO,       21, 21
-	db 15, NIDORINA,       22, 22
-	db 10, NOCTOWL,        22, 22
+	db 20, NIDORINO,       22, 22
+	db 20, NIDORINA,       22, 22
+	db 15, SANDSHREW,      23, 23
+	db 10, NOCTOWL,        23, 23
 	db 10, HOUNDOUR,       23, 23
 	db 10, SANDSLASH,      26, 26
 	db  5, GLIGAR,         24, 24
@@ -81,8 +81,8 @@ SafariMonsArea2_NiteChallenge: ; NITE
 ; AREA 3
 SafariMonsArea3_MornChallenge: ; MORNING
 	;   %, species,   min, max
-	db 25, EKANS,         21, 21
-	db 15, BELLSPROUT,    24, 24
+	db 20, EKANS,         21, 21
+	db 20, BELLSPROUT,    24, 24
 	db 15, MARILL,        22, 22
 	db 10, GRIMER,        24, 24
 	db 10, TANGELA,       25, 25
@@ -94,8 +94,8 @@ SafariMonsArea3_MornChallenge: ; MORNING
 
 SafariMonsArea3Challenge: ; DAY/EVE
 	;   %, species,   min, max
-	db 25, EKANS,         21, 21
-	db 15, BELLSPROUT,    24, 24
+	db 20, EKANS,         21, 21
+	db 20, BELLSPROUT,    24, 24
 	db 15, MARILL,        22, 22
 	db 10, GRIMER,        24, 24
 	db 10, TANGELA,       25, 25
@@ -107,8 +107,8 @@ SafariMonsArea3Challenge: ; DAY/EVE
 
 SafariMonsArea3_NiteChallenge: ; NITE
 	;   %, species,   min, max
-	db 25, WOOPER,        21, 21
-	db 15, ODDISH,        24, 24
+	db 20, WOOPER,        21, 21
+	db 20, ODDISH,        24, 24
 	db 15, MARILL,        22, 22
 	db 10, GRIMER,        24, 24
 	db 10, HAUNTER,       25, 25
@@ -121,8 +121,8 @@ SafariMonsArea3_NiteChallenge: ; NITE
 ; AREA 4
 SafariMonsArea4_MornChallenge: ; MORNING
 	;   %, species,   min, max
-	db 25, MACHOP,      22, 22
-	db 15, GEODUDE,     21, 21
+	db 20, MACHOP,      22, 22
+	db 20, GEODUDE,     21, 21
 	db 15, VOLTORB,     24, 24
 	db 10, ONIX,        21, 21
 	db 10, RHYHORN,     22, 22
@@ -134,8 +134,8 @@ SafariMonsArea4_MornChallenge: ; MORNING
 
 SafariMonsArea4Challenge: ; DAY/EVE
 	;   %, species,   min, max
-	db 25, MACHOP,      22, 22
-	db 15, GEODUDE,     21, 21
+	db 20, MACHOP,      22, 22
+	db 20, GEODUDE,     21, 21
 	db 15, VOLTORB,     24, 24
 	db 10, ONIX,        21, 21
 	db 10, RHYHORN,     22, 22
@@ -147,8 +147,8 @@ SafariMonsArea4Challenge: ; DAY/EVE
 
 SafariMonsArea4_NiteChallenge: ; NITE
 	;   %, species,   min, max
-	db 25, ZUBAT,       22, 22
-	db 15, MAGNEMITE,   21, 21
+	db 20, ZUBAT,       22, 22
+	db 20, MAGNEMITE,   21, 21
 	db 15, VOLTORB,     24, 24
 	db 10, ONIX,        21, 21
 	db 10, RHYHORN,     22, 22

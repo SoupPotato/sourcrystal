@@ -1,8 +1,8 @@
 ; AREA 1
 SafariMonsArea1_Morn: ; MORNING
 	;   %, species,   min, max
-	db 25, SENTRET,       19, 19
-	db 15, JIGGLYPUFF,    21, 21
+	db 20, SENTRET,       19, 19
+	db 20, JIGGLYPUFF,    21, 21
 	db 15, PIKACHU,       17, 17
 	db 10, GIRAFARIG,     20, 20
 	db 10, JIGGLYPUFF,    23, 23
@@ -14,8 +14,8 @@ SafariMonsArea1_Morn: ; MORNING
 	
 SafariMonsArea1: ; DAY/EVE
 	;   %, species,   min, max
-	db 25, SENTRET,       19, 19
-	db 15, JIGGLYPUFF,    21, 21
+	db 20, SENTRET,       19, 19
+	db 20, JIGGLYPUFF,    21, 21
 	db 15, PIKACHU,       17, 17
 	db 10, GIRAFARIG,     20, 20
 	db 10, SUNKERN,       23, 23
@@ -27,8 +27,8 @@ SafariMonsArea1: ; DAY/EVE
 
 SafariMonsArea1_Nite: ; NITE
 	;   %, species,   min, max
-	db 25, PSYDUCK,       19, 19
-	db 15, MURKROW,       21, 21
+	db 20, PSYDUCK,       19, 19
+	db 20, MURKROW,       21, 21
 	db 15, PIKACHU,       17, 17
 	db 10, STANTLER,      20, 20
 	db 10, DROWZEE,       23, 23
@@ -41,10 +41,10 @@ SafariMonsArea1_Nite: ; NITE
 ; AREA 2
 	;   %, species,   min, max
 SafariMonsArea2_Morn: ; MORNING
-	db 25, SANDSHREW,      20, 20
-	db 15, NIDORAN_M,      18, 18
-	db 15, NIDORAN_F,      19, 19
-	db 10, CUBONE,         19, 19
+	db 20, NIDORAN_M,      19, 19
+	db 20, NIDORAN_F,      19, 19
+	db 15, SANDSHREW,      20, 20
+	db 10, CUBONE,         18, 18
 	db 10, PONYTA,         20, 20
 	db 10, SANDSLASH,      23, 23
 	db  5, GLIGAR,         21, 21
@@ -54,10 +54,10 @@ SafariMonsArea2_Morn: ; MORNING
 
 SafariMonsArea2: ; DAY/EVE
 	;   %, species,   min, max
-	db 25, SANDSHREW,      20, 20
-	db 15, NIDORAN_M,      18, 18
-	db 15, NIDORAN_F,      19, 19
-	db 10, CUBONE,         19, 19
+	db 20, NIDORAN_M,      19, 19
+	db 20, NIDORAN_F,      19, 19
+	db 15, SANDSHREW,      20, 20
+	db 10, CUBONE,         18, 18
 	db 10, PONYTA,         20, 20
 	db 10, SANDSLASH,      23, 23
 	db  5, GLIGAR,         21, 21
@@ -67,10 +67,10 @@ SafariMonsArea2: ; DAY/EVE
 
 SafariMonsArea2_Nite: ; NITE
 	;   %, species,   min, max
-	db 25, SANDSHREW,      20, 20
-	db 15, NIDORINO,       18, 18
-	db 15, NIDORINA,       19, 19
-	db 10, NOCTOWL,        19, 19
+	db 20, NIDORINO,       19, 19
+	db 20, NIDORINA,       19, 19
+	db 15, SANDSHREW,      20, 20
+	db 10, NOCTOWL,        20, 20
 	db 10, HOUNDOUR,       20, 20
 	db 10, SANDSLASH,      23, 23
 	db  5, GLIGAR,         21, 21
@@ -81,8 +81,8 @@ SafariMonsArea2_Nite: ; NITE
 ; AREA 3
 SafariMonsArea3_Morn: ; MORNING
 	;   %, species,   min, max
-	db 25, EKANS,         18, 18
-	db 15, BELLSPROUT,    21, 21
+	db 20, EKANS,         18, 18
+	db 20, BELLSPROUT,    21, 21
 	db 15, MARILL,        19, 19
 	db 10, GRIMER,        21, 21
 	db 10, TANGELA,       22, 22
@@ -94,8 +94,8 @@ SafariMonsArea3_Morn: ; MORNING
 
 SafariMonsArea3: ; DAY/EVE
 	;   %, species,   min, max
-	db 25, EKANS,         18, 18
-	db 15, BELLSPROUT,    21, 21
+	db 20, EKANS,         18, 18
+	db 20, BELLSPROUT,    21, 21
 	db 15, MARILL,        19, 19
 	db 10, GRIMER,        21, 21
 	db 10, TANGELA,       22, 22
@@ -107,8 +107,8 @@ SafariMonsArea3: ; DAY/EVE
 
 SafariMonsArea3_Nite: ; NITE
 	;   %, species,   min, max
-	db 25, WOOPER,        18, 18
-	db 15, ODDISH,        21, 21
+	db 20, WOOPER,        18, 18
+	db 20, ODDISH,        21, 21
 	db 15, MARILL,        19, 19
 	db 10, GRIMER,        21, 21
 	db 10, HAUNTER,       22, 22
@@ -121,8 +121,8 @@ SafariMonsArea3_Nite: ; NITE
 ; AREA 4
 SafariMonsArea4_Morn: ; MORNING
 	;   %, species,   min, max
-	db 25, MACHOP,      19, 19
-	db 15, GEODUDE,     18, 18
+	db 20, MACHOP,      19, 19
+	db 20, GEODUDE,     18, 18
 	db 15, VOLTORB,     21, 21
 	db 10, ONIX,        18, 18
 	db 10, RHYHORN,     19, 19
@@ -134,8 +134,8 @@ SafariMonsArea4_Morn: ; MORNING
 
 SafariMonsArea4: ; DAY/EVE
 	;   %, species,   min, max
-	db 25, MACHOP,      19, 19
-	db 15, GEODUDE,     18, 18
+	db 20, MACHOP,      19, 19
+	db 20, GEODUDE,     18, 18
 	db 15, VOLTORB,     21, 21
 	db 10, ONIX,        18, 18
 	db 10, RHYHORN,     19, 19
@@ -147,8 +147,8 @@ SafariMonsArea4: ; DAY/EVE
 
 SafariMonsArea4_Nite: ; NITE
 	;   %, species,   min, max
-	db 25, ZUBAT,       19, 19
-	db 15, MAGNEMITE,   18, 18
+	db 20, ZUBAT,       19, 19
+	db 20, MAGNEMITE,   18, 18
 	db 15, VOLTORB,     21, 21
 	db 10, ONIX,        18, 18
 	db 10, RHYHORN,     19, 19

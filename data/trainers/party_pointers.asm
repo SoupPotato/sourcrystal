@@ -1,5 +1,15 @@
 ; Groups are defined in data/trainers/parties.asm.
 
+MACRO table_width
+CURRENT_TABLE_WIDTH = \1
+if _NARG == 2
+REDEF CURRENT_TABLE_START EQUS "\2"
+else
+REDEF CURRENT_TABLE_START EQUS "._table_width\@"
+{CURRENT_TABLE_START}:
+endc
+ENDM
+
 TrainerGroups:
 ; entries correspond to trainer classes (see constants/trainer_constants.asm)
 	dba FalknerGroup

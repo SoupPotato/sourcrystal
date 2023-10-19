@@ -89,6 +89,30 @@ NamingScreen:
 .Pokemon:
 	ld a, [wCurPartySpecies]
 	ld [wTempSpecies], a
+
+	; Is it a PartyMon or a BoxMon?
+	ld a, [wMonType]
+	and a
+	jr z, .party_mon
+
+	ld hl, sBoxMon1DVs
+	ld a, BANK(sBox)
+	call OpenSRAM
+	jr .start
+
+.party_mon
+	ld a, MON_DVS
+	call GetPartyParamLocation
+.start
+	ld de, wTempMonDVs
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hl]
+	ld [de], a
+	ld a, [wMonType]
+	cp BOXMON
+	call z, CloseSRAM
 	ld hl, LoadMenuMonIcon
 	ld a, BANK(LoadMenuMonIcon)
 	ld e, $1

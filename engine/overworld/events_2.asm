@@ -200,19 +200,40 @@ ChooseWildEncounter_BugContestOrSafariZone::
 	ld a, [wTimeOfDay]
 	cp MORN_F
 	jr nz, .not_morn_area_1
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .not_challenge_area_1_morn
+	call .generate_random_mon
+	ld hl, SafariMonsArea1_MornChallenge
+	jp .finish
+.not_challenge_area_1_morn
 	call .generate_random_mon
 	ld hl, SafariMonsArea1_Morn
 	jp .finish
 .not_morn_area_1
 	cp NITE_F
 	jr nz, .not_nite_area_1
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .not_challenge_area_1_nite
+	call .generate_random_mon
+	ld hl, SafariMonsArea1_NiteChallenge
+	jp .finish
+.not_challenge_area_1_nite
 	call .generate_random_mon
 	ld hl, SafariMonsArea1_Nite
 	jp .finish
 .not_nite_area_1
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .not_challenge_area_1
+	call .generate_random_mon
+	ld hl, SafariMonsArea1Challenge
+	jp .finish
+.not_challenge_area_1
 	call .generate_random_mon
 	ld hl, SafariMonsArea1
-	jr .finish
+	jp .finish
 
 .not_safari_zone_area_1
 	cp MAP_SAFARI_ZONE_AREA_2
@@ -220,19 +241,40 @@ ChooseWildEncounter_BugContestOrSafariZone::
 	ld a, [wTimeOfDay]
 	cp MORN_F
 	jr nz, .not_morn_area_2
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .not_challenge_area_2_morn
+	call .generate_random_mon
+	ld hl, SafariMonsArea2_MornChallenge
+	jp .finish
+.not_challenge_area_2_morn
 	call .generate_random_mon
 	ld hl, SafariMonsArea2_Morn
-	jr .finish
+	jp .finish
 .not_morn_area_2
 	cp NITE_F
 	jr nz, .not_nite_area_2
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .not_challenge_area_2_nite
+	call .generate_random_mon
+	ld hl, SafariMonsArea2_NiteChallenge
+	jp .finish
+.not_challenge_area_2_nite
 	call .generate_random_mon
 	ld hl, SafariMonsArea2_Nite
-	jr .finish
+	jp .finish
 .not_nite_area_2
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .not_challenge_area_2
+	call .generate_random_mon
+	ld hl, SafariMonsArea2Challenge
+	jp .finish
+.not_challenge_area_2
 	call .generate_random_mon
 	ld hl, SafariMonsArea2
-	jr .finish
+	jp .finish
 
 .not_safari_zone_area_2
 	cp MAP_SAFARI_ZONE_AREA_3
@@ -240,16 +282,37 @@ ChooseWildEncounter_BugContestOrSafariZone::
 	ld a, [wTimeOfDay]
 	cp MORN_F
 	jr nz, .not_morn_area_3
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .not_challenge_area_3_morn
+	call .generate_random_mon
+	ld hl, SafariMonsArea3_MornChallenge
+	jp .finish
+.not_challenge_area_3_morn
 	call .generate_random_mon
 	ld hl, SafariMonsArea3_Morn
-	jr .finish
+	jp .finish
 .not_morn_area_3
 	cp NITE_F
 	jr nz, .not_nite_area_3
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .not_challenge_area_3_nite
+	call .generate_random_mon
+	ld hl, SafariMonsArea3_NiteChallenge
+	jp .finish
+.not_challenge_area_3_nite
 	call .generate_random_mon
 	ld hl, SafariMonsArea3_Nite
 	jr .finish
 .not_nite_area_3
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .not_challenge_area_3
+	call .generate_random_mon
+	ld hl, SafariMonsArea3Challenge
+	jp .finish
+.not_challenge_area_3
 	call .generate_random_mon
 	ld hl, SafariMonsArea3
 	jr .finish
@@ -260,16 +323,37 @@ ChooseWildEncounter_BugContestOrSafariZone::
 	ld a, [wTimeOfDay]
 	cp MORN_F
 	jr nz, .not_morn_area_4
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .not_challenge_area_4_morn
+	call .generate_random_mon
+	ld hl, SafariMonsArea4_MornChallenge
+	jp .finish
+.not_challenge_area_4_morn
 	call .generate_random_mon
 	ld hl, SafariMonsArea4_Morn
 	jr .finish
 .not_morn_area_4
 	cp NITE_F
 	jr nz, .not_nite_area_4
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .not_challenge_area_4_nite
+	call .generate_random_mon
+	ld hl, SafariMonsArea4_NiteChallenge
+	jp .finish
+.not_challenge_area_4_nite
 	call .generate_random_mon
 	ld hl, SafariMonsArea4_Nite
 	jr .finish
 .not_nite_area_4
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .not_challenge_area_4
+	call .generate_random_mon
+	ld hl, SafariMonsArea4Challenge
+	jp .finish
+.not_challenge_area_4
 	call .generate_random_mon
 	ld hl, SafariMonsArea4
 	jr .finish
@@ -356,6 +440,7 @@ TryWildEncounter_BugContestOrSafariZone:
 
 INCLUDE "data/wild/bug_contest_mons.asm"
 INCLUDE "data/wild/safari_zone_mons.asm"
+INCLUDE "data/wild/challenge_mode/safari_zone_mons.asm"
 
 
 DoBikeStep::

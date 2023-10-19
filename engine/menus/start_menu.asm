@@ -1415,6 +1415,7 @@ ChooseMoveToDelete:
 	push af
 	set NO_TEXT_SCROLL, [hl]
 	call LoadFontsBattleExtra
+	farcall LoadPartyMenuGFX
 	call .ChooseMoveToDelete
 	pop bc
 	ld a, b

@@ -510,6 +510,10 @@ PokeBallEffect:
 
 	call ClearSprites
 
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	jp nz, .safari_zone ;check if we are in a safari game and if so, don't grant exp on capture.
+
 	ld a, [wTempSpecies]
 	ld l, a
 	ld a, [wCurPartyLevel]
@@ -523,6 +527,7 @@ PokeBallEffect:
 	ld a, h
 	ld [wCurPartyLevel], a
 
+.safari_zone
 	ld a, [wTempSpecies]
 	dec a
 	call CheckCaughtMon

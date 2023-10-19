@@ -1040,6 +1040,31 @@ RandomPhoneMon:
 	inc hl
 ; b = trainer type
 	ld b, a
+	
+; TRAINERTYPE_VARIABLE increment trainer group.
+	bit TRAINERTYPE_VARIABLE_F, b
+	jr z, .no_variance
+	ld a, [wTrainerGroupBank]
+	call GetFarByte
+	inc hl
+	ld b, a
+;Check if challenge mode is active. If no, skip next step.
+	ld a, [wChallengeMode]
+	and a
+	jr z, .no_variance
+;Find delimiter then load next byte
+.find_delimiter
+	ld a, [wTrainerGroupBank]
+	call GetFarByte
+	inc hl
+	cp $fe
+	jr nz, .find_delimiter
+	ld a, [wTrainerGroupBank]
+	call GetFarByte
+	inc hl
+	ld b, a
+.no_variance
+
 ; c = mon length
 ; All trainers use 2 bytes for level and species
 	ld c, 2
@@ -1066,8 +1091,11 @@ RandomPhoneMon:
 	add hl, bc
 	ld a, [wTrainerGroupBank]
 	call GetFarByte
+	cp $fe
+	jr z, .delimiter
 	cp -1
 	jr nz, .count_mon
+.delimiter
 	pop hl
 
 .rand

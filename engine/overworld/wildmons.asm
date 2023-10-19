@@ -222,7 +222,6 @@ if DEF(_DEBUG)
 	and B_BUTTON
 	cp B_BUTTON
 	jr z, .no_battle ; ignore encounters
-else
 endc
 ; Try to trigger a wild encounter.
 	call .EncounterRate

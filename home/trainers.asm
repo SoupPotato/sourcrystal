@@ -97,7 +97,6 @@ if DEF(_DEBUG)
 	and B_BUTTON
 	cp B_BUTTON
 	jr z, .next ; ignore trainers
-else
 endc
 	pop de
 	pop af

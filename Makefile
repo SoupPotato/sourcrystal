@@ -86,12 +86,10 @@ endif
 sourcrystal.gbc: $(sourcrystal_obj) pokecrystal.link
 	$(RGBLINK) -n sourcrystal.sym -m sourcrystal.map -l pokecrystal.link -o $@ $(sourcrystal_obj)
 	$(RGBFIX) -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -p 0 -r 3 -t PM_CRYSTAL $@
-	#tools/sort_symfile.sh sourcrystal.sym
 
 sourcrystal_debug.gbc: $(sourcrystal_debug_obj) pokecrystal.link
 	$(RGBLINK) -n sourcrystal_debug.sym -m sourcrystal_debug.map -l pokecrystal.link -o $@ $(sourcrystal_debug_obj)
 	$(RGBFIX) -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -n 1 -p 0 -r 3 -t PM_CRYSTAL $@
-	tools/sort_symfile.sh sourcrystal_debug.sym
 
 
 # For files that the compressor can't match, there will be a .lz file suffixed with the md5 hash of the correct uncompressed file.

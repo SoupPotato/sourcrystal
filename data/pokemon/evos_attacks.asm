@@ -392,13 +392,15 @@ SandshrewEvosAttacks:
 	db 1, SCRATCH
 	db 1, DEFENSE_CURL
 	db 6, SAND_ATTACK
-	db 11, POISON_STING
-	db 17, MAGNITUDE
-	db 22, SWIFT
+	db 10, POISON_STING
+	db 14, RAPID_SPIN
+	db 20, MAGNITUDE
+	db 24, SWIFT
 	db 28, FURY_SWIPES
-	db 33, DIG
-	db 39, SLASH
-	db 45, SANDSTORM
+	db 34, DIG
+	db 38, SLASH
+	db 42, SWORDS_DANCE
+	db 48, SANDSTORM
 	db 52, EARTHQUAKE
 	db 0 ; no more level-up moves
 
@@ -406,14 +408,16 @@ SandslashEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, DEFENSE_CURL
-	db 1, SAND_ATTACK
-	db 11, POISON_STING
-	db 17, MAGNITUDE
-	db 23, SWIFT
-	db 30, FURY_SWIPES
-	db 38, DIG
-	db 45, SLASH
-	db 53, SANDSTORM
+	db 6, SAND_ATTACK
+	db 10, POISON_STING
+	db 14, RAPID_SPIN
+	db 20, MAGNITUDE
+	db 25, SWIFT
+	db 31, FURY_SWIPES
+	db 37, DIG
+	db 42, SLASH
+	db 48, SWORDS_DANCE
+	db 54, SANDSTORM
 	db 60, EARTHQUAKE
 	db 0 ; no more level-up moves
 

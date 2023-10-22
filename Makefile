@@ -210,10 +210,10 @@ gfx/pokemon/girafarig/front.animated.tilemap: gfx/pokemon/girafarig/front.2bpp g
 
 ### Misc file-specific graphics rules
 
-gfx/pokemon/%/back.2bpp: rgbgfx += -Z -c embedded
-gfx/pokemon/%/front.2bpp: rgbgfx += -c embedded
+gfx/pokemon/%/back.2bpp: rgbgfx += -Z 
+gfx/pokemon/%/front.2bpp: rgbgfx += 
 
-gfx/trainers/%.2bpp: rgbgfx += -Z -c embedded
+gfx/trainers/%.2bpp: rgbgfx += -Z 
 
 gfx/pokemon/egg/unused_front.2bpp: rgbgfx += -Z
 
@@ -318,7 +318,7 @@ gfx/mobile/stadium2_n64.2bpp: tools/gfx += --trim-whitespace
 		tools/gfx $(tools/gfx) -d1 -o $@ $@)
 
 %.gbcpal: %.png
-	$(RGBGFX) -c embedded -p $@ $<
+	$(RGBGFX) -p $@ $<
 
 %.dimensions: %.png
 	tools/png_dimensions $< $@

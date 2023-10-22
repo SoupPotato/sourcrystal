@@ -9,13 +9,13 @@ Route30BerryHouse_MapScripts:
 Route30BerryHousePokefanMScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_BERRY_FROM_ROUTE_30_HOUSE
+	checkevent EVENT_GOT_ORAN_BERRY_FROM_ROUTE_30_HOUSE
 	iftrue .GotBerry
 	writetext Route30BerrySpeechHouseMonEatBerriesText
 	promptbutton
-	verbosegiveitem BERRY
+	verbosegiveitem ORAN_BERRY
 	iffalse .NoRoom
-	setevent EVENT_GOT_BERRY_FROM_ROUTE_30_HOUSE
+	setevent EVENT_GOT_ORAN_BERRY_FROM_ROUTE_30_HOUSE
 .GotBerry:
 	writetext Route30BerrySpeechHouseCheckTreesText
 	waitbutton

@@ -3,16 +3,16 @@
 ; item associated with the table entry is used instead.
 
 TimeCapsule_CatchRateItems:
-	db ITEM_19, LEFTOVERS
-	db ITEM_2D, BITTER_BERRY
-	db ITEM_32, GOLD_BERRY
-	db ITEM_5A, BERRY
-	db ITEM_64, BERRY
-	db ITEM_78, BERRY
-	db ITEM_87, BERRY
-	db ITEM_BE, BERRY
-	db ITEM_C3, BERRY
-	db ITEM_DC, BERRY
-	db ITEM_FA, BERRY
-	db -1,      BERRY
+	db LINKING_CORD, LEFTOVERS
+	db ITEM_2D,      PERSIM_BERRY
+	db ITEM_32,      SITRUS_BERRY
+	db HELIX_FOSSIL, ORAN_BERRY
+	db DOME_FOSSIL,  ORAN_BERRY
+	db OLD_AMBER,    ORAN_BERRY
+	db SAFARI_BALL,  ORAN_BERRY
+	db ITEM_BE,      ORAN_BERRY
+	db ITEM_C3,      ORAN_BERRY
+	db ITEM_DC,      ORAN_BERRY
+	db ITEM_FA,      ORAN_BERRY
+	db -1,           ORAN_BERRY
 	db 0 ; end

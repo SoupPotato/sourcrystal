@@ -25,7 +25,7 @@ ItemDescriptions:
 	dw FireStoneDesc
 	dw ThunderStoneDesc
 	dw WaterStoneDesc
-	dw TeruSama2Desc
+	dw LinkingCordDesc
 	dw HPUpDesc
 	dw ProteinDesc
 	dw IronDesc
@@ -74,23 +74,23 @@ ItemDescriptions:
 	dw SilverWingDesc
 	dw MoomooMilkDesc
 	dw QuickClawDesc
-	dw PsnCureBerryDesc
+	dw PechaBerryDesc
 	dw GoldLeafDesc
 	dw SoftSandDesc
 	dw SharpBeakDesc
-	dw PrzCureBerryDesc
-	dw BurntBerryDesc
-	dw IceBerryDesc
+	dw CheriBerryDesc
+	dw AspearBerryDesc
+	dw RawstBerryDesc
 	dw PoisonBarbDesc
 	dw KingsRockDesc
-	dw BitterBerryDesc
-	dw MintBerryDesc
+	dw PersimBerryDesc
+	dw ChestoBerryDesc
 	dw RedApricornDesc
 	dw TinyMushroomDesc
 	dw BigMushroomDesc
 	dw SilverPowderDesc
 	dw BluApricornDesc
-	dw TeruSama6Desc
+	dw HelixFossilDesc
 	dw AmuletCoinDesc
 	dw YlwApricornDesc
 	dw GrnApricornDesc
@@ -109,7 +109,7 @@ ItemDescriptions:
 	dw SmokeBallDesc
 	dw NeverMeltIceDesc
 	dw MagnetDesc
-	dw MiracleBerryDesc
+	dw LumBerryDesc
 	dw PearlDesc
 	dw BigPearlDesc
 	dw EverStoneDesc
@@ -120,7 +120,7 @@ ItemDescriptions:
 	dw MiracleSeedDesc
 	dw ThickClubDesc
 	dw FocusBandDesc
-	dw TeruSama8Desc
+	dw OldAmberDesc
 	dw EnergyPowderDesc
 	dw EnergyRootDesc
 	dw HealPowderDesc
@@ -135,7 +135,7 @@ ItemDescriptions:
 	dw StarPieceDesc
 	dw BasementKeyDesc
 	dw PassDesc
-	dw TeruSama9Desc
+	dw SafariBallDesc
 	dw TeruSama10Desc
 	dw TeruSama11Desc
 	dw CharcoalDesc
@@ -150,7 +150,7 @@ ItemDescriptions:
 	dw TeruSama15Desc
 	dw TeruSama16Desc
 	dw TeruSama17Desc
-	dw MysteryBerryDesc
+	dw LeppaBerryDesc
 	dw DragonScaleDesc
 	dw BerserkGeneDesc
 	dw TeruSama18Desc
@@ -173,8 +173,8 @@ ItemDescriptions:
 	dw PolkadotBowDesc
 	dw TeruSama22Desc
 	dw UpGradeDesc
-	dw BerryDesc
-	dw GoldBerryDesc
+	dw OranBerryDesc
+	dw SitrusBerryDesc
 	dw SquirtBottleDesc
 	dw TeruSama23Desc
 	dw ParkBallDesc
@@ -354,8 +354,9 @@ WaterStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
 
-TeruSama2Desc:
-	db   "?@"
+LinkingCordDesc:
+	db   "Evolves certain"
+	next "kinds of #MON.@"
 
 HPUpDesc:
 	db   "Raises the HP of"
@@ -546,7 +547,7 @@ QuickClawDesc:
 	db   "Raises 1st strike"
 	next "ratio. (HOLD)@"
 
-PsnCureBerryDesc:
+PechaBerryDesc:
 	db   "A self-cure for"
 	next "poison. (HOLD)@"
 
@@ -562,15 +563,15 @@ SharpBeakDesc:
 	db   "Powers up flying-"
 	next "type moves. (HOLD)@"
 
-PrzCureBerryDesc:
+CheriBerryDesc:
 	db   "A self-cure for"
 	next "paralysis. (HOLD)@"
 
-BurntBerryDesc:
+AspearBerryDesc:
 	db   "A self-cure for"
 	next "freezing. (HOLD)@"
 
-IceBerryDesc:
+RawstBerryDesc:
 	db   "A self-heal for a"
 	next "burn. (HOLD)@"
 
@@ -582,11 +583,11 @@ KingsRockDesc:
 	db   "May make the foe"
 	next "flinch. (HOLD)@"
 
-BitterBerryDesc:
+PersimBerryDesc:
 	db   "A self-cure for"
 	next "confusion. (HOLD)@"
 
-MintBerryDesc:
+ChestoBerryDesc:
 	db   "A self-awakening"
 	next "for sleep. (HOLD)@"
 
@@ -608,8 +609,9 @@ SilverPowderDesc:
 BluApricornDesc:
 	db   "A blue APRICORN.@"
 
-TeruSama6Desc:
-	db   "?@"
+HelixFossilDesc:
+	db   "A mysterious"
+	next "#MON fossil.@"
 
 AmuletCoinDesc:
 	db   "Doubles monetary"
@@ -679,7 +681,7 @@ MagnetDesc:
 	db   "Boosts electric-"
 	next "type moves. (HOLD)@"
 
-MiracleBerryDesc:
+LumBerryDesc:
 	db   "Cures all status"
 	next "problems. (HOLD)@"
 
@@ -723,8 +725,9 @@ FocusBandDesc:
 	db   "May prevent faint-"
 	next "ing. (HOLD)@"
 
-TeruSama8Desc:
-	db   "?@"
+OldAmberDesc:
+	db   "A mysterious"
+	next "#MON fossil.@"
 
 EnergyPowderDesc:
 	db   "Restores #MON"
@@ -781,8 +784,9 @@ PassDesc:
 	db   "A ticket for the"
 	next "MAGNET TRAIN.@"
 
-TeruSama9Desc:
-	db   "?@"
+SafariBallDesc:
+	db   "The BALL used in"
+	next "the SAFARI ZONE.@"
 
 TeruSama10Desc:
 	db   "?@"
@@ -832,7 +836,7 @@ TeruSama16Desc:
 TeruSama17Desc:
 	db   "?@"
 
-MysteryBerryDesc:
+LeppaBerryDesc:
 	db   "A self-restore"
 	next "for PP. (HOLD)@"
 
@@ -919,11 +923,11 @@ UpGradeDesc:
 	db   "A mysterious box"
 	next "made by SILPH CO.@"
 
-BerryDesc:
+OranBerryDesc:
 	db   "A self-restore"
 	next "item. (10HP, HOLD)@"
 
-GoldBerryDesc:
+SitrusBerryDesc:
 	db   "A self-restore"
 	next "item. (30HP, HOLD)@"
 

@@ -44,6 +44,23 @@ used_space.png
 *.sn*
 *.sa*
 *.sg1
+*.sg2
+*.sg3
+*.sg4
+*.sg5
+*.sg6
+*.sg7
+*.sg8
+*.sg9
+*.ss1
+*.ss2
+*.ss3
+*.ss4
+*.ss5
+*.ss6
+*.ss7
+*.ss8
+*.ss9
 
 # vim configuration
 # http://www.vim.org/scripts/script.php?script_id=441

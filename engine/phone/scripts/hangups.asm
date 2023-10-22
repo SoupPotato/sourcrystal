@@ -165,7 +165,7 @@ KenjiAnswerPhoneScript:
 .OnBreak:
 	checktime MORN
 	iftrue .Morning
-	checktime NITE
+	checktime EVE | NITE
 	iftrue .Night
 	setevent EVENT_KENJI_ON_BREAK
 	farwritetext KenjiTakingABreakText

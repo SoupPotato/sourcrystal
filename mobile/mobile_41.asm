@@ -1015,16 +1015,8 @@ Stubbed_Function106462:
 	ret
 
 Function106464::
-	ld de, FontsExtra_SolidBlackGFX
-	ld hl, vTiles2 tile "■" ; $60
-	lb bc, BANK(FontsExtra_SolidBlackGFX), 1
-	call Get2bpp
-	ld de, FontsExtra2_UpArrowGFX
-	ld hl, vTiles2 tile "▲" ; $61
-	lb bc, BANK(FontsExtra2_UpArrowGFX), 1
-	call Get2bpp
 	ld de, MobileDialingFrameGFX
-	ld hl, vTiles2 tile "☎" ; $62
+	ld hl, vTiles2 tile $62
 	ld c, 9
 	ld b, BANK(MobileDialingFrameGFX)
 	call Get2bpp
@@ -1043,7 +1035,7 @@ Function10649b: ; unreferenced
 	call AddNTimes
 	ld d, h
 	ld e, l
-	ld hl, vTiles2 tile "┌" ; $79
+	ld hl, vTiles0 tile "┌" ; $ba
 	ld c, TEXTBOX_FRAME_TILES ; "┌" to "┘"
 	ld b, BANK(Frames)
 	call Function1064c3

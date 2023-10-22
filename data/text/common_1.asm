@@ -205,6 +205,12 @@ _OakTimeSoDarkText::
 	cont "dark!"
 	done
 
+_OakTimeNappedText::
+	text "!"
+	line "I napped for"
+	cont "too long!"
+	done
+
 _OakTimeWhatDayIsItText::
 	text "What day is it?"
 	done

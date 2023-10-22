@@ -48,14 +48,14 @@ ROMX $07
 ROMX $08
 	"Clock Reset"
 	"Tileset Data 3"
-	"Egg Moves"
 ROMX $09
 	"bank9"
 ROMX $0a
 	"bankA"
-	"Trainer Backpics"
+	"Egg Moves"
 ROMX $0b
 	"bankB"
+	"Trainer Backpics"
 ROMX $0c
 	"Tileset Data 4"
 ROMX $0d

@@ -108,7 +108,7 @@ Buena:
 	checkflag ENGINE_BUENAS_PASSWORD_2
 	iftrue .PlayedAlready
 	readvar VAR_HOUR
-	ifless NITE_HOUR, .TooEarly
+	ifless EVE_HOUR, .TooEarly
 	checkflag ENGINE_BUENAS_PASSWORD
 	iffalse .TuneIn
 	checkitem BLUE_CARD
@@ -606,8 +606,8 @@ RadioTower2FBuenaTuneInAfterSixText:
 	text "BUENA: Tune in to"
 	line "PASSWORD every"
 
-	para "night from six to"
-	line "midnight!"
+	para "night from five"
+	line "to midnight!"
 
 	para "Tune in, then drop"
 	line "in for a visit!"

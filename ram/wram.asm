@@ -2439,8 +2439,6 @@ wCurPartyLevel:: db
 
 wScrollingMenuListSize:: db
 
-	ds 1
-
 ; used when following a map warp
 wNextWarp:: db
 wNextMapGroup:: db
@@ -2457,6 +2455,8 @@ wPlayerStepVectorX:: db
 wPlayerStepVectorY:: db
 wPlayerStepFlags:: db
 wPlayerStepDirection:: db
+
+wSpinning:: db
 
 wBGMapAnchor:: dw
 
@@ -2754,11 +2754,12 @@ wCurBaseDataEnd::
 
 wCurDamage:: dw
 
-	ds 2
+	ds 1
 
 wMornEncounterRate::  db
 wDayEncounterRate::   db
 wNiteEncounterRate::  db
+wEveEncounterRate::   db
 wWaterEncounterRate:: db
 wListMoves_MoveIndicesBuffer:: ds NUM_MOVES
 wPutativeTMHMMove:: db

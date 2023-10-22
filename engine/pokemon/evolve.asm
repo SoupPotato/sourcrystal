@@ -126,7 +126,7 @@ EvolveAfterBattle_MasterLoop:
 	ld a, [hli]
 	cp TR_ANYTIME
 	jr z, .proceed
-	cp TR_MORNDAY
+	cp TR_MORNDAYEVE
 	jr z, .happiness_daylight
 
 ; TR_NITE

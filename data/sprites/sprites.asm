@@ -85,7 +85,7 @@ OverworldSprites:
 	overworld_sprite MonsterSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite FairySpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite BirdSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
-	overworld_sprite DragonSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
+	overworld_sprite DragoniteMoveSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite BigOnixSpriteGFX, 12, STANDING_SPRITE, PAL_OW_BROWN
 	overworld_sprite N64SpriteGFX, 4, STILL_SPRITE, PAL_OW_BROWN
 	overworld_sprite SudowoodoSpriteGFX, 12, STANDING_SPRITE, PAL_OW_GREEN
@@ -99,14 +99,22 @@ OverworldSprites:
 	overworld_sprite BoulderSpriteGFX, 4, STILL_SPRITE, PAL_OW_ROCK
 	overworld_sprite SnesSpriteGFX, 4, STILL_SPRITE, PAL_OW_BLUE
 	overworld_sprite FamicomSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
-	overworld_sprite FruitTreeSpriteGFX, 4, STILL_SPRITE, PAL_OW_TREE
+	overworld_sprite BerrySpriteGFX, 4, STILL_SPRITE, PAL_OW_TREE
 	overworld_sprite GoldTrophySpriteGFX, 4, STILL_SPRITE, PAL_OW_BROWN
-	overworld_sprite SilverTrophySpriteGFX, 4, STILL_SPRITE, PAL_OW_EMOTE
+	overworld_sprite SilverTrophySpriteGFX, 4, STILL_SPRITE, PAL_OW_SILVER
 	overworld_sprite KrisSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	overworld_sprite KrisBikeSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	overworld_sprite KurtOutsideSpriteGFX, 12, STANDING_SPRITE, PAL_OW_BROWN
 	overworld_sprite SuicuneSpriteGFX, 4, STILL_SPRITE, PAL_OW_BLUE
 	overworld_sprite EnteiSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
 	overworld_sprite RaikouSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
-	overworld_sprite StandingYoungsterSpriteGFX, 12, STANDING_SPRITE, PAL_OW_BLUE
+	overworld_sprite ApricornSpriteGFX, 4, STILL_SPRITE, PAL_OW_TREE
+	overworld_sprite RattataUpSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
+	overworld_sprite PidgeyMoveSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
+	overworld_sprite SlowpokeNoTailSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
+	overworld_sprite FarfetchdMoveSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
+	overworld_sprite FossilSpriteGFX, 4, STILL_SPRITE, PAL_OW_BROWN
+	overworld_sprite OldAmberSpriteGFX, 4, STILL_SPRITE, PAL_OW_BROWN
+	overworld_sprite AmphySickSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
+	overworld_sprite ClefairyMoveSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	assert_table_length NUM_OVERWORLD_SPRITES

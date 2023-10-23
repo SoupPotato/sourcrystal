@@ -3,6 +3,7 @@
 	const PLAYERSHOUSE1F_MOM2
 	const PLAYERSHOUSE1F_MOM3
 	const PLAYERSHOUSE1F_MOM4
+	const PLAYERSHOUSE1F_MOM5
 	const PLAYERSHOUSE1F_POKEFAN_F
 
 PlayersHouse1F_MapScripts:
@@ -68,18 +69,19 @@ MeetMomScript:
 
 .KnowPhone:
 	writetext KnowTheInstructionsText
-	promptbutton
+	waitbutton
+	closetext
 	sjump .FinishPhone
 
 .ExplainPhone:
 	writetext DontKnowTheInstructionsText
 	promptbutton
+	writetext UnknownText_0x7a850
+	waitbutton
+	closetext
 	sjump .FinishPhone
 
 .FinishPhone:
-	writetext InstructionsNextText
-	waitbutton
-	closetext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue .FromRight
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
@@ -263,11 +265,10 @@ ComeHomeForDSTText:
 	done
 
 KnowTheInstructionsText:
-	text "Don't you just"
-	line "turn the #GEAR"
+	text "Oh, I see."
 
-	para "on and select the"
-	line "PHONE icon?"
+	para "Aren't you a"
+	line "clever one?"
 	done
 
 DontKnowTheInstructionsText:

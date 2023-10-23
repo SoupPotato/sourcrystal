@@ -22,6 +22,7 @@ PewterGymBrockScript:
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BROCK
 	setevent EVENT_BEAT_CAMPER_JERRY
+	setevent EVENT_BEAT_HIKER_EDWIN
 	opentext
 	writetext ReceivedBoulderBadgeText
 	playsound SFX_GET_BADGE
@@ -45,6 +46,17 @@ TrainerCamperJerry:
 	endifjustbattled
 	opentext
 	writetext CamperJerryAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerHikerEdwin:
+	trainer HIKER, EDWIN, EVENT_BEAT_HIKER_EDWIN, HikerEdwinSeenText, HikerEdwinBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext HikerEdwinAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -175,6 +187,21 @@ CamperJerryAfterBattleText:
 	line "seriously."
 	done
 
+HikerEdwinSeenText:
+	text "R-r-r-r-R-r-r-R-"
+	line "R-r-R-R-R--CRASH!"
+
+	done
+
+HikerEdwinBeatenText:
+	text "BOOM!"
+	done
+
+HikerEdwinAfterBattleText:
+	text "Phew…"
+	line "Broken in pieces."
+	done
+
 PewterGymGuideText:
 	text "Yo! CHAMP in"
 	line "making! You're"
@@ -221,5 +248,6 @@ PewterGym_MapEvents:
 
 	def_object_events
 	object_event  5,  1, SPRITE_BROCK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PewterGymBrockScript, -1
-	object_event  2,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperJerry, -1
+	object_event  2,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperJerry, -1
+	object_event  7,  5, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerEdwin, -1
 	object_event  6, 11, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, PewterGymGuideScript, -1

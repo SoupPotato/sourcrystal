@@ -216,7 +216,7 @@ ClairText_GiveDragonbreathDragonDen:
 
 Text_ReceivedTM24:
 	text "<PLAYER> received"
-	line "TM24."
+	line "TM24 DRAGONBREATH."
 	done
 
 ClairText_DescribeDragonbreathDragonDen:

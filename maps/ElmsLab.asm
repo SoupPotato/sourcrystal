@@ -58,6 +58,7 @@ ElmsLabWalkUpToElmScript:
 	sjump .MustSayYes
 
 .ElmGetsEmail:
+if !DEF(_DEBUG)
 	writetext ElmText_Accepted
 	promptbutton
 	writetext ElmText_ResearchAmbitions
@@ -75,6 +76,7 @@ ElmsLabWalkUpToElmScript:
 	turnobject ELMSLAB_ELM, RIGHT
 	writetext ElmText_MissionFromMrPokemon
 	waitbutton
+endc
 	closetext
 	applymovement ELMSLAB_ELM, ElmsLab_ElmToDefaultPositionMovement1
 	turnobject PLAYER, UP
@@ -93,7 +95,7 @@ ProfElmScript:
 	checkevent EVENT_GOT_SS_TICKET_FROM_ELM
 	iftrue ElmCheckMasterBall
 	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue ElmGiveTicketScript
+	iftrue ElmGiveSpecialEggScript
 ElmCheckMasterBall:
 	checkevent EVENT_GOT_MASTER_BALL_FROM_ELM
 	iftrue ElmCheckEverstone
@@ -250,10 +252,12 @@ DidntChooseStarterScript:
 
 ElmDirectionsScript:
 	turnobject PLAYER, UP
+if !DEF(_DEBUG)
 	opentext
 	writetext ElmDirectionsText1
 	waitbutton
 	closetext
+endc
 	addcellnum PHONE_ELM
 	opentext
 	writetext GotElmsNumberText
@@ -338,6 +342,13 @@ ElmAfterTheftScript:
 	promptbutton
 	writetext ElmAfterTheftText5
 	promptbutton
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_CARD
+	writetext GotPagerCardText
+	promptbutton
+	writetext ElmAfterTheftText7
+	promptbutton
 	setevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	setflag ENGINE_MOBILE_SYSTEM
 	setmapscene ROUTE_29, SCENE_ROUTE29_CATCH_TUTORIAL
@@ -348,6 +359,13 @@ ElmAfterTheftScript:
 	closetext
 	setscene SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS
 	end
+
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
+
+.pagercardname
+	db "PAGER CARD@"
 
 ElmStudyingEggScript:
 	writetext ElmStudyingEggText
@@ -405,6 +423,49 @@ ElmGiveMasterBallScript:
 	writetext ElmGiveMasterBallText2
 	waitbutton
 .notdone
+	closetext
+	end
+
+ElmGiveSpecialEggScript:
+	writetext ElmGiveEggText
+	waitbutton
+	checkevent EVENT_GOT_TOTODILE_FROM_ELM
+	iftrue .HaveTotodileGiveCyndaquil
+	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
+	iftrue .HaveChikoritaGiveTotodile
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
+	giveegg CHIKORITA, 5
+	stringtotext .eggname, MEM_BUFFER_1
+	scall .GetStarterEgg
+	sjump ElmGiveTicketScript
+
+.HaveChikoritaGiveTotodile
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
+	giveegg TOTODILE, 5
+	stringtotext .eggname, MEM_BUFFER_1
+	scall .GetStarterEgg
+	sjump ElmGiveTicketScript
+	
+.HaveTotodileGiveCyndaquil
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
+	giveegg CYNDAQUIL, 5
+	stringtotext .eggname, MEM_BUFFER_1
+	scall .GetStarterEgg
+	sjump ElmGiveTicketScript
+	
+.eggname
+	db "EGG@"
+	
+.GetStarterEgg:
+	jumpstd receivetogepiegg
+	end
+	
+.PartyFull
+	writetext ElmNoRoomForSpecialEgg
+	waitbutton
 	closetext
 	end
 
@@ -606,7 +667,7 @@ ElmsLabTrashcan2: ; unreferenced
 	jumpstd TrashCanScript
 
 ElmsLabBookshelf:
-	jumpstd DifficultBookshelfScript
+	jumpstd difficultbookshelf
 
 ElmsLab_WalkUpToElmMovement:
 	step UP
@@ -727,6 +788,7 @@ ElmText_Intro:
 	text "ELM: <PLAY_G>!"
 	line "There you are!"
 
+if !DEF(_DEBUG)
 	para "I needed to ask"
 	line "you a favor."
 
@@ -760,6 +822,7 @@ ElmText_Intro:
 
 	para "that I recently"
 	line "caught."
+endc
 	done
 
 ElmText_Accepted:
@@ -992,6 +1055,7 @@ ElmAfterTheftText4:
 ElmAfterTheftText5:
 	text "ELM: What?!?"
 
+if !DEF(_DEBUG)
 	para "PROF.OAK gave you"
 	line "a #DEX?"
 
@@ -1021,6 +1085,17 @@ ElmAfterTheftText5:
 	para "The closest GYM"
 	line "would be the one"
 	cont "in VIOLET CITY."
+
+	para "So, to start your"
+	line "journey…"
+
+	para "I would like you"
+	line "to have this."
+
+	para "Consider it my"
+	line "thanks for bring-"
+	cont "ing me the EGG."
+endc
 	done
 
 ElmAfterTheftText6:
@@ -1033,6 +1108,25 @@ ElmAfterTheftText6:
 	para "Before you leave,"
 	line "make sure that you"
 	cont "talk to your mom."
+	done
+
+ElmAfterTheftText7:
+	text "That's the latest"
+	line "#GEAR card."
+
+	para "The #MON"
+	line "PAGER SYSTEM."
+
+	para "Or PPS for short."
+
+	para "It allows you to"
+	line "call on special"
+	cont "#MON to aid you"
+	cont "on your travels."
+
+	para "But you need a"
+	line "PAGER to use it"
+	cont "first."
 	done
 
 ElmStudyingEggText:
@@ -1179,12 +1273,24 @@ ElmGiveMasterBallText2:
 	line "can, <PLAY_G>!"
 	done
 
-ElmGiveTicketText1:
+ElmGiveEggText:
 	text "ELM: <PLAY_G>!"
 	line "There you are!"
 
 	para "I called because I"
 	line "have something for"
+	cont "you."
+
+	para "It's a very special"
+	line "EGG."
+
+	para "I hope you take"
+	line "good care of it!"
+	done
+
+ElmGiveTicketText1:
+	text "Now, I have one"
+	line "more thing to give"
 	cont "you."
 
 	para "See? It's an"
@@ -1366,6 +1472,20 @@ ElmsLabPCText:
 
 	para "…It says on the"
 	line "screen…"
+	done
+
+GotPagerCardText:
+	text "<PLAYER>'s #GEAR"
+	line "now has a PPS!"
+	done
+
+ElmNoRoomForSpecialEgg:
+	text "Oh, wait! You have"
+	line "no room for this!"
+	
+	para "I will hold onto"
+	line "the EGG while you"
+	cont "make room."
 	done
 
 ElmsLab_MapEvents:

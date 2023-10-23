@@ -84,4 +84,10 @@ MapScenes::
 	scene_var MOUNT_MOON_SQUARE,                           wMountMoonSquareSceneID
 	scene_var MOBILE_TRADE_ROOM,                           wMobileTradeRoomSceneID
 	scene_var MOBILE_BATTLE_ROOM,                          wMobileBattleRoomSceneID
+	scene_var POKEMON_MANSION_1F,                          wPokemonMansion1FSceneID
+	scene_var POKEMON_MANSION_B1F,                         wPokemonMansionB1FSceneID
+	scene_var SAFARI_ZONE_ENTRANCE,                        wSafariZoneEntranceSceneID
+	scene_var PEWTER_MUSEUM_1F,                            wPewterMuseumSceneID
+	scene_var ROUTE_42_ECRUTEAK_GATE,                      wRoute42EcruteakGateSceneID
+	scene_var ROUTE_39,                                    wRoute39SceneID
 	db -1 ; end

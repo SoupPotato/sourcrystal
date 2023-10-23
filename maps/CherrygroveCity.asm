@@ -230,7 +230,7 @@ GuideGentsHouseSign:
 	jumptext GuideGentsHouseSignText
 
 CherrygroveCityPokecenterSign:
-	jumpstd PokecenterSignScript
+	jumpstd PokecenterSignScriptScript
 
 CherrygroveCityMartSign:
 	jumpstd MartSignScript

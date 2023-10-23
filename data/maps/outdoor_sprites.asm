@@ -30,8 +30,8 @@ OutdoorSprites:
 	dw NewBarkGroupSprites
 	dw SaffronGroupSprites
 	dw CherrygroveGroupSprites
-;	dw Route47GroupSprites
-;	dw SafariSpecSprites
+	dw Route47GroupSprites
+	dw SafariSpecSprites
 	assert_table_length NUM_MAP_GROUPS
 
 ; Route1 and ViridianCity are connected
@@ -345,8 +345,8 @@ CableClubGroupSprites:
 	; 0 of max 9 walking sprites
 	db 0 ; end
 
-;Route47GroupSprites:
-;SafariSpecSprites:
+Route47GroupSprites:
+SafariSpecSprites:
 ; Route47, Route48, YellowForest, CliffEdgeCave, CliffEdgeGate
 	db SPRITE_TWIN
 	db SPRITE_SUPER_NERD

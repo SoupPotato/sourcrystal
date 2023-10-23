@@ -14,7 +14,7 @@ CherrygroveGymSpeechHouseBugCatcherScript:
 	jumptextfaceplayer CherrygroveGymSpeechHouseBugCatcherText
 
 CherrygroveGymSpeechHouseBookshelf:
-	jumpstd PictureBookshelfScript
+	jumpstd PictureBookshelfScriptScript
 
 CherrygroveGymSpeechHousePokefanMText:
 	text "You're trying to"

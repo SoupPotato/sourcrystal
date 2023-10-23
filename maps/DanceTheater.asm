@@ -20,7 +20,7 @@ TrainerKimonoGirlNaoko:
 .Script:
 	endifjustbattled
 	opentext
-	writetext KimonoGirlNaokoAfterBattleText
+	writetext KimonoGirlNaoko2AfterBattleText
 	waitbutton
 	closetext
 	end
@@ -105,12 +105,31 @@ DanceTheaterSurfGuy:
 .GetSurf:
 	writetext SurfGuyLikeADanceText
 	promptbutton
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_SURF
+	writetext GotSurfPagerText
+	promptbutton
+	writetext SurfGuyPagerExplanationText
+	promptbutton
 	verbosegiveitem HM_SURF
 	setevent EVENT_GOT_HM03_SURF
 	writetext SurfGuySurfExplanationText
 	waitbutton
 	closetext
 	end
+
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
+
+.pagercardname
+	db "SURF PAGER@"
+
+GotSurfPagerText:
+	text "LAPRAS SURF was"
+	line "added to the PPS!"
+	done
 
 SurfGuyAlreadyGaveSurf:
 	writetext SurfGuyElegantKimonoGirlsText
@@ -277,12 +296,24 @@ SurfGuyLikeADanceText:
 	cont "--take it!"
 	done
 
+SurfGuyPagerExplanationText:
+	text "That's a "
+	line "SURF PAGER."
+
+	para "It summons a"
+	line "#MON to ferry"
+	cont "you across water."
+
+	para "Please have this"
+	line "as well."
+	done
+
 SurfGuySurfExplanationText:
 	text "That's SURF."
 
 	para "It's a move that"
-	line "lets #MON swim"
-	cont "across water."
+	line "sends a giant wave"
+	cont "crashing down."
 	done
 
 SurfGuyElegantKimonoGirlsText:
@@ -355,6 +386,6 @@ DanceTheater_MapEvents:
 	object_event  9,  1, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 0, TrainerKimonoGirlKuni, -1
 	object_event 11,  2, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, TrainerKimonoGirlMiki, -1
 	object_event  7, 10, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DanceTheaterSurfGuy, -1
-	object_event  6,  8, SPRITE_RHYDON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, DanceTheaterRhydon, -1
+	object_event  6,  8, SPRITE_RHYDON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, DanceTheaterRhydon, -1
 	object_event 10, 10, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, DanceTheaterCooltrainerMScript, -1
 	object_event  3,  6, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DanceTheaterGrannyScript, -1

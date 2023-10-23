@@ -19,7 +19,7 @@ BlackthornDragonSpeechHouseDratiniScript:
 	end
 
 BlackthornDragonSpeechHousePictureBookshelf: ; unreferenced
-	jumpstd PictureBookshelfScript
+	jumpstd PictureBookshelfScriptScript
 
 BlackthornDragonSpeechHouseMagazineBookshelf: ; unreferenced
 	jumpstd MagazineBookshelfScript

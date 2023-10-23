@@ -137,10 +137,10 @@ BlackthornCityTrainerTips:
 	jumptext BlackthornCityTrainerTipsText
 
 BlackthornCityPokecenterSign:
-	jumpstd PokecenterSignScript
+	jumpstd PokecenterSignScriptScript
 
-BlackthornCityMartSign:
-	jumpstd MartSignScript
+BlackthornCityMartSignScript:
+	jumpstd MartSignScriptScript
 
 Text_ClairIsOut:
 	text "I am sorry."
@@ -331,7 +331,7 @@ BlackthornCity_MapEvents:
 	bg_event  7, 31, BGEVENT_READ, MoveDeletersHouseSign
 	bg_event 21,  3, BGEVENT_READ, DragonDensSign
 	bg_event  5, 25, BGEVENT_READ, BlackthornCityTrainerTips
-	bg_event 16, 29, BGEVENT_READ, BlackthornCityMartSign
+	bg_event 16, 29, BGEVENT_READ, BlackthornCityMartSignScript
 	bg_event 22, 29, BGEVENT_READ, BlackthornCityPokecenterSign
 
 	def_object_events

@@ -133,12 +133,12 @@
  	RGB 14,07,17, 13,00,08 ; nite
 	RGB 25,10,20, 25,03,16 ; eve
 
-; group 27 (Safari Zone)
-;	RGB 30,26,00, 22,14,00 ; morn/day
-;	RGB 13,13,00, 08,06,04 ; nite
-;	RGB 24,19,00, 16,12,00 ; eve
+; group 27 (Route 47)
+	RGB 30,26,00, 22,14,00 ; morn/day
+	RGB 13,13,00, 08,06,04 ; nite
+	RGB 24,19,00, 16,12,00 ; eve
 
-;; group 28 (Safari Zone Area 3 Water Leaves)
-;	RGB 08,16,12, 04,10,19 ; morn/day
-;	RGB 03,11,12, 03,03,10 ; nite
-;	RGB 08,13,07, 07,08,17 ; eve
+; group 28 (Safari Zone Area 3 Water Leaves)
+	RGB 08,16,12, 04,10,19 ; morn/day
+	RGB 03,11,12, 03,03,10 ; nite
+	RGB 08,13,07, 07,08,17 ; eve

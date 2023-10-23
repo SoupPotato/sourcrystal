@@ -71,7 +71,9 @@ CeruleanGymMistyScript:
 	setevent EVENT_BEAT_MISTY
 	setevent EVENT_BEAT_SWIMMERF_DIANA
 	setevent EVENT_BEAT_SWIMMERF_BRIANA
-	setevent EVENT_BEAT_SWIMMERM_PARKER
+	setevent EVENT_BEAT_SAILOR_PARKER
+	setevent EVENT_BEAT_SWIMMERF_JOY
+	setevent EVENT_BEAT_SAILOR_EDDY
 	opentext
 	writetext ReceivedCascadeBadgeText
 	playsound SFX_GET_BADGE
@@ -94,6 +96,17 @@ TrainerSwimmerfDiana:
 	closetext
 	end
 
+TrainerSwimmerfJoy:
+	trainer SWIMMERF, JOY, EVENT_BEAT_SWIMMERF_JOY, SwimmerfJoySeenText, SwimmerfJoyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext SwimmerfJoyAfterBattleText
+	waitbutton
+	closetext
+	end
+
 TrainerSwimmerfBriana:
 	trainer SWIMMERF, BRIANA, EVENT_BEAT_SWIMMERF_BRIANA, SwimmerfBrianaSeenText, SwimmerfBrianaBeatenText, 0, .Script
 
@@ -105,13 +118,24 @@ TrainerSwimmerfBriana:
 	closetext
 	end
 
-TrainerSwimmermParker:
-	trainer SWIMMERM, PARKER, EVENT_BEAT_SWIMMERM_PARKER, SwimmermParkerSeenText, SwimmermParkerBeatenText, 0, .Script
+TrainerSailorParker:
+	trainer SAILOR, PARKER, EVENT_BEAT_SAILOR_PARKER, SailorParkerSeenText, SailorParkerBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext SwimmermParkerAfterBattleText
+	writetext SailorParkerAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerSailorEddy:
+	trainer SAILOR, EDDY, EVENT_BEAT_SAILOR_EDDY, SailorEddySeenText, SailorEddyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext SailorEddyAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -319,18 +343,43 @@ SwimmerfBrianaAfterBattleText:
 	cont "complacent."
 	done
 
-SwimmermParkerSeenText:
+SwimmerfJoySeenText:
+	text "Swimming isn't"
+	line "just about speed!"
+
+	para "It's also about"
+	line "the beauty of"
+	cont "grace!"
+	done
+
+SwimmerfJoyBeatenText:
+	text "I lost"
+	line "beautifully…"
+	done
+
+SwimmerfJoyAfterBattleText:
+	text "It seems an"
+	line "intruder has"
+
+	para "appeared in this"
+	line "Gym…"
+
+	para "I don't like that"
+	line "idea…"
+	done
+
+SailorParkerSeenText:
 	text "Glub…"
 
 	para "I'm first! Come"
 	line "and get me!"
 	done
 
-SwimmermParkerBeatenText:
+SailorParkerBeatenText:
 	text "This can't be…"
 	done
 
-SwimmermParkerAfterBattleText:
+SailorParkerAfterBattleText:
 	text "MISTY has gotten"
 	line "much better in the"
 	cont "past few years."
@@ -338,6 +387,27 @@ SwimmermParkerAfterBattleText:
 	para "Don't let your"
 	line "guard down, or"
 	cont "you'll be crushed!"
+	done
+
+SailorEddySeenText:
+	text "I've been relaxing"
+	line "poolside,"
+
+	para "so I've got"
+	line "enough strength!"
+	done
+
+SailorEddyBeatenText:
+	text "You can't win with"
+	line "strength alone."
+	done
+
+SailorEddyAfterBattleText:
+	text "Hey, let's go"
+	line "for a swim!"
+
+	para "Sailors have to"
+	line "be able to swim!"
 	done
 
 CeruleanGymGuideText:
@@ -379,5 +449,7 @@ CeruleanGym_MapEvents:
 	object_event  5,  3, SPRITE_MISTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanGymMistyScript, EVENT_TRAINERS_IN_CERULEAN_GYM
 	object_event  4,  6, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfDiana, EVENT_TRAINERS_IN_CERULEAN_GYM
 	object_event  1,  9, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerSwimmerfBriana, EVENT_TRAINERS_IN_CERULEAN_GYM
-	object_event  8,  9, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermParker, EVENT_TRAINERS_IN_CERULEAN_GYM
+	object_event  8,  9, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfJoy, EVENT_TRAINERS_IN_CERULEAN_GYM
+	object_event  3, 12, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerSailorParker, EVENT_TRAINERS_IN_CERULEAN_GYM
+	object_event  2,  4, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSailorEddy, EVENT_TRAINERS_IN_CERULEAN_GYM
 	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanGymGuideScript, EVENT_TRAINERS_IN_CERULEAN_GYM

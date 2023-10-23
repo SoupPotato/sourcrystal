@@ -32,21 +32,16 @@ GoldenrodCityFlypointAndFloriaCallback:
 	endcallback
 
 GoldenrodCityMoveTutorCallback:
-	checkevent EVENT_BEAT_ELITE_FOUR
+	checkevent EVENT_CLEARED_RADIO_TOWER
 	iffalse .MoveTutorDone
 	checkitem COIN_CASE
 	iffalse .MoveTutorDisappear
-	readvar VAR_WEEKDAY
-	ifequal WEDNESDAY, .MoveTutorAppear
-	ifequal SATURDAY, .MoveTutorAppear
-.MoveTutorDisappear:
-	disappear GOLDENRODCITY_MOVETUTOR
-	endcallback
-
-.MoveTutorAppear:
 	checkflag ENGINE_DAILY_MOVE_TUTOR
 	iftrue .MoveTutorDone
 	appear GOLDENRODCITY_MOVETUTOR
+	jump .MoveTutorDone
+.MoveTutorDisappear:
+	disappear GOLDENRODCITY_MOVETUTOR
 .MoveTutorDone:
 	endcallback
 
@@ -128,19 +123,6 @@ MoveTutorScript:
 	writetext GoldenrodCityMoveTutorFarewellKidText
 	waitbutton
 	closetext
-	readvar VAR_FACING
-	ifequal LEFT, .WalkAroundPlayer
-	applymovement GOLDENRODCITY_MOVETUTOR, GoldenrodCityMoveTutorEnterGameCornerMovement
-	sjump .GoInside
-
-.WalkAroundPlayer:
-	applymovement GOLDENRODCITY_MOVETUTOR, GoldenrodCityMoveTutorWalkAroundPlayerThenEnterGameCornerMovement
-.GoInside:
-	playsound SFX_ENTER_DOOR
-	disappear GOLDENRODCITY_MOVETUTOR
-	clearevent EVENT_GOLDENROD_GAME_CORNER_MOVE_TUTOR
-	setflag ENGINE_DAILY_MOVE_TUTOR
-	waitsfx
 	end
 
 .Incompatible:
@@ -266,20 +248,6 @@ GoldenrodCityPokecenterSign:
 
 GoldenrodCityFlowerShopSign:
 	jumptext GoldenrodCityFlowerShopSignText
-
-GoldenrodCityMoveTutorEnterGameCornerMovement:
-	step RIGHT
-	step RIGHT
-	step UP
-	step_end
-
-GoldenrodCityMoveTutorWalkAroundPlayerThenEnterGameCornerMovement:
-	step DOWN
-	step RIGHT
-	step RIGHT
-	step UP
-	step UP
-	step_end
 
 GoldenrodCityPokefanMText:
 	text "They built the new"
@@ -524,15 +492,15 @@ GoldenrodCityMoveTutorHmTooBadText:
 GoldenrodCityMoveTutorIfYouUnderstandYouveMadeItText:
 	text "If you understand"
 	line "what's so amazing"
-
-	para "about this move,"
-	line "you've made it as"
-	cont "a trainer."
+	cont "about this move,"
+	
+	para "then you've made"
+	line "it as a trainer."
 	done
 
 GoldenrodCityMoveTutorFarewellKidText:
 	text "Wahahah!"
-	line "Farewell, kid!"
+	line "Take care, kid!"
 	done
 
 GoldenrodCityMoveTutorBButText:
@@ -595,7 +563,7 @@ GoldenrodCity_MapEvents:
 	object_event  4, 16, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocketScoutScript, EVENT_GOLDENROD_CITY_ROCKET_SCOUT
 	object_event 28, 20, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket1Script, EVENT_GOLDENROD_CITY_ROCKET_TAKEOVER
 	object_event  8, 15, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket2Script, EVENT_GOLDENROD_CITY_ROCKET_TAKEOVER
-	object_event 16, 23, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket3Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	object_event 17, 22, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket3Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 29, 20, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket4Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 29,  7, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket5Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 31, 10, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket6Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER

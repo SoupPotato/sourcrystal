@@ -97,6 +97,13 @@ CianwoodCityChucksWife:
 .BeatChuck:
 	writetext ChucksWifeGiveHMText
 	promptbutton
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_FLY
+	writetext GotFlyPagerText
+	promptbutton
+	writetext ChucksWifeFlySpeechText
+	promptbutton
 	verbosegiveitem HM_FLY
 	iffalse .Done
 	setevent EVENT_GOT_HM02_FLY
@@ -108,6 +115,18 @@ CianwoodCityChucksWife:
 .Done:
 	closetext
 	end
+
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
+
+.pagercardname
+	db "FLY PAGER@"
+
+GotFlyPagerText:
+	text "PIDGEOT WING was"
+	line "added to the PPS!"
+	done
 
 CianwoodCityYoungster:
 	jumptextfaceplayer CianwoodCityYoungsterText
@@ -135,6 +154,9 @@ CianwoodPhotoStudioSign:
 
 CianwoodPokeSeerSign:
 	jumptext CianwoodPokeSeerSignText
+
+CianwoodCliffEdgeGateSign:
+	jumptext CianwoodCliffEdgeGateSignText
 
 CianwoodPokecenterSign:
 	jumpstd PokecenterSignScript
@@ -211,18 +233,30 @@ ChucksWifeGiveHMText:
 	line "GYM BADGE!"
 
 	para "Then you should"
-	line "take this HM."
+	line "take this PAGER."
 	done
 
 ChucksWifeFlySpeechText:
-	text "Teach FLY to your"
-	line "#MON."
+	text "With the"
+	line "FLY PAGER,"
 
 	para "You will be able"
 	line "to FLY instantly"
 
-	para "to anywhere you "
+	para "to anywhere you"
 	line "have visited."
+
+	para "You should take"
+	line "this too!"
+	done
+
+UnknownText_0x1a021d:
+	text "That HM will"
+	line "teach FLY to your"
+	cont "#MON."
+
+	para "It is a graceful"
+	line "yet powerful move."
 	done
 
 ChucksWifeChubbyText:
@@ -377,6 +411,11 @@ CianwoodPokeSeerSignText:
 	line "AHEAD"
 	done
 
+CianwoodCliffEdgeGateSignText:
+	text "CLIFF EDGE GATE"
+	line "TO SAFARI ZONE"
+	done
+
 CianwoodCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -388,6 +427,7 @@ CianwoodCity_MapEvents:
 	warp_event  9, 31, CIANWOOD_PHOTO_STUDIO, 1
 	warp_event 15, 37, CIANWOOD_LUGIA_SPEECH_HOUSE, 1
 	warp_event  5, 17, POKE_SEERS_HOUSE, 1
+	warp_event  4, 25, CLIFF_EDGE_GATE, 1
 
 	def_coord_events
 	coord_event 11, 16, SCENE_CIANWOODCITY_SUICUNE_AND_EUSINE, CianwoodCitySuicuneAndEusine
@@ -398,7 +438,8 @@ CianwoodCity_MapEvents:
 	bg_event 24, 43, BGEVENT_READ, CianwoodPokecenterSign
 	bg_event 19, 47, BGEVENT_READ, CianwoodPharmacySign
 	bg_event  8, 32, BGEVENT_READ, CianwoodPhotoStudioSign
-	bg_event  8, 24, BGEVENT_READ, CianwoodPokeSeerSign
+	bg_event  8, 22, BGEVENT_READ, CianwoodPokeSeerSign
+	bg_event  6, 26, BGEVENT_READ, CianwoodCliffEdgeGateSign
 	bg_event  4, 19, BGEVENT_ITEM, CianwoodCityHiddenRevive
 	bg_event  5, 29, BGEVENT_ITEM, CianwoodCityHiddenMaxEther
 
@@ -408,7 +449,7 @@ CianwoodCity_MapEvents:
 	object_event 14, 42, SPRITE_LASS, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityLass, -1
 	object_event  8, 16, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityRock, -1
 	object_event  9, 17, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityRock, -1
-	object_event  4, 25, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityRock, -1
+	object_event  6, 24, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityRock, -1
 	object_event  5, 29, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityRock, -1
 	object_event 10, 27, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityRock, -1
 	object_event  4, 19, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityRock, -1

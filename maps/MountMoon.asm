@@ -1,5 +1,6 @@
 	object_const_def
 	const MOUNTMOON_RIVAL
+	const MOUNTMOON_FOSSIL
 
 MountMoon_MapScripts:
 	def_scene_scripts
@@ -7,6 +8,20 @@ MountMoon_MapScripts:
 	scene_script MountMoonNoopScene,           SCENE_MOUNTMOON_NOOP
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, CheckFossilAndRival
+
+CheckFossilAndRival
+	checkevent EVENT_MT_MORTAR_OBTAINED_FOSSIL
+	iftrue .checkRival
+	disappear MOUNTMOON_FOSSIL
+.checkRival
+	checkevent EVENT_BEAT_RIVAL_IN_MT_MOON
+	iffalse .notgone
+	end
+
+.notgone
+	appear MOUNTMOON_RIVAL
+	end
 
 MountMoonRivalEncounterScene:
 	sdefer MountMoonRivalBattleScript
@@ -67,6 +82,30 @@ MountMoonRivalBattleScript:
 	setscene SCENE_MOUNTMOON_NOOP
 	setevent EVENT_BEAT_RIVAL_IN_MT_MOON
 	playmapmusic
+	end
+
+MountMoonFossil:
+	opentext
+	checkevent EVENT_MT_MORTAR_OBTAINED_HELIX_FOSSIL
+	iftrue .GiveDomeFossil
+	writetext MountMoonHelixFossilText
+	yesorno
+	iffalse .nope
+	disappear MOUNTMOON_FOSSIL
+	setevent EVENT_MT_MOON_OBTAINED_FOSSIL
+	verbosegiveitem HELIX_FOSSIL
+	closetext
+	end
+
+.GiveDomeFossil
+	writetext MountMoonDomeFossilText
+	yesorno
+	iffalse .nope
+	disappear MOUNTMOON_FOSSIL
+	setevent EVENT_MT_MOON_OBTAINED_FOSSIL
+	verbosegiveitem DOME_FOSSIL
+.nope
+	closetext
 	end
 
 MountMoonRivalMovementBefore:
@@ -158,6 +197,36 @@ MountMoonRivalTextLoss:
 	cont "greatest trainer."
 	done
 
+MountMoonHelixFossilText:
+	text "…"
+
+	para "It's the HELIX"
+	line "FOSSIL that was"
+	cont "lost at Mt.MORTAR!"
+
+	para "The underground"
+	line "current must have"
+	cont "carried it here…"
+
+	para "Will you take the"
+	line "HELIX FOSSIL?"
+	done
+
+MountMoonDomeFossilText:
+	text "…"
+
+	para "It's the DOME"
+	line "FOSSIL that was"
+	cont "lost at Mt.MORTAR!"
+
+	para "The underground"
+	line "current must have"
+	cont "carried it here…"
+
+	para "Will you take the"
+	line "DOME FOSSIL?"
+	done
+
 MountMoon_MapEvents:
 	db 0, 0 ; filler
 
@@ -177,3 +246,4 @@ MountMoon_MapEvents:
 
 	def_object_events
 	object_event  7,  3, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_MT_MOON_RIVAL
+	object_event 13, 12, SPRITE_FOSSIL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MountMoonFossil, EVENT_MT_MOON_OBTAINED_FOSSIL

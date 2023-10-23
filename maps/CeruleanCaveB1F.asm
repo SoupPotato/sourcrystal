@@ -38,7 +38,7 @@ CeruleanCaveB1FMewtwo:
 	cry MEWTWO
 	pause 15
 	closetext
-	writecode VAR_BATTLETYPE, BATTLETYPE_KANTO_LEGEND
+	loadvar VAR_BATTLETYPE, BATTLETYPE_KANTO_LEGEND
 	loadwildmon MEWTWO, 70
 	startbattle
 	disappear CERULEAN_CAVE_B1F_MEWTWO

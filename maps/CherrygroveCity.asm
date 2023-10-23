@@ -120,7 +120,7 @@ CherrygroveRivalSceneNorth:
 	winlosstext RivalCherrygroveWinText, RivalCherrygroveLossText
 	setlasttalked CHERRYGROVECITY_RIVAL
 	loadtrainer RIVAL1, RIVAL1_1_TOTODILE
-	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
+	loadmem VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	dontrestartmapmusic
 	reloadmap
@@ -131,7 +131,7 @@ CherrygroveRivalSceneNorth:
 	winlosstext RivalCherrygroveWinText, RivalCherrygroveLossText
 	setlasttalked CHERRYGROVECITY_RIVAL
 	loadtrainer RIVAL1, RIVAL1_1_CHIKORITA
-	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
+	loadmem VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	dontrestartmapmusic
 	reloadmap
@@ -142,7 +142,7 @@ CherrygroveRivalSceneNorth:
 	winlosstext RivalCherrygroveWinText, RivalCherrygroveLossText
 	setlasttalked CHERRYGROVECITY_RIVAL
 	loadtrainer RIVAL1, RIVAL1_1_CYNDAQUIL
-	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
+	loadmem VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
 	dontrestartmapmusic
 	reloadmap

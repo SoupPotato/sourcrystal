@@ -8,13 +8,72 @@ OlivineLighthouse2F_MapScripts:
 	def_callbacks
 
 TrainerGentlemanAlfred:
-	trainer GENTLEMAN, ALFRED, EVENT_BEAT_GENTLEMAN_ALFRED, GentlemanAlfredSeenText, GentlemanAlfredBeatenText, 0, .Script
+	trainer GENTLEMAN, ALFRED1, EVENT_BEAT_GENTLEMAN_ALFRED, GentlemanAlfredSeenText, GentlemanAlfredBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	loadvar VAR_CALLERID, PHONE_GENTLEMAN_ALFRED
 	opentext
+	checkflag ENGINE_ALFRED_READY_FOR_REMATCH
+	iftrue .WantsBattle
+	checkcellnum PHONE_GENTLEMAN_ALFRED
+	iftrue .AlfredDefeated
+	checkevent EVENT_ALFRED_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedBefore
 	writetext GentlemanAlfredAfterBattleText
-	waitbutton
+	promptbutton
+	setevent EVENT_ALFRED_ASKED_FOR_PHONE_NUMBER
+	scall OlivineLighthouse2FAskNumber1
+	sjump .AskForNumber
+
+.AskedBefore:
+	scall OlivineLighthouse2FAskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_GENTLEMAN_ALFRED
+	ifequal PHONE_CONTACTS_FULL, OlivineLighthouse2FPhoneFull
+	ifequal PHONE_CONTACT_REFUSED, OlivineLighthouse2FNumberDeclined
+	gettrainername STRING_BUFFER_3, GENTLEMAN, ALFRED1
+	scall OlivineLighthouse2FRegisteredNumber
+	sjump OlivineLighthouse2FNumberAccepted
+
+.WantsBattle:
+	scall OlivineLighthouse2FRematch
+	winlosstext GentlemanAlfredBeatenText, 0
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iftrue .LoadFight3
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .LoadFight2
+	checkevent EVENT_CLEARED_RADIO_TOWER
+	iftrue .LoadFight1
+	loadtrainer GENTLEMAN, ALFRED1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_ALFRED_READY_FOR_REMATCH
+	end
+
+.LoadFight1:
+	loadtrainer GENTLEMAN, ALFRED2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_ALFRED_READY_FOR_REMATCH
+	end
+
+.LoadFight2:
+	loadtrainer GENTLEMAN, ALFRED3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_ALFRED_READY_FOR_REMATCH
+	end
+
+.LoadFight3:
+	loadtrainer GENTLEMAN, ALFRED4
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_ALFRED_READY_FOR_REMATCH
+	end
+
+.AlfredDefeated:
+	writetext GentlemanAlfredAfterBattleText
+	promptbutton
 	closetext
 	end
 
@@ -23,50 +82,41 @@ TrainerSailorHuey:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_SAILOR_HUEY
-	endifjustbattled
 	opentext
 	checkflag ENGINE_HUEY_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	checkcellnum PHONE_SAILOR_HUEY
-	iftrue .NumberAccepted
+	iftrue .HueyDefeated
 	checkevent EVENT_HUEY_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedBefore
+	writetext SailorHueyAfterBattleText
+	promptbutton
 	setevent EVENT_HUEY_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
+	scall OlivineLighthouse2FAskNumber1
 	sjump .AskForNumber
 
 .AskedBefore:
-	scall .AskNumber2
+	scall OlivineLighthouse2FAskNumber2
 .AskForNumber:
 	askforphonenumber PHONE_SAILOR_HUEY
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	ifequal PHONE_CONTACTS_FULL, OlivineLighthouse2FPhoneFull
+	ifequal PHONE_CONTACT_REFUSED, OlivineLighthouse2FNumberDeclined
 	gettrainername STRING_BUFFER_3, SAILOR, HUEY1
-	scall .RegisteredNumber
-	sjump .NumberAccepted
+	scall OlivineLighthouse2FRegisteredNumber
+	sjump OlivineLighthouse2FNumberAccepted
 
 .WantsBattle:
-	scall .Rematch
+	scall OlivineLighthouse2FRematch
 	winlosstext SailorHueyBeatenText, 0
-	readmem wHueyFightCount
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight3:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight3
-.Fight2:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight2
-.Fight1:
 	checkevent EVENT_CLEARED_RADIO_TOWER
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer SAILOR, HUEY1
 	startbattle
 	reloadmapafterbattle
-	loadmem wHueyFightCount, 1
 	clearflag ENGINE_HUEY_READY_FOR_REMATCH
 	end
 
@@ -74,7 +124,6 @@ TrainerSailorHuey:
 	loadtrainer SAILOR, HUEY2
 	startbattle
 	reloadmapafterbattle
-	loadmem wHueyFightCount, 2
 	clearflag ENGINE_HUEY_READY_FOR_REMATCH
 	end
 
@@ -82,7 +131,6 @@ TrainerSailorHuey:
 	loadtrainer SAILOR, HUEY3
 	startbattle
 	reloadmapafterbattle
-	loadmem wHueyFightCount, 3
 	clearflag ENGINE_HUEY_READY_FOR_REMATCH
 	end
 
@@ -99,7 +147,7 @@ TrainerSailorHuey:
 	verbosegiveitem PROTEIN
 	iffalse .PackFull
 	setevent EVENT_GOT_PROTEIN_FROM_HUEY
-	sjump .NumberAccepted
+	sjump OlivineLighthouse2FNumberAccepted
 
 .SkipGift:
 	end
@@ -112,43 +160,50 @@ TrainerSailorHuey:
 	iffalse .PackFull
 	clearevent EVENT_HUEY_PROTEIN
 	setevent EVENT_GOT_PROTEIN_FROM_HUEY
-	sjump .NumberAccepted
+	sjump OlivineLighthouse2FNumberAccepted
 
-.AskNumber1:
-	jumpstd AskNumber1MScript
-	end
-
-.AskNumber2:
-	jumpstd AskNumber2MScript
-	end
-
-.RegisteredNumber:
-	jumpstd RegisteredNumberMScript
-	end
-
-.NumberAccepted:
-	jumpstd NumberAcceptedMScript
-	end
-
-.NumberDeclined:
-	jumpstd NumberDeclinedMScript
-	end
-
-.PhoneFull:
-	jumpstd PhoneFullMScript
-	end
-
-.Rematch:
-	jumpstd RematchMScript
-	end
 
 .PackFull:
 	setevent EVENT_HUEY_PROTEIN
-	jumpstd PackFullMScript
+	jumpstd packfullm
 	end
 
 .RematchGift:
-	jumpstd RematchGiftMScript
+	jumpstd rematchgiftm
+	end
+
+.HueyDefeated:
+	writetext SailorHueyAfterBattleText
+	promptbutton
+	closetext
+	end
+
+OlivineLighthouse2FAskNumber1:
+	jumpstd asknumber1m
+	end
+
+OlivineLighthouse2FAskNumber2:
+	jumpstd asknumber2m
+	end
+
+OlivineLighthouse2FRegisteredNumber:
+	jumpstd registerednumberm
+	end
+
+OlivineLighthouse2FNumberAccepted:
+	jumpstd numberacceptedm
+	end
+
+OlivineLighthouse2FNumberDeclined:
+	jumpstd numberdeclinedm
+	end
+
+OlivineLighthouse2FPhoneFull:
+	jumpstd phonefullm
+	end
+
+OlivineLighthouse2FRematch:
+	jumpstd RematchMScript
 	end
 
 SailorHueySeenText:
@@ -162,7 +217,7 @@ SailorHueyBeatenText:
 	line "I lose!"
 	done
 
-SailorHueyUnusedText: ; unreferenced
+SailorHueyAfterBattleText:
 	text "What power!"
 	line "How would you like"
 

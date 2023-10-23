@@ -349,6 +349,13 @@ IlexForestCharcoalMasterScript:
 	iftrue .AlreadyGotCut
 	writetext Text_CharcoalMasterIntro
 	promptbutton
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_CUT
+	writetext GotCutPagerText
+	promptbutton
+	writetext Text_CharcoalMasterMid
+	promptbutton
 	verbosegiveitem HM_CUT
 	setevent EVENT_GOT_HM01_CUT
 	writetext Text_CharcoalMasterOutro
@@ -362,11 +369,23 @@ IlexForestCharcoalMasterScript:
 	clearevent EVENT_CHARCOAL_KILN_BOSS
 	end
 
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
+
+.pagercardname
+	db "CUT PAGER@"
+
 .AlreadyGotCut:
 	writetext Text_CharcoalMasterTalkAfter
 	waitbutton
 	closetext
 	end
+
+GotCutPagerText:
+	text "SCYTHER CHOP was"
+	line "added to the PPS!"
+	done
 
 IlexForestHeadbuttGuyScript:
 	faceplayer
@@ -794,18 +813,31 @@ Text_CharcoalMasterIntro:
 	line "this."
 	done
 
-Text_CharcoalMasterOutro:
-	text "That's the CUT HM."
-	line "Teach that to a"
+Text_CharcoalMasterMid:
+	text "That's the"
+	line "CUT PAGER."
 
-	para "#MON to clear"
-	line "small trees."
+	para "It lets you"
+	line "summon a #MON"
+	cont "to cut small "
+	cont "trees."
 
 	para "Of course, you"
 	line "have to have the"
 
 	para "GYM BADGE from"
 	line "AZALEA to use it."
+
+	para "Oh here take this"
+	line "too!"
+	done
+
+Text_CharcoalMasterOutro:
+	text "That's the CUT HM."
+	line "Teach that to a"
+
+	para "#MON to use"
+	line "CUT in battle."
 	done
 
 Text_CharcoalMasterTalkAfter:
@@ -952,7 +984,7 @@ IlexForest_MapEvents:
 	bg_event  8, 22, BGEVENT_UP, IlexForestShrineScript
 
 	def_object_events
-	object_event 14, 31, SPRITE_BIRD, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, IlexForestFarfetchdScript, EVENT_ILEX_FOREST_FARFETCHD
+	object_event 14, 31, SPRITE_FARFETCH_D_MOVE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, IlexForestFarfetchdScript, EVENT_ILEX_FOREST_FARFETCHD
 	object_event  7, 28, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, IlexForestCharcoalApprenticeScript, EVENT_ILEX_FOREST_APPRENTICE
 	object_event  5, 28, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestCharcoalMasterScript, EVENT_ILEX_FOREST_CHARCOAL_MASTER
 	object_event 15, 14, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestHeadbuttGuyScript, -1

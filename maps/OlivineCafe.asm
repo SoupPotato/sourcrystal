@@ -15,6 +15,13 @@ OlivineCafeStrengthSailorScript:
 	iftrue .GotStrength
 	writetext OlivineCafeStrengthSailorText
 	promptbutton
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_STRENGTH
+	writetext GotStrengthPagerText
+	promptbutton
+	writetext UnknownText_STR
+	promptbutton
 	verbosegiveitem HM_STRENGTH
 	setevent EVENT_GOT_HM04_STRENGTH
 .GotStrength:
@@ -22,6 +29,18 @@ OlivineCafeStrengthSailorScript:
 	waitbutton
 	closetext
 	end
+
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
+
+.pagercardname
+	db "STRNGTHPAGER@"
+
+GotStrengthPagerText:
+	text "MACHOKE PUSH was"
+	line "added to the PPS!"
+	done
 
 OlivineCafeFishingGuruScript:
 	jumptextfaceplayer OlivineCafeFishingGuruText
@@ -39,8 +58,15 @@ OlivineCafeStrengthSailorText:
 	cont "boulders aside."
 
 	para "Here, use this"
-	line "and teach them"
-	cont "STRENGTH!"
+	line "and gain some"
+	cont "muscle!"
+	done
+
+UnknownText_STR:
+	text "You can use this"
+	line "to teach your"
+	cont "#MON STRENGTH"
+	cont "too!"
 	done
 
 OlivineCafeStrengthSailorText_GotStrength:

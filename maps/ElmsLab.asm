@@ -667,7 +667,7 @@ ElmsLabTrashcan2: ; unreferenced
 	jumpstd TrashCanScript
 
 ElmsLabBookshelf:
-	jumpstd difficultbookshelf
+	jumpstd DifficultBookshelfScript
 
 ElmsLab_WalkUpToElmMovement:
 	step UP

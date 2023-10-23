@@ -1,12 +1,14 @@
 	object_const_def
 	const OLIVINELIGHTHOUSE6F_JASMINE
-	const OLIVINELIGHTHOUSE6F_MONSTER
+	const OLIVINELIGHTHOUSE6F_AMPHY_SICK
 	const OLIVINELIGHTHOUSE6F_POKE_BALL
+	const OLIVINELIGHTHOUSE6F_AMPHY_CURED
 
 OlivineLighthouse6F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+
 
 OlivineLighthouseJasmine:
 	faceplayer
@@ -27,7 +29,7 @@ OlivineLighthouseJasmine:
 .BroughtSecretpotion:
 	writetext JasmineCureAmphyText
 	yesorno
-	iffalse .Refused
+	iffalse .no
 	writetext PlayerHandedSecretpotionText
 	promptbutton
 	takeitem SECRETPOTION
@@ -36,29 +38,27 @@ OlivineLighthouseJasmine:
 	closetext
 	turnobject OLIVINELIGHTHOUSE6F_JASMINE, RIGHT
 	pause 15
-	turnobject OLIVINELIGHTHOUSE6F_MONSTER, LEFT
 	opentext
 	playmusic MUSIC_HEAL
 	writetext JasmineAmphyHowAreYouFeelingText
 	pause 60
 	promptbutton
 	closetext
+	appear OLIVINELIGHTHOUSE6F_AMPHY_CURED
+	disappear OLIVINELIGHTHOUSE6F_AMPHY_SICK
+	closetext ; extra command to smoothen the sprite swap by refreshing the screen
 	special RestartMapMusic
 	cry AMPHAROS
 	special FadeOutPalettes
-	pause 10
 	special FadeInPalettes
 	opentext
 	writetext AmphyPaluPaluluText
 	waitbutton
 	closetext
-	turnobject OLIVINELIGHTHOUSE6F_MONSTER, RIGHT
-	pause 10
-	turnobject OLIVINELIGHTHOUSE6F_MONSTER, LEFT
-	pause 10
-	turnobject OLIVINELIGHTHOUSE6F_MONSTER, RIGHT
-	pause 10
-	turnobject OLIVINELIGHTHOUSE6F_MONSTER, LEFT
+	special FadeOutPalettes
+	special FadeInPalettes
+	special FadeOutPalettes
+	special FadeInPalettes
 	pause 10
 	faceplayer
 	opentext
@@ -67,6 +67,7 @@ OlivineLighthouseJasmine:
 	closetext
 	setevent EVENT_JASMINE_RETURNED_TO_GYM
 	clearevent EVENT_OLIVINE_GYM_JASMINE
+	clearevent EVENT_OLIVINE_LIGHTHOUSE_AMPHY_SICK
 	readvar VAR_FACING
 	ifequal DOWN, .FacingDown
 	ifequal RIGHT, .FacingRight
@@ -84,13 +85,12 @@ OlivineLighthouseJasmine:
 	disappear OLIVINELIGHTHOUSE6F_JASMINE
 	end
 
-.Refused:
+.no:
 	writetext JasmineISeeText
 	waitbutton
 	closetext
 	turnobject OLIVINELIGHTHOUSE6F_JASMINE, RIGHT
 	pause 15
-	turnobject OLIVINELIGHTHOUSE6F_MONSTER, LEFT
 	opentext
 	writetext JasmineAmphyHangOnText
 	waitbutton
@@ -269,5 +269,6 @@ OlivineLighthouse6F_MapEvents:
 
 	def_object_events
 	object_event  8,  8, SPRITE_JASMINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineLighthouseJasmine, EVENT_OLIVINE_LIGHTHOUSE_JASMINE
-	object_event  9,  8, SPRITE_MONSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, OlivineLighthouseAmphy, -1
+	object_event  9,  8, SPRITE_AMPHY_SICK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 1, OlivineLighthouseAmphy, EVENT_JASMINE_RETURNED_TO_GYM
 	object_event  3,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse6FSuperPotion, EVENT_OLIVINE_LIGHTHOUSE_6F_SUPER_POTION
+	object_event 9,  8, SPRITE_AMPHAROS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 1, OlivineLighthouseAmphy, EVENT_OLIVINE_LIGHTHOUSE_AMPHY_SICK

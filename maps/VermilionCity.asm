@@ -242,7 +242,7 @@ VermilionCity_MapEvents:
 	bg_event  7, 15, BGEVENT_READ, PokemonFanClubSign
 	bg_event 29, 17, BGEVENT_READ, VermilionCityPortSign
 	bg_event 12,  5, BGEVENT_READ, VermilionCityPokecenterSign
-	bg_event 24, 15, BGEVENT_READ, VermilionCityMartSignScript
+	bg_event 24, 15, BGEVENT_READ, VermilionCityMartSign
 	bg_event 14, 21, BGEVENT_ITEM, VermilionCityHiddenFullHeal
 
 	def_object_events

@@ -39,7 +39,7 @@ TrainerBirdKeeperVance1:
 .Script:
 	loadvar VAR_CALLERID, PHONE_BIRDKEEPER_VANCE
 	opentext
-	checkflag ENGINE_VANCE
+	checkflag ENGINE_VANCE_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	checkcellnum PHONE_BIRDKEEPER_VANCE
 	iftrue .VanceDefeated
@@ -71,21 +71,21 @@ TrainerBirdKeeperVance1:
 	loadtrainer BIRD_KEEPER, VANCE1
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_VANCE
+	clearflag ENGINE_VANCE_READY_FOR_REMATCH
 	end
 
 .LoadFight1:
 	loadtrainer BIRD_KEEPER, VANCE2
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_VANCE
+	clearflag ENGINE_VANCE_READY_FOR_REMATCH
 	end
 
 .LoadFight2:
 	loadtrainer BIRD_KEEPER, VANCE3
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_VANCE
+	clearflag ENGINE_VANCE_READY_FOR_REMATCH
 	checkevent EVENT_VANCE_CARBOS
 	iftrue .Carbos
 	checkevent EVENT_GOT_CARBOS_FROM_VANCE
@@ -157,7 +157,7 @@ VancePackFull:
 	end
 
 Route44RematchGiftM:
-	jumpstd rematchgiftm
+	jumpstd RematchGiftMScript
 	end
 
 TrainerPsychicPhil:

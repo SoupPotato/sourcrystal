@@ -36,8 +36,8 @@ TiffanyPhoneCallerScript:
 	iftrue .Generic
 	farscall PhoneScript_Random3
 	ifequal 0, TiffanyWantsBattle
-	checkevent EVENT_TIFFANY_GAVE_SILK_SCARF
-	iftrue .SilkScarf
+;	checkevent EVENT_TIFFANY_GAVE_SILK_SCARF
+;	iftrue .SilkScarf
 	farscall PhoneScript_Random2
 	ifequal 0, TiffanyHasSilkScarf
 

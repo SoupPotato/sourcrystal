@@ -5,7 +5,7 @@ WadePhoneCalleeScript:
 	farscall PhoneScript_AnswerPhone_Male
 	checkflag ENGINE_WADE_TUESDAY_NIGHT
 	iftrue .NotTuesday
-	checkflag ENGINE_WADE_HAS_ITEM
+	checkflag ENGINE_WADE_HAS_BERRY
 	iftrue .HasItem
 	readvar VAR_WEEKDAY
 	ifnotequal TUESDAY, .NotTuesday
@@ -53,7 +53,7 @@ WadePhoneCallerScript:
 	iftrue .next
 	checkflag ENGINE_WADE_TUESDAY_NIGHT
 	iftrue .next
-	checkflag ENGINE_WADE_HAS_ITEM
+	checkflag ENGINE_WADE_HAS_BERRY
 	iftrue .next
 	farscall PhoneScript_Random2
 	ifequal 0, WadeHasItem2
@@ -82,7 +82,7 @@ WadeFoundRare:
 	farsjump Phone_CheckIfUnseenRare_Male
 
 WadeHasItem2:
-	setflag ENGINE_WADE_HAS_ITEM
+	setflag ENGINE_WADE_HAS_BERRY
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_31
 	clearevent EVENT_WADE_HAS_ORAN_BERRY
 	clearevent EVENT_WADE_HAS_PECHA_BERRY

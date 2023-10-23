@@ -135,7 +135,7 @@ HikerParryHasIron:
 	end
 
 Route45RematchGiftM:
-	jumpstd rematchgiftm
+	jumpstd RematchGiftMScript
 	end
 
 TrainerHikerErik:

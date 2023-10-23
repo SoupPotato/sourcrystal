@@ -18,7 +18,7 @@ TrainerBugCatcherRob:
 .Script:
 	loadvar VAR_CALLERID, PHONE_BUG_CATCHER_ROB
 	opentext
-	checkflag ENGINE_ROB
+	checkflag ENGINE_ROB_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	checkflag ENGINE_ROB_HAS_BERRY
 	iftrue .RobItem
@@ -52,21 +52,21 @@ TrainerBugCatcherRob:
 	loadtrainer BUG_CATCHER, ROB1
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_ROB
+	clearflag ENGINE_ROB_READY_FOR_REMATCH
 	end
 
 .LoadFight1:
 	loadtrainer BUG_CATCHER, ROB2
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_ROB
+	clearflag ENGINE_ROB_READY_FOR_REMATCH
 	end
 
 .LoadFight2:
 	loadtrainer BUG_CATCHER, ROB3
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_ROB
+	clearflag ENGINE_ROB_READY_FOR_REMATCH
 	end
 
 .RobItem:
@@ -113,7 +113,7 @@ TrainerBugCatcherDoug:
 .Script:
 	loadvar VAR_CALLERID, PHONE_BUG_CATCHER_DOUG
 	opentext
-	checkflag ENGINE_DOUG
+	checkflag ENGINE_DOUG_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	checkflag ENGINE_DOUG_HAS_BERRY
 	iftrue .DougItem
@@ -147,21 +147,21 @@ TrainerBugCatcherDoug:
 	loadtrainer BUG_CATCHER, DOUG1
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_DOUG
+	clearflag ENGINE_DOUG_READY_FOR_REMATCH
 	end
 
 .LoadFight1:
 	loadtrainer BUG_CATCHER, DOUG2
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_DOUG
+	clearflag ENGINE_DOUG_READY_FOR_REMATCH
 	end
 
 .LoadFight2:
 	loadtrainer BUG_CATCHER, DOUG3
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_DOUG
+	clearflag ENGINE_DOUG_READY_FOR_REMATCH
 	end
 
 .DougItem:

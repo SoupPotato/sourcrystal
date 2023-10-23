@@ -34,8 +34,8 @@ AlanPhoneCallerScript:
 	iftrue .Generic
 	farscall PhoneScript_Random3
 	ifequal 0, AlanWantsBattle
-	checkevent EVENT_ALAN_GAVE_FIRE_STONE
-	iftrue .FireStone
+;	checkevent EVENT_ALAN_GAVE_FIRE_STONE
+;	iftrue .FireStone
 	farscall PhoneScript_Random2
 	ifequal 0, AlanHasFireStone
 

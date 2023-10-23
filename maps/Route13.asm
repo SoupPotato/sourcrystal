@@ -16,7 +16,7 @@ TrainerCoupleTimandSue1:
 .Script:
 	loadvar VAR_CALLERID, PHONE_COUPLE_TIM_AND_SUE
 	opentext
-	checkflag ENGINE_TIM_AND_SUE
+	checkflag ENGINE_TIM_AND_SUE_READY_FOR_REMATCH
 	iftrue TimAndSueWantsBattle
 	checkcellnum PHONE_COUPLE_TIM_AND_SUE
 	iftrue TimAndSue1Defeated
@@ -48,7 +48,7 @@ TimAndSueWantsBattle:
 	loadtrainer COUPLE, TIMANDSUE1
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_TIM_AND_SUE
+	clearflag ENGINE_TIM_AND_SUE_READY_FOR_REMATCH
 	end
 
 TrainerCoupleTimandSue2:
@@ -57,7 +57,7 @@ TrainerCoupleTimandSue2:
 .Script:
 	loadvar VAR_CALLERID, PHONE_COUPLE_TIM_AND_SUE
 	opentext
-	checkflag ENGINE_TIM_AND_SUE
+	checkflag ENGINE_TIM_AND_SUE_READY_FOR_REMATCH
 	iftrue TimAndSueWantsBattle
 	checkcellnum PHONE_COUPLE_TIM_AND_SUE
 	iftrue TimAndSue2Defeated
@@ -73,14 +73,14 @@ TimAndSueLoadFight1:
 	loadtrainer COUPLE, TIMANDSUE2
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_TIM_AND_SUE
+	clearflag ENGINE_TIM_AND_SUE_READY_FOR_REMATCH
 	end
 
 TimAndSueLoadFight2:
 	loadtrainer COUPLE, TIMANDSUE3
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_TIM_AND_SUE
+	clearflag ENGINE_TIM_AND_SUE_READY_FOR_REMATCH
 	end
 
 TimAndSue1Defeated:

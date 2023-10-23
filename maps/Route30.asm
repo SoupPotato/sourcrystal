@@ -196,7 +196,7 @@ TrainerYoungsterJoey:
 	end
 
 .RematchGift:
-	jumpstd rematchgiftm
+	jumpstd RematchGiftMScript
 	end
 
 .JoeyDefeated:

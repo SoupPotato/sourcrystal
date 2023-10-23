@@ -72,7 +72,7 @@ CoupleFemaleText:
 	line "this chemistry."
 	done
 
-UnknownText_0x1adc2e:
+Route24RocketSeenText:
 	text "Hey, kid! Me am a"
 	line "TEAM ROCKET member"
 	cont "kind of guy!"

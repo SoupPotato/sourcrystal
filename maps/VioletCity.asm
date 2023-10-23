@@ -382,7 +382,7 @@ VioletCity_MapEvents:
 	bg_event 24,  8, BGEVENT_READ, SproutTowerSign
 	bg_event 27, 17, BGEVENT_READ, EarlsPokemonAcademySign
 	bg_event 32, 25, BGEVENT_READ, VioletCityPokecenterSign
-	bg_event 10, 17, BGEVENT_READ, VioletCityMartSignScript
+	bg_event 10, 17, BGEVENT_READ, VioletCityMartSign
 	bg_event 37, 14, BGEVENT_ITEM, VioletCityHiddenHyperPotion
 	bg_event 12, 16, BGEVENT_READ, VioletNoBerry
 	bg_event 14, 29, BGEVENT_READ, VioletNoApricorn

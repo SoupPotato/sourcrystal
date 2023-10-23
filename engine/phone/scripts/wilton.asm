@@ -5,7 +5,7 @@ WiltonPhoneCalleeScript:
 	farscall PhoneScript_AnswerPhone_Male
 	checkflag ENGINE_WILTON_THURSDAY_MORNING
 	iftrue .NotThursday
-	checkflag ENGINE_WILTON_HAS_ITEM
+	checkflag ENGINE_WILTON_HAS_BALL_ITEM
 	iftrue .HasItem
 	readvar VAR_WEEKDAY
 	ifnotequal THURSDAY, .NotThursday
@@ -30,7 +30,7 @@ WiltonPhoneCallerScript:
 	iftrue .GenericCall
 	checkflag ENGINE_WILTON_THURSDAY_MORNING
 	iftrue .GenericCall
-	checkflag ENGINE_WILTON_HAS_ITEM
+	checkflag ENGINE_WILTON_HAS_BALL_ITEM
 	iftrue .GenericCall
 	farscall PhoneScript_Random2
 	ifequal 0, WiltonWantsBattle
@@ -49,7 +49,7 @@ WiltonWantsBattle:
 	farsjump PhoneScript_WantsToBattle_Male
 
 WiltonHasItem:
-	setflag ENGINE_WILTON_HAS_ITEM
+	setflag ENGINE_WILTON_HAS_BALL_ITEM
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_44
 	clearevent EVENT_WILTON_HAS_ULTRA_BALL
 	clearevent EVENT_WILTON_HAS_GREAT_BALL

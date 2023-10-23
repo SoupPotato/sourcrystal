@@ -34,8 +34,8 @@ DanaPhoneCallerScript:
 	iftrue .Generic
 	farscall PhoneScript_Random3
 	ifequal 0, DanaWantsBattle
-	checkevent EVENT_DANA_GAVE_THUNDERSTONE
-	iftrue .Thunderstone
+;	checkevent EVENT_DANA_GAVE_THUNDERSTONE
+;	iftrue .Thunderstone
 	farscall PhoneScript_Random2
 	ifequal 0, DanaHasThunderstone
 

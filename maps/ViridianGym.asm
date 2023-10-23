@@ -20,6 +20,10 @@ ViridianGymBlueScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BLUE
+	setevent EVENT_BEAT_COOL_DUO_ELAN_AND_IDA
+	setevent EVENT_BEAT_COOLTRAINERM_ARWIN
+	setevent EVENT_BEAT_COOLTRAINERM_BONITA
+	setevent EVENT_BEAT_COOLTRAINERF_SALMA
 	opentext
 	writetext Text_ReceivedEarthBadge
 	playsound SFX_GET_BADGE
@@ -60,6 +64,61 @@ ViridianGymStatue:
 .Beaten:
 	gettrainername STRING_BUFFER_4, BLUE, BLUE1
 	jumpstd GymStatue2Script
+
+TrainerCoolDuoElanandIda1:
+	trainer COOL_DUO, ELANANDIDA, EVENT_BEAT_COOL_DUO_ELAN_AND_IDA, CoolDuoElanandIdaSeenText, CoolDuoElanandIdaBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CoolDuoElanandIda1AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerCoolDuoElanandIda2:
+	trainer COOL_DUO, ELANANDIDA, EVENT_BEAT_COOL_DUO_ELAN_AND_IDA, CoolDuoElanandIdaSeenText, CoolDuoElanandIdaBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CoolDuoElanandIda2AfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerCooltrainermArwin:
+	trainer COOLTRAINERM, ARWIN, EVENT_BEAT_COOLTRAINERM_ARWIN, CooltrainermArwinSeenText, CooltrainermArwinBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CooltrainermArwinAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerCooltrainermBonita:
+	trainer COOLTRAINERM, BONITA, EVENT_BEAT_COOLTRAINERM_BONITA, CooltrainermBonitaSeenText, CooltrainermBonitaBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CooltrainermBonitaAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerCooltrainerfSalma:
+	trainer COOLTRAINERF, SALMA, EVENT_BEAT_COOLTRAINERF_SALMA, CooltrainerfSalmaSeenText, CooltrainerfSalmaBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CooltrainerfSalmaAfterBattleText
+	waitbutton
+	closetext
+	end
 
 LeaderBlueBeforeText:
 	text "BLUE: Yo! Finally"
@@ -167,19 +226,130 @@ ViridianGymGuideWinText:
 	line "tears to my eyes."
 	done
 
+CoolDuoElanandIdaSeenText:
+	text "IDA: I'm IDA!"
+	line "Next to me"
+	cont "is ELAN!"
+
+	para "Together, we're"
+	line "a COOLDUO!"
+
+	para "ELAN: All right,"
+	line "let's get this"
+	cont "fight started!"
+	cont "Come on!"
+	done
+
+CoolDuoElanandIdaBeatenText:
+	text "IDA: Wow."
+	line "You're really"
+	cont "something."
+
+	para "ELAN: Well, this"
+	line "is surprising."
+	done
+
+CoolDuoElanandIda1AfterBattleText:
+	text "ELAN: You're"
+	line "stronger than we"
+	cont "anticipated!"
+	done
+
+CoolDuoElanandIda2AfterBattleText:
+	text "IDA: If the only"
+	line "thing GYM trainers"
+	cont "have is strength,"
+	cont "they won't do"
+	cont "well."
+
+	para "Bringing out"
+	line "your opponent's"
+	cont "strength is also"
+	cont "very important!"
+	done
+
+CooltrainermArwinSeenText:
+	text "Anyway, fight me"
+	line "and see!"
+	done
+
+CooltrainermArwinBeatenText:
+	text "I was deceived!"
+	done
+
+CooltrainermArwinAfterBattleText:
+	text "Me, I should be"
+	line "a pretty good"
+	cont "practice part-"
+	cont "ner…"
+
+	para "I shouldn't say"
+	line "that about myself!"
+	done
+
+CooltrainermBonitaSeenText:
+	text "Looking around the"
+	line "room like that,"
+
+	para "doesn't it make"
+	line "you a little"
+	cont "dizzy?"
+	done
+
+CooltrainermBonitaBeatenText:
+	text "All of my"
+	line "#MON…"
+
+	para "All dizzy and"
+	line "fainting…"
+	done
+
+CooltrainermBonitaAfterBattleText:
+	text "Looks like you've"
+	line "still got some"
+	cont "energy left."
+	done
+
+CooltrainerfSalmaSeenText:
+	text "What do you think?"
+
+	para "You've never seen"
+	line "such a wonderful"
+	cont "GYM before,"
+	cont "have you?"
+	done
+
+CooltrainerfSalmaBeatenText:
+	text "Whatever!"
+	done
+
+CooltrainerfSalmaAfterBattleText:
+	text "There are many "
+	line "kinds of GYMs in"
+	cont "the world,"
+
+	para "but I really like"
+	line "this one!"
+	done
+
 ViridianGym_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  4, 17, VIRIDIAN_CITY, 1
-	warp_event  5, 17, VIRIDIAN_CITY, 1
+	warp_event  4, 39, VIRIDIAN_CITY, 1
+	warp_event  5, 39, VIRIDIAN_CITY, 1
 
 	def_coord_events
 
 	def_bg_events
-	bg_event  3, 13, BGEVENT_READ, ViridianGymStatue
-	bg_event  6, 13, BGEVENT_READ, ViridianGymStatue
+	bg_event  3, 35, BGEVENT_READ, ViridianGymStatue
+	bg_event  6, 35, BGEVENT_READ, ViridianGymStatue
 
 	def_object_events
-	object_event  5,  3, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianGymBlueScript, EVENT_VIRIDIAN_GYM_BLUE
-	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ViridianGymGuideScript, EVENT_VIRIDIAN_GYM_BLUE
+	object_event  5,  2, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ViridianGymBlueScript, EVENT_VIRIDIAN_GYM_BLUE
+	object_event  7, 36, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ViridianGymGuideScript, EVENT_VIRIDIAN_GYM_BLUE
+	object_event  4,  8, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCoolDuoElanandIda1, EVENT_VIRIDIAN_GYM_BLUE
+	object_event  5,  8, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCoolDuoElanandIda2, EVENT_VIRIDIAN_GYM_BLUE
+	object_event  5, 29, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainermArwin, EVENT_VIRIDIAN_GYM_BLUE
+	object_event  2, 28, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainerfSalma, EVENT_VIRIDIAN_GYM_BLUE
+	object_event  2, 16, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainermBonita, EVENT_VIRIDIAN_GYM_BLUE

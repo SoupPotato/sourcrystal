@@ -1065,4 +1065,10 @@ MACRO checksave
 	db checksave_command
 ENDM
 
+	const trainerpic_command ; $aa
+MACRO trainerpic
+	db trainerpic_command
+	db \1 ; trainer
+ENDM
+
 DEF NUM_EVENT_COMMANDS EQU const_value

@@ -107,4 +107,14 @@ Music:
 	dba Music_SuicuneBattle
 	dba Music_BattleTowerLobby
 	dba Music_MobileCenter
+; new to SourCrystal
+	dba Music_Route47HGSS
+	dba Music_SafariZoneGateHGSS
+	dba Music_CeruleanCityHGSS
+	dba Music_NuggetBridgeHGSS
+	dba Music_CinnabarIslandHGSS
+	dba Music_HoOhBattleHGSS
+	dba Music_LugiaBattleHGSS
+	dba Music_KantoLegendBattleXY
+	dba Music_CinnabarMansionRBY
 	assert_table_length NUM_MUSIC_SONGS

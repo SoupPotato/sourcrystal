@@ -105,6 +105,16 @@
 	const MUSIC_SUICUNE_BATTLE               ; 64
 	const MUSIC_BATTLE_TOWER_LOBBY           ; 65
 	const MUSIC_MOBILE_CENTER                ; 66
+; new to SourCrystal
+	const MUSIC_ROUTE_47_HGSS                ; 67
+	const MUSIC_SAFARI_ZONE_GATE_HGSS        ; 68
+	const MUSIC_CERULEAN_CITY_HGSS           ; 69
+	const MUSIC_NUGGET_BRIDGE_HGSS           ; 70
+	const MUSIC_CINNABAR_ISLAND_HGSS         ; 71
+	const MUSIC_HO_OH_BATTLE_HGSS            ; 72
+	const MUSIC_LUGIA_BATTLE_HGSS            ; 73
+	const MUSIC_KANTO_LEGEND_BATTLE          ; 74
+	const MUSIC_CINNABAR_MANSION             ; 75
 DEF NUM_MUSIC_SONGS EQU const_value
 
 ; GetMapMusic picks music for these values (see home/map.asm)

@@ -347,7 +347,7 @@ CableClubGroupSprites:
 
 Route47GroupSprites:
 SafariSpecSprites:
-; Route47, Route48, YellowForest, CliffEdgeCave, CliffEdgeGate
+; Route47, Route48, SafariZoneGate, CliffEdgeCave, CliffEdgeGate
 	db SPRITE_TWIN
 	db SPRITE_SUPER_NERD
 	db SPRITE_YOUNGSTER

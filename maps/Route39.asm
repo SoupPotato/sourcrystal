@@ -26,7 +26,7 @@ Route39Noop1Scene:
 Route39Noop2Scene:
 	end
 
-Route39Fruittrees
+Route39Fruittrees:
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE39_BERRY
 	iftrue .NoBerry

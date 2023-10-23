@@ -2992,9 +2992,9 @@ for n, 1, NUM_OBJECT_STRUCTS
 wObject{d:n}Struct:: object_struct wObject{d:n}
 endr
 
-wCmdQueue:: ds CMDQUEUE_CAPACITY * CMDQUEUE_ENTRY_SIZE
+wStoneTableAddress:: dw
 
-	ds 40
+	ds 62
 
 wMapObjects::
 wPlayerObject:: map_object wPlayer ; player is map object 0

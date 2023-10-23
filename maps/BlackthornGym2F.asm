@@ -12,14 +12,12 @@ BlackthornGym2F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_CMDQUEUE, BlackthornGym2FSetUpStoneTableCallback
+	callback MAPCALLBACK_STONETABLE, BlackthornGym2FSetUpStoneTableCallback
 
 BlackthornGym2FSetUpStoneTableCallback:
-	writecmdqueue .CommandQueue
+	usestonetable .StoneTable
 	endcallback
 
-.CommandQueue:
-	cmdqueue CMDQUEUE_STONETABLE, .StoneTable ; check if any stones are sitting on a warp
 
 .StoneTable:
 	stonetable 5, BLACKTHORNGYM2F_BOULDER1, .Boulder1

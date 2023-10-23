@@ -82,9 +82,6 @@ Route25_Blocks:
 Route24_Blocks:
 	INCBIN "maps/Route24.blk"
 
-Route3_Blocks:
-	INCBIN "maps/Route3.blk"
-
 PewterCity_Blocks:
 	INCBIN "maps/PewterCity.blk"
 

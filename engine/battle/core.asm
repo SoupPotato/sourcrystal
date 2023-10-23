@@ -6144,6 +6144,15 @@ LoadEnemyMon:
 	jr .UpdateDVs
 
 .GenerateDVs:
+;checkswarm
+	ld hl, wDailyFlags1
+	bit DAILYFLAGS1_SWARM_F, [hl]
+	jr z, .skipshine
+	
+	farcall GenerateSwarmShiny
+	jr .next
+
+.skipshine:
 ; Generate new random DVs
 	call BattleRandom
 	ld b, a
@@ -6157,6 +6166,7 @@ LoadEnemyMon:
 	ld [hli], a
 	ld [hl], c
 
+.next
 ; We've still got more to do if we're dealing with a wild monster
 	ld a, [wBattleMode]
 	dec a
@@ -6232,7 +6242,7 @@ LoadEnemyMon:
 ; Try again if length < 1024 mm (i.e. if HIGH(length) < 3 feet)
 	ld a, [wMagikarpLength]
 	cp 3
-	jr c, .GenerateDVs ; try again
+	jp c, .GenerateDVs ; try again
 
 ; Finally done with DVs
 

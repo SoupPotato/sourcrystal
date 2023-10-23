@@ -130,7 +130,7 @@ BurnedTower1FMortyScript:
 	jumptextfaceplayer BurnedTower1FMortyText
 
 BurnedTower1FRock:
-	jumpstd SmashRockScriptScript
+	jumpstd SmashRockScript
 
 BurnedTower1FHiddenEther:
 	hiddenitem ETHER, EVENT_BURNED_TOWER_1F_HIDDEN_ETHER

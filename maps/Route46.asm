@@ -161,7 +161,7 @@ Route46PhoneFullF:
 	end
 
 Route46RematchF:
-	jumpstd rematchf
+	jumpstd RematchFScript
 	end
 
 ErinNoRoomForCalcium:

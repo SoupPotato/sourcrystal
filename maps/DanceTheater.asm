@@ -20,7 +20,7 @@ TrainerKimonoGirlNaoko:
 .Script:
 	endifjustbattled
 	opentext
-	writetext KimonoGirlNaoko2AfterBattleText
+	writetext KimonoGirlNaokoAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -120,7 +120,7 @@ DanceTheaterSurfGuy:
 	end
 
 .JumpstdReceiveItem:
-	jumpstd receiveitem
+	jumpstd ReceiveItemScript
 	end
 
 .pagercardname

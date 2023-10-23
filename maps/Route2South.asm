@@ -203,27 +203,27 @@ TrainerBugCatcherDoug:
 	end
 
 Route2SouthAskNumber1:
-	jumpstd asknumber1m
+	jumpstd AskNumber1MScript
 	end
 
 Route2SouthAskNumber2:
-	jumpstd asknumber2m
+	jumpstd AskNumber2MScript
 	end
 
 Route2SouthRegisteredNumber:
-	jumpstd registerednumberm
+	jumpstd RegisteredNumberMScript
 	end
 
 Route2SouthNumberAccepted:
-	jumpstd numberacceptedm
+	jumpstd NumberAcceptedMScript
 	end
 
 Route2SouthNumberDeclined:
-	jumpstd numberdeclinedm
+	jumpstd NumberDeclinedMScript
 	end
 
 Route2SouthPhoneFull:
-	jumpstd phonefullm
+	jumpstd PhoneFullMScript
 	end
 
 Route2SouthRematch:
@@ -235,7 +235,7 @@ Route2SouthGiftItem:
 	end
 
 Route2SouthPackFull:
-	jumpstd packfullm
+	jumpstd PackFullMScript
 	end
 
 Route2Sign:

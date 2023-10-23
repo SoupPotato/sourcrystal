@@ -80,4 +80,4 @@ INCBIN "gfx/trainers/couple.gbcpal", middle_colors
 INCBIN "gfx/trainers/cool_duo.gbcpal", middle_colors
 INCBIN "gfx/trainers/kabutops_fossil.gbcpal", middle_colors
 INCBIN "gfx/trainers/aerodactyl_fossil.gbcpal", middle_colors
-	assert_table_length NUM_TRAINER_CLASSES + 1
+	assert_table_length NUM_TRAINER_CLASSES + 3

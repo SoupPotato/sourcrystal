@@ -98,7 +98,7 @@ BillsSisterScript:
 	sjump .Refused
 
 BillsHouseBookshelf1:
-	jumpstd PictureBookshelfScriptScript
+	jumpstd PictureBookshelfScript
 
 BillsHouseBookshelf2:
 	jumpstd MagazineBookshelfScript

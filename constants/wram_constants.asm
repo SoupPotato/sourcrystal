@@ -241,14 +241,26 @@ DEF NUM_JOHTO_BADGES EQU const_value
 DEF NUM_KANTO_BADGES EQU const_value
 DEF NUM_BADGES       EQU NUM_JOHTO_BADGES + NUM_KANTO_BADGES
 
-; wPokegearFlags::
+; wPokegearFlags:: ; d957
 	const_def
 	const POKEGEAR_MAP_CARD_F   ; 0
 	const POKEGEAR_RADIO_CARD_F ; 1
 	const POKEGEAR_PHONE_CARD_F ; 2
 	const POKEGEAR_EXPN_CARD_F  ; 3
-	const_skip 3
-	const POKEGEAR_OBTAINED_F   ; 7
+	const POKEGEAR_PAGER_CARD_F ; 4
+
+POKEGEAR_OBTAINED_F EQU 7
+
+; wPagerFlags::
+	const_def
+	const PAGER_CUT_F        ; 0
+	const PAGER_FLY_F        ; 1
+	const PAGER_SURF_F       ; 2
+	const PAGER_STRENGTH_F   ; 3
+	const PAGER_FLASH_F      ; 4
+	const PAGER_WHIRLPOOL_F  ; 5
+	const PAGER_ROCK_SMASH_F ; 6
+NUM_PAGER_FLAGS EQU const_value
 
 ; wWhichRegisteredItem::
 DEF REGISTERED_POCKET EQU %11000000
@@ -274,12 +286,66 @@ DEF CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const_def
 	const DAILYFLAGS1_KURT_MAKING_BALLS_F             ; 0
 	const DAILYFLAGS1_BUG_CONTEST_F                   ; 1
-	const DAILYFLAGS1_FISH_SWARM_F                    ; 2
+	const DAILYFLAGS1_SWARM_F                         ; 2
 	const DAILYFLAGS1_TIME_CAPSULE_F                  ; 3
 	const DAILYFLAGS1_ALL_FRUIT_TREES_F               ; 4
 	const DAILYFLAGS1_GOT_SHUCKIE_TODAY_F             ; 5
 	const DAILYFLAGS1_GOLDENROD_UNDERGROUND_BARGAIN_F ; 6
 	const DAILYFLAGS1_TRAINER_HOUSE_F                 ; 7
+	const DAILYFLAGS_ROUTE29_BERRY                    ; 8
+	const DAILYFLAGS_ROUTE29_APRICORN                 ; 9
+	const DAILYFLAGS_ROUTE30_BERRY                    ; 10
+	const DAILYFLAGS_ROUTE30_BERRY2                   ; 11
+	const DAILYFLAGS_ROUTE30_APRICORN                 ; 12
+	const DAILYFLAGS_ROUTE30_APRICORN2                ; 13
+	const DAILYFLAGS_ROUTE31_BERRY                    ; 14
+	const DAILYFLAGS_ROUTE31_APRICORN                 ; 15
+	const DAILYFLAGS_VIOLET_BERRY                     ; 16
+	const DAILYFLAGS_VIOLET_APRICORN                  ; 17
+	const DAILYFLAGS_ROUTE33_BERRY                    ; 18
+	const DAILYFLAGS_ROUTE33_APRICORN                 ; 19
+	const DAILYFLAGS_ROUTE33_APRICORN2                ; 20
+	const DAILYFLAGS_AZALEA_APRICORN                  ; 21
+	const DAILYFLAGS_ROUTE35_BERRY                    ; 22
+	const DAILYFLAGS_ROUTE35_APRICORN                 ; 23
+	const DAILYFLAGS_ROUTE36_BERRY                    ; 24
+	const DAILYFLAGS_ROUTE36_APRICORN                 ; 25
+	const DAILYFLAGS_ROUTE37_APRICORN                 ; 26
+	const DAILYFLAGS_ROUTE37_APRICORN2                ; 27
+	const DAILYFLAGS_ROUTE37_APRICORN3                ; 28
+	const DAILYFLAGS_ROUTE38_BERRY                    ; 29
+	const DAILYFLAGS_ROUTE38_APRICORN                 ; 30
+	const DAILYFLAGS_ROUTE39_BERRY                    ; 31
+	const DAILYFLAGS_ROUTE39_APRICORN                 ; 32
+	const DAILYFLAGS_ROUTE42_APRICORN                 ; 33
+	const DAILYFLAGS_ROUTE42_APRICORN2                ; 34
+	const DAILYFLAGS_ROUTE42_APRICORN3                ; 35
+	const DAILYFLAGS_ROUTE43_BERRY                    ; 36
+	const DAILYFLAGS_ROUTE43_APRICORN                 ; 37
+	const DAILYFLAGS_ROUTE44_BERRY                    ; 38
+	const DAILYFLAGS_ROUTE44_APRICORN                 ; 39
+	const DAILYFLAGS_ROUTE45_BERRY                    ; 40
+	const DAILYFLAGS_ROUTE45_APRICORN                 ; 41
+	const DAILYFLAGS_ROUTE46_BERRY                    ; 42
+	const DAILYFLAGS_ROUTE46_BERRY2                   ; 43
+	const DAILYFLAGS_ROUTE46_APRICORN                 ; 44
+	const DAILYFLAGS_ROUTE46_APRICORN2                ; 45
+	const DAILYFLAGS_ROUTE26_BERRY                    ; 46
+	const DAILYFLAGS_ROUTE26_APRICORN                 ; 47
+	const DAILYFLAGS_ROUTE1_BERRY                     ; 48
+	const DAILYFLAGS_ROUTE1_APRICORN                  ; 49
+	const DAILYFLAGS_VIRIDIAN_FOREST_BERRY            ; 50
+	const DAILYFLAGS_VIRIDIAN_FOREST_APRICORN         ; 51
+	const DAILYFLAGS_PEWTER_BERRY                     ; 52
+	const DAILYFLAGS_PEWTER_BERRY2                    ; 53
+	const DAILYFLAGS_PEWTER_APRICORN                  ; 54
+	const DAILYFLAGS_PEWTER_APRICORN2                 ; 55
+	const DAILYFLAGS_ROUTE8_BERRY                     ; 56
+	const DAILYFLAGS_ROUTE8_APRICORN                  ; 57
+	const DAILYFLAGS_ROUTE11_BERRY                    ; 58
+	const DAILYFLAGS_ROUTE11_APRICORN                 ; 59
+	const DAILYFLAGS_FUCHSIA_BERRY                    ; 60
+	const DAILYFLAGS_FUCHSIA_APRICORN                 ; 61
 
 ; wDailyFlags2::
 	const_def
@@ -296,8 +362,8 @@ DEF CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const_def
 	const SWARMFLAGS_BUENAS_PASSWORD_F           ; 0
 	const SWARMFLAGS_GOLDENROD_DEPT_STORE_SALE_F ; 1
-	const SWARMFLAGS_DUNSPARCE_SWARM_F           ; 2
-	const SWARMFLAGS_YANMA_SWARM_F               ; 3
+	const SWARMFLAGS_ALT_SWARM_F                 ; 2
+	const SWARMFLAGS_SWARM_ACTIVE                ; 3
 	const SWARMFLAGS_MOBILE_4_F                  ; 4
 
 ; wLuckyNumberShowFlag::
@@ -312,6 +378,10 @@ DEF DAYCAREMAN_ACTIVE_F          EQU 7
 ; wDayCareLady::
 DEF DAYCARELADY_HAS_MON_F        EQU 0
 DEF DAYCARELADY_ACTIVE_F         EQU 7
+
+; wChallengeMode::
+	const_def
+	const GAME_CHALLENGE_MODE_F ; 0
 
 ; wUnlockedUnowns::
 	const_def

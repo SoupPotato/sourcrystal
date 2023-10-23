@@ -98,7 +98,7 @@ SageLiScript:
 	end
 
 .JumpstdReceiveItem:
-	jumpstd receiveitem
+	jumpstd ReceiveItemScript
 	end
 
 .pagercardname

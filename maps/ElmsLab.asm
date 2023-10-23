@@ -361,7 +361,7 @@ ElmAfterTheftScript:
 	end
 
 .JumpstdReceiveItem:
-	jumpstd receiveitem
+	jumpstd ReceiveItemScript
 	end
 
 .pagercardname
@@ -460,7 +460,7 @@ ElmGiveSpecialEggScript:
 	db "EGG@"
 	
 .GetStarterEgg:
-	jumpstd receivetogepiegg
+	jumpstd ReceiveTogepiEggScript
 	end
 	
 .PartyFull

@@ -233,7 +233,7 @@ FuchsiaCity_MapEvents:
 	bg_event 17,  5, BGEVENT_READ, SafariZoneClosedSign
 	bg_event 13, 15, BGEVENT_READ, NoLitteringSign
 	bg_event 20, 27, BGEVENT_READ, FuchsiaCityPokecenterSign
-	bg_event  6, 13, BGEVENT_READ, FuchsiaCityMartSignScript
+	bg_event  6, 13, BGEVENT_READ, FuchsiaCityMartSign
 	bg_event 17, 17, BGEVENT_READ, FuchsiaNoBerry
 	bg_event 15, 17, BGEVENT_READ, FuchsiaNoApricorn
 

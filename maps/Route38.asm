@@ -162,7 +162,7 @@ TrainerLassDana1:
 	end
 
 .Rematch:
-	jumpstd rematchf
+	jumpstd RematchFScript
 	end
 
 .Gift:
@@ -257,27 +257,27 @@ TrainerSchoolboyChad1:
 	end
 
 .AskPhoneNumber1:
-	jumpstd asknumber1m
+	jumpstd AskNumber1MScript
 	end
 
 .AskPhoneNumber2:
-	jumpstd asknumber2m
+	jumpstd AskNumber2MScript
 	end
 
 .RegisteredChad:
-	jumpstd registerednumberm
+	jumpstd RegisteredNumberMScript
 	end
 
 .HaveChadsNumber:
-	jumpstd numberacceptedm
+	jumpstd NumberAcceptedMScript
 	end
 
 .SaidNo:
-	jumpstd numberdeclinedm
+	jumpstd NumberDeclinedMScript
 	end
 
 .PhoneFull:
-	jumpstd phonefullm
+	jumpstd PhoneFullMScript
 	end
 
 .Rematch:

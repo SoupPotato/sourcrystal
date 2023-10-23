@@ -165,7 +165,7 @@ TrainerSailorHuey:
 
 .PackFull:
 	setevent EVENT_HUEY_PROTEIN
-	jumpstd packfullm
+	jumpstd PackFullMScript
 	end
 
 .RematchGift:
@@ -179,27 +179,27 @@ TrainerSailorHuey:
 	end
 
 OlivineLighthouse2FAskNumber1:
-	jumpstd asknumber1m
+	jumpstd AskNumber1MScript
 	end
 
 OlivineLighthouse2FAskNumber2:
-	jumpstd asknumber2m
+	jumpstd AskNumber2MScript
 	end
 
 OlivineLighthouse2FRegisteredNumber:
-	jumpstd registerednumberm
+	jumpstd RegisteredNumberMScript
 	end
 
 OlivineLighthouse2FNumberAccepted:
-	jumpstd numberacceptedm
+	jumpstd NumberAcceptedMScript
 	end
 
 OlivineLighthouse2FNumberDeclined:
-	jumpstd numberdeclinedm
+	jumpstd NumberDeclinedMScript
 	end
 
 OlivineLighthouse2FPhoneFull:
-	jumpstd phonefullm
+	jumpstd PhoneFullMScript
 	end
 
 OlivineLighthouse2FRematch:

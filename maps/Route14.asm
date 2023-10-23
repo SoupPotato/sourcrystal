@@ -112,7 +112,7 @@ TrainerBirdKeeperJamie:
 	end
 
 .PackFull:
-	jumpstd packfullm
+	jumpstd PackFullMScript
 	end
 
 .JamieDefeated:
@@ -122,27 +122,27 @@ TrainerBirdKeeperJamie:
 	end
 
 Route14AskNumber1:
-	jumpstd asknumber1m
+	jumpstd AskNumber1MScript
 	end
 
 Route14AskNumber2:
-	jumpstd asknumber2m
+	jumpstd AskNumber2MScript
 	end
 
 Route14RegisteredNumber:
-	jumpstd registerednumberm
+	jumpstd RegisteredNumberMScript
 	end
 
 Route14NumberAccepted:
-	jumpstd numberacceptedm
+	jumpstd NumberAcceptedMScript
 	end
 
 Route14NumberDeclined:
-	jumpstd numberdeclinedm
+	jumpstd NumberDeclinedMScript
 	end
 
 Route14PhoneFull:
-	jumpstd phonefullm
+	jumpstd PhoneFullMScript
 	end
 
 Route14Rematch:

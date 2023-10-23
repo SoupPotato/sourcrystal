@@ -521,7 +521,7 @@ ENDM
 	map_const ROUTE_31_VIOLET_GATE,                         5,  4 ; 11
 	endgroup
 
-	newgroup ROUTE_47                                             ; 27
+	newgroup SAFARI_ZONE_GATE                                     ; 27
 	map_const ROUTE_47,                                    39, 19 ;  1
 	map_const ROUTE_48,                                    18, 10 ;  2
 	map_const SAFARI_ZONE_ENTRANCE,                         5,  5 ;  3
@@ -536,7 +536,7 @@ ENDM
 	map_const SAFARI_REST_HOUSE_AREA_4,                     4,  4 ; 12
 	endgroup
 
-	newgroup SAFARI_ZONE_SPEC                                     ; 28
+	newgroup SAFARI_ZONE                                          ; 28
 	map_const SAFARI_ZONE_AREA_3,                          21, 17 ;  1
 	endgroup
 

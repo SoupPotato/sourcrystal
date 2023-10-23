@@ -293,7 +293,7 @@ SaffronCity_MapEvents:
 	bg_event 27, 29, BGEVENT_READ, MrPsychicsHouseSign
 	bg_event 11,  5, BGEVENT_READ, SaffronCityMagnetTrainStationSign
 	bg_event 10, 29, BGEVENT_READ, SaffronCityPokecenterSign
-	bg_event 26, 11, BGEVENT_READ, SaffronCityMartSignScript
+	bg_event 26, 11, BGEVENT_READ, SaffronCityMartSign
 
 	def_object_events
 	object_event  7, 14, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityLass1Script, -1

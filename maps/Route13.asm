@@ -120,7 +120,7 @@ TimAndSuePhoneFull:
 	end
 
 TimAndSueRematch:
-	jumpstd rematchf
+	jumpstd RematchFScript
 	end
 
 TrainerPicnickerPiper:
@@ -218,7 +218,7 @@ TrainerCamperTanner:
 	end
 
 .PackFull:
-	jumpstd packfullm
+	jumpstd PackFullMScript
 	end
 
 .TannerDefeated:
@@ -228,27 +228,27 @@ TrainerCamperTanner:
 	end
 
 Route13AskNumber1:
-	jumpstd asknumber1m
+	jumpstd AskNumber1MScript
 	end
 
 Route13AskNumber2:
-	jumpstd asknumber2m
+	jumpstd AskNumber2MScript
 	end
 
 Route13RegisteredNumber:
-	jumpstd registerednumberm
+	jumpstd RegisteredNumberMScript
 	end
 
 Route13NumberAccepted:
-	jumpstd numberacceptedm
+	jumpstd NumberAcceptedMScript
 	end
 
 Route13NumberDeclined:
-	jumpstd numberdeclinedm
+	jumpstd NumberDeclinedMScript
 	end
 
 Route13PhoneFull:
-	jumpstd phonefullm
+	jumpstd PhoneFullMScript
 	end
 
 Route13Rematch:

@@ -210,27 +210,27 @@ TrainerBikerAiden:
 	end
 
 Route17AskNumber1:
-	jumpstd asknumber1m
+	jumpstd AskNumber1MScript
 	end
 
 Route17AskNumber2:
-	jumpstd asknumber2m
+	jumpstd AskNumber2MScript
 	end
 
 Route17RegisteredNumber:
-	jumpstd registerednumberm
+	jumpstd RegisteredNumberMScript
 	end
 
 Route17NumberAccepted:
-	jumpstd numberacceptedm
+	jumpstd NumberAcceptedMScript
 	end
 
 Route17NumberDeclined:
-	jumpstd numberdeclinedm
+	jumpstd NumberDeclinedMScript
 	end
 
 Route17PhoneFull:
-	jumpstd phonefullm
+	jumpstd PhoneFullMScript
 	end
 
 Route17Rematch:

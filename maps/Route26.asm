@@ -97,27 +97,27 @@ TrainerCooltrainermGaven3:
 	end
 
 .AskNumber1:
-	jumpstd asknumber1m
+	jumpstd AskNumber1MScript
 	end
 
 .AskNumber2:
-	jumpstd asknumber2m
+	jumpstd AskNumber2MScript
 	end
 
 .RegisteredNumber:
-	jumpstd registerednumberm
+	jumpstd RegisteredNumberMScript
 	end
 
 .NumberAccepted:
-	jumpstd numberacceptedm
+	jumpstd NumberAcceptedMScript
 	end
 
 .NumberDeclined:
-	jumpstd numberdeclinedm
+	jumpstd NumberDeclinedMScript
 	end
 
 .PhoneFull:
-	jumpstd phonefullm
+	jumpstd PhoneFullMScript
 	end
 
 .Rematch:
@@ -221,7 +221,7 @@ TrainerCooltrainerfBeth1:
 	end
 
 .Rematch:
-	jumpstd rematchf
+	jumpstd RematchFScript
 	end
 
 .BethDefeated:

@@ -12,8 +12,18 @@ EngineFlags:
 	engine_flag wPokegearFlags, POKEGEAR_RADIO_CARD_F
 	engine_flag wPokegearFlags, POKEGEAR_MAP_CARD_F
 	engine_flag wPokegearFlags, POKEGEAR_PHONE_CARD_F
+	engine_flag wPokegearFlags, POKEGEAR_PAGER_CARD_F
 	engine_flag wPokegearFlags, POKEGEAR_EXPN_CARD_F
 	engine_flag wPokegearFlags, POKEGEAR_OBTAINED_F
+
+	; pager
+	engine_flag wPagerFlags, PAGER_CUT_F
+	engine_flag wPagerFlags, PAGER_FLY_F
+	engine_flag wPagerFlags, PAGER_SURF_F
+	engine_flag wPagerFlags, PAGER_STRENGTH_F
+	engine_flag wPagerFlags, PAGER_FLASH_F
+	engine_flag wPagerFlags, PAGER_WHIRLPOOL_F
+	engine_flag wPagerFlags, PAGER_ROCK_SMASH_F
 
 	; day-care
 	engine_flag wDayCareMan, DAYCAREMAN_HAS_EGG_F
@@ -92,6 +102,7 @@ EngineFlags:
 	engine_flag wVisitedSpawns, SPAWN_VIOLET
 	engine_flag wVisitedSpawns, SPAWN_AZALEA
 	engine_flag wVisitedSpawns, SPAWN_CIANWOOD
+	engine_flag wVisitedSpawns, SPAWN_SAFARI_GATE
 	engine_flag wVisitedSpawns, SPAWN_GOLDENROD
 	engine_flag wVisitedSpawns, SPAWN_OLIVINE
 	engine_flag wVisitedSpawns, SPAWN_ECRUTEAK
@@ -107,12 +118,66 @@ EngineFlags:
 
 	engine_flag wDailyFlags1, DAILYFLAGS1_KURT_MAKING_BALLS_F
 	engine_flag wDailyFlags1, DAILYFLAGS1_BUG_CONTEST_F
-	engine_flag wDailyFlags1, DAILYFLAGS1_FISH_SWARM_F
+	engine_flag wDailyFlags1, DAILYFLAGS1_SWARM_F
 	engine_flag wDailyFlags1, DAILYFLAGS1_TIME_CAPSULE_F
 	engine_flag wDailyFlags1, DAILYFLAGS1_ALL_FRUIT_TREES_F
 	engine_flag wDailyFlags1, DAILYFLAGS1_GOT_SHUCKIE_TODAY_F
 	engine_flag wDailyFlags1, DAILYFLAGS1_GOLDENROD_UNDERGROUND_BARGAIN_F
 	engine_flag wDailyFlags1, DAILYFLAGS1_TRAINER_HOUSE_F
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE29_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE29_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE30_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE30_BERRY2
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE30_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE30_APRICORN2
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE31_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE31_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_VIOLET_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_VIOLET_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE33_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE33_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE33_APRICORN2
+	engine_flag wDailyFlags1, DAILYFLAGS_AZALEA_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE35_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE35_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE36_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE36_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE37_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE37_APRICORN2
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE37_APRICORN3
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE38_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE38_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE39_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE39_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE42_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE42_APRICORN2
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE42_APRICORN3
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE43_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE43_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE44_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE44_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE45_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE45_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE46_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE46_BERRY2
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE46_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE46_APRICORN2
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE26_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE26_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE1_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE1_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_VIRIDIAN_FOREST_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_VIRIDIAN_FOREST_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_PEWTER_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_PEWTER_BERRY2
+	engine_flag wDailyFlags1, DAILYFLAGS_PEWTER_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_PEWTER_APRICORN2
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE8_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE8_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE11_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE11_APRICORN
+	engine_flag wDailyFlags1, DAILYFLAGS_FUCHSIA_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_FUCHSIA_APRICORN
 
 	engine_flag wDailyFlags2, DAILYFLAGS2_MT_MOON_SQUARE_CLEFAIRY_F
 	engine_flag wDailyFlags2, DAILYFLAGS2_UNION_CAVE_LAPRAS_F
@@ -157,17 +222,53 @@ EngineFlags:
 	engine_flag wDailyRematchFlags, 21 ; wilton
 	engine_flag wDailyRematchFlags, 22 ; parry
 	engine_flag wDailyRematchFlags, 23 ; erin
+	engine_flag wDailyRematchFlags, 24 ; Ian
+	engine_flag wDailyRematchFlags, 25 ; Walt
+	engine_flag wDailyRematchFlags, 26 ; Krise
+	engine_flag wDailyRematchFlags, 27 ; Alfred
+	engine_flag wDailyRematchFlags, 28 ; Doug
+	engine_flag wDailyRematchFlags, 29 ; Rob
+	engine_flag wDailyRematchFlags, 30 ; Kyle
+	engine_flag wDailyRematchFlags, 31 ; Tanner
+	engine_flag wDailyRematchFlags, 32 ; Kenny
+	engine_flag wDailyRematchFlags, 33 ; Tim & Sue
+	engine_flag wDailyRematchFlags, 34 ; Jamie
+	engine_flag wDailyRematchFlags, 35 ; Torin
+	engine_flag wDailyRematchFlags, 36 ; Billy
+	engine_flag wDailyRematchFlags, 37 ; Hillary
+	engine_flag wDailyRematchFlags, 38 ; Kay & Tia
+	engine_flag wDailyRematchFlags, 39 ; Aiden
+	engine_flag wDailyRematchFlags, 40 ; Eoin
+	engine_flag wDailyRematchFlags, 41 ; Reese
 
 	engine_flag wDailyPhoneItemFlags, 0 ; beverly has nugget
 	engine_flag wDailyPhoneItemFlags, 1 ; jose has star piece
-	engine_flag wDailyPhoneItemFlags, 2 ; wade has item (see EVENT_WADE_HAS_*** in constants/event_flags.asm)
-	engine_flag wDailyPhoneItemFlags, 3 ; gina has leaf stone
+	engine_flag wDailyPhoneItemFlags, 2 ; wade has berry
+	engine_flag wDailyPhoneItemFlags, 3 ; gina has leaf stone ; $80
 	engine_flag wDailyPhoneItemFlags, 4 ; alan has fire stone
-	engine_flag wDailyPhoneItemFlags, 5 ; liz has thunderstone
+	engine_flag wDailyPhoneItemFlags, 5 ; dana has thunderstone
 	engine_flag wDailyPhoneItemFlags, 6 ; derek has nugget
 	engine_flag wDailyPhoneItemFlags, 7 ; tully has water stone
 	engine_flag wDailyPhoneItemFlags, 8 ; tiffany has pink bow
-	engine_flag wDailyPhoneItemFlags, 9 ; wilton has item (see EVENT_WILTON_HAS_*** in constants/event_flags.asm)
+	engine_flag wDailyPhoneItemFlags, 9 ; gina gave a leaf stone today
+	engine_flag wDailyPhoneItemFlags, 10 ; alan gave a fire stone today
+	engine_flag wDailyPhoneItemFlags, 11 ; dana gave a thunderstone today
+	engine_flag wDailyPhoneItemFlags, 12 ; tully gave a water stone today
+	engine_flag wDailyPhoneItemFlags, 13 ; tiffany gave a pink bow today
+	engine_flag wDailyPhoneItemFlags, 14 ; beverly gave a nugget today
+	engine_flag wDailyPhoneItemFlags, 15 ; jose gave a star piece today
+	engine_flag wDailyPhoneItemFlags, 16 ; derek gave a nugget today
+	engine_flag wDailyPhoneItemFlags, 17 ; wilton has a ball item today
+	engine_flag wDailyPhoneItemFlags, 18 ; wilton gave a ball item today
+	engine_flag wDailyPhoneItemFlags, 19 ; wade gave a berry today
+	engine_flag wDailyPhoneItemFlags, 20 ; doug has berry
+	engine_flag wDailyPhoneItemFlags, 21 ; doug gave a berry today
+	engine_flag wDailyPhoneItemFlags, 22 ; rob has berry
+	engine_flag wDailyPhoneItemFlags, 23 ; rob gave a berry today
+	engine_flag wDailyPhoneItemFlags, 24 ; tanner has sun stone
+	engine_flag wDailyPhoneItemFlags, 25 ; tanner gave a sun stone today
+	engine_flag wDailyPhoneItemFlags, 26 ; jamie has moon stone
+	engine_flag wDailyPhoneItemFlags, 27 ; jamie gave a moon stone today
 
 	engine_flag wDailyPhoneTimeOfDayFlags,  0 ; jack
 	engine_flag wDailyPhoneTimeOfDayFlags,  1 ; huey
@@ -196,7 +297,9 @@ EngineFlags:
 
 	engine_flag wPlayerSpriteSetupFlags, PLAYERSPRITESETUP_FEMALE_TO_MALE_F
 
-	engine_flag wSwarmFlags, SWARMFLAGS_DUNSPARCE_SWARM_F
-	engine_flag wSwarmFlags, SWARMFLAGS_YANMA_SWARM_F
+	engine_flag wSwarmFlags, SWARMFLAGS_ALT_SWARM_F ; $a0
+	engine_flag wSwarmFlags, SWARMFLAGS_SWARM_ACTIVE
+
+	engine_flag wChallengeMode, GAME_CHALLENGE_MODE_F
 
 	assert_table_length NUM_ENGINE_FLAGS

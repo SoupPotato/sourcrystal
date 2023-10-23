@@ -123,9 +123,13 @@ INCLUDE "engine/events/kurt_selectquantity_interpretjoypad.asm"
 SECTION "bankA", ROMX
 
 INCLUDE "engine/link/link.asm"
-INCLUDE "engine/overworld/wildmons.asm"
 INCLUDE "engine/battle/link_result.asm"
+INCLUDE "data/battle/effect_command_pointers.asm"
 
+
+SECTION "Own Section", ROMX
+
+INCLUDE "engine/battle/swarm_shiny.asm"
 
 SECTION "bankB", ROMX
 
@@ -139,6 +143,11 @@ INCLUDE "engine/pokemon/print_move_description.asm"
 INCLUDE "engine/events/pokerus/pokerus.asm"
 INCLUDE "engine/battle/start_battle.asm"
 INCLUDE "engine/gfx/place_graphic.asm"
+
+
+SECTION "bankC", ROMX
+
+INCLUDE "engine/overworld/wildmons.asm"
 
 
 SECTION "Effect Commands", ROMX
@@ -160,7 +169,6 @@ INCLUDE "data/trainers/parties.asm"
 SECTION "Battle Core", ROMX
 
 INCLUDE "engine/battle/core.asm"
-INCLUDE "data/battle/effect_command_pointers.asm"
 
 
 SECTION "bank10", ROMX

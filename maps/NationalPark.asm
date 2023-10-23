@@ -313,7 +313,7 @@ TrainerLassKrise:
 	end
 
 .RematchStd:
-	jumpstd rematchf
+	jumpstd RematchFScript
 	end
 
 .KriseDefeated:

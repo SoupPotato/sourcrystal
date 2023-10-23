@@ -159,7 +159,7 @@ CeruleanLockedDoor:
 	jumptext CeruleanLockedDoorText
 
 CeruleanCityPokecenterSign:
-	jumpstd PokecenterSignScriptScript
+	jumpstd PokecenterSignScript
 
 CeruleanCityMartSign:
 	jumpstd MartSignScript
@@ -332,7 +332,7 @@ CeruleanCity_MapEvents:
 	bg_event 23,  7, BGEVENT_READ, CeruleanCapeSign
 	bg_event 14, 25, BGEVENT_READ, CeruleanLockedDoor
 	bg_event 20, 17, BGEVENT_READ, CeruleanCityPokecenterSign
-	bg_event 26, 25, BGEVENT_READ, CeruleanCityMartSignScript
+	bg_event 26, 25, BGEVENT_READ, CeruleanCityMartSign
 	bg_event  6, 11, BGEVENT_ITEM, CeruleanCityHiddenBerserkGene
 
 	def_object_events

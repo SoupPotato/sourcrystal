@@ -87,7 +87,7 @@ Oak:
 	db "EGG@"
 	
 .GetStarterEgg:
-	jumpstd receivetogepiegg
+	jumpstd ReceiveTogepiEggScript
 	end
 	
 .PartyFull

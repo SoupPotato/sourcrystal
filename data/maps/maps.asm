@@ -17,34 +17,34 @@ ENDM
 MapGroupPointers::
 ; pointers to the first map of each map group
 	table_width 2, MapGroupPointers
-	dw MapGroup_Olivine     ;  1
-	dw MapGroup_Mahogany    ;  2
-	dw MapGroup_Dungeons    ;  3
-	dw MapGroup_Ecruteak    ;  4
-	dw MapGroup_Blackthorn  ;  5
-	dw MapGroup_Cinnabar    ;  6
-	dw MapGroup_Cerulean    ;  7
-	dw MapGroup_Azalea      ;  8
-	dw MapGroup_LakeOfRage  ;  9
-	dw MapGroup_Violet      ; 10
-	dw MapGroup_Goldenrod   ; 11
-	dw MapGroup_Vermilion   ; 12
-	dw MapGroup_Pallet      ; 13
-	dw MapGroup_Pewter      ; 14
-	dw MapGroup_FastShip    ; 15
-	dw MapGroup_Indigo      ; 16
-	dw MapGroup_Fuchsia     ; 17
-	dw MapGroup_Lavender    ; 18
-	dw MapGroup_Silver      ; 19
-	dw MapGroup_CableClub   ; 20
-	dw MapGroup_Celadon     ; 21
-	dw MapGroup_Cianwood    ; 22
-	dw MapGroup_Viridian    ; 23
-	dw MapGroup_NewBark     ; 24
-	dw MapGroup_Saffron     ; 25
-	dw MapGroup_Cherrygrove ; 26
-	dw MapGroup_Route47     ; 27
-	dw MapGroup_Safari_Spec ; 28
+	dw MapGroup_Olivine            ;  1
+	dw MapGroup_Mahogany           ;  2
+	dw MapGroup_Dungeons           ;  3
+	dw MapGroup_Ecruteak           ;  4
+	dw MapGroup_Blackthorn         ;  5
+	dw MapGroup_Cinnabar           ;  6
+	dw MapGroup_Cerulean           ;  7
+	dw MapGroup_Azalea             ;  8
+	dw MapGroup_LakeOfRage         ;  9
+	dw MapGroup_Violet             ; 10
+	dw MapGroup_Goldenrod          ; 11
+	dw MapGroup_Vermilion          ; 12
+	dw MapGroup_Pallet             ; 13
+	dw MapGroup_Pewter             ; 14
+	dw MapGroup_FastShip           ; 15
+	dw MapGroup_Indigo             ; 16
+	dw MapGroup_Fuchsia            ; 17
+	dw MapGroup_Lavender           ; 18
+	dw MapGroup_Silver             ; 19
+	dw MapGroup_CableClub          ; 20
+	dw MapGroup_Celadon            ; 21
+	dw MapGroup_Cianwood           ; 22
+	dw MapGroup_Viridian           ; 23
+	dw MapGroup_NewBark            ; 24
+	dw MapGroup_Saffron            ; 25
+	dw MapGroup_Cherrygrove        ; 26
+	dw MapGroup_SafariZoneGate     ; 27
+	dw MapGroup_SafariZone         ; 28
 	assert_table_length NUM_MAP_GROUPS
 
 MapGroup_Olivine:
@@ -559,7 +559,7 @@ MapGroup_Cherrygrove:
 	map Route31VioletGate, TILESET_GATE, GATE, LANDMARK_ROUTE_31, MUSIC_ROUTE_30, FALSE, PALETTE_DAY, FISHGROUP_SHORE
 	assert_table_length NUM_CHERRYGROVE_MAPS
 
-MapGroup_Route47:
+MapGroup_SafariZoneGate:
 	table_width MAP_LENGTH, MapGroup_Route47
 	map Route47, TILESET_JOHTO, ROUTE, LANDMARK_ROUTE_47, MUSIC_ROUTE_47_HGSS, FALSE, PALETTE_AUTO, FISHGROUP_OCEAN
 	map Route48, TILESET_JOHTO, ROUTE, LANDMARK_ROUTE_48, MUSIC_ROUTE_47_HGSS, FALSE, PALETTE_AUTO, FISHGROUP_LAKE
@@ -573,9 +573,9 @@ MapGroup_Route47:
 	map SafariRestHouseArea2, TILESET_FACILITY, INDOOR, LANDMARK_SAFARI_ZONE, MUSIC_EVOLUTION, FALSE, PALETTE_DAY, FISHGROUP_SHORE
 	map SafariRestHouseArea3, TILESET_FACILITY, INDOOR, LANDMARK_SAFARI_ZONE, MUSIC_EVOLUTION, FALSE, PALETTE_DAY, FISHGROUP_SHORE
 	map SafariRestHouseArea4, TILESET_FACILITY, INDOOR, LANDMARK_SAFARI_ZONE, MUSIC_EVOLUTION, FALSE, PALETTE_DAY, FISHGROUP_SHORE
-	assert_table_length NUM_ROUTE_47_MAPS
+	assert_table_length NUM_SAFARI_ZONE_GATE_MAPS
 
-MapGroup_Safari_Spec:
+MapGroup_SafariZone:
 	table_width MAP_LENGTH, MapGroup_Safari_Spec
 	map SafariZoneArea3, TILESET_PARK, ROUTE, LANDMARK_SAFARI_ZONE, MUSIC_EVOLUTION, FALSE, PALETTE_AUTO, FISHGROUP_POND
-	assert_table_length NUM_SAFARI_SPEC_MAPS
+	assert_table_length NUM_SAFARI_ZONE_MAPS

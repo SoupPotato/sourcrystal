@@ -137,10 +137,10 @@ BlackthornCityTrainerTips:
 	jumptext BlackthornCityTrainerTipsText
 
 BlackthornCityPokecenterSign:
-	jumpstd PokecenterSignScriptScript
+	jumpstd PokecenterSignScript
 
 BlackthornCityMartSignScript:
-	jumpstd MartSignScriptScript
+	jumpstd MartSignScript
 
 Text_ClairIsOut:
 	text "I am sorry."

@@ -2849,9 +2849,8 @@ wDudeNumBalls:: db
 wDudeBalls:: ds 2 * 4 + 1
 ENDU
 
-wOtherTrainerType:: db
 wTrainerGroupBank:: db
-	ds 2
+	ds 3
 
 wd430:: ; mobile
 wBattleAction:: db
@@ -2975,7 +2974,8 @@ wGameTimeMinutes:: db
 wGameTimeSeconds:: db
 wGameTimeFrames::  db
 
-	ds 2
+wChallengeMode:: db
+wOtherTrainerType:: db
 
 wCurDay:: db
 
@@ -3306,7 +3306,8 @@ wStepCount:: db
 wPoisonStepCount:: db
 	ds 2
 wHappinessStepCount:: db
-	ds 1
+
+wPagerFlags:: db ; flag_array NUM_PAGER_FLAGS
 
 wParkBallsRemaining::
 wSafariBallsRemaining:: db
@@ -3428,8 +3429,8 @@ wEggMon:: box_struct wEggMon
 wBugContestSecondPartySpecies:: db
 wContestMon:: party_struct wContestMon
 
-wDunsparceMapGroup:: db
-wDunsparceMapNumber:: db
+wSwarmMapGroup:: db
+wSwarmMapNumber:: db
 wFishingSwarmFlag:: db
 
 wRoamMon1:: roam_struct wRoamMon1

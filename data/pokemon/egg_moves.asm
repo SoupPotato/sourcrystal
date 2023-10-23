@@ -12,7 +12,6 @@ INCLUDE "data/pokemon/egg_move_pointers.asm"
 
 BulbasaurEggMoves:
 	db AMNESIA
-	db CHARM
 	db LIGHT_SCREEN
 	db PETAL_DANCE
 	db SAFEGUARD
@@ -42,7 +41,6 @@ PidgeyEggMoves:
 	db FEINT_ATTACK
 	db FORESIGHT
 	db PURSUIT
-	db STEEL_WING
 	db -1 ; end
 
 RattataEggMoves:
@@ -59,7 +57,6 @@ SpearowEggMoves:
 	db QUICK_ATTACK
 	db RAZOR_WIND
 	db SCARY_FACE
-	db STEEL_WING
 	db TRI_ATTACK
 	db WHIRLWIND
 	db -1 ; end
@@ -82,7 +79,6 @@ SandshrewEggMoves:
 
 NidoranFEggMoves:
 	db BEAT_UP
-	db CHARM
 	db COUNTER
 	db DISABLE
 	db FOCUS_ENERGY
@@ -107,8 +103,6 @@ VulpixEggMoves:
 	db FEINT_ATTACK
 	db FLAIL
 	db HYPNOSIS
-	db ROAR
-	db PSYCH_UP
 	db -1 ; end
 
 ZubatEggMoves:
@@ -121,7 +115,6 @@ ZubatEggMoves:
 	db -1 ; end
 
 OddishEggMoves:
-	db CHARM
 	db FLAIL
 	db RAZOR_LEAF
 	db SYNTHESIS
@@ -138,7 +131,6 @@ ParasEggMoves:
 	db PSYBEAM
 	db PURSUIT
 	db SCREECH
-	db SWEET_SCENT
 	db -1 ; end
 
 VenonatEggMoves:
@@ -159,7 +151,6 @@ DiglettEggMoves:
 
 MeowthEggMoves:
 	db AMNESIA
-	db CHARM
 	db FLAIL
 	db HYPNOSIS
 	db SPITE
@@ -208,19 +199,13 @@ PoliwagEggMoves:
 AbraEggMoves:
 	db ENCORE
 	db BARRIER
-	db FIRE_PUNCH
-	db ICE_PUNCH
-	db THUNDERPUNCH
 	db -1 ; end
 
 MachopEggMoves:
 	db COUNTER
 	db ENCORE
-	db FIRE_PUNCH
-	db ICE_PUNCH
 	db MEDITATE
 	db ROLLING_KICK
-	db THUNDERPUNCH
 	db -1 ; end
 
 BellsproutEggMoves:
@@ -244,7 +229,6 @@ GeodudeEggMoves:
 	db -1 ; end
 
 PonytaEggMoves:
-	db CHARM
 	db DOUBLE_EDGE
 	db DOUBLE_KICK
 	db FLAME_WHEEL
@@ -266,7 +250,6 @@ FarfetchDEggMoves:
 	db GUST
 	db MIRROR_MOVE
 	db QUICK_ATTACK
-	db STEEL_WING
 	db -1 ; end
 
 DoduoEggMoves:
@@ -321,7 +304,6 @@ DrowzeeEggMoves:
 KrabbyEggMoves:
 	db AMNESIA
 	db ANCIENTPOWER
-	db ENDURE
 	db FLAIL
 	db HAZE
 	db SLAM
@@ -435,7 +417,6 @@ LaprasEggMoves:
 	db -1 ; end
 
 EeveeEggMoves:
-	db CHARM
 	db FLAIL
 	db -1 ; end
 
@@ -460,12 +441,10 @@ KabutoEggMoves:
 AerodactylEggMoves:
 	db FORESIGHT
 	db PURSUIT
-	db STEEL_WING
 	db WHIRLWIND
 	db -1 ; end
 
 SnorlaxEggMoves:
-	db CHARM
 	db COUNTER
 	db DOUBLE_EDGE
 	db LICK
@@ -589,7 +568,6 @@ NatuEggMoves:
 	db FEINT_ATTACK
 	db HAZE
 	db QUICK_ATTACK
-	db STEEL_WING
 	db -1 ; end
 
 MareepEggMoves:
@@ -616,7 +594,6 @@ MarillEggMoves:
 	db -1 ; end
 
 SudowoodoEggMoves:
-	db ENDURE
 	db HARDEN
 	db SELFDESTRUCT
 	db -1 ; end
@@ -671,7 +648,6 @@ MurkrowEggMoves:
 	db -1 ; end
 
 MisdreavusEggMoves:
-	db CURSE
 	db DESTINY_BOND
 	db SCREECH
 	db SPITE
@@ -690,11 +666,9 @@ GirafarigEggMoves:
 PinecoEggMoves:
 	db COUNTER
 	db DOUBLE_EDGE
-	db ENDURE
 	db FLAIL
 	db PIN_MISSILE
 	db REFLECT
-	db SWIFT
 	db -1 ; end
 
 DunsparceEggMoves:
@@ -702,8 +676,6 @@ DunsparceEggMoves:
 	db ANCIENTPOWER
 	db BIDE
 	db BITE
-	db CURSE
-	db HEADBUTT
 	db ROCK_SLIDE
 	db RAGE
 	db -1 ; end
@@ -725,7 +697,6 @@ SnubbullEggMoves:
 	db METRONOME
 	db PRESENT
 	db REFLECT
-	db SNORE
 	db -1 ; end
 
 QwilfishEggMoves:
@@ -733,11 +704,6 @@ QwilfishEggMoves:
 	db FLAIL
 	db HAZE
 	db SUPERSONIC
-	db -1 ; end
-
-ShuckleEggMoves:
-	db MUD_SLAP
-	db SWEET_SCENT
 	db -1 ; end
 
 HeracrossEggMoves:
@@ -770,7 +736,6 @@ TeddiursaEggMoves:
 
 SlugmaEggMoves:
 	db ACID_ARMOR
-	db CURSE
 	db SMOKESCREEN
 	db -1 ; end
 
@@ -788,7 +753,6 @@ CorsolaEggMoves:
 	db AMNESIA
 	db BARRIER
 	db CONFUSE_RAY
-	db CURSE
 	db MIST
 	db ROCK_SLIDE
 	db SAFEGUARD
@@ -809,8 +773,6 @@ DelibirdEggMoves:
 	db AURORA_BEAM
 	db DESTINY_BOND
 	db FUTURE_SIGHT
-	db ICE_PUNCH
-	db ICY_WIND
 	db QUICK_ATTACK
 	db RAPID_SPIN
 	db SPLASH
@@ -827,9 +789,7 @@ MantineEggMoves:
 	db -1 ; end
 
 SkarmoryEggMoves:
-	db CURSE
 	db DRILL_PECK
-	db ENDURE
 	db PURSUIT
 	db SKY_ATTACK
 	db WHIRLWIND
@@ -850,7 +810,6 @@ PhanpyEggMoves:
 	db BODY_SLAM
 	db FISSURE
 	db FOCUS_ENERGY
-	db MUD_SLAP
 	db WATER_GUN
 	db -1 ; end
 
@@ -867,7 +826,6 @@ StantlerEggMoves:
 
 TyrogueEggMoves:
 	db COUNTER
-	db ENDURE
 	db HI_JUMP_KICK
 	db MACH_PUNCH
 	db MIND_READER
@@ -876,17 +834,12 @@ TyrogueEggMoves:
 	db -1 ; end
 
 SmoochumEggMoves:
-	db ICE_PUNCH
 	db MEDITATE
-	db LOVELY_KISS
 	db -1 ; end
 
 ElekidEggMoves:
 	db BARRIER
 	db CROSS_CHOP
-	db DYNAMICPUNCH
-	db FIRE_PUNCH
-	db ICE_PUNCH
 	db KARATE_CHOP
 	db MEDITATE
 	db ROLLING_KICK
@@ -895,19 +848,15 @@ ElekidEggMoves:
 MagbyEggMoves:
 	db BARRIER
 	db CROSS_CHOP
-	db DYNAMICPUNCH
 	db FOCUS_ENERGY
-	db IRON_TAIL
 	db KARATE_CHOP
 	db MACH_PUNCH
 	db MEGA_PUNCH
 	db SCREECH
-	db THUNDERPUNCH
 	db -1 ; end
 
 MiltankEggMoves:
 	db DOUBLE_EDGE
-	db ENDURE
 	db PRESENT
 	db REVERSAL
 	db SEISMIC_TOSS
@@ -915,9 +864,7 @@ MiltankEggMoves:
 
 LarvitarEggMoves:
 	db ANCIENTPOWER
-	db CURSE
 	db FOCUS_ENERGY
-	db IRON_TAIL
 	db OUTRAGE
 	db PURSUIT
 	db STOMP

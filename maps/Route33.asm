@@ -1,12 +1,37 @@
 	object_const_def
 	const ROUTE33_POKEFAN_M
 	const ROUTE33_LASS
-	const ROUTE33_FRUIT_TREE
+	const ROUTE33_BERRY
+	const ROUTE33_APRICORN
+	const ROUTE33_APRICORN2
 
 Route33_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, Route33Fruittrees
+
+Route33Fruittrees:
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE33_BERRY
+	iftrue .NoBerry
+	appear ROUTE33_BERRY
+.NoBerry:
+	;fallthrough
+
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE33_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE33_APRICORN
+.NoApricorn:
+	;fallthrough
+
+.Apricorn2:
+	checkflag ENGINE_DAILY_ROUTE33_APRICORN2
+	iftrue .NoApricorn2
+	appear ROUTE33_APRICORN2
+.NoApricorn2:
+	endcallback
 
 Route33LassScript:
 	jumptextfaceplayer Route33LassText
@@ -16,21 +41,18 @@ TrainerHikerAnthony:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_HIKER_ANTHONY
-	endifjustbattled
 	opentext
 	checkflag ENGINE_ANTHONY_READY_FOR_REMATCH
 	iftrue .Rematch
-	checkflag ENGINE_DUNSPARCE_SWARM
-	iftrue .Swarm
 	checkcellnum PHONE_HIKER_ANTHONY
-	iftrue .NumberAccepted
+	iftrue .AnthonyDefeated
 	checkevent EVENT_ANTHONY_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskAgain
 	writetext HikerAnthony2AfterText
 	promptbutton
 	setevent EVENT_ANTHONY_ASKED_FOR_PHONE_NUMBER
 	scall .AskNumber1
-	sjump .AskForPhoneNumber
+	jump .AskForPhoneNumber
 
 .AskAgain:
 	scall .AskNumber2
@@ -40,34 +62,22 @@ TrainerHikerAnthony:
 	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
 	gettrainername STRING_BUFFER_3, HIKER, ANTHONY2
 	scall .RegisteredNumber
-	sjump .NumberAccepted
+	jump .NumberAccepted
 
 .Rematch:
 	scall .RematchStd
 	winlosstext HikerAnthony2BeatenText, 0
-	readmem wAnthonyFightCount
-	ifequal 4, .Fight4
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight4:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight4
-.Fight3:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight3
-.Fight2:
 	checkevent EVENT_CLEARED_RADIO_TOWER
 	iftrue .LoadFight2
-.Fight1:
 	checkflag ENGINE_FLYPOINT_OLIVINE
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer HIKER, ANTHONY2
 	startbattle
 	reloadmapafterbattle
-	loadmem wAnthonyFightCount, 1
 	clearflag ENGINE_ANTHONY_READY_FOR_REMATCH
 	end
 
@@ -75,7 +85,6 @@ TrainerHikerAnthony:
 	loadtrainer HIKER, ANTHONY1
 	startbattle
 	reloadmapafterbattle
-	loadmem wAnthonyFightCount, 2
 	clearflag ENGINE_ANTHONY_READY_FOR_REMATCH
 	end
 
@@ -83,7 +92,6 @@ TrainerHikerAnthony:
 	loadtrainer HIKER, ANTHONY3
 	startbattle
 	reloadmapafterbattle
-	loadmem wAnthonyFightCount, 3
 	clearflag ENGINE_ANTHONY_READY_FOR_REMATCH
 	end
 
@@ -91,7 +99,6 @@ TrainerHikerAnthony:
 	loadtrainer HIKER, ANTHONY4
 	startbattle
 	reloadmapafterbattle
-	loadmem wAnthonyFightCount, 4
 	clearflag ENGINE_ANTHONY_READY_FOR_REMATCH
 	end
 
@@ -102,45 +109,102 @@ TrainerHikerAnthony:
 	clearflag ENGINE_ANTHONY_READY_FOR_REMATCH
 	end
 
-.Swarm:
-	writetext HikerAnthonyDunsparceText
-	waitbutton
-	closetext
-	end
-
 .AskNumber1:
-	jumpstd AskNumber1MScript
+	jumpstd asknumber1m
 	end
 
 .AskNumber2:
-	jumpstd AskNumber2MScript
+	jumpstd asknumber2m
 	end
 
 .RegisteredNumber:
-	jumpstd RegisteredNumberMScript
+	jumpstd registerednumberm
 	end
 
 .NumberAccepted:
-	jumpstd NumberAcceptedMScript
+	jumpstd numberacceptedm
 	end
 
 .NumberDeclined:
-	jumpstd NumberDeclinedMScript
+	jumpstd numberdeclinedm
 	end
 
 .PhoneFull:
-	jumpstd PhoneFullMScript
+	jumpstd phonefullm
 	end
 
 .RematchStd:
 	jumpstd RematchMScript
 	end
+	
+.AnthonyDefeated:
+	writetext HikerAnthony2AfterText
+	promptbutton
+	closetext
+	end
 
 Route33Sign:
 	jumptext Route33SignText
 
-Route33FruitTree:
-	fruittree FRUITTREE_ROUTE_33
+Route33BerryTree:
+	opentext
+	writetext Route33BerryTreeText
+	promptbutton
+	writetext Route33HeyItsBerryText
+	promptbutton
+	verbosegiveitem PECHA_BERRY
+	iffalse .NoRoomInBag
+	disappear ROUTE33_BERRY
+	setflag ENGINE_DAILY_ROUTE33_BERRY
+.NoRoomInBag
+	closetext
+	end
+
+Route33ApricornTree:
+	opentext
+	writetext Route33ApricornTreeText
+	promptbutton
+	writetext Route33HeyItsApricornText
+	promptbutton
+	verbosegiveitem BLK_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE33_APRICORN
+	setflag ENGINE_DAILY_ROUTE33_APRICORN
+.NoRoomInBag
+	closetext
+	end
+
+Route33ApricornTree2:
+	opentext
+	writetext Route33ApricornTreeText
+	promptbutton
+	writetext Route33HeyItsApricorn2Text
+	promptbutton
+	verbosegiveitem PNK_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE33_APRICORN2
+	setflag ENGINE_DAILY_ROUTE33_APRICORN2
+.NoRoomInBag
+	closetext
+	end
+
+Route33NoBerry:
+	opentext
+	writetext Route33BerryTreeText
+	promptbutton
+	writetext Route33NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route33NoApricorn:
+	opentext
+	writetext Route33ApricornTreeText
+	promptbutton
+	writetext Route33NothingHereText
+	waitbutton
+	closetext
+	end
 
 HikerAnthony2SeenText:
 	text "I came through the"
@@ -159,17 +223,6 @@ HikerAnthony2AfterText:
 	text "We HIKERS are at"
 	line "our best in the"
 	cont "mountains."
-	done
-
-HikerAnthonyDunsparceText:
-	text "Hey, did you get a"
-	line "DUNSPARCE?"
-
-	para "I caught one too."
-
-	para "Take a look at it"
-	line "in the light. It's"
-	cont "got a funny face!"
 	done
 
 Route33LassText:
@@ -192,6 +245,36 @@ Route33SignText:
 	text "ROUTE 33"
 	done
 
+Route33BerryTreeText:
+	text "It's a"
+	line "BERRY tree…"
+	done
+
+Route33HeyItsBerryText:
+	text "Hey! It's"
+	line "PECHA BERRY!"
+	done
+
+Route33ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree…"
+	done
+
+Route33HeyItsApricornText:
+	text "Hey! It's"
+	line "BLK APRICORN!"
+	done
+
+Route33HeyItsApricorn2Text:
+	text "Hey! It's"
+	line "PNK APRICORN!"
+	done
+
+Route33NothingHereText:
+	text "There's nothing"
+	line "here…"
+	done
+
 Route33_MapEvents:
 	db 0, 0 ; filler
 
@@ -202,8 +285,13 @@ Route33_MapEvents:
 
 	def_bg_events
 	bg_event 11, 11, BGEVENT_READ, Route33Sign
+	bg_event  6, 11, BGEVENT_READ, Route33NoBerry
+	bg_event 13, 16, BGEVENT_READ, Route33NoApricorn
+	bg_event 14, 16, BGEVENT_READ, Route33NoApricorn
 
 	def_object_events
 	object_event  6, 13, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerAnthony, -1
-	object_event 13, 16, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route33LassScript, -1
-	object_event 14, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route33FruitTree, -1
+	object_event 12, 16, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route33LassScript, -1
+	object_event  6, 11, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route33BerryTree, EVENT_ROUTE33_BERRY
+	object_event 14, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, Route33ApricornTree, EVENT_ROUTE33_APRICORN
+	object_event 13, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route33ApricornTree2, EVENT_ROUTE33_APRICORN2

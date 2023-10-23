@@ -5,13 +5,30 @@
 	const ROUTE26_COOLTRAINER_F2
 	const ROUTE26_YOUNGSTER
 	const ROUTE26_FISHER
-	const ROUTE26_FRUIT_TREE
+	const ROUTE26_BERRY
+	const ROUTE26_APRICORN
 	const ROUTE26_POKE_BALL
 
 Route26_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, Route26Fruittrees
+
+Route26Fruittrees
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE26_BERRY
+	iftrue .NoBerry
+	appear ROUTE26_BERRY
+.NoBerry:
+	;fallthrough
+
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE26_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE26_APRICORN
+.NoApricorn:
+	endcallback
 
 TrainerCooltrainermJake:
 	trainer COOLTRAINERM, JAKE, EVENT_BEAT_COOLTRAINERM_JAKE, CooltrainermJakeSeenText, CooltrainermJakeBeatenText, 0, .Script
@@ -29,19 +46,18 @@ TrainerCooltrainermGaven3:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_COOLTRAINERM_GAVEN
-	endifjustbattled
 	opentext
 	checkflag ENGINE_GAVEN_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	checkcellnum PHONE_COOLTRAINERM_GAVEN
-	iftrue .NumberAccepted
+	iftrue .GavenDefeated
 	checkevent EVENT_GAVEN_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext CooltrainermGavenAfterText
 	promptbutton
 	setevent EVENT_GAVEN_ASKED_FOR_PHONE_NUMBER
 	scall .AskNumber1
-	sjump .AskForNumber
+	jump .AskForNumber
 
 .AskedAlready:
 	scall .AskNumber2
@@ -51,26 +67,18 @@ TrainerCooltrainermGaven3:
 	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
 	gettrainername STRING_BUFFER_3, COOLTRAINERM, GAVEN3
 	scall .RegisteredNumber
-	sjump .NumberAccepted
+	jump .NumberAccepted
 
 .WantsBattle:
 	scall .Rematch
 	winlosstext CooltrainermGaven3BeatenText, 0
-	readmem wGavenFightCount
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight2:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight2
-.Fight1:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer COOLTRAINERM, GAVEN3
 	startbattle
 	reloadmapafterbattle
-	loadmem wGavenFightCount, 1
 	clearflag ENGINE_GAVEN_READY_FOR_REMATCH
 	end
 
@@ -78,7 +86,6 @@ TrainerCooltrainermGaven3:
 	loadtrainer COOLTRAINERM, GAVEN1
 	startbattle
 	reloadmapafterbattle
-	loadmem wGavenFightCount, 2
 	clearflag ENGINE_GAVEN_READY_FOR_REMATCH
 	end
 
@@ -90,31 +97,37 @@ TrainerCooltrainermGaven3:
 	end
 
 .AskNumber1:
-	jumpstd AskNumber1MScript
+	jumpstd asknumber1m
 	end
 
 .AskNumber2:
-	jumpstd AskNumber2MScript
+	jumpstd asknumber2m
 	end
 
 .RegisteredNumber:
-	jumpstd RegisteredNumberMScript
+	jumpstd registerednumberm
 	end
 
 .NumberAccepted:
-	jumpstd NumberAcceptedMScript
+	jumpstd numberacceptedm
 	end
 
 .NumberDeclined:
-	jumpstd NumberDeclinedMScript
+	jumpstd numberdeclinedm
 	end
 
 .PhoneFull:
-	jumpstd PhoneFullMScript
+	jumpstd phonefullm
 	end
 
 .Rematch:
 	jumpstd RematchMScript
+	end
+
+.GavenDefeated:
+	writetext CooltrainermGavenAfterText
+	promptbutton
+	closetext
 	end
 
 TrainerCooltrainerfJoyce:
@@ -133,19 +146,18 @@ TrainerCooltrainerfBeth1:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_COOLTRAINERF_BETH
-	endifjustbattled
 	opentext
 	checkflag ENGINE_BETH_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	checkcellnum PHONE_COOLTRAINERF_BETH
-	iftrue .NumberAccepted
+	iftrue .BethDefeated
 	checkevent EVENT_BETH_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext CooltrainerfBethAfterText
 	promptbutton
 	setevent EVENT_BETH_ASKED_FOR_PHONE_NUMBER
 	scall .AskNumber1
-	sjump .AskForNumber
+	jump .AskForNumber
 
 .AskedAlready:
 	scall .AskNumber2
@@ -155,26 +167,18 @@ TrainerCooltrainerfBeth1:
 	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
 	gettrainername STRING_BUFFER_3, COOLTRAINERF, BETH1
 	scall .RegisteredNumber
-	sjump .NumberAccepted
+	jump .NumberAccepted
 
 .WantsBattle:
 	scall .Rematch
 	winlosstext CooltrainerfBeth1BeatenText, 0
-	readmem wBethFightCount
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight2:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight2
-.Fight1:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer COOLTRAINERF, BETH1
 	startbattle
 	reloadmapafterbattle
-	loadmem wBethFightCount, 1
 	clearflag ENGINE_BETH_READY_FOR_REMATCH
 	end
 
@@ -182,7 +186,6 @@ TrainerCooltrainerfBeth1:
 	loadtrainer COOLTRAINERF, BETH2
 	startbattle
 	reloadmapafterbattle
-	loadmem wBethFightCount, 2
 	clearflag ENGINE_BETH_READY_FOR_REMATCH
 	end
 
@@ -218,7 +221,13 @@ TrainerCooltrainerfBeth1:
 	end
 
 .Rematch:
-	jumpstd RematchFScript
+	jumpstd rematchf
+	end
+
+.BethDefeated:
+	writetext CooltrainerfBethAfterText
+	promptbutton
+	closetext
 	end
 
 TrainerPsychicRichard:
@@ -246,8 +255,51 @@ TrainerFisherScott:
 Route26Sign:
 	jumptext Route26SignText
 
-Route26FruitTree:
-	fruittree FRUITTREE_ROUTE_26
+Route26BerryTree:
+	opentext
+	writetext Route26BerryTreeText
+	promptbutton
+	writetext Route26HeyItsBerryText
+	promptbutton
+	verbosegiveitem RAWST_BERRY
+	iffalse .NoRoomInBag
+	disappear ROUTE26_BERRY
+	setflag ENGINE_DAILY_ROUTE26_BERRY
+.NoRoomInBag
+	closetext
+	end
+
+Route26ApricornTree:
+	opentext
+	writetext Route26ApricornTreeText
+	promptbutton
+	writetext Route26HeyItsApricornText
+	promptbutton
+	verbosegiveitem BLU_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE26_APRICORN
+	setflag ENGINE_DAILY_ROUTE26_APRICORN
+.NoRoomInBag
+	closetext
+	end
+
+Route26NoBerry:
+	opentext
+	writetext Route26BerryTreeText
+	promptbutton
+	writetext Route26NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route26NoApricorn:
+	opentext
+	writetext Route26ApricornTreeText
+	promptbutton
+	writetext Route26NothingHereText
+	waitbutton
+	closetext
+	end
 
 Route26MaxElixer:
 	itemball MAX_ELIXER
@@ -410,6 +462,31 @@ Route26SignText:
 	line "RECEPTION GATE"
 	done
 
+Route26BerryTreeText:
+	text "It's a"
+	line "BERRY tree…"
+	done
+
+Route26HeyItsBerryText:
+	text "Hey! It's"
+	line "RAWST BERRY!"
+	done
+
+Route26ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree…"
+	done
+
+Route26HeyItsApricornText:
+	text "Hey! It's"
+	line "BLU APRICORN!"
+	done
+
+Route26NothingHereText:
+	text "There's nothing"
+	line "here…"
+	done
+
 Route26_MapEvents:
 	db 0, 0 ; filler
 
@@ -422,6 +499,8 @@ Route26_MapEvents:
 
 	def_bg_events
 	bg_event  8,  6, BGEVENT_READ, Route26Sign
+	bg_event 13, 53, BGEVENT_READ, Route26NoBerry
+	bg_event 14, 54, BGEVENT_READ, Route26NoApricorn
 
 	def_object_events
 	object_event 14, 24, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCooltrainermJake, -1
@@ -430,5 +509,6 @@ Route26_MapEvents:
 	object_event  5,  8, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerfBeth1, -1
 	object_event 13, 79, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPsychicRichard, -1
 	object_event 10, 92, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerFisherScott, -1
-	object_event 14, 54, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route26FruitTree, -1
+	object_event 13, 53, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route26BerryTree, EVENT_ROUTE26_BERRY
+	object_event 14, 54, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route26ApricornTree, EVENT_ROUTE26_APRICORN
 	object_event  9, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route26MaxElixer, EVENT_ROUTE_26_MAX_ELIXER

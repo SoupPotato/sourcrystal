@@ -6,7 +6,8 @@
 	const ROUTE44_YOUNGSTER2
 	const ROUTE44_COOLTRAINER_M
 	const ROUTE44_COOLTRAINER_F
-	const ROUTE44_FRUIT_TREE
+	const ROUTE44_BERRY
+	const ROUTE44_APRICORN
 	const ROUTE44_POKE_BALL1
 	const ROUTE44_POKE_BALL2
 	const ROUTE44_POKE_BALL3
@@ -15,18 +16,33 @@ Route44_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, Route44Fruittrees
+
+Route44Fruittrees:
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE44_BERRY
+	iftrue .NoBerry
+	appear ROUTE44_BERRY
+.NoBerry:
+	;fallthrough
+
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE44_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE44_APRICORN
+.NoApricorn:
+	endcallback
 
 TrainerBirdKeeperVance1:
 	trainer BIRD_KEEPER, VANCE1, EVENT_BEAT_BIRD_KEEPER_VANCE, BirdKeeperVance1SeenText, BirdKeeperVance1BeatenText, 0, .Script
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_BIRDKEEPER_VANCE
-	endifjustbattled
 	opentext
-	checkflag ENGINE_VANCE_READY_FOR_REMATCH
+	checkflag ENGINE_VANCE
 	iftrue .WantsBattle
 	checkcellnum PHONE_BIRDKEEPER_VANCE
-	iftrue Route44NumberAcceptedM
+	iftrue .VanceDefeated
 	checkevent EVENT_VANCE_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext BirdKeeperVanceLegendaryBirdsText
@@ -48,37 +64,28 @@ TrainerBirdKeeperVance1:
 .WantsBattle:
 	scall Route44RematchM
 	winlosstext BirdKeeperVance1BeatenText, 0
-	readmem wVanceFightCount
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight2:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight2
-.Fight1:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer BIRD_KEEPER, VANCE1
 	startbattle
 	reloadmapafterbattle
-	loadmem wVanceFightCount, 1
-	clearflag ENGINE_VANCE_READY_FOR_REMATCH
+	clearflag ENGINE_VANCE
 	end
 
 .LoadFight1:
 	loadtrainer BIRD_KEEPER, VANCE2
 	startbattle
 	reloadmapafterbattle
-	loadmem wVanceFightCount, 2
-	clearflag ENGINE_VANCE_READY_FOR_REMATCH
+	clearflag ENGINE_VANCE
 	end
 
 .LoadFight2:
 	loadtrainer BIRD_KEEPER, VANCE3
 	startbattle
 	reloadmapafterbattle
-	clearflag ENGINE_VANCE_READY_FOR_REMATCH
+	clearflag ENGINE_VANCE
 	checkevent EVENT_VANCE_CARBOS
 	iftrue .Carbos
 	checkevent EVENT_GOT_CARBOS_FROM_VANCE
@@ -102,28 +109,34 @@ TrainerBirdKeeperVance1:
 	setevent EVENT_GOT_CARBOS_FROM_VANCE
 	sjump Route44NumberAcceptedM
 
+.VanceDefeated:
+	writetext BirdKeeperVanceLegendaryBirdsText
+	promptbutton
+	closetext
+	end
+
 Route44AskNumber1M:
-	jumpstd AskNumber1MScript
+	jumpstd asknumber1m
 	end
 
 Route44AskNumber2M:
-	jumpstd AskNumber2MScript
+	jumpstd asknumber2m
 	end
 
 Route44RegisteredNumberM:
-	jumpstd RegisteredNumberMScript
+	jumpstd registerednumberm
 	end
 
 Route44NumberAcceptedM:
-	jumpstd NumberAcceptedMScript
+	jumpstd numberacceptedm
 	end
 
 Route44NumberDeclinedM:
-	jumpstd NumberDeclinedMScript
+	jumpstd numberdeclinedm
 	end
 
 Route44PhoneFullM:
-	jumpstd PhoneFullMScript
+	jumpstd phonefullm
 	end
 
 Route44RematchM:
@@ -135,16 +148,16 @@ Route44GiftM:
 	end
 
 Route44PackFullM:
-	jumpstd PackFullMScript
+	jumpstd packfullm
 	end
 
 VancePackFull:
 	setevent EVENT_VANCE_CARBOS
-	jumpstd PackFullMScript
+	jumpstd packfullm
 	end
 
 Route44RematchGiftM:
-	jumpstd RematchGiftMScript
+	jumpstd rematchgiftm
 	end
 
 TrainerPsychicPhil:
@@ -163,14 +176,13 @@ TrainerFisherWilton1:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_FISHER_WILTON
-	endifjustbattled
 	opentext
 	checkflag ENGINE_WILTON_READY_FOR_REMATCH
 	iftrue .WantsBattle
-	checkflag ENGINE_WILTON_HAS_ITEM
+	checkflag ENGINE_WILTON_HAS_BALL_ITEM
 	iftrue .HasItem
 	checkcellnum PHONE_FISHER_WILTON
-	iftrue Route44NumberAcceptedM
+	iftrue .WiltonDefeated
 	checkevent EVENT_WILTON_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext FisherWiltonHugePoliwagText
@@ -192,21 +204,13 @@ TrainerFisherWilton1:
 .WantsBattle:
 	scall Route44RematchM
 	winlosstext FisherWilton1BeatenText, 0
-	readmem wWiltonFightCount
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight2:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight2
-.Fight1:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer FISHER, WILTON1
 	startbattle
 	reloadmapafterbattle
-	loadmem wWiltonFightCount, 1
 	clearflag ENGINE_WILTON_READY_FOR_REMATCH
 	end
 
@@ -214,7 +218,6 @@ TrainerFisherWilton1:
 	loadtrainer FISHER, WILTON2
 	startbattle
 	reloadmapafterbattle
-	loadmem wWiltonFightCount, 2
 	clearflag ENGINE_WILTON_READY_FOR_REMATCH
 	end
 
@@ -227,31 +230,39 @@ TrainerFisherWilton1:
 
 .HasItem:
 	scall Route44GiftM
-	checkevent EVENT_WILTON_HAS_ULTRA_BALL
-	iftrue .UltraBall
-	checkevent EVENT_WILTON_HAS_GREAT_BALL
-	iftrue .GreatBall
-	checkevent EVENT_WILTON_HAS_POKE_BALL
-	iftrue .PokeBall
-.UltraBall:
-	verbosegiveitem ULTRA_BALL
+	random 3
+	ifequal 0, .pokeball
+	ifequal 1, .greatball
+	ifequal 2, .ultraball
+
+.pokeball:
+	verbosegiveitem POKE_BALL
 	iffalse .Route44PackFullM
 	sjump .ItemReceived
 
-.GreatBall:
+.greatball:
 	verbosegiveitem GREAT_BALL
 	iffalse .Route44PackFullM
 	sjump .ItemReceived
 
-.PokeBall:
-	verbosegiveitem POKE_BALL
+.ultraball:
+	verbosegiveitem ULTRA_BALL
 	iffalse .Route44PackFullM
+	sjump .ItemReceived
+
 .ItemReceived:
-	clearflag ENGINE_WILTON_HAS_ITEM
+	clearflag ENGINE_WILTON_HAS_BALL_ITEM
+	setflag ENGINE_WILTON_GAVE_BALL_ITEM
 	sjump Route44NumberAcceptedM
 
 .Route44PackFullM:
 	sjump Route44PackFullM
+	
+.WiltonDefeated:
+	writetext FisherWiltonHugePoliwagText
+	promptbutton
+	closetext
+	end
 
 TrainerFisherEdgar:
 	trainer FISHER, EDGAR, EVENT_BEAT_FISHER_EDGAR, FisherEdgarSeenText, FisherEdgarBeatenText, 0, .Script
@@ -303,8 +314,51 @@ Route44Sign1:
 Route44Sign2:
 	jumptext Route44Sign2Text
 
-Route44FruitTree:
-	fruittree FRUITTREE_ROUTE_44
+Route44BerryTree:
+	opentext
+	writetext Route44BerryTreeText
+	promptbutton
+	writetext Route44HeyItsBerryText
+	promptbutton
+	verbosegiveitem ASPEAR_BERRY
+	iffalse .NoRoomInBag
+	disappear ROUTE44_BERRY
+	setflag ENGINE_DAILY_ROUTE44_BERRY
+.NoRoomInBag
+	closetext
+	end
+
+Route44ApricornTree:
+	opentext
+	writetext Route44ApricornTreeText
+	promptbutton
+	writetext Route44HeyItsApricornText
+	promptbutton
+	verbosegiveitem RED_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE44_APRICORN
+	setflag ENGINE_DAILY_ROUTE44_APRICORN
+.NoRoomInBag
+	closetext
+	end
+
+Route44NoBerry:
+	opentext
+	writetext Route44BerryTreeText
+	promptbutton
+	writetext Route44NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route44NoApricorn:
+	opentext
+	writetext Route44ApricornTreeText
+	promptbutton
+	writetext Route44NothingHereText
+	waitbutton
+	closetext
+	end
 
 Route44MaxRevive:
 	itemball MAX_REVIVE
@@ -504,6 +558,31 @@ Route44Sign2Text:
 	line "BLACKTHORN CITY"
 	done
 
+Route44BerryTreeText:
+	text "It's a"
+	line "BERRY tree…"
+	done
+
+Route44HeyItsBerryText:
+	text "Hey! It's"
+	line "ASPEAR BERRY!"
+	done
+
+Route44ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree…"
+	done
+
+Route44HeyItsApricornText:
+	text "Hey! It's"
+	line "RED APRICORN!"
+	done
+
+Route44NothingHereText:
+	text "There's nothing"
+	line "here…"
+	done
+
 Route44_MapEvents:
 	db 0, 0 ; filler
 
@@ -516,6 +595,8 @@ Route44_MapEvents:
 	bg_event 53,  7, BGEVENT_READ, Route44Sign1
 	bg_event  6, 10, BGEVENT_READ, Route44Sign2
 	bg_event 32,  9, BGEVENT_ITEM, Route44HiddenElixer
+	bg_event 15,  3, BGEVENT_READ, Route44NoBerry
+	bg_event  9,  5, BGEVENT_READ, Route44NoApricorn
 
 	def_object_events
 	object_event 35,  3, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherWilton1, -1
@@ -525,7 +606,8 @@ Route44_MapEvents:
 	object_event 51,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdKeeperVance1, -1
 	object_event 41, 15, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerCooltrainermAllen, -1
 	object_event 31, 14, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerCooltrainerfCybil, -1
-	object_event  9,  5, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route44FruitTree, -1
+	object_event 15,  3, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, Route44BerryTree, EVENT_ROUTE44_BERRY
+	object_event  9,  5, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route44ApricornTree, EVENT_ROUTE44_APRICORN
 	object_event 30,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route44MaxRevive, EVENT_ROUTE_44_MAX_REVIVE
 	object_event 45,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route44UltraBall, EVENT_ROUTE_44_ULTRA_BALL
 	object_event 14,  9, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route44MaxRepel, EVENT_ROUTE_44_MAX_REPEL

@@ -6,8 +6,10 @@
 	const ROUTE30_YOUNGSTER4
 	const ROUTE30_MONSTER1
 	const ROUTE30_MONSTER2
-	const ROUTE30_FRUIT_TREE1
-	const ROUTE30_FRUIT_TREE2
+	const ROUTE30_BERRY
+	const ROUTE30_BERRY2
+	const ROUTE30_APRICORN
+	const ROUTE30_APRICORN2
 	const ROUTE30_COOLTRAINER_F
 	const ROUTE30_POKE_BALL
 
@@ -15,6 +17,36 @@ Route30_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, Route30Fruittrees
+
+Route30Fruittrees:
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE30_BERRY
+	iftrue .NoBerry
+	appear ROUTE30_BERRY
+.NoBerry:
+	;fallthrough
+
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE30_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE30_APRICORN
+.NoApricorn:
+	;fallthrough
+
+.Berry2:
+	checkflag ENGINE_DAILY_ROUTE30_BERRY2
+	iftrue .NoBerry2
+	appear ROUTE30_BERRY2
+.NoBerry2:
+	;fallthrough
+
+.Apricorn2:
+	checkflag ENGINE_DAILY_ROUTE30_APRICORN2
+	iftrue .NoApricorn2
+	appear ROUTE30_APRICORN2
+.NoApricorn2:
+	endcallback
 
 YoungsterJoey_ImportantBattleScript:
 	waitsfx
@@ -41,12 +73,11 @@ TrainerYoungsterJoey:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_YOUNGSTER_JOEY
-	endifjustbattled
 	opentext
 	checkflag ENGINE_JOEY_READY_FOR_REMATCH
 	iftrue .Rematch
 	checkcellnum PHONE_YOUNGSTER_JOEY
-	iftrue .NumberAccepted
+	iftrue .JoeyDefeated
 	checkevent EVENT_JOEY_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskAgain
 	writetext YoungsterJoey1AfterText
@@ -68,29 +99,17 @@ TrainerYoungsterJoey:
 .Rematch:
 	scall .RematchStd
 	winlosstext YoungsterJoey1BeatenText, 0
-	readmem wJoeyFightCount
-	ifequal 4, .Fight4
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight4:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight4
-.Fight3:
 	checkevent EVENT_CLEARED_RADIO_TOWER
 	iftrue .LoadFight3
-.Fight2:
 	checkflag ENGINE_FLYPOINT_OLIVINE
 	iftrue .LoadFight2
-.Fight1:
 	checkflag ENGINE_FLYPOINT_GOLDENROD
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer YOUNGSTER, JOEY1
 	startbattle
 	reloadmapafterbattle
-	loadmem wJoeyFightCount, 1
 	clearflag ENGINE_JOEY_READY_FOR_REMATCH
 	end
 
@@ -98,7 +117,6 @@ TrainerYoungsterJoey:
 	loadtrainer YOUNGSTER, JOEY2
 	startbattle
 	reloadmapafterbattle
-	loadmem wJoeyFightCount, 2
 	clearflag ENGINE_JOEY_READY_FOR_REMATCH
 	end
 
@@ -106,7 +124,6 @@ TrainerYoungsterJoey:
 	loadtrainer YOUNGSTER, JOEY3
 	startbattle
 	reloadmapafterbattle
-	loadmem wJoeyFightCount, 3
 	clearflag ENGINE_JOEY_READY_FOR_REMATCH
 	end
 
@@ -114,7 +131,6 @@ TrainerYoungsterJoey:
 	loadtrainer YOUNGSTER, JOEY4
 	startbattle
 	reloadmapafterbattle
-	loadmem wJoeyFightCount, 4
 	clearflag ENGINE_JOEY_READY_FOR_REMATCH
 	end
 
@@ -147,27 +163,27 @@ TrainerYoungsterJoey:
 	sjump .NumberAccepted
 
 .AskNumber1:
-	jumpstd AskNumber1MScript
+	jumpstd asknumber1m
 	end
 
 .AskNumber2:
-	jumpstd AskNumber2MScript
+	jumpstd asknumber2m
 	end
 
 .RegisteredNumber:
-	jumpstd RegisteredNumberMScript
+	jumpstd registerednumberm
 	end
 
 .NumberAccepted:
-	jumpstd NumberAcceptedMScript
+	jumpstd numberacceptedm
 	end
 
 .NumberDeclined:
-	jumpstd NumberDeclinedMScript
+	jumpstd numberdeclinedm
 	end
 
 .PhoneFull:
-	jumpstd PhoneFullMScript
+	jumpstd phonefullm
 	end
 
 .RematchStd:
@@ -176,11 +192,17 @@ TrainerYoungsterJoey:
 
 .PackFull:
 	setevent EVENT_JOEY_HP_UP
-	jumpstd PackFullMScript
+	jumpstd packfullm
 	end
 
 .RematchGift:
-	jumpstd RematchGiftMScript
+	jumpstd rematchgiftm
+	end
+
+.JoeyDefeated:
+	writetext YoungsterJoey1AfterText
+	promptbutton
+	closetext
 	end
 
 TrainerYoungsterMikey:
@@ -239,11 +261,79 @@ Route30TrainerTips:
 Route30Antidote:
 	itemball ANTIDOTE
 
-Route30FruitTree1:
-	fruittree FRUITTREE_ROUTE_30_1
+Route30BerryTree:
+	opentext
+	writetext Route30BerryTreeText
+	promptbutton
+	writetext Route30HeyItsBerryText
+	promptbutton
+	verbosegiveitem ORAN_BERRY
+	iffalse .NoRoomInBag
+	disappear ROUTE30_BERRY
+	setflag ENGINE_DAILY_ROUTE30_BERRY
+.NoRoomInBag
+	closetext
+	end
 
-Route30FruitTree2:
-	fruittree FRUITTREE_ROUTE_30_2
+Route30BerryTree2:
+	opentext
+	writetext Route30BerryTreeText
+	promptbutton
+	writetext Route30HeyItsBerry2Text
+	promptbutton
+	verbosegiveitem PECHA_BERRY
+	iffalse .NoRoomInBag
+	disappear ROUTE30_BERRY2
+	setflag ENGINE_DAILY_ROUTE30_BERRY2
+.NoRoomInBag
+	closetext
+	end
+
+Route30ApricornTree:
+	opentext
+	writetext Route30ApricornTreeText
+	promptbutton
+	writetext Route30HeyItsApricornText
+	promptbutton
+	verbosegiveitem GRN_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE30_APRICORN
+	setflag ENGINE_DAILY_ROUTE30_APRICORN
+.NoRoomInBag
+	closetext
+	end
+
+Route30ApricornTree2:
+	opentext
+	writetext Route30ApricornTreeText
+	promptbutton
+	writetext Route30HeyItsApricorn2Text
+	promptbutton
+	verbosegiveitem PNK_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE30_APRICORN2
+	setflag ENGINE_DAILY_ROUTE30_APRICORN2
+.NoRoomInBag
+	closetext
+	end
+
+Route30NoBerry:
+	opentext
+	writetext Route30BerryTreeText
+	promptbutton
+	writetext Route30NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route30NoApricorn:
+	opentext
+	writetext Route30ApricornTreeText
+	promptbutton
+	writetext Route30NothingHereText
+	waitbutton
+	closetext
+	end
 
 Route30HiddenPotion:
 	hiddenitem POTION, EVENT_ROUTE_30_HIDDEN_POTION
@@ -404,6 +494,41 @@ YoungsterJoeyText_GiveHPUpAfterBattle:
 	line "tougher too."
 	done
 
+Route30BerryTreeText:
+	text "It's a"
+	line "BERRY tree…"
+	done
+
+Route30HeyItsBerryText:
+	text "Hey! It's"
+	line "ORAN BERRY!"
+	done
+
+Route30HeyItsBerry2Text:
+	text "Hey! It's"
+	line "PECHA BERRY!"
+	done
+
+Route30ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree…"
+	done
+
+Route30HeyItsApricornText:
+	text "Hey! It's"
+	line "GRN APRICORN!"
+	done
+
+Route30HeyItsApricorn2Text:
+	text "Hey! It's"
+	line "PNK APRICORN!"
+	done
+
+Route30NothingHereText:
+	text "There's nothing"
+	line "here…"
+	done
+
 Route30_MapEvents:
 	db 0, 0 ; filler
 
@@ -419,6 +544,10 @@ Route30_MapEvents:
 	bg_event 15,  5, BGEVENT_READ, MrPokemonsHouseSign
 	bg_event  3, 21, BGEVENT_READ, Route30TrainerTips
 	bg_event 14,  9, BGEVENT_ITEM, Route30HiddenPotion
+	bg_event 12,  7, BGEVENT_READ, Route30NoBerry
+	bg_event  4, 39, BGEVENT_READ, Route30NoBerry
+	bg_event  5, 39, BGEVENT_READ, Route30NoApricorn
+	bg_event 11,  5, BGEVENT_READ, Route30NoApricorn
 
 	def_object_events
 	object_event  5, 26, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, YoungsterJoey_ImportantBattleScript, EVENT_ROUTE_30_BATTLE
@@ -426,9 +555,11 @@ Route30_MapEvents:
 	object_event  5, 23, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerYoungsterMikey, -1
 	object_event  1,  7, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherDon, -1
 	object_event  7, 30, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route30YoungsterScript, -1
-	object_event  5, 24, SPRITE_MONSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_30_BATTLE
-	object_event  5, 25, SPRITE_MONSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_30_BATTLE
-	object_event  5, 39, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30FruitTree1, -1
-	object_event 11,  5, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30FruitTree2, -1
+	object_event  5, 24, SPRITE_PIDGEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_30_BATTLE
+	object_event  5, 25, SPRITE_RATTATA_UP, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_30_BATTLE
+	object_event  4, 39, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route30BerryTree, EVENT_ROUTE30_BERRY
+	object_event 12,  7, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route30BerryTree2, EVENT_ROUTE30_BERRY2
+	object_event  5, 39, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route30ApricornTree, EVENT_ROUTE30_APRICORN
+	object_event 11,  5, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route30ApricornTree2, EVENT_ROUTE30_APRICORN2
 	object_event  2, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30CooltrainerFScript, -1
 	object_event  8, 35, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route30Antidote, EVENT_ROUTE_30_ANTIDOTE

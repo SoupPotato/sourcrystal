@@ -36,13 +36,13 @@ Route7_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 15,  6, ROUTE_7_SAFFRON_GATE, 1
-	warp_event 15,  7, ROUTE_7_SAFFRON_GATE, 2
+	warp_event 15,  8, ROUTE_7_SAFFRON_GATE, 1
+	warp_event 15,  9, ROUTE_7_SAFFRON_GATE, 2
 
 	def_coord_events
 
 	def_bg_events
-	bg_event  5, 11, BGEVENT_READ, Route7UndergroundPathSign
-	bg_event  6,  9, BGEVENT_READ, Route7LockedDoor
+	bg_event  9, 13, BGEVENT_READ, Route7UndergroundPathSign
+	bg_event  7, 11, BGEVENT_READ, Route7LockedDoor
 
 	def_object_events

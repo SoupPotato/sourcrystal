@@ -17,11 +17,11 @@ Route22_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 13,  5, VICTORY_ROAD_GATE, 1
+	warp_event 11,  5, VICTORY_ROAD_GATE, 1
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 15,  7, BGEVENT_READ, VictoryRoadEntranceSign
+	bg_event 13,  7, BGEVENT_READ, VictoryRoadEntranceSign
 
 	def_object_events

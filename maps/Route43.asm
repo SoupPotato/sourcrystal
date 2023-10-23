@@ -5,7 +5,8 @@
 	const ROUTE43_FISHER
 	const ROUTE43_LASS
 	const ROUTE43_YOUNGSTER
-	const ROUTE43_FRUIT_TREE
+	const ROUTE43_BERRY
+	const ROUTE43_APRICORN
 	const ROUTE43_POKE_BALL
 
 Route43_MapScripts:
@@ -13,6 +14,7 @@ Route43_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, Route43CheckIfRocketsScene
+	callback MAPCALLBACK_OBJECTS, Route43Fruittrees
 
 Route43CheckIfRocketsScene:
 	checkevent EVENT_CLEARED_ROCKET_HIDEOUT
@@ -22,6 +24,21 @@ Route43CheckIfRocketsScene:
 
 .NoRockets:
 	setmapscene ROUTE_43_GATE, SCENE_ROUTE43GATE_NOOP
+	endcallback
+
+Route43Fruittrees:
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE43_BERRY
+	iftrue .NoBerry
+	appear ROUTE43_BERRY
+.NoBerry:
+	;fallthrough
+
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE43_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE43_APRICORN
+.NoApricorn:
 	endcallback
 
 TrainerCamperSpencer:
@@ -51,12 +68,11 @@ TrainerPokemaniacBrent:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_POKEMANIAC_BRENT
-	endifjustbattled
 	opentext
 	checkflag ENGINE_BRENT_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	checkcellnum PHONE_POKEMANIAC_BRENT
-	iftrue .NumberAccepted
+	iftrue .BrentDefeated
 	checkevent EVENT_BRENT_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext PokemaniacBrentAfterBattleText
@@ -78,25 +94,15 @@ TrainerPokemaniacBrent:
 .WantsBattle:
 	scall .Rematch
 	winlosstext PokemaniacBrentBeatenText, 0
-	readmem wBrentFightCount
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight3:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight3
-.Fight2:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight2
-.Fight1:
 	checkevent EVENT_CLEARED_ROCKET_HIDEOUT
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer POKEMANIAC, BRENT1
 	startbattle
 	reloadmapafterbattle
-	loadmem wBrentFightCount, 1
 	clearflag ENGINE_BRENT_READY_FOR_REMATCH
 	end
 
@@ -104,7 +110,6 @@ TrainerPokemaniacBrent:
 	loadtrainer POKEMANIAC, BRENT2
 	startbattle
 	reloadmapafterbattle
-	loadmem wBrentFightCount, 2
 	clearflag ENGINE_BRENT_READY_FOR_REMATCH
 	end
 
@@ -112,7 +117,6 @@ TrainerPokemaniacBrent:
 	loadtrainer POKEMANIAC, BRENT3
 	startbattle
 	reloadmapafterbattle
-	loadmem wBrentFightCount, 3
 	clearflag ENGINE_BRENT_READY_FOR_REMATCH
 	end
 
@@ -124,31 +128,37 @@ TrainerPokemaniacBrent:
 	end
 
 .AskNumber1:
-	jumpstd AskNumber1MScript
+	jumpstd asknumber1m
 	end
 
 .AskNumber2:
-	jumpstd AskNumber2MScript
+	jumpstd asknumber2m
 	end
 
 .RegisteredNumber:
-	jumpstd RegisteredNumberMScript
+	jumpstd registerednumberm
 	end
 
 .NumberAccepted:
-	jumpstd NumberAcceptedMScript
+	jumpstd numberacceptedm
 	end
 
 .NumberDeclined:
-	jumpstd NumberDeclinedMScript
+	jumpstd numberdeclinedm
 	end
 
 .PhoneFull:
-	jumpstd PhoneFullMScript
+	jumpstd phonefullm
 	end
 
 .Rematch:
 	jumpstd RematchMScript
+	end
+
+.BrentDefeated:
+	writetext PokemaniacBrentAfterBattleText
+	promptbutton
+	closetext
 	end
 
 TrainerPokemaniacRon:
@@ -178,16 +188,13 @@ TrainerPicnickerTiffany:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_PICNICKER_TIFFANY
-	endifjustbattled
 	opentext
 	checkflag ENGINE_TIFFANY_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	checkflag ENGINE_TIFFANY_HAS_SILK_SCARF
 	iftrue .HasPinkBow
 	checkcellnum PHONE_PICNICKER_TIFFANY
-	iftrue .NumberAccepted
-	checkpoke CLEFAIRY
-	iffalse .NoClefairy
+	iftrue .TiffanyDefeated
 	checkevent EVENT_TIFFANY_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext PicnickerTiffanyWantsPicnicText
@@ -209,25 +216,15 @@ TrainerPicnickerTiffany:
 .WantsBattle:
 	scall .Rematch
 	winlosstext PicnickerTiffanyBeatenText, 0
-	readmem wTiffanyFightCount
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight3:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight3
-.Fight2:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight2
-.Fight1:
 	checkevent EVENT_CLEARED_RADIO_TOWER
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer PICNICKER, TIFFANY3
 	startbattle
 	reloadmapafterbattle
-	loadmem wTiffanyFightCount, 1
 	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
 	end
 
@@ -235,7 +232,6 @@ TrainerPicnickerTiffany:
 	loadtrainer PICNICKER, TIFFANY1
 	startbattle
 	reloadmapafterbattle
-	loadmem wTiffanyFightCount, 2
 	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
 	end
 
@@ -243,7 +239,6 @@ TrainerPicnickerTiffany:
 	loadtrainer PICNICKER, TIFFANY2
 	startbattle
 	reloadmapafterbattle
-	loadmem wTiffanyFightCount, 3
 	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
 	end
 
@@ -259,17 +254,11 @@ TrainerPicnickerTiffany:
 	verbosegiveitem SILK_SCARF
 	iffalse .NoRoom
 	clearflag ENGINE_TIFFANY_HAS_SILK_SCARF
-	setevent EVENT_TIFFANY_GAVE_SILK_SCARF
+	setevent ENGINE_TIFFANY_GAVE_SILK_SCARF
 	sjump .NumberAccepted
 
 .NoRoom:
 	sjump .PackFull
-
-.NoClefairy:
-	writetext PicnickerTiffanyClefairyText
-	waitbutton
-	closetext
-	end
 
 .AskNumber1:
 	jumpstd AskNumber1FScript
@@ -296,7 +285,7 @@ TrainerPicnickerTiffany:
 	end
 
 .Rematch:
-	jumpstd RematchFScript
+	jumpstd rematchf
 	end
 
 .Gift:
@@ -305,6 +294,12 @@ TrainerPicnickerTiffany:
 
 .PackFull:
 	jumpstd PackFullFScript
+	end
+
+.TiffanyDefeated:
+	writetext PicnickerTiffanyWantsPicnicText
+	promptbutton
+	closetext
 	end
 
 Route43Sign1:
@@ -316,8 +311,51 @@ Route43Sign2:
 Route43TrainerTips:
 	jumptext Route43TrainerTipsText
 
-Route43FruitTree:
-	fruittree FRUITTREE_ROUTE_43
+Route43BerryTree:
+	opentext
+	writetext Route43BerryTreeText
+	promptbutton
+	writetext Route43HeyItsBerryText
+	promptbutton
+	verbosegiveitem PERSIM_BERRY
+	iffalse .NoRoomInBag
+	disappear ROUTE43_BERRY
+	setflag ENGINE_DAILY_ROUTE43_BERRY
+.NoRoomInBag
+	closetext
+	end
+
+Route43ApricornTree:
+	opentext
+	writetext Route43ApricornTreeText
+	promptbutton
+	writetext Route43HeyItsApricornText
+	promptbutton
+	verbosegiveitem BLK_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE43_APRICORN
+	setflag ENGINE_DAILY_ROUTE43_APRICORN
+.NoRoomInBag
+	closetext
+	end
+
+Route43NoBerry:
+	opentext
+	writetext Route43BerryTreeText
+	promptbutton
+	writetext Route43NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route43NoApricorn:
+	opentext
+	writetext Route43ApricornTreeText
+	promptbutton
+	writetext Route43NothingHereText
+	waitbutton
+	closetext
+	end
 
 Route43MaxEther:
 	itemball MAX_ETHER
@@ -456,12 +494,6 @@ PicnickerTiffanyWantsPicnicText:
 	para "Won't you join us?"
 	done
 
-PicnickerTiffanyClefairyText:
-	text "Isn't my CLEFAIRY"
-	line "just the most"
-	cont "adorable thing?"
-	done
-
 Route43Sign1Text:
 	text "ROUTE 43"
 
@@ -498,6 +530,31 @@ Route43TrainerTipsText:
 	line "#MON's type."
 	done
 
+Route43BerryTreeText:
+	text "It's a"
+	line "BERRY tree…"
+	done
+
+Route43HeyItsBerryText:
+	text "Hey! It's"
+	line "PERSIM BERRY!"
+	done
+
+Route43ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree…"
+	done
+
+Route43HeyItsApricornText:
+	text "Hey! It's"
+	line "BLK APRICORN!"
+	done
+
+Route43NothingHereText:
+	text "There's nothing"
+	line "here…"
+	done
+
 Route43_MapEvents:
 	db 0, 0 ; filler
 
@@ -514,6 +571,8 @@ Route43_MapEvents:
 	bg_event 13,  3, BGEVENT_READ, Route43Sign1
 	bg_event 11, 49, BGEVENT_READ, Route43Sign2
 	bg_event 16, 38, BGEVENT_READ, Route43TrainerTips
+	bg_event  1, 24, BGEVENT_READ, Route43NoBerry
+	bg_event  1, 26, BGEVENT_READ, Route43NoApricorn
 
 	def_object_events
 	object_event 13,  5, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPokemaniacBen, -1
@@ -522,5 +581,6 @@ Route43_MapEvents:
 	object_event  4, 16, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerFisherMarvin, -1
 	object_event  9, 25, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerTiffany, -1
 	object_event 13, 40, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperSpencer, -1
-	object_event  1, 26, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route43FruitTree, -1
+	object_event  1, 24, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route43BerryTree, EVENT_ROUTE43_BERRY
+	object_event  1, 26, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, Route43ApricornTree, EVENT_ROUTE43_APRICORN
 	object_event 12, 32, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route43MaxEther, EVENT_ROUTE_43_MAX_ETHER

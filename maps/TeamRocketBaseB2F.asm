@@ -2,7 +2,7 @@
 	const TEAMROCKETBASEB2F_ROCKET1
 	const TEAMROCKETBASEB2F_ROCKET_GIRL
 	const TEAMROCKETBASEB2F_LANCE
-	const TEAMROCKETBASEB2F_DRAGON
+	const TEAMROCKETBASEB2F_DRAGONITE
 	const TEAMROCKETBASEB2F_ELECTRODE1
 	const TEAMROCKETBASEB2F_ELECTRODE2
 	const TEAMROCKETBASEB2F_ELECTRODE3
@@ -52,7 +52,7 @@ RocketBaseBossFLeft:
 RocketBaseBossFRight:
 	moveobject TEAMROCKETBASEB2F_ROCKET_GIRL, 21, 16
 	moveobject TEAMROCKETBASEB2F_ROCKET1, 21, 16
-	moveobject TEAMROCKETBASEB2F_DRAGON, 10, 13
+	moveobject TEAMROCKETBASEB2F_DRAGONITE, 10, 13
 	moveobject TEAMROCKETBASEB2F_LANCE, 10, 13
 RocketBaseBossFScript:
 	appear TEAMROCKETBASEB2F_ROCKET_GIRL
@@ -75,8 +75,8 @@ RocketBaseBossFScript:
 	cry DRAGONITE
 	turnobject TEAMROCKETBASEB2F_ROCKET_GIRL, LEFT
 	turnobject PLAYER, LEFT
-	appear TEAMROCKETBASEB2F_DRAGON
-	applymovement TEAMROCKETBASEB2F_DRAGON, RocketBaseDragoniteAttacksMovement
+	appear TEAMROCKETBASEB2F_DRAGONITE
+	applymovement TEAMROCKETBASEB2F_DRAGONITE, RocketBaseDragoniteAttacksMovement
 	applymovement TEAMROCKETBASEB2F_ROCKET_GIRL, RocketBaseBossFHitMovement
 	applymovement TEAMROCKETBASEB2F_ROCKET1, RocketBaseGruntProtectsBossFMovement
 	appear TEAMROCKETBASEB2F_LANCE
@@ -97,7 +97,7 @@ RocketBaseBossFScript:
 	setlasttalked TEAMROCKETBASEB2F_ROCKET_GIRL
 	loadtrainer EXECUTIVEF, EXECUTIVEF_2
 	startbattle
-	disappear TEAMROCKETBASEB2F_DRAGON
+	disappear TEAMROCKETBASEB2F_DRAGONITE
 	setevent EVENT_TEAM_ROCKET_BASE_B2F_EXECUTIVE
 	setevent EVENT_TEAM_ROCKET_BASE_B2F_GRUNT_WITH_EXECUTIVE
 	setevent EVENT_TEAM_ROCKET_BASE_B2F_LANCE
@@ -285,9 +285,16 @@ RocketBaseElectrodeScript:
 	opentext
 	writetext RocketBaseLanceElectrodeDoneText
 	promptbutton
+	stringtotext .pagercardname, MEM_BUFFER_1
+	scall .JumpstdReceiveItem
+	setflag ENGINE_PAGER_WHIRLPOOL
+	writetext GotWhirlpoolPagerText
+	promptbutton
+	writetext RocketBaseLanceWhirlpoolPagerText
+	promptbutton
 	verbosegiveitem HM_WHIRLPOOL
 	setevent EVENT_GOT_HM06_WHIRLPOOL
-	writetext RocketBaseLanceWhirlpoolText
+	writetext RocketBaseLanceTeachesWhirlpoolText
 	waitbutton
 	closetext
 	turnobject TEAMROCKETBASEB2F_LANCE, DOWN
@@ -311,6 +318,18 @@ RocketBaseElectrodeScript:
 	setevent EVENT_SECURITY_CAMERA_4
 	setevent EVENT_SECURITY_CAMERA_5
 	end
+
+.JumpstdReceiveItem:
+	jumpstd receiveitem
+	end
+
+.pagercardname
+	db "WRLPOOLPAGER@"
+
+GotWhirlpoolPagerText:
+	text "REMORAID WHIRL was"
+	line "added to the PPS!"
+	done
 
 TeamRocketBaseB2FLockedDoor:
 	conditional_event EVENT_OPENED_DOOR_TO_ROCKET_HIDEOUT_TRANSMITTER, .Script
@@ -724,33 +743,39 @@ RocketBaseLanceElectrodeDoneText:
 	line "the #MON."
 
 	para "Oh, yes. You"
-	line "should take this."
+	line "should take these."
 
-	para "I found it here,"
+	para "I found them here,"
 	line "but I don't have"
-	cont "any need for it."
+	cont "any need for them."
 	done
 
-RocketBaseReceivedHM06Text: ; unreferenced
-	text "<PLAYER> received"
-	line "HM06."
+RocketBaseLanceTeachesWhirlpoolText:
+	text "That HM teaches"
+	line "WHIRLPOOL."
+
+	para "It's a move that"
+	line "traps the foe"
+	para "in a raging"
+	line "WHIRLPOOL."
 	done
 
-RocketBaseLanceWhirlpoolText:
-	text "That's WHIRLPOOL."
-	line "Teach it to a"
+RocketBaseLanceWhirlpoolPagerText:
+	text "That's a"
+	line "WRLPOOLPAGER."
 
-	para "#MON to get"
-	line "across wild water."
+	para "It summons a"
+	line "#MON to get"
+	cont "across wild water."
 
 	para "But keep this in"
 	line "mind."
 
-	para "You can use that"
-	line "out of battle only"
+	para "You can only use"
+	line "that with the"
 
-	para "with the BADGE"
-	line "from MAHOGANY GYM."
+	para "BADGE from"
+	line "MAHOGANY GYM."
 	done
 
 RocketBaseLanceMonMasterText:
@@ -917,8 +942,8 @@ TeamRocketBaseB2F_MapEvents:
 	warp_event 27, 14, TEAM_ROCKET_BASE_B3F, 4
 
 	def_coord_events
-	coord_event  5, 14, SCENE_TEAMROCKETBASEB2F_LANCE_HEALS, LanceHealsScript1
-	coord_event  4, 13, SCENE_TEAMROCKETBASEB2F_LANCE_HEALS, LanceHealsScript2
+	coord_event  5, 14, SCENE_DEFAULT, LanceHealsScript1
+	coord_event  4, 13, SCENE_DEFAULT, LanceHealsScript2
 	coord_event 14, 11, SCENE_TEAMROCKETBASEB2F_ROCKET_BOSS, RocketBaseBossFLeft
 	coord_event 15, 11, SCENE_TEAMROCKETBASEB2F_ROCKET_BOSS, RocketBaseBossFRight
 	coord_event 14, 12, SCENE_TEAMROCKETBASEB2F_ELECTRODES, RocketBaseCantLeaveScript
@@ -956,13 +981,13 @@ TeamRocketBaseB2F_MapEvents:
 	object_event 20, 16, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_GRUNT_WITH_EXECUTIVE
 	object_event 20, 16, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_EXECUTIVE
 	object_event  5, 13, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_LANCE
-	object_event  9, 13, SPRITE_DRAGONITE_MOVE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_DRAGONITE
-	object_event  7,  5, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode1, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
-	object_event  7,  7, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode2, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_2
-	object_event  7,  9, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode3, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_3
-	object_event 22,  5, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
-	object_event 22,  7, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_2
-	object_event 22,  9, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_3
+	object_event  9, 13, SPRITE_DRAGONITE_MOVE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_DRAGONITE
+	object_event  7,  5, SPRITE_ELECTRODE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode1, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
+	object_event  7,  7, SPRITE_ELECTRODE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode2, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_2
+	object_event  7,  9, SPRITE_ELECTRODE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode3, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_3
+	object_event 22,  5, SPRITE_ELECTRODE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
+	object_event 22,  7, SPRITE_ELECTRODE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_2
+	object_event 22,  9, SPRITE_ELECTRODE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_3
 	object_event 25, 13, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM17, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event  4,  1, SPRITE_ROCKET, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerGruntM18, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event 21, 14, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 4, TrainerGruntM19, EVENT_TEAM_ROCKET_BASE_POPULATION

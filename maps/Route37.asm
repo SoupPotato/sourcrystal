@@ -2,18 +2,40 @@
 	const ROUTE37_TWIN1
 	const ROUTE37_TWIN2
 	const ROUTE37_YOUNGSTER
-	const ROUTE37_FRUIT_TREE1
+	const ROUTE37_APRICORN
 	const ROUTE37_SUNNY
-	const ROUTE37_FRUIT_TREE2
-	const ROUTE37_FRUIT_TREE3
+	const ROUTE37_APRICORN2
+	const ROUTE37_APRICORN3
 
 Route37_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, Route37SunnyCallback
+	callback MAPCALLBACK_OBJECTS, Route37FruittreesandSunny
 
-Route37SunnyCallback:
+Route37FruittreesandSunny:
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE37_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE37_APRICORN
+.NoApricorn:
+	;fallthrough
+
+.Apricorn2:
+	checkflag ENGINE_DAILY_ROUTE37_APRICORN2
+	iftrue .NoApricorn2
+	appear ROUTE37_APRICORN2
+.NoApricorn2:
+	;fallthrough
+
+.Apricorn3:
+	checkflag ENGINE_DAILY_ROUTE37_APRICORN3
+	iftrue .NoApricorn3
+	appear ROUTE37_APRICORN3
+.NoApricorn3:
+	;fallthrough
+
+.Sunny:
 	readvar VAR_WEEKDAY
 	ifequal SUNDAY, .SunnyAppears
 	disappear ROUTE37_SUNNY
@@ -102,14 +124,56 @@ SunnyNotSundayScript:
 Route37Sign:
 	jumptext Route37SignText
 
-Route37FruitTree1:
-	fruittree FRUITTREE_ROUTE_37_1
+Route37ApricornTree:
+	opentext
+	writetext Route37ApricornTreeText
+	promptbutton
+	writetext Route37HeyItsApricornText
+	promptbutton
+	verbosegiveitem RED_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE37_APRICORN
+	setflag ENGINE_DAILY_ROUTE37_APRICORN
+.NoRoomInBag
+	closetext
+	end
 
-Route37FruitTree2:
-	fruittree FRUITTREE_ROUTE_37_2
+Route37ApricornTree2:
+	opentext
+	writetext Route37ApricornTreeText
+	promptbutton
+	writetext Route37HeyItsApricorn2Text
+	promptbutton
+	verbosegiveitem BLU_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE37_APRICORN2
+	setflag ENGINE_DAILY_ROUTE37_APRICORN2
+.NoRoomInBag
+	closetext
+	end
 
-Route37FruitTree3:
-	fruittree FRUITTREE_ROUTE_37_3
+Route37ApricornTree3:
+	opentext
+	writetext Route37ApricornTreeText
+	promptbutton
+	writetext Route37HeyItsApricorn3Text
+	promptbutton
+	verbosegiveitem BLK_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE37_APRICORN3
+	setflag ENGINE_DAILY_ROUTE37_APRICORN3
+.NoRoomInBag
+	closetext
+	end
+
+Route37NoApricorn:
+	opentext
+	writetext Route37ApricornTreeText
+	promptbutton
+	writetext Route37NothingHereText
+	waitbutton
+	closetext
+	end
 
 Route37HiddenEther:
 	hiddenitem ETHER, EVENT_ROUTE_37_HIDDEN_ETHER
@@ -235,6 +299,36 @@ Route37SignText:
 	text "ROUTE 37"
 	done
 
+Route37BerryTreeText:
+	text "It's a"
+	line "BERRY tree…"
+	done
+
+Route37ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree…"
+	done
+
+Route37HeyItsApricornText:
+	text "Hey! It's"
+	line "RED APRICORN!"
+	done
+
+Route37HeyItsApricorn2Text:
+	text "Hey! It's"
+	line "BLU APRICORN!"
+	done
+
+Route37HeyItsApricorn3Text:
+	text "Hey! It's"
+	line "BLK APRICORN!"
+	done
+
+Route37NothingHereText:
+	text "There's nothing"
+	line "here…"
+	done
+
 Route37_MapEvents:
 	db 0, 0 ; filler
 
@@ -245,12 +339,15 @@ Route37_MapEvents:
 	def_bg_events
 	bg_event  5,  3, BGEVENT_READ, Route37Sign
 	bg_event  4,  2, BGEVENT_ITEM, Route37HiddenEther
+	bg_event 13,  5, BGEVENT_READ, Route37NoApricorn
+	bg_event 16,  5, BGEVENT_READ, Route37NoApricorn
+	bg_event 15,  7, BGEVENT_READ, Route37NoApricorn
 
 	def_object_events
-	object_event  6, 12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAnnandanne1, -1
-	object_event  7, 12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAnnandanne2, -1
+	object_event  6, 12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 1, TrainerTwinsAnnandanne1, -1
+	object_event  7, 12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 1, TrainerTwinsAnnandanne2, -1
 	object_event  6,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPsychicGreg, -1
-	object_event 13,  5, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route37FruitTree1, -1
+	object_event 13,  5, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route37ApricornTree, EVENT_ROUTE37_APRICORN
 	object_event 16,  8, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SunnyScript, EVENT_ROUTE_37_SUNNY_OF_SUNDAY
-	object_event 16,  5, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route37FruitTree2, -1
-	object_event 15,  7, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route37FruitTree3, -1
+	object_event 16,  5, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route37ApricornTree2, EVENT_ROUTE37_APRICORN2
+	object_event 15,  7, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, Route37ApricornTree3, EVENT_ROUTE37_APRICORN3

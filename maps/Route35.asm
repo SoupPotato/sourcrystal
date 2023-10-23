@@ -8,13 +8,30 @@
 	const ROUTE35_BUG_CATCHER
 	const ROUTE35_SUPER_NERD
 	const ROUTE35_OFFICER
-	const ROUTE35_FRUIT_TREE
+	const ROUTE35_BERRY
+	const ROUTE35_APRICORN
 	const ROUTE35_POKE_BALL
 
 Route35_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, Route35Fruittrees
+
+Route35Fruittrees:
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE35_BERRY
+	iftrue .NoBerry
+	appear ROUTE35_BERRY
+.NoBerry:
+	;fallthrough
+
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE35_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE35_APRICORN
+.NoApricorn:
+	endcallback
 
 TrainerBirdKeeperBryan:
 	trainer BIRD_KEEPER, BRYAN, EVENT_BEAT_BIRD_KEEPER_BRYAN, BirdKeeperBryanSeenText, BirdKeeperBryanBeatenText, 0, .Script
@@ -32,17 +49,16 @@ TrainerJugglerIrwin:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_JUGGLER_IRWIN
-	endifjustbattled
 	opentext
 	checkcellnum PHONE_JUGGLER_IRWIN
-	iftrue Route35NumberAcceptedM
+	iftrue .IrwinDefeated
 	checkevent EVENT_IRWIN_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext JugglerIrwinAfterBattleText
 	promptbutton
 	setevent EVENT_IRWIN_ASKED_FOR_PHONE_NUMBER
 	scall Route35AskNumber1M
-	sjump .AskForNumber
+	jump .AskForNumber
 
 .AskedAlready:
 	scall Route35AskNumber2M
@@ -52,30 +68,36 @@ TrainerJugglerIrwin:
 	ifequal PHONE_CONTACT_REFUSED, Route35NumberDeclinedM
 	gettrainername STRING_BUFFER_3, JUGGLER, IRWIN1
 	scall Route35RegisteredNumberM
-	sjump Route35NumberAcceptedM
+	jump Route35NumberAcceptedM
+
+.IrwinDefeated:
+	writetext JugglerIrwinAfterBattleText
+	promptbutton
+	closetext
+	end
 
 Route35AskNumber1M:
-	jumpstd AskNumber1MScript
+	jumpstd asknumber1m
 	end
 
 Route35AskNumber2M:
-	jumpstd AskNumber2MScript
+	jumpstd asknumber2m
 	end
 
 Route35RegisteredNumberM:
-	jumpstd RegisteredNumberMScript
+	jumpstd registerednumberm
 	end
 
 Route35NumberAcceptedM:
-	jumpstd NumberAcceptedMScript
+	jumpstd numberacceptedm
 	end
 
 Route35NumberDeclinedM:
-	jumpstd NumberDeclinedMScript
+	jumpstd numberdeclinedm
 	end
 
 Route35PhoneFullM:
-	jumpstd PhoneFullMScript
+	jumpstd phonefullm
 	end
 
 Route35RematchM:
@@ -131,21 +153,18 @@ TrainerBugCatcherArnie:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_BUG_CATCHER_ARNIE
-	endifjustbattled
 	opentext
 	checkflag ENGINE_ARNIE_READY_FOR_REMATCH
 	iftrue .WantsBattle
-	checkflag ENGINE_YANMA_SWARM
-	iftrue .YanmaSwarming
 	checkcellnum PHONE_BUG_CATCHER_ARNIE
-	iftrue Route35NumberAcceptedM
+	iftrue .ArnieDefeated
 	checkevent EVENT_ARNIE_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext BugCatcherArnieAfterBattleText
 	promptbutton
 	setevent EVENT_ARNIE_ASKED_FOR_PHONE_NUMBER
 	scall Route35AskNumber1M
-	sjump .AskForNumber
+	jump .AskForNumber
 
 .AskedAlready:
 	scall Route35AskNumber2M
@@ -155,34 +174,22 @@ TrainerBugCatcherArnie:
 	ifequal PHONE_CONTACT_REFUSED, Route35NumberDeclinedM
 	gettrainername STRING_BUFFER_3, BUG_CATCHER, ARNIE1
 	scall Route35RegisteredNumberM
-	sjump Route35NumberAcceptedM
+	jump Route35NumberAcceptedM
 
 .WantsBattle:
 	scall Route35RematchM
 	winlosstext BugCatcherArnieBeatenText, 0
-	readmem wArnieFightCount
-	ifequal 4, .Fight4
-	ifequal 3, .Fight3
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight4:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight4
-.Fight3:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight3
-.Fight2:
 	checkflag ENGINE_FLYPOINT_BLACKTHORN
 	iftrue .LoadFight2
-.Fight1:
 	checkflag ENGINE_FLYPOINT_LAKE_OF_RAGE
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer BUG_CATCHER, ARNIE1
 	startbattle
 	reloadmapafterbattle
-	loadmem wArnieFightCount, 1
 	clearflag ENGINE_ARNIE_READY_FOR_REMATCH
 	end
 
@@ -190,7 +197,6 @@ TrainerBugCatcherArnie:
 	loadtrainer BUG_CATCHER, ARNIE2
 	startbattle
 	reloadmapafterbattle
-	loadmem wArnieFightCount, 2
 	clearflag ENGINE_ARNIE_READY_FOR_REMATCH
 	end
 
@@ -198,7 +204,6 @@ TrainerBugCatcherArnie:
 	loadtrainer BUG_CATCHER, ARNIE3
 	startbattle
 	reloadmapafterbattle
-	loadmem wArnieFightCount, 3
 	clearflag ENGINE_ARNIE_READY_FOR_REMATCH
 	end
 
@@ -206,7 +211,6 @@ TrainerBugCatcherArnie:
 	loadtrainer BUG_CATCHER, ARNIE4
 	startbattle
 	reloadmapafterbattle
-	loadmem wArnieFightCount, 4
 	clearflag ENGINE_ARNIE_READY_FOR_REMATCH
 	end
 
@@ -217,20 +221,88 @@ TrainerBugCatcherArnie:
 	clearflag ENGINE_ARNIE_READY_FOR_REMATCH
 	end
 
-.YanmaSwarming:
-	writetext BugCatcherArnieYanmaText
-	waitbutton
+.ArnieDefeated:
+	writetext BugCatcherArnieAfterBattleText
+	promptbutton
 	closetext
 	end
 
 TrainerFirebreatherWalt:
-	trainer FIREBREATHER, WALT, EVENT_BEAT_FIREBREATHER_WALT, FirebreatherWaltSeenText, FirebreatherWaltBeatenText, 0, .Script
+	trainer FIREBREATHER, WALT1, EVENT_BEAT_FIREBREATHER_WALT, FirebreatherWaltSeenText, FirebreatherWaltBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	loadvar VAR_CALLERID, PHONE_FIREBREATHER_WALT
 	opentext
+	checkflag ENGINE_WALT_READY_FOR_REMATCH
+	iftrue .WantsBattle
+	checkcellnum PHONE_FIREBREATHER_WALT
+	iftrue .WaltDefeated
+	checkevent EVENT_WALT_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedAlready
 	writetext FirebreatherWaltAfterBattleText
-	waitbutton
+	promptbutton
+	setevent EVENT_WALT_ASKED_FOR_PHONE_NUMBER
+	scall Route35AskNumber1M
+	jump .AskForNumber
+
+.AskedAlready:
+	scall Route35AskNumber2M
+.AskForNumber:
+	askforphonenumber PHONE_FIREBREATHER_WALT
+	ifequal PHONE_CONTACTS_FULL, Route35PhoneFullM
+	ifequal PHONE_CONTACT_REFUSED, Route35NumberDeclinedM
+	gettrainername STRING_BUFFER_3, FIREBREATHER, WALT1
+	scall Route35RegisteredNumberM
+	jump Route35NumberAcceptedM
+
+.WantsBattle:
+	scall Route35RematchM
+	winlosstext FirebreatherWaltBeatenText, 0
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iftrue .LoadFight4
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .LoadFight3
+	checkevent EVENT_CLEARED_RADIO_TOWER
+	iftrue .LoadFight2
+	checkflag ENGINE_FLYPOINT_CIANWOOD
+	iftrue .LoadFight1
+	loadtrainer FIREBREATHER, WALT1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_WALT_READY_FOR_REMATCH
+	end
+
+.LoadFight1:
+	loadtrainer FIREBREATHER, WALT2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_WALT_READY_FOR_REMATCH
+	end
+
+.LoadFight2:
+	loadtrainer FIREBREATHER, WALT3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_WALT_READY_FOR_REMATCH
+	end
+
+.LoadFight3:
+	loadtrainer FIREBREATHER, WALT4
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_WALT_READY_FOR_REMATCH
+	end
+
+.LoadFight4:
+	loadtrainer FIREBREATHER, WALT5
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_WALT_READY_FOR_REMATCH
+	end
+
+.WaltDefeated:
+	writetext FirebreatherWaltAfterBattleText
+	promptbutton
 	closetext
 	end
 
@@ -271,8 +343,51 @@ Route35Sign:
 Route35TMRollout:
 	itemball TM_ROLLOUT
 
-Route35FruitTree:
-	fruittree FRUITTREE_ROUTE_35
+Route35BerryTree:
+	opentext
+	writetext Route35BerryTreeText
+	promptbutton
+	writetext Route35HeyItsBerryText
+	promptbutton
+	verbosegiveitem LEPPA_BERRY
+	iffalse .NoRoomInBag
+	disappear ROUTE35_BERRY
+	setflag ENGINE_DAILY_ROUTE35_BERRY
+.NoRoomInBag
+	closetext
+	end
+
+Route35ApricornTree:
+	opentext
+	writetext Route35ApricornTreeText
+	promptbutton
+	writetext Route35HeyItsApricornText
+	promptbutton
+	verbosegiveitem GRN_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE35_APRICORN
+	setflag ENGINE_DAILY_ROUTE35_APRICORN
+.NoRoomInBag
+	closetext
+	end
+
+Route35NoBerry:
+	opentext
+	writetext Route35BerryTreeText
+	promptbutton
+	writetext Route35NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route35NoApricorn:
+	opentext
+	writetext Route35ApricornTreeText
+	promptbutton
+	writetext Route35NothingHereText
+	waitbutton
+	closetext
+	end
 
 CamperIvanSeenText:
 	text "I've been getting"
@@ -406,14 +521,6 @@ BugCatcherArnieAfterBattleText:
 	line "NATIONAL PARK."
 	done
 
-BugCatcherArnieYanmaText:
-	text "Wow… Look at all"
-	line "those YANMA!"
-
-	para "I'm so blown away,"
-	line "I can't move."
-	done
-
 FirebreatherWaltSeenText:
 	text "I'm practicing my"
 	line "fire breathing."
@@ -460,6 +567,31 @@ Route35SignText:
 	text "ROUTE 35"
 	done
 
+Route35BerryTreeText:
+	text "It's a"
+	line "BERRY tree…"
+	done
+
+Route35HeyItsBerryText:
+	text "Hey! It's"
+	line "LEPPA BERRY!"
+	done
+
+Route35ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree…"
+	done
+
+Route35HeyItsApricornText:
+	text "Hey! It's"
+	line "GRN APRICORN!"
+	done
+
+Route35NothingHereText:
+	text "There's nothing"
+	line "here…"
+	done
+
 Route35_MapEvents:
 	db 0, 0 ; filler
 
@@ -473,6 +605,8 @@ Route35_MapEvents:
 	def_bg_events
 	bg_event  1,  7, BGEVENT_READ, Route35Sign
 	bg_event 11, 31, BGEVENT_READ, Route35Sign
+	bg_event  1, 26, BGEVENT_READ, Route35NoBerry
+	bg_event  2, 25, BGEVENT_READ, Route35NoApricorn
 
 	def_object_events
 	object_event  4, 19, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperIvan, -1
@@ -484,5 +618,6 @@ Route35_MapEvents:
 	object_event 16,  7, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherArnie, -1
 	object_event  5, 10, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerJugglerIrwin, -1
 	object_event  5,  6, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TrainerOfficerDirk, -1
-	object_event  2, 25, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route35FruitTree, -1
+	object_event  1, 26, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route35BerryTree, EVENT_ROUTE35_BERRY
+	object_event  2, 25, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route35ApricornTree, EVENT_ROUTE35_APRICORN
 	object_event 13, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route35TMRollout, EVENT_ROUTE_35_TM_ROLLOUT

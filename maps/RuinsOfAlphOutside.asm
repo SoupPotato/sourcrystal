@@ -7,19 +7,19 @@
 
 RuinsOfAlphOutside_MapScripts:
 	def_scene_scripts
-	scene_script RuinsOfAlphOutsideNoop1Scene, SCENE_RUINSOFALPHOUTSIDE_NOOP
-	scene_script RuinsOfAlphOutsideNoop2Scene, SCENE_RUINSOFALPHOUTSIDE_GET_UNOWN_DEX
+	scene_script .DummyScene0 ; SCENE_RUINSOFALPHOUTSIDE_NOTHING
+	scene_script .DummyScene1 ; SCENE_RUINSOFALPHOUTSIDE_GET_UNOWN_DEX
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, RuinsOfAlphOutsideScientistCallback
+	callback MAPCALLBACK_OBJECTS, .ScientistCallback
 
-RuinsOfAlphOutsideNoop1Scene:
+.DummyScene0:
 	end
 
-RuinsOfAlphOutsideNoop2Scene:
+.DummyScene1:
 	end
 
-RuinsOfAlphOutsideScientistCallback:
+.ScientistCallback:
 	checkflag ENGINE_UNOWN_DEX
 	iftrue .NoScientist
 	checkevent EVENT_MADE_UNOWN_APPEAR_IN_RUINS
@@ -38,7 +38,7 @@ RuinsOfAlphOutsideScientistCallback:
 
 .NoScientist:
 	disappear RUINSOFALPHOUTSIDE_SCIENTIST
-	setscene SCENE_RUINSOFALPHOUTSIDE_NOOP
+	setscene SCENE_RUINSOFALPHOUTSIDE_NOTHING
 	endcallback
 
 RuinsOfAlphOutsideScientistScene1:
@@ -60,10 +60,10 @@ RuinsOfAlphOutsideScientistSceneContinue:
 	closetext
 	playmusic MUSIC_SHOW_ME_AROUND
 	follow RUINSOFALPHOUTSIDE_SCIENTIST, PLAYER
-	applymovement RUINSOFALPHOUTSIDE_SCIENTIST, RuinsOfAlphOutsideScientistWalkToLabMovement
+	applymovement RUINSOFALPHOUTSIDE_SCIENTIST, MovementData_0x580ba
 	disappear RUINSOFALPHOUTSIDE_SCIENTIST
 	stopfollow
-	applymovement PLAYER, RuinsOfAlphOutsidePlayerEnterLabMovement
+	applymovement PLAYER, MovementData_0x580c5
 	setmapscene RUINS_OF_ALPH_RESEARCH_CENTER, SCENE_RUINSOFALPHRESEARCHCENTER_GET_UNOWN_DEX
 	warpcheck
 	end
@@ -110,17 +110,6 @@ TrainerPsychicNathan:
 	closetext
 	end
 
-TrainerSuperNerdStan: ; unreferenced
-	trainer SUPER_NERD, STAN, EVENT_BEAT_SUPER_NERD_STAN, SuperNerdStanSeenText, SuperNerdStanBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext SuperNerdStanAfterBattleText
-	waitbutton
-	closetext
-	end
-
 RuinsOfAlphOutsideMysteryChamberSign:
 	jumptext RuinsOfAlphOutsideMysteryChamberSignText
 
@@ -130,7 +119,7 @@ RuinsOfAlphSign:
 RuinsOfAlphResearchCenterSign:
 	jumptext RuinsOfAlphResearchCenterSignText
 
-RuinsOfAlphOutsideScientistWalkToLabMovement:
+MovementData_0x580ba:
 	step RIGHT
 	step RIGHT
 	step RIGHT
@@ -143,7 +132,7 @@ RuinsOfAlphOutsideScientistWalkToLabMovement:
 	step UP
 	step_end
 
-RuinsOfAlphOutsidePlayerEnterLabMovement:
+MovementData_0x580c5:
 	step UP
 	step_end
 
@@ -174,37 +163,6 @@ RuinsOfAlphOutsideScientistText:
 	para "I know! Let me up-"
 	line "grade your #-"
 	cont "DEX. Follow me."
-	done
-
-SuperNerdStanSeenText:
-	text "What do you want?"
-	line "I'm studying--"
-	cont "don't disturb me!"
-	done
-
-SuperNerdStanBeatenText:
-	text "Sorry…"
-	line "I'm frustrated by"
-
-	para "our lack of real"
-	line "understanding…"
-	done
-
-SuperNerdStanAfterBattleText:
-	text "The RUINS are from"
-	line "about 1500 years"
-	cont "ago."
-
-	para "Nobody knows who"
-	line "built them."
-
-	para "It's also not"
-	line "known if the #-"
-	cont "MON statues have"
-	cont "any meaning."
-
-	para "It's all one big"
-	line "mystery…"
 	done
 
 PsychicNathanSeenText:

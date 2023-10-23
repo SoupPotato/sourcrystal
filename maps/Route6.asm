@@ -8,24 +8,46 @@ Route6_MapScripts:
 
 	def_callbacks
 
-TrainerPokefanmRex:
-	trainer POKEFANM, REX, EVENT_BEAT_POKEFANM_REX, PokefanmRexSeenText, PokefanmRexBeatenText, 0, .Script
+TwinsDayandDani1:
+	trainer TWINS, DAYANDDANI1, EVENT_BEAT_TWINS_DAYANDDANI, TwinsDayandDaniSeenText, TwinsDayandDaniBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext PokefanmRexAfterBattleText
+	writetext TwinsDayandDani1AfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerPokefanmAllan:
-	trainer POKEFANM, ALLAN, EVENT_BEAT_POKEFANM_ALLAN, PokefanmAllanSeenText, PokefanmAllanBeatenText, 0, .Script
+TwinsDayandDani2:
+	trainer TWINS, DAYANDDANI2, EVENT_BEAT_TWINS_DAYANDDANI, TwinsDayandDaniSeenText, TwinsDayandDaniBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext PokefanmAllanAfterBattleText
+	writetext TwinsDayandDani2AfterBattleText
+	waitbutton
+	closetext
+	end
+
+CamperViktor:
+	trainer CAMPER, VIKTOR, EVENT_BEAT_CAMPER_VIKTOR, CamperViktorSeenText, CamperViktorBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CamperViktorAfterBattleText
+	waitbutton
+	closetext
+	end
+
+PicnickerSelina:
+	trainer PICNICKER, SELINA, EVENT_BEAT_PICNICKER_SELINA, PicnickerSelinaSeenText, PicnickerSelinaBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext PicnickerSelinaAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -51,57 +73,93 @@ Route6UndergroundPathSignText:
 	line "VERMILION CITY"
 	done
 
-PokefanmRexSeenText:
-	text "My PHANPY is the"
-	line "cutest in the"
-	cont "world."
+TwinsDayandDaniSeenText:
+	text "DAY: Are you"
+	line "going to beat us?"
+
+	para "DANI: We'll knock"
+	line "you flat!"
 	done
 
-PokefanmRexBeatenText:
-	text "My PHANPY!"
+TwinsDayandDaniBeatenText:
+	text "DAY: Waah!"
+
+	para "DANI: Eeeeh!"
 	done
 
-PokefanmRexAfterBattleText:
-	text "Look how adorable"
-	line "my PHANPY acts!"
-
-	para "Isn't it cute"
-	line "enough to make"
-	cont "your heart melt?"
+TwinsDayandDani1AfterBattleText:
+	text "DANI: You beat"
+	line "us…"
 	done
 
-PokefanmAllanSeenText:
-	text "My TEDDIURSA is"
-	line "the cutest in the"
-	cont "world."
+TwinsDayandDani2AfterBattleText:
+	text "DANI: Looks like"
+	line "we got bounced."
 	done
 
-PokefanmAllanBeatenText:
-	text "My TEDDIURSA!"
+PicnickerSelinaSeenText:
+	text "I'm headed out on"
+	line "a picnic."
+
+	para "Do you know why?"
 	done
 
-PokefanmAllanAfterBattleText:
-	text "Look how adorable"
-	line "my TEDDIURSA acts!"
+PicnickerSelinaBeatenText:
+	text "You are pretty"
+	line "good!"
+	done
 
-	para "Isn't it cute"
-	line "enough to make"
-	cont "your heart melt?"
+PicnickerSelinaAfterBattleText:
+	text "The reason I'm"
+	line "going on a picnic…"
+
+	para "It's because I"
+	line "really want to"
+	cont "smell the fresh"
+	cont "air…"
+
+	para "Do you know what"
+	line "I mean?"
+	done
+
+CamperViktorSeenText:
+	text "Walking along with"
+	line "luggage and your"
+	cont "companion #MON"
+	cont "gives a great"
+	cont "feeling of outdoor"
+	cont "life!"
+	done
+
+CamperViktorBeatenText:
+	text "Yaha! I lost!"
+	done
+
+CamperViktorAfterBattleText:
+	text "Are you also on"
+	line "a solo journey?"
+
+	para "See you again"
+	line "sometime."
+
+	para "Bye for now!"
 	done
 
 Route6_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17,  3, ROUTE_6_UNDERGROUND_PATH_ENTRANCE, 1
-	warp_event  6,  1, ROUTE_6_SAFFRON_GATE, 3
+	warp_event 17,  7, ROUTE_6_UNDERGROUND_PATH_ENTRANCE, 1
+	warp_event 10,  1, ROUTE_6_SAFFRON_GATE, 3
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 19,  5, BGEVENT_READ, Route6UndergroundPathSign
+	bg_event 19,  9, BGEVENT_READ, Route6UndergroundPathSign
 
 	def_object_events
-	object_event 17,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 2, Route6PokefanMScript, EVENT_ROUTE_5_6_POKEFAN_M_BLOCKS_UNDERGROUND_PATH
-	object_event  9, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerPokefanmRex, -1
-	object_event 10, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerPokefanmAllan, -1
+	object_event 17,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 2, Route6PokefanMScript, EVENT_ROUTE_5_6_POKEFAN_M_BLOCKS_UNDERGROUND_PATH
+	object_event 12, 15, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 1, TwinsDayandDani1, -1
+	object_event 13, 15, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 1, TwinsDayandDani2, -1
+	object_event  7, 23, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, PicnickerSelina, -1
+	object_event  3, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, CamperViktor, -1

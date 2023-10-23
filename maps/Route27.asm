@@ -40,7 +40,7 @@ FirstStepIntoKantoScene_Continue:
 	writetext Route27FisherText
 	waitbutton
 	closetext
-	setscene SCENE_ROUTE27_NOOP
+	setscene SCENE_FINISHED
 	end
 
 Route27FisherScript:
@@ -62,14 +62,13 @@ TrainerBirdKeeperJose2:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_BIRDKEEPER_JOSE
-	endifjustbattled
 	opentext
 	checkflag ENGINE_JOSE_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	checkflag ENGINE_JOSE_HAS_STAR_PIECE
 	iftrue .HasStarPiece
 	checkcellnum PHONE_BIRDKEEPER_JOSE
-	iftrue .NumberAccepted
+	iftrue .JoseDefeated
 	checkevent EVENT_JOSE_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext BirdKeeperJose2AfterBattleText
@@ -91,21 +90,13 @@ TrainerBirdKeeperJose2:
 .WantsBattle:
 	scall .Rematch
 	winlosstext BirdKeeperJose2BeatenText, 0
-	readmem wJoseFightCount
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight2:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight2
-.Fight1:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer BIRD_KEEPER, JOSE2
 	startbattle
 	reloadmapafterbattle
-	loadmem wJoseFightCount, 1
 	clearflag ENGINE_JOSE_READY_FOR_REMATCH
 	end
 
@@ -113,7 +104,6 @@ TrainerBirdKeeperJose2:
 	loadtrainer BIRD_KEEPER, JOSE1
 	startbattle
 	reloadmapafterbattle
-	loadmem wJoseFightCount, 2
 	clearflag ENGINE_JOSE_READY_FOR_REMATCH
 	end
 
@@ -135,27 +125,27 @@ TrainerBirdKeeperJose2:
 	sjump .PackFull
 
 .AskNumber1:
-	jumpstd AskNumber1MScript
+	jumpstd asknumber1m
 	end
 
 .AskNumber2:
-	jumpstd AskNumber2MScript
+	jumpstd asknumber2m
 	end
 
 .RegisteredNumber:
-	jumpstd RegisteredNumberMScript
+	jumpstd registerednumberm
 	end
 
 .NumberAccepted:
-	jumpstd NumberAcceptedMScript
+	jumpstd numberacceptedm
 	end
 
 .NumberDeclined:
-	jumpstd NumberDeclinedMScript
+	jumpstd numberdeclinedm
 	end
 
 .PhoneFull:
-	jumpstd PhoneFullMScript
+	jumpstd phonefullm
 	end
 
 .Rematch:
@@ -167,8 +157,15 @@ TrainerBirdKeeperJose2:
 	end
 
 .PackFull:
-	jumpstd PackFullMScript
+	jumpstd packfullm
 	end
+
+.JoseDefeated:
+	writetext BirdKeeperJose2AfterBattleText
+	promptbutton
+	closetext
+	end
+
 
 TrainerCooltrainermBlake:
 	trainer COOLTRAINERM, BLAKE, EVENT_BEAT_COOLTRAINERM_BLAKE, CooltrainermBlakeSeenText, CooltrainermBlakeBeatenText, 0, .Script
@@ -197,12 +194,11 @@ TrainerCooltrainerfReena:
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_COOLTRAINERF_REENA
-	endifjustbattled
 	opentext
 	checkflag ENGINE_REENA_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	checkcellnum PHONE_COOLTRAINERF_REENA
-	iftrue .NumberAccepted
+	iftrue .ReenaDefeated
 	checkevent EVENT_REENA_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext CooltrainerfReenaAfterBattleText
@@ -224,21 +220,13 @@ TrainerCooltrainerfReena:
 .WantsBattle:
 	scall .Rematch
 	winlosstext CooltrainerfReenaBeatenText, 0
-	readmem wReenaFightCount
-	ifequal 2, .Fight2
-	ifequal 1, .Fight1
-	ifequal 0, .LoadFight0
-.Fight2:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iftrue .LoadFight2
-.Fight1:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .LoadFight1
-.LoadFight0:
 	loadtrainer COOLTRAINERF, REENA1
 	startbattle
 	reloadmapafterbattle
-	loadmem wReenaFightCount, 1
 	clearflag ENGINE_REENA_READY_FOR_REMATCH
 	end
 
@@ -246,7 +234,6 @@ TrainerCooltrainerfReena:
 	loadtrainer COOLTRAINERF, REENA2
 	startbattle
 	reloadmapafterbattle
-	loadmem wReenaFightCount, 2
 	clearflag ENGINE_REENA_READY_FOR_REMATCH
 	end
 
@@ -282,7 +269,13 @@ TrainerCooltrainerfReena:
 	end
 
 .Rematch:
-	jumpstd RematchFScript
+	jumpstd rematchf
+	end
+
+.ReenaDefeated:
+	writetext CooltrainerfReenaAfterBattleText
+	promptbutton
+	closetext
 	end
 
 TrainerCooltrainerfMegan:

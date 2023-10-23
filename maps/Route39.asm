@@ -7,13 +7,39 @@
 	const ROUTE39_MILTANK3
 	const ROUTE39_MILTANK4
 	const ROUTE39_PSYCHIC_NORMAN
-	const ROUTE39_FRUIT_TREE
+	const ROUTE39_BERRY
+	const ROUTE39_APRICORN
 	const ROUTE39_POKEFAN_F2
+	const ROUTE39_GENTLEMAN_BAOBA
 
 Route39_MapScripts:
 	def_scene_scripts
+	scene_script Route39Noop1Scene, SCENE_ROUTE_39_DEFAULT
+	scene_script Route39Noop2Scene, SCENE_ROUTE_39_BAOBA_GONE
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, Route39Fruittrees
+
+Route39Noop1Scene:
+	end
+
+Route39Noop2Scene:
+	end
+
+Route39Fruittrees
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE39_BERRY
+	iftrue .NoBerry
+	appear ROUTE39_BERRY
+.NoBerry:
+	;fallthrough
+
+.Apricorn:
+	checkflag ENGINE_DAILY_ROUTE39_APRICORN
+	iftrue .NoApricorn
+	appear ROUTE39_APRICORN
+.NoApricorn:
+	endcallback
 
 Route39Miltank:
 	opentext
@@ -24,18 +50,15 @@ Route39Miltank:
 	end
 
 TrainerPokefanmDerek:
-	trainer POKEFANM, DEREK1, EVENT_BEAT_POKEFANM_DEREK, PokefanmDerekSeenText, PokefanmDerekBeatenText, 0, .Script
+	trainer POKEFANM, DEREK, EVENT_BEAT_POKEFANM_DEREK, PokefanmDerekSeenText, PokefanmDerekBeatenText, 0, .Script
 
 .Script:
 	loadvar VAR_CALLERID, PHONE_POKEFANM_DEREK
-	endifjustbattled
 	opentext
 	checkflag ENGINE_DEREK_HAS_NUGGET
 	iftrue .HasNugget
 	checkcellnum PHONE_POKEFANM_DEREK
 	iftrue .NumberAccepted
-	checkpoke PIKACHU
-	iffalse .WantsPikachu
 	checkevent EVENT_DEREK_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext PokefanMDerekText_NotBragging
@@ -50,7 +73,7 @@ TrainerPokefanmDerek:
 	askforphonenumber PHONE_POKEFANM_DEREK
 	ifequal PHONE_CONTACTS_FULL, .PhoneFull
 	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
-	gettrainername STRING_BUFFER_3, POKEFANM, DEREK1
+	gettrainername STRING_BUFFER_3, POKEFANM, DEREK
 	scall .RegisteredNumber
 	sjump .NumberAccepted
 
@@ -64,34 +87,28 @@ TrainerPokefanmDerek:
 .NoRoom:
 	sjump .PackFull
 
-.WantsPikachu:
-	writetext PokefanMDerekPikachuIsItText
-	waitbutton
-	closetext
-	end
-
 .AskNumber1:
-	jumpstd AskNumber1MScript
+	jumpstd asknumber1m
 	end
 
 .AskNumber2:
-	jumpstd AskNumber2MScript
+	jumpstd asknumber2m
 	end
 
 .RegisteredNumber:
-	jumpstd RegisteredNumberMScript
+	jumpstd registerednumberm
 	end
 
 .NumberAccepted:
-	jumpstd NumberAcceptedMScript
+	jumpstd numberacceptedm
 	end
 
 .NumberDeclined:
-	jumpstd NumberDeclinedMScript
+	jumpstd numberdeclinedm
 	end
 
 .PhoneFull:
-	jumpstd PhoneFullMScript
+	jumpstd phonefullm
 	end
 
 .Gift:
@@ -99,7 +116,7 @@ TrainerPokefanmDerek:
 	end
 
 .PackFull:
-	jumpstd PackFullMScript
+	jumpstd packfullm
 	end
 
 TrainerPokefanfRuth:
@@ -174,8 +191,89 @@ MoomooFarmSign:
 Route39TrainerTips:
 	jumptext Route39TrainerTipsText
 
-Route39FruitTree:
-	fruittree FRUITTREE_ROUTE_39
+Route39BerryTree:
+	opentext
+	writetext Route39BerryTreeText
+	promptbutton
+	writetext Route39HeyItsBerryText
+	promptbutton
+	verbosegiveitem CHESTO_BERRY
+	iffalse .NoRoomInBag
+	disappear ROUTE39_BERRY
+	setflag ENGINE_DAILY_ROUTE39_BERRY
+.NoRoomInBag
+	closetext
+	end
+
+Route39ApricornTree:
+	opentext
+	writetext Route39ApricornTreeText
+	promptbutton
+	writetext Route39HeyItsApricornText
+	promptbutton
+	verbosegiveitem GRN_APRICORN
+	iffalse .NoRoomInBag
+	disappear ROUTE39_APRICORN
+	setflag ENGINE_DAILY_ROUTE39_APRICORN
+.NoRoomInBag
+	closetext
+	end
+
+Route39NoBerry:
+	opentext
+	writetext Route39BerryTreeText
+	promptbutton
+	writetext Route39NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route39NoApricorn:
+	opentext
+	writetext Route39ApricornTreeText
+	promptbutton
+	writetext Route39NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route39Baoba1:
+	turnobject ROUTE39_GENTLEMAN_BAOBA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BAOBA, 15
+	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach1
+	sjump Route39BaobaScript
+
+Route39Baoba2:
+	turnobject ROUTE39_GENTLEMAN_BAOBA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BAOBA, 15
+	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach2
+	sjump Route39BaobaScript
+
+Route39Baoba3:
+	turnobject ROUTE39_GENTLEMAN_BAOBA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BAOBA, 15
+	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach3
+	sjump Route39BaobaScript
+
+Route39Baoba4:
+	turnobject ROUTE39_GENTLEMAN_BAOBA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BAOBA, 15
+	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach4
+	sjump Route39BaobaScript
+
+Route39BaobaScript:
+	opentext
+	writetext Route39BaobaIntroText
+	waitbutton
+	verbosegiveitem EXP_SHARE
+	writetext Route39BaobaLeavingText
+	waitbutton
+	closetext
+	setevent EVENT_ROUTE39_BAOBA_GAVE_EXP_SHARE
+	setscene SCENE_ROUTE_39_BAOBA_GONE
+	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Leaves
+	disappear ROUTE39_GENTLEMAN_BAOBA
+	end
 
 Route39HiddenNugget:
 	hiddenitem NUGGET, EVENT_ROUTE_39_HIDDEN_NUGGET
@@ -248,11 +346,6 @@ PokefanfRuthAfterBattleText:
 
 	para "I bet they're just"
 	line "adorable!"
-	done
-
-PokefanMDerekPikachuIsItText:
-	text "PIKACHU is it!"
-	line "Don't you agree?"
 	done
 
 PsychicNormanSeenText:
@@ -341,6 +434,104 @@ Route39TrainerTipsText:
 	line "any tree you see!"
 	done
 
+Route39BerryTreeText:
+	text "It's a"
+	line "BERRY tree…"
+	done
+
+Route39HeyItsBerryText:
+	text "Hey! It's"
+	line "CHESTO BERRY!"
+	done
+
+Route39ApricornTreeText:
+	text "It's an"
+	line "APRICORN tree…"
+	done
+
+Route39HeyItsApricornText:
+	text "Hey! It's"
+	line "GRN APRICORN!"
+	done
+
+Route39NothingHereText:
+	text "There's nothing"
+	line "here…"
+	done
+
+Route39BaobaIntroText:
+	text "BAOBA: …Ohh!"
+
+	para "Is that a #DEX?"
+
+	para "I haven't seen one"
+	line "of those in ages."
+
+	para "My name is BAOBA!"
+
+	para "I run a SAFARI"
+	line "ZONE just beyond"
+	cont "CIANWOOD CITY."
+
+	para "I'm sure a young"
+	line "trainer such as"
+
+	para "yourself would be"
+	line "quite interested"
+
+	para "in the rare and"
+	line "exotic #MON"
+	cont "found there."
+
+	para "I certainly hope"
+	line "you will consider"
+	cont "taking a look."
+	
+	para "Anyway, I had"
+	line "better get back."
+
+	para "Please take this"
+	line "as a token of our"
+	cont "meeting…"
+	done
+
+Route39BaobaLeavingText:
+	text "Remember, the"
+	line "SAFARI ZONE is"
+
+	para "west beyond"
+	line "CIANWOOD CITY."
+
+	para "Best of luck to"
+	line "you!"
+	done
+
+MovementData_Route39_Baoba_Approach1:
+	step_up
+MovementData_Route39_Baoba_Approach2:
+	step_right
+	step_right
+	step_end
+
+MovementData_Route39_Baoba_Approach4:
+	step_down
+MovementData_Route39_Baoba_Approach3:
+	step_down
+	step_right
+	step_right
+	step_end
+
+MovementData_Route39_Baoba_Leaves:
+	step_left
+	step_left
+	step_down
+	step_down
+	step_down
+	step_down
+	step_down
+	step_down
+	step_end
+
 Route39_MapEvents:
 	db 0, 0 ; filler
 
@@ -349,21 +540,29 @@ Route39_MapEvents:
 	warp_event  5,  3, ROUTE_39_FARMHOUSE, 1
 
 	def_coord_events
+	coord_event 16,  8, SCENE_DEFAULT, Route39Baoba1
+	coord_event 16,  9, SCENE_DEFAULT, Route39Baoba2
+	coord_event 16, 10, SCENE_DEFAULT, Route39Baoba3
+	coord_event 16, 11, SCENE_DEFAULT, Route39Baoba4
 
 	def_bg_events
 	bg_event  5, 31, BGEVENT_READ, Route39TrainerTips
 	bg_event  9,  5, BGEVENT_READ, MoomooFarmSign
 	bg_event 15,  7, BGEVENT_READ, Route39Sign
 	bg_event  5, 13, BGEVENT_ITEM, Route39HiddenNugget
+	bg_event  6, 13, BGEVENT_READ, Route39NoBerry
+	bg_event  9,  3, BGEVENT_READ, Route39NoApricorn
 
 	def_object_events
 	object_event 13, 29, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerSailorEugene, -1
 	object_event 10, 22, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerPokefanmDerek, -1
 	object_event 11, 19, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerPokefanfRuth, -1
-	object_event  3, 12, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
-	object_event  6, 11, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
-	object_event  4, 15, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
-	object_event  8, 13, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
-	object_event 13,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPsychicNorman, -1
-	object_event  9,  3, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39FruitTree, -1
+	object_event  3, 12, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
+	object_event  6, 11, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
+	object_event  4, 15, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
+	object_event  8, 13, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
+	object_event 14, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPsychicNorman, -1
+	object_event  6, 13, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route39BerryTree, EVENT_ROUTE39_BERRY
+	object_event  9,  3, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route39ApricornTree, EVENT_ROUTE39_APRICORN
 	object_event  4, 22, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, TrainerPokefanfJaime, -1
+	object_event 13,  9, SPRITE_GENTLEMAN, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE39_BAOBA_GAVE_EXP_SHARE

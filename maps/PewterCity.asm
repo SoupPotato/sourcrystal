@@ -19,7 +19,7 @@ PewterCityFlypointCallback:
 	setmapscene PEWTER_MUSEUM_1F, SCENE_DEFAULT
 	endcallback
 
-PewterCityFruittrees
+PewterCityFruittrees:
 ;Berry:
 	checkflag ENGINE_DAILY_PEWTER_BERRY
 	iftrue .NoBerry

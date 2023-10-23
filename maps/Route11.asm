@@ -13,7 +13,7 @@ Route11_MapScripts:
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, Route11Fruittrees
 
-Route11Fruittrees
+Route11Fruittrees:
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE11_BERRY
 	iftrue .NoBerry

@@ -266,7 +266,7 @@ else
 	end
 
 .NormalRadio:
-jumpstd Radio1Script
+	jumpstd Radio1Script
 
 .AbbreviatedRadio:
 	opentext

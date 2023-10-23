@@ -338,7 +338,7 @@ MrPokemonText_GimmeTheScale:
 	line "care to trade it?"
 
 	para "I can offer this"
-	line "LUCKY_EGG I got"
+	line "LUCKY EGG I got"
 	cont "from PROF.OAK."
 	done
 

@@ -10,7 +10,7 @@ MountMoon_MapScripts:
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, CheckFossilAndRival
 
-CheckFossilAndRival
+CheckFossilAndRival:
 	checkevent EVENT_MT_MORTAR_OBTAINED_FOSSIL
 	iftrue .checkRival
 	disappear MOUNTMOON_FOSSIL

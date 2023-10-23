@@ -15,7 +15,7 @@ Route26_MapScripts:
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, Route26Fruittrees
 
-Route26Fruittrees
+Route26Fruittrees:
 .Berry:
 	checkflag ENGINE_DAILY_ROUTE26_BERRY
 	iftrue .NoBerry

@@ -15,7 +15,7 @@ TimAndSuePhoneCalleeScript: ; You call Tim & Sue
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_13
-	farjump TimAndSueBattleReminderScript
+	farjump TimAndSueReminderScript
 
 TimAndSuePhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, COUPLE, TIMANDSUE1

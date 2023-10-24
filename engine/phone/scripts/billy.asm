@@ -13,7 +13,7 @@ BillyPhoneCalleeScript: ; You call Billy
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_15
-	farjump BillyBattleReminderScript
+	farjump BillyReminderScript
 
 BillyPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, SCHOOLBOY, BILLY1

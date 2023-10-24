@@ -109,7 +109,7 @@ WadeNoBerriesText:
 	cont "please wait?"
 	done
 
-WadeQuickBattleText:
+WadeReminderText:
 	text "Let's battle"
 	line "already!"
 

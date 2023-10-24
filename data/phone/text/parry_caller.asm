@@ -57,7 +57,7 @@ ParryBattleWithMeText:
 	line "me again, right?"
 	done
 
-ParryHaventYouGottenToText:
+ParryReminderText:
 	text "Haven't you gotten"
 	line "to @"
 	text_ram wStringBuffer5

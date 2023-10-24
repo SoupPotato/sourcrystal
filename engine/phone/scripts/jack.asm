@@ -13,7 +13,7 @@ JackPhoneCalleeScript:
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_NATIONAL_PARK
-	farsjump JackWantsBattleScript
+	farsjump JackReminderScript
 
 JackPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, SCHOOLBOY, JACK1

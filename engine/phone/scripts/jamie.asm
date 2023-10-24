@@ -24,7 +24,7 @@ JamiePhoneCalleeScript: ; You call Jamie
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_14
-	farjump JamieBattleReminderScript
+	farjump JamieReminderScript
 
 .HasMoonStone:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_14

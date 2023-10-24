@@ -18,7 +18,7 @@ WaltPhoneCalleeScript: ; You call Walt
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_35
-	farjump WaltWantsBattleScript
+	farjump WaltReminderScript
 
 WaltPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, FIREBREATHER, WALT1

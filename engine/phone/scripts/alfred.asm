@@ -15,7 +15,7 @@ AlfredPhoneCalleeScript: ; You call Alfred
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_LIGHTHOUSE
-	farjump AlfredWantsBattleScript
+	farjump AlfredReminderScript
 
 AlfredPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, GENTLEMAN, ALFRED1

@@ -53,7 +53,7 @@ VanceLookingForwardText:
 	cont "next battle!"
 	done
 
-VanceHurryHurryText:
+VanceReminderText:
 	text "Oh, <PLAY_G>!"
 	line "Hurry, hurry!"
 

@@ -10,10 +10,7 @@ Marts:
 	dw MartGoldenrod2F2
 	dw MartGoldenrod3F
 	dw MartGoldenrod4F
-	dw MartGoldenrod5F1
-	dw MartGoldenrod5F2
-	dw MartGoldenrod5F3
-	dw MartGoldenrod5F4
+	dw MartGoldenrod5F
 	dw MartOlivine
 	dw MartEcruteak
 	dw MartMahogany1
@@ -35,6 +32,7 @@ Marts:
 	dw MartMtMoon
 	dw MartIndigoPlateau
 	dw MartUnderground
+	dw MartSafariGate
 	assert_table_length NUM_MARTS
 
 MartCherrygrove:
@@ -133,36 +131,11 @@ MartGoldenrod4F:
 	db HP_UP
 	db -1 ; end
 
-MartGoldenrod5F1:
+MartGoldenrod5F:
 	db 3 ; # items
 	db TM_THUNDERPUNCH
 	db TM_FIRE_PUNCH
 	db TM_ICE_PUNCH
-	db -1 ; end
-
-MartGoldenrod5F2:
-	db 4 ; # items
-	db TM_THUNDERPUNCH
-	db TM_FIRE_PUNCH
-	db TM_ICE_PUNCH
-	db TM_HEADBUTT
-	db -1 ; end
-
-MartGoldenrod5F3:
-	db 4 ; # items
-	db TM_THUNDERPUNCH
-	db TM_FIRE_PUNCH
-	db TM_ICE_PUNCH
-	db TM_ROCK_SMASH
-	db -1 ; end
-
-MartGoldenrod5F4:
-	db 5 ; # items
-	db TM_THUNDERPUNCH
-	db TM_FIRE_PUNCH
-	db TM_ICE_PUNCH
-	db TM_HEADBUTT
-	db TM_ROCK_SMASH
 	db -1 ; end
 
 MartOlivine:
@@ -314,11 +287,11 @@ MartCeladon2F2:
 
 MartCeladon3F:
 	db 5 ; # items
-	db TM_HIDDEN_POWER
-	db TM_SUNNY_DAY
+	db TM_PSYCH_UP
 	db TM_PROTECT
-	db TM_RAIN_DANCE
-	db TM_SANDSTORM
+	db TM_THUNDERPUNCH
+	db TM_FIRE_PUNCH
+	db TM_ICE_PUNCH
 	db -1 ; end
 
 MartCeladon4F:
@@ -398,6 +371,14 @@ MartUnderground:
 	db ENERGY_ROOT
 	db HEAL_POWDER
 	db REVIVAL_HERB
+	db -1 ; end
+
+MartSafariGate:
+	db 4 ; # items
+	db BLUESKY_MAIL
+	db POKE_BALL
+	db GREAT_BALL
+	db ULTRA_BALL
 	db -1 ; end
 
 DefaultMart:

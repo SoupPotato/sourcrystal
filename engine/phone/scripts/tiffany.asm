@@ -17,7 +17,7 @@ TiffanyPhoneCalleeScript:
 
 .WantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_43
-	farsjump TiffanyAsleepScript
+	farsjump TiffanyReminderScript
 
 .HasItem:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_43

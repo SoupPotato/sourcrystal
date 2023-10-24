@@ -15,7 +15,7 @@ ErinPhoneCalleeScript:
 
 .WantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_46
-	farsjump ErinComeBattleScript
+	farsjump ErinReminderScript
 
 ErinPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, PICNICKER, ERIN1

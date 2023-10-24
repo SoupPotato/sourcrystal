@@ -24,7 +24,7 @@ RobPhoneCalleeScript: ; You call Rob
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2
-	farjump RobBattleReminderScript
+	farjump RobReminderScript
 
 .HasBerry:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2

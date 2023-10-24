@@ -73,7 +73,7 @@ WiltonHaventFoundAnythingText:
 	line "patience."
 	done
 
-WiltonNotBitingText:
+WiltonReminderText:
 	text "Sigh…"
 	line "They're not biting"
 

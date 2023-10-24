@@ -15,7 +15,7 @@ BethPhoneCalleeScript:
 
 .WantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_26
-	farsjump BethBattleReminderScript
+	farsjump BethReminderScript
 
 BethPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, COOLTRAINERF, BETH1

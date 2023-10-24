@@ -13,7 +13,7 @@ IanPhoneCalleeScript:
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_34
-	farjump IanWantsBattleScript
+	farjump IanReminderScript
 
 IanPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, YOUNGSTER, IAN1

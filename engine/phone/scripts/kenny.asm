@@ -15,7 +15,7 @@ KennyPhoneCalleeScript: ; You call Kenny
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_13
-	farjump KennyBattleReminderScript
+	farjump KennyReminderScript
 
 KennyPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, HIKER, KENNY1

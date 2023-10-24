@@ -309,7 +309,7 @@ BlaineIntroText:
 	line "have BURN HEAL!"
 	done
 
-UnknownText_0x1ab646:
+BlaineWinLossText:
 	text "BLAINE: Awesome."
 	line "I've burned out…"
 
@@ -336,7 +336,7 @@ BlaineAfterBattleText:
 	line "a rematch."
 	done
 
-UnknownText_0x1ab71c:
+BlaineFightDoneText:
 	text "BLAINE: My fire"
 	line "#MON will be"
 

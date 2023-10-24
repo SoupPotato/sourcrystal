@@ -25,14 +25,6 @@ ReadTrainerParty:
 	call ByteFill
 
 	ld a, [wOtherTrainerClass]
-	cp CAL
-	jr nz, .not_cal2
-	ld a, [wOtherTrainerID]
-	cp CAL2
-	jr z, .cal2
-	ld a, [wOtherTrainerClass]
-.not_cal2
-
 	dec a
 	ld c, a
 	ld b, 0
@@ -72,14 +64,6 @@ ReadTrainerParty:
 .done
 	jp ComputeTrainerReward
 
-.cal2
-	ld a, BANK(sMysteryGiftTrainer)
-	ld a, TRAINERTYPE_MOVES
-	ld [wOtherTrainerType], a
-	call ReadTrainerPartyPieces
-	call CloseSRAM
-	jr .done
-
 ReadTrainerPartyPieces:
 	ld h, d
 	ld l, e
@@ -87,10 +71,13 @@ ReadTrainerPartyPieces:
 ; Variable?
 	bit TRAINERTYPE_VARIABLE_F, a
 	jr z, .not_variable
-	; get badge count in c
+	; check if challenge mode is active
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .continue
 	push hl
-	ld hl, wBadges
-	ld b, 2
+	ld hl, $2 ; number of maximum variable trainer parties per trainer
+	ld b, 2 
 	call CountSetBits
 	pop hl
 	; Skip that many $fe delimiters

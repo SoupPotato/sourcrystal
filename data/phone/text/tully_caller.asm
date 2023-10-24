@@ -81,7 +81,7 @@ TullyNoItemText:
 	line "you need patience."
 	done
 
-TullyForwardText:
+TullyReminderText:
 	text "Yup, TULLY here…"
 
 	para "<PLAY_G>? What?"

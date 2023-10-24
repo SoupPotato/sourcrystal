@@ -13,7 +13,7 @@ ReesePhoneCalleeScript: ; You call Reese
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_17
-	farjump ReeseBattleReminderScript
+	farjump ReeseReminderScript
 
 ReesePhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, BIKER, REESE1

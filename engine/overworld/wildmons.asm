@@ -933,7 +933,7 @@ RandomPhoneMon:
 .count_mon
 	inc e
 	add hl, bc
-	ld a, BANK(Trainers)
+	ld a, [wTrainerGroupBank]
 	call GetFarByte
 	cp -1
 	jr nz, .count_mon

@@ -30,7 +30,7 @@ WadePhoneCalleeScript:
 
 .WantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_31
-	farsjump WadeQuickBattleScript
+	farsjump WadeReminderScript
 
 .HasItem:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_31

@@ -24,7 +24,7 @@ DougPhoneCalleeScript: ; You call Doug
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2
-	farjump DougWantsBattleScript
+	farjump DougReminderScript
 
 .HasBerry:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2

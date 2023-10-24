@@ -74,7 +74,7 @@ ReenaForwardText:
 	para "It was a fluke!"
 	done
 
-ReenaHurryText:
+ReenaReminderText:
 	text "What are you"
 	line "doing?"
 

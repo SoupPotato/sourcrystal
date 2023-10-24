@@ -56,7 +56,7 @@ ErinWorkingHardText:
 	line "another battle!"
 	done
 
-ErinComeBattleText:
+ErinReminderText:
 	text "Oh, <PLAY_G>!"
 	line "Come battle ERIN!"
 

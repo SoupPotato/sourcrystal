@@ -90,7 +90,7 @@ ToddSavingUpForBargainSaleText:
 	line "next one?"
 	done
 
-ToddLookingForwardToBattleText:
+ToddReminderText:
 	text "Where are you?"
 
 	para "Let's have our"

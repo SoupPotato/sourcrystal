@@ -15,7 +15,7 @@ EoinPhoneCalleeScript: ; You call Eoin
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_17
-	farjump EoinBattleReminderScript
+	farjump EoinReminderScript
 
 EoinPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, BIKER, EOIN1

@@ -17,7 +17,7 @@ ToddPhoneCalleeScript:
 
 .WantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_34
-	farsjump ToddForwardScript
+	farsjump ToddReminderScript
 
 .SaleOn:
 	farsjump ToddHurryScript

@@ -17,7 +17,7 @@ WiltonPhoneCalleeScript:
 
 .WantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_44
-	farsjump WiltonNotBitingScript
+	farsjump WiltonReminderScript
 
 .HasItem:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_44

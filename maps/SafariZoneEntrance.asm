@@ -6,18 +6,18 @@
 
 SafariZoneEntrance_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_SAFARIZONEENTRANCE_NOTHING
-	scene_script .LeaveSafariEarly ; SCENE_SAFARIZONEENTRANCE_LEAVE_SAFARI_EARLY
+	scene_script SafariZoneEntranceNoop1Scene, SCENE_SAFARIZONEENTRANCE_NOTHING
+	scene_script LeaveSafariEarly, SCENE_SAFARIZONEENTRANCE_LEAVE_SAFARI_EARLY
 
 	def_callbacks
 
-.DummyScene0:
+SafariZoneEntranceNoop1Scene:
 	end
 
-.LeaveSafariEarly:
+LeaveSafariEarly:
 	sdefer .LeavingSafariEarly
 
-.SafariIsRunning:
+.SafariIsRunning: ; unreferenced
 	setscene SCENE_SAFARIZONEENTRANCE_LEAVE_SAFARI_EARLY
 	endcallback
 

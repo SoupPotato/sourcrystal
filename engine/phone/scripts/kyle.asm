@@ -15,7 +15,7 @@ KylePhoneCalleeScript: ; You call Kyle
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_12
-	farjump KyleBattleReminderScript
+	farjump KyleReminderScript
 
 KylePhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, FISHER, KYLE1

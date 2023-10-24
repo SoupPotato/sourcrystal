@@ -13,7 +13,7 @@ KrisePhoneCalleeScript:
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_NATIONAL_PARK
-	farjump KriseWantsBattleScript
+	farjump KriseReminderScript
 
 KrisePhoneCallerScript:
 	gettrainername STRING_BUFFER_3, LASS, KRISE1

@@ -13,7 +13,7 @@ TorinPhoneCalleeScript: ; You call Torin
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_14
-	farjump TorinBattleReminderScript
+	farjump TorinReminderScript
 
 TorinPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, SCHOOLBOY, TORIN1

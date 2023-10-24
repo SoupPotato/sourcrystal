@@ -1,167 +1,167 @@
-JackWantsBattleScript:
-	farwritetext JackReminderText
-	end
-
-IanWantsBattleScript:
-	farwritetext IanReminderText
-	end
-
-WaltWantsBattleScript:
-	farwritetext WaltReminderText
-	end
-
-KriseWantsBattleScript:
-	farwritetext KriseReminderText
-	end
-
-AlfredWantsBattleScript:
-	farwritetext AlfredReminderText
-	end
-
-DougWantsBattleScript:
-	farwritetext DougBattleReminderText
-	end
-
-RobBattleReminderScript:
-	farwritetext RobBattleReminderText
-	end
-
-KyleBattleReminderScript:
-	farwritetext KyleBattleReminderText
-	end
-
-TannerBattleReminderScript:
-	farwritetext TannerBattleReminderText
-	end
-
-KennyBattleReminderScript:
-	farwritetext KennyBattleReminderText
-	end
-
-TimAndSueBattleReminderScript:
-	farwritetext TimAndSueBattleReminderText
-	end
-
-JamieBattleReminderScript:
-	farwritetext JamieBattleReminderText
-	end
-
-TorinBattleReminderScript:
-	farwritetext TorinBattleReminderText
-	end
-
-BillyBattleReminderScript:
-	farwritetext BillyBattleReminderText
-	end
-
-HillaryBattleReminderScript:
-	farwritetext HillaryBattleReminderText
-	end
-
-KayAndTiaBattleReminderScript:
-	farwritetext KayAndTiaBattleReminderText
-	end
-
-AidenBattleReminderScript:
-	farwritetext AidenBattleReminderText
-	end
-
-EoinBattleReminderScript:
-	farwritetext EoinBattleReminderText
-	end
-
-HueyWantsBattleScript:
-	farwritetext HueyReminderText
-	end
-
-ReeseBattleReminderScript:
-	farwritetext ReeseBattleReminderText
-	end
-
-GavenReminderScript:
-	farwritetext GavenReminderText
-	end
-
-BethBattleReminderScript:
-	farwritetext BethReminderText
-	end
-
-JoseReminderScript:
-	farwritetext JoseReminderText
-	end
-
-ReenaHurryScript:
-	farwritetext ReenaHurryText
-	end
-
-JoeyReminderScript:
-	farwritetext JoeyReminderText
-	end
-
-WadeQuickBattleScript:
-	farwritetext WadeQuickBattleText
-	end
-
-RalphReminderScript:
-	farwritetext RalphReminderText
-	end
-
-LizReminderScript:
-	farwritetext LizReminderText
-	end
-
-AnthonyReminderScript:
-	farwritetext AnthonyReminderText
-	end
-
-ToddForwardScript:
-	farwritetext ToddLookingForwardToBattleText
-	end
-
-GinaReminderScript:
-	farwritetext GinaReminderText
-	end
-
-ArnieReminderScript:
-	farwritetext ArnieReminderText
+AidenReminderScript:
+	farwritetext AidenReminderText
 	end
 
 AlanReminderScript:
 	farwritetext AlanReminderText
 	end
 
-DanaReminderScript:
-	farwritetext DanaReminderText
+AlfredReminderScript:
+	farwritetext AlfredReminderText
 	end
 
-ChadReminderScript:
-	farwritetext ChadReminderText
+AnthonyReminderScript:
+	farwritetext AnthonyReminderText
 	end
 
-TullyForwardScript:
-	farwritetext TullyForwardText
+ArnieReminderScript:
+	farwritetext ArnieReminderText
+	end
+
+BethReminderScript:
+	farwritetext BethReminderText
+	end
+
+BillyReminderScript:
+	farwritetext BillyReminderText
 	end
 
 BrentReminderScript:
 	farwritetext BrentReminderText
 	end
 
-TiffanyAsleepScript:
-	farwritetext TiffanyAsleepText
+ChadReminderScript:
+	farwritetext ChadReminderText
 	end
 
-VanceHurryHurryScript:
-	farwritetext VanceHurryHurryText
+DanaReminderScript:
+	farwritetext DanaReminderText
 	end
 
-WiltonNotBitingScript:
-	farwritetext WiltonNotBitingText
+DougReminderScript:
+	farwritetext DougReminderText
 	end
 
-ParryHaventYouGottenToScript:
-	farwritetext ParryHaventYouGottenToText
+EoinReminderScript:
+	farwritetext EoinReminderText
 	end
 
-ErinComeBattleScript:
-	farwritetext ErinComeBattleText
+ErinReminderScript:
+	farwritetext ErinReminderText
+	end
+
+GavenReminderScript:
+	farwritetext GavenReminderText
+	end
+
+GinaReminderScript:
+	farwritetext GinaReminderText
+	end
+
+HillaryReminderScript:
+	farwritetext HillaryReminderText
+	end
+
+HueyReminderScript:
+	farwritetext HueyReminderText
+	end
+
+IanReminderScript:
+	farwritetext IanReminderText
+	end
+
+JackReminderScript:
+	farwritetext JackReminderText
+	end
+
+JamieReminderScript:
+	farwritetext JamieReminderText
+	end
+
+JoeyReminderScript:
+	farwritetext JoeyReminderText
+	end
+
+JoseReminderScript:
+	farwritetext JoseReminderText
+	end
+
+KayAndTiaReminderScript:
+	farwritetext KayAndTiaReminderText
+	end
+
+KennyReminderScript:
+	farwritetext KennyReminderText
+	end
+
+KriseReminderScript:
+	farwritetext KriseReminderText
+	end
+
+KyleReminderScript:
+	farwritetext KyleReminderText
+	end
+
+LizReminderScript:
+	farwritetext LizReminderText
+	end
+
+ParryReminderScript:
+	farwritetext ParryReminderText
+	end
+
+RalphReminderScript:
+	farwritetext RalphReminderText
+	end
+
+ReenaReminderScript:
+	farwritetext ReenaReminderText
+	end
+
+ReeseReminderScript:
+	farwritetext ReeseReminderText
+	end
+
+RobReminderScript:
+	farwritetext RobReminderText
+	end
+
+TannerReminderScript:
+	farwritetext TannerReminderText
+	end
+
+TiffanyReminderScript:
+	farwritetext TiffanyReminderText
+	end
+
+TimAndSueReminderScript:
+	farwritetext TimAndSueReminderText
+	end
+
+ToddReminderScript:
+	farwritetext ToddReminderText
+	end
+
+TorinReminderScript:
+	farwritetext TorinReminderText
+	end
+
+TullyReminderScript:
+	farwritetext TullyReminderText
+	end
+
+VanceReminderScript:
+	farwritetext VanceReminderText
+	end
+
+WadeReminderScript:
+	farwritetext WadeReminderText
+	end
+
+WaltReminderScript:
+	farwritetext WaltReminderText
+	end
+
+WiltonReminderScript:
+	farwritetext WiltonReminderText
 	end

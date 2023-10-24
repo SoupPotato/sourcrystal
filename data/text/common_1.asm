@@ -1309,6 +1309,24 @@ _BugCatchingContestIsOverText::
 	line "Contest is over!"
 	done
 
+_SafariTimeUpText::
+	text "PA: Ding-dong!"
+	
+	para "Time's up!"
+	prompt
+
+_SafariGameOverText::
+	text "PA: Your SAFARI"
+	line "Game is over!"
+	done
+
+_SafariOutOfBallsText::
+	text "PA: Ding-dong!"
+
+	para "You are out of"
+	line "SAFARI BALLS!"
+	prompt
+
 _RepelWoreOffText::
 	text "REPEL's effect"
 	line "wore off."

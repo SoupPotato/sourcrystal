@@ -24,7 +24,7 @@ TannerPhoneCalleeScript: ; You call Tanner
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_13
-	farjump TannerBattleReminderScript
+	farjump TannerReminderScript
 
 .HasSunStone:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_13

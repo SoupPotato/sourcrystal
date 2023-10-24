@@ -28,6 +28,7 @@ StdScripts::
 	add_stdscript DayToTextScript
 	add_stdscript BugContestResultsWarpScript
 	add_stdscript BugContestResultsScript
+	add_stdscript SafariZoneOverWarpScript
 	add_stdscript InitializeEventsScript
 	add_stdscript AskNumber1MScript
 	add_stdscript AskNumber2MScript
@@ -347,6 +348,39 @@ BugContestResultsScript:
 	waitsfx
 	verbosegiveitem ORAN_BERRY
 	iffalse BugContestResults_NoRoomForBerry
+
+SafariZoneOverWarpScript:
+	playsound SFX_ENTER_DOOR
+	special ClearBGPalettes
+	waitsfx
+	warpfacing DOWN, SAFARI_ZONE_ENTRANCE, 3, 0
+	turnobject 4, RIGHT
+	applymovement PLAYER, Movement_SafariZoneOver_WalkAfterWarp
+	applymovement 4, MovementData_Officer2_Leave
+	opentext
+	writetext SafariZoneEntranceMainOfficer_AGoodCatchText
+	waitbutton
+	closetext
+	setevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_ACTIVE
+	clearevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE
+	setscene SCENE_SAFARIZONEENTRANCE_NOTHING
+	appear 3
+	pause 1
+	disappear 4
+	end
+
+SafariZoneEntranceMainOfficer_AGoodCatchText:
+	text "Did you get a"
+	line "good catch?"
+	
+	para "We look foward to"
+	line "your next visit!"
+	done
+
+MovementData_Officer2_Leave:
+	step RIGHT
+	step DOWN
+	step_end
 
 BugContestResults_DidNotWin:
 	farwritetext ContestResults_DidNotWinText
@@ -1902,6 +1936,13 @@ HappinessCheckScript:
 
 Movement_ContestResults_WalkAfterWarp:
 	step RIGHT
+	step DOWN
+	turn_head UP
+	step_end
+
+Movement_SafariZoneOver_WalkAfterWarp:
+	step DOWN
+	step DOWN
 	step DOWN
 	turn_head UP
 	step_end

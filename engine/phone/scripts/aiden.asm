@@ -13,7 +13,7 @@ AidenPhoneCalleeScript: ; You call Aiden
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_17
-	farjump AidenBattleReminderScript
+	farjump AidenReminderScript
 
 AidenPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, BIKER, AIDEN1

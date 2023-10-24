@@ -106,7 +106,7 @@ TiffanyNoItemText:
 	line "my CLEFAIRY!"
 	done
 
-TiffanyAsleepText:
+TiffanyReminderText:
 	text "What's wrong?"
 	line "Can't you visit?"
 

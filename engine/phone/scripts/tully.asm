@@ -17,7 +17,7 @@ TullyPhoneCalleeScript:
 
 .WantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_42
-	farsjump TullyForwardScript
+	farsjump TullyReminderScript
 
 .WaterStone:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_42

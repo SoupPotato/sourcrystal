@@ -76,7 +76,7 @@ MeetMomScript:
 .ExplainPhone:
 	writetext DontKnowTheInstructionsText
 	promptbutton
-	writetext UnknownText_0x7a850
+	writetext InstructionsNextText
 	waitbutton
 	closetext
 	sjump .FinishPhone

@@ -345,23 +345,36 @@ INCLUDE "engine/phone/scripts/reminders_2.asm"
 
 SECTION "Phone Text", ROMX
 
-INCLUDE "data/phone/text/anthony_overworld.asm"
-INCLUDE "data/phone/text/todd_overworld.asm"
-INCLUDE "data/phone/text/gina_overworld.asm"
-INCLUDE "data/phone/text/irwin_overworld.asm"
-INCLUDE "data/phone/text/arnie_overworld.asm"
+INCLUDE "data/phone/text/aiden_overworld.asm" ; new
 INCLUDE "data/phone/text/alan_overworld.asm"
-INCLUDE "data/phone/text/dana_overworld.asm"
-INCLUDE "data/phone/text/chad_overworld.asm"
-INCLUDE "data/phone/text/derek_overworld.asm"
-INCLUDE "data/phone/text/tully_overworld.asm"
+INCLUDE "data/phone/text/anthony_overworld.asm"
+INCLUDE "data/phone/text/arnie_overworld.asm"
+INCLUDE "data/phone/text/billy_overworld.asm" ; new
 INCLUDE "data/phone/text/brent_overworld.asm"
+INCLUDE "data/phone/text/chad_overworld.asm"
+INCLUDE "data/phone/text/dana_overworld.asm"
+INCLUDE "data/phone/text/derek_overworld.asm"
+INCLUDE "data/phone/text/eoin_overworld.asm" ; new
+INCLUDE "data/phone/text/erin_overworld.asm"
+INCLUDE "data/phone/text/gina_overworld.asm"
+INCLUDE "data/phone/text/hillary_overworld.asm" ; new
+INCLUDE "data/phone/text/ian_overworld.asm" ; new
+INCLUDE "data/phone/text/irwin_overworld.asm"
+INCLUDE "data/phone/text/jamie_overworld.asm" ; new
+INCLUDE "data/phone/text/kayandtia_overworld.asm" ; new
+INCLUDE "data/phone/text/kenji_overworld.asm"
+INCLUDE "data/phone/text/kenny_overworld.asm" ; new
+INCLUDE "data/phone/text/kyle_overworld.asm" ; new
+INCLUDE "data/phone/text/parry_overworld.asm"
+INCLUDE "data/phone/text/reese_overworld.asm" ; new
+INCLUDE "data/phone/text/tanner_overworld.asm" ; new
 INCLUDE "data/phone/text/tiffany_overworld.asm"
+INCLUDE "data/phone/text/timandsue_overworld.asm" ; new
+INCLUDE "data/phone/text/todd_overworld.asm"
+INCLUDE "data/phone/text/torin_overworld.asm" ; new
+INCLUDE "data/phone/text/tully_overworld.asm"
 INCLUDE "data/phone/text/vance_overworld.asm"
 INCLUDE "data/phone/text/wilton_overworld.asm"
-INCLUDE "data/phone/text/kenji_overworld.asm"
-INCLUDE "data/phone/text/parry_overworld.asm"
-INCLUDE "data/phone/text/erin_overworld.asm"
 
 
 SECTION "bank2E", ROMX
@@ -570,21 +583,32 @@ INCLUDE "mobile/mobile_5c.asm"
 
 SECTION "Crystal Phone Text 2", ROMX
 
-INCLUDE "data/phone/text/bike_shop.asm"
-INCLUDE "data/phone/text/jack_caller.asm"
-INCLUDE "data/phone/text/beverly_caller.asm"
-INCLUDE "data/phone/text/huey_caller.asm"
-INCLUDE "data/phone/text/gaven_caller.asm"
-INCLUDE "data/phone/text/beth_caller.asm"
-INCLUDE "data/phone/text/jose_caller.asm"
-INCLUDE "data/phone/text/reena_caller.asm"
-INCLUDE "data/phone/text/joey_caller.asm"
-INCLUDE "data/phone/text/wade_caller.asm"
-INCLUDE "data/phone/text/ralph_caller.asm"
-INCLUDE "data/phone/text/liz_caller.asm"
+INCLUDE "data/phone/text/alfred_caller.asm" ; new
 INCLUDE "data/phone/text/anthony_caller.asm"
-INCLUDE "data/phone/text/todd_caller.asm"
+INCLUDE "data/phone/text/beth_caller.asm"
+INCLUDE "data/phone/text/beverly_caller.asm"
+INCLUDE "data/phone/text/bike_shop.asm"
+INCLUDE "data/phone/text/billy_caller.asm" ; new
+INCLUDE "data/phone/text/doug_caller.asm" ; new
+INCLUDE "data/phone/text/gaven_caller.asm"
 INCLUDE "data/phone/text/gina_caller.asm"
+INCLUDE "data/phone/text/huey_caller.asm"
+INCLUDE "data/phone/text/ian_caller.asm" ; new
+INCLUDE "data/phone/text/jack_caller.asm"
+INCLUDE "data/phone/text/jamie_caller.asm" ; new
+INCLUDE "data/phone/text/joey_caller.asm"
+INCLUDE "data/phone/text/jose_caller.asm"
+INCLUDE "data/phone/text/kenny_caller.asm" ; new
+INCLUDE "data/phone/text/liz_caller.asm"
+INCLUDE "data/phone/text/ralph_caller.asm"
+INCLUDE "data/phone/text/reena_caller.asm"
+INCLUDE "data/phone/text/rob_caller.asm" ; new
+INCLUDE "data/phone/text/tanner_caller.asm" ; new
+INCLUDE "data/phone/text/timandsue_caller.asm" ; new
+INCLUDE "data/phone/text/todd_caller.asm"
+INCLUDE "data/phone/text/torin_caller.asm" ; new
+INCLUDE "data/phone/text/wade_caller.asm"
+INCLUDE "data/phone/text/walt_caller.asm" ; new
 
 
 SECTION "UpdateBattleHUDs", ROMX
@@ -620,39 +644,58 @@ INCLUDE "data/phone/text/liz_overworld.asm"
 
 SECTION "Special Phone Text", ROMX
 
-INCLUDE "data/phone/text/mom.asm"
-INCLUDE "data/phone/text/bill.asm"
-INCLUDE "data/phone/text/elm.asm"
-INCLUDE "data/phone/text/jack_callee.asm"
-INCLUDE "data/phone/text/beverly_callee.asm"
-INCLUDE "data/phone/text/huey_callee.asm"
-INCLUDE "data/phone/text/unknown_callee.asm"
-INCLUDE "data/phone/text/gaven_callee.asm"
-INCLUDE "data/phone/text/beth_callee.asm"
-INCLUDE "data/phone/text/jose_callee.asm"
-INCLUDE "data/phone/text/reena_callee.asm"
-INCLUDE "data/phone/text/joey_callee.asm"
-INCLUDE "data/phone/text/wade_callee.asm"
-INCLUDE "data/phone/text/ralph_callee.asm"
-INCLUDE "data/phone/text/liz_callee.asm"
-INCLUDE "data/phone/text/anthony_callee.asm"
-INCLUDE "data/phone/text/todd_callee.asm"
-INCLUDE "data/phone/text/gina_callee.asm"
-INCLUDE "data/phone/text/irwin_callee.asm"
-INCLUDE "data/phone/text/arnie_callee.asm"
 INCLUDE "data/phone/text/alan_callee.asm"
-INCLUDE "data/phone/text/dana_callee.asm"
-INCLUDE "data/phone/text/chad_callee.asm"
-INCLUDE "data/phone/text/derek_callee.asm"
-INCLUDE "data/phone/text/tully_callee.asm"
+INCLUDE "data/phone/text/alfred_callee.asm" ; new
+INCLUDE "data/phone/text/anthony_callee.asm"
+INCLUDE "data/phone/text/arnie_callee.asm"
+INCLUDE "data/phone/text/beth_callee.asm"
+INCLUDE "data/phone/text/beverly_callee.asm"
+INCLUDE "data/phone/text/bill.asm"
 INCLUDE "data/phone/text/brent_callee.asm"
-INCLUDE "data/phone/text/tiffany_callee.asm"
-INCLUDE "data/phone/text/vance_callee.asm"
-INCLUDE "data/phone/text/wilton_callee.asm"
-INCLUDE "data/phone/text/kenji_callee.asm"
-INCLUDE "data/phone/text/parry_callee.asm"
+INCLUDE "data/phone/text/chad_callee.asm"
+INCLUDE "data/phone/text/dana_callee.asm"
+INCLUDE "data/phone/text/derek_callee.asm"
+INCLUDE "data/phone/text/doug_callee.asm" ; new
+INCLUDE "data/phone/text/elm.asm"
 INCLUDE "data/phone/text/erin_callee.asm"
+INCLUDE "data/phone/text/gaven_callee.asm"
+INCLUDE "data/phone/text/gina_callee.asm"
+INCLUDE "data/phone/text/huey_callee.asm"
+INCLUDE "data/phone/text/ian_callee.asm" ; new
+INCLUDE "data/phone/text/irwin_callee.asm"
+INCLUDE "data/phone/text/jack_callee.asm"
+INCLUDE "data/phone/text/joey_callee.asm"
+INCLUDE "data/phone/text/jose_callee.asm"
+INCLUDE "data/phone/text/kenji_callee.asm"
+INCLUDE "data/phone/text/krise_callee.asm" ; new
+INCLUDE "data/phone/text/kyle_callee.asm" ; new
+INCLUDE "data/phone/text/liz_callee.asm"
+INCLUDE "data/phone/text/mom.asm"
+INCLUDE "data/phone/text/parry_callee.asm"
+INCLUDE "data/phone/text/ralph_callee.asm"
+INCLUDE "data/phone/text/reena_callee.asm"
+INCLUDE "data/phone/text/rob_callee.asm" ; new
+INCLUDE "data/phone/text/tanner_callee.asm" ; new
+INCLUDE "data/phone/text/tiffany_callee.asm"
+INCLUDE "data/phone/text/todd_callee.asm"
+INCLUDE "data/phone/text/tully_callee.asm"
+INCLUDE "data/phone/text/unknown_callee.asm"
 INCLUDE "data/phone/text/unused.asm"
+INCLUDE "data/phone/text/vance_callee.asm"
+INCLUDE "data/phone/text/wade_callee.asm"
+INCLUDE "data/phone/text/walt_callee.asm" ; new
+INCLUDE "data/phone/text/wilton_callee.asm"
+
+
+SECTION "Special Phone Text 2", ROMX
+
+INCLUDE "data/phone/text/aiden_callee.asm" ; new
+INCLUDE "data/phone/text/eoin_callee.asm" ; new
+INCLUDE "data/phone/text/hillary_callee.asm" ; new
+INCLUDE "data/phone/text/kayandtia_callee.asm" ; new
+INCLUDE "data/phone/text/kenny_callee.asm" ; new
+INCLUDE "data/phone/text/reese_callee.asm" ; new
+INCLUDE "data/phone/text/timandsue_callee.asm" ; new
 
 
 SECTION "Miscellaneous Text", ROMX

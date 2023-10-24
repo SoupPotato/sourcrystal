@@ -791,6 +791,10 @@ PhoneScript_HangUpText_Male:
 	farwritetext ParryHangUpText
 	end
 
+PhoneScript_KyleConnectionLostText:
+	farwritetext KyleConnectionLostText
+	end
+
 PhoneScript_HangUpText_Female:
 	readvar VAR_CALLERID
 	ifequal PHONE_POKEFAN_BEVERLY, .Beverly

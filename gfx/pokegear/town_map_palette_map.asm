@@ -5,12 +5,14 @@
 	const PAL_TOWNMAP_CITY     ; 3
 	const PAL_TOWNMAP_POI      ; 4
 	const PAL_TOWNMAP_POI_MTN  ; 5
+	const PAL_TOWNMAP_PPS      ; 6
 
 MACRO townmappals
-	rept _NARG / 2
-		dn PAL_TOWNMAP_\2, PAL_TOWNMAP_\1
-		shift 2
-	endr
+rept _NARG / 2
+	dn PAL_TOWNMAP_\2, PAL_TOWNMAP_\1
+	shift
+	shift
+endr
 ENDM
 
 ; gfx/pokegear/town_map.png
@@ -26,4 +28,6 @@ ENDM
 	townmappals CITY,     CITY,     CITY,     CITY,     CITY,     CITY,     CITY,     CITY
 	townmappals CITY,     CITY,     CITY,     CITY,     CITY,     CITY,     CITY,     BORDER
 	townmappals CITY,     CITY,     CITY,     CITY,     CITY,     CITY,     CITY,     CITY
+	townmappals BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER
+	townmappals PPS,      PPS,      PPS,      PPS,      BORDER,   BORDER,   BORDER,   BORDER
 	townmappals BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER

@@ -56,7 +56,7 @@ RobBerryReminderScript:
 KyleFishingTips:
 	farwritetext KyleFishingTipsText
 	promptbutton
-	sjump PhoneScript_KyleConnectionLostText_Tully
+	sjump PhoneScript_KyleConnectionLostText
 
 TannerCamping:
 	farwritetext TannerCampingText

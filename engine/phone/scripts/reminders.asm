@@ -2,8 +2,80 @@ JackWantsBattleScript:
 	farwritetext JackReminderText
 	end
 
+IanWantsBattleScript:
+	farwritetext IanReminderText
+	end
+
+WaltWantsBattleScript:
+	farwritetext WaltReminderText
+	end
+
+KriseWantsBattleScript:
+	farwritetext KriseReminderText
+	end
+
+AlfredWantsBattleScript:
+	farwritetext AlfredReminderText
+	end
+
+DougWantsBattleScript:
+	farwritetext DougBattleReminderText
+	end
+
+RobBattleReminderScript:
+	farwritetext RobBattleReminderText
+	end
+
+KyleBattleReminderScript:
+	farwritetext KyleBattleReminderText
+	end
+
+TannerBattleReminderScript:
+	farwritetext TannerBattleReminderText
+	end
+
+KennyBattleReminderScript:
+	farwritetext KennyBattleReminderText
+	end
+
+TimAndSueBattleReminderScript:
+	farwritetext TimAndSueBattleReminderText
+	end
+
+JamieBattleReminderScript:
+	farwritetext JamieBattleReminderText
+	end
+
+TorinBattleReminderScript:
+	farwritetext TorinBattleReminderText
+	end
+
+BillyBattleReminderScript:
+	farwritetext BillyBattleReminderText
+	end
+
+HillaryBattleReminderScript:
+	farwritetext HillaryBattleReminderText
+	end
+
+KayAndTiaBattleReminderScript:
+	farwritetext KayAndTiaBattleReminderText
+	end
+
+AidenBattleReminderScript:
+	farwritetext AidenBattleReminderText
+	end
+
+EoinBattleReminderScript:
+	farwritetext EoinBattleReminderText
+	end
+
 HueyWantsBattleScript:
 	farwritetext HueyReminderText
+	end
+
+ReeseBattleReminderScript:
+	farwritetext ReeseBattleReminderText
 	end
 
 GavenReminderScript:

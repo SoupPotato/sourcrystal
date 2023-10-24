@@ -1,6 +1,6 @@
 	object_const_def
-	const ROUTE29ROUTE46GATE_OFFICER
-	const ROUTE29ROUTE46GATE_YOUNGSTER
+	const ROUTE_29ROUTE_46GATE_OFFICER
+	const ROUTE_29ROUTE_46GATE_YOUNGSTER
 
 Route29Route46Gate_MapScripts:
 	def_scene_scripts

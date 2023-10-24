@@ -1,6 +1,6 @@
 	object_const_def
-	const ROUTE31VIOLETGATE_OFFICER
-	const ROUTE31VIOLETGATE_COOLTRAINER_F
+	const ROUTE_31VIOLETGATE_OFFICER
+	const ROUTE_31VIOLETGATE_COOLTRAINER_F
 
 Route31VioletGate_MapScripts:
 	def_scene_scripts

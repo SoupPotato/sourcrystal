@@ -1,16 +1,16 @@
 	object_const_def
-	const ROUTE35_YOUNGSTER1
-	const ROUTE35_YOUNGSTER2
-	const ROUTE35_LASS1
-	const ROUTE35_LASS2
-	const ROUTE35_YOUNGSTER3
-	const ROUTE35_FISHER
-	const ROUTE35_BUG_CATCHER
-	const ROUTE35_SUPER_NERD
-	const ROUTE35_OFFICER
-	const ROUTE35_BERRY
-	const ROUTE35_APRICORN
-	const ROUTE35_POKE_BALL
+	const ROUTE_35_YOUNGSTER1
+	const ROUTE_35_YOUNGSTER2
+	const ROUTE_35_LASS1
+	const ROUTE_35_LASS2
+	const ROUTE_35_YOUNGSTER3
+	const ROUTE_35_FISHER
+	const ROUTE_35_BUG_CATCHER
+	const ROUTE_35_SUPER_NERD
+	const ROUTE_35_OFFICER
+	const ROUTE_35_BERRY
+	const ROUTE_35_APRICORN
+	const ROUTE_35_POKE_BALL
 
 Route35_MapScripts:
 	def_scene_scripts
@@ -20,16 +20,16 @@ Route35_MapScripts:
 
 Route35Fruittrees:
 .Berry:
-	checkflag ENGINE_DAILY_ROUTE35_BERRY
+	checkflag ENGINE_DAILY_ROUTE_35_BERRY
 	iftrue .NoBerry
-	appear ROUTE35_BERRY
+	appear ROUTE_35_BERRY
 .NoBerry:
 	;fallthrough
 
 .Apricorn:
-	checkflag ENGINE_DAILY_ROUTE35_APRICORN
+	checkflag ENGINE_DAILY_ROUTE_35_APRICORN
 	iftrue .NoApricorn
-	appear ROUTE35_APRICORN
+	appear ROUTE_35_APRICORN
 .NoApricorn:
 	endcallback
 
@@ -351,8 +351,8 @@ Route35BerryTree:
 	promptbutton
 	verbosegiveitem LEPPA_BERRY
 	iffalse .NoRoomInBag
-	disappear ROUTE35_BERRY
-	setflag ENGINE_DAILY_ROUTE35_BERRY
+	disappear ROUTE_35_BERRY
+	setflag ENGINE_DAILY_ROUTE_35_BERRY
 .NoRoomInBag
 	closetext
 	end
@@ -365,8 +365,8 @@ Route35ApricornTree:
 	promptbutton
 	verbosegiveitem GRN_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE35_APRICORN
-	setflag ENGINE_DAILY_ROUTE35_APRICORN
+	disappear ROUTE_35_APRICORN
+	setflag ENGINE_DAILY_ROUTE_35_APRICORN
 .NoRoomInBag
 	closetext
 	end
@@ -618,6 +618,6 @@ Route35_MapEvents:
 	object_event 16,  7, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 2, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherArnie, -1
 	object_event  5, 10, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerJugglerIrwin, -1
 	object_event  5,  6, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TrainerOfficerDirk, -1
-	object_event  1, 26, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route35BerryTree, EVENT_ROUTE35_BERRY
-	object_event  2, 25, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route35ApricornTree, EVENT_ROUTE35_APRICORN
+	object_event  1, 26, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route35BerryTree, EVENT_ROUTE_35_BERRY
+	object_event  2, 25, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route35ApricornTree, EVENT_ROUTE_35_APRICORN
 	object_event 13, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route35TMRollout, EVENT_ROUTE_35_TM_ROLLOUT

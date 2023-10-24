@@ -1,10 +1,10 @@
 	object_const_def
-	const ROUTE1_YOUNGSTER1
-	const ROUTE1_YOUNGSTER2
-	const ROUTE1_COOLTRAINER_F
-	const ROUTE1_COOLTRAINER_M
-	const ROUTE1_BERRY
-	const ROUTE1_APRICORN
+	const ROUTE_1_YOUNGSTER1
+	const ROUTE_1_YOUNGSTER2
+	const ROUTE_1_COOLTRAINER_F
+	const ROUTE_1_COOLTRAINER_M
+	const ROUTE_1_BERRY
+	const ROUTE_1_APRICORN
 
 Route1_MapScripts:
 	def_scene_scripts
@@ -14,16 +14,16 @@ Route1_MapScripts:
 
 Route1Fruittrees:
 .Berry:
-	checkflag ENGINE_DAILY_ROUTE1_BERRY
+	checkflag ENGINE_DAILY_ROUTE_1_BERRY
 	iftrue .NoBerry
-	appear ROUTE1_BERRY
+	appear ROUTE_1_BERRY
 .NoBerry:
 	;fallthrough
 
 .Apricorn:
-	checkflag ENGINE_DAILY_ROUTE1_APRICORN
+	checkflag ENGINE_DAILY_ROUTE_1_APRICORN
 	iftrue .NoApricorn
-	appear ROUTE1_APRICORN
+	appear ROUTE_1_APRICORN
 .NoApricorn:
 	endcallback
 
@@ -82,8 +82,8 @@ Route1BerryTree:
 	promptbutton
 	verbosegiveitem PERSIM_BERRY
 	iffalse .NoRoomInBag
-	disappear ROUTE1_BERRY
-	setflag ENGINE_DAILY_ROUTE1_BERRY
+	disappear ROUTE_1_BERRY
+	setflag ENGINE_DAILY_ROUTE_1_BERRY
 .NoRoomInBag
 	closetext
 	end
@@ -96,8 +96,8 @@ Route1ApricornTree:
 	promptbutton
 	verbosegiveitem BLK_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE1_APRICORN
-	setflag ENGINE_DAILY_ROUTE1_APRICORN
+	disappear ROUTE_1_APRICORN
+	setflag ENGINE_DAILY_ROUTE_1_APRICORN
 .NoRoomInBag
 	closetext
 	end
@@ -247,5 +247,5 @@ Route1_MapEvents:
 	object_event 10, 21, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCooltrainermFrench, -1
 	object_event 13,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSchoolboySherman, -1
 	object_event 11, 25, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCooltrainerfQuinn, -1
-	object_event  7,  7, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route1BerryTree, EVENT_ROUTE1_BERRY
-	object_event  5,  7, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, Route1ApricornTree, EVENT_ROUTE1_APRICORN
+	object_event  7,  7, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route1BerryTree, EVENT_ROUTE_1_BERRY
+	object_event  5,  7, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, Route1ApricornTree, EVENT_ROUTE_1_APRICORN

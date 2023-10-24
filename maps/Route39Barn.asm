@@ -1,7 +1,7 @@
 	object_const_def
-	const ROUTE39BARN_TWIN1
-	const ROUTE39BARN_TWIN2
-	const ROUTE39BARN_MOOMOO
+	const ROUTE_39BARN_TWIN1
+	const ROUTE_39BARN_TWIN2
+	const ROUTE_39BARN_MOOMOO
 
 Route39Barn_MapScripts:
 	def_scene_scripts
@@ -16,14 +16,14 @@ Route39BarnTwin1Script:
 	writetext Route39BarnTwinMoomooIsSickText
 	waitbutton
 	closetext
-	turnobject ROUTE39BARN_TWIN1, RIGHT
+	turnobject ROUTE_39BARN_TWIN1, RIGHT
 	end
 
 .FeedingMooMoo:
 	writetext Route39BarnTwinWereFeedingMoomooText
 	waitbutton
 	closetext
-	turnobject ROUTE39BARN_TWIN1, RIGHT
+	turnobject ROUTE_39BARN_TWIN1, RIGHT
 	end
 
 Route39BarnTwin2Script:
@@ -34,14 +34,14 @@ Route39BarnTwin2Script:
 	writetext Route39BarnTwinMoomooIsSickText
 	waitbutton
 	closetext
-	turnobject ROUTE39BARN_TWIN2, LEFT
+	turnobject ROUTE_39BARN_TWIN2, LEFT
 	end
 
 .FeedingMooMoo:
 	writetext Route39BarnTwinWereFeedingMoomooText
 	waitbutton
 	closetext
-	turnobject ROUTE39BARN_TWIN2, LEFT
+	turnobject ROUTE_39BARN_TWIN2, LEFT
 	end
 
 MoomooScript:

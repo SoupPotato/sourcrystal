@@ -1,8 +1,8 @@
 	object_const_def
-	const ROUTE17_BIKER1
-	const ROUTE17_BIKER2
-	const ROUTE17_BIKER3
-	const ROUTE17_BIKER4
+	const ROUTE_17_BIKER1
+	const ROUTE_17_BIKER2
+	const ROUTE_17_BIKER3
+	const ROUTE_17_BIKER4
 
 Route17_MapScripts:
 	def_scene_scripts

@@ -1,5 +1,5 @@
 	object_const_def
-	const ROUTE16FUCHSIASPEECHHOUSE_SUPER_NERD
+	const ROUTE_16FUCHSIASPEECHHOUSE_SUPER_NERD
 
 Route16FuchsiaSpeechHouse_MapScripts:
 	def_scene_scripts

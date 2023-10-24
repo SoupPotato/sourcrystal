@@ -1,6 +1,6 @@
 	object_const_def
-	const ROUTE18_YOUNGSTER1
-	const ROUTE18_YOUNGSTER2
+	const ROUTE_18_YOUNGSTER1
+	const ROUTE_18_YOUNGSTER2
 
 Route18_MapScripts:
 	def_scene_scripts

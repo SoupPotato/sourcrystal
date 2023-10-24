@@ -1,5 +1,5 @@
 	object_const_def
-	const ROUTE11GATE_OFFICER
+	const ROUTE_11GATE_OFFICER
 
 Route11Gate_MapScripts:
 	def_scene_scripts

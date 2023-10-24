@@ -1,5 +1,5 @@
 	object_const_def
-	const ROUTE26HEALHOUSE_TEACHER
+	const ROUTE_26HEALHOUSE_TEACHER
 
 Route26HealHouse_MapScripts:
 	def_scene_scripts

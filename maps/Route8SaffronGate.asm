@@ -1,5 +1,5 @@
 	object_const_def
-	const ROUTE8SAFFRONGATE_OFFICER
+	const ROUTE_8SAFFRONGATE_OFFICER
 
 Route8SaffronGate_MapScripts:
 	def_scene_scripts

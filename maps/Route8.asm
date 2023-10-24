@@ -1,11 +1,11 @@
 	object_const_def
-	const ROUTE8_BIKER1
-	const ROUTE8_BIKER2
-	const ROUTE8_BIKER3
-	const ROUTE8_SUPER_NERD1
-	const ROUTE8_SUPER_NERD2
-	const ROUTE8_BERRY
-	const ROUTE8_APRICORN
+	const ROUTE_8_BIKER1
+	const ROUTE_8_BIKER2
+	const ROUTE_8_BIKER3
+	const ROUTE_8_SUPER_NERD1
+	const ROUTE_8_SUPER_NERD2
+	const ROUTE_8_BERRY
+	const ROUTE_8_APRICORN
 
 Route8_MapScripts:
 	def_scene_scripts
@@ -15,16 +15,16 @@ Route8_MapScripts:
 
 Route8Fruittrees:
 .Berry:
-	checkflag ENGINE_DAILY_ROUTE8_BERRY
+	checkflag ENGINE_DAILY_ROUTE_8_BERRY
 	iftrue .NoBerry
-	appear ROUTE8_BERRY
+	appear ROUTE_8_BERRY
 .NoBerry:
 	;fallthrough
 
 .Apricorn:
-	checkflag ENGINE_DAILY_ROUTE8_APRICORN
+	checkflag ENGINE_DAILY_ROUTE_8_APRICORN
 	iftrue .NoApricorn
-	appear ROUTE8_APRICORN
+	appear ROUTE_8_APRICORN
 .NoApricorn:
 	endcallback
 
@@ -130,8 +130,8 @@ Route8BerryTree:
 	promptbutton
 	verbosegiveitem CHERI_BERRY
 	iffalse .NoRoomInBag
-	disappear ROUTE8_BERRY
-	setflag ENGINE_DAILY_ROUTE8_BERRY
+	disappear ROUTE_8_BERRY
+	setflag ENGINE_DAILY_ROUTE_8_BERRY
 .NoRoomInBag
 	closetext
 	end
@@ -144,8 +144,8 @@ Route8ApricornTree:
 	promptbutton
 	verbosegiveitem YLW_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE8_APRICORN
-	setflag ENGINE_DAILY_ROUTE8_APRICORN
+	disappear ROUTE_8_APRICORN
+	setflag ENGINE_DAILY_ROUTE_8_APRICORN
 .NoRoomInBag
 	closetext
 	end
@@ -377,8 +377,8 @@ Route8_MapEvents:
 	object_event 12, 13, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBikerZeke, -1
 	object_event 21, 11, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSupernerdSam, -1
 	object_event 39,  8, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSupernerdTom, -1
-	object_event  5, 14, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route8BerryTree, EVENT_ROUTE8_BERRY
-	object_event 49,  6, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route8ApricornTree, EVENT_ROUTE8_APRICORN
+	object_event  5, 14, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route8BerryTree, EVENT_ROUTE_8_BERRY
+	object_event 49,  6, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route8ApricornTree, EVENT_ROUTE_8_APRICORN
 	object_event 30,  3, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerCoupleMoeandLulu1, -1
 	object_event 31,  3, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerCoupleMoeandLulu2, -1
 	object_event 45, 15, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, GentlemanMilton, -1

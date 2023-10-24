@@ -1,12 +1,12 @@
 	object_const_def
-	const ROUTE38_STANDING_YOUNGSTER1
-	const ROUTE38_LASS
-	const ROUTE38_STANDING_YOUNGSTER2
-	const ROUTE38_BUENA1
-	const ROUTE38_SAILOR
-	const ROUTE38_BERRY
-	const ROUTE38_APRICORN
-	const ROUTE38_BUENA2
+	const ROUTE_38_STANDING_YOUNGSTER1
+	const ROUTE_38_LASS
+	const ROUTE_38_STANDING_YOUNGSTER2
+	const ROUTE_38_BUENA1
+	const ROUTE_38_SAILOR
+	const ROUTE_38_BERRY
+	const ROUTE_38_APRICORN
+	const ROUTE_38_BUENA2
 
 Route38_MapScripts:
 	def_scene_scripts
@@ -16,16 +16,16 @@ Route38_MapScripts:
 
 Route38Fruittrees:
 .Berry:
-	checkflag ENGINE_DAILY_ROUTE38_BERRY
+	checkflag ENGINE_DAILY_ROUTE_38_BERRY
 	iftrue .NoBerry
-	appear ROUTE38_BERRY
+	appear ROUTE_38_BERRY
 .NoBerry:
 	;fallthrough
 
 .Apricorn:
-	checkflag ENGINE_DAILY_ROUTE38_APRICORN
+	checkflag ENGINE_DAILY_ROUTE_38_APRICORN
 	iftrue .NoApricorn
-	appear ROUTE38_APRICORN
+	appear ROUTE_38_APRICORN
 .NoApricorn:
 	endcallback
 
@@ -326,8 +326,8 @@ Route38BerryTree:
 	promptbutton
 	verbosegiveitem ORAN_BERRY
 	iffalse .NoRoomInBag
-	disappear ROUTE38_BERRY
-	setflag ENGINE_DAILY_ROUTE38_BERRY
+	disappear ROUTE_38_BERRY
+	setflag ENGINE_DAILY_ROUTE_38_BERRY
 .NoRoomInBag
 	closetext
 	end
@@ -340,8 +340,8 @@ Route38ApricornTree:
 	promptbutton
 	verbosegiveitem WHT_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE38_APRICORN
-	setflag ENGINE_DAILY_ROUTE38_APRICORN
+	disappear ROUTE_38_APRICORN
+	setflag ENGINE_DAILY_ROUTE_38_APRICORN
 .NoRoomInBag
 	closetext
 	end
@@ -560,6 +560,6 @@ Route38_MapEvents:
 	object_event 12, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBirdKeeperToby, -1
 	object_event 19,  9, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBeautyValerie, -1
 	object_event 24,  5, SPRITE_SAILOR, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerSailorHarry, -1
-	object_event 12, 11, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route38BerryTree, EVENT_ROUTE38_BERRY
-	object_event 12,  9, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, Route38ApricornTree, EVENT_ROUTE38_APRICORN
+	object_event 12, 11, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route38BerryTree, EVENT_ROUTE_38_BERRY
+	object_event 12,  9, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, Route38ApricornTree, EVENT_ROUTE_38_APRICORN
 	object_event  5,  8, SPRITE_BEAUTY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBeautyOlivia, -1

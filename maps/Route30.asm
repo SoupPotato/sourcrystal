@@ -1,17 +1,17 @@
 	object_const_def
-	const ROUTE30_YOUNGSTER1
-	const ROUTE30_YOUNGSTER2
-	const ROUTE30_YOUNGSTER3
-	const ROUTE30_BUG_CATCHER
-	const ROUTE30_YOUNGSTER4
-	const ROUTE30_MONSTER1
-	const ROUTE30_MONSTER2
-	const ROUTE30_BERRY
-	const ROUTE30_BERRY2
-	const ROUTE30_APRICORN
-	const ROUTE30_APRICORN2
-	const ROUTE30_COOLTRAINER_F
-	const ROUTE30_POKE_BALL
+	const ROUTE_30_YOUNGSTER1
+	const ROUTE_30_YOUNGSTER2
+	const ROUTE_30_YOUNGSTER3
+	const ROUTE_30_BUG_CATCHER
+	const ROUTE_30_YOUNGSTER4
+	const ROUTE_30_MONSTER1
+	const ROUTE_30_MONSTER2
+	const ROUTE_30_BERRY
+	const ROUTE_30_BERRY_2
+	const ROUTE_30_APRICORN
+	const ROUTE_30_APRICORN_2
+	const ROUTE_30_COOLTRAINER_F
+	const ROUTE_30_POKE_BALL
 
 Route30_MapScripts:
 	def_scene_scripts
@@ -21,31 +21,31 @@ Route30_MapScripts:
 
 Route30Fruittrees:
 .Berry:
-	checkflag ENGINE_DAILY_ROUTE30_BERRY
+	checkflag ENGINE_DAILY_ROUTE_30_BERRY
 	iftrue .NoBerry
-	appear ROUTE30_BERRY
+	appear ROUTE_30_BERRY
 .NoBerry:
 	;fallthrough
 
 .Apricorn:
-	checkflag ENGINE_DAILY_ROUTE30_APRICORN
+	checkflag ENGINE_DAILY_ROUTE_30_APRICORN
 	iftrue .NoApricorn
-	appear ROUTE30_APRICORN
+	appear ROUTE_30_APRICORN
 .NoApricorn:
 	;fallthrough
 
-.Berry2:
-	checkflag ENGINE_DAILY_ROUTE30_BERRY2
-	iftrue .NoBerry2
-	appear ROUTE30_BERRY2
-.NoBerry2:
+.BERRY_2:
+	checkflag ENGINE_DAILY_ROUTE_30_BERRY_2
+	iftrue .NoBERRY_2
+	appear ROUTE_30_BERRY_2
+.NoBERRY_2:
 	;fallthrough
 
-.Apricorn2:
-	checkflag ENGINE_DAILY_ROUTE30_APRICORN2
-	iftrue .NoApricorn2
-	appear ROUTE30_APRICORN2
-.NoApricorn2:
+.APRICORN_2:
+	checkflag ENGINE_DAILY_ROUTE_30_APRICORN_2
+	iftrue .NoAPRICORN_2
+	appear ROUTE_30_APRICORN_2
+.NoAPRICORN_2:
 	endcallback
 
 YoungsterJoey_ImportantBattleScript:
@@ -56,15 +56,15 @@ YoungsterJoey_ImportantBattleScript:
 	pause 30
 	closetext
 	playsound SFX_TACKLE
-	applymovement ROUTE30_MONSTER2, Route30_JoeysRattataAttacksMovement
+	applymovement ROUTE_30_MONSTER2, Route30_JoeysRattataAttacksMovement
 	opentext
 	faceplayer
 	writetext Text_ThisIsABigBattle
 	waitbutton
-	turnobject ROUTE30_YOUNGSTER1, UP
+	turnobject ROUTE_30_YOUNGSTER1, UP
 	closetext
 	playsound SFX_TACKLE
-	applymovement ROUTE30_MONSTER1, Route30_MikeysRattataAttacksMovement
+	applymovement ROUTE_30_MONSTER1, Route30_MikeysRattataAttacksMovement
 	special RestartMapMusic
 	end
 
@@ -269,8 +269,8 @@ Route30BerryTree:
 	promptbutton
 	verbosegiveitem ORAN_BERRY
 	iffalse .NoRoomInBag
-	disappear ROUTE30_BERRY
-	setflag ENGINE_DAILY_ROUTE30_BERRY
+	disappear ROUTE_30_BERRY
+	setflag ENGINE_DAILY_ROUTE_30_BERRY
 .NoRoomInBag
 	closetext
 	end
@@ -279,12 +279,12 @@ Route30BerryTree2:
 	opentext
 	writetext Route30BerryTreeText
 	promptbutton
-	writetext Route30HeyItsBerry2Text
+	writetext Route30HeyItsBERRY_2Text
 	promptbutton
 	verbosegiveitem PECHA_BERRY
 	iffalse .NoRoomInBag
-	disappear ROUTE30_BERRY2
-	setflag ENGINE_DAILY_ROUTE30_BERRY2
+	disappear ROUTE_30_BERRY_2
+	setflag ENGINE_DAILY_ROUTE_30_BERRY_2
 .NoRoomInBag
 	closetext
 	end
@@ -297,8 +297,8 @@ Route30ApricornTree:
 	promptbutton
 	verbosegiveitem GRN_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE30_APRICORN
-	setflag ENGINE_DAILY_ROUTE30_APRICORN
+	disappear ROUTE_30_APRICORN
+	setflag ENGINE_DAILY_ROUTE_30_APRICORN
 .NoRoomInBag
 	closetext
 	end
@@ -307,12 +307,12 @@ Route30ApricornTree2:
 	opentext
 	writetext Route30ApricornTreeText
 	promptbutton
-	writetext Route30HeyItsApricorn2Text
+	writetext Route30HeyItsAPRICORN_2Text
 	promptbutton
 	verbosegiveitem PNK_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE30_APRICORN2
-	setflag ENGINE_DAILY_ROUTE30_APRICORN2
+	disappear ROUTE_30_APRICORN_2
+	setflag ENGINE_DAILY_ROUTE_30_APRICORN_2
 .NoRoomInBag
 	closetext
 	end
@@ -504,7 +504,7 @@ Route30HeyItsBerryText:
 	line "ORAN BERRY!"
 	done
 
-Route30HeyItsBerry2Text:
+Route30HeyItsBERRY_2Text:
 	text "Hey! It's"
 	line "PECHA BERRY!"
 	done
@@ -519,7 +519,7 @@ Route30HeyItsApricornText:
 	line "GRN APRICORN!"
 	done
 
-Route30HeyItsApricorn2Text:
+Route30HeyItsAPRICORN_2Text:
 	text "Hey! It's"
 	line "PNK APRICORN!"
 	done
@@ -557,9 +557,9 @@ Route30_MapEvents:
 	object_event  7, 30, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route30YoungsterScript, -1
 	object_event  5, 24, SPRITE_PIDGEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_30_BATTLE
 	object_event  5, 25, SPRITE_RATTATA_UP, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_30_BATTLE
-	object_event  4, 39, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route30BerryTree, EVENT_ROUTE30_BERRY
-	object_event 12,  7, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route30BerryTree2, EVENT_ROUTE30_BERRY2
-	object_event  5, 39, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route30ApricornTree, EVENT_ROUTE30_APRICORN
-	object_event 11,  5, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route30ApricornTree2, EVENT_ROUTE30_APRICORN2
+	object_event  4, 39, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route30BerryTree, EVENT_ROUTE_30_BERRY
+	object_event 12,  7, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route30BerryTree2, EVENT_ROUTE_30_BERRY_2
+	object_event  5, 39, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route30ApricornTree, EVENT_ROUTE_30_APRICORN
+	object_event 11,  5, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route30ApricornTree2, EVENT_ROUTE_30_APRICORN_2
 	object_event  2, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30CooltrainerFScript, -1
 	object_event  8, 35, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route30Antidote, EVENT_ROUTE_30_ANTIDOTE

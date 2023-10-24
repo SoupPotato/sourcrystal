@@ -1,19 +1,19 @@
 	object_const_def
-	const ROUTE36_YOUNGSTER1
-	const ROUTE36_YOUNGSTER2
-	const ROUTE36_SUDOWOODO
-	const ROUTE36_LASS1
-	const ROUTE36_FISHER
-	const ROUTE36_BERRY
-	const ROUTE36_APRICORN
-	const ROUTE36_ARTHUR
-	const ROUTE36_FLORIA
-	const ROUTE36_SUICUNE
+	const ROUTE_36_YOUNGSTER1
+	const ROUTE_36_YOUNGSTER2
+	const ROUTE_36_SUDOWOODO
+	const ROUTE_36_LASS1
+	const ROUTE_36_FISHER
+	const ROUTE_36_BERRY
+	const ROUTE_36_APRICORN
+	const ROUTE_36_ARTHUR
+	const ROUTE_36_FLORIA
+	const ROUTE_36_SUICUNE
 
 Route36_MapScripts:
 	def_scene_scripts
-	scene_script Route36Noop1Scene, SCENE_ROUTE36_NOOP
-	scene_script Route36Noop2Scene, SCENE_ROUTE36_SUICUNE
+	scene_script Route36Noop1Scene, SCENE_ROUTE_36_NOOP
+	scene_script Route36Noop2Scene, SCENE_ROUTE_36_SUICUNE
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, Route36FruittreesandArthurCallback
@@ -26,27 +26,27 @@ Route36Noop2Scene:
 
 Route36FruittreesandArthurCallback:
 .Berry:
-	checkflag ENGINE_DAILY_ROUTE36_BERRY
+	checkflag ENGINE_DAILY_ROUTE_36_BERRY
 	iftrue .NoBerry
-	appear ROUTE36_BERRY
+	appear ROUTE_36_BERRY
 .NoBerry:
 	;fallthrough
 
 .Apricorn:
-	checkflag ENGINE_DAILY_ROUTE36_APRICORN
+	checkflag ENGINE_DAILY_ROUTE_36_APRICORN
 	iftrue .NoApricorn
-	appear ROUTE36_APRICORN
+	appear ROUTE_36_APRICORN
 .NoApricorn:
 	;fallthrough
 
 .ArthurCallback:
 	readvar VAR_WEEKDAY
 	ifequal THURSDAY, .ArthurAppears
-	disappear ROUTE36_ARTHUR
+	disappear ROUTE_36_ARTHUR
 	endcallback
 
 .ArthurAppears:
-	appear ROUTE36_ARTHUR
+	appear ROUTE_36_ARTHUR
 	endcallback
 
 Route36SuicuneScript:
@@ -54,11 +54,11 @@ Route36SuicuneScript:
 	pause 15
 	playsound SFX_WARP_FROM
 	turnobject PLAYER, UP
-	applymovement ROUTE36_SUICUNE, Route36SuicuneMovement
-	disappear ROUTE36_SUICUNE
+	applymovement ROUTE_36_SUICUNE, Route36SuicuneMovement
+	disappear ROUTE_36_SUICUNE
 	turnobject PLAYER, DOWN
 	pause 10
-	setscene SCENE_ROUTE36_NOOP
+	setscene SCENE_ROUTE_36_NOOP
 	clearevent EVENT_SAW_SUICUNE_AT_CIANWOOD_CITY
 	setmapscene CIANWOOD_CITY, SCENE_CIANWOODCITY_SUICUNE_AND_EUSINE
 	end
@@ -69,7 +69,7 @@ SudowoodoScript:
 
 	waitsfx
 	playsound SFX_SANDSTORM
-	applymovement ROUTE36_SUDOWOODO, SudowoodoShakeMovement
+	applymovement ROUTE_36_SUDOWOODO, SudowoodoShakeMovement
 	end
 
 .Fight:
@@ -85,7 +85,7 @@ WateredWeirdTreeScript:: ; export (for when you use Squirtbottle from pack)
 	closetext
 	waitsfx
 	playsound SFX_SANDSTORM
-	applymovement ROUTE36_SUDOWOODO, SudowoodoShakeMovement
+	applymovement ROUTE_36_SUDOWOODO, SudowoodoShakeMovement
 	opentext
 	writetext SudowoodoAttackedText
 	waitbutton
@@ -94,7 +94,7 @@ WateredWeirdTreeScript:: ; export (for when you use Squirtbottle from pack)
 	startbattle
 	setevent EVENT_FOUGHT_SUDOWOODO
 	ifequal DRAW, DidntCatchSudowoodo
-	disappear ROUTE36_SUDOWOODO
+	disappear ROUTE_36_SUDOWOODO
 	reloadmapafterbattle
 	end
 
@@ -104,8 +104,8 @@ DidntUseSquirtbottleScript:
 
 DidntCatchSudowoodo:
 	reloadmapafterbattle
-	applymovement ROUTE36_SUDOWOODO, WeirdTreeMovement_Flee
-	disappear ROUTE36_SUDOWOODO
+	applymovement ROUTE_36_SUDOWOODO, WeirdTreeMovement_Flee
+	disappear ROUTE_36_SUDOWOODO
 	special LoadUsedSpritesGFX
 	special RefreshSprites
 	end
@@ -122,13 +122,13 @@ Route36FloriaScript:
 	clearevent EVENT_FLORIA_AT_FLOWER_SHOP
 	readvar VAR_FACING
 	ifequal UP, .Up
-	applymovement ROUTE36_FLORIA, FloriaMovement1
-	disappear ROUTE36_FLORIA
+	applymovement ROUTE_36_FLORIA, FloriaMovement1
+	disappear ROUTE_36_FLORIA
 	end
 
 .Up:
-	applymovement ROUTE36_FLORIA, FloriaMovement2
-	disappear ROUTE36_FLORIA
+	applymovement ROUTE_36_FLORIA, FloriaMovement2
+	disappear ROUTE_36_FLORIA
 	end
 
 .SecondTimeTalking:
@@ -392,8 +392,8 @@ Route36BerryTree:
 	promptbutton
 	verbosegiveitem RAWST_BERRY
 	iffalse .NoRoomInBag
-	disappear ROUTE36_BERRY
-	setflag ENGINE_DAILY_ROUTE36_BERRY
+	disappear ROUTE_36_BERRY
+	setflag ENGINE_DAILY_ROUTE_36_BERRY
 .NoRoomInBag
 	closetext
 	end
@@ -406,8 +406,8 @@ Route36ApricornTree:
 	promptbutton
 	verbosegiveitem BLU_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE36_APRICORN
-	setflag ENGINE_DAILY_ROUTE36_APRICORN
+	disappear ROUTE_36_APRICORN
+	setflag ENGINE_DAILY_ROUTE_36_APRICORN
 .NoRoomInBag
 	closetext
 	end
@@ -770,8 +770,8 @@ Route36_MapEvents:
 	warp_event 48, 13, ROUTE_36_RUINS_OF_ALPH_GATE, 2
 
 	def_coord_events
-	coord_event 20,  7, SCENE_ROUTE36_SUICUNE, Route36SuicuneScript
-	coord_event 22,  7, SCENE_ROUTE36_SUICUNE, Route36SuicuneScript
+	coord_event 20,  7, SCENE_ROUTE_36_SUICUNE, Route36SuicuneScript
+	coord_event 22,  7, SCENE_ROUTE_36_SUICUNE, Route36SuicuneScript
 
 	def_bg_events
 	bg_event 29,  1, BGEVENT_READ, Route36TrainerTips2
@@ -787,8 +787,8 @@ Route36_MapEvents:
 	object_event 35,  9, SPRITE_SUDOWOODO, SPRITEMOVEDATA_SUDOWOODO, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SudowoodoScript, EVENT_ROUTE_36_SUDOWOODO
 	object_event 51,  8, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36LassScript, -1
 	object_event 44,  9, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36RockSmashGuyScript, -1
-	object_event 21,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route36BerryTree, EVENT_ROUTE36_BERRY
-	object_event 21,  4, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36ApricornTree, EVENT_ROUTE36_APRICORN
+	object_event 21,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route36BerryTree, EVENT_ROUTE_36_BERRY
+	object_event 21,  4, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36ApricornTree, EVENT_ROUTE_36_APRICORN
 	object_event 46,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArthurScript, EVENT_ROUTE_36_ARTHUR_OF_THURSDAY
 	object_event 33, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36FloriaScript, EVENT_FLORIA_AT_SUDOWOODO
 	object_event 21,  6, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_ON_ROUTE_36

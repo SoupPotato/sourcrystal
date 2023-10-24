@@ -351,7 +351,7 @@ ElmAfterTheftScript:
 	promptbutton
 	setevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	setflag ENGINE_MOBILE_SYSTEM
-	setmapscene ROUTE_29, SCENE_ROUTE29_CATCH_TUTORIAL
+	setmapscene ROUTE_29, SCENE_ROUTE_29_CATCH_TUTORIAL
 	clearevent EVENT_ROUTE_30_YOUNGSTER_JOEY
 	setevent EVENT_ROUTE_30_BATTLE
 	writetext ElmAfterTheftText6

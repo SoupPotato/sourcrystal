@@ -1,16 +1,16 @@
 	object_const_def
-	const ROUTE39_SAILOR
-	const ROUTE39_POKEFAN_M
-	const ROUTE39_POKEFAN_F1
-	const ROUTE39_MILTANK1
-	const ROUTE39_MILTANK2
-	const ROUTE39_MILTANK3
-	const ROUTE39_MILTANK4
-	const ROUTE39_PSYCHIC_NORMAN
-	const ROUTE39_BERRY
-	const ROUTE39_APRICORN
-	const ROUTE39_POKEFAN_F2
-	const ROUTE39_GENTLEMAN_BAOBA
+	const ROUTE_39_SAILOR
+	const ROUTE_39_POKEFAN_M
+	const ROUTE_39_POKEFAN_F1
+	const ROUTE_39_MILTANK1
+	const ROUTE_39_MILTANK2
+	const ROUTE_39_MILTANK3
+	const ROUTE_39_MILTANK4
+	const ROUTE_39_PSYCHIC_NORMAN
+	const ROUTE_39_BERRY
+	const ROUTE_39_APRICORN
+	const ROUTE_39_POKEFAN_F2
+	const ROUTE_39_GENTLEMAN_BAOBA
 
 Route39_MapScripts:
 	def_scene_scripts
@@ -28,16 +28,16 @@ Route39Noop2Scene:
 
 Route39Fruittrees:
 .Berry:
-	checkflag ENGINE_DAILY_ROUTE39_BERRY
+	checkflag ENGINE_DAILY_ROUTE_39_BERRY
 	iftrue .NoBerry
-	appear ROUTE39_BERRY
+	appear ROUTE_39_BERRY
 .NoBerry:
 	;fallthrough
 
 .Apricorn:
-	checkflag ENGINE_DAILY_ROUTE39_APRICORN
+	checkflag ENGINE_DAILY_ROUTE_39_APRICORN
 	iftrue .NoApricorn
-	appear ROUTE39_APRICORN
+	appear ROUTE_39_APRICORN
 .NoApricorn:
 	endcallback
 
@@ -199,8 +199,8 @@ Route39BerryTree:
 	promptbutton
 	verbosegiveitem CHESTO_BERRY
 	iffalse .NoRoomInBag
-	disappear ROUTE39_BERRY
-	setflag ENGINE_DAILY_ROUTE39_BERRY
+	disappear ROUTE_39_BERRY
+	setflag ENGINE_DAILY_ROUTE_39_BERRY
 .NoRoomInBag
 	closetext
 	end
@@ -213,8 +213,8 @@ Route39ApricornTree:
 	promptbutton
 	verbosegiveitem GRN_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE39_APRICORN
-	setflag ENGINE_DAILY_ROUTE39_APRICORN
+	disappear ROUTE_39_APRICORN
+	setflag ENGINE_DAILY_ROUTE_39_APRICORN
 .NoRoomInBag
 	closetext
 	end
@@ -238,27 +238,27 @@ Route39NoApricorn:
 	end
 
 Route39Baoba1:
-	turnobject ROUTE39_GENTLEMAN_BAOBA, RIGHT
-	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BAOBA, 15
-	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach1
+	turnobject ROUTE_39_GENTLEMAN_BAOBA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE_39_GENTLEMAN_BAOBA, 15
+	applymovement ROUTE_39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach1
 	sjump Route39BaobaScript
 
 Route39Baoba2:
-	turnobject ROUTE39_GENTLEMAN_BAOBA, RIGHT
-	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BAOBA, 15
-	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach2
+	turnobject ROUTE_39_GENTLEMAN_BAOBA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE_39_GENTLEMAN_BAOBA, 15
+	applymovement ROUTE_39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach2
 	sjump Route39BaobaScript
 
 Route39Baoba3:
-	turnobject ROUTE39_GENTLEMAN_BAOBA, RIGHT
-	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BAOBA, 15
-	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach3
+	turnobject ROUTE_39_GENTLEMAN_BAOBA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE_39_GENTLEMAN_BAOBA, 15
+	applymovement ROUTE_39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach3
 	sjump Route39BaobaScript
 
 Route39Baoba4:
-	turnobject ROUTE39_GENTLEMAN_BAOBA, RIGHT
-	showemote EMOTE_SHOCK, ROUTE39_GENTLEMAN_BAOBA, 15
-	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach4
+	turnobject ROUTE_39_GENTLEMAN_BAOBA, RIGHT
+	showemote EMOTE_SHOCK, ROUTE_39_GENTLEMAN_BAOBA, 15
+	applymovement ROUTE_39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Approach4
 	sjump Route39BaobaScript
 
 Route39BaobaScript:
@@ -269,10 +269,10 @@ Route39BaobaScript:
 	writetext Route39BaobaLeavingText
 	waitbutton
 	closetext
-	setevent EVENT_ROUTE39_BAOBA_GAVE_EXP_SHARE
+	setevent EVENT_ROUTE_39_BAOBA_GAVE_EXP_SHARE
 	setscene SCENE_ROUTE_39_BAOBA_GONE
-	applymovement ROUTE39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Leaves
-	disappear ROUTE39_GENTLEMAN_BAOBA
+	applymovement ROUTE_39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Leaves
+	disappear ROUTE_39_GENTLEMAN_BAOBA
 	end
 
 Route39HiddenNugget:
@@ -562,7 +562,7 @@ Route39_MapEvents:
 	object_event  4, 15, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
 	object_event  8, 13, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
 	object_event 14, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPsychicNorman, -1
-	object_event  6, 13, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route39BerryTree, EVENT_ROUTE39_BERRY
-	object_event  9,  3, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route39ApricornTree, EVENT_ROUTE39_APRICORN
+	object_event  6, 13, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route39BerryTree, EVENT_ROUTE_39_BERRY
+	object_event  9,  3, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route39ApricornTree, EVENT_ROUTE_39_APRICORN
 	object_event  4, 22, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, TrainerPokefanfJaime, -1
-	object_event 13,  9, SPRITE_GENTLEMAN, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE39_BAOBA_GAVE_EXP_SHARE
+	object_event 13,  9, SPRITE_GENTLEMAN, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_39_BAOBA_GAVE_EXP_SHARE

@@ -1,12 +1,12 @@
 	object_const_def
-	const ROUTE31_FISHER
-	const ROUTE31_YOUNGSTER
-	const ROUTE31_BUG_CATCHER
-	const ROUTE31_COOLTRAINER_M
-	const ROUTE31_BERRY
-	const ROUTE31_APRICORN
-	const ROUTE31_POKE_BALL1
-	const ROUTE31_POKE_BALL2
+	const ROUTE_31_FISHER
+	const ROUTE_31_YOUNGSTER
+	const ROUTE_31_BUG_CATCHER
+	const ROUTE_31_COOLTRAINER_M
+	const ROUTE_31_BERRY
+	const ROUTE_31_APRICORN
+	const ROUTE_31_POKE_BALL1
+	const ROUTE_31_POKE_BALL2
 
 Route31_MapScripts:
 	def_scene_scripts
@@ -17,16 +17,16 @@ Route31_MapScripts:
 
 Route31Fruittrees:
 .Berry:
-	checkflag ENGINE_DAILY_ROUTE31_BERRY
+	checkflag ENGINE_DAILY_ROUTE_31_BERRY
 	iftrue .NoBerry
-	appear ROUTE31_BERRY
+	appear ROUTE_31_BERRY
 .NoBerry:
 	;fallthrough
 
 .Apricorn:
-	checkflag ENGINE_DAILY_ROUTE31_APRICORN
+	checkflag ENGINE_DAILY_ROUTE_31_APRICORN
 	iftrue .NoApricorn
-	appear ROUTE31_APRICORN
+	appear ROUTE_31_APRICORN
 .NoApricorn:
 	endcallback
 
@@ -274,8 +274,8 @@ Route31BerryTree:
 	promptbutton
 	verbosegiveitem PERSIM_BERRY
 	iffalse .NoRoomInBag
-	disappear ROUTE31_BERRY
-	setflag ENGINE_DAILY_ROUTE31_BERRY
+	disappear ROUTE_31_BERRY
+	setflag ENGINE_DAILY_ROUTE_31_BERRY
 .NoRoomInBag
 	closetext
 	end
@@ -288,8 +288,8 @@ Route31ApricornTree:
 	promptbutton
 	verbosegiveitem BLK_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE31_APRICORN
-	setflag ENGINE_DAILY_ROUTE31_APRICORN
+	disappear ROUTE_31_APRICORN
+	setflag ENGINE_DAILY_ROUTE_31_APRICORN
 .NoRoomInBag
 	closetext
 	end
@@ -514,7 +514,7 @@ Route31_MapEvents:
 	object_event  9,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route31YoungsterScript, -1
 	object_event 21, 13, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 5, TrainerBugCatcherWade1, -1
 	object_event 33,  8, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route31CooltrainerMScript, -1
-	object_event 30,  7, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route31BerryTree, EVENT_ROUTE31_BERRY
-	object_event 16,  7, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, Route31ApricornTree, EVENT_ROUTE31_APRICORN
+	object_event 30,  7, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route31BerryTree, EVENT_ROUTE_31_BERRY
+	object_event 16,  7, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, Route31ApricornTree, EVENT_ROUTE_31_APRICORN
 	object_event 29,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route31Potion, EVENT_ROUTE_31_POTION
 	object_event 19, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route31PokeBall, EVENT_ROUTE_31_POKE_BALL

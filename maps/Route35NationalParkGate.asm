@@ -1,13 +1,13 @@
 	object_const_def
-	const ROUTE35NATIONALPARKGATE_OFFICER1
-	const ROUTE35NATIONALPARKGATE_YOUNGSTER
-	const ROUTE35NATIONALPARKGATE_OFFICER2
+	const ROUTE_35NATIONALPARKGATE_OFFICER1
+	const ROUTE_35NATIONALPARKGATE_YOUNGSTER
+	const ROUTE_35NATIONALPARKGATE_OFFICER2
 
 Route35NationalParkGate_MapScripts:
 	def_scene_scripts
-	scene_script Route35NationalParkGateNoop1Scene,             SCENE_ROUTE35NATIONALPARKGATE_NOOP
-	scene_script Route35NationalParkGateNoop2Scene,             SCENE_ROUTE35NATIONALPARKGATE_UNUSED
-	scene_script Route35NationalParkGateLeaveContestEarlyScene, SCENE_ROUTE35NATIONALPARKGATE_LEAVE_CONTEST_EARLY
+	scene_script Route35NationalParkGateNoop1Scene,             SCENE_ROUTE_35NATIONALPARKGATE_NOOP
+	scene_script Route35NationalParkGateNoop2Scene,             SCENE_ROUTE_35NATIONALPARKGATE_UNUSED
+	scene_script Route35NationalParkGateLeaveContestEarlyScene, SCENE_ROUTE_35NATIONALPARKGATE_LEAVE_CONTEST_EARLY
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, Route35NationalParkGateCheckIfContestRunningCallback
@@ -26,11 +26,11 @@ Route35NationalParkGateLeaveContestEarlyScene:
 Route35NationalParkGateCheckIfContestRunningCallback:
 	checkflag ENGINE_BUG_CONTEST_TIMER
 	iftrue Route35NationalParkBugContestIsRunningScript
-	setscene SCENE_ROUTE35NATIONALPARKGATE_NOOP
+	setscene SCENE_ROUTE_35NATIONALPARKGATE_NOOP
 	endcallback
 
 Route35NationalParkBugContestIsRunningScript:
-	setscene SCENE_ROUTE35NATIONALPARKGATE_LEAVE_CONTEST_EARLY
+	setscene SCENE_ROUTE_35NATIONALPARKGATE_LEAVE_CONTEST_EARLY
 	endcallback
 
 Route35NationalParkGateCheckIfContestAvailableCallback:
@@ -40,20 +40,20 @@ Route35NationalParkGateCheckIfContestAvailableCallback:
 	ifequal SATURDAY, .SetContestOfficer
 	checkflag ENGINE_BUG_CONTEST_TIMER
 	iftrue Route35NationalParkBugContestIsRunningScript
-	disappear ROUTE35NATIONALPARKGATE_OFFICER1
-	appear ROUTE35NATIONALPARKGATE_YOUNGSTER
-	appear ROUTE35NATIONALPARKGATE_OFFICER2
+	disappear ROUTE_35NATIONALPARKGATE_OFFICER1
+	appear ROUTE_35NATIONALPARKGATE_YOUNGSTER
+	appear ROUTE_35NATIONALPARKGATE_OFFICER2
 	endcallback
 
 .SetContestOfficer:
-	appear ROUTE35NATIONALPARKGATE_OFFICER1
-	disappear ROUTE35NATIONALPARKGATE_YOUNGSTER
-	disappear ROUTE35NATIONALPARKGATE_OFFICER2
+	appear ROUTE_35NATIONALPARKGATE_OFFICER1
+	disappear ROUTE_35NATIONALPARKGATE_YOUNGSTER
+	disappear ROUTE_35NATIONALPARKGATE_OFFICER2
 	endcallback
 
 Route35NationalParkGateLeavingContestEarlyScript:
 	applymovement PLAYER, Route35NationalParkGatePlayerApproachOfficer1Movement
-	turnobject ROUTE35NATIONALPARKGATE_OFFICER1, RIGHT
+	turnobject ROUTE_35NATIONALPARKGATE_OFFICER1, RIGHT
 	opentext
 	readvar VAR_CONTESTMINUTES
 	addval 1

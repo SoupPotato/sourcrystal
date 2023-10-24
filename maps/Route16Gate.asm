@@ -1,9 +1,9 @@
 	object_const_def
-	const ROUTE16GATE_OFFICER
+	const ROUTE_16GATE_OFFICER
 
 Route16Gate_MapScripts:
 	def_scene_scripts
-	scene_script Route16GateNoopScene, SCENE_ROUTE16GATE_BICYCLE_CHECK
+	scene_script Route16GateNoopScene, SCENE_ROUTE_16GATE_BICYCLE_CHECK
 
 	def_callbacks
 
@@ -19,7 +19,7 @@ Route16GateBicycleCheck:
 	end
 
 .NoBicycle:
-	showemote EMOTE_SHOCK, ROUTE16GATE_OFFICER, 15
+	showemote EMOTE_SHOCK, ROUTE_16GATE_OFFICER, 15
 	turnobject PLAYER, UP
 	opentext
 	writetext Route16GateCannotPassText
@@ -68,8 +68,8 @@ Route16Gate_MapEvents:
 	warp_event  9,  5, ROUTE_16, 3
 
 	def_coord_events
-	coord_event  5,  4, SCENE_ROUTE16GATE_BICYCLE_CHECK, Route16GateBicycleCheck
-	coord_event  5,  5, SCENE_ROUTE16GATE_BICYCLE_CHECK, Route16GateBicycleCheck
+	coord_event  5,  4, SCENE_ROUTE_16GATE_BICYCLE_CHECK, Route16GateBicycleCheck
+	coord_event  5,  5, SCENE_ROUTE_16GATE_BICYCLE_CHECK, Route16GateBicycleCheck
 
 	def_bg_events
 

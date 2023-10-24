@@ -1,5 +1,5 @@
 	object_const_def
-	const ROUTE15FUCHSIAGATE_OFFICER
+	const ROUTE_15FUCHSIAGATE_OFFICER
 
 Route15FuchsiaGate_MapScripts:
 	def_scene_scripts

@@ -1,5 +1,5 @@
 	object_const_def
-	const ROUTE42ECRUTEAKGATE_OFFICER
+	const ROUTE_42ECRUTEAKGATE_OFFICER
 
 Route42EcruteakGate_MapScripts:
 	def_scene_scripts

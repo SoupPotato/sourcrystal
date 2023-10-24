@@ -1,10 +1,10 @@
 	object_const_def
-	const ROUTE12_FISHER1
-	const ROUTE12_FISHER2
-	const ROUTE12_FISHER3
-	const ROUTE12_FISHER4
-	const ROUTE12_POKE_BALL1
-	const ROUTE12_POKE_BALL2
+	const ROUTE_12_FISHER1
+	const ROUTE_12_FISHER2
+	const ROUTE_12_FISHER3
+	const ROUTE_12_FISHER4
+	const ROUTE_12_POKE_BALL1
+	const ROUTE_12_POKE_BALL2
 
 Route12_MapScripts:
 	def_scene_scripts

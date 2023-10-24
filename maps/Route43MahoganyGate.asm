@@ -1,5 +1,5 @@
 	object_const_def
-	const ROUTE43MAHOGANYGATE_OFFICER
+	const ROUTE_43MAHOGANYGATE_OFFICER
 
 Route43MahoganyGate_MapScripts:
 	def_scene_scripts

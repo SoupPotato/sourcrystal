@@ -1,13 +1,13 @@
 	object_const_def
-	const ROUTE43_SUPER_NERD1
-	const ROUTE43_SUPER_NERD2
-	const ROUTE43_SUPER_NERD3
-	const ROUTE43_FISHER
-	const ROUTE43_LASS
-	const ROUTE43_YOUNGSTER
-	const ROUTE43_BERRY
-	const ROUTE43_APRICORN
-	const ROUTE43_POKE_BALL
+	const ROUTE_43_SUPER_NERD1
+	const ROUTE_43_SUPER_NERD2
+	const ROUTE_43_SUPER_NERD3
+	const ROUTE_43_FISHER
+	const ROUTE_43_LASS
+	const ROUTE_43_YOUNGSTER
+	const ROUTE_43_BERRY
+	const ROUTE_43_APRICORN
+	const ROUTE_43_POKE_BALL
 
 Route43_MapScripts:
 	def_scene_scripts
@@ -19,25 +19,25 @@ Route43_MapScripts:
 Route43CheckIfRocketsScene:
 	checkevent EVENT_CLEARED_ROCKET_HIDEOUT
 	iftrue .NoRockets
-	setmapscene ROUTE_43_GATE, SCENE_ROUTE43GATE_ROCKET_SHAKEDOWN
+	setmapscene ROUTE_43_GATE, SCENE_ROUTE_43GATE_ROCKET_SHAKEDOWN
 	endcallback
 
 .NoRockets:
-	setmapscene ROUTE_43_GATE, SCENE_ROUTE43GATE_NOOP
+	setmapscene ROUTE_43_GATE, SCENE_ROUTE_43GATE_NOOP
 	endcallback
 
 Route43Fruittrees:
 .Berry:
-	checkflag ENGINE_DAILY_ROUTE43_BERRY
+	checkflag ENGINE_DAILY_ROUTE_43_BERRY
 	iftrue .NoBerry
-	appear ROUTE43_BERRY
+	appear ROUTE_43_BERRY
 .NoBerry:
 	;fallthrough
 
 .Apricorn:
-	checkflag ENGINE_DAILY_ROUTE43_APRICORN
+	checkflag ENGINE_DAILY_ROUTE_43_APRICORN
 	iftrue .NoApricorn
-	appear ROUTE43_APRICORN
+	appear ROUTE_43_APRICORN
 .NoApricorn:
 	endcallback
 
@@ -319,8 +319,8 @@ Route43BerryTree:
 	promptbutton
 	verbosegiveitem PERSIM_BERRY
 	iffalse .NoRoomInBag
-	disappear ROUTE43_BERRY
-	setflag ENGINE_DAILY_ROUTE43_BERRY
+	disappear ROUTE_43_BERRY
+	setflag ENGINE_DAILY_ROUTE_43_BERRY
 .NoRoomInBag
 	closetext
 	end
@@ -333,8 +333,8 @@ Route43ApricornTree:
 	promptbutton
 	verbosegiveitem BLK_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE43_APRICORN
-	setflag ENGINE_DAILY_ROUTE43_APRICORN
+	disappear ROUTE_43_APRICORN
+	setflag ENGINE_DAILY_ROUTE_43_APRICORN
 .NoRoomInBag
 	closetext
 	end
@@ -581,6 +581,6 @@ Route43_MapEvents:
 	object_event  4, 16, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerFisherMarvin, -1
 	object_event  9, 25, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerTiffany, -1
 	object_event 13, 40, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperSpencer, -1
-	object_event  1, 24, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route43BerryTree, EVENT_ROUTE43_BERRY
-	object_event  1, 26, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, Route43ApricornTree, EVENT_ROUTE43_APRICORN
+	object_event  1, 24, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route43BerryTree, EVENT_ROUTE_43_BERRY
+	object_event  1, 26, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, Route43ApricornTree, EVENT_ROUTE_43_APRICORN
 	object_event 12, 32, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route43MaxEther, EVENT_ROUTE_43_MAX_ETHER

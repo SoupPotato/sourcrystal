@@ -1,18 +1,18 @@
 	object_const_def
-	const ROUTE42_FISHER
-	const ROUTE42_POKEFAN_M
-	const ROUTE42_SUPER_NERD
-	const ROUTE42_APRICORN
-	const ROUTE42_APRICORN2
-	const ROUTE42_APRICORN3
-	const ROUTE42_POKE_BALL1
-	const ROUTE42_POKE_BALL2
-	const ROUTE42_SUICUNE
+	const ROUTE_42_FISHER
+	const ROUTE_42_POKEFAN_M
+	const ROUTE_42_SUPER_NERD
+	const ROUTE_42_APRICORN
+	const ROUTE_42_APRICORN_2
+	const ROUTE_42_APRICORN_3
+	const ROUTE_42_POKE_BALL1
+	const ROUTE_42_POKE_BALL2
+	const ROUTE_42_SUICUNE
 
 Route42_MapScripts:
 	def_scene_scripts
-	scene_script Route42Noop1Scene, SCENE_ROUTE42_NOOP
-	scene_script Route42Noop2Scene, SCENE_ROUTE42_SUICUNE
+	scene_script Route42Noop1Scene, SCENE_ROUTE_42_NOOP
+	scene_script Route42Noop2Scene, SCENE_ROUTE_42_SUICUNE
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, Route42Fruittrees
@@ -25,36 +25,36 @@ Route42Noop2Scene:
 
 Route42Fruittrees:
 .Apricorn:
-	checkflag ENGINE_DAILY_ROUTE42_APRICORN
+	checkflag ENGINE_DAILY_ROUTE_42_APRICORN
 	iftrue .NoApricorn
-	appear ROUTE42_APRICORN
+	appear ROUTE_42_APRICORN
 .NoApricorn:
 	;fallthrough
 
-.Apricorn2:
-	checkflag ENGINE_DAILY_ROUTE42_APRICORN2
-	iftrue .NoApricorn2
-	appear ROUTE42_APRICORN2
-.NoApricorn2:
+.APRICORN_2:
+	checkflag ENGINE_DAILY_ROUTE_42_APRICORN_2
+	iftrue .NoAPRICORN_2
+	appear ROUTE_42_APRICORN_2
+.NoAPRICORN_2:
 	;fallthrough
 
-.Apricorn3:
-	checkflag ENGINE_DAILY_ROUTE42_APRICORN3
-	iftrue .NoApricorn3
-	appear ROUTE42_APRICORN3
-.NoApricorn3:
+.APRICORN_3:
+	checkflag ENGINE_DAILY_ROUTE_42_APRICORN_3
+	iftrue .NoAPRICORN_3
+	appear ROUTE_42_APRICORN_3
+.NoAPRICORN_3:
 	endcallback
 
 Route42SuicuneScript:
 	showemote EMOTE_SHOCK, PLAYER, 15
 	pause 15
 	playsound SFX_WARP_FROM
-	applymovement ROUTE42_SUICUNE, Route42SuicuneMovement
-	disappear ROUTE42_SUICUNE
+	applymovement ROUTE_42_SUICUNE, Route42SuicuneMovement
+	disappear ROUTE_42_SUICUNE
 	pause 10
-	setscene SCENE_ROUTE42_NOOP
+	setscene SCENE_ROUTE_42_NOOP
 	clearevent EVENT_SAW_SUICUNE_ON_ROUTE_36
-	setmapscene ROUTE_36, SCENE_ROUTE36_SUICUNE
+	setmapscene ROUTE_36, SCENE_ROUTE_36_SUICUNE
 	end
 
 TrainerFisherTully:
@@ -224,36 +224,36 @@ Route42ApricornTree:
 	promptbutton
 	verbosegiveitem PNK_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE42_APRICORN
-	setflag ENGINE_DAILY_ROUTE42_APRICORN
+	disappear ROUTE_42_APRICORN
+	setflag ENGINE_DAILY_ROUTE_42_APRICORN
 .NoRoomInBag
 	closetext
 	end
 
-Route42Apricorn2Tree:
+Route42APRICORN_2Tree:
 	opentext
 	writetext Route42ApricornTreeText
 	promptbutton
-	writetext Route42HeyItsApricorn2Text
+	writetext Route42HeyItsAPRICORN_2Text
 	promptbutton
 	verbosegiveitem GRN_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE42_APRICORN2
-	setflag ENGINE_DAILY_ROUTE42_APRICORN2
+	disappear ROUTE_42_APRICORN_2
+	setflag ENGINE_DAILY_ROUTE_42_APRICORN_2
 .NoRoomInBag
 	closetext
 	end
 
-Route42Apricorn3Tree:
+Route42APRICORN_3Tree:
 	opentext
 	writetext Route42ApricornTreeText
 	promptbutton
-	writetext Route42HeyItsApricorn3Text
+	writetext Route42HeyItsAPRICORN_3Text
 	promptbutton
 	verbosegiveitem YLW_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE42_APRICORN3
-	setflag ENGINE_DAILY_ROUTE42_APRICORN3
+	disappear ROUTE_42_APRICORN_3
+	setflag ENGINE_DAILY_ROUTE_42_APRICORN_3
 .NoRoomInBag
 	closetext
 	end
@@ -384,12 +384,12 @@ Route42HeyItsApricornText:
 	line "PNK APRICORN!"
 	done
 
-Route42HeyItsApricorn2Text:
+Route42HeyItsAPRICORN_2Text:
 	text "Hey! It's"
 	line "GRN APRICORN!"
 	done
 
-Route42HeyItsApricorn3Text:
+Route42HeyItsAPRICORN_3Text:
 	text "Hey! It's"
 	line "YLW APRICORN!"
 	done
@@ -410,7 +410,7 @@ Route42_MapEvents:
 	warp_event 46,  7, MOUNT_MORTAR_1F_OUTSIDE, 3
 
 	def_coord_events
-	coord_event 24, 14, SCENE_ROUTE42_SUICUNE, Route42SuicuneScript
+	coord_event 24, 14, SCENE_ROUTE_42_SUICUNE, Route42SuicuneScript
 
 	def_bg_events
 	bg_event  4, 10, BGEVENT_READ, Route42Sign1
@@ -426,9 +426,9 @@ Route42_MapEvents:
 	object_event 40, 10, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherTully, -1
 	object_event 51,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerBenjamin, -1
 	object_event 47,  8, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPokemaniacShane, -1
-	object_event 27, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route42ApricornTree, EVENT_ROUTE42_APRICORN
-	object_event 28, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route42Apricorn2Tree, EVENT_ROUTE42_APRICORN2
-	object_event 29, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, Route42Apricorn3Tree, EVENT_ROUTE42_APRICORN3
+	object_event 27, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route42ApricornTree, EVENT_ROUTE_42_APRICORN
+	object_event 28, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route42APRICORN_2Tree, EVENT_ROUTE_42_APRICORN_2
+	object_event 29, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, Route42APRICORN_3Tree, EVENT_ROUTE_42_APRICORN_3
 	object_event  6,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route42UltraBall, EVENT_ROUTE_42_ULTRA_BALL
 	object_event 33,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route42SuperPotion, EVENT_ROUTE_42_SUPER_POTION
 	object_event 26, 16, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_ON_ROUTE_42

@@ -1,11 +1,11 @@
 	object_const_def
-	const ROUTE11_YOUNGSTER1
-	const ROUTE11_YOUNGSTER2
-	const ROUTE11_YOUNGSTER3
-	const ROUTE11_YOUNGSTER4
-	const ROUTE11_BERRY
-	const ROUTE11_APRICORN
-	const ROUTE11_BIG_SNORLAX
+	const ROUTE_11_YOUNGSTER1
+	const ROUTE_11_YOUNGSTER2
+	const ROUTE_11_YOUNGSTER3
+	const ROUTE_11_YOUNGSTER4
+	const ROUTE_11_BERRY
+	const ROUTE_11_APRICORN
+	const ROUTE_11_BIG_SNORLAX
 
 Route11_MapScripts:
 	def_scene_scripts
@@ -15,16 +15,16 @@ Route11_MapScripts:
 
 Route11Fruittrees:
 .Berry:
-	checkflag ENGINE_DAILY_ROUTE11_BERRY
+	checkflag ENGINE_DAILY_ROUTE_11_BERRY
 	iftrue .NoBerry
-	appear ROUTE11_BERRY
+	appear ROUTE_11_BERRY
 .NoBerry:
 	;fallthrough
 
 .Apricorn:
-	checkflag ENGINE_DAILY_ROUTE11_APRICORN
+	checkflag ENGINE_DAILY_ROUTE_11_APRICORN
 	iftrue .NoApricorn
-	appear ROUTE11_APRICORN
+	appear ROUTE_11_APRICORN
 .NoApricorn:
 	endcallback
 
@@ -59,7 +59,7 @@ Route11Snorlax:
 	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
 	loadwildmon SNORLAX, 50
 	startbattle
-	disappear ROUTE11_BIG_SNORLAX
+	disappear ROUTE_11_BIG_SNORLAX
 	setevent EVENT_FOUGHT_SNORLAX
 	reloadmapafterbattle
 	end
@@ -108,8 +108,8 @@ Route11BerryTree:
 	promptbutton
 	verbosegiveitem ORAN_BERRY
 	iffalse .NoRoomInBag
-	disappear ROUTE11_BERRY
-	setflag ENGINE_DAILY_ROUTE11_BERRY
+	disappear ROUTE_11_BERRY
+	setflag ENGINE_DAILY_ROUTE_11_BERRY
 .NoRoomInBag
 	closetext
 	end
@@ -122,8 +122,8 @@ Route11ApricornTree:
 	promptbutton
 	verbosegiveitem GRN_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE11_APRICORN
-	setflag ENGINE_DAILY_ROUTE11_APRICORN
+	disappear ROUTE_11_APRICORN
+	setflag ENGINE_DAILY_ROUTE_11_APRICORN
 .NoRoomInBag
 	closetext
 	end
@@ -295,6 +295,6 @@ Route11_MapEvents:
 	object_event 38,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterJason, -1
 	object_event 48,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPsychicHerman, -1
 	object_event 20,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicFidel, -1
-	object_event 52,  2, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route11BerryTree, EVENT_ROUTE11_BERRY
-	object_event 53,  1, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route11ApricornTree, EVENT_ROUTE11_APRICORN
-	object_event  8,  6, SPRITE_BIG_SNORLAX, SPRITEMOVEDATA_BIGDOLLSYM, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route11Snorlax, EVENT_ROUTE11_SNORLAX
+	object_event 52,  2, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route11BerryTree, EVENT_ROUTE_11_BERRY
+	object_event 53,  1, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route11ApricornTree, EVENT_ROUTE_11_APRICORN
+	object_event  8,  6, SPRITE_BIG_SNORLAX, SPRITEMOVEDATA_BIGDOLLSYM, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route11Snorlax, EVENT_ROUTE_11_SNORLAX

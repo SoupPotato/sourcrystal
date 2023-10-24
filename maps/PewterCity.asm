@@ -3,9 +3,9 @@
 	const PEWTERCITY_BUG_CATCHER
 	const PEWTERCITY_GRAMPS
 	const PEWTERCITY_BERRY
-	const PEWTERCITY_BERRY2
+	const PEWTERCITY_BERRY_2
 	const PEWTERCITY_APRICORN
-	const PEWTERCITY_APRICORN2
+	const PEWTERCITY_APRICORN_2
 
 PewterCity_MapScripts:
 	def_scene_scripts
@@ -34,18 +34,18 @@ PewterCityFruittrees:
 .NoApricorn:
 	;fallthrough
 
-;Berry2:
-	checkflag ENGINE_DAILY_PEWTER_BERRY2
-	iftrue .NoBerry2
-	appear PEWTERCITY_BERRY2
-.NoBerry2:
+;BERRY_2:
+	checkflag ENGINE_DAILY_PEWTER_BERRY_2
+	iftrue .NoBERRY_2
+	appear PEWTERCITY_BERRY_2
+.NoBERRY_2:
 	;fallthrough
 
-;Apricorn2:
-	checkflag ENGINE_DAILY_PEWTER_APRICORN2
-	iftrue .NoApricorn2
-	appear PEWTERCITY_APRICORN2
-.NoApricorn2:
+;APRICORN_2:
+	checkflag ENGINE_DAILY_PEWTER_APRICORN_2
+	iftrue .NoAPRICORN_2
+	appear PEWTERCITY_APRICORN_2
+.NoAPRICORN_2:
 	endcallback
 
 PewterCityCooltrainerFScript:
@@ -111,12 +111,12 @@ PewterCityBerryTree2:
 	opentext
 	writetext PewterCityBerryTreeText
 	promptbutton
-	writetext PewterCityHeyItsBerry2Text
+	writetext PewterCityHeyItsBERRY_2Text
 	promptbutton
 	verbosegiveitem CHESTO_BERRY
 	iffalse .NoRoomInBag
-	disappear PEWTERCITY_BERRY2
-	setflag ENGINE_DAILY_PEWTER_BERRY2
+	disappear PEWTERCITY_BERRY_2
+	setflag ENGINE_DAILY_PEWTER_BERRY_2
 .NoRoomInBag
 	closetext
 	end
@@ -139,12 +139,12 @@ PewterCityApricornTree2:
 	opentext
 	writetext PewterCityApricornTreeText
 	promptbutton
-	writetext PewterCityHeyItsApricorn2Text
+	writetext PewterCityHeyItsAPRICORN_2Text
 	promptbutton
 	verbosegiveitem WHT_APRICORN
 	iffalse .NoRoomInBag
-	disappear PEWTERCITY_APRICORN2
-	setflag ENGINE_DAILY_PEWTER_APRICORN2
+	disappear PEWTERCITY_APRICORN_2
+	setflag ENGINE_DAILY_PEWTER_APRICORN_2
 .NoRoomInBag
 	closetext
 	end
@@ -257,7 +257,7 @@ PewterCityHeyItsBerryText:
 	line "RAWST BERRY!"
 	done
 
-PewterCityHeyItsBerry2Text:
+PewterCityHeyItsBERRY_2Text:
 	text "Hey! It's"
 	line "CHESTO BERRY!"
 	done
@@ -272,7 +272,7 @@ PewterCityHeyItsApricornText:
 	line "BLU APRICORN!"
 	done
 
-PewterCityHeyItsApricorn2Text:
+PewterCityHeyItsAPRICORN_2Text:
 	text "Hey! It's"
 	line "WHT APRICORN!"
 	done
@@ -314,6 +314,6 @@ PewterCity_MapEvents:
 	object_event 14, 29, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PewterCityBugCatcherScript, -1
 	object_event 29, 17, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityGrampsScript, -1
 	object_event 33,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PewterCityBerryTree, EVENT_PEWTER_BERRY
-	object_event 31,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityBerryTree2, EVENT_PEWTER_BERRY2
+	object_event 31,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityBerryTree2, EVENT_PEWTER_BERRY_2
 	object_event 31,  3, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityApricornTree, EVENT_PEWTER_APRICORN
-	object_event 29,  3, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, PewterCityApricornTree2, EVENT_PEWTER_APRICORN2
+	object_event 29,  3, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, PewterCityApricornTree2, EVENT_PEWTER_APRICORN_2

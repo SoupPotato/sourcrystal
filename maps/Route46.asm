@@ -1,12 +1,12 @@
 	object_const_def
-	const ROUTE46_POKEFAN_M
-	const ROUTE46_YOUNGSTER
-	const ROUTE46_LASS
-	const ROUTE46_BERRY
-	const ROUTE46_BERRY2
-	const ROUTE46_APRICORN
-	const ROUTE46_APRICORN2
-	const ROUTE46_POKE_BALL
+	const ROUTE_46_POKEFAN_M
+	const ROUTE_46_YOUNGSTER
+	const ROUTE_46_LASS
+	const ROUTE_46_BERRY
+	const ROUTE_46_BERRY_2
+	const ROUTE_46_APRICORN
+	const ROUTE_46_APRICORN_2
+	const ROUTE_46_POKE_BALL
 
 Route46_MapScripts:
 	def_scene_scripts
@@ -16,31 +16,31 @@ Route46_MapScripts:
 
 Route46Fruittrees:
 .Berry:
-	checkflag ENGINE_DAILY_ROUTE46_BERRY
+	checkflag ENGINE_DAILY_ROUTE_46_BERRY
 	iftrue .NoBerry
-	appear ROUTE46_BERRY
+	appear ROUTE_46_BERRY
 .NoBerry:
 	;fallthrough
 
 .Apricorn:
-	checkflag ENGINE_DAILY_ROUTE46_APRICORN
+	checkflag ENGINE_DAILY_ROUTE_46_APRICORN
 	iftrue .NoApricorn
-	appear ROUTE46_APRICORN
+	appear ROUTE_46_APRICORN
 .NoApricorn:
 	;fallthrough
 
-.Berry2:
-	checkflag ENGINE_DAILY_ROUTE46_BERRY2
-	iftrue .NoBerry2
-	appear ROUTE46_BERRY2
-.NoBerry2:
+.BERRY_2:
+	checkflag ENGINE_DAILY_ROUTE_46_BERRY_2
+	iftrue .NoBERRY_2
+	appear ROUTE_46_BERRY_2
+.NoBERRY_2:
 	;fallthrough
 
-.Apricorn2:
-	checkflag ENGINE_DAILY_ROUTE46_APRICORN2
-	iftrue .NoApricorn2
-	appear ROUTE46_APRICORN2
-.NoApricorn2:
+.APRICORN_2:
+	checkflag ENGINE_DAILY_ROUTE_46_APRICORN_2
+	iftrue .NoAPRICORN_2
+	appear ROUTE_46_APRICORN_2
+.NoAPRICORN_2:
 	endcallback
 
 TrainerCamperTed:
@@ -198,8 +198,8 @@ Route46BerryTree:
 	promptbutton
 	verbosegiveitem CHERI_BERRY
 	iffalse .NoRoomInBag
-	disappear ROUTE46_BERRY
-	setflag ENGINE_DAILY_ROUTE46_BERRY
+	disappear ROUTE_46_BERRY
+	setflag ENGINE_DAILY_ROUTE_46_BERRY
 .NoRoomInBag
 	closetext
 	end
@@ -208,12 +208,12 @@ Route46BerryTree2:
 	opentext
 	writetext Route46BerryTreeText
 	promptbutton
-	writetext Route46HeyItsBerry2Text
+	writetext Route46HeyItsBERRY_2Text
 	promptbutton
 	verbosegiveitem ORAN_BERRY
 	iffalse .NoRoomInBag
-	disappear ROUTE46_BERRY2
-	setflag ENGINE_DAILY_ROUTE46_BERRY2
+	disappear ROUTE_46_BERRY_2
+	setflag ENGINE_DAILY_ROUTE_46_BERRY_2
 .NoRoomInBag
 	closetext
 	end
@@ -226,8 +226,8 @@ Route46ApricornTree:
 	promptbutton
 	verbosegiveitem GRN_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE46_APRICORN
-	setflag ENGINE_DAILY_ROUTE46_APRICORN
+	disappear ROUTE_46_APRICORN
+	setflag ENGINE_DAILY_ROUTE_46_APRICORN
 .NoRoomInBag
 	closetext
 	end
@@ -236,12 +236,12 @@ Route46ApricornTree2:
 	opentext
 	writetext Route46ApricornTreeText
 	promptbutton
-	writetext Route46HeyItsApricorn2Text
+	writetext Route46HeyItsAPRICORN_2Text
 	promptbutton
 	verbosegiveitem YLW_APRICORN
 	iffalse .NoRoomInBag
-	disappear ROUTE46_APRICORN2
-	setflag ENGINE_DAILY_ROUTE46_APRICORN2
+	disappear ROUTE_46_APRICORN_2
+	setflag ENGINE_DAILY_ROUTE_46_APRICORN_2
 .NoRoomInBag
 	closetext
 	end
@@ -354,7 +354,7 @@ Route46HeyItsBerryText:
 	line "CHERI BERRY!"
 	done
 
-Route46HeyItsBerry2Text:
+Route46HeyItsBERRY_2Text:
 	text "Hey! It's"
 	line "ORAN BERRY!"
 	done
@@ -369,7 +369,7 @@ Route46HeyItsApricornText:
 	line "GRN APRICORN!"
 	done
 
-Route46HeyItsApricorn2Text:
+Route46HeyItsAPRICORN_2Text:
 	text "Hey! It's"
 	line "YLW APRICORN!"
 	done
@@ -400,8 +400,8 @@ Route46_MapEvents:
 	object_event 12, 19, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerBailey, -1
 	object_event  4, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperTed, -1
 	object_event  2, 13, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerErin1, -1
-	object_event  9,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route46BerryTree, EVENT_ROUTE46_BERRY
-	object_event  6,  6, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route46BerryTree2, EVENT_ROUTE46_BERRY2
-	object_event  8,  7, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route46ApricornTree, EVENT_ROUTE46_APRICORN
-	object_event  7,  4, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, Route46ApricornTree2, EVENT_ROUTE46_APRICORN2
+	object_event  9,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route46BerryTree, EVENT_ROUTE_46_BERRY
+	object_event  6,  6, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route46BerryTree2, EVENT_ROUTE_46_BERRY_2
+	object_event  8,  7, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route46ApricornTree, EVENT_ROUTE_46_APRICORN
+	object_event  7,  4, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, Route46ApricornTree2, EVENT_ROUTE_46_APRICORN_2
 	object_event  1, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route46XSpeed, EVENT_ROUTE_46_X_SPEED

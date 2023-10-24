@@ -1,5 +1,5 @@
 	object_const_def
-	const ROUTE12SUPERRODHOUSE_FISHING_GURU
+	const ROUTE_12SUPERRODHOUSE_FISHING_GURU
 
 Route12SuperRodHouse_MapScripts:
 	def_scene_scripts

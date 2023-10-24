@@ -1,7 +1,7 @@
 	object_const_def
-	const ROUTE10SOUTH_POKEFAN_M1
-	const ROUTE10SOUTH_POKEFAN_M2
-	const ROUTE10_ZAPDOS
+	const ROUTE_10SOUTH_POKEFAN_M1
+	const ROUTE_10SOUTH_POKEFAN_M2
+	const ROUTE_10_ZAPDOS
 
 Route10South_MapScripts:
 	def_scene_scripts
@@ -17,11 +17,11 @@ Route10SouthZapdos:
 	jump .NoAppear
 
 .Appear:
-	appear ROUTE10_ZAPDOS
+	appear ROUTE_10_ZAPDOS
 	endcallback
 
 .NoAppear:
-	disappear ROUTE10_ZAPDOS
+	disappear ROUTE_10_ZAPDOS
 	endcallback
 
 TrainerHikerJim:
@@ -55,7 +55,7 @@ Route10Zapdos:
 	loadvar VAR_BATTLETYPE, BATTLETYPE_KANTO_LEGEND
 	loadwildmon ZAPDOS, 50
 	startbattle
-	disappear ROUTE10_ZAPDOS
+	disappear ROUTE_10_ZAPDOS
 	setevent EVENT_FOUGHT_ZAPDOS
 	reloadmapafterbattle
 	end

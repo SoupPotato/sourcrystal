@@ -1,14 +1,14 @@
-DEF ROUTE43GATE_TOLL EQU 1000
+DEF ROUTE_43GATE_TOLL EQU 1000
 
 	object_const_def
-	const ROUTE43GATE_OFFICER
-	const ROUTE43GATE_ROCKET1
-	const ROUTE43GATE_ROCKET2
+	const ROUTE_43GATE_OFFICER
+	const ROUTE_43GATE_ROCKET1
+	const ROUTE_43GATE_ROCKET2
 
 Route43Gate_MapScripts:
 	def_scene_scripts
-	scene_script Route43GateRocketShakedownScene, SCENE_ROUTE43GATE_ROCKET_SHAKEDOWN
-	scene_script Route43GateNoopScene,            SCENE_ROUTE43GATE_NOOP
+	scene_script Route43GateRocketShakedownScene, SCENE_ROUTE_43GATE_ROCKET_SHAKEDOWN
+	scene_script Route43GateNoopScene,            SCENE_ROUTE_43GATE_NOOP
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, Route43GateCheckIfRocketsCallback
@@ -35,71 +35,71 @@ Route43GateRocketTakeoverScript:
 	readvar VAR_FACING
 	ifequal DOWN, RocketScript_Southbound
 	ifequal UP, RocketScript_Northbound
-	setscene SCENE_ROUTE43GATE_NOOP
+	setscene SCENE_ROUTE_43GATE_NOOP
 	end
 
 RocketScript_Southbound:
 	applymovement PLAYER, PlayerStepsIn
-	showemote EMOTE_SHOCK, ROUTE43GATE_ROCKET2, 15
-	applymovement ROUTE43GATE_ROCKET2, Rocket2Script_BlocksYouSouth
-	turnobject ROUTE43GATE_ROCKET1, UP
-	showemote EMOTE_SHOCK, ROUTE43GATE_ROCKET1, 15
-	applymovement ROUTE43GATE_ROCKET1, Rocket1Script_BlocksYouSouth
+	showemote EMOTE_SHOCK, ROUTE_43GATE_ROCKET2, 15
+	applymovement ROUTE_43GATE_ROCKET2, Rocket2Script_BlocksYouSouth
+	turnobject ROUTE_43GATE_ROCKET1, UP
+	showemote EMOTE_SHOCK, ROUTE_43GATE_ROCKET1, 15
+	applymovement ROUTE_43GATE_ROCKET1, Rocket1Script_BlocksYouSouth
 	opentext
 	writetext RocketText_TollFee
 	promptbutton
-	checkmoney YOUR_MONEY, ROUTE43GATE_TOLL - 1
+	checkmoney YOUR_MONEY, ROUTE_43GATE_TOLL - 1
 	ifequal HAVE_MORE, RocketScript_TollSouth
 	sjump RocketScript_YoureBrokeSouth
 
 RocketScript_TollSouth:
-	takemoney YOUR_MONEY, ROUTE43GATE_TOLL
+	takemoney YOUR_MONEY, ROUTE_43GATE_TOLL
 	writetext RocketText_ThankYou
 	sjump RocketScript_ShakeDownSouth
 
 RocketScript_YoureBrokeSouth:
-	takemoney YOUR_MONEY, ROUTE43GATE_TOLL
+	takemoney YOUR_MONEY, ROUTE_43GATE_TOLL
 	writetext RocketText_AllYouGot
 	sjump RocketScript_ShakeDownSouth
 
 RocketScript_ShakeDownSouth:
 	promptbutton
 	closetext
-	applymovement ROUTE43GATE_ROCKET1, Rocket1Script_LetsYouPassSouth
-	applymovement ROUTE43GATE_ROCKET2, Rocket2Script_LetsYouPassSouth
-	setscene SCENE_ROUTE43GATE_NOOP
+	applymovement ROUTE_43GATE_ROCKET1, Rocket1Script_LetsYouPassSouth
+	applymovement ROUTE_43GATE_ROCKET2, Rocket2Script_LetsYouPassSouth
+	setscene SCENE_ROUTE_43GATE_NOOP
 	special RestartMapMusic
 	end
 
 RocketScript_Northbound:
-	showemote EMOTE_SHOCK, ROUTE43GATE_ROCKET1, 15
-	applymovement ROUTE43GATE_ROCKET1, Rocket1Script_BlocksYouNorth
-	turnobject ROUTE43GATE_ROCKET2, DOWN
-	showemote EMOTE_SHOCK, ROUTE43GATE_ROCKET2, 15
-	applymovement ROUTE43GATE_ROCKET2, Rocket2Script_BlocksYouNorth
+	showemote EMOTE_SHOCK, ROUTE_43GATE_ROCKET1, 15
+	applymovement ROUTE_43GATE_ROCKET1, Rocket1Script_BlocksYouNorth
+	turnobject ROUTE_43GATE_ROCKET2, DOWN
+	showemote EMOTE_SHOCK, ROUTE_43GATE_ROCKET2, 15
+	applymovement ROUTE_43GATE_ROCKET2, Rocket2Script_BlocksYouNorth
 	opentext
 	writetext RocketText_TollFee
 	promptbutton
-	checkmoney YOUR_MONEY, ROUTE43GATE_TOLL - 1
+	checkmoney YOUR_MONEY, ROUTE_43GATE_TOLL - 1
 	ifequal HAVE_MORE, RocketScript_TollNorth
 	sjump RocketScript_YoureBrokeNorth
 
 RocketScript_TollNorth:
-	takemoney YOUR_MONEY, ROUTE43GATE_TOLL
+	takemoney YOUR_MONEY, ROUTE_43GATE_TOLL
 	writetext RocketText_ThankYou
 	sjump RocketScript_ShakeDownNorth
 
 RocketScript_YoureBrokeNorth:
-	takemoney YOUR_MONEY, ROUTE43GATE_TOLL
+	takemoney YOUR_MONEY, ROUTE_43GATE_TOLL
 	writetext RocketText_AllYouGot
 	sjump RocketScript_ShakeDownNorth
 
 RocketScript_ShakeDownNorth:
 	promptbutton
 	closetext
-	applymovement ROUTE43GATE_ROCKET2, Rocket2Script_LetsYouPassNorth
-	applymovement ROUTE43GATE_ROCKET1, Rocket1Script_LetsYouPassNorth
-	setscene SCENE_ROUTE43GATE_NOOP
+	applymovement ROUTE_43GATE_ROCKET2, Rocket2Script_LetsYouPassNorth
+	applymovement ROUTE_43GATE_ROCKET1, Rocket1Script_LetsYouPassNorth
+	setscene SCENE_ROUTE_43GATE_NOOP
 	special RestartMapMusic
 	end
 
@@ -196,7 +196,7 @@ RocketText_TollFee:
 	text "Hold it there,"
 	line "kiddo!"
 
-	para "The toll is ¥{d:ROUTE43GATE_TOLL}"
+	para "The toll is ¥{d:ROUTE_43GATE_TOLL}"
 	line "to go through."
 	done
 

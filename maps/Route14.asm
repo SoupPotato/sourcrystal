@@ -1,8 +1,8 @@
 	object_const_def
-	const ROUTE14_POKEFAN_M1
-	const ROUTE14_YOUNGSTER
-	const ROUTE14_POKEFAN_M2
-	const ROUTE14_KIM
+	const ROUTE_14_POKEFAN_M1
+	const ROUTE_14_YOUNGSTER
+	const ROUTE_14_POKEFAN_M2
+	const ROUTE_14_KIM
 
 Route14_MapScripts:
 	def_scene_scripts

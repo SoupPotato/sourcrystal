@@ -947,6 +947,15 @@ DoRepelStep:
 	scf
 	ret
 
+DoFossilStep:
+	ld a, [wFossilStepCount]
+	and a
+	ret z
+
+	dec a
+	ld [wFossilStepCount], a
+	ret 
+
 DoPlayerEvent:
 	ld a, [wScriptRunning]
 	and a

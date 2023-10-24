@@ -60,7 +60,7 @@ GoldenrodDeptStore5FReceptionistScript:
 	end
 
 .NotVeryHappy:
-	writetext UnknownText_0x561d8
+	writetext GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMText
 	promptbutton
 	checkitem TM_FRUSTRATION
 	iftrue .AlreadyGotTM
@@ -159,7 +159,7 @@ GoldenrodDeptStore5FAlreadyGotTMText:
 	line "have this TM…"
 	done
 
-UnknownText_0x56241:
+GoldenrodDeptStore5FCarrieMysteryGiftExplanationText:
 	text "MYSTERY GIFT."
 
 	para "With just a"

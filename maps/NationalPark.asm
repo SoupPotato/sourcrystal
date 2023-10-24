@@ -202,7 +202,7 @@ TrainerPokefanfBeverly:
 	sjump NationalParkPackFull
 
 .BeverlyDefeated:
-	writetext PokefanFBeverlyMarillFriendText
+	writetext PokefanBeverlyCuteMonText
 	promptbutton
 	closetext
 	end

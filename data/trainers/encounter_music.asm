@@ -73,5 +73,5 @@ TrainerEncounterMusic::
 	db MUSIC_HIKER_ENCOUNTER       ; mysticalman
 	db MUSIC_BEAUTY_ENCOUNTER      ; couple
 	db MUSIC_OFFICER_ENCOUNTER     ; cool_duo
-	assert_table_length NUM_TRAINER_CLASSES + 1
+	assert_table_length NUM_TRAINER_CLASSES - 1
 	db MUSIC_HIKER_ENCOUNTER       ; unused

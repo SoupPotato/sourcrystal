@@ -771,10 +771,8 @@ DEF KRIS EQU __trainer_class__
 	const ZACANDJEN
 	const ELANANDIDA
 
-DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1
-
 	trainerclass KABUTOPS_FOSSIL ; 46
 
 	trainerclass AERODACTYL_FOSSIL ; 47
 
-DEF NUM_TRAINER_CLASS_PICS EQU __trainer_class__ - 1
+DEF NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

@@ -72,4 +72,4 @@ TrainerGroups:
 	dba MysticalmanGroup
 	dba CoupleGroup
 	dba CoolDuoGroup
-	assert_table_length NUM_TRAINER_CLASSES
+	assert_table_length NUM_TRAINER_CLASSES - 2 ; exclude AERODACTYLE_FOSSIL, KABUTOPS_FOSSIL

@@ -6456,7 +6456,7 @@ CheckSleepingTreeMon:
 ; Get list for the time of day
 	ld hl, AsleepTreeMonsMorn
 	ld a, [wTimeOfDay]
-	cp DAY_F
+	cp DAY_F | EVE_F
 	jr c, .Check
 	ld hl, AsleepTreeMonsDay
 	jr z, .Check

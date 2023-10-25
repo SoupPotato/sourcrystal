@@ -32,7 +32,7 @@ GetTimeOfDayNotEve:
 	ld a, [wTimeOfDay]
 	cp EVE_F
 	ret nz
-	ld a, DAY_F ; ld a, NITE_F to make evening use nite encounters
+	ld a, DAY_F ; ld a, DAY_F to make evening use day encounters or NITE_F to make evening use nite encounters
 	ret
 
 FindNest:
@@ -274,7 +274,6 @@ ChooseWildEncounter:
 	inc hl
 	inc hl
 	call GetTimeOfDayNotEve
-	ld a, [wTimeOfDay]
 	ld bc, NUM_GRASSMON * 2
 	call AddNTimes
 	ld de, GrassMonProbTable

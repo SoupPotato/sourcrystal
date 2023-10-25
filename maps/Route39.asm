@@ -507,29 +507,28 @@ Route39BaobaLeavingText:
 	done
 
 MovementData_Route39_Baoba_Approach1:
-	step_up
+	step UP
 MovementData_Route39_Baoba_Approach2:
-	step_right
-	step_right
+	step RIGHT
+	step RIGHT
 	step_end
 
 MovementData_Route39_Baoba_Approach4:
-	step_down
+	step DOWN
 MovementData_Route39_Baoba_Approach3:
-	step_down
-	step_right
-	step_right
+	step DOWN
+	step RIGHT
+	step RIGHT
 	step_end
 
 MovementData_Route39_Baoba_Leaves:
-	step_left
-	step_left
-	step_down
-	step_down
-	step_down
-	step_down
-	step_down
-	step_down
+	step LEFT
+	step LEFT
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
 	step_end
 
 Route39_MapEvents:

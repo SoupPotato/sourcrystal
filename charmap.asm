@@ -36,6 +36,18 @@
 	charmap "<ROCKET>",  $5e ; "ROCKET"
 	charmap "<DEXEND>",  $5f
 
+; Actual characters (from gfx/font/font_battle_extra.png)
+
+	charmap "<LV>",      $6e
+
+	charmap "<DO>",      $70 ; hiragana small do, unused
+	charmap "◀",         $71
+	charmap "『",         $72 ; Japanese opening quote, unused
+	charmap "<ID>",      $73
+	charmap "№",         $74
+
+; Actual characters (from other graphics files)
+
 	charmap " ",         $7f ; gfx/frames/space.png
 
 	; needed for StatsScreen_PlaceShinyIcon and PrintPartyMonPage1
@@ -245,16 +257,6 @@
 	charmap "』", $73
 	charmap "・", $74
 	charmap "⋯", $75
-	
-; Actual characters (from gfx/font/font_battle_extra.png)
-
-	charmap "<LV>",      $76
-
-	charmap "<DO>",      $77 ; hiragana small do, unused
-	charmap "◀",         $78
-	charmap "『",         $79 ; Japanese opening quote, unused
-	charmap "<ID>",      $7a
-	charmap "№",         $7b
 
 	charmap "　", $7f
 

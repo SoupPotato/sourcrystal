@@ -26,6 +26,9 @@ gfx/pokemon/*/frames.asm
 # tool binaries
 *.exe
 
+# extras
+*.lnk
+
 # precompiled python
 *.pyc
 *$py.class

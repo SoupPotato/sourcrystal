@@ -1,5 +1,4 @@
 BitmasksPointers:
-	table_width 2, BitmasksPointers
 	dw BulbasaurBitmasks
 	dw IvysaurBitmasks
 	dw VenusaurBitmasks
@@ -251,4 +250,3 @@ BitmasksPointers:
 	dw LugiaBitmasks
 	dw HoOhBitmasks
 	dw CelebiBitmasks
-	assert_table_length NUM_POKEMON

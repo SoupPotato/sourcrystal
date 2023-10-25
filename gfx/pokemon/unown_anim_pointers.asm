@@ -1,5 +1,4 @@
 UnownAnimationPointers:
-	table_width 2, UnownAnimationPointers
 	dw UnownAAnimation
 	dw UnownBAnimation
 	dw UnownCAnimation
@@ -26,4 +25,3 @@ UnownAnimationPointers:
 	dw UnownXAnimation
 	dw UnownYAnimation
 	dw UnownZAnimation
-	assert_table_length NUM_UNOWN

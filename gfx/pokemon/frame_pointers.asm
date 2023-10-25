@@ -1,5 +1,4 @@
 FramesPointers:
-	table_width 2, FramesPointers
 	dw BulbasaurFrames
 	dw IvysaurFrames
 	dw VenusaurFrames
@@ -251,4 +250,3 @@ FramesPointers:
 	dw LugiaFrames
 	dw HoOhFrames
 	dw CelebiFrames
-	assert_table_length NUM_POKEMON

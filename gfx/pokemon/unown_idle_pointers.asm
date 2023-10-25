@@ -1,5 +1,4 @@
 UnownAnimationIdlePointers:
-	table_width 2, UnownAnimationIdlePointers
 	dw UnownAAnimationIdle
 	dw UnownBAnimationIdle
 	dw UnownCAnimationIdle
@@ -26,4 +25,3 @@ UnownAnimationIdlePointers:
 	dw UnownXAnimationIdle
 	dw UnownYAnimationIdle
 	dw UnownZAnimationIdle
-	assert_table_length NUM_UNOWN

@@ -66,9 +66,11 @@ TilesetParkAnim:
 TilesetForestAnim:
 	dw NULL,  ForestTreeLeftAnimation
 	dw NULL,  ForestTreeRightAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
+	dw vTiles2 tile $40, ReadTileToAnimBuffer
+	dw wTileAnimBuffer, ScrollTileDown
+	dw wTileAnimBuffer, ScrollTileDown
+	dw wTileAnimBuffer, ScrollTileDown
+	dw vTiles2 tile $40, WriteTileFromAnimBuffer
 	dw NULL,  ForestTreeLeftAnimation2
 	dw NULL,  ForestTreeRightAnimation2
 	dw NULL,  AnimateFlowerTile
@@ -79,16 +81,17 @@ TilesetForestAnim:
 
 TilesetJohtoAnim:
 	dw vTiles2 tile $14, AnimateWaterTile
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateWaterPalette
-	dw NULL,  WaitTileAnimation
+	dw vTiles2 tile $40, ReadTileToAnimBuffer
+	dw wTileAnimBuffer, ScrollTileDown
+	dw wTileAnimBuffer, ScrollTileDown
+	dw wTileAnimBuffer, ScrollTileDown
+	dw vTiles2 tile $40, WriteTileFromAnimBuffer
 	dw NULL,  AnimateFlowerTile
 	dw WhirlpoolFrames1, AnimateWhirlpoolTile
 	dw WhirlpoolFrames2, AnimateWhirlpoolTile
 	dw WhirlpoolFrames3, AnimateWhirlpoolTile
 	dw WhirlpoolFrames4, AnimateWhirlpoolTile
-	dw NULL,  WaitTileAnimation
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
@@ -196,18 +199,20 @@ TilesetDarkCaveAnim:
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw vTiles2 tile $40, WriteTileFromAnimBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
+	dw WhirlpoolFrames9, AnimateWhirlpoolTile
+	dw WhirlpoolFrames10, AnimateWhirlpoolTile
+	dw WhirlpoolFrames11, AnimateWhirlpoolTile
+	dw WhirlpoolFrames12, AnimateWhirlpoolTile
 	dw NULL,  DoneTileAnimation
 
 TilesetIcePathAnim:
-	dw vTiles2 tile $35, ReadTileToAnimBuffer
+	dw vTiles2 tile $35, AnimateWaterTile
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw wTileAnimBuffer, ScrollTileRightLeft
 	dw NULL,  FlickeringCaveEntrancePalette
-	dw vTiles2 tile $35, WriteTileFromAnimBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw NULL,  AnimateWaterPalette
 	dw NULL,  FlickeringCaveEntrancePalette
-	dw vTiles2 tile $31, ReadTileToAnimBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw wTileAnimBuffer, ScrollTileDown
 	dw NULL,  FlickeringCaveEntrancePalette
@@ -215,7 +220,6 @@ TilesetIcePathAnim:
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw wTileAnimBuffer, ScrollTileDown
 	dw NULL,  FlickeringCaveEntrancePalette
-	dw vTiles2 tile $31, WriteTileFromAnimBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw NULL,  DoneTileAnimation
 
@@ -256,7 +260,6 @@ TilesetPlayersHouseAnim:
 TilesetPokecenterAnim:
 TilesetGateAnim:
 TilesetLabAnim:
-TilesetFacilityAnim:
 TilesetMartAnim:
 TilesetMansionAnim:
 TilesetGameCornerAnim:
@@ -279,6 +282,25 @@ TilesetAerodactylWordRoomAnim:
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
+	dw NULL,  DoneTileAnimation
+
+TilesetFacilityAnim:
+	dw vTiles2 tile $60, AnimateWaterTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  LavaBubbleAnim3
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  LavaBubbleAnim4
+	dw NULL,  WaitTileAnimation
+	dw wTileAnimBuffer, ScrollTileDown
+	dw wTileAnimBuffer, ScrollTileDown
+	dw wTileAnimBuffer, ScrollTileDown
+	dw WhirlpoolFrames5, AnimateWhirlpoolTile
+	dw WhirlpoolFrames6, AnimateWhirlpoolTile
+	dw WhirlpoolFrames7, AnimateWhirlpoolTile
+	dw WhirlpoolFrames8, AnimateWhirlpoolTile
+	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
 DoneTileAnimation:
@@ -730,6 +752,45 @@ AnimateLavaBubbleTile2:
 	ld hl, vTiles2 tile $38
 	jp WriteTile
 
+LavaBubbleAnim3:
+; Splash in the bottom-right corner of the fountain.
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+	ld a, [wTileAnimationTimer]
+	and %110
+	srl a
+	inc a
+	inc a
+	and %011
+	swap a
+	ld e, a
+	ld d, 0
+	ld hl, LavaBubbleTileFrames
+	add hl, de
+	ld sp, hl
+	ld hl, vTiles2 tile $61
+	jp WriteTile
+
+
+LavaBubbleAnim4:
+; Splash in the top-left corner of the fountain.
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+	ld a, [wTileAnimationTimer]
+	and %110
+	add a
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, LavaBubbleTileFrames
+	add hl, de
+	ld sp, hl
+	ld hl, vTiles2 tile $71
+	jp WriteTile
+
 LavaBubbleTileFrames:
 	INCBIN "gfx/tilesets/lava/1.2bpp"
 	INCBIN "gfx/tilesets/lava/2.2bpp"
@@ -1025,7 +1086,22 @@ WhirlpoolFrames2: dw vTiles2 tile $33, WhirlpoolTiles2
 WhirlpoolFrames3: dw vTiles2 tile $42, WhirlpoolTiles3
 WhirlpoolFrames4: dw vTiles2 tile $43, WhirlpoolTiles4
 
+WhirlpoolFrames5: dw vTiles2 tile $62, WhirlpoolTiles1
+WhirlpoolFrames6: dw vTiles2 tile $63, WhirlpoolTiles2
+WhirlpoolFrames7: dw vTiles2 tile $72, WhirlpoolTiles3
+WhirlpoolFrames8: dw vTiles2 tile $73, WhirlpoolTiles4
+
+WhirlpoolFrames9:  dw vTiles2 tile $60, WhirlpoolDarkTiles1
+WhirlpoolFrames10: dw vTiles2 tile $61, WhirlpoolDarkTiles2
+WhirlpoolFrames11: dw vTiles2 tile $70, WhirlpoolDarkTiles3
+WhirlpoolFrames12: dw vTiles2 tile $71, WhirlpoolDarkTiles4
+
 WhirlpoolTiles1: INCBIN "gfx/tilesets/whirlpool/1.2bpp"
 WhirlpoolTiles2: INCBIN "gfx/tilesets/whirlpool/2.2bpp"
 WhirlpoolTiles3: INCBIN "gfx/tilesets/whirlpool/3.2bpp"
 WhirlpoolTiles4: INCBIN "gfx/tilesets/whirlpool/4.2bpp"
+
+WhirlpoolDarkTiles1: INCBIN "gfx/tilesets/whirlpool/5.2bpp"
+WhirlpoolDarkTiles2: INCBIN "gfx/tilesets/whirlpool/6.2bpp"
+WhirlpoolDarkTiles3: INCBIN "gfx/tilesets/whirlpool/7.2bpp"
+WhirlpoolDarkTiles4: INCBIN "gfx/tilesets/whirlpool/8.2bpp"

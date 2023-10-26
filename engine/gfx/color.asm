@@ -1279,6 +1279,7 @@ LoadMapPals:
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
 
+	farcall LoadSpecialMapOBPalette
 	farcall LoadSpecialNPCPalette
 
 	ld a, [wEnvironment]

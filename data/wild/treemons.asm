@@ -9,6 +9,8 @@ TreeMons:
 	dw TreeMonSet_Lake
 	dw TreeMonSet_Forest
 	dw TreeMonSet_Rock
+	dw TreeMonSet_BurnedTower
+	dw TreeMonSet_Safari
 	assert_table_length NUM_TREEMON_SETS
 	dw TreeMonSet_City ; unused
 
@@ -125,7 +127,30 @@ TreeMonSet_Forest:
 	db  5, KAKUNA,     10
 	db -1
 
+TreeMonSet_Safari:
+; common
+	db 50, HOOTHOOT,   15
+	db 15, PINECO,     15
+	db 15, PINECO,     15
+	db 10, EXEGGCUTE,  15
+	db  5, EXEGGCUTE,  15
+	db  5, EXEGGCUTE,  15
+	db -1
+; rare
+	db 50, HOOTHOOT,   15
+	db 15, PINECO,     15
+	db 15, AIPOM,      15
+	db 10, AIPOM,      15
+	db  5, SKARMORY,   15
+	db  5, SKARMORY,   15
+	db -1
+
 TreeMonSet_Rock:
 	db 90, KRABBY,     15
 	db 10, SHUCKLE,    15
+	db -1
+
+TreeMonSet_BurnedTower:
+	db 90, GEODUDE,     15
+	db 10, SLUGMA,      15
 	db -1

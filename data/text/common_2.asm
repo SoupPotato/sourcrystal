@@ -665,6 +665,29 @@ _AreYouABoyOrAreYouAGirlText::
 	line "Or are you a girl?"
 	done
 
+Text_ThisGameHasTwoGameModes::
+	text "This game has two"
+	line "difficulty modes."
+
+	para "Which mode would"
+	line "you like to play?"
+	prompt
+
+Text_NormalModeDesc::
+	text "#MON levels"
+	line "remain unchanged."
+	done
+
+Text_ChallengeModeDesc::
+	text "Higher #MON"
+	line "levels."
+	done
+
+Text_ThisCannotBeChanged::
+	text "This cannot be"
+	line "changed. Proceed?"
+	done
+
 Text_BattleEffectActivate::
 	text "<USER>'s"
 	line "@"

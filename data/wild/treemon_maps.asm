@@ -25,6 +25,8 @@ TreeMonMaps:
 	treemon_map ROUTE_44,                  TREEMON_SET_CANYON
 	treemon_map ROUTE_45,                  TREEMON_SET_CANYON
 	treemon_map ROUTE_46,                  TREEMON_SET_CANYON
+	treemon_map ROUTE_47,                  TREEMON_SET_CANYON
+	treemon_map ROUTE_48,                  TREEMON_SET_CANYON
 	treemon_map NEW_BARK_TOWN,             TREEMON_SET_CITY
 	treemon_map CHERRYGROVE_CITY,          TREEMON_SET_CITY
 	treemon_map VIOLET_CITY,               TREEMON_SET_CITY
@@ -38,6 +40,8 @@ TreeMonMaps:
 	treemon_map BLACKTHORN_CITY,           TREEMON_SET_CITY
 	treemon_map SILVER_CAVE_OUTSIDE,       TREEMON_SET_CITY
 	treemon_map ILEX_FOREST,               TREEMON_SET_FOREST
+	treemon_map VIRIDIAN_FOREST,           TREEMON_SET_FOREST
+	treemon_map SAFARI_ZONE_AREA_4,        TREEMON_SET_SAFARI
 	db -1
 
 RockMonMaps:
@@ -45,4 +49,6 @@ RockMonMaps:
 	treemon_map ROUTE_40,                  TREEMON_SET_ROCK
 	treemon_map DARK_CAVE_VIOLET_ENTRANCE, TREEMON_SET_ROCK
 	treemon_map SLOWPOKE_WELL_B1F,         TREEMON_SET_ROCK
+	treemon_map BURNED_TOWER_1F,           TREEMON_SET_BURNED_TOWER
+	treemon_map BURNED_TOWER_B1F,          TREEMON_SET_BURNED_TOWER
 	db -1

@@ -752,6 +752,30 @@ SECTION "Crystal Events", ROMX
 INCLUDE "engine/events/battle_tower/load_trainer.asm"
 INCLUDE "engine/events/odd_egg.asm"
 
+; Regular
+SECTION "Regular Mode", ROMX
+
+INCLUDE "data/wild/johto_grass.asm"
+INCLUDE "data/wild/johto_water.asm"
+INCLUDE "data/wild/kanto_grass.asm"
+INCLUDE "data/wild/kanto_water.asm"
+INCLUDE "data/wild/swarm_grass.asm"
+INCLUDE "data/wild/swarm_grass_alt.asm"
+INCLUDE "data/wild/swarm_water.asm"
+INCLUDE "data/wild/swarm_water_alt.asm"
+
+; Challenge Mode
+SECTION "Challenge Mode", ROMX
+
+INCLUDE "data/wild/challenge_mode/johto_grass.asm"
+INCLUDE "data/wild/challenge_mode/johto_water.asm"
+INCLUDE "data/wild/challenge_mode/kanto_grass.asm"
+INCLUDE "data/wild/challenge_mode/kanto_water.asm"
+INCLUDE "data/wild/challenge_mode/swarm_grass.asm"
+INCLUDE "data/wild/challenge_mode/swarm_grass_alt.asm"
+INCLUDE "data/wild/challenge_mode/swarm_water.asm"
+INCLUDE "data/wild/challenge_mode/swarm_water_alt.asm"
+
 
 SECTION "Newbox", ROMX
 

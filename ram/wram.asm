@@ -3272,16 +3272,16 @@ wWhichMomItemSet:: db
 wMomItemTriggerBalance:: ds 3
 
 wDailyResetTimer:: dw
-wDailyFlags1:: db
+wDailyFlags1:: ds 8
 wDailyFlags2:: db
 wSwarmFlags:: db
-	ds 2
+
 wTimerEventStartDay:: db
-	ds 3
+
 
 wFruitTreeFlags:: flag_array NUM_FRUIT_TREES
 
-	ds 2
+
 
 wLuckyNumberDayTimer:: dw
 	ds 2

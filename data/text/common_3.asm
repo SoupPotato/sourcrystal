@@ -1058,8 +1058,8 @@ _PokegearAskWhoCallText::
 	done
 
 _PokegearPressButtonText::
-	text "Press any button"
-	line "to exit."
+	text "Press A to select,"
+	line "Press B to exit."
 	done
 
 _PokegearAskDeleteText::

@@ -4,6 +4,7 @@
 	const POKEGEARCARD_MAP   ; 1
 	const POKEGEARCARD_PHONE ; 2
 	const POKEGEARCARD_RADIO ; 3
+	const POKEGEARCARD_PAGER ; 4
 DEF NUM_POKEGEAR_CARDS EQU const_value
 
 DEF PHONE_DISPLAY_HEIGHT EQU 4
@@ -23,6 +24,8 @@ DEF PHONE_DISPLAY_HEIGHT EQU 4
 	const POKEGEARSTATE_FINISHPHONECALL ; a
 	const POKEGEARSTATE_RADIOINIT       ; b
 	const POKEGEARSTATE_RADIOJOYPAD     ; c
+	const POKEGEARSTATE_PAGERINIT       ; d
+	const POKEGEARSTATE_PAGERJOYPAD     ; e
 
 PokeGear:
 	ld hl, wOptions
@@ -184,10 +187,11 @@ AnimatePokegearModeIndicatorArrow:
 	ret
 
 .XCoords:
-	db $00 ; POKEGEARCARD_CLOCK
+	db $9F ; POKEGEARCARD_CLOCK
 	db $10 ; POKEGEARCARD_MAP
-	db $20 ; POKEGEARCARD_PHONE
+	db $00 ; POKEGEARCARD_PHONE
 	db $30 ; POKEGEARCARD_RADIO
+	db $20 ; POKEGEARCARD_PAGER
 
 TownMap_GetCurrentLandmark:
 	ld a, [wMapGroup]
@@ -306,12 +310,16 @@ InitPokegearTilemap:
 	dw .Map
 	dw .Phone
 	dw .Radio
+	dw .Pager
+
+.Pager: ; TODO
+	ret
 
 .Clock:
 	ld de, ClockTilemapRLE
 	call Pokegear_LoadTilemapRLE
-	hlcoord 12, 1
-	ld de, .switch
+	hlcoord 14, 1
+	ld de, .clocktxt
 	call PlaceString
 	hlcoord 0, 12
 	lb bc, 4, 18
@@ -319,8 +327,8 @@ InitPokegearTilemap:
 	call Pokegear_UpdateClock
 	ret
 
-.switch
-	db " SWITCH▶@"
+.clocktxt
+	db "CLOCK@"
 
 .Map:
 	ld a, [wPokegearMapPlayerIconLandmark]
@@ -449,6 +457,65 @@ PokegearJumptable:
 	dw PokegearPhone_FinishPhoneCall
 	dw PokegearRadio_Init
 	dw PokegearRadio_Joypad
+	dw PokegearPager_Init
+	dw PokegearPager_Joypad
+
+PokegearPager_Init: ; TODO
+	ld hl, wJumptableIndex
+	inc [hl]
+	ret
+
+PokegearPager_Joypad:
+	ld hl, hJoyPressed
+	ld a, [hl]
+	and B_BUTTON
+	jr nz, .to_clock
+	ld a, [hl]
+	and D_LEFT
+	jr nz, .to_map
+	ld a, [hl]
+	and D_RIGHT
+	jr nz, .to_radio
+	;ld a, [hl]
+	;and A_BUTTON
+	;jr nz, .press_a
+	call PokegearPagerGetDPad
+	ret
+
+.to_clock
+	lb bc, POKEGEARCARD_CLOCK, POKEGEARSTATE_CLOCKINIT
+	jr .switch_page
+
+.to_map
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_MAP_CARD_F, a
+	jr z, .to_phone
+	ld c, POKEGEARSTATE_MAPCHECKREGION
+	ld b, POKEGEARCARD_MAP
+	jr .switch_page
+
+.to_radio
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_RADIO_CARD_F, a
+	jr z, .to_clock
+	ld c, POKEGEARSTATE_RADIOINIT
+	ld b, POKEGEARCARD_RADIO
+	jr .switch_page
+
+.to_phone
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_PHONE_CARD_F, a
+	ld c, POKEGEARSTATE_PHONEINIT
+	ld b, POKEGEARCARD_PHONE
+.switch_page
+	call Pokegear_SwitchPage
+	ret
+
+.press_a ; TODO
+	ret
+
+PokegearPagerGetDPad: ; TODO
+	ret
 
 PokegearClock_Init:
 	call InitPokegearTilemap
@@ -462,33 +529,49 @@ PokegearClock_Init:
 PokegearClock_Joypad:
 	call .UpdateClock
 	ld hl, hJoyLast
+	
 	ld a, [hl]
-	and A_BUTTON | B_BUTTON | START | SELECT
+	and B_BUTTON
 	jr nz, .quit
+	
 	ld a, [hl]
-	and D_RIGHT
+	and D_LEFT
+	jr nz, .to_radio
+	
+	ld a, [hl]
+	and D_RIGHT | A_BUTTON
 	ret z
-	ld a, [wPokegearFlags]
-	bit POKEGEAR_MAP_CARD_F, a
-	jr z, .no_map_card
-	ld c, POKEGEARSTATE_MAPCHECKREGION
-	ld b, POKEGEARCARD_MAP
-	jr .done
+	
+	jr .to_phone
 
-.no_map_card
-	ld a, [wPokegearFlags]
-	bit POKEGEAR_PHONE_CARD_F, a
-	jr z, .no_phone_card
-	ld c, POKEGEARSTATE_PHONEINIT
-	ld b, POKEGEARCARD_PHONE
-	jr .done
-
-.no_phone_card
+.to_radio
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_RADIO_CARD_F, a
-	ret z
-	ld c, POKEGEARSTATE_RADIOINIT
-	ld b, POKEGEARCARD_RADIO
+	jr z, .to_pager
+	lb bc, POKEGEARCARD_RADIO, POKEGEARSTATE_RADIOINIT
+	jr .done
+
+.to_pager
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_PAGER_CARD_F, a
+	jr z, .to_map
+	lb bc, POKEGEARCARD_PAGER, POKEGEARSTATE_PAGERINIT
+	jr .done
+
+.to_map
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_MAP_CARD_F, a
+	jr z, .to_phone
+	lb bc, POKEGEARCARD_MAP, POKEGEARSTATE_MAPCHECKREGION
+	jr .done
+	
+
+.to_phone
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_PHONE_CARD_F, a
+	jr z, .done
+	ld c, POKEGEARSTATE_PHONEINIT
+	ld b, POKEGEARCARD_PHONE
 .done
 	call Pokegear_SwitchPage
 	ret
@@ -571,43 +654,46 @@ PokegearMap_ContinueMap:
 	ld hl, hJoyLast
 	ld a, [hl]
 	and B_BUTTON
-	jr nz, .cancel
+	jr nz, .to_clock
 	ld a, [hl]
 	and D_RIGHT
-	jr nz, .right
+	jr nz, .to_pager
 	ld a, [hl]
 	and D_LEFT
-	jr nz, .left
+	jr nz, .to_phone
 	call .DPad
 	ret
 
-.right
+.to_pager
 	ld a, [wPokegearFlags]
-	bit POKEGEAR_PHONE_CARD_F, a
-	jr z, .no_phone
-	ld c, POKEGEARSTATE_PHONEINIT
-	ld b, POKEGEARCARD_PHONE
+	bit POKEGEAR_PAGER_CARD_F, a
+	jr z, .to_radio
+	lb bc, POKEGEARCARD_PAGER, POKEGEARSTATE_PAGERINIT
 	jr .done
 
-.no_phone
+.to_radio
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_RADIO_CARD_F, a
-	ret z
+	jr z, .to_phone
 	ld c, POKEGEARSTATE_RADIOINIT
 	ld b, POKEGEARCARD_RADIO
 	jr .done
 
-.left
-	ld c, POKEGEARSTATE_CLOCKINIT
-	ld b, POKEGEARCARD_CLOCK
+.to_phone
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_PHONE_CARD_F, a
+	jr z, .to_clock
+	lb bc, POKEGEARCARD_PHONE, POKEGEARSTATE_PHONEINIT
 .done
 	call Pokegear_SwitchPage
 	ret
 
-.cancel
-	ld hl, wJumptableIndex
-	set 7, [hl]
-	ret
+.to_clock
+	lb bc, POKEGEARCARD_CLOCK, POKEGEARSTATE_CLOCKINIT
+	jr .done
+	;ld hl, wJumptableIndex
+	;set 7, [hl]
+	;ret
 
 .DPad:
 	ld hl, hJoyLast
@@ -754,10 +840,13 @@ PokegearRadio_Joypad:
 	ld hl, hJoyLast
 	ld a, [hl]
 	and B_BUTTON
-	jr nz, .cancel
+	jr nz, .to_clock
+	ld a, [hl]
+	and D_RIGHT
+	jr nz, .to_clock
 	ld a, [hl]
 	and D_LEFT
-	jr nz, .left
+	jr nz, .to_pager
 	ld a, [wPokegearRadioChannelAddr]
 	ld l, a
 	ld a, [wPokegearRadioChannelAddr + 1]
@@ -767,32 +856,34 @@ PokegearRadio_Joypad:
 	ret z
 	jp FarCall_hl
 
-.left
+.to_pager
 	ld a, [wPokegearFlags]
-	bit POKEGEAR_PHONE_CARD_F, a
-	jr z, .no_phone
-	ld c, POKEGEARSTATE_PHONEINIT
-	ld b, POKEGEARCARD_PHONE
+	bit POKEGEAR_PAGER_CARD_F, a
+	jr z, .to_map
+	ld c, POKEGEARSTATE_PAGERINIT
+	ld b, POKEGEARCARD_PAGER
 	jr .switch_page
 
-.no_phone
+.to_map
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_MAP_CARD_F, a
-	jr z, .no_map
+	jr z, .to_phone
 	ld c, POKEGEARSTATE_MAPCHECKREGION
 	ld b, POKEGEARCARD_MAP
 	jr .switch_page
 
-.no_map
+.to_phone
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_PHONE_CARD_F, a
+	ld c, POKEGEARSTATE_PHONEINIT
+	ld b, POKEGEARCARD_PHONE
+	jr .switch_page
+
+.to_clock
 	ld c, POKEGEARSTATE_CLOCKINIT
 	ld b, POKEGEARCARD_CLOCK
 .switch_page
 	call Pokegear_SwitchPage
-	ret
-
-.cancel
-	ld hl, wJumptableIndex
-	set 7, [hl]
 	ret
 
 PokegearPhone_Init:
@@ -811,47 +902,47 @@ PokegearPhone_Init:
 PokegearPhone_Joypad:
 	ld hl, hJoyPressed
 	ld a, [hl]
-	and B_BUTTON
-	jr nz, .b
+	and B_BUTTON | D_LEFT
+	jr nz, .to_clock
 	ld a, [hl]
 	and A_BUTTON
 	jr nz, .a
 	ld hl, hJoyLast
 	ld a, [hl]
-	and D_LEFT
-	jr nz, .left
-	ld a, [hl]
 	and D_RIGHT
-	jr nz, .right
+	jr nz, .to_map
 	call PokegearPhone_GetDPad
 	ret
 
-.left
-	ld a, [wPokegearFlags]
-	bit POKEGEAR_MAP_CARD_F, a
-	jr z, .no_map
-	ld c, POKEGEARSTATE_MAPCHECKREGION
-	ld b, POKEGEARCARD_MAP
-	jr .switch_page
-
-.no_map
+.to_clock ; quit
 	ld c, POKEGEARSTATE_CLOCKINIT
 	ld b, POKEGEARCARD_CLOCK
 	jr .switch_page
 
-.right
+.to_map
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_MAP_CARD_F, a
+	jr z, .to_pager
+	ld c, POKEGEARSTATE_MAPCHECKREGION
+	ld b, POKEGEARCARD_MAP
+	jr .switch_page
+
+.to_pager
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_PAGER_CARD_F, a
+	jr z, .to_radio
+	ld c, POKEGEARSTATE_PAGERINIT
+	ld b, POKEGEARCARD_PAGER
+	jr .switch_page
+
+.to_radio
 	ld a, [wPokegearFlags]
 	bit POKEGEAR_RADIO_CARD_F, a
-	ret z
+	jr z, .to_clock
 	ld c, POKEGEARSTATE_RADIOINIT
 	ld b, POKEGEARCARD_RADIO
 .switch_page
 	call Pokegear_SwitchPage
-	ret
-
-.b
-	ld hl, wJumptableIndex
-	set 7, [hl]
 	ret
 
 .a

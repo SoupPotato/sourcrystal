@@ -348,6 +348,7 @@ SECTION "Phone Text", ROMX
 
 INCLUDE "data/phone/text/aiden_overworld.asm" ; new
 INCLUDE "data/phone/text/alan_overworld.asm"
+INCLUDE "data/phone/text/alfred_overworld.asm" ; new
 INCLUDE "data/phone/text/anthony_overworld.asm"
 INCLUDE "data/phone/text/arnie_overworld.asm"
 INCLUDE "data/phone/text/billy_overworld.asm" ; new
@@ -355,6 +356,7 @@ INCLUDE "data/phone/text/brent_overworld.asm"
 INCLUDE "data/phone/text/chad_overworld.asm"
 INCLUDE "data/phone/text/dana_overworld.asm"
 INCLUDE "data/phone/text/derek_overworld.asm"
+INCLUDE "data/phone/text/doug_overworld.asm" ; new
 INCLUDE "data/phone/text/eoin_overworld.asm" ; new
 INCLUDE "data/phone/text/erin_overworld.asm"
 INCLUDE "data/phone/text/gina_overworld.asm"
@@ -365,9 +367,11 @@ INCLUDE "data/phone/text/jamie_overworld.asm" ; new
 INCLUDE "data/phone/text/kayandtia_overworld.asm" ; new
 INCLUDE "data/phone/text/kenji_overworld.asm"
 INCLUDE "data/phone/text/kenny_overworld.asm" ; new
+INCLUDE "data/phone/text/krise_overworld.asm" ; new
 INCLUDE "data/phone/text/kyle_overworld.asm" ; new
 INCLUDE "data/phone/text/parry_overworld.asm"
 INCLUDE "data/phone/text/reese_overworld.asm" ; new
+INCLUDE "data/phone/text/rob_overworld.asm" ; new
 INCLUDE "data/phone/text/tanner_overworld.asm" ; new
 INCLUDE "data/phone/text/tiffany_overworld.asm"
 INCLUDE "data/phone/text/timandsue_overworld.asm" ; new
@@ -375,6 +379,7 @@ INCLUDE "data/phone/text/todd_overworld.asm"
 INCLUDE "data/phone/text/torin_overworld.asm" ; new
 INCLUDE "data/phone/text/tully_overworld.asm"
 INCLUDE "data/phone/text/vance_overworld.asm"
+INCLUDE "data/phone/text/walt_overworld.asm" ; new
 INCLUDE "data/phone/text/wilton_overworld.asm"
 
 

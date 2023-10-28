@@ -999,32 +999,17 @@ LoveBallMultiplier:
 
 FastBallMultiplier:
 	ld a, [wTempEnemyMonSpecies]
-	ld c, a
-	ld hl, FleeMons
-	ld d, 3
-
-.loop
-	ld a, BANK(FleeMons)
-	call GetFarByte
-
-	inc hl
-	cp -1
-	jr z, .next
-	cp c
-	jr nz, .next
+	ld [wCurSpecies], a
+	call GetBaseData
+	ld a, [wBaseSpeed]
+	cp 100
+	ret nc
 	sla b
 	jr c, .max
-
 	sla b
 	ret nc
-
 .max
 	ld b, $ff
-	ret
-
-.next
-	dec d
-	jr nz, .loop
 	ret
 
 LevelBallMultiplier:

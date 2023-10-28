@@ -131,6 +131,7 @@ INCLUDE "data/battle/effect_command_pointers.asm"
 SECTION "Own Section", ROMX
 
 INCLUDE "engine/battle/swarm_shiny.asm"
+INCLUDE "engine/battle/swarm_shiny_alt.asm"
 
 SECTION "bankB", ROMX
 

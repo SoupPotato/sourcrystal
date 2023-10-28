@@ -6147,9 +6147,15 @@ LoadEnemyMon:
 ;checkswarm
 	ld hl, wDailyFlags1
 	bit DAILYFLAGS1_SWARM_F, [hl]
-	jr z, .skipshine
-	
+	jr z, .check_alt_swarm
 	farcall GenerateSwarmShiny
+	jr .next
+
+.check_alt_swarm
+	ld hl, wSwarmFlags
+	bit SWARMFLAGS_ALT_SWARM_F, [hl]
+	jr z, .skipshine
+	farcall GenerateAltSwarmShiny
 	jr .next
 
 .skipshine:

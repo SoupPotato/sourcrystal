@@ -5,7 +5,6 @@
 ; - RadioChannels (see engine/pokegear/pokegear.asm)
 	const_def
 	const OAKS_POKEMON_TALK      ; 00
-	const POKEDEX_SHOW           ; 01
 	const POKEMON_MUSIC          ; 02
 	const LUCKY_CHANNEL          ; 03
 	const BUENAS_PASSWORD        ; 04
@@ -25,10 +24,6 @@ DEF NUM_RADIO_CHANNELS EQU const_value
 	const OAKS_POKEMON_TALK_7    ; 10
 	const OAKS_POKEMON_TALK_8    ; 11
 	const OAKS_POKEMON_TALK_9    ; 12
-	const POKEDEX_SHOW_2         ; 13
-	const POKEDEX_SHOW_3         ; 14
-	const POKEDEX_SHOW_4         ; 15
-	const POKEDEX_SHOW_5         ; 16
 	const POKEMON_MUSIC_2        ; 17
 	const POKEMON_MUSIC_3        ; 18
 	const POKEMON_MUSIC_4        ; 19
@@ -91,16 +86,24 @@ DEF NUM_RADIO_CHANNELS EQU const_value
 	const BUENAS_PASSWORD_20     ; 52
 	const BUENAS_PASSWORD_21     ; 53
 	const RADIO_SCROLL           ; 54
-	const POKEDEX_SHOW_6         ; 55
-	const POKEDEX_SHOW_7         ; 56
-	const POKEDEX_SHOW_8         ; 57
+	const OAKS_POKEMON_TALK_SWARM_1  ; 58
+	const OAKS_POKEMON_TALK_SWARM_2  ; 59
+	const OAKS_POKEMON_TALK_SWARM_3  ; 5a
+	const OAKS_POKEMON_TALK_SWARM_4  ; 5b
+	const OAKS_POKEMON_TALK_SWARM_5  ; 5c
+	const OAKS_POKEMON_TALK_SWARM_6  ; 5d
+	const OAKS_POKEMON_TALK_SWARM_7  ; 5e
+	const OAKS_POKEMON_TALK_SWARM_8  ; 5f
+	const OAKS_POKEMON_TALK_SWARM_9  ; 60
+	const OAKS_POKEMON_TALK_SWARM_10 ; 61
+	const OAKS_POKEMON_TALK_SWARM_11 ; 62
+	const OAKS_POKEMON_TALK_SWARM_12 ; 63
 DEF NUM_RADIO_SEGMENTS EQU const_value
 
 ; PlayRadioStationPointers indexes (see engine/pokegear/pokegear.asm)
 	const_def
 	const MAPRADIO_POKEMON_CHANNEL
 	const MAPRADIO_OAKS_POKEMON_TALK
-	const MAPRADIO_POKEDEX_SHOW
 	const MAPRADIO_POKEMON_MUSIC
 	const MAPRADIO_LUCKY_CHANNEL
 	const MAPRADIO_UNOWN

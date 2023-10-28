@@ -1557,9 +1557,6 @@ RadioChannels:
 ; Oak's Pokémon Talk in the afternoon and evening
 	call .InJohto
 	jr nc, .NoSignal
-	ld a, [wTimeOfDay]
-	and a
-	jp z, LoadStation_PokedexShow
 	jp LoadStation_OaksPokemonTalk
 
 .PokemonMusic:
@@ -1650,17 +1647,6 @@ LoadStation_OaksPokemonTalk:
 	ld hl, PlayRadioShow
 	call Radio_BackUpFarCallParams
 	ld de, OaksPKMNTalkName
-	ret
-
-LoadStation_PokedexShow:
-	ld a, POKEDEX_SHOW
-	ld [wCurRadioLine], a
-	xor a
-	ld [wNumRadioLinesPrinted], a
-	ld a, BANK(PlayRadioShow)
-	ld hl, PlayRadioShow
-	call Radio_BackUpFarCallParams
-	ld de, PokedexShowName
 	ret
 
 LoadStation_PokemonMusic:
@@ -2077,7 +2063,6 @@ PlayRadioStationPointers:
 	table_width 2, PlayRadioStationPointers
 	dw LoadStation_PokemonChannel
 	dw LoadStation_OaksPokemonTalk
-	dw LoadStation_PokedexShow
 	dw LoadStation_PokemonMusic
 	dw LoadStation_LuckyChannel
 	dw LoadStation_UnownRadio
@@ -2091,9 +2076,6 @@ LoadStation_PokemonChannel:
 	and a
 	jr nz, .kanto
 	call UpdateTime
-	ld a, [wTimeOfDay]
-	and a
-	jp z, LoadStation_PokedexShow
 	jp LoadStation_OaksPokemonTalk
 
 .kanto:

@@ -22,7 +22,6 @@ RadioJumptable:
 ; entries correspond to constants/radio_constants.asm
 	table_width 2, RadioJumptable
 	dw OaksPKMNTalk1     ; $00
-	dw PokedexShow1      ; $01
 	dw BenMonMusic1      ; $02
 	dw LuckyNumberShow1  ; $03
 	dw BuenasPassword1   ; $04
@@ -42,10 +41,6 @@ RadioJumptable:
 	dw OaksPKMNTalk7     ; $10
 	dw OaksPKMNTalk8     ; $11
 	dw OaksPKMNTalk9     ; $12
-	dw PokedexShow2      ; $13
-	dw PokedexShow3      ; $14
-	dw PokedexShow4      ; $15
-	dw PokedexShow5      ; $16
 ; Ben Music
 	dw BenMonMusic2      ; $17
 	dw BenMonMusic3      ; $18
@@ -114,10 +109,19 @@ RadioJumptable:
 	dw BuenasPassword20  ; $52
 	dw BuenasPassword21  ; $53
 	dw RadioScroll       ; $54
-; More Pokemon Channel stuff
-	dw PokedexShow6      ; $55
-	dw PokedexShow7      ; $56
-	dw PokedexShow8      ; $57
+; Swarm lol
+	dw OaksPKMNTalkSwarm1  ; $58
+	dw OaksPKMNTalkSwarm2  ; $59
+	dw OaksPKMNTalkSwarm3  ; $5a
+	dw OaksPKMNTalkSwarm4  ; $5b
+	dw OaksPKMNTalkSwarm5  ; $5c
+	dw OaksPKMNTalkSwarm6  ; $5d
+	dw OaksPKMNTalkSwarm7  ; $5e
+	dw OaksPKMNTalkSwarm8  ; $5f
+	dw OaksPKMNTalkSwarm9  ; $60
+	dw OaksPKMNTalkSwarm10 ; $61
+	dw OaksPKMNTalkSwarm11 ; $62
+	dw OaksPKMNTalkSwarm12 ; $63
 	assert_table_length NUM_RADIO_SEGMENTS
 
 PrintRadioLine:
@@ -189,6 +193,250 @@ OaksPKMNTalk2:
 
 OaksPKMNTalk3:
 	ld hl, OPT_IntroText3
+	ld a, OAKS_POKEMON_TALK_SWARM_1
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm1:
+	ld hl, wSwarmFlags
+	bit SWARMFLAGS_SWARM_ACTIVE, [hl]
+	jp nz, .done
+
+	ld hl, wDailyFlags1
+	bit DAILYFLAGS1_SWARM_F, [hl]
+	jp nz, .check_alt_swarm
+	jp .generate_flag
+
+.check_alt_swarm
+	ld hl, wSwarmFlags
+	bit SWARMFLAGS_ALT_SWARM_F, [hl]
+	jp nz, .done
+
+.generate_flag
+	call Random ; generate a random number below 8
+	and %11 ; '3' in bit  (increase bit number with each new added swarm)
+	cp 0
+	jp z, .normal_swarm
+	cp 1
+	jp z, .alternate_swarm
+	jp .generate_flag
+
+.normal_swarm
+	ld hl, wDailyFlags1
+	bit DAILYFLAGS1_SWARM_F, [hl]
+	jp z, .generate_number
+	jp .done
+	
+.alternate_swarm
+	ld hl, wSwarmFlags
+	bit SWARMFLAGS_ALT_SWARM_F, [hl]
+	jp z, .generate_alt_number
+	jp .done
+	
+.done
+	jp OaksPKMNTalk4
+
+.generate_number
+	ld hl, wSwarmFlags
+	set SWARMFLAGS_SWARM_ACTIVE, [hl]
+	call .InJohto
+	jp nc, .generate_number_kanto
+	ld a, (SwarmLocationDataJohtoEnd - SwarmLocationDataJohto) / 5
+	call RandomRange ; genrate a random number between 0 and a
+	ld hl, SwarmLocationDataJohto
+	ld bc, 5
+	call AddNTimes
+	ld a, [hli]
+	ld [wSwarmSpecies], a
+	push hl
+	call .store_mon_name
+	pop hl
+	ld d, [hl]
+	inc hl
+	ld e, [hl]
+	inc hl
+	push hl
+	farcall StoreSwarmMapIndices
+	pop hl
+	ld a, [hli]
+	ld [wSwarmLandmark], a
+	ld e, a
+	ld a, [hl]
+	and a
+	jp z, .finish
+	ld [wFishingSwarmFlag], a
+	jp .finish
+
+.generate_alt_number
+	ld hl, wSwarmFlags
+	set SWARMFLAGS_SWARM_ACTIVE, [hl]
+	call .InJohto
+	jp nc, .generate_alt_number_kanto
+	ld a, (SwarmLocationDataJohtoAltEnd - SwarmLocationDataJohtoAlt) / 5
+	call RandomRange ; genrate a random number between 0 and a
+	ld hl, SwarmLocationDataJohtoAlt
+	ld bc, 5
+	call AddNTimes
+	ld a, [hli]
+	ld [wSwarmSpecies], a
+	push hl
+	call .store_mon_name
+	pop hl
+	ld d, [hl]
+	inc hl
+	ld e, [hl]
+	inc hl
+	push hl
+	farcall StoreSwarmMapIndicesAlternate
+	pop hl
+	ld a, [hli]
+	ld [wSwarmLandmark], a
+	ld e, a
+	ld a, [hl]
+	and a
+	jr z, .finish
+	ld [wFishingSwarmFlag], a
+	jr .finish
+
+.generate_number_kanto
+	ld a, (SwarmLocationDataKantoEnd - SwarmLocationDataKanto) / 5
+	call RandomRange ; genrate a random number between 0 and a
+	ld hl, SwarmLocationDataKanto
+	ld bc, 5
+	call AddNTimes
+	ld a, [hli]
+	ld [wSwarmSpecies], a
+	push hl
+	call .store_mon_name
+	pop hl
+	ld d, [hl]
+	inc hl
+	ld e, [hl]
+	inc hl
+	push hl
+	farcall StoreSwarmMapIndices
+	pop hl
+	ld a, [hli]
+	ld [wSwarmLandmark], a
+	ld e, a
+	ld a, [hl]
+	and a
+	jr z, .finish
+	ld [wFishingSwarmFlag], a
+	jr .finish
+
+.generate_alt_number_kanto
+	ld a, (SwarmLocationDataKantoAltEnd - SwarmLocationDataKantoAlt) / 5
+	call RandomRange ; genrate a random number between 0 and a
+	ld hl, SwarmLocationDataKantoAlt
+	ld bc, 5
+	call AddNTimes
+	ld a, [hli]
+	ld [wSwarmSpecies], a
+	push hl
+	call .store_mon_name
+	pop hl
+	ld d, [hl]
+	inc hl
+	ld e, [hl]
+	inc hl
+	push hl
+	farcall StoreSwarmMapIndicesAlternate
+	pop hl
+	ld a, [hli]
+	ld [wSwarmLandmark], a
+	ld e, a
+	ld a, [hl]
+	and a
+	jr z, .finish
+	ld [wFishingSwarmFlag], a
+	jr .finish
+
+.store_mon_name
+	ld [wNamedObjectIndex], a
+	call GetPokemonName
+	ld hl, wStringBuffer1
+	ld de, wMonOrItemNameBuffer
+	ld bc, MON_NAME_LENGTH
+	call CopyBytes
+	ret
+
+.finish
+	farcall GetLandmarkName
+	ld hl, OPT_SwarmText1
+	ld a, OAKS_POKEMON_TALK_SWARM_2
+	jp NextRadioLine
+
+.InJohto:
+; if in Johto or on the S.S. Aqua, set carry
+
+; otherwise clear carry
+	ld a, [wPokegearMapPlayerIconLandmark]
+	cp LANDMARK_FAST_SHIP
+	jr z, .johto
+	cp KANTO_LANDMARK
+	jr c, .johto
+.kanto
+	and a
+	ret
+
+.johto
+	scf
+	ret
+
+INCLUDE "data/wild/swarm_location_data.asm"
+
+OaksPKMNTalkSwarm2:
+	ld hl, OPT_SwarmText2
+	ld a, OAKS_POKEMON_TALK_SWARM_3
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm3:
+	ld hl, OPT_SwarmText3
+	ld a, OAKS_POKEMON_TALK_SWARM_4
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm4:
+	ld hl, OPT_SwarmText4
+	ld a, OAKS_POKEMON_TALK_SWARM_5
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm5:
+	ld hl, OPT_SwarmText5
+	ld a, OAKS_POKEMON_TALK_SWARM_6
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm6:
+	ld hl, OPT_SwarmText6
+	ld a, OAKS_POKEMON_TALK_SWARM_7
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm7:
+	ld hl, OPT_SwarmText7
+	ld a, OAKS_POKEMON_TALK_SWARM_8
+	jp NextRadioLine
+	
+OaksPKMNTalkSwarm8:
+	ld hl, OPT_SwarmText8
+	ld a, OAKS_POKEMON_TALK_SWARM_9
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm9:
+	ld hl, OPT_SwarmText9
+	ld a, OAKS_POKEMON_TALK_SWARM_10
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm10:
+	ld hl, OPT_SwarmText10
+	ld a, OAKS_POKEMON_TALK_SWARM_11
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm11:
+	ld hl, OPT_SwarmText11
+	ld a, OAKS_POKEMON_TALK_SWARM_12
+	jp NextRadioLine
+
+OaksPKMNTalkSwarm12:
+	ld hl, OPT_SwarmText12
 	ld a, OAKS_POKEMON_TALK_4
 	jp NextRadioLine
 
@@ -307,6 +555,66 @@ OPT_IntroText2:
 OPT_IntroText3:
 	text_far _OPT_IntroText3
 	text_end
+
+OPT_SwarmText1:
+	; Breaking news!
+	text_jump _OPT_SwarmText1
+	db "@"
+
+OPT_SwarmText2:
+	; A group of
+	text_jump _OPT_SwarmText2
+	db "@"
+
+OPT_SwarmText3:
+	; @ 
+	text_jump _OPT_SwarmText3
+	db "@"
+
+OPT_SwarmText4:
+	; have be seen at
+	text_jump _OPT_SwarmText4
+	db "@"
+
+OPT_SwarmText5:
+	; @ .
+	text_jump _OPT_SwarmText5
+	db "@"
+
+OPT_SwarmText6:
+	; If any trainers
+	text_jump _OPT_SwarmText6
+	db "@"
+
+OPT_SwarmText7:
+	; want to catch a
+	text_jump _OPT_SwarmText7
+	db "@"
+
+OPT_SwarmText8:
+	; @ ,
+	text_jump _OPT_SwarmText8
+	db "@"
+
+OPT_SwarmText9:
+	; then head over to
+	text_jump _OPT_SwarmText9
+	db "@"
+
+OPT_SwarmText10:
+	; @ .
+	text_jump _OPT_SwarmText5
+	db "@"
+
+OPT_SwarmText11:
+	; Now, let's start
+	text_jump _OPT_SwarmText10
+	db "@"
+
+OPT_SwarmText12:
+	; the show!
+	text_jump _OPT_SwarmText11
+	db "@"
 
 OPT_OakText1:
 	text_far _OPT_OakText1
@@ -663,150 +971,6 @@ PokedexShow_GetDexEntryBank:
 	db BANK("Pokedex Entries 065-128")
 	db BANK("Pokedex Entries 129-192")
 	db BANK("Pokedex Entries 193-251")
-
-PokedexShow1:
-	call StartRadioStation
-.loop
-	call Random
-	cp NUM_POKEMON
-	jr nc, .loop
-	ld c, a
-	push bc
-	ld a, c
-	call CheckCaughtMon
-	pop bc
-	jr z, .loop
-	inc c
-	ld a, c
-	ld [wCurPartySpecies], a
-	ld [wNamedObjectIndex], a
-	call GetPokemonName
-	ld hl, PokedexShowText
-	ld a, POKEDEX_SHOW_2
-	jp NextRadioLine
-
-PokedexShow2:
-	ld a, [wCurPartySpecies]
-	dec a
-	ld hl, PokedexDataPointerTable
-	ld c, a
-	ld b, 0
-	add hl, bc
-	add hl, bc
-	ld a, BANK(PokedexDataPointerTable)
-	call GetFarWord
-	call PokedexShow_GetDexEntryBank
-	push af
-	push hl
-	call CopyDexEntryPart1
-	dec hl
-	ld [hl], "<DONE>"
-	ld hl, wPokedexShowPointerAddr
-	call CopyRadioTextToRAM
-	pop hl
-	pop af
-	call CopyDexEntryPart2
-rept 4
-	inc hl
-endr
-	ld a, l
-	ld [wPokedexShowPointerAddr], a
-	ld a, h
-	ld [wPokedexShowPointerAddr + 1], a
-	ld a, POKEDEX_SHOW_3
-	jp PrintRadioLine
-
-PokedexShow3:
-	call CopyDexEntry
-	ld a, POKEDEX_SHOW_4
-	jp PrintRadioLine
-
-PokedexShow4:
-	call CopyDexEntry
-	ld a, POKEDEX_SHOW_5
-	jp PrintRadioLine
-
-PokedexShow5:
-	call CopyDexEntry
-	ld a, POKEDEX_SHOW_6
-	jp PrintRadioLine
-
-PokedexShow6:
-	call CopyDexEntry
-	ld a, POKEDEX_SHOW_7
-	jp PrintRadioLine
-
-PokedexShow7:
-	call CopyDexEntry
-	ld a, POKEDEX_SHOW_8
-	jp PrintRadioLine
-
-PokedexShow8:
-	call CopyDexEntry
-	ld a, POKEDEX_SHOW
-	jp PrintRadioLine
-
-CopyDexEntry:
-	ld a, [wPokedexShowPointerAddr]
-	ld l, a
-	ld a, [wPokedexShowPointerAddr + 1]
-	ld h, a
-	ld a, [wPokedexShowPointerBank]
-	push af
-	push hl
-	call CopyDexEntryPart1
-	dec hl
-	ld [hl], "<DONE>"
-	ld hl, wPokedexShowPointerAddr
-	call CopyRadioTextToRAM
-	pop hl
-	pop af
-	call CopyDexEntryPart2
-	ret
-
-CopyDexEntryPart1:
-	ld de, wPokedexShowPointerBank
-	ld bc, SCREEN_WIDTH - 1
-	call FarCopyBytes
-	ld hl, wPokedexShowPointerAddr
-	ld [hl], TX_START
-	inc hl
-	ld [hl], "<LINE>"
-	inc hl
-.loop
-	ld a, [hli]
-	cp "@"
-	ret z
-	cp "<NEXT>"
-	ret z
-	cp "<DEXEND>"
-	ret z
-	jr .loop
-
-CopyDexEntryPart2:
-	ld d, a
-.loop
-	ld a, d
-	call GetFarByte
-	inc hl
-	cp "@"
-	jr z, .okay
-	cp "<NEXT>"
-	jr z, .okay
-	cp "<DEXEND>"
-	jr nz, .loop
-.okay
-	ld a, l
-	ld [wPokedexShowPointerAddr], a
-	ld a, h
-	ld [wPokedexShowPointerAddr + 1], a
-	ld a, d
-	ld [wPokedexShowPointerBank], a
-	ret
-
-PokedexShowText:
-	text_far _PokedexShowText
-	text_end
 
 BenMonMusic1:
 	call StartPokemonMusicChannel

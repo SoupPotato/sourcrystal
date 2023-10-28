@@ -241,6 +241,13 @@ DEF NUM_DECODESCS EQU const_value
 	const FISHSWARM_NONE     ; 0
 	const FISHSWARM_QWILFISH ; 1
 	const FISHSWARM_REMORAID ; 2
+	const FISHSWARM_CHINCHOU ; 3
+	const FISHSWARM_CORSOLA  ; 4
+	const FISHSWARM_HORSEA   ; 5
+	const FISHSWARM_MANTINE  ; 6
+	const FISHSWARM_DRATINI  ; 7
+	const FISHSWARM_STARYU   ; 8
+	const FISHSWARM_SHELLDER ; 9
 
 ; SpecialGameboyCheck return values
 	const_def

@@ -97,7 +97,16 @@ GetFishGroupIndex:
 	jr z, .qwilfish
 	cp FISHGROUP_REMORAID
 	jr z, .remoraid
-
+	cp FISHGROUP_CHINCHOU
+	jr z, .chinchou
+	cp FISHGROUP_HORSEA
+	jr z, .horsea
+	cp FISHGROUP_DRATINI
+	jr z, .dratini
+	cp FISHGROUP_STARYU
+	jr z, .staryu
+	cp FISHGROUP_SHELLDER
+	jr z, .shellder
 .done
 	dec d
 	ld e, d
@@ -116,6 +125,59 @@ GetFishGroupIndex:
 	cp FISHSWARM_REMORAID
 	jr nz, .done
 	ld d, FISHGROUP_REMORAID_SWARM
+	jr .done
+
+.chinchou
+	ld hl, wSwarmFlags
+	bit SWARMFLAGS_ALT_SWARM_F, [hl]
+	jr nz, .corsola
+	ld a, [wFishingSwarmFlag]
+	cp FISHSWARM_CHINCHOU
+	jr nz, .done
+	ld d, FISHGROUP_CHINCHOU_SWARM
+	jr .done
+.corsola
+	ld a, [wFishingSwarmFlag]
+	cp FISHSWARM_CORSOLA
+	jr nz, .done
+	ld d, FISHGROUP_CORSOLA_SWARM
+	jr .done
+
+.horsea
+	ld hl, wSwarmFlags
+	bit SWARMFLAGS_ALT_SWARM_F, [hl]
+	jr nz, .mantine
+	ld a, [wFishingSwarmFlag]
+	cp FISHSWARM_HORSEA
+	jr nz, .done
+	ld d, FISHGROUP_HORSEA_SWARM
+	jr .done
+.mantine
+	ld a, [wFishingSwarmFlag]
+	cp FISHSWARM_MANTINE
+	jr nz, .done
+	ld d, FISHGROUP_MANTINE_SWARM
+	jr .done
+
+.dratini
+	ld a, [wFishingSwarmFlag]
+	cp FISHSWARM_DRATINI
+	jr nz, .done
+	ld d, FISHGROUP_DRATINI_SWARM
+	jr .done
+
+.staryu
+	ld a, [wFishingSwarmFlag]
+	cp FISHSWARM_STARYU
+	jr nz, .done
+	ld d, FISHGROUP_STARYU_SWARM
+	jr .done
+
+.shellder
+	ld a, [wFishingSwarmFlag]
+	cp FISHSWARM_SHELLDER
+	jr nz, .done
+	ld d, FISHGROUP_SHELLDER_SWARM
 	jr .done
 
 INCLUDE "data/wild/fish.asm"

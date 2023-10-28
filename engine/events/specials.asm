@@ -295,6 +295,21 @@ StoreSwarmMapIndices::
 SetSwarmFlag:
 	ld hl, wDailyFlags1
 	set DAILYFLAGS1_SWARM_F, [hl]
+	ld hl, wSwarmFlags
+	res SWARMFLAGS_ALT_SWARM_F, [hl]
+	ret
+
+StoreSwarmMapIndicesAlternate::
+	ld a, d
+	ld [wSwarmMapGroup], a
+	ld a, e
+	ld [wSwarmMapNumber], a
+
+SetAltSwarmFlag:
+	ld hl, wDailyFlags1
+	res DAILYFLAGS1_SWARM_F, [hl]
+	ld hl, wSwarmFlags
+	set SWARMFLAGS_ALT_SWARM_F, [hl]
 	ret
 
 CheckSwarmFlag::

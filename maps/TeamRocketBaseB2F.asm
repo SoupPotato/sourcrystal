@@ -221,7 +221,13 @@ TrainerGruntM19:
 
 RocketElectrode1:
 	cry ELECTRODE
+	checkflag ENGINE_CHALLENGE_MODE_ACTIVE
+	iftrue .Electrode1_challenge_mode
 	loadwildmon ELECTRODE, 23
+	jump .Electrode1_finish
+.Electrode1_challenge_mode
+	loadwildmon ELECTRODE, 36
+.Electrode1_finish
 	startbattle
 	iftrue TeamRocketBaseB2FReloadMap
 	disappear TEAMROCKETBASEB2F_ELECTRODE1
@@ -239,7 +245,13 @@ RocketElectrode1:
 
 RocketElectrode2:
 	cry ELECTRODE
+	checkflag ENGINE_CHALLENGE_MODE_ACTIVE
+	iftrue .Electrode2_challenge_mode
 	loadwildmon ELECTRODE, 23
+	jump .Electrode2_finish
+.Electrode2_challenge_mode
+	loadwildmon ELECTRODE, 36
+.Electrode2_finish
 	startbattle
 	iftrue TeamRocketBaseB2FReloadMap
 	disappear TEAMROCKETBASEB2F_ELECTRODE2
@@ -257,7 +269,13 @@ RocketElectrode2:
 
 RocketElectrode3:
 	cry ELECTRODE
+	checkflag ENGINE_CHALLENGE_MODE_ACTIVE
+	iftrue .Electrode3_challenge_mode
 	loadwildmon ELECTRODE, 23
+	jump .Electrode3_finish
+.Electrode3_challenge_mode
+	loadwildmon ELECTRODE, 36
+.Electrode3_finish
 	startbattle
 	iftrue TeamRocketBaseB2FReloadMap
 	disappear TEAMROCKETBASEB2F_ELECTRODE3

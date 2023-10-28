@@ -1228,6 +1228,7 @@ TrapTarget:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	defrosttarget
 	traptarget
 	endmove
 
@@ -1759,6 +1760,8 @@ RapidSpin:
 	criticaltext
 	supereffectivetext
 	clearhazards
+	speedup
+	statupmessage
 	checkfaint
 	buildopponentrage
 	kingsrock
@@ -1802,6 +1805,7 @@ HiddenPower:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	defrosttarget
 	kingsrock
 	endmove
 
@@ -1983,6 +1987,28 @@ Stomp:
 	flinchtarget
 	endmove
 
+BodySlam:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	doubleminimizedamage
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	paralyzetarget
+	endmove
+
 Solarbeam:
 	checkcharge
 	checkobedience
@@ -2038,7 +2064,6 @@ Teleport:
 BeatUp:
 	checkobedience
 	usedmovetext
-	movedelay
 	doturn
 	startloop
 	lowersub
@@ -2046,6 +2071,7 @@ BeatUp:
 	critical
 	beatup
 	damagecalc
+	stab
 	damagevariation
 	clearmissdamage
 	moveanimnosub
@@ -2053,7 +2079,7 @@ BeatUp:
 	applydamage
 	criticaltext
 	cleartext
-	supereffectivetext
+	supereffectivelooptext
 	checkfaint
 	buildopponentrage
 	endloop
@@ -2073,4 +2099,31 @@ DefenseCurl:
 	raisesub
 	statupmessage
 	statupfailtext
+	endmove
+
+WeightDamage:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	weightdamage
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+
+Growth:
+	checkobedience
+	usedmovetext
+	doturn
+	growth
 	endmove

@@ -152,10 +152,13 @@ MoveEffectsPointers:
 	dw FutureSight
 	dw Gust
 	dw Stomp
+	dw BodySlam
 	dw Solarbeam
 	dw Thunder
 	dw Teleport
 	dw BeatUp
 	dw Fly
 	dw DefenseCurl
+	dw WeightDamage
+	dw Growth
 	assert_table_length NUM_MOVE_EFFECTS

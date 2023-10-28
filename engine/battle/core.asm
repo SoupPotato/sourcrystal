@@ -1715,10 +1715,11 @@ HandleWeather:
 
 	ld hl, wWeatherCount
 	dec [hl]
-	jr z, .ended
+	jp z, .ended
 
 	ld hl, .WeatherMessages
 	call .PrintWeatherMessage
+	call .PlayWeatherAnimation
 
 	ld a, [wBattleWeather]
 	cp WEATHER_SANDSTORM
@@ -1738,6 +1739,27 @@ HandleWeather:
 	call SetEnemyTurn
 	call .SandstormDamage
 	call SetPlayerTurn
+
+.PlayWeatherAnimation:
+	xor a ; uses one byte of ROM, compared to two for "ld a, 1"
+	ld [wNumHits], a
+	call SetPlayerTurn
+	ld hl, .WeatherAnimations
+	ld a, [wBattleWeather]
+	dec a
+	ld b, 0
+	ld c, a
+	add hl, bc
+	add hl, bc
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	jp Call_PlayBattleAnim
+
+.WeatherAnimations:
+	dw ANIM_IN_RAIN
+	dw ANIM_IN_SUN
+	dw ANIM_IN_SANDSTORM
 
 .SandstormDamage:
 	ld a, BATTLE_VARS_SUBSTATUS3
@@ -1768,12 +1790,8 @@ HandleWeather:
 	ret z
 
 	call SwitchTurnCore
-	xor a
-	ld [wNumHits], a
-	ld de, ANIM_IN_SANDSTORM
-	call Call_PlayBattleAnim
 	call SwitchTurnCore
-	call GetEighthMaxHP
+	call GetSixteenthMaxHP
 	call SubtractHPFromUser
 
 	ld hl, SandstormHitsText
@@ -2381,7 +2399,11 @@ WinTrainerBattle:
 	ld a, b
 	call z, PlayVictoryMusic
 	farcall Battle_GetTrainerName
+	ld hl, BattleText_PluralEnemyWereDefeated
+	call IsPluralTrainer
+	jr z, .got_defeat_phrase
 	ld hl, BattleText_EnemyWasDefeated
+.got_defeat_phrase:
 	call StdBattleTextbox
 
 	call IsMobileBattle
@@ -2625,6 +2647,16 @@ IsGymLeaderCommon:
 	ret
 
 INCLUDE "data/trainers/leaders.asm"
+
+IsPluralTrainer:
+; return z for plural trainers
+	ld a, [wOtherTrainerClass]
+	cp TWINS
+	ret z
+	cp COOL_DUO
+	ret z
+	cp COUPLE
+	ret
 
 HandlePlayerMonFaint:
 	call FaintYourPokemon
@@ -3515,7 +3547,11 @@ OfferSwitch:
 	ld a, [wCurPartyMon]
 	push af
 	farcall Battle_GetTrainerName
+	ld hl, BattleText_PluralEnemyAreAboutToUseWillPlayerChangeMon
+	call IsPluralTrainer
+	jr z, .got_switch_phrase
 	ld hl, BattleText_EnemyIsAboutToUseWillPlayerChangeMon
+.got_switch_phrase:
 	call StdBattleTextbox
 	lb bc, 1, 7
 	call PlaceYesNoBox
@@ -9126,6 +9162,9 @@ BattleStartMessage:
 
 	farcall Battle_GetTrainerName
 
+	ld hl, WantToBattlePluralText
+	call IsPluralTrainer
+	jr z, .PlaceBattleStartText
 	ld hl, WantsToBattleText
 	jr .PlaceBattleStartText
 

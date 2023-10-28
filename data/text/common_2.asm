@@ -698,11 +698,11 @@ Text_BattleEffectActivate::
 
 _BattleStatWentWayUpText::
 	text_pause
-	text "<SCROLL>went way up!"
+	text "<SCROLL>sharply rose!"
 	prompt
 
 _BattleStatWentUpText::
-	text " went up!"
+	text " rose!"
 	prompt
 
 Text_BattleFoeEffectActivate::
@@ -715,7 +715,7 @@ Text_BattleFoeEffectActivate::
 
 _BattleStatSharplyFellText::
 	text_pause
-	text "<SCROLL>sharply fell!"
+	text "<SCROLL>harshly fell!"
 	prompt
 
 _BattleStatFellText::

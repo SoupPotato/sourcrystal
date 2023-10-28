@@ -40,6 +40,11 @@ WantsToBattleText::
 	line "wants to battle!"
 	prompt
 
+WantToBattlePluralText::
+	text "<ENEMY>"
+	line "want to battle!"
+	prompt
+
 BattleText_WildFled:
 	text "Wild @"
 	text_ram wEnemyMonNickname
@@ -133,17 +138,17 @@ BattleText_MonsReflectFaded:
 BattleText_RainContinuesToFall:
 	text "Rain continues to"
 	line "fall."
-	prompt
+	done
 
 BattleText_TheSunlightIsStrong:
 	text "The sunlight is"
 	line "strong."
-	prompt
+	done
 
 BattleText_TheSandstormRages:
 	text "The SANDSTORM"
 	line "rages."
-	prompt
+	done
 
 BattleText_TheRainStopped:
 	text "The rain stopped."
@@ -176,6 +181,11 @@ GotMoneyForWinningText:
 BattleText_EnemyWasDefeated:
 	text "<ENEMY>"
 	line "was defeated!"
+	prompt
+
+BattleText_PluralEnemyWereDefeated:
+	text "<ENEMY>"
+	line "were defeated!"
 	prompt
 
 TiedAgainstText:
@@ -229,6 +239,17 @@ LostAgainstText:
 BattleText_EnemyIsAboutToUseWillPlayerChangeMon:
 	text "<ENEMY>"
 	line "is about to use"
+	cont "@"
+	text_ram wEnemyMonNickname
+	text "."
+
+	para "Will <PLAYER>"
+	line "change #MON?"
+	done
+
+BattleText_PluralEnemyAreAboutToUseWillPlayerChangeMon:
+	text "<ENEMY>"
+	line "are about to use"
 	cont "@"
 	text_ram wEnemyMonNickname
 	text "."
@@ -349,7 +370,12 @@ BattleText_StringBuffer1GrewToLevel:
 	sound_dex_fanfare_50_79
 	text_end
 
-	text_end ; unreferenced
+BattleText_WildMonIsWatching:
+	text "Wild @"
+	text_ram wEnemyMonNickname
+	text_start
+	line "is being cautious."
+	prompt
 
 BattleText_WildMonIsEating:
 	text "Wild @"
@@ -364,6 +390,16 @@ BattleText_WildMonIsAngry:
 	text_start
 	line "is angry!"
 	prompt
+
+BattleText_ThrewRock:
+	text "<PLAYER> threw a"
+	line "rock."
+	done
+
+BattleText_ThrewBait:
+	text "<PLAYER> threw"
+	line "some bait."
+	done
 
 FastAsleepText:
 	text "<USER>"
@@ -772,6 +808,20 @@ EnemyHitTimesText:
 	text " times!"
 	prompt
 
+SingularPluralHitTimesText:
+	dec a
+	ld hl, .singular
+	ret z
+	ld hl, .plural
+	ret
+
+.singular
+	text " time!"
+	prompt
+.plural
+	text " times!"
+	prompt
+
 MistText:
 	text "<USER>'s"
 	line "shrouded in MIST!"
@@ -873,7 +923,7 @@ TransformedText:
 
 LightScreenEffectText:
 	text "<USER>'s"
-	line "SPCL.DEF rose!"
+	line "SP.DEF rose!"
 	prompt
 
 ReflectEffectText:
@@ -1050,9 +1100,9 @@ BlewSpikesText:
 	line "blew away SPIKES!"
 	prompt
 
-DownpourText:
-	text "A downpour"
-	line "started!"
+StartedToRainText:
+	text "It started to"
+	line "rain!"
 	prompt
 
 SunGotBrightText:

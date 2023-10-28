@@ -529,6 +529,7 @@ MovementData_Route39_Baoba_Leaves:
 	step DOWN
 	step DOWN
 	step DOWN
+	step DOWN
 	step_end
 
 Route39_MapEvents:

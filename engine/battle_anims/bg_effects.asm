@@ -1184,7 +1184,7 @@ BattleBGEffect_DoubleTeam:
 	add hl, bc
 	ld a, [hl]
 	ld d, $2
-	farcall Sine
+	call BattleBGEffects_Sine
 	ld hl, BG_EFFECT_STRUCT_PARAM
 	add hl, bc
 	add [hl]
@@ -1651,7 +1651,7 @@ BattleBGEffect_WobbleMon:
 	add hl, bc
 	ld a, [hl]
 	ld d, $8
-	farcall Sine
+	call BattleBGEffects_Sine
 	call BGEffect_FillLYOverridesBackup
 	ld hl, BG_EFFECT_STRUCT_PARAM
 	add hl, bc
@@ -1691,13 +1691,13 @@ BattleBGEffect_Flail:
 	add hl, bc
 	ld a, [hl]
 	ld d, $6
-	farcall Sine
+	call BattleBGEffects_Sine
 	push af
 	ld hl, BG_EFFECT_STRUCT_BATTLE_TURN
 	add hl, bc
 	ld a, [hl]
 	ld d, $2
-	farcall Sine
+	call BattleBGEffects_Sine
 	ld e, a
 	pop af
 	add e
@@ -1794,7 +1794,7 @@ BattleBGEffect_BounceDown:
 	add hl, bc
 	ld a, [hl]
 	ld d, $10
-	farcall Cosine
+	call BattleBGEffects_Cosine
 	add $10
 	ld d, a
 	pop af
@@ -2267,7 +2267,7 @@ BattleBGEffect_WobblePlayer:
 	cp $40
 	jr nc, .two
 	ld d, $6
-	farcall Sine
+	call BattleBGEffects_Sine
 	call BGEffect_FillLYOverridesBackup
 	ld hl, BG_EFFECT_STRUCT_PARAM
 	add hl, bc
@@ -2358,7 +2358,7 @@ BattleBGEffect_WobbleScreen:
 	cp $40
 	jr nc, .finish
 	ld d, $6
-	farcall Sine
+	call BattleBGEffects_Sine
 	ldh [hSCX], a
 	ld hl, BG_EFFECT_STRUCT_PARAM
 	add hl, bc
@@ -2725,7 +2725,7 @@ DeformScreen:
 	ld a, [wBattleSineWaveTempAmplitude]
 	ld d, a
 	ld a, [wBattleSineWaveTempProgress]
-	farcall Sine
+	call BattleBGEffects_Sine
 	ld [bc], a
 .next
 	inc bc
@@ -2754,7 +2754,7 @@ InitSurfWaves:
 	ld a, [wBattleSineWaveTempAmplitude]
 	ld d, a
 	ld a, [wBattleSineWaveTempProgress]
-	farcall Sine
+	call BattleBGEffects_Sine
 	ld [bc], a
 	inc bc
 	ld a, [wBattleSineWaveTempOffset]
@@ -2790,7 +2790,7 @@ DeformWater:
 	ld d, a
 	ld a, [wBattleSineWaveTempOffset]
 	push hl
-	farcall Sine
+	call BattleBGEffects_Sine
 	ld e, a
 	pop hl
 	ldh a, [hLYOverrideEnd]
@@ -2922,4 +2922,16 @@ BGEffect_CheckFlyDigStatus:
 BattleBGEffects_CheckSGB:
 	ldh a, [hSGB]
 	and a
+	ret
+
+BattleBGEffects_Sine:
+	ld e, a
+	farcall BattleAnim_Sine_e
+	ld a, e
+	ret
+
+BattleBGEffects_Cosine:
+	ld e, a
+	farcall BattleAnim_Cosine_e
+	ld a, e
 	ret

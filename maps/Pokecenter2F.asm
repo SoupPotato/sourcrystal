@@ -67,8 +67,10 @@ Script_BattleRoomClosed:
 	end
 
 LinkReceptionistScript_Trade:
+if !DEF(_DEBUG)
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	iffalse Script_TradeCenterClosed
+endc
 	opentext
 	writetext Text_TradeReceptionistIntro
 	yesorno
@@ -169,8 +171,10 @@ BattleTradeMobile_WalkIn:
 	end
 
 LinkReceptionistScript_Battle:
+if !DEF(_DEBUG)
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	iffalse Script_BattleRoomClosed
+endc
 	opentext
 	writetext Text_BattleReceptionistIntro
 	yesorno

@@ -75,17 +75,6 @@ AddHallOfFameEntry:
 	ld bc, wHallOfFamePokemonListEnd - wHallOfFamePokemonList + 1
 	call CopyBytes
 	call CloseSRAM
-; This vc_hook causes the Virtual Console to set [sGSBallFlag] and [sGSBallFlagBackup]
-; to GS_BALL_AVAILABLE, which enables you to get the GS Ball, take it to Kurt, and
-; encounter Celebi. It assumes that sGSBallFlag and sGSBallFlagBackup are at their
-; original addresses.
-	vc_hook Enable_GS_Ball_mobile_event
-	vc_assert BANK(sGSBallFlag) == $1 && sGSBallFlag == $be3c, \
-		"sGSBallFlag is no longer located at 01:be3c."
-	vc_assert BANK(sGSBallFlagBackup) == $1 && sGSBallFlagBackup == $be44, \
-		"sGSBallFlagBackup is no longer located at 01:be44."
-	vc_assert GS_BALL_AVAILABLE == $b, \
-		"GS_BALL_AVAILABLE is no longer equal to $b."
 	ret
 
 SaveGameData:

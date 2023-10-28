@@ -235,10 +235,6 @@ Address = {HEx @}
 Fixcode={db SCREEN_HEIGHT_PX}        
               
 ;12 1b 0b 79 b0  find next C9
-[BiographySave_ret@Enable_GS_Ball_mobile_event]
-Mode = 2
-Address = {HEX @}
-Type = 60
 
 
 ; print forbid 1

@@ -217,13 +217,13 @@ if DEF(_DEBUG)
 	loadmem wPartyMon3DVs+1, $aa
 	loadmem wPartyMon4Moves+0, SLUDGE_BOMB
 	loadmem wPartyMon4Moves+1, SMOKESCREEN
-	loadmem wPartyMon4Moves+2, FAINT_ATTACK
+	loadmem wPartyMon4Moves+2, FEINT_ATTACK
 	loadmem wPartyMon4Moves+3, EXPLOSION
 	loadmem wPartyMon4DVs+0, $ea
 	loadmem wPartyMon4DVs+1, $aa
 	loadmem wPartyMon5Moves+0, FLAMETHROWER
 	loadmem wPartyMon5Moves+1, THUNDERPUNCH
-	loadmem wPartyMon5Moves+2, FAINT_ATTACK
+	loadmem wPartyMon5Moves+2, FEINT_ATTACK
 	loadmem wPartyMon5Moves+3, DIZZY_PUNCH
 	loadmem wPartyMon5DVs+0, $ea
 	loadmem wPartyMon5DVs+1, $aa

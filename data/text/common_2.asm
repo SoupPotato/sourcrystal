@@ -1555,6 +1555,7 @@ _OakText1::
 	text "Hello! Sorry to"
 	line "keep you waiting!"
 
+if !DEF(_DEBUG)
 	para "Welcome to the"
 	line "world of #MON!"
 
@@ -1562,6 +1563,7 @@ _OakText1::
 
 	para "People call me the"
 	line "#MON PROF."
+endc
 	prompt
 
 _OakText2::

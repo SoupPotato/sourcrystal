@@ -1930,6 +1930,31 @@ GetHalfMaxHP:
 .end
 	ret
 
+GetTwoThirdsMaxHP:
+	call GetMaxHP
+
+	sla c
+	rl b
+
+	ld a, b
+	ld [hDividend + 0], a
+	ld a, c
+	ld [hDividend + 1], a
+	ld a, 3
+	ld [hDivisor], a
+	ld b, 2
+	call Divide
+	ld a, [hQuotient + 1]
+	ld b, a
+	ld a, [hQuotient + 2]
+	ld c, a
+
+	and b
+	jr nz, .ok
+	inc c
+.ok
+	ret
+
 GetMaxHP:
 ; output: bc, wHPBuffer1
 
@@ -4702,7 +4727,7 @@ CheckDanger:
 
 .no_danger
 	ld hl, wLowHealthAlarm
-	res DANGER_ON_F, [hl]
+	ld [hl], 0
 	jr .done
 
 .danger

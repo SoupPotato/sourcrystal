@@ -8194,6 +8194,8 @@ BattleIntro:
 	call GetSGBLayout
 	ld hl, rLCDC
 	res rLCDC_WINDOW_TILEMAP, [hl] ; select vBGMap0/vBGMap2
+	ld c, 25
+	call DelayFrames
 	call InitBattleDisplay
 	call BattleStartMessage
 	ld hl, rLCDC

@@ -761,6 +761,11 @@ wPokegearMapPlayerIconLandmark:: db
 wPokegearRadioChannelBank:: db
 wPokegearRadioChannelAddr:: dw
 wPokegearRadioMusicPlaying:: db
+wPokegearPagerLoadNameBuffer:: db
+wPokegearPagerCursorPosition:: db
+wPokegearPagerScrollPosition:: db
+wPokegearPagerSelectedMon:: db
+wPokegearPagerSubmenuCursor:: db
 
 NEXTU
 ; trade

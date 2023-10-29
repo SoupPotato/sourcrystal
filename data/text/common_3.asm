@@ -1053,6 +1053,11 @@ _PokegearPressButtonText::
 	line "Press B to exit."
 	done
 
+_PokegearSelectPagerText::
+	text "Select a PAGER"
+	line "to summon."
+	done
+
 _PokegearAskDeleteText::
 	text "Delete this stored"
 	line "phone number?"

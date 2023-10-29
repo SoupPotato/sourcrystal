@@ -44,6 +44,8 @@ DEF NUM_SPRITE_OAM_STRUCTS EQU 40 ; see wShadowOAM
 
 DEF SPRITE_GFX_LIST_CAPACITY EQU 32 ; see wUsedSprites
 
+DEF PHONE_OR_PAGER_HEIGHT EQU 4 ; pokegear
+
 ; PokeAnims indexes (see engine/gfx/pic_animation.asm)
 	const_def
 	const ANIM_MON_SLOW

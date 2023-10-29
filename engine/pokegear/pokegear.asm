@@ -312,7 +312,13 @@ InitPokegearTilemap:
 	dw .Radio
 	dw .Pager
 
-.Pager: ; TODO
+.Pager:
+	ld de, PagerTilemapRLE
+	call Pokegear_LoadTilemapRLE
+	hlcoord 0, 12
+	lb bc, 4, 18
+	call Textbox
+	call PokegearPager_UpdateDisplayList
 	ret
 
 .Clock:
@@ -460,9 +466,45 @@ PokegearJumptable:
 	dw PokegearPager_Init
 	dw PokegearPager_Joypad
 
-PokegearPager_Init: ; TODO
+PokegearPager_Init:
 	ld hl, wJumptableIndex
 	inc [hl]
+	xor a
+	ld [wPokegearPagerScrollPosition], a
+	ld [wPokegearPagerCursorPosition], a
+	call InitPokegearTilemap
+	call ExitPokegearRadio_HandleMusic
+	ld d, PAL_OW_SILVER 
+	farcall InitPokegearOBPal
+	ld hl, PagerCardSprites
+.loop
+	; sprite anim index
+	ld a, [hli]
+	and a
+	jr z, .done
+	push hl
+	depixel 0, 4
+	call InitSpriteAnimStruct
+	pop hl
+	; pager flag bit
+	ld a, [hli]
+	push hl
+	ld hl, SPRITEANIMSTRUCT_VAR4
+	add hl, bc
+	ld [hl], a
+	; tile id = pager flag bit * 8 + $20
+	add a
+	add a
+	add a
+	add $20
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld [hl], a
+	pop hl
+	jr .loop
+.done
+	ld hl, PokegearSelectPagerText
+	call PrintText
 	ret
 
 PokegearPager_Joypad:
@@ -476,10 +518,10 @@ PokegearPager_Joypad:
 	ld a, [hl]
 	and D_RIGHT
 	jr nz, .to_radio
-	;ld a, [hl]
-	;and A_BUTTON
-	;jr nz, .press_a
-	call PokegearPagerGetDPad
+	ld a, [hl]
+	and A_BUTTON
+	jr nz, .press_a
+	call PokegearPager_GetDPad
 	ret
 
 .to_clock
@@ -511,11 +553,361 @@ PokegearPager_Joypad:
 	call Pokegear_SwitchPage
 	ret
 
-.press_a ; TODO
+.press_a
+	; show the Call/Cancel menu
+	hlcoord 1, 4
+	ld a, [wPokegearPagerCursorPosition]
+	ld bc, SCREEN_WIDTH * 2
+	call AddNTimes
+	ld [hl], "▷"
+	call PokegearPagerContactSubmenu
+	ret c
+
+	; get the pager value
+	ld a, [wPokegearPagerScrollPosition]
+	ld c, a
+	ld a, [wPokegearPagerCursorPosition]
+	add c
+	ld [wPokegearPagerSelectedMon], a
+	ld c, a
+
+	; make sure the pager value is valid (0-6)
+	cp NUM_PAGER_FLAGS
+	ret nc
+
+	; make sure the pager bit is set
+	ld hl, wPagerFlags
+	call TestBitAInHL
+	ret z
+
+	; get the offset from PagerCardRoutines
+	ld hl, PagerCardRoutines
+	ld b, 0
+	add hl, bc
+	add hl, bc
+
+	; jump to the specific pager routine
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	jp hl
+
+PagerCardRoutines:
+	dw CutPagerRoutine
+	dw FlyPagerRoutine
+	dw SurfPagerRoutine
+	dw StrengthPagerRoutine
+	dw FlashPagerRoutine
+	dw WhirlpoolPagerRoutine
+	dw RockSmashPagerRoutine
+
+FlyPagerRoutine:
+	call GetMapEnvironment
+	call CheckOutdoorMap
+	jr nz, .FlyStartUp         ;checks if the player is outside
+	call ClearBGPalettes
+	ld a, $90
+	ld [hWY], a
+
+.FlyStartUp
+	farcall MonMenu_Fly   ;Regardless this code must trigger if the player is outside or not.
+	jr nz, FinishPagerRoutine
+	call GetMapEnvironment
+	call CheckOutdoorMap
+	ret nz
+
+	call DisableLCD
+	farcall DeinitializeAllSprites
+	call ClearSprites
+	call ClearTilemap
+	call Pokegear_LoadGFX
+	call InitPokegearModeIndicatorArrow
+	ld a, LCDC_DEFAULT
+	ld [rLCDC], a
+	call PokegearPager_Init
+	ld a, 1
+	ld [wPokegearPagerCursorPosition], a
+	call PokegearPager_UpdateCursor
+	call WaitBGMap
+	ld b, SCGB_POKEGEAR_PALS
+	call GetSGBLayout
+	call SetPalettes
+	ld a, POKEGEARSTATE_PAGERJOYPAD
+	ld [wJumptableIndex], a
 	ret
 
-PokegearPagerGetDPad: ; TODO
+; all other pager functions had to be mvoed below FlyPagerRoutine due to its code setup
+CutPagerRoutine:
+	farcall MonMenu_Cut
+	ret nz
+	jr FinishPagerRoutine
+
+SurfPagerRoutine:
+	farcall MonMenu_Surf
+	ret z
+	jr FinishPagerRoutine
+
+StrengthPagerRoutine:
+	farcall MonMenu_Strength
+	ret nz
+	jr FinishPagerRoutine
+
+FlashPagerRoutine:
+	farcall MonMenu_Flash
+	ret nz
+	jr FinishPagerRoutine
+
+WhirlpoolPagerRoutine:
+	farcall MonMenu_Whirlpool
+	ret nz
+	jr FinishPagerRoutine
+
+RockSmashPagerRoutine:
+	farcall MonMenu_RockSmash
+	ret nz
+	jr FinishPagerRoutine
+
+FinishPagerRoutine:
+	ld a, $84
+	ld [wJumptableIndex], a
 	ret
+
+PokegearPager_GetDPad:
+	ld hl, hJoyLast
+	ld a, [hl]
+	and D_UP
+	jr nz, .up
+	ld a, [hl]
+	and D_DOWN
+	jr nz, .down
+	ret
+
+.up
+	ld hl, wPokegearPagerCursorPosition
+	ld a, [hl]
+	and a
+	jr z, .scroll_page_up
+	dec [hl]
+	jr .done_joypad_same_page
+
+.scroll_page_up
+	ld hl, wPokegearPagerScrollPosition
+	ld a, [hl]
+	and a
+	ret z
+	dec [hl]
+	jr .done_joypad_update_page
+
+.down
+	ld hl, wPokegearPagerCursorPosition
+	ld a, [hl]
+	cp PHONE_OR_PAGER_HEIGHT - 1
+	jr nc, .scroll_page_down
+	inc [hl]
+	jr .done_joypad_same_page
+
+.scroll_page_down
+	ld hl, wPokegearPagerScrollPosition
+	ld a, [hl]
+	cp NUM_PAGER_FLAGS - PHONE_OR_PAGER_HEIGHT
+	ret nc
+	inc [hl]
+	jr .done_joypad_update_page
+
+.done_joypad_same_page
+	xor a
+	ld [hBGMapMode], a
+	call PokegearPager_UpdateCursor
+	call WaitBGMap
+	ret
+
+.done_joypad_update_page
+	xor a
+	ld [hBGMapMode], a
+	call PokegearPager_UpdateDisplayList
+	call WaitBGMap
+	ret
+
+PokegearPager_UpdateCursor:
+	call ClearPhoneOrPagerCursors
+	hlcoord 1, 4
+	ld a, [wPokegearPagerCursorPosition]
+	ld bc, 2 * SCREEN_WIDTH
+	call AddNTimes
+	ld [hl], "▶"
+	ret
+
+PokegearPager_UpdateDisplayList:
+	call ClearPhoneOrPagerArea
+	ld a, [wPokegearPagerScrollPosition]
+	ld c, a
+	xor a
+	ld [wPokegearPagerLoadNameBuffer], a
+.loop
+	push bc
+	ld de, PagerMissingName
+	ld a, c
+	ld hl, wPagerFlags
+	call TestBitAInHL
+	jr z, .got_name
+	push hl
+	ld hl, PagerCardNames
+	ld a, c
+	call GetNthString
+	ld d, h
+	ld e, l
+	pop hl
+.got_name
+	; de = the pager name
+	hlcoord 5, 4
+	ld a, [wPokegearPagerLoadNameBuffer]
+	ld bc, 2 * SCREEN_WIDTH
+	call AddNTimes
+	; hl = the coords to print the name
+	call PlaceString
+	pop bc
+	inc c ; advance to the next bit in wPagerFlags
+	ld a, [wPokegearPagerLoadNameBuffer]
+	inc a
+	ld [wPokegearPagerLoadNameBuffer], a
+	cp PHONE_OR_PAGER_HEIGHT
+	jr c, .loop
+	call PokegearPager_UpdateCursor
+	ret
+
+PokegearPagerContactSubmenu:
+	xor a
+	ld [hBGMapMode], a
+	ld de, .CallCancelStrings
+	push de
+	ld a, [de]
+	ld l, a
+	inc de
+	ld a, [de]
+	ld h, a
+	inc de
+	push hl
+	ld bc, hBGMapAddress + 1
+	add hl, bc
+	ld a, [de]
+	inc de
+	sla a
+	ld b, a
+	ld c, 8
+	push de
+	call Textbox
+	pop de
+	pop hl
+	inc hl
+	call PlaceString
+	pop de
+	xor a
+	ld [wPokegearPagerSubmenuCursor], a
+	call .UpdateCursor
+	call WaitBGMap
+.loop
+	push de
+	call JoyTextDelay
+	pop de
+	ld hl, hJoyPressed
+	ld a, [hl]
+	and D_UP
+	jr nz, .d_up
+	ld a, [hl]
+	and D_DOWN
+	jr nz, .d_down
+	ld a, [hl]
+	and A_BUTTON | B_BUTTON
+	jr nz, .a_b
+	call DelayFrame
+	jr .loop
+
+.d_up
+	ld hl, wPokegearPagerSubmenuCursor
+	ld a, [hl]
+	and a
+	jr z, .loop
+	dec [hl]
+	call .UpdateCursor
+	jr .loop
+
+.d_down
+	ld hl, 2
+	add hl, de
+	ld a, [wPokegearPagerSubmenuCursor]
+	inc a
+	cp [hl]
+	jr nc, .loop
+	ld [wPokegearPagerSubmenuCursor], a
+	call .UpdateCursor
+	jr .loop
+
+.a_b
+	xor a
+	ld [hBGMapMode], a
+	call PokegearPager_UpdateDisplayList
+	ld a, $1
+	ld [hBGMapMode], a
+	ld a, [hJoyPressed]
+	and B_BUTTON
+	jr nz, .Cancel
+	ld hl, .CallCancelJumptable
+	ld a, [wPokegearPagerSubmenuCursor]
+	ld e, a
+	ld d, 0
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	jp hl
+
+.CallCancelJumptable:
+	dw .Call
+	dw .Cancel
+
+.Cancel:
+	ld hl, PokegearAskWhoCallText
+	call PrintText
+	scf
+	ret
+
+.Call:
+	and a
+	ret
+
+.UpdateCursor:
+	push de
+	ld a, [de]
+	inc de
+	ld l, a
+	ld a, [de]
+	inc de
+	ld h, a
+	ld a, [de]
+	ld c, a
+	push hl
+	ld a, " "
+	ld de, SCREEN_WIDTH * 2
+.clear_column
+	ld [hl], a
+	add hl, de
+	dec c
+	jr nz, .clear_column
+	pop hl
+	ld a, [wPokegearPagerSubmenuCursor]
+	ld bc, SCREEN_WIDTH  * 2
+	call AddNTimes
+	ld [hl], "▶"
+	pop de
+	ret
+
+.CallCancelStrings:
+	dwcoord 10, 8
+	db 2
+	db   "CALL"
+	next "CANCEL"
+	db   "@"
 
 PokegearClock_Init:
 	call InitPokegearTilemap
@@ -1440,6 +1832,10 @@ PokegearAskDeleteText:
 	text_far _PokegearAskDeleteText
 	text_end
 
+PokegearSelectPagerText:
+	text_far _PokegearSelectPagerText
+	text_end
+
 PokegearSpritesGFX:
 INCBIN "gfx/pokegear/pokegear_sprites.2bpp.lz"
 
@@ -1449,6 +1845,9 @@ PhoneTilemapRLE:
 INCBIN "gfx/pokegear/phone.tilemap.rle"
 ClockTilemapRLE:
 INCBIN "gfx/pokegear/clock.tilemap.rle"
+PagerTilemapRLE:
+INCBIN "gfx/pokegear/pager.tilemap.rle"
+
 
 _UpdateRadioStation:
 	jr UpdateRadioStation
@@ -2857,133 +3256,30 @@ INCBIN "gfx/pokegear/dexmap_nest_icon.2bpp"
 FlyMapLabelBorderGFX:
 INCBIN "gfx/pokegear/flymap_label_border.1bpp"
 
-EntireFlyMap: ; unreferenced
-; Similar to _FlyMap, but scrolls through the entire
-; Flypoints data of both regions. A debug function?
-	xor a
-	ld [wTownMapPlayerIconLandmark], a
-	call ClearBGPalettes
-	call ClearTilemap
-	call ClearSprites
-	ld hl, hInMenu
-	ld a, [hl]
-	push af
-	ld [hl], $1
-	xor a
-	ldh [hBGMapMode], a
-	farcall ClearSpriteAnims
-	call LoadTownMapGFX
-	ld de, FlyMapLabelBorderGFX
-	ld hl, vTiles2 tile $30
-	lb bc, BANK(FlyMapLabelBorderGFX), 6
-	call Request1bpp
-	call FillKantoMap
-	call TownMapBubble
-	call TownMapPals
-	hlbgcoord 0, 0, vBGMap1
-	call TownMapBGUpdate
-	call FillJohtoMap
-	call TownMapBubble
-	call TownMapPals
-	hlbgcoord 0, 0
-	call TownMapBGUpdate
-	call TownMapMon
-	ld a, c
-	ld [wTownMapCursorCoordinates], a
-	ld a, b
-	ld [wTownMapCursorCoordinates + 1], a
-	ld b, SCGB_POKEGEAR_PALS
-	call GetSGBLayout
-	call SetPalettes
-.loop
-	call JoyTextDelay
-	ld hl, hJoyPressed
-	ld a, [hl]
-	and B_BUTTON
-	jr nz, .pressedB
-	ld a, [hl]
-	and A_BUTTON
-	jr nz, .pressedA
-	call .HandleDPad
-	call GetMapCursorCoordinates
-	farcall PlaySpriteAnimations
-	call DelayFrame
-	jr .loop
-
-.pressedB
-	ld a, -1
-	jr .exit
-
-.pressedA
-	ld a, [wTownMapPlayerIconLandmark]
-	ld l, a
-	ld h, 0
-	add hl, hl
-	ld de, Flypoints + 1
-	add hl, de
-	ld a, [hl]
-.exit
-	ld [wTownMapPlayerIconLandmark], a
-	pop af
-	ldh [hInMenu], a
-	call ClearBGPalettes
-	ld a, SCREEN_HEIGHT_PX
-	ldh [hWY], a
-	xor a ; LOW(vBGMap0)
-	ldh [hBGMapAddress], a
-	ld a, HIGH(vBGMap0)
-	ldh [hBGMapAddress + 1], a
-	ld a, [wTownMapPlayerIconLandmark]
-	ld e, a
+ClearPhoneOrPagerArea:
+	hlcoord 1, 3
+	ld b, PHONE_OR_PAGER_HEIGHT * 2 + 1
+	ld a, " "
+.row
+	ld c, SCREEN_WIDTH - 2
+.col
+	ld [hli], a
+	dec c
+	jr nz, .col
+	inc hl
+	inc hl
+	dec b
+	jr nz, .row
 	ret
 
-.HandleDPad:
-	ld hl, hJoyLast
-	ld a, [hl]
-	and D_DOWN | D_RIGHT
-	jr nz, .ScrollNext
-	ld a, [hl]
-	and D_UP | D_LEFT
-	jr nz, .ScrollPrev
+ClearPhoneOrPagerCursors:
+	ld a, " "
+x = 4
+rept PHONE_OR_PAGER_HEIGHT
+	hlcoord 1, x
+	ld [hl], a
+x = x + 2
+endr
 	ret
 
-.ScrollNext:
-	ld hl, wTownMapPlayerIconLandmark
-	ld a, [hl]
-	cp NUM_FLYPOINTS - 1
-	jr c, .NotAtEndYet
-	ld [hl], -1
-.NotAtEndYet:
-	inc [hl]
-	jr .FillMap
-
-.ScrollPrev:
-	ld hl, wTownMapPlayerIconLandmark
-	ld a, [hl]
-	and a
-	jr nz, .NotAtStartYet
-	ld [hl], NUM_FLYPOINTS
-.NotAtStartYet:
-	dec [hl]
-.FillMap:
-	ld a, [wTownMapPlayerIconLandmark]
-	cp KANTO_FLYPOINT
-	jr c, .InJohto
-	call FillKantoMap
-	xor a
-	ld b, HIGH(vBGMap1)
-	jr .Finally
-
-.InJohto:
-	call FillJohtoMap
-	ld a, SCREEN_HEIGHT_PX
-	ld b, HIGH(vBGMap0)
-.Finally:
-	ldh [hWY], a
-	ld a, b
-	ldh [hBGMapAddress + 1], a
-	call TownMapBubble
-	call WaitBGMap
-	xor a
-	ldh [hBGMapMode], a
-	ret
+INCLUDE "data/pager_system.asm"

@@ -187,4 +187,6 @@ hFunctionTarget::
 hFunctionTargetLo:: db
 hFunctionTargetHi:: db
 
-	ds 13
+hCodeBuffer:: ds 3
+
+	ds 10

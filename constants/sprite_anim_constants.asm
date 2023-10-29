@@ -85,6 +85,11 @@ DEF NUM_SPRITEANIMDICT_ENTRIES EQU 10
 	const SPRITE_ANIM_OBJ_PC_MODE                   ; 2f
 	const SPRITE_ANIM_OBJ_PC_MODE2                  ; 30
 	const SPRITE_ANIM_OBJ_PC_PACK                   ; 31
+	const SPRITE_ANIM_OBJ_PAGER_MON_RED             ; 32
+	const SPRITE_ANIM_OBJ_PAGER_MON_BLUE            ; 33
+	const SPRITE_ANIM_OBJ_PAGER_MON_GREEN           ; 34
+	const SPRITE_ANIM_OBJ_PAGER_MON_BROWN           ; 35
+	const SPRITE_ANIM_OBJ_PAGER_MON_GREY            ; 36
 DEF NUM_SPRITE_ANIM_OBJS EQU const_value
 
 ; DoSpriteAnimFrame.Jumptable indexes (see engine/sprite_anims/functions.asm)
@@ -128,6 +133,7 @@ DEF NUM_SPRITE_ANIM_OBJS EQU const_value
 	const SPRITE_ANIM_FUNC_PC_QUICK                  ; 24
 	const SPRITE_ANIM_FUNC_PC_MODE                   ; 25
 	const SPRITE_ANIM_FUNC_PC_PACK                   ; 26
+	const SPRITE_ANIM_FUNC_PAGER_MON                  ; 27
 DEF NUM_SPRITE_ANIM_FUNCS EQU const_value
 
 ; SpriteAnimFrameData indexes (see data/sprite_anims/framesets.asm)
@@ -204,6 +210,11 @@ DEF NUM_SPRITE_ANIM_FUNCS EQU const_value
 	const SPRITE_ANIM_FRAMESET_PC_MODE                   ; 45
 	const SPRITE_ANIM_FRAMESET_PC_MODE2                  ; 46
 	const SPRITE_ANIM_FRAMESET_PC_PACK                   ; 47
+	const SPRITE_ANIM_FRAMESET_PAGER_MON_RED             ; 48
+	const SPRITE_ANIM_FRAMESET_PAGER_MON_BLUE            ; 49
+	const SPRITE_ANIM_FRAMESET_PAGER_MON_GREEN           ; 4a
+	const SPRITE_ANIM_FRAMESET_PAGER_MON_BROWN           ; 4b
+	const SPRITE_ANIM_FRAMESET_PAGER_MON_GREY            ; 4c
 DEF NUM_SPRITE_ANIM_FRAMESETS EQU const_value
 
 ; SpriteAnimOAMData indexes (see data/sprite_anims/oam.asm)
@@ -356,6 +367,10 @@ DEF NUM_SPRITE_ANIM_FRAMESETS EQU const_value
 	const SPRITE_ANIM_OAMSET_PC_MODE                     ; 91
 	const SPRITE_ANIM_OAMSET_PC_MODE2                    ; 92
 	const SPRITE_ANIM_OAMSET_PC_PACK                     ; 93
+	const SPRITE_ANIM_OAMSET_BROWN_WALK_1                ; 94
+	const SPRITE_ANIM_OAMSET_BROWN_WALK_2                ; 95
+	const SPRITE_ANIM_OAMSET_GREY_WALK_1                 ; 96
+	const SPRITE_ANIM_OAMSET_GREY_WALK_2                 ; 97
 DEF NUM_SPRITE_ANIM_OAMSETS EQU const_value
 
 assert NUM_SPRITE_ANIM_OAMSETS <= FIRST_OAM_CMD, \

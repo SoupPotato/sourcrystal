@@ -532,8 +532,8 @@ SubmissionDescription:
 	next "so hurts the user.@"
 
 LowKickDescription:
-	db   "An attack that may"
-	next "cause flinching.@"
+	db   "More powerful on"
+	next "heavier foes.@"
 
 CounterDescription:
 	db   "Returns a physical"
@@ -560,8 +560,8 @@ LeechSeedDescription:
 	next "foe on every turn.@"
 
 GrowthDescription:
-	db   "Raises the SPCL."
-	next "ATK rating.@"
+	db   "Raises the user's"
+	next "ATK and SP.ATK.@"
 
 RazorLeafDescription:
 	db   "Has a high criti-"
@@ -641,7 +641,7 @@ ConfusionDescription:
 
 PsychicMDescription:
 	db   "An attack that may"
-	next "lower SPCL.DEF.@"
+	next "lower SP.DEF.@"
 
 HypnosisDescription:
 	db   "May put the foe to"
@@ -664,8 +664,8 @@ RageDescription:
 	next "the user is hit.@"
 
 TeleportDescription:
-	db   "A move for fleeing"
-	next "from battle.@"
+	db   "Switches #MON."
+	next "Flees from wild.@"
 
 NightShadeDescription:
 	db   "The user's level"
@@ -716,7 +716,7 @@ BarrierDescription:
 	next "user's DEFENSE.@"
 
 LightScreenDescription:
-	db   "Ups SPCL.DEF with"
+	db   "Ups SP.DEF with"
 	next "a wall of light.@"
 
 HazeDescription:
@@ -797,7 +797,7 @@ ConstrictDescription:
 
 AmnesiaDescription:
 	db   "Sharply raises the"
-	next "user's SPCL.DEF.@"
+	next "user's SP.DEF.@"
 
 KinesisDescription:
 	db   "Reduces the foe's"
@@ -1233,10 +1233,10 @@ SunnyDayDescription:
 
 CrunchDescription:
 	db   "An attack that may"
-	next "lower SPCL.DEF.@"
+	next "lower SP.DEF.@"
 
 MirrorCoatDescription:
-	db   "Counters a SPCL."
+	db   "Counters a SP."
 	next "ATK move double.@"
 
 PsychUpDescription:
@@ -1253,7 +1253,7 @@ AncientpowerDescription:
 
 ShadowBallDescription:
 	db   "An attack that may"
-	next "lower SPCL.DEF.@"
+	next "lower SP.DEF.@"
 
 FutureSightDescription:
 	db   "An attack that"

@@ -1166,7 +1166,8 @@ BattleCommand_Critical:
 	bit SUBSTATUS_FOCUS_ENERGY, a
 	jr z, .CheckCritical
 
-; +1 critical level
+; +2 critical level
+	inc c
 	inc c
 
 .CheckCritical:
@@ -1179,8 +1180,7 @@ BattleCommand_Critical:
 	pop bc
 	jr nc, .ScopeLens
 
-; +2 critical level
-	inc c
+; +1 critical level
 	inc c
 
 .ScopeLens:
@@ -1610,14 +1610,7 @@ BattleCommand_CheckHit:
 	ret
 
 .Miss:
-; Keep the damage value intact if we're using (Hi) Jump Kick.
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_JUMP_KICK
-	jr z, .Missed
 	call ResetDamage
-
-.Missed:
 	ld a, 1
 	ld [wAttackMissed], a
 	ret
@@ -2221,22 +2214,23 @@ GetFailureResultText:
 	xor a
 	ld [wCriticalHit], a
 
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_JUMP_KICK
-	ret nz
+	ld hl, wEnemyMonMaxHP
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .max_hp_based_damage
 
-	ld a, [wTypeModifier]
-	and $7f
-	ret z
+	ld hl, wBattleMonMaxHP
 
+.max_hp_based_damage
+	ld a, [hli]
+	ld [wCurDamage], a
+	ld a, [hl]
+	ld [wCurDamage + 1], a
 	ld hl, wCurDamage
 	ld a, [hli]
 	ld b, [hl]
-rept 3
 	srl a
 	rr b
-endr
 	ld [hl], b
 	dec hl
 	ld [hli], a

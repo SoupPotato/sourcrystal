@@ -4242,29 +4242,35 @@ BattleAnim_MorningSun:
 	anim_wait 6
 	anim_loop 5, .loop
 	anim_wait 32
-	anim_if_param_equal WEATHER_SUN, .intensify
+	anim_if_param_equal WEATHER_SUN, BattleAnim_IntensifiedHeal
+	anim_if_param_equal WEATHER_RAIN, BattleAnim_WeakenedHeal
+	anim_if_param_equal WEATHER_SANDSTORM, BattleAnim_WeakenedHeal
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
 	anim_call BattleAnimSub_Glimmer
-	anim_ret
-
-..intensify
-	anim_call BattleAnimSub_Glimmer2
 	anim_ret
 
 BattleAnim_Synthesis:
 	anim_1gfx BATTLE_ANIM_GFX_SHINE
 	anim_call BattleAnim_TargetObj_1Row
 	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $40
-	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
 	anim_sound 0, 0, SFX_OUTRAGE
 	anim_wait 72
 	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING
 	anim_call BattleAnim_ShowMon_0
-	anim_if_param_equal WEATHER_SUN, .intensify
+	anim_if_param_equal WEATHER_SUN, BattleAnim_IntensifiedHeal
+	anim_if_param_equal WEATHER_RAIN, BattleAnim_WeakenedHeal
+	anim_if_param_equal WEATHER_SANDSTORM, BattleAnim_WeakenedHeal
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
 	anim_call BattleAnimSub_Glimmer
 	anim_ret
 
-.intensify
+BattleAnim_IntensifiedHeal:
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
 	anim_call BattleAnimSub_Glimmer2
+	anim_ret
+
+BattleAnim_WeakenedHeal:
+	anim_call BattleAnimSub_Glimmer
 	anim_ret
 
 BattleAnim_Crunch:
@@ -4295,12 +4301,11 @@ BattleAnim_Moonlight:
 	anim_wait 1
 	anim_sound 0, 0, SFX_MOONLIGHT
 	anim_wait 63
-	anim_if_param_equal WEATHER_SUN, .intensify
+	anim_if_param_equal WEATHER_SUN, BattleAnim_IntensifiedHeal
+	anim_if_param_equal WEATHER_RAIN, BattleAnim_WeakenedHeal
+	anim_if_param_equal WEATHER_SANDSTORM, BattleAnim_WeakenedHeal
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
 	anim_call BattleAnimSub_Glimmer
-	anim_ret
-
-.intensify
-	anim_call BattleAnimSub_Glimmer2
 	anim_ret
 
 BattleAnim_HiddenPower:

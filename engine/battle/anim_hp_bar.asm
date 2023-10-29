@@ -369,13 +369,14 @@ ShortHPBar_CalcPixelFrame:
 
 	ld b, 0
 .loop
+-; BUG: HP bar animation off-by-one error for low HP (see docs/bugs_and_glitches.md)
 	ld a, l
 	sub HP_BAR_LENGTH_PX
 	ld l, a
 	ld a, h
 	sbc $0
 	ld h, a
-	jr z, .done
+;	jr z, .done        - Dummied out for now until the fix can be revised
 	jr c, .done
 	inc b
 	jr .loop

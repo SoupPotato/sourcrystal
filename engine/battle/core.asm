@@ -5338,6 +5338,33 @@ BattleMonEntrance:
 	ld [wMenuCursorY], a
 	ret
 
+TeleportBattleMonEntrance:
+	ld c, 50
+	call DelayFrames
+
+	hlcoord 9, 7
+	lb bc, 5, 11
+	call ClearBox
+
+	ld a, [wCurPartyMon]
+	ld [wCurBattleMon], a
+	call AddBattleParticipant
+	call InitBattleMon
+	xor a
+	ld [wTempSpecies], a
+	call ResetPlayerStatLevels
+	call SendOutMonText
+	call NewBattleMonStatus
+	call BreakAttraction
+	call SendOutPlayerMon
+	call EmptyBattleTextbox
+	call LoadTilemapToTempTilemap
+	call SetPlayerTurn
+	call SpikesDamage
+	ld a, $2
+	ld [wMenuCursorY], a
+	ret
+
 PassedBattleMonEntrance:
 	ld c, 50
 	call DelayFrames

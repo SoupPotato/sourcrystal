@@ -369,7 +369,7 @@ ShortHPBar_CalcPixelFrame:
 
 	ld b, 0
 .loop
--; BUG: HP bar animation off-by-one error for low HP (see docs/bugs_and_glitches.md)
+; BUG: HP bar animation off-by-one error for low HP (see docs/bugs_and_glitches.md)
 	ld a, l
 	sub HP_BAR_LENGTH_PX
 	ld l, a

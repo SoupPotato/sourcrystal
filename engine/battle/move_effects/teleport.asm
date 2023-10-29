@@ -13,69 +13,12 @@ BattleCommand_Teleport:
 	call GetBattleVar
 	bit SUBSTATUS_CANT_RUN, a
 	jr nz, .failed
-	ldh a, [hBattleTurn]
-	and a
-	jr nz, .enemy_turn
 
-	; Can't teleport from a trainer battle
+; Switch, don't run, in trainer battles
 	ld a, [wBattleMode]
 	dec a
-	jr nz, .failed
-	; b = player level
-	ld a, [wCurPartyLevel]
-	ld b, a
-	; If player level >= enemy level, Teleport will succeed
-	ld a, [wBattleMonLevel]
-	cp b
-	jr nc, .run_away
-	; c = player level + enemy level + 1
-	add b
-	ld c, a
-	inc c
-	; Generate a number less than c
-.loop_player
-	call BattleRandom
-	cp c
-	jr nc, .loop_player
-	; b = enemy level / 4
-	srl b
-	srl b
-	; If the random number >= enemy level / 4, Teleport will succeed
-	cp b
-	jr nc, .run_away
-
-.failed
-	call AnimateFailedMove
-	jp PrintButItFailed
-
-.enemy_turn
-	; Can't teleport from a trainer battle
-	ld a, [wBattleMode]
-	dec a
-	jr nz, .failed
-	; b = enemy level
-	ld a, [wBattleMonLevel]
-	ld b, a
-	; If enemy level >= player level, Teleport will succeed
-	ld a, [wCurPartyLevel]
-	cp b
-	jr nc, .run_away
-	; c = enemy level + player level + 1
-	add b
-	ld c, a
-	inc c
-	; Generate a number less than c
-.loop_enemy
-; If a random number >= player level / 4, Teleport will succeed
-	call BattleRandom
-	cp c
-	jr nc, .loop_enemy
-	; b = player level / 4
-	srl b
-	srl b
-	cp b
-	jr c, .failed
-
+	jr nz, .trainer_battle
+; fallthrough
 .run_away
 	call UpdateBattleMonInParty
 	xor a
@@ -92,3 +35,119 @@ BattleCommand_Teleport:
 
 	ld hl, FledFromBattleText
 	jp StdBattleTextbox
+
+.failed
+	call AnimateFailedMove
+	jp PrintButItFailed
+
+.trainer_battle
+	; Need something to switch to
+	call CheckAnyOtherAlivePartyMons
+	jp z, .failed
+
+	call UpdateBattleMonInParty
+	call AnimateCurrentMove
+
+	ld c, 32
+	call DelayFrames
+
+	; Transition into switchmon menu
+	call LoadStandardMenuHeader
+	farcall SetUpBattlePartyMenu
+
+	farcall ForcePickSwitchMonInBattle
+
+	; Return to battle scene
+	call ClearPalettes
+	farcall _LoadBattleFontsHPBar
+	call CloseWindow
+	call ClearSprites
+	hlcoord 9, 7
+	lb bc, 5, 11
+	call ClearBox
+	ld b, SCGB_BATTLE_COLORS
+	call GetSGBLayout
+	call SetPalettes
+	call Teleport_LinkPlayerSwitch
+	ld hl, TeleportBattleMonEntrance
+	call CallBattleCore
+
+	ld hl, SpikesDamage
+	call CallBattleCore
+
+	; New mon hasn't used a move yet.
+	ld a, BATTLE_VARS_LAST_MOVE
+	call GetBattleVarAddr
+	ld [hl], 0
+	ret
+
+.enemy_trainer
+	call CheckAnyOtherAliveEnemyMons
+	jp z, .failed
+
+	call UpdateEnemyMonInParty
+	call AnimateCurrentMove
+	call Teleport_LinkEnemySwitch
+
+	; teleport enemy PartyMon entrance
+	xor a
+	ld [wEnemySwitchMonIndex], a
+	ld hl, EnemySwitch_SetMode
+	call CallBattleCore
+	ld hl, ResetBattleParticipants
+	call CallBattleCore
+	ld a, 1
+	ld [wTypeMatchup], a
+	ld hl, ResetEnemyStatLevels
+	call CallBattleCore
+
+	ld hl, SpikesDamage
+	call CallBattleCore
+
+	; New mon hasn't used a move yet.
+	ld a, BATTLE_VARS_LAST_MOVE
+	call GetBattleVarAddr
+	ld [hl], 0
+	ret
+
+Teleport_LinkPlayerSwitch:
+	ld a, [wLinkMode]
+	and a
+	ret z
+
+	ld a, 1
+	ld [wBattlePlayerAction], a
+
+	call LoadStandardMenuHeader
+	ld hl, LinkBattleSendReceiveAction
+	call CallBattleCore
+	call CloseWindow
+
+	xor a
+	ld [wBattlePlayerAction], a
+	ret
+
+Teleport_LinkEnemySwitch:
+	ld a, [wLinkMode]
+	and a
+	ret z
+
+	call LoadStandardMenuHeader
+	ld hl, LinkBattleSendReceiveAction
+	call CallBattleCore
+
+	ld a, [wOTPartyCount]
+	add BATTLEACTION_SWITCH1
+	ld b, a
+	ld a, [wBattleAction]
+	cp BATTLEACTION_SWITCH1
+	jr c, .teleport
+	cp b
+	jr c, .switch
+
+.teleport
+	ld a, [wCurOTMon]
+	add BATTLEACTION_SWITCH1
+	ld [wBattleAction], a
+.switch
+	jp CloseWindow

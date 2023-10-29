@@ -3412,24 +3412,7 @@ DoEnemyDamage:
 	ld [wHPBuffer2 + 1], a
 	sbc b
 	ld [wEnemyMonHP], a
-if DEF(_DEBUG)
-	push af
-	ld a, BANK(sSkipBattle)
-	call OpenSRAM
-	ld a, [sSkipBattle]
-	call CloseSRAM
-	or a
-	; If [sSkipBattle] is nonzero, skip the "jr nc, .no_underflow" check,
-	; so any attack deals maximum damage to the enemy.
-	jr nz, .debug_skip
-	pop af
 	jr nc, .no_underflow
-	push af
-.debug_skip
-	pop af
-else
-	jr nc, .no_underflow
-endc
 
 	ld a, [wHPBuffer2 + 1]
 	ld [hli], a
@@ -5269,25 +5252,19 @@ BattleCommand_EndLoop:
 	jr nz, .check_ot_beat_up
 	ld a, [wPartyCount]
 	cp 1
-	jp z, .only_one_beatup
+	jp z, .done_loop
 	dec a
 	jr .double_hit
 
 .check_ot_beat_up
 	ld a, [wBattleMode]
 	cp WILD_BATTLE
-	jp z, .only_one_beatup
+	jp z, .done_loop
 	ld a, [wOTPartyCount]
 	cp 1
-	jp z, .only_one_beatup
+	jp z, .done_loop
 	dec a
 	jr .double_hit
-
-.only_one_beatup
-	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
-	res SUBSTATUS_IN_LOOP, [hl]
-	ret
 
 .not_triple_kick
 	call BattleRandom
@@ -5325,15 +5302,21 @@ BattleCommand_EndLoop:
 	ld hl, EnemyHitTimesText
 .got_hit_n_times_text
 
-	push bc
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_BEAT_UP
-	jr z, .beat_up_2
+	jr nz, .not_beat_up
+	ld a, [wBeatUpHitAtLeastOnce]
+	and a
+	jr z, .end
+	ld [bc], a
+.not_beat_up
+	push bc
 	call StdBattleTextbox
-.beat_up_2
 
 	pop bc
+
+.end
 	xor a
 	ld [bc], a
 	ret

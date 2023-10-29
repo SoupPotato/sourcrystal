@@ -8,11 +8,9 @@ BattleCommand_BeatUp:
 	bit SUBSTATUS_IN_LOOP, a
 	jr nz, .next_mon
 
-	ld c, 20
-	call DelayFrames
 	xor a
 	ld [wPlayerRolloutCount], a
-	ld [wCurBeatUpPartyMon], a
+	ld [wd002], a
 	ld [wBeatUpHitAtLeastOnce], a
 	jr .got_mon
 
@@ -21,61 +19,18 @@ BattleCommand_BeatUp:
 	ld b, a
 	ld a, [wPartyCount]
 	sub b
-	ld [wCurBeatUpPartyMon], a
+	ld [wd002], a
 
 .got_mon
-	ld a, [wCurBeatUpPartyMon]
-	ld hl, wPartyMonNicknames
-	call GetNickname
-	ld a, MON_HP
-	call GetBeatupMonLocation
-	ld a, [hli]
-	or [hl]
-	jp z, .beatup_fail ; fainted
-	ld a, [wCurBeatUpPartyMon]
 	ld c, a
 	ld a, [wCurBattleMon]
 	cp c
-	ld hl, wBattleMonStatus
-	jr z, .active_mon
-	ld a, MON_STATUS
-	call GetBeatupMonLocation
-.active_mon
-	ld a, [hl]
+	jr nz, .mon_not_in_battle
+	ld a, [wBattleMonStatus]
 	and a
-	jp nz, .beatup_fail
+	jr nz, .beatup_fail
+	jr .finish_beatup
 
-	ld a, $1
-	ld [wBeatUpHitAtLeastOnce], a
-	ld hl, BeatUpAttackText
-	call StdBattleTextbox
-
-	ld a, [wEnemyMonSpecies]
-	ld [wCurSpecies], a
-	call GetBaseData
-	ld a, [wBaseDefense]
-	ld c, a
-
-	push bc
-	ld a, MON_SPECIES
-	call GetBeatupMonLocation
-	ld a, [hl]
-	ld [wCurSpecies], a
-	call GetBaseData
-	ld a, [wBaseAttack]
-	pop bc
-	ld b, a
-
-	push bc
-	ld a, MON_LEVEL
-	call GetBeatupMonLocation
-	ld a, [hl]
-	ld e, a
-	pop bc
-
-	ld a, [wPlayerMoveStructPower]
-	ld d, a
-	ret
 
 .enemy_beats_up
 	ld a, [wEnemySubStatus3]
@@ -84,7 +39,7 @@ BattleCommand_BeatUp:
 
 	xor a
 	ld [wEnemyRolloutCount], a
-	ld [wCurBeatUpPartyMon], a
+	ld [wd002], a
 	ld [wBeatUpHitAtLeastOnce], a
 	jr .enemy_got_mon
 
@@ -93,128 +48,101 @@ BattleCommand_BeatUp:
 	ld b, a
 	ld a, [wOTPartyCount]
 	sub b
-	ld [wCurBeatUpPartyMon], a
+	ld [wd002], a
 
 .enemy_got_mon
 	ld a, [wBattleMode]
 	dec a
 	jr z, .wild
 
-	ld a, [wLinkMode]
+	ld a, [wd002]
+	ld b, a
+	ld a, [wCurOTMon]
+	cp b
+	jr nz, .mon_not_in_battle
+	ld a, [wEnemyMonStatus]
 	and a
-	jr nz, .link_or_tower
+	jr nz, .beatup_fail
+	jr .finish_beatup
 
-	ld a, [wInBattleTowerBattle]
+
+.wild
+	ld a, [wEnemyMonStatus]
 	and a
-	jr nz, .link_or_tower
+	jr nz, .beatup_fail
+	ld a, [wEnemyMonSpecies]
+	jr .finish_beatup_wild
 
-	ld a, [wCurBeatUpPartyMon]
-	ld c, a
-	ld b, 0
-	ld hl, wOTPartySpecies
-	add hl, bc
-	ld a, [hl]
-	ld [wNamedObjectIndex], a
-	call GetPokemonName
-	jr .got_enemy_nick
 
-.link_or_tower
-	ld a, [wCurBeatUpPartyMon]
-	ld hl, wOTPartyMonNicknames
-	ld bc, NAME_LENGTH
-	call AddNTimes
-	ld de, wStringBuffer1
-	call CopyBytes
-
-.got_enemy_nick
+.mon_not_in_battle
 	ld a, MON_HP
 	call GetBeatupMonLocation
 	ld a, [hli]
 	or [hl]
-	jp z, .beatup_fail
+	jr z, .beatup_fail
+	ld bc, MON_STATUS - (MON_HP + 1)
+	add hl, bc
 
-	ld a, [wCurBeatUpPartyMon]
-	ld b, a
-	ld a, [wCurOTMon]
-	cp b
-	ld hl, wEnemyMonStatus
-	jr z, .active_enemy
-	ld a, MON_STATUS
-	call GetBeatupMonLocation
-.active_enemy
 	ld a, [hl]
 	and a
 	jr nz, .beatup_fail
 
-	ld a, $1
-	ld [wBeatUpHitAtLeastOnce], a
-	jr .finish_beatup
-
-.wild
-	ld a, [wEnemyMonSpecies]
-	ld [wNamedObjectIndex], a
-	call GetPokemonName
-	ld hl, BeatUpAttackText
-	call StdBattleTextbox
-	jp EnemyAttackDamage
 
 .finish_beatup
-	ld hl, BeatUpAttackText
-	call StdBattleTextbox
-
-	ld a, [wBattleMonSpecies]
-	ld [wCurSpecies], a
-	call GetBaseData
-	ld a, [wBaseDefense]
-	ld c, a
-
-	push bc
+	; Get the 'mon's base attack
 	ld a, MON_SPECIES
 	call GetBeatupMonLocation
 	ld a, [hl]
+.finish_beatup_wild
 	ld [wCurSpecies], a
 	call GetBaseData
 	ld a, [wBaseAttack]
-	pop bc
-	ld b, a
+	; Calculate the new base power
+	ld c, 10
+	call SimpleDivide
+	ld a, 5
+	add b
 
-	push bc
-	ld a, MON_LEVEL
-	call GetBeatupMonLocation
-	ld a, [hl]
-	ld e, a
-	pop bc
-
-	ld a, [wEnemyMoveStructPower]
+	; Call the usual DamageStats, but replace the move power
+	push af
+	call BattleCommand_DamageStats
+	pop af
 	ld d, a
+
+	ld hl, wBeatUpHitAtLeastOnce
+	inc [hl]
 	ret
+
 
 .beatup_fail
 	ld b, buildopponentrage_command
 	jp SkipToBattleCommand
 
+
 BattleCommand_BeatUpFailText:
+; beatupfailtext
+
 	ld a, [wBeatUpHitAtLeastOnce]
 	and a
 	ret nz
 
 	inc a
 	ld [wAttackMissed], a
-
 	jp PrintButItFailed
+
 
 GetBeatupMonLocation:
 	push bc
 	ld c, a
 	ld b, 0
-	ldh a, [hBattleTurn]
+	ld a, [hBattleTurn]
 	and a
 	ld hl, wPartyMon1Species
 	jr z, .got_species
 	ld hl, wOTPartyMon1Species
 
 .got_species
-	ld a, [wCurBeatUpPartyMon]
+	ld a, [wd002]
 	add hl, bc
 	call GetPartyLocation
 	pop bc

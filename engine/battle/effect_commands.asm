@@ -6409,17 +6409,8 @@ INCLUDE "engine/battle/move_effects/pursuit.asm"
 INCLUDE "engine/battle/move_effects/rapid_spin.asm"
 
 BattleCommand_HealMorn:
-	ld b, MORN_F
-	jr BattleCommand_TimeBasedHealContinue
-
 BattleCommand_HealDay:
-	ld b, DAY_F
-	jr BattleCommand_TimeBasedHealContinue
-
 BattleCommand_HealNite:
-	ld b, NITE_F
-	; fallthrough
-
 BattleCommand_TimeBasedHealContinue:
 ; Time- and weather-sensitive heal.
 
@@ -6432,33 +6423,21 @@ BattleCommand_TimeBasedHealContinue:
 	ld de, wEnemyMonHP
 
 .start
-; Index for .Multipliers
-; Default restores half max HP.
-	ld c, 2
-
 ; Don't bother healing if HP is already full.
-	push bc
+	ld c, 2
 	call CompareBytes
-	pop bc
 	jr z, .Full
 
-; Don't factor in time of day in link battles.
-	ld a, [wLinkMode]
-	and a
-	jr nz, .Weather
+; Index for .Multipliers
+; Default restores half max HP.
+	ld c, 1
 
-	ld a, [wTimeOfDay]
-	cp b
-	jr z, .Weather
-	dec c ; double
-
-.Weather:
 	ld a, [wBattleWeather]
 	and a
 	jr z, .Heal
 
-; x2 in sun
-; /2 in rain/sandstorm
+; x2 in sun (2/3 max)
+; /2 in rain/sandstorm (1/4 max)
 	inc c
 	cp WEATHER_SUN
 	jr z, .Heal
@@ -6497,10 +6476,9 @@ BattleCommand_TimeBasedHealContinue:
 	jp StdBattleTextbox
 
 .Multipliers:
-	dw GetEighthMaxHP
-	dw GetQuarterMaxHP
-	dw GetHalfMaxHP
-	dw GetMaxHP
+	dw GetQuarterMaxHP ; WEATHER_NONE
+	dw GetHalfMaxHP ; WEATHER_RAIN
+	dw GetTwoThirdsMaxHP ; WEATHER_SUN
 
 INCLUDE "engine/battle/move_effects/hidden_power.asm"
 

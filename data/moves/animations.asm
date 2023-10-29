@@ -4242,11 +4242,11 @@ BattleAnim_MorningSun:
 	anim_wait 6
 	anim_loop 5, .loop
 	anim_wait 32
-	anim_if_param_equal 0, .zero
+	anim_if_param_equal WEATHER_SUN, .intensify
 	anim_call BattleAnimSub_Glimmer
 	anim_ret
 
-.zero
+..intensify
 	anim_call BattleAnimSub_Glimmer2
 	anim_ret
 
@@ -4259,11 +4259,11 @@ BattleAnim_Synthesis:
 	anim_wait 72
 	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING
 	anim_call BattleAnim_ShowMon_0
-	anim_if_param_equal $1, .one
+	anim_if_param_equal WEATHER_SUN, .intensify
 	anim_call BattleAnimSub_Glimmer
 	anim_ret
 
-.one
+.intensify
 	anim_call BattleAnimSub_Glimmer2
 	anim_ret
 
@@ -4295,11 +4295,11 @@ BattleAnim_Moonlight:
 	anim_wait 1
 	anim_sound 0, 0, SFX_MOONLIGHT
 	anim_wait 63
-	anim_if_param_equal $3, .three
+	anim_if_param_equal WEATHER_SUN, .intensify
 	anim_call BattleAnimSub_Glimmer
 	anim_ret
 
-.three
+.intensify
 	anim_call BattleAnimSub_Glimmer2
 	anim_ret
 

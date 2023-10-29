@@ -6433,6 +6433,7 @@ BattleCommand_TimeBasedHealContinue:
 	ld c, 1
 
 	ld a, [wBattleWeather]
+	ld [wBattleAnimParam], a
 	and a
 	jr z, .Heal
 

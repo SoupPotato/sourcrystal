@@ -153,14 +153,29 @@ Pokegear_LoadGFX:
 	ld de, vTiles0 tile $14
 	ld bc, 4 tiles
 	call FarCopyBytes
-	ret
+.pager
+	ld hl, PagerCardIconSpecies
+	ld de, vTiles0 tile $20
+.loop
+	ld a, [hli]
+	and a
+	ret z
+	push hl
+	push de
+	ld e, a
+	farcall LoadPagerMonIcon
+	ld a, e
+	pop de
+	call FarCopyBytes
+	pop hl
+	jr .loop
 
 .ssaqua
 	ld hl, FastShipGFX
 	ld de, vTiles0 tile $10
 	ld bc, 8 tiles
 	call CopyBytes
-	ret
+	jr .pager
 
 FastShipGFX:
 INCBIN "gfx/pokegear/fast_ship.2bpp"

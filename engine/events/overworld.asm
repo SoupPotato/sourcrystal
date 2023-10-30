@@ -206,6 +206,8 @@ Script_CutFromMenu:
 Script_Cut:
 	callasm GetPartyNickname
 	writetext UseCutText
+	cry SCYTHER
+	waitbutton
 	reloadmappart
 	callasm CutDownTreeOrGrass
 	closetext
@@ -310,19 +312,17 @@ Script_UseFlash:
 	reloadmappart
 	special UpdateTimePals
 	writetext UseFlashTextScript
-	callasm BlindingFlash
+	cry MAREEP
+	waitbutton
 	closetext
+	playsound SFX_FLASH
+	waitsfx
+	callasm BlindingFlash
 	end
 
 UseFlashTextScript:
 	text_far _BlindingFlashText
-	text_asm
-	call WaitSFX
-	ld de, SFX_FLASH
-	call PlaySFX
-	call WaitSFX
-	ld hl, .BlankText
-	ret
+	text_end
 
 .BlankText:
 	text_end
@@ -401,6 +401,7 @@ SurfFromMenuScript:
 
 UsedSurfScript:
 	writetext UsedSurfText ; "used SURF!"
+	cry LAPRAS
 	waitbutton
 	closetext
 
@@ -503,10 +504,6 @@ TrySurfOW::
 	call CheckEngineFlag
 	jr c, .quit
 
-	ld d, SURF
-	call CheckPartyMove
-	jr c, .quit
-
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
 	jr nz, .quit
@@ -537,6 +534,10 @@ AskSurfScript:
 AskSurfText:
 	text_far _AskSurfText
 	text_end
+
+UsedFlyText:
+	text_jump _UsedFlyText
+	db "@"
 
 FlyFunction:
 	call FieldMoveJumptableReset
@@ -606,6 +607,10 @@ FlyFunction:
 
 .FlyScript:
 	reloadmappart
+	writetext UsedFlyText ; "used FLY!"
+	cry PIDGEOT
+	waitbutton
+	closetext
 	callasm HideSprites
 	special UpdateTimePals
 	callasm FlyFromAnim
@@ -702,9 +707,6 @@ Script_UsedWaterfall:
 	text_end
 
 TryWaterfallOW::
-	ld d, WATERFALL
-	call CheckPartyMove
-	jr c, .failed
 	ld de, ENGINE_RISINGBADGE
 	call CheckEngineFlag
 	jr c, .failed
@@ -1005,9 +1007,8 @@ Script_StrengthFromMenu:
 Script_UsedStrength:
 	callasm SetStrengthFlag
 	writetext .UseStrengthText
-	readmem wStrengthSpecies
-	cry 0 ; plays [wStrengthSpecies] cry
-	pause 3
+	cry MACHOKE
+	waitbutton
 	writetext .MoveBoulderText
 	closetext
 	end
@@ -1053,10 +1054,6 @@ BouldersMayMoveText:
 	text_end
 
 TryStrengthOW:
-	ld d, STRENGTH
-	call CheckPartyMove
-	jr c, .nope
-
 	ld de, ENGINE_PLAINBADGE
 	call CheckEngineFlag
 	jr c, .nope
@@ -1162,8 +1159,9 @@ Script_WhirlpoolFromMenu:
 	special UpdateTimePals
 
 Script_UsedWhirlpool:
-	callasm GetPartyNickname
 	writetext UseWhirlpoolText
+	cry REMORAID
+	waitbutton
 	reloadmappart
 	callasm DisappearWhirlpool
 	closetext
@@ -1187,9 +1185,6 @@ DisappearWhirlpool:
 	ret
 
 TryWhirlpoolOW::
-	ld d, WHIRLPOOL
-	call CheckPartyMove
-	jr c, .failed
 	ld de, ENGINE_GLACIERBADGE
 	call CheckEngineFlag
 	jr c, .failed
@@ -1360,6 +1355,8 @@ RockSmashFromMenuScript:
 RockSmashScript:
 	callasm GetPartyNickname
 	writetext UseRockSmashText
+	cry CUBONE
+	waitbutton
 	closetext
 	special WaitSFX
 	playsound SFX_STRENGTH
@@ -1405,17 +1402,8 @@ AskRockSmashText:
 	text_far _AskRockSmashText
 	text_end
 
-HasRockSmash:
-	ld d, ROCK_SMASH
-	call CheckPartyMove
-	jr nc, .yes
-; no
-	ld a, 1
-	jr .done
-.yes
+HasRockSmash: ; always return true
 	xor a
-	jr .done
-.done
 	ld [wScriptVar], a
 	ret
 
@@ -1758,10 +1746,6 @@ GotOffBikeText:
 	text_end
 
 TryCutOW::
-	ld d, CUT
-	call CheckPartyMove
-	jr c, .cant_cut
-
 	ld de, ENGINE_HIVEBADGE
 	call CheckEngineFlag
 	jr c, .cant_cut

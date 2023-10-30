@@ -53,6 +53,7 @@ DoSpriteAnimFrame:
 	dw SpriteAnimFunc_PcQuick
 	dw SpriteAnimFunc_PcMode
 	dw SpriteAnimFunc_PcPack
+	dw SpriteAnimFunc_PagerMon
 	assert_table_length NUM_SPRITE_ANIM_FUNCS
 
 SpriteAnimFunc_Null:
@@ -1035,4 +1036,45 @@ SpriteAnimFunc_PcPack:
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a
+	ret
+
+SpriteAnimFunc_PagerMon:
+	push de
+	; d = pager flag bit
+	ld hl, SPRITEANIMSTRUCT_VAR4
+	add hl, bc
+	ld a, [hl]
+	ld d, a
+	; if pager flag bit is not set, hide
+	ld hl, wPagerFlags
+	call TestBitAInHL
+	jr z, .hide_pager_mon
+	; e = pager scroll position
+	ld a, [wPokegearPagerScrollPosition]
+	ld e, a
+	; if scroll > pager flag bit, hide
+	ld a, d
+	cp e
+	jr c, .hide_pager_mon
+	; if pager flag bit >= scroll + pager height, hide
+	ld a, e
+	add PHONE_OR_PAGER_HEIGHT
+	cp d
+	jr c, .hide_pager_mon
+	jr z, .hide_pager_mon
+	; a = pager flag bit - pager scroll position (0, 1, 2, or 3)
+	ld a, d
+	sub e
+	; y = (a * 2 + 6) * 8 + 4 = a * 16 + 52
+	swap a
+	add 52
+	jr .got_pager_mon_y
+.hide_pager_mon
+	; y == 0 is offscreen
+	xor a
+.got_pager_mon_y
+	ld hl, SPRITEANIMSTRUCT_YCOORD
+	add hl, bc
+	ld [hl], a
+	pop de
 	ret

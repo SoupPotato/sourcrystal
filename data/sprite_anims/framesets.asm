@@ -73,12 +73,18 @@ SpriteAnimFrameData:
 	dw .Frameset_PCMode
 	dw .Frameset_PCMode2
 	dw .Frameset_PCPack
+	dw .Frameset_PagerMonRed
+	dw .Frameset_PagerMonBlue
+	dw .Frameset_PagerMonGreen
+	dw .Frameset_PagerMonBrown
+	dw .Frameset_PagerMonGrey
 	assert_table_length NUM_SPRITE_ANIM_FRAMESETS
 
 .Frameset_00:
 	oamframe SPRITE_ANIM_OAMSET_RED_WALK_1, 32
 	oamend
 
+.Frameset_PagerMonRed:
 .Frameset_PartyMon:
 	oamframe SPRITE_ANIM_OAMSET_PARTY_MON_1,  8
 	oamframe SPRITE_ANIM_OAMSET_PARTY_MON_2,  8
@@ -528,3 +534,23 @@ SpriteAnimFrameData:
 .Frameset_PCPack:
 	oamframe SPRITE_ANIM_OAMSET_PC_PACK, 32
 	oamrestart
+
+.Frameset_PagerMonBlue:
+	frame SPRITE_ANIM_OAMSET_BLUE_WALK_1,  8
+	frame SPRITE_ANIM_OAMSET_BLUE_WALK_2,  8
+	dorestart
+
+.Frameset_PagerMonGreen:
+	frame SPRITE_ANIM_OAMSET_CELEBI_1,  8
+	frame SPRITE_ANIM_OAMSET_CELEBI_2,  8
+	dorestart
+
+.Frameset_PagerMonBrown:
+	frame SPRITE_ANIM_OAMSET_BROWN_WALK_1,  8
+	frame SPRITE_ANIM_OAMSET_BROWN_WALK_2,  8
+	dorestart
+
+.Frameset_PagerMonGrey:
+	frame SPRITE_ANIM_OAMSET_GREY_WALK_1,  8
+	frame SPRITE_ANIM_OAMSET_GREY_WALK_2,  8
+	dorestart

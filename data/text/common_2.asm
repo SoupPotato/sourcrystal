@@ -301,10 +301,10 @@ _CantUseItemText::
 	prompt
 
 _UseCutText::
-	text_ram wStringBuffer2
-	text " used"
-	line "CUT!"
-	prompt
+	text "<PLAYER> summoned a"
+	line "SCYTHER to use"
+	cont "CUT!"
+	done
 
 _CutNothingText::
 	text "There's nothing to"
@@ -312,17 +312,15 @@ _CutNothingText::
 	prompt
 
 _BlindingFlashText::
-	text "A blinding FLASH"
-	line "lights the area!@"
-	text_promptbutton
-	text_end
-
-	text_end ; unreferenced
+	text "<PLAYER> summoned a"
+	line "MAREEP to use "
+	cont "FLASH!"
+	done
 
 _UsedSurfText::
-	text_ram wStringBuffer2
-	text " used"
-	line "SURF!"
+	text "<PLAYER> summoned a"
+	line "LAPRAS to use"
+	cont "SURF!"
 	done
 
 _CantSurfText::
@@ -337,13 +335,20 @@ _AlreadySurfingText::
 
 _AskSurfText::
 	text "The water is calm."
-	line "Want to SURF?"
+	line "Want to use"
+	cont "LAPRAS SURF?"
+	done
+
+_UsedFlyText::
+	text "<PLAYER> summoned a"
+	line "PIDGEOT to use"
+	cont "FLY!"
 	done
 
 _UseWaterfallText::
-	text_ram wStringBuffer2
-	text " used"
-	line "WATERFALL!"
+	text "<PLAYER> summoned a"
+	line "LAPRAS to use"
+	cont "WATERFALL!"
 	done
 
 _HugeWaterfallText::
@@ -390,14 +395,13 @@ _AlreadyUsingStrengthText::
 	prompt
 
 _UseStrengthText::
-	text_ram wStringBuffer2
-	text " used"
-	line "STRENGTH!"
+	text "<PLAYER> summoned a"
+	line "MACHOKE to use"
+	cont "STRENGTH!"
 	done
 
 _MoveBoulderText::
-	text_ram wStringBuffer1
-	text " can"
+	text "MACHOKE can"
 	line "move boulders."
 	prompt
 
@@ -406,7 +410,7 @@ _AskStrengthText::
 	line "able to move this."
 
 	para "Want to use"
-	line "STRENGTH?"
+	line "MACHOKE PUSH?"
 	done
 
 _BouldersMoveText::
@@ -420,10 +424,10 @@ _BouldersMayMoveText::
 	done
 
 _UseWhirlpoolText::
-	text_ram wStringBuffer2
-	text " used"
-	line "WHIRLPOOL!"
-	prompt
+	text "<PLAYER> summoned a"
+	line "REMORAID to use"
+	cont "WHIRLPOOL!"
+	done
 
 _MayPassWhirlpoolText::
 	text "It's a vicious"
@@ -438,7 +442,7 @@ _AskWhirlpoolText::
 	line "the way."
 
 	para "Want to use"
-	line "WHIRLPOOL?"
+	line "REMORAID WHIRL?"
 	done
 
 _UseHeadbuttText::
@@ -460,10 +464,10 @@ _AskHeadbuttText::
 	done
 
 _UseRockSmashText::
-	text_ram wStringBuffer2
-	text " used"
-	line "ROCK SMASH!"
-	prompt
+	text "<PLAYER> summoned a"
+	line "CUBONE to use"
+	cont "ROCK SMASH!"
+	done
 
 _MaySmashText::
 	text "Maybe a #MON"
@@ -474,8 +478,8 @@ _AskRockSmashText::
 	text "This rock looks"
 	line "breakable."
 
-	para "Want to use ROCK"
-	line "SMASH?"
+	para "Want to use"
+	line "CUBONE SMASH?"
 	done
 
 _RodBiteText::
@@ -515,7 +519,8 @@ _AskCutText::
 	text "This tree can be"
 	line "CUT!"
 
-	para "Want to use CUT?"
+	para "Want to use"
+	line "SCYTHER CHOP?"
 	done
 
 _CanCutText::

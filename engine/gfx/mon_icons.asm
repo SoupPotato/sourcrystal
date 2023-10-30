@@ -162,6 +162,26 @@ GetMenuMonIconPalette_PredeterminedShininess:
 	and $f
 	ret
 
+LoadPagerMonIcon:
+	ld a, e
+	call ReadMonMenuIcon
+	ld [wCurIcon], a
+	ld l, a
+	ld h, 0
+	add hl, hl
+	ld de, IconPointers
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld a, [wCurIcon]
+	cp MAGIKARP ; first mon in Icons2
+	ld bc, 8 tiles
+	ld e, BANK("Mon Icons 1")
+	ret c
+	ld e, BANK("Mon Icons 2")
+	ret
+
 LoadMenuMonIcon:
 	push hl
 	push de
@@ -416,23 +436,13 @@ GetSpeciesIcon:
 	call GetIconGFX
 	ret
 
-FlyFunction_GetMonIcon:
+FlyFunction_GetMonIcon: ; hardcoded to pidgeot
 	push de
-	ld a, [wTempIconSpecies]
+	ld a, ICON_PIDGEOT
 	ld [wCurIcon], a
 	pop de
 	ld a, e
 	call GetIcon_a
-
-	; Edit the OBJ 0 palette so that the cursor Pokémon has the right colors.
-	ld a, MON_DVS
-	call GetPartyParamLocation
-	call GetMenuMonIconPalette
-	add a
-	add a
-	add a
-	ld e, a
-	farcall SetFirstOBJPalette
 	ret
 
 GetMonIconDE: ; unreferenced
@@ -619,6 +629,22 @@ HoldSwitchmonIcon:
 	dec e
 	jr nz, .loop
 	ret
+
+ReadMonMenuIcon:
+	cp EGG
+	jr z, .egg
+	dec a
+	ld hl, MonMenuIcons
+	ld e, a
+	ld d, 0
+	add hl, de
+	ld a, [hl]
+	ret
+.egg
+	ld a, ICON_EGG
+	ret
+
+INCLUDE "data/pokemon/menu_icons.asm"
 
 INCLUDE "data/pokemon/menu_icon_pals.asm"
 

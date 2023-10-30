@@ -155,6 +155,10 @@ SpriteAnimOAMData:
 	spriteanimoam $00, .OAMData_PCMode                   ; SPRITE_ANIM_OAMSET_PC_MODE
 	spriteanimoam $00, .OAMData_PCMode2                  ; SPRITE_ANIM_OAMSET_PC_MODE2
 	spriteanimoam $00, .OAMData_PCPack                   ; SPRITE_ANIM_OAMSET_PC_PACK
+	spriteanimoam $00, .OAMData_BrownWalk                ; SPRITE_ANIM_OAMSET_BROWN_WALK_1
+	spriteanimoam $04, .OAMData_BrownWalk                ; SPRITE_ANIM_OAMSET_BROWN_WALK_2
+	spriteanimoam $00, .OAMData_GreyWalk                 ; SPRITE_ANIM_OAMSET_GREY_WALK_1
+	spriteanimoam $04, .OAMData_GreyWalk                 ; SPRITE_ANIM_OAMSET_GREY_WALK_2
 	assert_table_length NUM_SPRITE_ANIM_OAMSETS
 
 .OAMData_1x1_Palette0:
@@ -1197,3 +1201,17 @@ SpriteAnimOAMData:
 	dsprite  0,  0,  1,  0, $30, $4 | VRAM_BANK_1
 	dsprite  1,  0,  0,  0, $31, $4 | VRAM_BANK_1
 	dsprite  1,  0,  1,  0, $32, $4 | VRAM_BANK_1
+
+.OAMData_BrownWalk:
+	db 4
+	dsprite -1,  0, -1,  0, $00, PAL_OW_BROWN
+	dsprite -1,  0,  0,  0, $01, PAL_OW_BROWN
+	dsprite  0,  0, -1,  0, $02, PAL_OW_BROWN
+	dsprite  0,  0,  0,  0, $03, PAL_OW_BROWN
+
+.OAMData_GreyWalk:
+	db 4
+	dsprite -1,  0, -1,  0, $00, PAL_OW_SILVER
+	dsprite -1,  0,  0,  0, $01, PAL_OW_SILVER
+	dsprite  0,  0, -1,  0, $02, PAL_OW_SILVER
+	dsprite  0,  0,  0,  0, $03, PAL_OW_SILVER

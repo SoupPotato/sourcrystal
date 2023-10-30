@@ -475,7 +475,8 @@ StartMenu_Pokegear:
 	call FadeToMenu
 	farcall PokeGear
 	call CloseSubmenu
-	ld a, 0
+	ld a, [wJumptableIndex]
+	and a, $7f
 	ret
 
 StartMenu_Pack:

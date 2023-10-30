@@ -59,3 +59,16 @@ INCLUDE "home/battle.asm"
 INCLUDE "home/sprite_anims.asm"
 INCLUDE "home/audio.asm"
 INCLUDE "home/mobile.asm"
+
+TestBitAInHL::
+	; 'bit N, [hl]' opcode = $46 + 8 * N
+	add a
+	add a
+	add a
+	add $46
+	ldh [hCodeBuffer+1], a
+	ld a, $cb ; 'bit N, [hl]' opcode prefix
+	ldh [hCodeBuffer+0], a
+	ld a, $c9 ; 'ret' opcode
+	ldh [hCodeBuffer+2], a
+	jp hCodeBuffer

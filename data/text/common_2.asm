@@ -346,9 +346,8 @@ _UsedFlyText::
 	done
 
 _UseWaterfallText::
-	text "<PLAYER> summoned a"
-	line "LAPRAS to use"
-	cont "WATERFALL!"
+	text "LAPRAS used"
+	line "WATERFALL!"
 	done
 
 _HugeWaterfallText::

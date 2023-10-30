@@ -7,19 +7,26 @@
 
 GoldenrodPokecenter1F_MapScripts:
 	def_scene_scripts
-	scene_const SCENE_GOLDENRODPOKECENTER1F_GS_BALL
+	scene_script GoldenrodPokecenter1FGSBallScene, SCENE_GOLDENRODPOKECENTER1F_GS_BALL
 
 	def_callbacks
 
 GoldenrodPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript
 
-GoldenrodPokecenter1F_GSBallSceneLeft:
+GoldenrodPokecenter1FGSBallScene:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .gsball
 	end
 
 .gsball
+	checkevent EVENT_GOT_GS_BALL_FROM_GOLDENROD_POKEMON_CENTER
+	iftrue .nope
+	priorityjump GoldenrodPokecenter1F_GSBallScene
+.nope
+	end
+
+GoldenrodPokecenter1F_GSBallScene:
 	checkevent EVENT_GOT_GS_BALL_FROM_GOLDENROD_POKEMON_CENTER
 	iftrue .cancel
 	playsound SFX_EXIT_BUILDING
@@ -27,7 +34,7 @@ GoldenrodPokecenter1F_GSBallSceneLeft:
 	disappear GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST
 	appear GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST
 	playmusic MUSIC_SHOW_ME_AROUND
-	applymovement GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST, GoldenrodPokeCenter1FLinkReceptionistApproachPlayerAtLeftDoorwayTileMovement
+	applymovement GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST, GoldenrodPokeCenter1FLinkReceptionistApproachPlayerAtDoorwayTileMovement
 	turnobject PLAYER, UP
 	opentext
 	writetext GoldenrodPokeCenter1FLinkReceptionistPleaseAcceptGSBallText
@@ -38,38 +45,7 @@ GoldenrodPokecenter1F_GSBallSceneLeft:
 	writetext GoldenrodPokeCenter1FLinkReceptionistPleaseDoComeAgainText
 	waitbutton
 	closetext
-	applymovement GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST, GoldenrodPokeCenter1FLinkReceptionistWalkToStairsFromLeftDoorwayTileMovement
-	special RestartMapMusic
-	disappear GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST
-	playsound SFX_EXIT_BUILDING
-.cancel
-	end
-
-GoldenrodPokecenter1F_GSBallSceneRight:
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .gsball
-	end
-
-.gsball
-	checkevent EVENT_GOT_GS_BALL_FROM_GOLDENROD_POKEMON_CENTER
-	iftrue .cancel
-	playsound SFX_EXIT_BUILDING
-	moveobject GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST, 0, 7
-	disappear GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST
-	appear GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST
-	playmusic MUSIC_SHOW_ME_AROUND
-	applymovement GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST, GoldenrodPokeCenter1FLinkReceptionistApproachPlayerAtRightDoorwayTileMovement
-	turnobject PLAYER, UP
-	opentext
-	writetext GoldenrodPokeCenter1FLinkReceptionistPleaseAcceptGSBallText
-	waitbutton
-	verbosegiveitem GS_BALL
-	setevent EVENT_GOT_GS_BALL_FROM_GOLDENROD_POKEMON_CENTER
-	setevent EVENT_CAN_GIVE_GS_BALL_TO_KURT
-	writetext GoldenrodPokeCenter1FLinkReceptionistPleaseDoComeAgainText
-	waitbutton
-	closetext
-	applymovement GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST, GoldenrodPokeCenter1FLinkReceptionistWalkToStairsFromRightDoorwayTileMovement
+	applymovement GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST, GoldenrodPokeCenter1FLinkReceptionistWalkToStairsFromDoorwayTileMovement
 	special RestartMapMusic
 	disappear GOLDENRODPOKECENTER1F_PCC_TRADE_CORNER_RECEPTIONIST
 	playsound SFX_EXIT_BUILDING
@@ -116,7 +92,7 @@ GoldenrodPokecenter1FPokefanF:
 	closetext
 	end
 
-GoldenrodPokeCenter1FLinkReceptionistApproachPlayerAtLeftDoorwayTileMovement:
+GoldenrodPokeCenter1FLinkReceptionistApproachPlayerAtDoorwayTileMovement:
 	step UP
 	step RIGHT
 	step RIGHT
@@ -124,24 +100,7 @@ GoldenrodPokeCenter1FLinkReceptionistApproachPlayerAtLeftDoorwayTileMovement:
 	turn_head DOWN
 	step_end
 
-GoldenrodPokeCenter1FLinkReceptionistWalkToStairsFromLeftDoorwayTileMovement:
-	step LEFT
-	step LEFT
-	step LEFT
-	step DOWN
-	step_end
-
-GoldenrodPokeCenter1FLinkReceptionistApproachPlayerAtRightDoorwayTileMovement:
-	step UP
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	turn_head DOWN
-	step_end
-
-GoldenrodPokeCenter1FLinkReceptionistWalkToStairsFromRightDoorwayTileMovement:
-	step LEFT
+GoldenrodPokeCenter1FLinkReceptionistWalkToStairsFromDoorwayTileMovement:
 	step LEFT
 	step LEFT
 	step LEFT
@@ -810,8 +769,6 @@ GoldenrodPokecenter1F_MapEvents:
 	warp_event  0,  7, POKECENTER_2F, 1
 
 	def_coord_events
-	coord_event  3,  7, SCENE_GOLDENRODPOKECENTER1F_GS_BALL, GoldenrodPokecenter1F_GSBallSceneLeft
-	coord_event  4,  7, SCENE_GOLDENRODPOKECENTER1F_GS_BALL, GoldenrodPokecenter1F_GSBallSceneRight
 
 	def_bg_events
 

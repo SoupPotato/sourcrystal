@@ -194,7 +194,7 @@ GuitaristClydeAfterBattleText:
 	text "Speaking of the"
 	line "RADIO STATION,"
 
-	para "what's this week's"
+	para "what's today's"
 	line "lucky number?"
 	done
 

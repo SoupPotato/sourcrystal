@@ -186,7 +186,7 @@ _CGB_PokegearPals:
 	ld hl, MalePokegearPals
 .got_pals
 	ld de, wBGPals1
-	ld bc, 6 palettes
+	ld bc, 7 palettes
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
 	call ApplyPals

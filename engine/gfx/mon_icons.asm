@@ -436,23 +436,13 @@ GetSpeciesIcon:
 	call GetIconGFX
 	ret
 
-FlyFunction_GetMonIcon:
+FlyFunction_GetMonIcon: ; hardcoded to pidgeot
 	push de
-	ld a, [wTempIconSpecies]
+	ld a, ICON_PIDGEOT
 	ld [wCurIcon], a
 	pop de
 	ld a, e
 	call GetIcon_a
-
-	; Edit the OBJ 0 palette so that the cursor Pokémon has the right colors.
-	ld a, MON_DVS
-	call GetPartyParamLocation
-	call GetMenuMonIconPalette
-	add a
-	add a
-	add a
-	ld e, a
-	farcall SetFirstOBJPalette
 	ret
 
 GetMonIconDE: ; unreferenced

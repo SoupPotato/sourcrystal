@@ -3198,6 +3198,7 @@ TownMapMon:
 ; Get FlyMon icon
 	ld e, $08 ; starting tile in VRAM
 	farcall GetSpeciesIcon
+	farcall SetMenuMonIconColor ; ??????????
 ; Animation/palette
 	depixel 0, 0
 	ld a, SPRITE_ANIM_OBJ_PARTY_MON

@@ -984,8 +984,8 @@ PokegearClock_Joypad:
 	ret
 
 .quit
-	ld hl, wJumptableIndex
-	set 7, [hl]
+	ld a, $80
+	ld [wJumptableIndex], a
 	ret
 
 .UpdateClock:

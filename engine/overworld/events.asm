@@ -866,6 +866,7 @@ CountStep:
 	and a
 	jr nz, .done
 
+	call DoFossilStep
 	; If there is a special phone call, don't count the step.
 	farcall CheckSpecialPhoneCall
 	jr c, .doscript

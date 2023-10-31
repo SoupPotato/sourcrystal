@@ -738,6 +738,11 @@ INCLUDE "engine/debug/debug_room.asm"
 endc
 
 
+SECTION "Battle Weather Images", ROMX
+
+INCLUDE "gfx/weather_images.asm"
+
+
 SECTION "Battle Tower Text", ROMX
 
 INCLUDE "data/battle_tower/trainer_text.asm"

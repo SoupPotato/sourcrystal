@@ -1105,9 +1105,9 @@ StartedToRainText:
 	line "rain!"
 	prompt
 
-SunGotBrightText:
-	text "The sunlight got"
-	line "bright!"
+SunTurnedHarshText:
+	text "The sunlight"
+	line "turned harsh!"
 	prompt
 
 BellyDrumText:

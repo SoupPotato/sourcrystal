@@ -8,7 +8,7 @@ BattleCommand_StartSun:
 	ld a, 5
 	ld [wWeatherCount], a
 	call AnimateCurrentMove
-	ld hl, SunGotBrightText
+	ld hl, SunTurnedHarshText
 	jp StdBattleTextbox
 
 .failed

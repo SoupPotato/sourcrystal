@@ -71,8 +71,20 @@ if DEF(_DEBUG)
 	setflag ENGINE_POKEDEX
 	; useful items
 	giveitem MAX_REPEL, 99
-	giveitem MASTER_BALL, 99
 	giveitem RARE_CANDY, 99
+	giveitem POKE_BALL, 99
+	giveitem GREAT_BALL, 99
+	giveitem ULTRA_BALL, 99
+	giveitem MASTER_BALL, 99
+	giveitem HEAVY_BALL, 99
+	giveitem LEVEL_BALL, 99
+	giveitem LURE_BALL, 99
+	giveitem FAST_BALL, 99
+	giveitem FRIEND_BALL, 99
+	giveitem MOON_BALL, 99
+	giveitem LOVE_BALL, 99
+	giveitem PARK_BALL, 99
+	giveitem SAFARI_BALL, 99
 	giveitem TM_DYNAMICPUNCH
 	giveitem TM_HEADBUTT
 	giveitem TM_CURSE

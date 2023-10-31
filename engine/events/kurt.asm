@@ -173,7 +173,7 @@ PlaceApricornQuantity:
 
 Kurt_GetQuantityOfApricorn:
 	push bc
-	ld hl, wNumItems
+	ld hl, wNumBerries
 	ld a, [wCurItem]
 	ld c, a
 	ld b, 0

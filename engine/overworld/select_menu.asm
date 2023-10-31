@@ -32,9 +32,11 @@ CheckRegisteredItem:
 	dw .CheckBall
 	dw .CheckKeyItem
 	dw .CheckTMHM
+	dw .CheckBerry
 
 .CheckItem:
 	ld hl, wNumItems
+.StandardCheck:
 	call .CheckRegisteredNo
 	jr c, .NoRegisteredItem
 	inc hl
@@ -46,6 +48,10 @@ CheckRegisteredItem:
 	jr c, .NoRegisteredItem
 	and a
 	ret
+
+.CheckBerry:
+	ld hl, wNumBerries
+	jr .StandardCheck
 
 .CheckKeyItem:
 	ld a, [wRegisteredItem]

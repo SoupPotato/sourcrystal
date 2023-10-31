@@ -2849,6 +2849,7 @@ NEXTU
 wDudeNumItems:: db
 wDudeItems:: ds 2 * 4 + 1
 
+wDudeNumBerries::
 wDudeNumKeyItems:: db
 wDudeKeyItems:: ds 18 + 1
 
@@ -3003,7 +3004,13 @@ endr
 
 wStoneTableAddress:: dw
 
-	ds 62
+	ds 24
+
+
+wBerryPocketCursor::    db
+wBerryPocketScrollPosition::    db
+wNumBerries:: db
+wBerries:: ds MAX_BERRIES * 2 + 1
 
 wMapObjects::
 wPlayerObject:: map_object wPlayer ; player is map object 0

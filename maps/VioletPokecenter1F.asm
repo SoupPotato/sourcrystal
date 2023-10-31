@@ -22,8 +22,8 @@ VioletPokecenter1F_ElmsAideScript:
 .AskTakeEgg:
 	yesorno
 	iffalse .RefusedEgg
-	readvar VAR_PARTYCOUNT
-	ifequal PARTY_LENGTH, .PartyFull
+	readvar VAR_BOXSPACE
+	ifequal 0, .PartyFull
 	giveegg TOGEPI, EGG_LEVEL
 	getstring STRING_BUFFER_4, .eggname
 	scall .AideGivesEgg

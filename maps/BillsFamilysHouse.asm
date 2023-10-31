@@ -19,8 +19,8 @@ BillScript:
 	writetext BillImCountingOnYouText
 	promptbutton
 	waitsfx
-	readvar VAR_PARTYCOUNT
-	ifequal PARTY_LENGTH, .NoRoom
+	readvar VAR_BOXSPACE
+	ifequal 0, .NoRoom
 	writetext ReceivedEeveeText
 	playsound SFX_CAUGHT_MON
 	waitsfx
@@ -32,7 +32,7 @@ BillScript:
 	end
 
 .NoRoom:
-	writetext BillPartyFullText
+	writetext BillPCBoxFullText
 	waitbutton
 	closetext
 	end
@@ -153,10 +153,13 @@ BillEeveeMayEvolveText:
 	line "unknown ways."
 	done
 
-BillPartyFullText:
+BillPCBoxFullText:
 	text "Whoa, wait. You"
-	line "can't carry any"
-	cont "more #MON."
+	line "have no room in"
+	cont "your party or PC!"
+	
+	para "You best make some"
+	line "room first."
 	done
 
 BillNoEeveeText:

@@ -433,24 +433,24 @@ ElmGiveSpecialEggScript:
 	iftrue .HaveTotodileGiveCyndaquil
 	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
 	iftrue .HaveChikoritaGiveTotodile
-	readvar VAR_PARTYCOUNT
-	ifequal PARTY_LENGTH, .PartyFull
+	readvar VAR_BOXSPACE
+	ifequal 0, .PartyFull
 	giveegg CHIKORITA, 5
 	stringtotext .eggname, MEM_BUFFER_1
 	scall .GetStarterEgg
 	sjump ElmGiveTicketScript
 
 .HaveChikoritaGiveTotodile
-	readvar VAR_PARTYCOUNT
-	ifequal PARTY_LENGTH, .PartyFull
+	readvar VAR_BOXSPACE
+	ifequal 0, .PartyFull
 	giveegg TOTODILE, 5
 	stringtotext .eggname, MEM_BUFFER_1
 	scall .GetStarterEgg
 	sjump ElmGiveTicketScript
 	
 .HaveTotodileGiveCyndaquil
-	readvar VAR_PARTYCOUNT
-	ifequal PARTY_LENGTH, .PartyFull
+	readvar VAR_BOXSPACE
+	ifequal 0, .PartyFull
 	giveegg CYNDAQUIL, 5
 	stringtotext .eggname, MEM_BUFFER_1
 	scall .GetStarterEgg

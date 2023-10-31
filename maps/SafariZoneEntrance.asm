@@ -63,11 +63,8 @@ SafariZoneEntranceMainOfficerScript:
 	writetext SafariZoneEntranceMainOfficer_Text
 	yesorno
 	iffalse .SafariZoneEntranceMainOfficer_Declined
-	readvar VAR_PARTYCOUNT
-	ifless PARTY_LENGTH, .ContinueOfficer
 	readvar VAR_BOXSPACE
 	ifequal 0, .BoxFull
-.ContinueOfficer:
 	checkmoney YOUR_MONEY, 500
 	ifequal HAVE_LESS, .NotEnoughMoney
 	setflag ENGINE_SAFARI_ZONE

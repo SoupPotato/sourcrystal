@@ -284,6 +284,8 @@ BattleAnimations::
 	dw BattleAnim_HitConfusion
 	dw BattleAnim_InRain
 	dw BattleAnim_InSun
+	dw BattleAnim_ThrowRock
+	dw BattleAnim_ThrowBait
 	assert_table_length NUM_BATTLE_ANIMS + 1
 
 BattleAnim_Dummy:
@@ -411,6 +413,23 @@ BattleAnim_ThrowPokeBall:
 	anim_wait 2
 	anim_bgeffect BATTLE_BG_EFFECT_ENTER_MON, $0, BG_EFFECT_TARGET, $0
 	anim_wait 32
+	anim_ret
+
+BattleAnim_ThrowRock:
+	anim_2gfx BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_ROCKS
+	anim_sound 6, 2, SFX_BONE_CLUB
+	anim_obj BATTLE_ANIM_OBJ_SAFARI_ROCK, 64, 84, $10
+	anim_wait 36
+	anim_sound 0, 1, SFX_POUND
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 136, 52, $0
+	anim_wait 24
+	anim_ret
+
+BattleAnim_ThrowBait:
+	anim_1gfx BATTLE_ANIM_GFX_WAVE
+	anim_sound 6, 2, SFX_BONE_CLUB
+	anim_obj BATTLE_ANIM_OBJ_SAFARI_BAIT, 64, 92, $10
+	anim_wait 56
 	anim_ret
 
 BattleAnim_SendOutMon:

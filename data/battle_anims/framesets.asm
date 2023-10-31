@@ -186,7 +186,12 @@ BattleAnimFrameData:
 	dw .Frameset_PlayerHead1Row      ; BATTLE_ANIM_FRAMESET_PLAYERHEAD_1ROW
 	dw .Frameset_EnemyFeet2Row       ; BATTLE_ANIM_FRAMESET_ENEMYFEET_2ROW
 	dw .Frameset_PlayerHead2Row      ; BATTLE_ANIM_FRAMESET_PLAYERHEAD_2ROW
+	dw .Frameset_SafariBait
 	assert_table_length NUM_BATTLE_ANIM_FRAMESETS
+
+.Frameset_SafariBait:
+	oamframe BATTLE_ANIM_OAMSET_15, 8
+	oamend
 
 .Frameset_HitBig:
 	oamframe BATTLE_ANIM_OAMSET_00,  6

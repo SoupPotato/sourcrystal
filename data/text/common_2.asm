@@ -1408,6 +1408,12 @@ _StartMenuContestEndText::
 	line "end the Contest?"
 	done
 
+EndTheSafariGame_text::
+	text "Would you like to"
+	line "end your SAFARI"
+	cont "game?"
+	done
+
 _ItemsTossOutHowManyText::
 	text "Toss out how many"
 	line "@"

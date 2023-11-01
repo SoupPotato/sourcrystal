@@ -1132,31 +1132,9 @@ TitleScreenMain:
 ; To bring up the clock reset dialog:
 
 ; Hold Down + B + Select to initiate the sequence.
-	ldh a, [hClockResetTrigger]
-	cp $34
-	jr z, .check_clock_reset
-
 	ld a, [hl]
 	and D_DOWN + B_BUTTON + SELECT
 	cp  D_DOWN + B_BUTTON + SELECT
-	jr nz, .check_start
-
-	ld a, $34
-	ldh [hClockResetTrigger], a
-	jr .check_start
-
-; Keep Select pressed, and hold Left + Up.
-; Then let go of Select.
-.check_clock_reset
-	bit SELECT_F, [hl]
-	jr nz, .check_start
-
-	xor a
-	ldh [hClockResetTrigger], a
-
-	ld a, [hl]
-	and D_LEFT + D_UP
-	cp  D_LEFT + D_UP
 	jr z, .reset_clock
 
 ; Press Start or A to start the game.

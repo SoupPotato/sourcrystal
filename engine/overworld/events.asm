@@ -911,8 +911,9 @@ CountStep:
 	jr c, .doscript
 
 .skip_poison
+	call DoSafariStep
+	jr c, .doscript
 	farcall DoBikeStep
-	farcall DoSafariStep
 
 .done
 	xor a
@@ -954,7 +955,10 @@ DoSafariStep:
 	ret
 
 SafariZoneGameOver:
-	farcall BugCatchingContestOverScript ; TODO
+	ld a, BANK(SafariZoneGameOverScript)
+	ld hl, SafariZoneGameOverScript
+	call CallScript
+	scf
 	ret
 
 DoRepelStep:

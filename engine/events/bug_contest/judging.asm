@@ -226,7 +226,7 @@ ComputeAIContestantScores:
 	ld e, 0
 .loop
 	push de
-	call CheckBugContestContestantFlag
+	farcall CheckBugContestContestantFlag
 	pop de
 	jr nz, .done
 	ld a, e

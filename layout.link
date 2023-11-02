@@ -140,7 +140,6 @@ ROMX $31
 	"Sprites 2"
 ROMX $32
 	"bank32"
-	"The End"
 ROMX $33
 	"Move Animations"
 	"Extra Songs 2"
@@ -155,6 +154,7 @@ ROMX $37
 	"Tileset Data 6"
 ROMX $38
 	"bank38"
+	"The End"
 ROMX $39
 	"Copyright"
 	"bank39"

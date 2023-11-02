@@ -1,0 +1,70 @@
+; first 6 custom pals look like regular ones
+INCLUDE "gfx/battle_anims/battle_anims.pal"
+
+; purple
+	RGB 31, 31, 31
+	RGB 25, 09, 27
+	RGB 13, 02, 15
+	RGB 00, 00, 00
+; ice
+	RGB 31, 31, 31
+	RGB 13, 27, 31
+	RGB 10, 21, 29
+	RGB 00, 00, 00
+; fire
+	RGB 31, 31, 31
+	RGB 31, 24, 02
+	RGB 29, 03, 04
+	RGB 00, 00, 00
+; globe
+	RGB 31, 31, 31
+	RGB 03, 22, 31
+	RGB 04, 19, 08
+	RGB 00, 00, 00
+; water
+	RGB 31, 31, 31
+	RGB 00, 19, 28
+	RGB 08, 09, 28
+	RGB 00, 00, 00
+; bubble
+	RGB 31, 31, 31
+	RGB 19, 28, 28
+	RGB 00, 23, 28
+	RGB 03, 10, 30
+; dragonbreath
+	RGB 31, 31, 31
+	RGB 31, 26, 09
+	RGB 27, 08, 22
+	RGB 00, 00, 00
+; dragonrage
+	RGB 31, 31, 31
+	RGB 31, 29, 09
+	RGB 03, 09, 26
+	RGB 00, 00, 00
+; aurora
+	RGB 28, 22, 31
+	RGB 31, 31, 07
+	RGB 13, 27, 31
+	RGB 31, 20, 24
+; spore
+	RGB 31, 12 ,10
+	RGB 05, 27, 06
+	RGB 31, 31, 08
+	RGB 00, 28, 22
+; peach
+	RGB 31, 31, 31
+	RGB 31, 25, 14
+	RGB 31, 13, 04
+	RGB 00, 00, 00
+; lightscreen
+	RGB 31, 31, 31
+	RGB 16, 31, 28
+	RGB 00, 28, 22
+	RGB 00, 00, 00
+; mirrorcoat
+	RGB 31, 31, 31
+	RGB 31, 22, 25
+	RGB 29, 11, 11
+	RGB 00, 00, 00
+rept NUM_CUSTOM_BATTLE_PALETTES - 6
+endr

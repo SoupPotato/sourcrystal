@@ -186,12 +186,14 @@ BattleAnimFrameData:
 	dw .Frameset_PlayerHead1Row      ; BATTLE_ANIM_FRAMESET_PLAYERHEAD_1ROW
 	dw .Frameset_EnemyFeet2Row       ; BATTLE_ANIM_FRAMESET_ENEMYFEET_2ROW
 	dw .Frameset_PlayerHead2Row      ; BATTLE_ANIM_FRAMESET_PLAYERHEAD_2ROW
-	dw .Frameset_SafariBait
+	dw .Frameset_MediumHorn          ; BATTLE_ANIM_FRAMESET_MEDIUM_HORN
+	dw .Frameset_SafariBait          ; BATTLE_ANIM_FRAMESET_SAFARI_BAIT
+	dw .Frameset_Recover             ; BATTLE_ANIM_FRAMESET_RECOVER
+	dw .Frameset_Minimize            ; BATTLE_ANIM_FRAMESET_MINIMIZE
+	dw .Frameset_BubbleSplash        ; BATTLE_ANIM_FRAMESET_BUBBLE_SPLASH
+	dw .Frameset_SmokePuff           ; BATTLE_ANIM_FRAMESET_SMOKE_PUFF
+	dw .Frameset_InkSplash           ; BATTLE_ANIM_FRAMESET_INK_SPLASH
 	assert_table_length NUM_BATTLE_ANIM_FRAMESETS
-
-.Frameset_SafariBait:
-	oamframe BATTLE_ANIM_OAMSET_15, 8
-	oamend
 
 .Frameset_HitBig:
 	oamframe BATTLE_ANIM_OAMSET_00,  6
@@ -1272,4 +1274,34 @@ BattleAnimFrameData:
 
 .Frameset_PlayerHead2Row:
 	oamframe BATTLE_ANIM_OAMSET_D7,  8
+	oamend
+
+.Frameset_MediumHorn:
+	oamframe BATTLE_ANIM_OAMSET_D8,  9
+	oamdelete
+
+.Frameset_SafariBait:
+	oamframe BATTLE_ANIM_OAMSET_15,  8
+	oamend
+
+.Frameset_Recover:
+	oamframe BATTLE_ANIM_OAMSET_80,  8
+	oamend
+
+.Frameset_Minimize:
+	oamframe BATTLE_ANIM_OAMSET_14,  6
+	oamdelete
+
+.Frameset_BubbleSplash:
+	oamframe BATTLE_ANIM_OAMSET_BD,  8
+	oamend
+
+.Frameset_SmokePuff:
+	oamframe BATTLE_ANIM_OAMSET_BD,  2
+	oamframe BATTLE_ANIM_OAMSET_94,  2
+	oamframe BATTLE_ANIM_OAMSET_1B,  2
+	oamdelete
+
+.Frameset_InkSplash:
+	oamframe BATTLE_ANIM_OAMSET_1F,  8
 	oamend

@@ -349,39 +349,6 @@ BugContestResultsScript:
 	verbosegiveitem ORAN_BERRY
 	iffalse BugContestResults_NoRoomForBerry
 
-SafariZoneOverWarpScript:
-	playsound SFX_ENTER_DOOR
-	special ClearBGPalettes
-	waitsfx
-	warpfacing DOWN, SAFARI_ZONE_ENTRANCE, 3, 0
-	turnobject 4, RIGHT
-	applymovement PLAYER, Movement_SafariZoneOver_WalkAfterWarp
-	applymovement 4, MovementData_Officer2_Leave
-	opentext
-	writetext SafariZoneEntranceMainOfficer_AGoodCatchText
-	waitbutton
-	closetext
-	setevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_ACTIVE
-	clearevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE
-	setscene SCENE_SAFARIZONEENTRANCE_NOTHING
-	appear 3
-	pause 1
-	disappear 4
-	end
-
-SafariZoneEntranceMainOfficer_AGoodCatchText:
-	text "Did you get a"
-	line "good catch?"
-	
-	para "We look foward to"
-	line "your next visit!"
-	done
-
-MovementData_Officer2_Leave:
-	step RIGHT
-	step DOWN
-	step_end
-
 BugContestResults_DidNotWin:
 	farwritetext ContestResults_DidNotWinText
 	promptbutton
@@ -523,6 +490,39 @@ BugContestResults_CopyContestantsToResults:
 	clearevent EVENT_BUG_CATCHING_CONTESTANT_10B
 .skip10
 	end
+
+SafariZoneOverWarpScript:
+	playsound SFX_ENTER_DOOR
+	special ClearBGPalettes
+	waitsfx
+	warpfacing DOWN, SAFARI_ZONE_ENTRANCE, 3, 0
+	turnobject 4, RIGHT
+	applymovement PLAYER, Movement_SafariZoneOver_WalkAfterWarp
+	applymovement 4, MovementData_Officer2_Leave
+	opentext
+	writetext SafariZoneEntranceMainOfficer_AGoodCatchText
+	waitbutton
+	closetext
+	setevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_ACTIVE
+	clearevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE
+	setscene SCENE_SAFARIZONEENTRANCE_NOTHING
+	appear 3
+	pause 1
+	disappear 4
+	end
+
+SafariZoneEntranceMainOfficer_AGoodCatchText:
+	text "Did you get a"
+	line "good catch?"
+	
+	para "We look foward to"
+	line "your next visit!"
+	done
+
+MovementData_Officer2_Leave:
+	step RIGHT
+	step DOWN
+	step_end
 
 InitializeEventsScript:
 	setevent EVENT_EARLS_ACADEMY_EARL

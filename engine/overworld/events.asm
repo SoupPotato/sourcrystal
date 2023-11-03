@@ -1269,15 +1269,82 @@ _TryWildEncounter_BugContestOrSafariZone:
 	ret
 
 ChooseWildEncounter_BugContestOrSafariZone::
-; Pick a random mon out of ContestMons.
+; Pick the correct data
+	ld a, [wChallengeMode]
+	bit GAME_CHALLENGE_MODE_F, a
+	jr z, .not_challenge_mode
+	ld hl, ContestSafariMonsChallenge
+	jr .got_data
+.not_challenge_mode
+	ld hl, ContestSafariMonsNormal
+.got_data
+; map ids + (3 times of day * 10 entries * 4 bytes)
+	ld bc, 2 + (3 * 10*4)
 
-.loop
+.find_map_loop
+	ld a, [hl]
+	cp -1
+	ret z
+	
+	push hl
+
+; hl = -[hl]
+		cpl
+		inc hl
+		ld l, [hl]
+		ld h, a
+		ld a, l
+		cpl
+		ld l, a
+		or a ; reset carry
+		inc l
+		jr nc, .no_carry
+		inc h
+.no_carry
+		ld a, [wMapGroup]
+		ld d, a
+		ld a, [wMapNumber]
+		ld e, a
+
+; compare de with hl
+		add hl, de
+
+		ld a, h
+		or l
+	pop hl ; hl = start of data
+; (hl - de) == 0000?
+	jr z, .find_time_of_day ; got map
+	
+	add hl, bc ; next map
+	jr .find_map_loop
+	
+.find_time_of_day
+; move to start of table
+	inc hl
+	inc hl
+	ld a, [wTimeOfDay]
+	and a ; cp MORN_F
+	jr z, .pick_random_number_loop ; correct time of day
+	cp NITE_F
+	jr nz, .is_eve
+; + (20 entries * 4 bytes)
+	ld de, 20*4
+	jr .got_time_of_day
+.is_eve
+; + (10 entries * 4 bytes)
+	ld de, 10*4
+.got_time_of_day
+	add hl, de
+	
+; Pick a random mon
+
+.pick_random_number_loop
 	call Random
 	cp 100 << 1
-	jr nc, .loop
+	jr nc, .pick_random_number_loop
 	srl a
 
-	ld hl, ContestMons
+; already got hl here
 	ld de, 4
 .CheckMon:
 	sub [hl]
@@ -1339,7 +1406,8 @@ TryWildEncounter_BugContestOrSafariZone:
 	and a
 	ret
 
-INCLUDE "data/wild/bug_contest_mons.asm"
+INCLUDE "data/wild/bug_contest_safari_mons.asm"
+INCLUDE "data/wild/bug_contest_safari_mons_challenge.asm"
 
 DoBikeStep::
 	; If the bike shop owner doesn't have our number, or

@@ -1185,14 +1185,28 @@ RandomEncounter::
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
 	jr nz, .bug_contest
+	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
+	jr nz, .safari_zone
 	farcall TryWildEncounter
 	jr nz, .nope
 	jr .ok
 
 .bug_contest
-	call _TryWildEncounter_BugContest
+	call _TryWildEncounter_BugContestOrSafariZone
 	jr nc, .nope
 	jr .ok_bug_contest
+
+.safari_zone
+	ld a, [wPlayerState]
+	cp PLAYER_SURF
+	jr z, .PlayerIsSurfing
+	call _TryWildEncounter_BugContestOrSafariZone
+	jr nc, .nope
+	jr .ok_safari_zone
+
+.PlayerIsSurfing
+	farcall TryWildEncounter
+	jr z, .ok_safari_zone
 
 .nope
 	ld a, 1
@@ -1208,6 +1222,10 @@ RandomEncounter::
 	ld a, BANK(BugCatchingContestBattleScript)
 	ld hl, BugCatchingContestBattleScript
 	jr .done
+
+.ok_safari_zone
+	ld a, BANK(SafariZoneBattleScript)
+	ld hl, SafariZoneBattleScript
 
 .done
 	call CallScript
@@ -1243,14 +1261,14 @@ CanUseSweetScent::
 	and a
 	ret
 
-_TryWildEncounter_BugContest:
-	call TryWildEncounter_BugContest
+_TryWildEncounter_BugContestOrSafariZone:
+	call TryWildEncounter_BugContestOrSafariZone
 	ret nc
-	call ChooseWildEncounter_BugContest
+	call ChooseWildEncounter_BugContestOrSafariZone
 	farcall CheckRepelEffect
 	ret
 
-ChooseWildEncounter_BugContest::
+ChooseWildEncounter_BugContestOrSafariZone::
 ; Pick a random mon out of ContestMons.
 
 .loop
@@ -1303,7 +1321,7 @@ ChooseWildEncounter_BugContest::
 	xor a
 	ret
 
-TryWildEncounter_BugContest:
+TryWildEncounter_BugContestOrSafariZone:
 	ld a, [wPlayerTile]
 	call CheckSuperTallGrassTile
 	ld b, 40 percent

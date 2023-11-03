@@ -8088,7 +8088,7 @@ HandleSafariAngerEatingStatus:
 	assert wSafariMonEating - 1 == wSafariMonAngerCount
 	ld a, [hl]
 	and a
-	ret z
+	jr z, .watching
 	dec [hl]
 	ld hl, BattleText_WildMonIsAngry
 	jr nz, .finish
@@ -8099,6 +8099,10 @@ HandleSafariAngerEatingStatus:
 	ld a, [wBaseCatchRate]
 	ld [wEnemyMonCatchRate], a
 	pop hl
+	jr .finish
+
+.watching
+	ld hl, BattleText_WildMonIsWatching
 
 .finish
 	push hl

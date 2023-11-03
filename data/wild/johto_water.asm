@@ -51,6 +51,27 @@ JohtoWaterWildMons:
 	db 15, GOLDUCK
 	end_water_wildmons
 
+	def_water_wildmons SAFARI_ZONE_AREA_1
+	db 10 percent ; encounter rate
+	db 18, MAGIKARP
+	db 18, MARILL
+	db 18, WOOPER
+	end_water_wildmons
+
+	def_water_wildmons SAFARI_ZONE_AREA_3
+	db 10 percent ; encounter rate
+	db 18, POLIWAG
+	db 18, GRIMER
+	db 18, PSYDUCK
+	end_water_wildmons
+
+	def_water_wildmons SAFARI_ZONE_AREA_4
+	db 10 percent ; encounter rate
+	db 18, TENTACOOL
+	db 18, KRABBY
+	db 18, LAPRAS
+	end_water_wildmons
+
 	def_water_wildmons MOUNT_MORTAR_1F_OUTSIDE
 	db 4 percent ; encounter rate
 	db 15, GOLDEEN

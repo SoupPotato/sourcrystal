@@ -1407,7 +1407,7 @@ TryWildEncounter_BugContestOrSafariZone:
 	ret
 
 INCLUDE "data/wild/bug_contest_safari_mons.asm"
-INCLUDE "data/wild/bug_contest_safari_mons_challenge.asm"
+INCLUDE "data/wild/challenge_mode/bug_contest_safari_mons.asm"
 
 DoBikeStep::
 	; If the bike shop owner doesn't have our number, or

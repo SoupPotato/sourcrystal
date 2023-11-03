@@ -98,6 +98,7 @@ JohtoWaterWildMonsChallenge:
 	db 25, TENTACOOL
 	db 20, HORSEA
 	db 25, TENTACRUEL
+	end_water_wildmons
 
 	def_water_wildmons WHIRL_ISLAND_B2F
 	db 4 percent ; encounter rate

@@ -211,14 +211,10 @@ if DEF(_DEBUG)
 	givepoke WEEZING, 50, LEFTOVERS
 	givepoke MAGMAR, 50, LEFTOVERS
 	givepoke MAGNETON, 50, LEFTOVERS
-	loadmem wPartyMon1Moves+0, BEAT_UP
-	loadmem wPartyMon1Moves+1, SUNNY_DAY
-	loadmem wPartyMon1Moves+2, SANDSTORM
-	loadmem wPartyMon1Moves+3, RAIN_DANCE
-;	loadmem wPartyMon1Moves+0, AURORA_BEAM
-;	loadmem wPartyMon1Moves+1, DRAGONBREATH
-;	loadmem wPartyMon1Moves+2, BUBBLEBEAM
-;	loadmem wPartyMon1Moves+3, DRAGON_RAGE
+	loadmem wPartyMon1Moves+0, AURORA_BEAM
+	loadmem wPartyMon1Moves+1, DRAGONBREATH
+	loadmem wPartyMon1Moves+2, BUBBLEBEAM
+	loadmem wPartyMon1Moves+3, DRAGON_RAGE
 	loadmem wPartyMon2Moves+0, PSYCHIC_M
 	loadmem wPartyMon2Moves+1, GUST
 	loadmem wPartyMon2Moves+2, SLEEP_POWDER
@@ -250,9 +246,9 @@ if DEF(_DEBUG)
 	loadmem wPartyMon6DVs+0, $ea
 	loadmem wPartyMon6DVs+1, $aa
 ;	; Grant All Pokemon
-;	for x, NUM_POKEMON
-;	givepoke BULBASAUR + x, 50
-;endr
+	for x, NUM_POKEMON
+	givepoke BULBASAUR + x, 50
+endr
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1

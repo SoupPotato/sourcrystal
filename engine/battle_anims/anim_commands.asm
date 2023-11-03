@@ -163,6 +163,7 @@ BattleAnimRestoreHuds:
 	ld hl, UpdateBattleHuds
 	ld a, BANK(UpdatePlayerHUD)
 	call FarCall_hl
+	farcall FinishBattleAnim
 
 	pop af
 	ldh [rSVBK], a
@@ -360,8 +361,8 @@ BattleAnimCommands::
 	dw BattleAnimCmd_E7
 	dw BattleAnimCmd_UpdateActorPic
 	dw BattleAnimCmd_Minimize
-	dw BattleAnimCmd_EA ; dummy
-	dw BattleAnimCmd_EB ; dummy
+	dw BattleAnimCmd_SetBgPal
+	dw BattleAnimCmd_SetObjPal
 	dw BattleAnimCmd_EC ; dummy
 	dw BattleAnimCmd_ED ; dummy
 	dw BattleAnimCmd_IfParamAnd
@@ -1027,19 +1028,18 @@ GetSubstitutePic: ; used only for BANK(GetSubstitutePic)
 	ret
 
 BattleAnimCmd_MinimizeOpp:
-	ldh a, [rSVBK]
-	push af
-	ld a, 1 ; unnecessary bankswitch?
-	ldh [rSVBK], a
-
-	xor a ; BANK(sScratch)
-	call OpenSRAM
-	call GetMinimizePic
-	call Request2bpp
-	call CloseSRAM
-
-	pop af
-	ldh [rSVBK], a
+	;Disabled for new animation. Remove comments (;) to re-enable
+	;ld a, [rSVBK]
+	;push af
+	;ld a, 1 ; unnecessary bankswitch?
+	;ld [rSVBK], a
+	;xor a ; sScratch
+	;call GetSRAMBank
+	;call GetMinimizePic
+	;call Request2bpp
+	;call CloseSRAM
+	;pop af
+	;ld [rSVBK], a
 	ret
 
 GetMinimizePic:
@@ -1098,6 +1098,100 @@ BattleAnimCmd_Minimize:
 	pop af
 	ldh [rSVBK], a
 	ret
+
+BattleAnimCmd_SetBgPal:
+	xor a
+	jr SetBattleAnimPal
+BattleAnimCmd_SetObjPal:
+	ld a, 1
+SetBattleAnimPal:
+	; This denotes whether to reference bg pals or obj pals.
+	ld b, a
+
+	call GetBattleAnimByte
+	ld d, a
+	call GetBattleAnimByte
+	ld e, a
+	ld a, d
+	cp PAL_BATTLE_BG_USER
+	assert PAL_BATTLE_BG_USER + 1 == PAL_BATTLE_BG_TARGET
+	ld a, b
+
+	; User/Target pal handling should always index based on bg pal.
+	ld b, 0
+	jr z, .UserPal
+	jr nc, .TargetPal
+	ld b, a
+.finish
+	call .SetPaletteData
+	jp SetPalettes
+
+.UserPal:
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .EnemyPal
+.PlayerPal:
+	; Backpic.
+	ld d, PAL_BATTLE_BG_PLAYER
+	call .SetPaletteData
+
+	; Head. + 8 to reference object palettes.
+	ld d, PAL_BATTLE_OB_PLAYER + 8
+	jr .finish
+
+.TargetPal:
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .PlayerPal
+.EnemyPal:
+	; Frontpic.
+	ld d, PAL_BATTLE_BG_ENEMY
+	call .SetPaletteData
+
+	; Feet.
+	ld d, PAL_BATTLE_OB_ENEMY + 8
+	jr .finish
+
+.SetPaletteData:
+	push de
+	push bc
+
+	; Check if we should reference BG or OBJ pals.
+	dec b
+	jr nz, .got_pal_target
+	ld a, d
+	add 8 ; wBGPals + 8 palettes == wOBPals1
+	ld d, a
+
+.got_pal_target
+	; Get palette to change.
+	ld hl, wBGPals1
+	ld bc, 1 palettes
+	ld a, d
+	call AddNTimes
+
+	; Get palette to set.
+	call SwapHLDE
+	ld a, l
+	inc l
+	jr z, .SetDefaultPal
+	ld hl, CustomBattlePalettes
+	call AddNTimes
+
+	; Write the palette.
+	call FarCopyColorWRAM
+.done_setpal
+	pop bc
+	pop de
+	ret
+
+.SetDefaultPal:
+	ld b, h
+	farcall SetDefaultBattlePalette
+	jr .done_setpal
+
+CustomBattlePalettes:
+INCLUDE "gfx/battle_anims/custom.pal"
 
 BattleAnimCmd_DropSub:
 	ldh a, [rSVBK]

@@ -79,10 +79,10 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_THUNDER_LEFT        ; 2e
 	const BATTLE_ANIM_OBJ_THUNDER_RIGHT       ; 2f
 	const BATTLE_ANIM_OBJ_THUNDER_WAVE        ; 30
-	const BATTLE_ANIM_OBJ_SPARKS_CIRCLE_BIG   ; 31
-	const BATTLE_ANIM_OBJ_THUNDERBOLT_BALL    ; 32
-	const BATTLE_ANIM_OBJ_SPARKS_CIRCLE       ; 33
-	const BATTLE_ANIM_OBJ_THUNDERSHOCK_BALL   ; 34
+	const BATTLE_ANIM_OBJ_THUNDERBOLT_SPARKS  ; 31
+	const BATTLE_ANIM_OBJ_THUNDERBOLT_CORE    ; 32
+	const BATTLE_ANIM_OBJ_THUNDERSHOCK_SPARKS ; 33
+	const BATTLE_ANIM_OBJ_THUNDERSHOCK_CORE   ; 34
 	const BATTLE_ANIM_OBJ_CLAMP               ; 35
 	const BATTLE_ANIM_OBJ_BITE                ; 36
 	const BATTLE_ANIM_OBJ_CUT_DOWN_LEFT       ; 37
@@ -218,8 +218,15 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_PLAYERHEAD_1ROW     ; b9
 	const BATTLE_ANIM_OBJ_ENEMYFEET_2ROW      ; ba
 	const BATTLE_ANIM_OBJ_PLAYERHEAD_2ROW     ; bb
-	const BATTLE_ANIM_OBJ_SAFARI_ROCK         ; bc
-	const BATTLE_ANIM_OBJ_SAFARI_BAIT         ; bd
+	const BATTLE_ANIM_OBJ_MINIMIZE            ; bc
+	const BATTLE_ANIM_OBJ_MEDIUM_HORN         ; bd
+	const BATTLE_ANIM_OBJ_SAFARI_ROCK         ; be
+	const BATTLE_ANIM_OBJ_SAFARI_BAIT         ; bf
+	const BATTLE_ANIM_OBJ_RISING_BUBBLE       ; c0
+	const BATTLE_ANIM_OBJ_BUBBLE_SPLASH       ; c1
+	const BATTLE_ANIM_OBJ_OCTAZOOKA_SMOKE     ; c2
+	const BATTLE_ANIM_OBJ_INK_SPLASH          ; c3
+	const BATTLE_ANIM_OBJ_DAZZLE              ; c4
 DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -304,6 +311,7 @@ DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 	const BATTLE_ANIM_FUNC_ANCIENT_POWER             ; 4d
 	const BATTLE_ANIM_FUNC_ROCK_SMASH                ; 4e
 	const BATTLE_ANIM_FUNC_COTTON                    ; 4f
+	const BATTLE_ANIM_FUNC_BUBBLE_SPLASH             ; 50
 DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 
 ; BattleAnimFrameData indexes (see data/battle_anims/framesets.asm)
@@ -493,7 +501,13 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_PLAYERHEAD_1ROW       ; b6
 	const BATTLE_ANIM_FRAMESET_ENEMYFEET_2ROW        ; b7
 	const BATTLE_ANIM_FRAMESET_PLAYERHEAD_2ROW       ; b8
-	const BATTLE_ANIM_FRAMESET_SAFARI_BAIT
+	const BATTLE_ANIM_FRAMESET_MEDIUM_HORN           ; b9
+	const BATTLE_ANIM_FRAMESET_SAFARI_BAIT           ; ba
+	const BATTLE_ANIM_FRAMESET_RECOVER               ; bb
+	const BATTLE_ANIM_FRAMESET_MINIMIZE              ; bc
+	const BATTLE_ANIM_FRAMESET_BUBBLE_SPLASH         ; bd
+	const BATTLE_ANIM_FRAMESET_SMOKE_PUFF            ; be
+	const BATTLE_ANIM_FRAMESET_INK_SPLASH            ; bf
 DEF NUM_BATTLE_ANIM_FRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
@@ -714,6 +728,7 @@ DEF NUM_BATTLE_ANIM_FRAMESETS EQU const_value
 	const BATTLE_ANIM_OAMSET_D5
 	const BATTLE_ANIM_OAMSET_D6
 	const BATTLE_ANIM_OAMSET_D7
+	const BATTLE_ANIM_OAMSET_D8
 DEF NUM_BATTLE_ANIM_OAMSETS EQU const_value
 
 assert NUM_BATTLE_ANIM_OAMSETS <= FIRST_OAM_CMD, \
@@ -816,10 +831,12 @@ DEF NUM_BATTLE_BG_EFFECTS EQU const_value - 1
 	const BATTLE_ANIM_GFX_OBJECTS    ; 23
 	const BATTLE_ANIM_GFX_SHINE      ; 24
 	const BATTLE_ANIM_GFX_ANGELS     ; 25
-	const BATTLE_ANIM_GFX_WAVE       ; 26
+	const BATTLE_ANIM_GFX_MISC_2     ; 26
 	const BATTLE_ANIM_GFX_AEROBLAST  ; 27
-	const BATTLE_ANIM_GFX_PLAYERHEAD ; 28
-	const BATTLE_ANIM_GFX_ENEMYFEET   ; 29
+	const BATTLE_ANIM_GFX_BEAM_LIGHT ; 28
+	const BATTLE_ANIM_GFX_SMOKE_PUFF ; 29
+	const BATTLE_ANIM_GFX_PLAYERHEAD ; 2a
+	const BATTLE_ANIM_GFX_ENEMYFEET  ; 2b
 DEF NUM_BATTLE_ANIM_GFX EQU const_value - 1
 
 ; battle_bg_effect struct members (see macros/ram.asm)
@@ -846,6 +863,10 @@ DEF NUM_BG_EFFECTS EQU 5 ; see wActiveBGEffects
 	const PAL_BATTLE_BG_5         ; 5
 	const PAL_BATTLE_BG_6         ; 6
 	const PAL_BATTLE_BG_TEXT      ; 7
+; sentinel palette indices that denote "user" or "target" for battle pics
+; (anim_setbgpal applies them to the relevant obj palettes too)
+	const PAL_BATTLE_BG_USER       ; 8
+	const PAL_BATTLE_BG_TARGET     ; 9
 
 ; animation object palettes
 	const_def
@@ -857,3 +878,29 @@ DEF NUM_BG_EFFECTS EQU 5 ; see wActiveBGEffects
 	const PAL_BATTLE_OB_GREEN  ; 5
 	const PAL_BATTLE_OB_BLUE   ; 6
 	const PAL_BATTLE_OB_BROWN  ; 7
+
+; custom bg/obj palettes (see gfx/battle_anims/custom.pal)
+; the first 6 matches PAL_BATTLE_OB_GRAY/YELLOW/...
+	const_def
+	const PAL_BTLCUSTOM_GRAY            ; 0
+	const PAL_BTLCUSTOM_YELLOW          ; 1
+	const PAL_BTLCUSTOM_RED             ; 2
+	const PAL_BTLCUSTOM_GREEN           ; 3
+	const PAL_BTLCUSTOM_BLUE            ; 4
+	const PAL_BTLCUSTOM_BROWN           ; 5
+	const PAL_BTLCUSTOM_PURPLE          ; 6
+	const PAL_BTLCUSTOM_ICE             ; 7
+	const PAL_BTLCUSTOM_FIRE            ; 8
+	const PAL_BTLCUSTOM_GLOBE           ; 9
+	const PAL_BTLCUSTOM_WATER           ; a
+	const PAL_BTLCUSTOM_BUBBLE          ; b
+	const PAL_BTLCUSTOM_DRAGONBREATH    ; c
+	const PAL_BTLCUSTOM_DRAGON_RAGE     ; d
+	const PAL_BTLCUSTOM_AURORA          ; e
+	const PAL_BTLCUSTOM_SPORE           ; f
+	const PAL_BTLCUSTOM_PEACH           ; 10
+	const PAL_BTLCUSTOM_LIGHT_SCREEN    ; 11
+	const PAL_BTLCUSTOM_MIRROR_COAT     ; 12
+DEF NUM_CUSTOM_BATTLE_PALETTES EQU const_value
+
+DEF PAL_BTLCUSTOM_DEFAULT EQU -1

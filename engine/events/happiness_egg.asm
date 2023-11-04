@@ -195,7 +195,7 @@ DayCareStep::
 
 	call Random
 	ld [hl], a
-	farcall CheckBreedmonCompatibility
+	callfar CheckBreedmonCompatibility
 	ld a, [wBreedingCompatibility]
 	cp 230
 	ld b, 31 percent + 1

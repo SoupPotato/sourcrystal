@@ -36,8 +36,8 @@ InitPartyMenuLayout:
 
 LoadPartyMenuGFX:
 	call LoadFontsBattleExtra
-	farcall InitPartyMenuPalettes
-	farcall ClearSpriteAnims2
+	callfar InitPartyMenuPalettes
+	callfar ClearSpriteAnims2
 	ret
 
 WritePartyMenuTilemap:
@@ -601,7 +601,7 @@ InitPartyMenuGFX:
 	ld hl, LoadMenuMonIcon
 	ld a, BANK(LoadMenuMonIcon)
 	ld e, MONICON_PARTYMENU
-	call FarCall_hl
+	rst FarCall
 	ldh a, [hObjectStructIndex]
 	inc a
 	ldh [hObjectStructIndex], a
@@ -609,7 +609,7 @@ InitPartyMenuGFX:
 	pop bc
 	dec c
 	jr nz, .loop
-	farcall PlaySpriteAnimations
+	callfar PlaySpriteAnimations
 	ret
 
 InitPartyMenuWithCancel:

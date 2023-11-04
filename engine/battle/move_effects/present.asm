@@ -48,7 +48,7 @@ BattleCommand_Present:
 	ld hl, AICheckEnemyMaxHP
 .got_hp_fn_pointer
 	ld a, BANK(AICheckPlayerMaxHP) ; aka BANK(AICheckEnemyMaxHP)
-	call FarCall_hl
+	rst FarCall
 	jr c, .already_fully_healed
 
 	ld hl, GetQuarterMaxHP

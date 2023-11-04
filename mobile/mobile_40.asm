@@ -119,7 +119,7 @@ Function1000ba:
 	ld a, [wcd22]
 	call GetFarWord
 	ld a, [wcd22]
-	call FarCall_hl
+	rst FarCall
 
 	call Function1000e8
 	call Function1000fa
@@ -1753,7 +1753,7 @@ Function100b45:
 Function100b7a:
 	ld hl, CopyMenuData
 	ld a, [wMenuData_2DMenuItemStringsBank]
-	call FarCall_hl
+	rst FarCall
 	farcall Draw2DMenu
 	farcall MobileTextBorder
 	call UpdateSprites

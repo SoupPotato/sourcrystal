@@ -911,7 +911,7 @@ OaksPKMNTalk14:
 	dec [hl]
 	ret nz
 	ld de, MUSIC_POKEMON_TALK
-	farcall RadioMusicRestartDE
+	callfar RadioMusicRestartDE
 	ld hl, .terminator
 	call PrintText
 	ld a, OAKS_POKEMON_TALK_4
@@ -1036,7 +1036,7 @@ StartPokemonMusicChannel:
 	jr z, .SunTueThurSun
 	ld de, MUSIC_POKEMON_LULLABY
 .SunTueThurSun:
-	farcall RadioMusicRestartDE
+	callfar RadioMusicRestartDE
 	ret
 
 BenIntroText1:
@@ -1280,12 +1280,12 @@ PeoplePlaces4: ; People
 	pop bc
 	jr c, PeoplePlaces4
 	push bc
-	farcall GetTrainerClassName
+	callfar GetTrainerClassName
 	ld de, wStringBuffer1
 	call CopyName1
 	pop bc
 	ld b, 1
-	farcall GetTrainerName
+	callfar GetTrainerName
 	ld hl, PnP_Text4
 	ld a, PLACES_AND_PEOPLE_5
 	jp NextRadioLine
@@ -1973,7 +1973,7 @@ StartRadioStation:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	farcall RadioMusicRestartDE
+	callfar RadioMusicRestartDE
 	ret
 
 INCLUDE "data/radio/channel_music.asm"

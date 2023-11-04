@@ -55,7 +55,7 @@ ItemIsMail_a::
 	push de
 	push bc
 	ld d, a
-	farcall ItemIsMail
+	newfarcall ItemIsMail
 	jp PopBCDEHL
 
 CheckItem::

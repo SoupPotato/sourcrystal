@@ -45,7 +45,7 @@ DontSwitch:
 	ret
 
 SwitchOften:
-	farcall CheckAbleToSwitch
+	callfar CheckAbleToSwitch
 	ld a, [wEnemySwitchMonParam]
 	and $f0
 	jp z, DontSwitch
@@ -80,7 +80,7 @@ SwitchOften:
 	jp AI_TrySwitch
 
 SwitchRarely:
-	farcall CheckAbleToSwitch
+	callfar CheckAbleToSwitch
 	ld a, [wEnemySwitchMonParam]
 	and $f0
 	jp z, DontSwitch
@@ -114,7 +114,7 @@ SwitchRarely:
 	jp AI_TrySwitch
 
 SwitchSometimes:
-	farcall CheckAbleToSwitch
+	callfar CheckAbleToSwitch
 	ld a, [wEnemySwitchMonParam]
 	and $f0
 	jp z, DontSwitch
@@ -346,12 +346,12 @@ AI_Items:
 	ld a, [bc]
 	bit CONTEXT_USE_F, a
 	jr nz, .CheckHalfOrQuarterHP
-	farcall AICheckEnemyHalfHP
+	callfar AICheckEnemyHalfHP
 	jp c, .DontUse
 	ld a, [bc]
 	bit UNKNOWN_USE_F, a
 	jp nz, .CheckQuarterHP
-	farcall AICheckEnemyQuarterHP
+	callfar AICheckEnemyQuarterHP
 	jp nc, .UseHealItem
 	call Random
 	cp 50 percent + 1
@@ -359,7 +359,7 @@ AI_Items:
 	jp .DontUse
 
 .CheckQuarterHP:
-	farcall AICheckEnemyQuarterHP
+	callfar AICheckEnemyQuarterHP
 	jp c, .DontUse
 	call Random
 	cp 20 percent - 1
@@ -367,9 +367,9 @@ AI_Items:
 	jr .UseHealItem
 
 .CheckHalfOrQuarterHP:
-	farcall AICheckEnemyHalfHP
+	callfar AICheckEnemyHalfHP
 	jp c, .DontUse
-	farcall AICheckEnemyQuarterHP
+	callfar AICheckEnemyQuarterHP
 	jp nc, .UseHealItem
 	call Random
 	cp 20 percent - 1
@@ -403,7 +403,7 @@ AI_Items:
 
 .UnusedHealItem: ; unreferenced
 ; This has similar conditions to .HealItem
-	farcall AICheckEnemyMaxHP
+	callfar AICheckEnemyMaxHP
 	jr c, .dont_use
 	push bc
 	ld de, wEnemyMonMaxHP + 1
@@ -420,7 +420,7 @@ AI_Items:
 	ld a, c
 	cp b
 	jp c, .check_50_percent
-	farcall AICheckEnemyQuarterHP
+	callfar AICheckEnemyQuarterHP
 	jr c, .check_40_percent
 
 .check_50_percent
@@ -676,7 +676,7 @@ AI_Switch:
 	res SUBSTATUS_RAGE, [hl]
 	xor a
 	ldh [hBattleTurn], a
-	farcall PursuitSwitch
+	callfar PursuitSwitch
 
 	push af
 	ld a, [wCurOTMon]
@@ -697,8 +697,8 @@ AI_Switch:
 .skiptext
 	ld a, 1
 	ld [wBattleHasJustStarted], a
-	farcall NewEnemyMonStatus
-	farcall ResetEnemyStatLevels
+	callfar NewEnemyMonStatus
+	callfar ResetEnemyStatLevels
 	ld hl, wPlayerSubStatus1
 	res SUBSTATUS_IN_LOVE, [hl]
 	farcall EnemySwitch

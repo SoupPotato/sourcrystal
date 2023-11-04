@@ -176,7 +176,7 @@ PlaceVWFString::
 ; Read while in ROM0 so [de] can be from any ROMX bank.
 .loop
 	ld a, [de]
-	farcall PlaceNextVWFChar
+	newfarcall PlaceNextVWFChar
 	jr nz, .loop
 	ret
 
@@ -188,7 +188,7 @@ GetVWFLength::
 	ld c, 0
 .loop
 	ld a, [de]
-	farcall _GetNextVWFLength
+	newfarcall _GetNextVWFLength
 	jr nz, .loop
 	ld a, c
 	pop bc
@@ -350,7 +350,7 @@ PlaceEnemysName::
 	ld de, String_Space
 	call PlaceString
 	push bc
-	farcall Battle_GetTrainerName
+	callfar Battle_GetTrainerName
 	pop hl
 	ld de, wStringBuffer1
 	jr PlaceCommandCharacter

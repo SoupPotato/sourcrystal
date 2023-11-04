@@ -7,7 +7,7 @@ BattleCommand_Counter:
 	ret z
 
 	ld b, a
-	farcall GetMoveEffect
+	callfar GetMoveEffect
 	ld a, b
 	cp EFFECT_COUNTER
 	ret z

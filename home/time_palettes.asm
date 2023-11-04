@@ -14,9 +14,9 @@ UpdateTimeAndPals::
 	ret z
 
 TimeOfDayPals::
-	farcall _TimeOfDayPals
+	callfar _TimeOfDayPals
 	ret
 
 UpdateTimePals::
-	farcall _UpdateTimePals
+	callfar _UpdateTimePals
 	ret

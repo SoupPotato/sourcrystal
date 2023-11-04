@@ -57,7 +57,7 @@ CheckOwnMonAnywhere:
 	jr z, .loop
 	ld c, MONS_PER_BOX
 .loop
-	farcall GetStorageBoxMon
+	newfarcall GetStorageBoxMon
 	jr z, .next
 
 	; Check if the species is correct

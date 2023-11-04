@@ -307,11 +307,11 @@ GetBattleAnimTileOffset:
 	ret
 
 _ExecuteBGEffects:
-	farcall ExecuteBGEffects
+	callfar ExecuteBGEffects
 	ret
 
 _QueueBGEffect:
-	farcall QueueBGEffect
+	callfar QueueBGEffect
 	ret
 
 INCLUDE "data/battle_anims/objects.asm"

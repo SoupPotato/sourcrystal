@@ -278,7 +278,7 @@ PCGiveItem:
 	; Ensure that we aren't trying to give Mail to a Pokémon in storage.
 	ld a, [wCurItem]
 	ld d, a
-	farcall ItemIsMail
+	newfarcall ItemIsMail
 	jr nc, .item_ok
 
 	ld a, [wBufferMonBox]
@@ -307,7 +307,7 @@ PCGiveItem:
 	ld de, wCurItem
 	ld a, [de]
 	ld [wBufferMonItem], a
-	farcall UpdateStorageBoxMonFromTemp
+	newfarcall UpdateStorageBoxMonFromTemp
 
 	; We know that if we're dealing with Mail, then we're giving to a partymon.
 	; Thus, there's no harm in using party-specific code.
@@ -316,7 +316,7 @@ PCGiveItem:
 	ld [wCurPartyMon], a
 	ld a, [wCurItem]
 	ld d, a
-	farcall ItemIsMail
+	newfarcall ItemIsMail
 	ret nc
 	jp ComposeMailMessage
 

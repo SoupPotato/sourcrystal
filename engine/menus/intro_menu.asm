@@ -140,7 +140,7 @@ _ResetWRAM:
 	ld [wCurBox], a
 	ld [wSavedAtLeastOnce], a
 
-	farcall InitializeBoxes
+	newfarcall InitializeBoxes
 
 	ld hl, wNumItems
 	call .InitList
@@ -933,7 +933,7 @@ Intro_PlacePlayerSprite:
 DEF NUM_TITLESCREENOPTIONS EQU const_value
 
 IntroSequence:
-	farcall SplashScreen
+	callfar SplashScreen
 	jr c, StartTitleScreen
 	farcall CrystalIntro
 

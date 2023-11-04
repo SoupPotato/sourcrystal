@@ -1128,7 +1128,6 @@ TryTileCollisionEvent::
 	; CheckFacingTileForStdScript preserves c, and
 	; farcall copies c back into a.
 	farcall CheckFacingTileForStdScript
-	ld a, c
 	jr c, .done
 
 	; CheckCutTreeTile expects a == [wFacingTileID], which

@@ -307,7 +307,7 @@ EvolveAfterBattle_MasterLoop:
 
 	ld hl, wTempMonDVs
 	predef GetUnownLetter
-	farcall UpdateUnownDex
+	callfar UpdateUnownDex
 
 .skip_unown
 	pop de

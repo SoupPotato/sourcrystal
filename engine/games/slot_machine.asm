@@ -114,7 +114,7 @@ _SlotMachine:
 	call ByteFill
 	ld b, SCGB_SLOT_MACHINE
 	call GetSGBLayout
-	farcall ClearSpriteAnims
+	callfar ClearSpriteAnims
 	ld hl, wSlots
 	ld bc, wSlotsDataEnd - wSlots
 	xor a
@@ -189,7 +189,7 @@ SlotsLoop:
 	call Slots_SpinReels
 	xor a
 	ld [wCurSpriteOAMAddr], a
-	farcall DoNextFrameForFirst16Sprites
+	callfar DoNextFrameForFirst16Sprites
 	call .PrintCoinsAndPayout
 	call .Stubbed_AlternateMatchingSevensPalette
 	call DelayFrame

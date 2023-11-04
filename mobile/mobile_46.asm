@@ -5523,7 +5523,7 @@ Text_ThisBattleRoomPleaseWait: ; unreferenced
 Function11ac3e:
 	call SpeechTextbox
 	call FadeToMenu
-	farcall ClearSpriteAnims2
+	callfar ClearSpriteAnims2
 	call Function11ac51
 	call CloseSubmenu
 	ret
@@ -5642,11 +5642,11 @@ Function11ad1b:
 	ld hl, LoadMenuMonIcon
 	ld a, BANK(LoadMenuMonIcon)
 	ld e, MONICON_MOBILE1
-	call FarCall_hl
+	rst FarCall
 	ld hl, LoadMenuMonIcon
 	ld a, BANK(LoadMenuMonIcon)
 	ld e, MONICON_MOBILE2
-	call FarCall_hl
+	rst FarCall
 	ld hl, wPokedexOrder
 	ld bc, $0115
 	xor a

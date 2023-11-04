@@ -367,7 +367,7 @@ StatsScreen_JoypadAction:
 	jr .set_page
 
 .prev_storage
-	farcall PrevStorageBoxMon
+	newfarcall PrevStorageBoxMon
 	jr nz, .load_storage_mon
 .done
 	ret
@@ -382,7 +382,7 @@ StatsScreen_JoypadAction:
 	ret
 
 .next_storage
-	farcall NextStorageBoxMon
+	newfarcall NextStorageBoxMon
 	jr z, .done
 .load_storage_mon
 	ld a, [wBufferMonAltSpecies]

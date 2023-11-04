@@ -366,12 +366,12 @@ DebugColor_InitScreen:
 .trainer
 	ld a, [wTextDecimalByte]
 	ld [wTrainerClass], a
-	farcall GetTrainerAttributes
+	callfar GetTrainerAttributes
 	ld de, wStringBuffer1
 	hlcoord 4, 1
 	call PlaceString
 	ld de, vTiles2
-	farcall GetTrainerPic
+	callfar GetTrainerPic
 	xor a
 	ld [wTempEnemyMonSpecies], a
 	ldh [hGraphicStartTile], a

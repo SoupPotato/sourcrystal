@@ -402,7 +402,7 @@ Function17d1f1:
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
 	predef GetUnownLetter
-	farcall UpdateUnownDex
+	callfar UpdateUnownDex
 	ld a, [wFirstUnownSeen]
 	and a
 	jr nz, .asm_17d223

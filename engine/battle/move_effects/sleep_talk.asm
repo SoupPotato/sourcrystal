@@ -120,7 +120,7 @@ BattleCommand_SleepTalk:
 	push bc
 
 	ld b, a
-	farcall GetMoveEffect
+	callfar GetMoveEffect
 	ld a, b
 
 	pop bc

@@ -41,7 +41,7 @@ CatchTutorial::
 	ld hl, .AutoInput
 	ld a, BANK(.AutoInput)
 	call StartAutoInput
-	farcall StartBattle
+	callfar StartBattle
 	call StopAutoInput
 	pop af
 

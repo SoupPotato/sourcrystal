@@ -46,7 +46,7 @@ ApplyTilemap::
 	bit 7, [hl]
 	pop hl
 	jr z, .regular_cgb
-	farjp BillsPC_ApplyTilemap
+	newfarjp BillsPC_ApplyTilemap
 
 .regular_cgb
 	ld a, 1

@@ -530,7 +530,7 @@ DayCare_InitBreeding:
 	ld a, [wDayCareMan]
 	bit DAYCAREMAN_HAS_MON_F, a
 	ret z
-	farcall CheckBreedmonCompatibility
+	callfar CheckBreedmonCompatibility
 	ld a, [wBreedingCompatibility]
 	and a
 	ret z
@@ -586,8 +586,8 @@ DayCare_InitBreeding:
 
 .GotMother:
 	ld [wCurPartySpecies], a
-	farcall GetPreEvolution
-	farcall GetPreEvolution
+	callfar GetPreEvolution
+	callfar GetPreEvolution
 	ld a, EGG_LEVEL
 	ld [wCurPartyLevel], a
 
@@ -627,7 +627,7 @@ DayCare_InitBreeding:
 	ld [hl], a
 	ld a, [wCurPartyLevel]
 	ld d, a
-	farcall CalcExpAtLevel
+	callfar CalcExpAtLevel
 	ld hl, wEggMonExp
 	ldh a, [hMultiplicand]
 	ld [hli], a

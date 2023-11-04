@@ -1261,7 +1261,8 @@ PokegearRadio_Joypad:
 	ld a, [wPokegearRadioChannelBank]
 	and a
 	ret z
-	jp FarCall_hl
+	rst FarCall
+	ret
 
 .to_pager
 	ld a, [wPokegearFlags]
@@ -2431,7 +2432,7 @@ PlayRadio:
 	ld a, [wPokegearRadioChannelBank]
 	and a
 	jr z, .zero
-	call FarCall_hl
+	rst FarCall
 .zero
 	call DelayFrame
 	jr .loop

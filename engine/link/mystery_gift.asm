@@ -41,9 +41,7 @@ DoMysteryGift:
 if DEF(_CRYSTAL11_VC)
 	farcall StagePartyDataForMysteryGift
 	call ClearMysteryGiftTrainer
-	nop ; no-optimize nop
-	nop ; no-optimize nop
-	nop ; no-optimize nop
+	nop ; no-optimize nops
 else
 	ld a, 2
 	ld [wMysteryGiftMessageCount], a
@@ -118,7 +116,7 @@ endc
 	pop bc
 	jr nz, .SentItem
 ; keep the decoration if it wasn't already received
-	farcall GetDecorationName_c
+	callfar GetDecorationName_c
 	ld h, d
 	ld l, e
 	ld de, wStringBuffer1
@@ -293,8 +291,6 @@ if DEF(_CRYSTAL11_VC)
 else
 	di
 	farcall ClearChannels
-	nop
-	nop
 	call InitializeIRCommunicationInterrupts
 
 .restart
@@ -1342,7 +1338,7 @@ CopyMysteryGiftReceivedDecorationsToPC:
 	pop bc
 	jr z, .skip
 	push bc
-	farcall SetSpecificDecorationFlag
+	callfar SetSpecificDecorationFlag
 	pop bc
 .skip
 	inc c

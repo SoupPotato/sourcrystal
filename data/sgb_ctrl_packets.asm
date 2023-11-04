@@ -122,7 +122,7 @@ DataSndPacket7:
 
 DataSndPacket8:
 	sgb_data_snd $0810, $0, 11
-	dbw $4c, $0820          ; jp $0820
+	dbw $4c, $0820          ; jmp $0820
 	db  $ea                 ; nop
 	db  $ea                 ; nop
 	db  $ea                 ; nop

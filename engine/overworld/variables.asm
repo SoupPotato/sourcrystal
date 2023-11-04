@@ -125,7 +125,7 @@ _GetVarAction::
 
 .BoxFreeSpace:
 ; Remaining database entries
-	farcall CheckFreeDatabaseEntries
+	newfarcall CheckFreeDatabaseEntries
 	jp .loadstringbuffer2
 
 .BattleResult:

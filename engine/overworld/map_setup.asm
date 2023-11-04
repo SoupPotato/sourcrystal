@@ -53,7 +53,7 @@ ReadMapSetupScript:
 .go
 	ld a, b
 	and $7f
-	call FarCall_hl
+	rst FarCall
 
 	pop hl
 	jr .loop

@@ -23,7 +23,7 @@ TMHMPocket:
 .ConvertItemToTMHMNumber:
 	ld a, [wCurItem]
 	ld c, a
-	farcall GetNumberedTMHM
+	callfar GetNumberedTMHM
 	ld a, c
 	ld [wCurItem], a
 	ret
@@ -31,7 +31,7 @@ TMHMPocket:
 ConvertCurItemIntoCurTMHM:
 	ld a, [wCurItem]
 	ld c, a
-	farcall GetTMHMNumber
+	callfar GetTMHMNumber
 	ld a, c
 	ld [wTempTMHM], a
 	ret
@@ -137,7 +137,7 @@ TeachTMHM:
 	jr .nope
 
 .compatible
-	farcall KnowsMove
+	callfar KnowsMove
 	jr c, .nope
 
 	predef LearnMove

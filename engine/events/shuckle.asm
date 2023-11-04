@@ -120,7 +120,7 @@ ReturnShuckie:
 	jr nc, .HappyToStayWithYou
 	xor a ; REMOVE_PARTY
 	ld [wPokemonWithdrawDepositParameter], a
-	farcall RemoveMonFromParty
+	callfar RemoveMonFromParty
 	ld a, SHUCKIE_RETURNED
 .HappyToStayWithYou:
 	ld [wScriptVar], a

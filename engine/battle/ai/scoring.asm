@@ -167,7 +167,7 @@ AI_Types:
 	push de
 	ld a, 1
 	ldh [hBattleTurn], a
-	farcall BattleCheckTypeMatchup
+	callfar BattleCheckTypeMatchup
 	pop de
 	pop bc
 	pop hl
@@ -412,7 +412,7 @@ AI_Smart_LeechHit:
 	push hl
 	ld a, 1
 	ldh [hBattleTurn], a
-	farcall BattleCheckTypeMatchup
+	callfar BattleCheckTypeMatchup
 	pop hl
 
 ; 60% chance to discourage this move if not very effective.
@@ -930,7 +930,7 @@ AI_Smart_ForceSwitch:
 ; Consider player's type(s) if its moves are unknown.
 
 	push hl
-	farcall CheckPlayerMoveTypeMatchups
+	callfar CheckPlayerMoveTypeMatchups
 	ld a, [wEnemyAISwitchScore]
 	cp BASE_AI_SWITCH_SCORE
 	pop hl
@@ -1294,7 +1294,7 @@ AI_Smart_Mimic:
 
 	ld a, 1
 	ldh [hBattleTurn], a
-	farcall BattleCheckTypeMatchup
+	callfar BattleCheckTypeMatchup
 
 	ld a, [wTypeMatchup]
 	cp EFFECTIVE
@@ -1638,9 +1638,9 @@ AI_Smart_PriorityHit:
 	ld a, 1
 	ldh [hBattleTurn], a
 	push hl
-	farcall EnemyAttackDamage
-	farcall BattleCommand_DamageCalc
-	farcall BattleCommand_Stab
+	callfar EnemyAttackDamage
+	callfar BattleCommand_DamageCalc
+	callfar BattleCommand_Stab
 	pop hl
 	ld a, [wCurDamage + 1]
 	ld c, a
@@ -1682,7 +1682,7 @@ AI_Smart_Conversion2:
 	xor a
 	ldh [hBattleTurn], a
 
-	farcall BattleCheckTypeMatchup
+	callfar BattleCheckTypeMatchup
 
 	ld a, [wTypeMatchup]
 	cp EFFECTIVE
@@ -1756,7 +1756,7 @@ AI_Smart_MeanLook:
 
 ; Otherwise, discourage this move unless the player only has not very effective moves against the enemy.
 	push hl
-	farcall CheckPlayerMoveTypeMatchups
+	callfar CheckPlayerMoveTypeMatchups
 	ld a, [wEnemyAISwitchScore]
 	cp BASE_AI_SWITCH_SCORE + 1 ; not very effective
 	pop hl
@@ -2002,7 +2002,7 @@ AI_Smart_Foresight:
 
 AI_Smart_PerishSong:
 	push hl
-	farcall FindAliveEnemyMons
+	callfar FindAliveEnemyMons
 	pop hl
 	jr c, .no
 
@@ -2011,7 +2011,7 @@ AI_Smart_PerishSong:
 	jr nz, .yes
 
 	push hl
-	farcall CheckPlayerMoveTypeMatchups
+	callfar CheckPlayerMoveTypeMatchups
 	ld a, [wEnemyAISwitchScore]
 	cp BASE_AI_SWITCH_SCORE
 	pop hl
@@ -2254,7 +2254,7 @@ AI_Smart_BatonPass:
 ; Consider player's type(s) if its moves are unknown.
 
 	push hl
-	farcall CheckPlayerMoveTypeMatchups
+	callfar CheckPlayerMoveTypeMatchups
 	ld a, [wEnemyAISwitchScore]
 	cp BASE_AI_SWITCH_SCORE
 	pop hl
@@ -2310,8 +2310,8 @@ AI_Smart_HiddenPower:
 	ldh [hBattleTurn], a
 
 ; Calculate Hidden Power's type and base power based on enemy's DVs.
-	farcall HiddenPowerDamage
-	farcall BattleCheckTypeMatchup
+	callfar HiddenPowerDamage
+	callfar BattleCheckTypeMatchup
 	pop hl
 
 ; Discourage Hidden Power if not very effective.
@@ -3041,13 +3041,13 @@ AIDamageCalc:
 	ld hl, ConstantDamageEffects
 	call IsInArray
 	jr nc, .notconstant
-	farcall BattleCommand_ConstantDamage
+	callfar BattleCommand_ConstantDamage
 	ret
 
 .notconstant
-	farcall EnemyAttackDamage
-	farcall BattleCommand_DamageCalc
-	farcall BattleCommand_Stab
+	callfar EnemyAttackDamage
+	callfar BattleCommand_DamageCalc
+	callfar BattleCommand_Stab
 	ret
 
 INCLUDE "data/battle/ai/constant_damage_effects.asm"
@@ -3142,7 +3142,7 @@ AI_Status:
 	push de
 	ld a, 1
 	ldh [hBattleTurn], a
-	farcall BattleCheckTypeMatchup
+	callfar BattleCheckTypeMatchup
 	pop de
 	pop bc
 	pop hl

@@ -331,7 +331,7 @@ EvolutionAnimation:
 
 .AnimateBallsOfLight:
 	push bc
-	farcall PlaySpriteAnimations
+	callfar PlaySpriteAnimations
 	; a = (([hVBlankCounter] + 4) / 2) % NUM_PALETTES
 	ldh a, [hVBlankCounter]
 	and %1110

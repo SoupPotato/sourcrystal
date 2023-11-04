@@ -3383,7 +3383,7 @@ PlayFXAnimID:
 
 	ld c, 3
 	call DelayFrames
-	farcall PlayBattleAnim
+	callfar PlayBattleAnim
 	ret
 
 DoEnemyDamage:
@@ -4985,7 +4985,7 @@ BattleCommand_ForceSwitch:
 	ld a, d
 	inc a
 	ld [wEnemySwitchMonIndex], a
-	farcall ForceEnemySwitch
+	callfar ForceEnemySwitch
 
 	ld hl, DraggedOutText
 	call StdBattleTextbox
@@ -6337,12 +6337,12 @@ BattleCommand_TimeBasedHealContinue:
 	ld h, [hl]
 	ld l, a
 	ld a, BANK(GetMaxHP)
-	call FarCall_hl
+	rst FarCall
 
 	call AnimateCurrentMove
 	call BattleCommand_SwitchTurn
 
-	farcall RestoreHP
+	callfar RestoreHP
 
 	call BattleCommand_SwitchTurn
 	call UpdateUserInParty
@@ -6552,7 +6552,7 @@ PlayUserBattleAnim:
 	push hl
 	push de
 	push bc
-	farcall PlayBattleAnim
+	callfar PlayBattleAnim
 	pop bc
 	pop de
 	pop hl
@@ -6571,7 +6571,7 @@ PlayOpponentBattleAnim:
 	push bc
 	call BattleCommand_SwitchTurn
 
-	farcall PlayBattleAnim
+	callfar PlayBattleAnim
 
 	call BattleCommand_SwitchTurn
 	pop bc
@@ -6581,7 +6581,8 @@ PlayOpponentBattleAnim:
 
 CallBattleCore:
 	ld a, BANK("Battle Core")
-	jp FarCall_hl
+	rst FarCall
+	ret
 
 AnimateFailedMove:
 	call BattleCommand_LowerSub

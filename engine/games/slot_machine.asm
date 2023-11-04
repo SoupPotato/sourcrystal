@@ -2019,7 +2019,7 @@ Slots_AnimateGolem:
 	dec [hl]
 	ld e, a
 	ld d, 14 * TILE_WIDTH
-	old_farcall BattleAnim_Sine_e
+	farcall BattleAnim_Sine_e
 	ld a, e
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc

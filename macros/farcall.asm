@@ -34,9 +34,3 @@ MACRO homecall ; bank, address
 ;		assert warn, BANK(\1) != 0, "unnecessary `homecall \1`"
 	endc
 ENDM
-
-MACRO old_farcall ; bank, address
-	ld a, BANK(\1)
-	ld hl, \1
-	call Old_FarCall_hl
-ENDM

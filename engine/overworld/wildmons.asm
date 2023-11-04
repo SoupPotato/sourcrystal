@@ -25,7 +25,8 @@ LoadWildMonData:
 	jr nc, .no_copy
 	inc hl
 	inc hl
-	ld a, [hl]
+	ld a, [wWildMonBank]
+	call GetFarByte
 .no_copy
 	ld [wWaterEncounterRate], a
 	ret

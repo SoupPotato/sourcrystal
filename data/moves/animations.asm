@@ -398,7 +398,7 @@ BattleAnim_ThrowPokeBall:
 	anim_jump .Loop
 
 .Click:
-	anim_clearobjs
+	anim_keepsprites
 	anim_ret
 
 .BreakFree:

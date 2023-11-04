@@ -2926,12 +2926,12 @@ BattleBGEffects_CheckSGB:
 
 BattleBGEffects_Sine:
 	ld e, a
-	farcall BattleAnim_Sine_e
+	old_farcall BattleAnim_Sine_e
 	ld a, e
 	ret
 
 BattleBGEffects_Cosine:
 	ld e, a
-	farcall BattleAnim_Cosine_e
+	old_farcall BattleAnim_Cosine_e
 	ld a, e
 	ret

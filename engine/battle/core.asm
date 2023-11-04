@@ -6737,12 +6737,11 @@ CheckSleepingTreeMon:
 
 ; Don't do anything if this isn't a tree encounter
 	ld a, [wBattleType]
-	cp BATTLETYPE_TREE
-	jr nz, .check_safari_zone
-	jp .next
-.check_safari_zone
 	cp BATTLETYPE_SAFARI_TREE
-	jr z, .NotSleeping
+	jr nc, .NotSleeping
+	cp BATTLETYPE_TREE
+	jr nz, .NotSleeping
+	jp .next
 
 .next
 ; Get list for the time of day

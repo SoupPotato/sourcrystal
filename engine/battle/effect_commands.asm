@@ -2214,6 +2214,11 @@ GetFailureResultText:
 	xor a
 	ld [wCriticalHit], a
 
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_JUMP_KICK
+	ret nz
+
 	ld hl, wEnemyMonMaxHP
 	ldh a, [hBattleTurn]
 	and a
@@ -2229,6 +2234,7 @@ GetFailureResultText:
 	ld hl, wCurDamage
 	ld a, [hli]
 	ld b, [hl]
+; Changing the fall damage from (Hi) Jump Kick from 1/8 to 1/2.
 	srl a
 	rr b
 	ld [hl], b

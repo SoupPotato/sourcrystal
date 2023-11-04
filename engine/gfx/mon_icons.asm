@@ -437,6 +437,16 @@ GetSpeciesIcon:
 	call GetIconGFX
 	ret
 
+GetSwarmIcon:
+	push de
+	ld a, [wTempSpecies]
+	call FlyMonMenuIcon
+	ld [wCurIcon], a
+	pop de
+	ld a, e
+	call GetIcon_a
+	ret
+
 FlyFunction_GetMonIcon: ; hardcoded to pidgeot
 	push de
 	ld a, ICON_PIDGEOT
@@ -524,8 +534,14 @@ GetIconBank:
 GetGFXUnlessMobile:
 	ld a, [wLinkMode]
 	cp LINK_MOBILE
-	jp nz, Request2bpp
+	jp nz, .not_mobile
 	jp Get2bppViaHDMA
+.not_mobile
+	ld a, [wSwarmFlags]
+	and (1 << SWARMFLAGS_LOAD_POKEGEAR_GFX_F)
+	jp z, Request2bpp
+	ld c, 8
+	jp Get2bpp
 
 
 GetStorageIcon_a:
@@ -643,6 +659,19 @@ ReadMonMenuIcon:
 	ret
 .egg
 	ld a, ICON_EGG
+	ret
+
+FlyMonMenuIcon: ; 8eab3
+	jr z, .bird
+	dec a
+	ld hl, MonMenuIcons
+	ld e, a
+	ld d, 0
+	add hl, de
+	ld a, [hl]
+	ret
+.bird
+	ld a, ICON_PIDGEOT
 	ret
 
 INCLUDE "data/pokemon/menu_icons.asm"

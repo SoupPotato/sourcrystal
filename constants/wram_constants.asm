@@ -365,6 +365,7 @@ DEF CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const SWARMFLAGS_ALT_SWARM_F                 ; 2
 	const SWARMFLAGS_SWARM_ACTIVE                ; 3
 	const SWARMFLAGS_MOBILE_4_F                  ; 4
+	const SWARMFLAGS_LOAD_POKEGEAR_GFX_F         ; 5
 
 ; wLuckyNumberShowFlag::
 DEF LUCKYNUMBERSHOW_GAME_OVER_F EQU 0

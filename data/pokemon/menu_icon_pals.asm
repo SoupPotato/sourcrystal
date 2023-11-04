@@ -259,5 +259,5 @@ MonMenuIconPals:
 	icon_pals GREEN,  PINK     ; CELEBI
 	assert_table_length NUM_POKEMON
 	icon_pals RED,    RED      ; unused
-	icon_pals RED,    BLUE     ; EGG
+	icon_pals RED,    RED      ; EGG
 	assert_table_length EGG

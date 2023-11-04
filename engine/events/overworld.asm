@@ -1526,8 +1526,9 @@ Script_NotEvenANibble2:
 	writetext RodNothingText
 
 Script_NotEvenANibble_FallThrough:
-	loademote EMOTE_SHADOW
 	callasm PutTheRodAway
+	callasm DelayFrame
+	loademote EMOTE_SHADOW
 	closetext
 	end
 

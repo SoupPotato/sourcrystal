@@ -62,6 +62,8 @@ SetRAMStateForMobile:
 	call ByteFill
 	ldh a, [rIE]
 	ld [wBGMapBuffer], a
+	ld a, RETI_INSTRUCTION
+	ld [hFunctionInstruction], a
 	xor a
 	ldh [hMapAnims], a
 	ldh [hLCDCPointer], a
@@ -79,6 +81,8 @@ EnableMobile:
 	ldh [rIF], a
 	ld a, IE_DEFAULT
 	ldh [rIE], a
+	ld a, RETI_INSTRUCTION
+	ld [hFunctionInstruction], a
 	xor a
 	ldh [hMapAnims], a
 	ldh [hLCDCPointer], a

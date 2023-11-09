@@ -98,8 +98,8 @@ Init::
 	call ClearsScratch
 
 	; Set up LCD interrupt handler
-	ld a, $c3 ; jp instruction
-	ldh [hFunctionJump], a
+	ld a, RETI_INSTRUCTION
+	ldh [hFunctionInstruction], a
 	ld a, LOW(LCDGeneric)
 	ldh [hFunctionTargetLo], a
 	ld a, HIGH(LCDGeneric)

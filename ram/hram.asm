@@ -182,7 +182,7 @@ hFarCallSavedL:: db
 hFarCallSavedH:: db
 
 hLCDInterruptFunction::
-hFunctionJump::     db ; $c3 jp
+hFunctionInstruction:: db ; $c3 jp or $d9 reti
 hFunctionTarget::
 hFunctionTargetLo:: db
 hFunctionTargetHi:: db

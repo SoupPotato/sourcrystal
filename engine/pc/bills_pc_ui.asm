@@ -55,6 +55,8 @@ _BillsPC:
 	; overlap.
 	ld hl, rIE
 	res LCD_STAT, [hl]
+	ld a, RETI_INSTRUCTION
+	ld [hFunctionInstruction], a
 	ld a, LOW(LCDGeneric)
 	ldh [hFunctionTargetLo], a
 	ld a, HIGH(LCDGeneric)
@@ -311,6 +313,8 @@ UseBillsPC:
 	ldh [hFunctionTargetLo], a
 	ld a, HIGH(LCDBillsPC1)
 	ldh [hFunctionTargetHi], a
+	ld a, JP_INSTRUCTION
+	ld [hFunctionInstruction], a
 	set LCD_STAT, [hl]
 
 	; Display data about current Pokémon pointed to by cursor

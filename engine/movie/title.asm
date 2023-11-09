@@ -174,6 +174,8 @@ _TitleScreen:
 	call ByteFill
 
 ; Let LCD Stat know we're messing around with SCX
+	ld a, JP_INSTRUCTION
+	ld [hFunctionInstruction], a
 	ld a, LOW(rSCX)
 	ldh [hLCDCPointer], a
 

@@ -54,7 +54,7 @@ Moves:
 	move DOUBLE_EDGE,  EFFECT_RECOIL_HIT,        120, NORMAL,       100, 15,   0
 	move TAIL_WHIP,    EFFECT_DEFENSE_DOWN,        0, NORMAL,       100, 30,   0
 	move POISON_STING, EFFECT_POISON_HIT,         15, POISON,       100, 35,  30
-	move TWINEEDLE,    EFFECT_POISON_MULTI_HIT,   25, BUG,          100, 20,  20
+	move TWINEEDLE,    EFFECT_POISON_MULTI_HIT,   25, BUG,          100, 20,  36 ; OLD EFFECT CHANCE: 20
 	move PIN_MISSILE,  EFFECT_MULTI_HIT,          25, BUG,           95, 20,   0 ; OLD POWER: 14, OLD ACCURACY: 85
 	move LEER,         EFFECT_DEFENSE_DOWN,        0, NORMAL,       100, 30,   0
 	move BITE,         EFFECT_FLINCH_HIT,         60, DARK,         100, 25,  30
@@ -120,7 +120,7 @@ Moves:
 	move DOUBLE_TEAM,  EFFECT_EVASION_UP,          0, NORMAL,       100, 15,   0
 	move RECOVER,      EFFECT_HEAL,                0, NORMAL,       100, 10,   0 ; OLD PP: 20
 	move HARDEN,       EFFECT_DEFENSE_UP,          0, NORMAL,       100, 30,   0
-	move MINIMIZE,     EFFECT_EVASION_UP_2,        0, NORMAL,       100, 20,   0  ; OLD EFFECT: EFFECT_EVASION_UP
+	move MINIMIZE,     EFFECT_EVASION_UP_2,        0, NORMAL,       100, 20,   0 ; OLD EFFECT: EFFECT_EVASION_UP
 	move SMOKESCREEN,  EFFECT_ACCURACY_DOWN,       0, NORMAL,       100, 20,   0
 	move CONFUSE_RAY,  EFFECT_CONFUSE,             0, GHOST,        100, 10,   0
 	move WITHDRAW,     EFFECT_DEFENSE_UP,          0, WATER,        100, 40,   0

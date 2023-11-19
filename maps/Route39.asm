@@ -265,11 +265,29 @@ Route39BaobaScript:
 	opentext
 	writetext Route39BaobaIntroText
 	waitbutton
-	verbosegiveitem EXP_SHARE
+	giveitem EXP_SHARE
+	iffalse .bag_full
+	waitsfx
+	writetext Route39GotExpShareText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	writetext Route39BaobaLeavingText
 	waitbutton
 	closetext
+	setevent EVENT_ROUTE_39_BAOBA_RETURNED_TO_SAFARI_ZONE
 	setevent EVENT_ROUTE_39_BAOBA_GAVE_EXP_SHARE
+	setscene SCENE_ROUTE_39_BAOBA_GONE
+	applymovement ROUTE_39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Leaves
+	disappear ROUTE_39_GENTLEMAN_BAOBA
+	end
+
+.bag_full
+	writetext Route39BaobaBagFullText
+	waitbutton
+	writetext Route39BaobaLeavingText
+	waitbutton
+	closetext
 	setscene SCENE_ROUTE_39_BAOBA_GONE
 	applymovement ROUTE_39_GENTLEMAN_BAOBA, MovementData_Route39_Baoba_Leaves
 	disappear ROUTE_39_GENTLEMAN_BAOBA
@@ -495,6 +513,23 @@ Route39BaobaIntroText:
 	cont "meeting…"
 	done
 
+Route39BaobaBagFullText:
+	text "Oh dear, you have"
+	line "no room for this."
+	
+	para "Don't worry I will"
+	line "hold onto it until"
+	
+	para "you can visit me"
+	line "at the SAFARI ZONE"
+	cont "later."
+	done
+
+Route39GotExpShareText:
+	text "<PLAYER> received"
+	line "EXP.SHARE."
+	done
+
 Route39BaobaLeavingText:
 	text "Remember, the"
 	line "SAFARI ZONE is"
@@ -565,4 +600,4 @@ Route39_MapEvents:
 	object_event  6, 13, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route39BerryTree, EVENT_ROUTE_39_BERRY
 	object_event  9,  3, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route39ApricornTree, EVENT_ROUTE_39_APRICORN
 	object_event  4, 22, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, TrainerPokefanfJaime, -1
-	object_event 13,  9, SPRITE_GENTLEMAN, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_39_BAOBA_GAVE_EXP_SHARE
+	object_event 13,  9, SPRITE_GENTLEMAN, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_39_BAOBA_RETURNED_TO_SAFARI_ZONE

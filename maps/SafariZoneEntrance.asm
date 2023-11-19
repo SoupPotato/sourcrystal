@@ -133,7 +133,33 @@ SafariZoneEntranceOfficer_NotFirstTime:
 SafariZoneEntranceBaoboScript:
 	faceplayer
 	opentext
-	writetext SafariZoneEntranceBaobo_Text
+	writetext SafariZoneEntranceBaoboHello_Text
+	promptbutton
+	checkevent EVENT_ROUTE_39_BAOBA_GAVE_EXP_SHARE
+	iffalse .didnt_get_exp_share
+	writetext SafariZoneEntranceBaoboDidYouKnow_Text
+	waitbutton
+	closetext
+	end
+
+.didnt_get_exp_share
+	writetext SafariZoneEntranceBaoboGiveExpShareText
+	waitbutton
+	giveitem EXP_SHARE
+	iffalse .bag_full
+	waitsfx
+	writetext SafariZoneGotExpShareText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
+	setevent EVENT_ROUTE_39_BAOBA_GAVE_EXP_SHARE
+	writetext SafariZoneEntranceBaoboDidYouKnow_Text
+	waitbutton
+	closetext
+	end
+
+.bag_full
+	writetext SafariZoneEntranceBaoboBagfullText
 	waitbutton
 	closetext
 	end
@@ -273,12 +299,14 @@ SafariZoneEntranceMainOfficer_NotEnoughMoneyText:
 	line "have enough money."
 	done
 
-SafariZoneEntranceBaobo_Text:
+SafariZoneEntranceBaoboHello_Text:
 	text "BAOBA: Hello!"
 	line "So glad you made"
 	cont "it here."
+	done
 
-	para "Did you know?"
+SafariZoneEntranceBaoboDidYouKnow_Text:
+	text "Did you know?"
 
 	para "I used to run a"
 	line "SAFARI ZONE in"
@@ -289,6 +317,11 @@ SafariZoneEntranceBaobo_Text:
 	
 	para "I hope you enjoy"
 	line "your time here!"
+	done
+
+SafariZoneEntranceBaoboGiveExpShareText:
+	text "Here is the gift "
+	line "I promised you."
 	done
 
 SafariZoneBoxFullText:
@@ -307,6 +340,16 @@ SafariZoneBoxFullText:
 
 	para "your PC BOX, then"
 	line "come see me."
+	done
+
+SafariZoneGotExpShareText:
+	text "<PLAYER> received"
+	line "EXP.SHARE."
+	done
+
+SafariZoneEntranceBaoboBagfullText:
+	text "Oh dear, you have"
+	line "no room for this."
 	done
 
 SafariZoneEntrance_MapEvents:

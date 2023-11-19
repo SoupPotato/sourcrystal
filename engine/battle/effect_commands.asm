@@ -3436,24 +3436,7 @@ DoEnemyDamage:
 	ld [wHPBuffer2 + 1], a
 	sbc b
 	ld [wEnemyMonHP], a
-if DEF(_DEBUG)
-	push af
-	ld a, BANK(sSkipBattle)
-	call OpenSRAM
-	ld a, [sSkipBattle]
-	call CloseSRAM
-	or a
-	; If [sSkipBattle] is nonzero, skip the "jr nc, .no_underflow" check,
-	; so any attack deals maximum damage to the enemy.
-	jr nz, .debug_skip
-	pop af
 	jr nc, .no_underflow
-	push af
-.debug_skip
-	pop af
-else
-	jr nc, .no_underflow
-endc
 
 	ld a, [wHPBuffer2 + 1]
 	ld [hli], a

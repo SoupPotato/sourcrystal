@@ -1114,7 +1114,6 @@ Rage:
 	damagecalc
 	stab
 	checkhit
-	ragedamage
 	damagevariation
 	moveanim
 	failuretext

@@ -2456,47 +2456,12 @@ BattleCommand_BuildOpponentRage:
 	bit SUBSTATUS_RAGE, a
 	ret z
 
-	ld de, wEnemyRageCounter
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .player
-	ld de, wPlayerRageCounter
-.player
-	ld a, [de]
-	inc a
-	ret z
-	ld [de], a
-
 	call BattleCommand_SwitchTurn
+	call BattleCommand_AttackUp
 	ld hl, RageBuildingText
 	call StdBattleTextbox
+	call BattleCommand_StatUpMessage
 	jp BattleCommand_SwitchTurn
-
-BattleCommand_RageDamage:
-	ld a, [wCurDamage]
-	ld h, a
-	ld b, a
-	ld a, [wCurDamage + 1]
-	ld l, a
-	ld c, a
-	ldh a, [hBattleTurn]
-	and a
-	ld a, [wPlayerRageCounter]
-	jr z, .rage_loop
-	ld a, [wEnemyRageCounter]
-.rage_loop
-	and a
-	jr z, .done
-	dec a
-	add hl, bc
-	jr nc, .rage_loop
-	ld hl, $ffff
-.done
-	ld a, h
-	ld [wCurDamage], a
-	ld a, l
-	ld [wCurDamage + 1], a
-	ret
 
 EndMoveEffect:
 	ld a, [wBattleScriptBufferAddress]

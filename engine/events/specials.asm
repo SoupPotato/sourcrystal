@@ -504,15 +504,10 @@ RespawnOneOffs:
 	call z, RespawnRoamingEntei
 .CaughtEntei
 
-	eventflagcheck EVENT_FOUGHT_SUICUNE
-	jr z, .CaughtOrNeverFoughtSuicune
 	ld de, ENGINE_PLAYER_CAUGHT_SUICUNE
 	farcall EngineFlagAction
 	jr nz, .CaughtOrNeverFoughtSuicune
-	ld hl, wRoamMon3Species
-	ld a, [hl]
-	and a
-	call z, RespawnRoamingSuicune
+	eventflagreset EVENT_TIN_TOWER_1F_SUICUNE
 .CaughtOrNeverFoughtSuicune
 
 	ld de, ENGINE_PLAYER_CAUGHT_LUGIA

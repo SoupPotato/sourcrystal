@@ -65,6 +65,12 @@ TinTower1FNPCsCallback:
 	endcallback
 
 .FoughtSuicune:
+	checkflag ENGINE_PLAYER_CAUGHT_SUICUNE
+	iftrue .normal_map
+	moveobject TINTOWER1F_SUICUNE, 9, 11
+	endcallback
+
+.normal_map
 	disappear TINTOWER1F_SUICUNE
 	disappear TINTOWER1F_RAIKOU
 	disappear TINTOWER1F_ENTEI
@@ -165,6 +171,20 @@ TinTower1FSuicuneBattleScript:
 	special FadeOutMusic
 	pause 20
 	playmapmusic
+	end
+
+TinTower1FSuicuneBattleRematchScript:
+	cry SUICUNE
+	pause 15
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SUICUNE
+	loadwildmon SUICUNE, 40
+	startbattle
+	disappear TINTOWER1F_SUICUNE
+	reloadmapafterbattle
+	special CheckBattleCaughtResult
+	iffalse .nocatch
+	setflag ENGINE_PLAYER_CAUGHT_SUICUNE
+.nocatch
 	end
 
 TinTower1FSage1Script:
@@ -533,7 +553,7 @@ TinTower1F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  9,  9, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_SUICUNE
+	object_event  9,  9, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TinTower1FSuicuneBattleRematchScript, EVENT_TIN_TOWER_1F_SUICUNE
 	object_event  7,  9, SPRITE_RAIKOU, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_RAIKOU
 	object_event 12,  9, SPRITE_ENTEI, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_ENTEI
 	object_event  8,  3, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TinTower1FEusine, EVENT_TIN_TOWER_1F_EUSINE

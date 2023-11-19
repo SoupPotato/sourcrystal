@@ -60,24 +60,24 @@ Oak:
 	iftrue .HaveTotodileGiveChikorita
 	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
 	iftrue .HaveChikoritaGiveCyndaquil
-	readvar VAR_BOXSPACE
-	ifequal 0, .PartyFull
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
 	giveegg TOTODILE, 5
 	stringtotext .eggname, MEM_BUFFER_1
 	scall .GetStarterEgg
 	sjump .OpenMtSilver
 
 .HaveChikoritaGiveCyndaquil
-	readvar VAR_BOXSPACE
-	ifequal 0, .PartyFull
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
 	giveegg CYNDAQUIL, 5
 	stringtotext .eggname, MEM_BUFFER_1
 	scall .GetStarterEgg
 	sjump .OpenMtSilver
 	
 .HaveTotodileGiveChikorita
-	readvar VAR_BOXSPACE
-	ifequal 0, .PartyFull
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
 	giveegg CHIKORITA, 5
 	stringtotext .eggname, MEM_BUFFER_1
 	scall .GetStarterEgg

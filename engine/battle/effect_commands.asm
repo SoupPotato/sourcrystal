@@ -1565,11 +1565,15 @@ BattleCommand_CheckHit:
 	call .XAccuracy
 	ret nz
 
+	call .AntiMinimize
+	ret z
+
 	; Perfect-accuracy moves
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_ALWAYS_HIT
 	ret z
+	cp EFFECT_STOMP
 
 	call .StatModifiers
 
@@ -1746,6 +1750,22 @@ BattleCommand_CheckHit:
 	ld a, BATTLE_VARS_SUBSTATUS4
 	call GetBattleVar
 	bit SUBSTATUS_X_ACCURACY, a
+	ret
+
+.AntiMinimize:
+; Returns z if Stomp or Body Slam is used against a minimized target
+	ld hl, wEnemyMinimized
+	ld a, [hl]
+	and a
+	jr z, .no_minimize
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_BODY_SLAM
+	ret z
+	cp EFFECT_STOMP
+	ret z
+.no_minimize
+	or 1
 	ret
 
 .StatModifiers:
@@ -3416,7 +3436,24 @@ DoEnemyDamage:
 	ld [wHPBuffer2 + 1], a
 	sbc b
 	ld [wEnemyMonHP], a
+if DEF(_DEBUG)
+	push af
+	ld a, BANK(sSkipBattle)
+	call OpenSRAM
+	ld a, [sSkipBattle]
+	call CloseSRAM
+	or a
+	; If [sSkipBattle] is nonzero, skip the "jr nc, .no_underflow" check,
+	; so any attack deals maximum damage to the enemy.
+	jr nz, .debug_skip
+	pop af
 	jr nc, .no_underflow
+	push af
+.debug_skip
+	pop af
+else
+	jr nc, .no_underflow
+endc
 
 	ld a, [wHPBuffer2 + 1]
 	ld [hli], a

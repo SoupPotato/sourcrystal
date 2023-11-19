@@ -94,3 +94,22 @@ if _NARG == 0
 	sine_table 32
 endc
 ENDM
+
+DEF eventflagset   EQUS "flagset wEventFlags,"
+DEF eventflagreset EQUS "flagreset wEventFlags,"
+DEF eventflagcheck EQUS "flagcheck wEventFlags,"
+
+MACRO flagset
+	ld hl, \1 + (\2 >> 3)
+	set (\2 & $7), [hl]
+ENDM
+
+MACRO flagreset
+	ld hl, \1 + (\2 >> 3)
+	res (\2 & $7), [hl]
+ENDM
+
+MACRO flagcheck
+	ld hl, \1 + (\2 >> 3)
+	bit (\2 & $7), [hl]
+ENDM

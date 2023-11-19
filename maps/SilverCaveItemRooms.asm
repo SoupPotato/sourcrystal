@@ -48,6 +48,10 @@ SilverCaveItemRoomsMoltres:
 	disappear SILVERCAVEITEMROOMS_MOLTRES
 	setevent EVENT_FOUGHT_MOLTRES
 	reloadmapafterbattle
+	special CheckBattleCaughtResult
+	iffalse .nocatch
+	setflag ENGINE_PLAYER_CAUGHT_MOLTRES
+.nocatch
 	end
 
 MoltresText:

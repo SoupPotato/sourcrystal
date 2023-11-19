@@ -44,6 +44,10 @@ CeruleanCaveB1FMewtwo:
 	disappear CERULEAN_CAVE_B1F_MEWTWO
 	setevent EVENT_FOUGHT_MEWTWO
 	reloadmapafterbattle
+	special CheckBattleCaughtResult
+	iffalse .nocatch
+	setflag ENGINE_PLAYER_CAUGHT_MEWTWO
+.nocatch
 	end
 
 MewtwoText:

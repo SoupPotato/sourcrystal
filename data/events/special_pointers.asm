@@ -157,14 +157,13 @@ SpecialsPointers::
 	add_special HoOhChamber
 	add_special Function102142
 	add_special CelebiShrineEvent
-	add_special CheckCaughtCelebi
+	add_special CheckBattleCaughtResult
 	add_special PokeSeer
 	add_special BuenasPassword
 	add_special BuenaPrize
 	add_special GiveDratini
 	add_special SampleKenjiBreakCountdown
 	add_special BeastsCheck
-	add_special MonCheck
 	add_special SetPlayerPalette
 	add_special UnusedBattleTowerDummySpecial2
 	add_special Mobile_SelectThreeMons
@@ -183,3 +182,4 @@ SpecialsPointers::
 	add_special InitialClearDSTFlag
 	add_special UnusedDummySpecial ; unused
 	add_special GiveSafariBalls
+	add_special RespawnOneOffs

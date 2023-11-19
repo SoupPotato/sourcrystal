@@ -58,6 +58,10 @@ Route10Zapdos:
 	disappear ROUTE_10_ZAPDOS
 	setevent EVENT_FOUGHT_ZAPDOS
 	reloadmapafterbattle
+	special CheckBattleCaughtResult
+	iffalse .nocatch
+	setflag ENGINE_PLAYER_CAUGHT_ZAPDOS
+.nocatch
 	end
 
 ZapdosText:

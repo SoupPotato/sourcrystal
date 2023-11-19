@@ -486,8 +486,9 @@ IlexForestShrineScript:
 	startbattle
 	reloadmapafterbattle
 	pause 20
-	special CheckCaughtCelebi
+	special CheckBattleCaughtResult
 	iffalse .DidntCatchCelebi
+	setflag ENGINE_PLAYER_CAUGHT_CELEBI
 	appear ILEXFOREST_KURT
 	applymovement ILEXFOREST_KURT, IlexForestKurtStepsUpMovement
 	opentext

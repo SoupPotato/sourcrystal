@@ -45,6 +45,10 @@ SeafoamIslandsArticuno:
 	disappear SEAFOAM_ISLANDS_B4F_ARTICUNO
 	setevent EVENT_FOUGHT_ARTICUNO
 	reloadmapafterbattle
+	special CheckBattleCaughtResult
+	iffalse .nocatch
+	setflag ENGINE_PLAYER_CAUGHT_ARTICUNO
+.nocatch
 	end
 
 ArticunoText:

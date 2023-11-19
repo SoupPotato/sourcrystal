@@ -1213,6 +1213,25 @@ RandomEncounter::
 	ret
 
 .ok
+	ld a, [wTempWildMonSpecies]
+	cp SUICUNE
+	jr nz, .notroamingsuicune
+	ld a, BANK(RoamingSuicuneBattleScript)
+	ld hl, RoamingSuicuneBattleScript
+	jr .done
+.notroamingsuicune
+	cp RAIKOU
+	jr nz, .notroamingraikou
+	ld a, BANK(RoamingRaikouBattleScript)
+	ld hl, RoamingRaikouBattleScript
+	jr .done
+.notroamingraikou
+	cp ENTEI
+	jr nz, .notroaming
+	ld a, BANK(RoamingEnteiBattleScript)
+	ld hl, RoamingEnteiBattleScript
+	jr .done
+.notroaming
 	ld a, BANK(WildBattleScript)
 	ld hl, WildBattleScript
 	jr .done
@@ -1236,6 +1255,37 @@ WildBattleScript:
 	startbattle
 	reloadmapafterbattle
 	end
+
+RoamingSuicuneBattleScript:
+	randomwildmon
+	startbattle
+	reloadmapafterbattle
+	special CheckBattleCaughtResult
+	iffalse .nocatch
+	setflag ENGINE_PLAYER_CAUGHT_SUICUNE
+.nocatch
+	end
+
+RoamingRaikouBattleScript:
+	randomwildmon
+	startbattle
+	reloadmapafterbattle
+	special CheckBattleCaughtResult
+	iffalse .nocatch
+	setflag ENGINE_PLAYER_CAUGHT_RAIKOU
+.nocatch
+	end
+
+RoamingEnteiBattleScript:
+	randomwildmon
+	startbattle
+	reloadmapafterbattle
+	special CheckBattleCaughtResult
+	iffalse .nocatch
+	setflag ENGINE_PLAYER_CAUGHT_ENTEI
+.nocatch
+	end
+
 
 CanUseSweetScent::
 	ld hl, wStatusFlags

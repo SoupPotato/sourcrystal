@@ -35,6 +35,10 @@ TinTowerHoOh:
 	startbattle
 	disappear TINTOWERROOF_HO_OH
 	reloadmapafterbattle
+	special CheckBattleCaughtResult
+	iffalse .nocatch
+	setflag ENGINE_PLAYER_CAUGHT_HO_OH
+.nocatch
 	setevent EVENT_SET_WHEN_FOUGHT_HO_OH
 	end
 

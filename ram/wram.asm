@@ -3236,7 +3236,10 @@ wEventFlags:: flag_array NUM_EVENTS
 
 wCurBox:: db
 
-	ds 128
+	ds 126
+
+wPlayerCaught:: db
+wPlayerCaught2:: db
 
 wCelebiEvent::
 ; bit 2: forest is restless

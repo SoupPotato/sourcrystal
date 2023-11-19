@@ -27,8 +27,7 @@ CeladonEusine:
 	opentext
 	writetext CeladonEusineText1
 	promptbutton
-	setval SUICUNE
-	special MonCheck
+	checkflag ENGINE_PLAYER_CAUGHT_SUICUNE
 	iffalse .NoSuicune
 	special BeastsCheck
 	iftrue .HoOh

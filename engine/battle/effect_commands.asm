@@ -2458,9 +2458,23 @@ BattleCommand_BuildOpponentRage:
 
 	call BattleCommand_SwitchTurn
 	call BattleCommand_AttackUp
+	
+	ld bc, wPlayerStatLevels
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .build_rage_player
+	ld bc, wEnemyStatLevels
+
+.build_rage_player
+	ld a, [bc]
+	cp MAX_STAT_LEVEL
+	jr nc, .attack_maximized
+
 	ld hl, RageBuildingText
 	call StdBattleTextbox
 	call BattleCommand_StatUpMessage
+
+.attack_maximized
 	jp BattleCommand_SwitchTurn
 
 EndMoveEffect:

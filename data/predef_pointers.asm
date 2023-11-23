@@ -49,6 +49,7 @@ PredefPointers::
 	add_predef PrintTempMonStats
 	add_predef GetTypeName
 	add_predef PrintMoveType
+	add_predef PrintBattleMoveType
 	add_predef PrintType
 	add_predef PrintMonTypes
 	add_predef GetUnownLetter

@@ -100,7 +100,7 @@ HiddenPowerDamage:
 
 ; Get the rest of the damage formula variables
 ; based on the new type, but keep base power.
-	ld a, d
+	ld a, 60  ; Forced to 60 base power. Change 60 to 'd' to revert back to variable damage.
 	push af
 	farcall BattleCommand_DamageStats ; damagestats
 	pop af

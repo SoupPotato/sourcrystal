@@ -24,7 +24,7 @@ PrintMonTypes:
 
 .Print:
 	ld b, a
-	jr PrintType
+	jp PrintType
 
 .hide_type_2
 	; Erase any type name that was here before.
@@ -38,11 +38,109 @@ PrintMonTypes:
 	ld bc, NAME_LENGTH_JAPANESE - 1
 	jp ByteFill
 
-PrintMoveType:
-; Print the type of move b at hl.
+GetHiddenPowerType:
+	ld hl, wPartyMon1DVs
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, [wCurPartyMon]
+	call AddNTimes
+	jr HiddenPowerType
 
+GetHiddenPowerBattleType:
+	ld hl, wBattleMonDVs
+	ldh a, [hBattleTurn]
+	and a
+	jr z, HiddenPowerType
+	ld hl, wEnemyMonDVs
+HiddenPowerType:
+; Power:
+
+; Take the top bit from each stat
+
+	; Attack
+	ld a, [hl]
+	swap a
+	and %1000
+
+	; Defense
+	ld b, a
+	ld a, [hli]
+	and %1000
+	srl a
+	or b
+
+	; Speed
+	ld b, a
+	ld a, [hl]
+	swap a
+	and %1000
+	srl a
+	srl a
+	or b
+
+	; Special
+	ld b, a
+	ld a, [hl]
+	and %1000
+	srl a
+	srl a
+	srl a
+	or b
+
+; Multiply by 5
+	ld b, a
+	add a
+	add a
+	add b
+
+; Add Special & 3
+	ld b, a
+	ld a, [hld]
+	and %0011
+	add b
+
+; Divide by 2 and add 30 + 1
+	srl a
+	add 30
+	inc a
+
+	ld d, a
+
+; Type:
+
+	; Def & 3
+	ld a, [hl]
+	and %0011
+	ld b, a
+
+	; + (Atk & 3) << 2
+	ld a, [hl]
+	and %0011 << 4
+	swap a
+	add a
+	add a
+	or b
+
+; Skip Normal
+	inc a
+
+; Skip Bird
+	cp BIRD
+	jr c, .done
+	inc a
+
+; Skip unused types
+	cp UNUSED_TYPES
+	jr c, .done
+	add UNUSED_TYPES_END - UNUSED_TYPES
+.done
+	ret
+
+PrintBattleMoveType:
+; Print the type of move b at hl.
 	push hl
 	ld a, b
+	cp HIDDEN_POWER
+	jr z, .print_hidden_power
 	dec a
 	ld bc, MOVE_LENGTH
 	ld hl, Moves
@@ -54,7 +152,39 @@ PrintMoveType:
 	pop hl
 
 	ld b, a
+	jp PrintType
 
+.print_hidden_power
+	call GetHiddenPowerBattleType
+	pop hl
+	ld b, a
+	jp PrintType
+
+PrintMoveType:
+; Print the type of move b at hl.
+
+	push hl
+	ld a, b
+	cp HIDDEN_POWER
+	jr z, .print_hidden_power
+	dec a
+	ld bc, MOVE_LENGTH
+	ld hl, Moves
+	call AddNTimes
+	ld de, wStringBuffer1
+	ld a, BANK(Moves)
+	call FarCopyBytes
+	ld a, [wStringBuffer1 + MOVE_TYPE]
+	pop hl
+
+	ld b, a
+	jr PrintType
+
+.print_hidden_power
+	call GetHiddenPowerType
+	pop hl
+	ld b, a
+; fallthrough
 PrintType:
 ; Print type b at hl.
 

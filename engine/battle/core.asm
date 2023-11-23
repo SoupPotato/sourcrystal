@@ -6007,7 +6007,7 @@ MoveInfoBox:
 	ld a, [wPlayerMoveStruct + MOVE_ANIM]
 	ld b, a
 	hlcoord 2, 10
-	predef PrintMoveType
+	predef PrintBattleMoveType
 
 .done
 	ret

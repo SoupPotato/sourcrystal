@@ -1193,7 +1193,7 @@ SetUpMoveScreenBG:
 	call PrintLevel
 	ld hl, wPlayerHPPal
 	call SetHPPal
-	ld b, SCGB_MOVE_LIST
+	ld b, SCGB_PARTY_MENU
 	call GetSGBLayout
 	hlcoord 16, 0
 	lb bc, 1, 3

@@ -66,5 +66,55 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 31, 22, 25
 	RGB 29, 11, 11
 	RGB 00, 00, 00
+; hp_fighting
+	RGB 31, 31, 31
+	RGB 31, 15, 00
+	RGB 19, 00, 00
+	RGB 00, 00, 00
+; hp_flying
+	RGB 31, 31, 31
+	RGB 19, 21, 30
+	RGB 08, 10, 18
+	RGB 00, 00, 00
+; hp_ground
+	RGB 31, 31, 31
+	RGB 26, 22, 11
+	RGB 14, 10, 03
+	RGB 00, 00, 00
+; hp_rock
+	RGB 31, 31, 31
+	RGB 23, 21, 17
+	RGB 11, 10, 06
+	RGB 00, 00, 00
+; hp_bug
+	RGB 31, 31, 31
+	RGB 22, 25, 00
+	RGB 11, 15, 02
+	RGB 00, 00, 00
+; hp_dragon
+	RGB 31, 31, 31
+	RGB 20, 16, 26
+	RGB 07, 07, 22
+	RGB 00, 00, 00
+; hp_dark
+	RGB 31, 31, 31
+	RGB 18, 16, 14
+	RGB 09, 07, 06
+	RGB 00, 00, 00
+; hp_steel
+	RGB 31, 31, 31
+	RGB 21, 21, 24
+	RGB 10, 11, 15
+	RGB 00, 00, 00
+; hp_psychic
+	RGB 31, 31, 31
+	RGB 31, 16, 27
+	RGB 22, 01, 19
+	RGB 00, 00, 00
+; hp_ghost
+	RGB 31, 31, 31
+	RGB 19, 16, 22
+	RGB 10, 08, 13
+	RGB 00, 00, 00
 rept NUM_CUSTOM_BATTLE_PALETTES - 6
 endr

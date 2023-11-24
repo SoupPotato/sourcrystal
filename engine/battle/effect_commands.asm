@@ -1987,7 +1987,14 @@ BattleCommand_MoveAnimNoSub:
 	jr z, .alternate_anim
 	cp EFFECT_TRIPLE_KICK
 	jr z, .triplekick
+	cp EFFECT_HIDDEN_POWER
+	jr z, .hidden_power
 	xor a
+	ld [wBattleAnimParam], a
+
+.hidden_power
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar
 	ld [wBattleAnimParam], a
 
 .triplekick

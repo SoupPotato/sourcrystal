@@ -663,7 +663,6 @@ UnownJBackpic:       INCBIN "gfx/pokemon/unown_j/back.2bpp.lz"
 UnownBBackpic:       INCBIN "gfx/pokemon/unown_b/back.2bpp.lz"
 UnownOBackpic:       INCBIN "gfx/pokemon/unown_o/back.2bpp.lz"
 UnownZBackpic:       INCBIN "gfx/pokemon/unown_z/back.2bpp.lz"
-UnownWBackpic:       INCBIN "gfx/pokemon/unown_w/back.2bpp.lz"
 UnownNBackpic:       INCBIN "gfx/pokemon/unown_n/back.2bpp.lz"
 UnownABackpic:       INCBIN "gfx/pokemon/unown_a/back.2bpp.lz"
 UnownMBackpic:       INCBIN "gfx/pokemon/unown_m/back.2bpp.lz"
@@ -708,6 +707,7 @@ SneaselFrontpic:     INCBIN "gfx/pokemon/sneasel/front.animated.2bpp.lz"
 DodrioFrontpic:      INCBIN "gfx/pokemon/dodrio/front.animated.2bpp.lz"
 HeracrossFrontpic:   INCBIN "gfx/pokemon/heracross/front.animated.2bpp.lz"
 WigglytuffFrontpic:  INCBIN "gfx/pokemon/wigglytuff/front.animated.2bpp.lz"
+UnownWBackpic:       INCBIN "gfx/pokemon/unown_w/back.2bpp.lz"
 
 
 ; Sections "Pics 20" to "Pics 24" are not used for any graphics,

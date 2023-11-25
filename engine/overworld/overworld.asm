@@ -219,10 +219,12 @@ GetMonSprite:
 
 .BreedMon1
 	ld a, [wBreedMon1Species]
+	ld d, 1
 	jr .Mon
 
 .BreedMon2
 	ld a, [wBreedMon2Species]
+	ld d, 2
 
 .Mon:
 	ld e, a

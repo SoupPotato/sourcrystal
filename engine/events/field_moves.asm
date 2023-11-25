@@ -399,6 +399,14 @@ FlyFunction_InitGFX:
 	add hl, de
 	ld a, [hl]
 	ld [wTempIconSpecies], a
+	ld a, MON_DVS
+	call GetPartyParamLocation
+	ld de, wTempMonDVs
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hl]
+	ld [de], a
 	ld e, FIELDMOVE_FLY
 	farcall FlyFunction_GetMonIcon
 	xor a

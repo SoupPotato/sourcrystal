@@ -317,6 +317,16 @@ TradeAnim_TubeToOT1:
 	call TradeAnim_PlaceTrademonStatsOnTubeAnim
 	ld a, [wLinkTradeSendmonSpecies]
 	ld [wTempIconSpecies], a
+	ld hl, wOTTrademonDVs
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .player_2
+	ld hl, wPlayerTrademonDVs
+.player_2
+	ld a, [hli]
+	ld [wTempMonDVs], a
+	ld a, [hl]
+	ld [wTempMonDVs + 1], a
 	xor a
 	depixel 5, 11, 4, 0
 	ld b, $0
@@ -327,6 +337,16 @@ TradeAnim_TubeToPlayer1:
 	call TradeAnim_PlaceTrademonStatsOnTubeAnim
 	ld a, [wLinkTradeGetmonSpecies]
 	ld [wTempIconSpecies], a
+	ld hl, wPlayerTrademonDVs
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .player_2
+	ld hl, wOTTrademonDVs
+.player_2
+	ld a, [hli]
+	ld [wTempMonDVs], a
+	ld a, [hl]
+	ld [wTempMonDVs + 1], a
 	ld a, TRADEANIMSTATE_2
 	depixel 9, 18, 4, 4
 	ld b, $4

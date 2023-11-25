@@ -1,6 +1,24 @@
 LoadOverworldMonIcon:
 	ld a, e
+	ld b, d
 	ld [wCurIcon], a
+	cp ICON_UNOWN
+	jr nz, .not_unown
+
+	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	ld l, a
+	ld h, 0
+	add hl, hl
+	ld de, UnownIconPointers
+	add hl, de
+	ld a, [hli]
+	ld e, a
+	ld d, [hl]
+	lb bc, BANK("Unown Icons"), 8
+	ret
+
+.not_unown
 	; fallthrough
 _LoadOverworldMonIcon:
 	ld l, a
@@ -331,7 +349,13 @@ InitPartyMenuIcon:
 	ld d, 0
 	add hl, de
 	ld a, [hl]
+	push hl
 	ld [wCurIcon], a
+	pop hl
+	ld a, MON_DVS
+	call GetPartyParamLocation
+	ld e, l
+	ld d, h
 	call GetMemIconGFX
 	ldh a, [hObjectStructIndex]
 ; y coord
@@ -388,6 +412,8 @@ NamingScreen_InitAnimatedMonIcon:
 	ld hl, wTempMonDVs
 	call SetMenuMonIconColor
 	ld a, [wTempIconSpecies]
+	push hl
+	pop de
 	ld [wCurIcon], a
 	xor a
 	call GetIconGFX
@@ -404,6 +430,8 @@ MoveList_InitAnimatedMonIcon:
 	call GetPartyParamLocation
 	call SetMenuMonIconColor
 	ld a, [wTempIconSpecies]
+	push hl
+	pop de
 	ld [wCurIcon], a
 	xor a
 	call GetIconGFX
@@ -421,6 +449,7 @@ Trade_LoadMonIconGFX:
 	ld [wCurIcon], a
 	ld a, $62
 	ld [wCurIconTile], a
+	ld de, wTempMonDVs
 	call GetMemIconGFX
 	ret
 
@@ -431,9 +460,13 @@ GetSpeciesIcon:
 	call GetPartyParamLocation
 	call SetMenuMonIconColor
 	ld a, [wTempIconSpecies]
+	push hl
+	pop hl
 	ld [wCurIcon], a
 	pop de
 	ld a, e
+	ld e, l
+	ld d, h
 	call GetIconGFX
 	ret
 
@@ -454,14 +487,6 @@ FlyFunction_GetMonIcon: ; hardcoded to pidgeot
 	pop de
 	ld a, e
 	call GetIcon_a
-	ret
-
-GetMonIconDE: ; unreferenced
-	push de
-	ld a, [wTempIconSpecies]
-	ld [wCurIcon], a
-	pop de
-	call GetIcon_de
 	ret
 
 GetMemIconGFX:
@@ -501,12 +526,33 @@ rept 4
 	add hl, hl
 endr
 
+	push de
 	ld de, vTiles0
 	add hl, de
+	pop de
 	push hl
 
-	ld a, [wCurIcon]
 	push hl
+	ld a, [wCurIcon]
+	cp ICON_UNOWN
+	jr nz, .not_unown
+	ld l, e
+	ld h, d
+	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	ld l, a
+	ld h, 0
+	add hl, hl
+	ld de, UnownIconPointers
+	add hl, de
+	ld a, [hli]
+	ld e, a
+	ld d, [hl]
+	lb bc, BANK("Unown Icons"), 8
+	pop hl
+	jr .continue
+
+.not_unown
 	ld l, a
 	ld h, 0
 	add hl, hl
@@ -516,10 +562,9 @@ endr
 	ld e, a
 	ld d, [hl]
 	pop hl
-
 	call GetIconBank
+.continue
 	call GetGFXUnlessMobile
-
 	pop hl
 	ret
 
@@ -679,3 +724,5 @@ INCLUDE "data/pokemon/menu_icons.asm"
 INCLUDE "data/pokemon/menu_icon_pals.asm"
 
 INCLUDE "data/pokemon/icon_pointers.asm"
+
+INCLUDE "data/pokemon/unown_icon_pointers.asm"

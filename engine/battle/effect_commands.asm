@@ -1992,11 +1992,6 @@ BattleCommand_MoveAnimNoSub:
 	xor a
 	ld [wBattleAnimParam], a
 
-.hidden_power
-	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVar
-	ld [wBattleAnimParam], a
-
 .triplekick
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
@@ -2012,6 +2007,20 @@ BattleCommand_MoveAnimNoSub:
 	ret nz
 .clear_sprite
 	jp AppearUserLowerSub
+
+.hidden_power
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar
+	ld [wBattleAnimParam], a
+	ld a, [wLinkMode]
+	and a
+	jr z, .triplekick
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .triplekick
+	xor a
+	ld [wBattleAnimParam], a
+	jr .triplekick
 
 .alternate_anim
 	ld a, [wBattleAnimParam]

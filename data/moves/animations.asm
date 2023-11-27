@@ -4649,7 +4649,7 @@ BattleAnim_Extremespeed:
 	anim_obj BATTLE_ANIM_OBJ_HIT, 152, 48, $0
 	anim_wait 5
 	anim_sound 0, 1, SFX_MEGA_PUNCH
-	anim_obj BATTLE_ANIM_OBJ_HIT, 136, 44, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 44, $0
 	anim_wait 5
 	anim_sound 0, 1, SFX_MEGA_PUNCH
 	anim_obj BATTLE_ANIM_OBJ_HIT, 120, 52, $0

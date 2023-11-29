@@ -17,7 +17,7 @@ MACRO battleanimobj
 ENDM
 
 BattleAnimObjects:
-; entries correspond to BATTLE_BATTLE_ANIM_OBJ_* constants
+; entries correspond to BATTLE_ANIM_OBJ_* constants
 	table_width BATTLEANIMOBJ_LENGTH, BattleAnimObjects
 ; BATTLE_ANIM_OBJ_HIT_BIG_YFIX
 	battleanimobj RELATIVE_X, $ff, BATTLE_ANIM_FRAMESET_HIT_BIG, BATTLE_ANIM_FUNC_NULL, PAL_BATTLE_OB_GRAY, BATTLE_ANIM_GFX_HIT

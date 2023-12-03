@@ -1,12 +1,10 @@
 LoadOverworldMonIcon:
 	ld a, e
-	ld b, d
 	ld [wCurIcon], a
 	cp ICON_UNOWN
 	jr nz, .not_unown
 
-	predef GetUnownLetter
-	ld a, [wUnownLetter]
+	ld a, [wCurIconForm]
 	ld l, a
 	ld h, 0
 	add hl, hl
@@ -602,7 +600,10 @@ endr
 GetStorageIcon:
 	push hl
 	ld a, [wCurIcon]
-	call _LoadOverworldMonIcon
+	ld e, a
+	ld a, [wCurIconForm]
+	ld d, a
+	call LoadOverworldMonIcon
 	ld c, 4
 	pop hl
 	newfarjp BillsPC_SafeGet2bpp

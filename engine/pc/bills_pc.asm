@@ -972,6 +972,10 @@ SetTempPartyMonData:
 	; Calculate stats
 	ld a, [wBufferMonSpecies]
 	ld [wCurSpecies], a
+	ld hl, wBufferMonDVs
+	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	ld [wCurForm], a
 	call GetBaseData
 	ld b, TRUE
 	ld hl, wBufferMonStatExp - 1
@@ -1321,6 +1325,10 @@ GetStorageBoxMon:
 	; Calculate stats
 	ld a, [wBufferMonSpecies]
 	ld [wCurSpecies], a
+	ld hl, wBufferMonDVs
+	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	ld [wCurForm], a
 	call GetBaseData
 	or 1
 	jp PopBCDEHL

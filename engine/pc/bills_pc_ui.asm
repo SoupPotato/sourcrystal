@@ -583,7 +583,7 @@ SetPartyIcons:
 	; Blank current list
 	xor a
 	ld hl, wBillsPC_PartyList
-	ld bc, PARTY_LENGTH
+	ld bc, PARTY_LENGTH * 2
 	call ByteFill
 
 	ld hl, vTiles4 tile $00
@@ -605,7 +605,7 @@ SetBoxIcons:
 	; Blank current list
 	xor a
 	ld hl, wBillsPC_BoxList
-	ld bc, MONS_PER_BOX
+	ld bc, MONS_PER_BOX * 2
 	call ByteFill
 
 	ld hl, vTiles4 tile $18
@@ -635,6 +635,15 @@ PCIconLoop:
 	ld a, [wBufferMonAltSpecies]
 	ld [wCurIcon], a
 	ld [hli], a
+	push hl
+	push bc
+	ld hl, wBufferMonDVs
+	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	ld [wCurIconForm], a
+	pop bc
+	pop hl
+	ld [hli], a
 	ld a, e
 	push hl
 	push de
@@ -649,6 +658,7 @@ PCIconLoop:
 .blank
 	; Fill storage species slot with a blank species.
 	xor a
+	ld [hli], a
 	ld [hli], a
 
 .next
@@ -669,7 +679,7 @@ BillsPC_GetMonIconAddr:
 	jr z, .got_tile_base
 	ld hl, wBillsPC_BoxList
 .got_tile_base
-	ld a, 1
+	ld a, 2
 	ld b, 0
 	dec c
 	call AddNTimes
@@ -911,6 +921,7 @@ CheckPartyShift:
 
 .CheckBlankIcon:
 	; a = [wBillsPC_PartyList + a]
+	add a
 	add LOW(wBillsPC_PartyList)
 	ld l, a
 	adc HIGH(wBillsPC_PartyList)
@@ -1005,6 +1016,8 @@ _GetCursorMon:
 	; is unpredictable, but bpp copy can be relied upon).
 	ld hl, wBufferMonDVs
 	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	ld [wCurForm], a
 	ld a, [wBufferMonAltSpecies]
 	ld [wCurPartySpecies], a
 	ld [wCurSpecies], a
@@ -1610,7 +1623,10 @@ BillsPC_CursorPick2:
 BillsPC_SetIcon:
 ; Writes icon tiles to hl depending on species data in de. Assumes vbk1.
 	ld a, [de]
+	inc de
 	ld [wCurIcon], a
+	ld a, [de]
+	ld [wCurIconForm], a
 	push hl
 	call BillsPC_SetPals
 	call DelayFrame
@@ -1742,7 +1758,7 @@ BillsPC_MoveIconData:
 	ld e, l
 	pop hl
 	and a
-	ld bc, 1
+	ld bc, 2
 	jr nz, .got_len
 
 	call BillsPC_IsHoldingItem
@@ -1802,7 +1818,7 @@ BillsPC_MoveIconData:
 	ld hl, wBillsPC_PartyList
 	; fallthrough
 .get_ext_addr
-	ld b, 1
+	ld b, 2
 	; fallthrough
 .addntimes
 	ld a, c
@@ -3301,6 +3317,7 @@ BillsPC_PlaceHeldMon:
 	; Check if the slot is blank.
 	ld a, c
 	dec a
+	add a
 	inc b
 	dec b
 	ld hl, wBillsPC_PartyList

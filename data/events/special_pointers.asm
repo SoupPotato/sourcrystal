@@ -183,3 +183,4 @@ SpecialsPointers::
 	add_special UnusedDummySpecial ; unused
 	add_special GiveSafariBalls
 	add_special RespawnOneOffs
+	add_special MoveReminder

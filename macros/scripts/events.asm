@@ -221,8 +221,13 @@ ENDM
 
 	const checkitem_command ; $21
 MACRO checkitem
+if _NARG == 1
+	checkitem \1, 1
+else
 	db checkitem_command
 	db \1 ; item
+	db \2 ; quantity
+endc
 ENDM
 
 	const givemoney_command ; $22

@@ -210,7 +210,7 @@ Kurt_GiveUpSelectedQuantityOfSelectedApricorn:
 ; Initialize the search.
 	push de
 	push bc
-	ld hl, wNumItems
+	ld hl, wNumBerries
 	ld a, [wCurItem]
 	ld c, a
 	ld e, $0
@@ -341,7 +341,7 @@ Kurt_GiveUpSelectedQuantityOfSelectedApricorn:
 Kurt_GetAddressOfApricornQuantity:
 	push hl
 	push bc
-	ld hl, wNumItems
+	ld hl, wNumBerries
 	inc hl
 	ld c, a
 	ld b, 0
@@ -355,7 +355,7 @@ Kurt_GetAddressOfApricornQuantity:
 
 Kurt_GetRidOfItem:
 	push bc
-	ld hl, wNumItems
+	ld hl, wNumBerries
 	ld a, [wCurItemQuantity]
 	ld c, a
 	ld b, 0
@@ -380,7 +380,7 @@ Kurt_GetRidOfItem:
 
 .okay
 	push bc
-	ld hl, wNumItems
+	ld hl, wNumBerries
 	ld a, b
 	ld [wItemQuantityChange], a
 	call TossItem

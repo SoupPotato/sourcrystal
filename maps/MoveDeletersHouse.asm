@@ -99,7 +99,7 @@ BigMushroomMenuDataHeader:
 .MenuData:
 	db $80 ; flags
 	db 2 ; items
-	db "1x BIG MUSHROOM@"
+	db "1× BIG MUSHROOM@"
 	db "CANCEL@"
 
 TinyMushroomsMenuDataHeader:
@@ -112,7 +112,7 @@ TinyMushroomsMenuDataHeader:
 .MenuData:
 	db $80 ; flags
 	db 2 ; items
-	db "2x TINYMUSHROOMs@"
+	db "2× TINYMUSHROOMs@"
 	db "CANCEL@"
 
 BothMushroomsMenuDataHeader:
@@ -125,8 +125,8 @@ BothMushroomsMenuDataHeader:
 .MenuData:
 	db $80 ; flags
 	db 3 ; items
-	db "2x TINYMUSHROOMs@"
-	db "1x BIG MUSHROOM@"
+	db "2× TINYMUSHROOMs@"
+	db "1× BIG MUSHROOM@"
 	db "CANCEL@"
 
 MoveDeletersHouse_MoveReminderIntroText:

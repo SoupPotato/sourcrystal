@@ -434,11 +434,11 @@ Pokegear_FinishTilemap:
 	bit POKEGEAR_MAP_CARD_F, a
 	call nz, .PlaceMapIcon
 	ld a, [de]
-	bit POKEGEAR_PHONE_CARD_F, a
-	call nz, .PlacePhoneIcon
-	ld a, [de]
 	bit POKEGEAR_RADIO_CARD_F, a
 	call nz, .PlaceRadioIcon
+	ld a, [de]
+	bit POKEGEAR_PAGER_CARD_F, a
+	call nz, .PlacePagerIcon
 	hlcoord 0, 0
 	ld a, $46
 	call .PlacePokegearCardIcon
@@ -449,7 +449,7 @@ Pokegear_FinishTilemap:
 	ld a, $40
 	jr .PlacePokegearCardIcon
 
-.PlacePhoneIcon:
+.PlacePagerIcon:
 	hlcoord 4, 0
 	ld a, $44
 	jr .PlacePokegearCardIcon

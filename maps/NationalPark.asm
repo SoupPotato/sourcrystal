@@ -84,11 +84,11 @@ TrainerSchoolboyJack1:
 	writetext SchoolboyJackTradeMonText
 	promptbutton
 	setevent EVENT_JACK_ASKED_FOR_PHONE_NUMBER
-	scall NationalParkAskNumber1
+	scall NationalParkAskNumber1M
 	sjump .RequestNumber
 
 .AskAgain:
-	scall NationalParkAskNumber2
+	scall NationalParkAskNumber2M
 .RequestNumber:
 	askforphonenumber PHONE_SCHOOLBOY_JACK
 	ifequal PHONE_CONTACTS_FULL, NationalParkPhoneFull
@@ -178,11 +178,11 @@ TrainerPokefanfBeverly:
 	writetext PokefanBeverlyCuteMonText
 	promptbutton
 	setevent EVENT_BEVERLY_ASKED_FOR_PHONE_NUMBER
-	scall NationalParkAskNumber1
+	scall NationalParkAskNumber1F
 	sjump .RequestNumber
 
 .AskAgain:
-	scall NationalParkAskNumber2
+	scall NationalParkAskNumber2F
 .RequestNumber:
 	askforphonenumber PHONE_POKEFAN_BEVERLY
 	ifequal PHONE_CONTACTS_FULL, NationalParkPhoneFull
@@ -207,12 +207,20 @@ TrainerPokefanfBeverly:
 	closetext
 	end
 
-NationalParkAskNumber1:
+NationalParkAskNumber1F:
 	jumpstd AskNumber1FScript
 	end
 
-NationalParkAskNumber2:
+NationalParkAskNumber2F:
 	jumpstd AskNumber2FScript
+	end
+
+NationalParkAskNumber1M:
+	jumpstd AskNumber1MScript
+	end
+
+NationalParkAskNumber2M:
+	jumpstd AskNumber2MScript
 	end
 
 NationalParkRegisteredNumber:
@@ -254,11 +262,11 @@ TrainerLassKrise:
 	writetext LassKriseAfterBattleText
 	promptbutton
 	setevent EVENT_KRISE_ASKED_FOR_PHONE_NUMBER
-	scall NationalParkAskNumber1
+	scall NationalParkAskNumber1F
 	sjump .RequestNumber
 
 .AskAgain:
-	scall NationalParkAskNumber2
+	scall NationalParkAskNumber2F
 .RequestNumber:
 	askforphonenumber PHONE_LASS_KRISE
 	ifequal PHONE_CONTACTS_FULL, NationalParkPhoneFull

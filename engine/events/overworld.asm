@@ -1390,8 +1390,8 @@ UseRockSmashText:
 	text_end
 
 AskRockSmashScript:
-	callasm HasRockSmash
-	ifequal 1, .no
+	checkflag ENGINE_PAGER_ROCK_SMASH
+	iffalse .no
 
 	opentext
 	writetext AskRockSmashText

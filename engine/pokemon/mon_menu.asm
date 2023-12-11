@@ -842,15 +842,8 @@ MonMenu_Headbutt:
 
 MonMenu_RockSmash:
 	farcall RockSmashFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
 	ld b, $4
 	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
 	ret
 
 MonMenu_SweetScent:

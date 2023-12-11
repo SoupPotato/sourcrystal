@@ -1,5 +1,5 @@
 BeverlyAskNumber1Text:
-	text "Your MARILL is so"
+	text "Your #MON is so"
 	line "cute and adorable!"
 
 	para "You love #MON"
@@ -13,7 +13,7 @@ BeverlyAskNumber1Text:
 	done
 
 BeverlyAskNumber2Text:
-	text "Your MARILL is so"
+	text "Your #MON is so"
 	line "cute and adorable!"
 
 	para "We should chat, it"

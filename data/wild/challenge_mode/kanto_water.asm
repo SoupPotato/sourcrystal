@@ -186,16 +186,16 @@ KantoWaterWildMonsChallenge:
 
 	def_water_wildmons CERULEAN_CAVE_1F
 	db 4 percent ; encounter rate
-	db 50, PSYDUCK
-	db 50, GOLDUCK
-	db 50, GYARADOS
+	db 55, PSYDUCK
+	db 55, GOLDUCK
+	db 55, GYARADOS
 	end_water_wildmons
 
 	def_water_wildmons CERULEAN_CAVE_B1F
 	db 4 percent ; encounter rate
-	db 50, PSYDUCK
-	db 50, GOLDUCK
-	db 50, GYARADOS
+	db 55, PSYDUCK
+	db 55, GOLDUCK
+	db 55, GYARADOS
 	end_water_wildmons
 
 	db -1 ; end

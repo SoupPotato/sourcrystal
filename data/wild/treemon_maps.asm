@@ -26,7 +26,7 @@ TreeMonMaps:
 	treemon_map ROUTE_45,                  TREEMON_SET_CANYON
 	treemon_map ROUTE_46,                  TREEMON_SET_CANYON
 	treemon_map ROUTE_47,                  TREEMON_SET_CANYON
-	treemon_map ROUTE_48,                  TREEMON_SET_CANYON
+	treemon_map ROUTE_48,                  TREEMON_SET_ROUTE
 	treemon_map NEW_BARK_TOWN,             TREEMON_SET_CITY
 	treemon_map CHERRYGROVE_CITY,          TREEMON_SET_CITY
 	treemon_map VIOLET_CITY,               TREEMON_SET_CITY

@@ -142,6 +142,13 @@ JohtoWaterWildMons:
 	db 10, DRATINI
 	end_water_wildmons
 
+	def_water_wildmons CLIFF_EDGE_GATE
+	db 2 percent ; encounter rate
+	db 20, WOOPER
+	db 15, WOOPER
+	db 20, QUAGSIRE
+	end_water_wildmons
+
 	def_water_wildmons OLIVINE_PORT
 	db 2 percent ; encounter rate
 	db 20, TENTACOOL
@@ -224,6 +231,13 @@ JohtoWaterWildMons:
 	db 20, MAGIKARP
 	db 15, MAGIKARP
 	db 5, MAGIKARP
+	end_water_wildmons
+
+	def_water_wildmons ROUTE_47
+	db 2 percent ; encounter rate
+	db 20, TENTACOOL
+	db 20, SEEL
+	db 20, STARYU
 	end_water_wildmons
 
 	def_water_wildmons NEW_BARK_TOWN

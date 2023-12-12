@@ -44,6 +44,13 @@ KantoWaterWildMons:
 	db 15, SEAKING
 	end_water_wildmons
 
+	def_water_wildmons ROUTE_10_SOUTH
+	db 4 percent ; encounter rate
+	db 15, GOLDEEN
+	db 10, GOLDEEN
+	db 15, SEAKING
+	end_water_wildmons
+
 	def_water_wildmons ROUTE_12
 	db 6 percent ; encounter rate
 	db 25, TENTACOOL
@@ -168,6 +175,27 @@ KantoWaterWildMons:
 	db 35, TENTACOOL
 	db 30, TENTACOOL
 	db 35, TENTACRUEL
+	end_water_wildmons
+
+	def_water_wildmons SEAFOAM_ISLANDS_B4F
+	db 4 percent ; encounter rate
+	db 35, SEEL
+	db 35, HORSEA
+	db 40, SLOWBRO
+	end_water_wildmons
+
+	def_water_wildmons CERULEAN_CAVE_1F
+	db 4 percent ; encounter rate
+	db 45, PSYDUCK
+	db 45, GOLDUCK
+	db 45, GYARADOS
+	end_water_wildmons
+
+	def_water_wildmons CERULEAN_CAVE_B1F
+	db 4 percent ; encounter rate
+	db 45, PSYDUCK
+	db 45, GOLDUCK
+	db 45, GYARADOS
 	end_water_wildmons
 
 	db -1 ; end

@@ -4,11 +4,11 @@ DerekAskNumber1Text:
 	cont "furry! How cute!"
 
 	para "Let's be friends!"
-	line "PIKACHU-lovers are"
+	line "#MON lovers are"
 	cont "never bad people!"
 
 	para "Let's chat about"
-	line "PIKACHU!"
+	line "our #MON!"
 
 	para "Can I get your"
 	line "phone number?"
@@ -16,7 +16,7 @@ DerekAskNumber1Text:
 
 DerekAskNumber2Text:
 	text "Let's chat about"
-	line "PIKACHU!"
+	line "our #MON!"
 
 	para "Can I get your"
 	line "phone number?"
@@ -48,7 +48,7 @@ DerekGiftText:
 	cont "this? This is it!"
 
 	para "I'm certain your"
-	line "PIKACHU will love"
+	line "#MON! will love"
 	cont "my gift too!"
 	done
 

@@ -79,17 +79,20 @@ DerekFoundItemText:
 	line "loves it."
 
 	para "I'm certain your"
-	line "PIKACHU will love"
+	line "#MON will love"
 	cont "it too!"
 	done
 
 DerekLetsGetTogetherText:
-	text "How is your"
-	line "PIKACHU doing?"
+	text "How are your"
+	line "#MON doing?"
 
 	para "Let's get together"
 	line "and brag about our"
-	cont "PIKACHU!"
+	cont "#MON!"
+	
+	para "Especially my"
+	line "PIKACHU!"
 	done
 
 DerekComePickUpText:

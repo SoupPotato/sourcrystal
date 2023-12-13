@@ -589,7 +589,7 @@ wBackupEnemyMonBaseExp:: db
 
 wPlayerFutureSightDamage:: dw
 wEnemyFutureSightDamage:: dw
-wPlayerRageCounter:: db
+wEffectChanceStorage:: db
 wEnemyRageCounter:: db
 
 wBeatUpHitAtLeastOnce:: db

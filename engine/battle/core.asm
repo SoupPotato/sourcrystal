@@ -724,7 +724,6 @@ ParsePlayerAction:
 	ld hl, wPlayerSubStatus4
 	res SUBSTATUS_RAGE, [hl]
 	xor a
-	ld [wPlayerRageCounter], a
 
 .continue_rage
 	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
@@ -744,7 +743,6 @@ ParsePlayerAction:
 	xor a
 	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
-	ld [wPlayerRageCounter], a
 	ld hl, wPlayerSubStatus4
 	res SUBSTATUS_RAGE, [hl]
 
@@ -757,7 +755,6 @@ ParsePlayerAction:
 	xor a
 	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
-	ld [wPlayerRageCounter], a
 	ld hl, wPlayerSubStatus4
 	res SUBSTATUS_RAGE, [hl]
 	xor a
@@ -4225,7 +4222,6 @@ endr
 	ld [wPlayerDisableCount], a
 	ld [wPlayerFuryCutterCount], a
 	ld [wPlayerProtectCount], a
-	ld [wPlayerRageCounter], a
 	ld [wDisabledMove], a
 	ld [wPlayerMinimized], a
 	ld [wEnemyWrapCount], a

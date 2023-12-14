@@ -91,11 +91,11 @@ TrainerSchoolboyJack1:
 	scall NationalParkAskNumber2M
 .RequestNumber:
 	askforphonenumber PHONE_SCHOOLBOY_JACK
-	ifequal PHONE_CONTACTS_FULL, NationalParkPhoneFull
-	ifequal PHONE_CONTACT_REFUSED, NationalParkNumberDeclined
+	ifequal PHONE_CONTACTS_FULL, NationalParkPhoneFullM
+	ifequal PHONE_CONTACT_REFUSED, NationalParkNumberDeclinedM
 	gettrainername STRING_BUFFER_3, SCHOOLBOY, JACK1
-	scall NationalParkRegisteredNumber
-	sjump NationalParkNumberAccepted
+	scall NationalParkRegisteredNumberM
+	sjump NationalParkNumberAcceptedM
 
 .Rematch:
 	scall .RematchStd
@@ -185,21 +185,21 @@ TrainerPokefanfBeverly:
 	scall NationalParkAskNumber2F
 .RequestNumber:
 	askforphonenumber PHONE_POKEFAN_BEVERLY
-	ifequal PHONE_CONTACTS_FULL, NationalParkPhoneFull
-	ifequal PHONE_CONTACT_REFUSED, NationalParkNumberDeclined
+	ifequal PHONE_CONTACTS_FULL, NationalParkPhoneFullF
+	ifequal PHONE_CONTACT_REFUSED, NationalParkNumberDeclinedF
 	gettrainername STRING_BUFFER_3, POKEFANF, BEVERLY
-	scall NationalParkRegisteredNumber
-	sjump NationalParkNumberAccepted
+	scall NationalParkRegisteredNumberF
+	sjump NationalParkNumberAcceptedF
 
 .GiveNugget:
-	scall NationalParkGift
+	scall NationalParkGiftF
 	verbosegiveitem NUGGET
 	iffalse .NoRoom
 	clearflag ENGINE_BEVERLY_HAS_NUGGET
-	sjump NationalParkNumberAccepted
+	sjump NationalParkNumberAcceptedF
 
 .NoRoom:
-	sjump NationalParkPackFull
+	sjump NationalParkPackFullF
 
 .BeverlyDefeated:
 	writetext PokefanBeverlyCuteMonText
@@ -223,27 +223,43 @@ NationalParkAskNumber2M:
 	jumpstd AskNumber2MScript
 	end
 
-NationalParkRegisteredNumber:
+NationalParkRegisteredNumberF:
 	jumpstd RegisteredNumberFScript
 	end
 
-NationalParkNumberAccepted:
+NationalParkRegisteredNumberM:
+	jumpstd RegisteredNumberMScript
+	end
+
+NationalParkNumberAcceptedF:
 	jumpstd NumberAcceptedFScript
 	end
 
-NationalParkNumberDeclined:
+NationalParkNumberAcceptedM:
+	jumpstd NumberAcceptedMScript
+	end
+
+NationalParkNumberDeclinedF:
 	jumpstd NumberDeclinedFScript
 	end
 
-NationalParkPhoneFull:
+NationalParkNumberDeclinedM:
+	jumpstd NumberDeclinedMScript
+	end
+
+NationalParkPhoneFullF:
 	jumpstd PhoneFullFScript
 	end
 
-NationalParkGift:
+NationalParkPhoneFullM:
+	jumpstd PhoneFullMScript
+	end
+
+NationalParkGiftF:
 	jumpstd GiftFScript
 	end
 
-NationalParkPackFull:
+NationalParkPackFullF:
 	jumpstd PackFullFScript
 	end
 
@@ -269,11 +285,11 @@ TrainerLassKrise:
 	scall NationalParkAskNumber2F
 .RequestNumber:
 	askforphonenumber PHONE_LASS_KRISE
-	ifequal PHONE_CONTACTS_FULL, NationalParkPhoneFull
-	ifequal PHONE_CONTACT_REFUSED, NationalParkNumberDeclined
+	ifequal PHONE_CONTACTS_FULL, NationalParkPhoneFullF
+	ifequal PHONE_CONTACT_REFUSED, NationalParkNumberDeclinedF
 	gettrainername STRING_BUFFER_3, LASS, KRISE1
-	scall NationalParkRegisteredNumber
-	sjump NationalParkNumberAccepted
+	scall NationalParkRegisteredNumberF
+	sjump NationalParkNumberAcceptedF
 
 .Rematch:
 	scall .RematchStd

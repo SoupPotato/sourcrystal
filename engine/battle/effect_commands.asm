@@ -2471,27 +2471,37 @@ BattleCommand_BuildOpponentRage:
 	call GetBattleVar
 	bit SUBSTATUS_RAGE, a
 	ret z
-
-	call BattleCommand_SwitchTurn
-	call BattleCommand_AttackUp
 	
-	ld bc, wPlayerStatLevels
+	ld hl, wEnemyAtkLevel
 	ldh a, [hBattleTurn]
 	and a
-	jr z, .build_rage_player
-	ld bc, wEnemyStatLevels
+	jr z, .build_rage
+	ld hl, wPlayerAtkLevel
 
-.build_rage_player
-	ld a, [bc]
+.build_rage
+	ld a, [hl]
 	cp MAX_STAT_LEVEL
-	jr nc, .attack_maximized
+	ret nc
 
+	; Temporarily overwrite the value of wEffectFailed so that it doesn't
+	; interfere when the Attack stat is being raised.
+	ld a, [wEffectFailed]
+	push af
+	xor a
+	ld [wEffectFailed], a
+
+	; Raise Attack of enraged opponent
+	call BattleCommand_SwitchTurn
+	call BattleCommand_AttackUp
 	ld hl, RageBuildingText
 	call StdBattleTextbox
 	call BattleCommand_StatUpMessage
+	call BattleCommand_SwitchTurn
 
-.attack_maximized
-	jp BattleCommand_SwitchTurn
+	; Restore original value of wEffectFailed
+	pop af
+	ld [wEffectFailed], a
+	ret
 
 EndMoveEffect:
 	ld a, [wBattleScriptBufferAddress]

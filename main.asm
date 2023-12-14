@@ -63,6 +63,7 @@ INCLUDE "engine/events/std_collision.asm"
 INCLUDE "engine/events/bug_contest/judging.asm"
 INCLUDE "engine/events/pokerus/apply_pokerus_tick.asm"
 INCLUDE "engine/pokemon/correct_party_errors.asm"
+INCLUDE "engine/events/bug_contest/contest_2.asm"
 
 
 SECTION "Square Root", ROMX
@@ -70,11 +71,10 @@ SECTION "Square Root", ROMX
 INCLUDE "engine/math/get_square_root.asm"
 
 
-SECTION "contests", ROMX
+SECTION "Contests", ROMX
+
 INCLUDE "engine/events/safari_zone/safari.asm"
 INCLUDE "engine/events/bug_contest/contest.asm"
-INCLUDE "engine/events/bug_contest/contest_2.asm"
-
 
 SECTION "bank5", ROMX
 

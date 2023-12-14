@@ -2460,11 +2460,9 @@ BattleCommand_CheckFaint:
 	jp EndMoveEffect
 
 BattleCommand_BuildOpponentRage:
-	ld a, [wEffectFailed]
-	ld [wEffectChanceStorage], a
-	xor a
-	ld [wEffectFailed], a
-	
+	jp .start
+
+.start
 	ld a, [wAttackMissed]
 	and a
 	ret nz
@@ -2475,6 +2473,7 @@ BattleCommand_BuildOpponentRage:
 	ret z
 
 	call BattleCommand_SwitchTurn
+	call BattleCommand_AttackUp
 	
 	ld bc, wPlayerStatLevels
 	ldh a, [hBattleTurn]
@@ -2489,14 +2488,9 @@ BattleCommand_BuildOpponentRage:
 
 	ld hl, RageBuildingText
 	call StdBattleTextbox
-	call BattleCommand_AttackUp
 	call BattleCommand_StatUpMessage
 
 .attack_maximized
-	ld a, [wEffectChanceStorage]
-	ld [wEffectFailed], a
-	xor a
-	ld [wEffectChanceStorage], a
 	jp BattleCommand_SwitchTurn
 
 EndMoveEffect:

@@ -28,7 +28,7 @@ SafariRestHouseArea4HikerScript_Text:
 	line "this REST HOUSE…"
 
 	para "The peaks here are"
-	line "quit a hiking"
+	line "quite a hiking"
 	cont "challenge."
 	done
 

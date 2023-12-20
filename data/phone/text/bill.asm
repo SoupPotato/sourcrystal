@@ -42,11 +42,9 @@ BillPhoneNotFullText:
 	text "Thanks for"
 	line "waiting!"
 
-	para "<PLAY_G>, your BOX"
-	line "has room for @"
-	text_ram wStringBuffer3
-	text_start
-	cont "more #MON."
+	para "<PLAY_G>, your"
+	line "database has a lot"
+	cont "of space left."
 
 	para "Get out there and"
 	line "fill it up!"
@@ -56,28 +54,25 @@ BillPhoneNearlyFullText:
 	text "Thanks for"
 	line "waiting!"
 
-	para "<PLAY_G>, your BOX"
-	line "has room for only"
-	cont "@"
-	text_ram wStringBuffer3
-	text " more #MON."
+	para "<PLAY_G>, your"
+	line "database is almost"
+	cont "overtaxed!"
 
 	para "Maybe you should"
-	line "switch your BOX."
+	line "save your game?"
 	done
 
 BillPhoneFullText:
 	text "Thanks for"
 	line "waiting!"
 
-	para "<PLAY_G>, your BOX"
-	line "is full!"
+	para "<PLAY_G>, your"
+	line "database is"
+	cont "overtaxed."
 
 	para "You'll have to"
-	line "switch BOXES if"
-
-	para "you want to catch"
-	line "more #MON."
+	line "release #MON"
+	cont "to make space."
 	done
 
 BillPhoneNewlyFullText:
@@ -88,14 +83,12 @@ BillPhoneNewlyFullText:
 	line "my STORAGE SYSTEM."
 
 	para "That last #MON"
-	line "you sent filled"
-	cont "your BOX up."
+	line "overtaxed your"
+	cont "database!"
 
 	para "You'll have to"
-	line "switch BOXES if"
-
-	para "you want to catch"
-	line "more #MON."
+	line "release #MON"
+	cont "to make space."
 
 	para "Bye now!"
 	done

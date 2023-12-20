@@ -289,7 +289,7 @@ ENDM
 	endgroup
 
 	newgroup VERMILION                                            ; 12
-	map_const ROUTE_6,                                     10, 15 ;  1
+	map_const ROUTE_6,                                     12, 15 ;  1
 	map_const ROUTE_11,                                    28,  9 ;  2
 	map_const VERMILION_CITY,                              20, 20 ;  3
 	map_const VERMILION_FISHING_SPEECH_HOUSE,               4,  4 ;  4
@@ -326,7 +326,7 @@ ENDM
 	map_const PEWTER_MUSEUM_1F,                            10,  4 ;  9
 	map_const PEWTER_MUSEUM_2F,                             7,  4 ; 10
 	map_const MOUNT_MOON_POKECENTER_1F,                     5,  4 ; 11
-	map_const ROUTE_2_NORTH,                               10, 19 ; 12
+	map_const ROUTE_2_NORTH,                               12, 19 ; 12
 	endgroup
 
 	newgroup FAST_SHIP                                            ; 15
@@ -455,7 +455,7 @@ ENDM
 	endgroup
 
 	newgroup VIRIDIAN                                             ; 23
-	map_const ROUTE_2_SOUTH,                               10, 17 ;  1
+	map_const ROUTE_2_SOUTH,                               12, 17 ;  1
 	map_const ROUTE_22,                                    20,  9 ;  2
 	map_const VIRIDIAN_CITY,                               20, 18 ;  3
 	map_const VIRIDIAN_GYM,                                 5, 20 ;  4

@@ -4,13 +4,13 @@ MACRO treemon_map
 ENDM
 
 TreeMonMaps:
-	treemon_map ROUTE_26,                  TREEMON_SET_KANTO
-	treemon_map ROUTE_27,                  TREEMON_SET_KANTO
+	treemon_map ROUTE_26,                  TREEMON_SET_PLAINS
+	treemon_map ROUTE_27,                  TREEMON_SET_PLAINS
 	treemon_map ROUTE_28,                  TREEMON_SET_CITY
 	treemon_map ROUTE_29,                  TREEMON_SET_ROUTE
 	treemon_map ROUTE_30,                  TREEMON_SET_ROUTE
 	treemon_map ROUTE_31,                  TREEMON_SET_ROUTE
-	treemon_map ROUTE_32,                  TREEMON_SET_KANTO
+	treemon_map ROUTE_32,                  TREEMON_SET_PLAINS
 	treemon_map ROUTE_33,                  TREEMON_SET_TOWN
 	treemon_map ROUTE_34,                  TREEMON_SET_ROUTE
 	treemon_map ROUTE_35,                  TREEMON_SET_ROUTE
@@ -42,6 +42,32 @@ TreeMonMaps:
 	treemon_map ILEX_FOREST,               TREEMON_SET_FOREST
 	treemon_map VIRIDIAN_FOREST,           TREEMON_SET_FOREST
 	treemon_map SAFARI_ZONE_AREA_4,        TREEMON_SET_SAFARI
+	treemon_map ROUTE_1,                   TREEMON_SET_WESTERN_KANTO
+	treemon_map ROUTE_2_SOUTH,             TREEMON_SET_WESTERN_KANTO
+	treemon_map ROUTE_2_NORTH,             TREEMON_SET_WESTERN_KANTO
+	treemon_map ROUTE_3,                   TREEMON_SET_NORTHERN_KANTO
+	treemon_map ROUTE_4,                   TREEMON_SET_NORTHERN_KANTO
+	treemon_map ROUTE_5,                   TREEMON_SET_CENTRAL_KANTO
+	treemon_map ROUTE_6,                   TREEMON_SET_CENTRAL_KANTO
+	treemon_map ROUTE_7,                   TREEMON_SET_MEDOWS_KANTO
+	treemon_map ROUTE_8,                   TREEMON_SET_CENTRAL_KANTO
+	treemon_map ROUTE_11,                  TREEMON_SET_MEDOWS_KANTO
+	treemon_map ROUTE_12,                  TREEMON_SET_SOUTHERN_KANTO
+	treemon_map ROUTE_13,                  TREEMON_SET_SOUTHERN_KANTO
+	treemon_map ROUTE_14,                  TREEMON_SET_SOUTHERN_KANTO
+	treemon_map ROUTE_15,                  TREEMON_SET_SOUTHERN_KANTO
+	treemon_map ROUTE_16,                  TREEMON_SET_MEDOWS_KANTO
+	treemon_map ROUTE_18,                  TREEMON_SET_SOUTHERN_KANTO
+	treemon_map ROUTE_21,                  TREEMON_SET_SOUTHERN_KANTO
+	treemon_map ROUTE_22,                  TREEMON_SET_WESTERN_KANTO
+	treemon_map ROUTE_25,                  TREEMON_SET_NORTHERN_KANTO
+	treemon_map ROUTE_28,                  TREEMON_SET_MT_SILVER
+	treemon_map VIRIDIAN_CITY,             TREEMON_SET_WESTERN_KANTO
+	treemon_map PEWTER_CITY,               TREEMON_SET_WESTERN_KANTO
+	treemon_map CERULEAN_CITY,             TREEMON_SET_CENTRAL_KANTO
+	treemon_map CELADON_CITY,              TREEMON_SET_MEDOWS_KANTO
+	treemon_map FUCHSIA_CITY,              TREEMON_SET_SOUTHERN_KANTO
+	treemon_map SILVER_CAVE_OUTSIDE,       TREEMON_SET_MT_SILVER
 	db -1
 
 RockMonMaps:

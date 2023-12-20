@@ -240,19 +240,19 @@ ENDM
 	connection south, Route48, ROUTE_48, 1
 
 	map_attributes PewterCity, PEWTER_CITY, $0f, SOUTH | EAST
-	connection south, Route2North, ROUTE_2_NORTH, 5
+	connection south, Route2North, ROUTE_2_NORTH, 4
 	connection east, Route3, ROUTE_3, -6
 
 	map_attributes Route2South, ROUTE_2_SOUTH, $0f, NORTH | SOUTH
 	connection north, Route2North, ROUTE_2_NORTH, 0
-	connection south, ViridianCity, VIRIDIAN_CITY, -5
+	connection south, ViridianCity, VIRIDIAN_CITY, -4
 
 	map_attributes Route2North, ROUTE_2_NORTH, $0f, NORTH | SOUTH
-	connection north, PewterCity, PEWTER_CITY, -5
+	connection north, PewterCity, PEWTER_CITY, -4
 	connection south, Route2South, ROUTE_2_SOUTH, 0
 
 	map_attributes ViridianCity, VIRIDIAN_CITY, $0f, NORTH | SOUTH | WEST
-	connection north, Route2South, ROUTE_2_SOUTH, 5
+	connection north, Route2South, ROUTE_2_SOUTH, 4
 	connection south, Route1, ROUTE_1, 5
 	connection west, Route22, ROUTE_22, 4
 
@@ -335,16 +335,16 @@ ENDM
 	connection west, Route8, ROUTE_8, 0
 
 	map_attributes VermilionCity, VERMILION_CITY, $43, NORTH | EAST
-	connection north, Route6, ROUTE_6, 5
+	connection north, Route6, ROUTE_6, 4
 	connection east, Route11, ROUTE_11, 5
 
 	map_attributes Route6, ROUTE_6, $0f, NORTH | SOUTH
-	connection north, SaffronCity, SAFFRON_CITY, -3
-	connection south, VermilionCity, VERMILION_CITY, -5
+	connection north, SaffronCity, SAFFRON_CITY, -2
+	connection south, VermilionCity, VERMILION_CITY, -4
 
 	map_attributes SaffronCity, SAFFRON_CITY, $0f, NORTH | SOUTH | WEST | EAST
 	connection north, Route5, ROUTE_5, 5
-	connection south, Route6, ROUTE_6, 3
+	connection south, Route6, ROUTE_6, 2
 	connection west, Route7, ROUTE_7, 7
 	connection east, Route8, ROUTE_8, 6
 

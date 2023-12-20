@@ -56,18 +56,18 @@ Route2North_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 15, 19, ROUTE_2_NUGGET_HOUSE, 1
-	warp_event 16, 35, ROUTE_2_GATE, 1
-	warp_event 17, 35, ROUTE_2_GATE, 2
-	warp_event 12,  9, DIGLETTS_CAVE, 3
-	warp_event  3, 11, VIRIDIAN_FOREST_GATE_N, 1
-	warp_event  4, 11, VIRIDIAN_FOREST_GATE_N, 2
+	warp_event 17, 19, ROUTE_2_NUGGET_HOUSE, 1
+	warp_event 18, 35, ROUTE_2_GATE, 1
+	warp_event 19, 35, ROUTE_2_GATE, 2
+	warp_event 14,  9, DIGLETTS_CAVE, 3
+	warp_event  5, 11, VIRIDIAN_FOREST_GATE_N, 1
+	warp_event  6, 11, VIRIDIAN_FOREST_GATE_N, 2
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 11, 11, BGEVENT_READ, Route2DiglettsCaveSign
+	bg_event 13, 11, BGEVENT_READ, Route2DiglettsCaveSign
 
 	def_object_events
-	object_event  5,  4, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherEd, -1
-	object_event 14,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route2Carbos, EVENT_ROUTE_2_CARBOS
+	object_event  7,  4, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherEd, -1
+	object_event 16,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route2Carbos, EVENT_ROUTE_2_CARBOS

@@ -183,7 +183,7 @@ WildFled_EnemyFled_LinkBattleCanceled:
 	jr c, .skip_sfx
 
 	ld de, SFX_RUN
-	call PlaySFX
+	call WaitPlaySFX
 
 .skip_sfx
 	call SetPlayerTurn

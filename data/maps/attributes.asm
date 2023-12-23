@@ -285,16 +285,16 @@ ENDM
 
 	map_attributes FuchsiaCity, FUCHSIA_CITY, $0f, SOUTH | WEST | EAST
 	connection south, Route19, ROUTE_19, 5
-	connection west, Route18, ROUTE_18, 5
+	connection west, Route18, ROUTE_18, 4
 	connection east, Route15, ROUTE_15, 4
 
-	map_attributes Route18, ROUTE_18, $43, WEST | EAST
-	connection west, Route17, ROUTE_17, -38
-	connection east, FuchsiaCity, FUCHSIA_CITY, -5
+	map_attributes Route18, ROUTE_18, $43, NORTH | EAST
+	connection north, Route17, ROUTE_17, 0
+	connection east, FuchsiaCity, FUCHSIA_CITY, -4
 
-	map_attributes Route17, ROUTE_17, $43, NORTH | EAST
+	map_attributes Route17, ROUTE_17, $43, NORTH | SOUTH
 	connection north, Route16, ROUTE_16, 0
-	connection east, Route18, ROUTE_18, 38
+	connection south, Route18, ROUTE_18, 0
 
 	map_attributes Route16, ROUTE_16, $43, SOUTH | EAST
 	connection south, Route17, ROUTE_17, 0
@@ -657,7 +657,7 @@ ENDM
 	map_attributes Route16FuchsiaSpeechHouse, ROUTE_16_FUCHSIA_SPEECH_HOUSE, $00, 0
 	map_attributes Route16Gate, ROUTE_16_GATE, $00, 0
 	map_attributes Route7SaffronGate, ROUTE_7_SAFFRON_GATE, $00, 0
-	map_attributes Route17Route18Gate, ROUTE_17_ROUTE_18_GATE, $00, 0
+	map_attributes Route18Gate, ROUTE_18_GATE, $00, 0
 	map_attributes ManiasHouse, MANIAS_HOUSE, $00, 0
 	map_attributes CianwoodGym, CIANWOOD_GYM, $00, 0
 	map_attributes CianwoodPokecenter1F, CIANWOOD_POKECENTER_1F, $00, 0

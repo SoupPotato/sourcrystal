@@ -40,6 +40,7 @@ TilesetJohtoModernAnim:
 TilesetKantoAnim:
 	dw vTiles2 tile $14, AnimateWaterTile
 	dw NULL,  WaitTileAnimation
+	dw vTiles2 tile $64, AnimateFountainTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateWaterPalette

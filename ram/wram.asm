@@ -3123,7 +3123,7 @@ wTrainerHouseB1FSceneID::                         db
 wVictoryRoadGateSceneID::                         db
 wSaffronMagnetTrainStationSceneID::               db
 wRoute16GateSceneID::                             db
-wRoute17Route18GateSceneID::                      db
+wRoute18GateSceneID::                             db
 wIndigoPlateauPokecenter1FSceneID::               db
 wWillsRoomSceneID::                               db
 wKogasRoomSceneID::                               db

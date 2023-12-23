@@ -361,7 +361,7 @@ ENDM
 	map_const ROUTE_13,                                    40,  9 ;  1
 	map_const ROUTE_14,                                    10, 18 ;  2
 	map_const ROUTE_15,                                    27,  9 ;  3
-	map_const ROUTE_18,                                    10,  9 ;  4
+	map_const ROUTE_18,                                    25,  9 ;  4
 	map_const FUCHSIA_CITY,                                20, 18 ;  5
 	map_const FUCHSIA_MART,                                 6,  4 ;  6
 	map_const SAFARI_ZONE_MAIN_OFFICE,                      4,  4 ;  7
@@ -409,7 +409,7 @@ ENDM
 	newgroup CELADON                                              ; 21
 	map_const ROUTE_7,                                     10,  9 ;  1
 	map_const ROUTE_16,                                    19, 10 ;  2
-	map_const ROUTE_17,                                    10, 45 ;  3
+	map_const ROUTE_17,                                    10, 71 ;  3
 	map_const CELADON_CITY,                                24, 18 ;  4
 	map_const CELADON_DEPT_STORE_1F,                        8,  4 ;  5
 	map_const CELADON_DEPT_STORE_2F,                        8,  4 ;  6
@@ -432,7 +432,7 @@ ENDM
 	map_const ROUTE_16_FUCHSIA_SPEECH_HOUSE,                4,  4 ; 23
 	map_const ROUTE_16_GATE,                                5,  4 ; 24
 	map_const ROUTE_7_SAFFRON_GATE,                         5,  4 ; 25
-	map_const ROUTE_17_ROUTE_18_GATE,                       5,  4 ; 26
+	map_const ROUTE_18_GATE,                                5,  4 ; 26
 	endgroup
 
 	newgroup CIANWOOD                                             ; 22

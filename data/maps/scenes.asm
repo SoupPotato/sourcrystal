@@ -16,7 +16,7 @@ MapScenes::
 	scene_var VICTORY_ROAD_GATE,                           wVictoryRoadGateSceneID
 	scene_var SAFFRON_MAGNET_TRAIN_STATION,                wSaffronMagnetTrainStationSceneID
 	scene_var ROUTE_16_GATE,                               wRoute16GateSceneID
-	scene_var ROUTE_17_ROUTE_18_GATE,                      wRoute17Route18GateSceneID
+	scene_var ROUTE_18_GATE,                               wRoute18GateSceneID
 	scene_var INDIGO_PLATEAU_POKECENTER_1F,                wIndigoPlateauPokecenter1FSceneID
 	scene_var WILLS_ROOM,                                  wWillsRoomSceneID
 	scene_var KOGAS_ROOM,                                  wKogasRoomSceneID

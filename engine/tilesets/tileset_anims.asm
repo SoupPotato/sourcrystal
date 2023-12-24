@@ -663,7 +663,7 @@ ForestTreeRightAnimation2:
 GetForestTreeFrame:
 ; Return 0 if a is even, or 2 if odd.
 	and 1
-	and a
+	add a
 	ret
 
 AnimateFlowerTile:

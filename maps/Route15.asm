@@ -382,7 +382,7 @@ TwinsKayandTiaAfterBattleText2:
 	done
 
 PokefanBooneSeenText:
-	text "HeY, your"
+	text "Hey, your"
 	line "#MON…"
 
 	para "Show me. Show me."

@@ -450,6 +450,12 @@ TrainerHouse:
 RespawnOneOffs:
 	; Set CHECK_FLAG once to be used multiple times
 	ld b, CHECK_FLAG
+	ld de, ENGINE_PLAYER_CAUGHT_SNORLAX
+	farcall EngineFlagAction
+	jr nz, .CaughtSnorlax
+	eventflagreset EVENT_ROUTE_11_SNORLAX_RESPAWN
+.CaughtSnorlax
+
 	ld de, ENGINE_PLAYER_CAUGHT_SUDOWOODO
 	farcall EngineFlagAction
 	jr nz, .CaughtSudowoodo

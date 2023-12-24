@@ -6,6 +6,7 @@
 	const ROUTE_11_BERRY
 	const ROUTE_11_APRICORN
 	const ROUTE_11_BIG_SNORLAX
+	const ROUTE_11_BIG_SNORLAX_RESPAWN
 
 Route11_MapScripts:
 	def_scene_scripts
@@ -46,13 +47,13 @@ Route11Snorlax:
 	opentext
 	special SnorlaxAwake
 	iftrue .Awake
-	writetext UnknownText_0x1aab64
+	writetext Route11SnorlaxSleepingText
 	waitbutton
 	closetext
 	end
 
 .Awake:
-	writetext UnknownText_0x1aab84
+	writetext Route11RadioNearSnorlaxText
 	pause 15
 	cry SNORLAX
 	closetext
@@ -60,8 +61,13 @@ Route11Snorlax:
 	loadwildmon SNORLAX, 50
 	startbattle
 	disappear ROUTE_11_BIG_SNORLAX
+	disappear ROUTE_11_BIG_SNORLAX_RESPAWN
 	setevent EVENT_FOUGHT_SNORLAX
 	reloadmapafterbattle
+	special CheckBattleCaughtResult
+	iffalse .nocatch
+	setflag ENGINE_PLAYER_CAUGHT_SNORLAX
+.nocatch
 	end
 
 TrainerYoungsterJason:
@@ -229,12 +235,12 @@ Route11SignText:
 	text "ROUTE 11"
 	done
 
-UnknownText_0x1aab64:
+Route11SnorlaxSleepingText:
 	text "SNORLAX is snoring"
 	line "peacefully…"
 	done
 
-UnknownText_0x1aab84:
+Route11RadioNearSnorlaxText:
 	text "The #GEAR was"
 	line "placed near the"
 	cont "sleeping SNORLAX…"
@@ -298,3 +304,4 @@ Route11_MapEvents:
 	object_event 52,  2, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route11BerryTree, EVENT_ROUTE_11_BERRY
 	object_event 53,  1, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route11ApricornTree, EVENT_ROUTE_11_APRICORN
 	object_event  8,  6, SPRITE_BIG_SNORLAX, SPRITEMOVEDATA_BIGDOLLSYM, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route11Snorlax, EVENT_ROUTE_11_SNORLAX
+	object_event 51, 11, SPRITE_BIG_SNORLAX, SPRITEMOVEDATA_BIGDOLLSYM, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route11Snorlax, EVENT_ROUTE_11_SNORLAX_RESPAWN

@@ -403,8 +403,8 @@ ENDM
 	map_attributes TinTower8F, TIN_TOWER_8F, $00, 0
 	map_attributes TinTower9F, TIN_TOWER_9F, $00, 0
 	map_attributes BurnedTower1F, BURNED_TOWER_1F, $00, 0
-	map_attributes NationalPark, NATIONAL_PARK, $00, 0
-	map_attributes NationalParkBugContest, NATIONAL_PARK_BUG_CONTEST, $00, 0
+	map_attributes NationalPark, NATIONAL_PARK, $06, 0
+	map_attributes NationalParkBugContest, NATIONAL_PARK_BUG_CONTEST, $06, 0
 	map_attributes RadioTower1F, RADIO_TOWER_1F, $00, 0
 	map_attributes RadioTower2F, RADIO_TOWER_2F, $00, 0
 	map_attributes RadioTower3F, RADIO_TOWER_3F, $00, 0
@@ -440,7 +440,7 @@ ENDM
 	map_attributes TeamRocketBaseB1F, TEAM_ROCKET_BASE_B1F, $00, 0
 	map_attributes TeamRocketBaseB2F, TEAM_ROCKET_BASE_B2F, $00, 0
 	map_attributes TeamRocketBaseB3F, TEAM_ROCKET_BASE_B3F, $00, 0
-	map_attributes IlexForest, ILEX_FOREST, $00, 0
+	map_attributes IlexForest, ILEX_FOREST, $28, 0
 	map_attributes GoldenrodUnderground, GOLDENROD_UNDERGROUND, $00, 0
 	map_attributes GoldenrodUndergroundSwitchRoomEntrances, GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES, $00, 0
 	map_attributes GoldenrodDeptStoreB1F, GOLDENROD_DEPT_STORE_B1F, $00, 0
@@ -730,9 +730,9 @@ ENDM
 	map_attributes PokemonMansion1F, POKEMON_MANSION_1F, $6C, 0
 	map_attributes PokemonMansionB1F, POKEMON_MANSION_B1F, $77, 0
 	map_attributes SafariZoneGatePokecenter1F, SAFARI_ZONE_GATE_POKECENTER_1F, $00, 0
-	map_attributes SafariZoneArea1, SAFARI_ZONE_AREA_1, $00, 0
-	map_attributes SafariZoneArea2, SAFARI_ZONE_AREA_2, $00, 0
-	map_attributes SafariZoneArea3, SAFARI_ZONE_AREA_3, $00, 0
+	map_attributes SafariZoneArea1, SAFARI_ZONE_AREA_1, $06, 0
+	map_attributes SafariZoneArea2, SAFARI_ZONE_AREA_2, $06, 0
+	map_attributes SafariZoneArea3, SAFARI_ZONE_AREA_3, $06, 0
 	map_attributes SafariZoneArea4, SAFARI_ZONE_AREA_4, $05, 0
 	map_attributes SafariRestHouseArea1, SAFARI_REST_HOUSE_AREA_1, $00, 0
 	map_attributes SafariRestHouseArea2, SAFARI_REST_HOUSE_AREA_2, $00, 0

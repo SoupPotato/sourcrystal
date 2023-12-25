@@ -11,16 +11,13 @@ ViridianForestGateNOfficerScript:
 
 ViridianForestGateNOfficerText:
 	text "VIRIDIAN FOREST"
-	line "not only has trees"
-	cont "standing like"
-	cont "a maze"
+	line "has many trees"
 
-	para "but also has many"
-	line "ups and downs."
+	para "standing like a"
+	line "maze."
 
 	para "That's why people"
-	line "get lost easily"
-	cont "here."
+	line "get lost here."
 	done
 
 ViridianForestGateN_MapEvents:

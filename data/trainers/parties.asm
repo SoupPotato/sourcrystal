@@ -2022,7 +2022,7 @@ LassGroup:
 	db $fe ; delimiter
 	
 	;Challenge Mode
-	db "ALICE@", TRAINERTYPE_NORMAL
+	db TRAINERTYPE_NORMAL
 	db 49, GLOOM
 	db 53, ARBOK
 	db 49, VILEPLUME

@@ -88,6 +88,7 @@ EngineFlags:
 	engine_flag wVisitedSpawns, SPAWN_PALLET
 	engine_flag wVisitedSpawns, SPAWN_VIRIDIAN
 	engine_flag wVisitedSpawns, SPAWN_PEWTER
+	engine_flag wVisitedSpawns, SPAWN_MT_MOON
 	engine_flag wVisitedSpawns, SPAWN_CERULEAN
 	engine_flag wVisitedSpawns, SPAWN_ROCK_TUNNEL
 	engine_flag wVisitedSpawns, SPAWN_VERMILION

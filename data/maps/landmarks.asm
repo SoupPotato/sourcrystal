@@ -78,7 +78,7 @@ Landmarks:
 	landmark 108,  76, UndergroundName
 	landmark 100,  76, Route6Name
 	landmark 100,  84, VermilionCityName
-	landmark  88,  60, DiglettsCaveName
+	landmark  60,  60, DiglettsCaveName
 	landmark  88,  68, Route7Name
 	landmark 116,  68, Route8Name
 	landmark 116,  52, Route9Name
@@ -102,7 +102,7 @@ Landmarks:
 	landmark  76, 132, Route20Name
 	landmark  68, 132, SeafoamIslandsName
 	landmark  52, 132, CinnabarIslandName
-	landmark  58, 146, PokemonMansionName
+	landmark  56, 128, PokemonMansionName
 	landmark  52, 120, Route21Name
 	landmark  36,  68, Route22Name
 	landmark  28,  52, VictoryRoadName

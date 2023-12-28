@@ -202,7 +202,7 @@ MountMoonHelixFossilText:
 
 	para "It's the HELIX"
 	line "FOSSIL that was"
-	cont "lost at Mt.MORTAR!"
+	cont "lost at MT.MORTAR!"
 
 	para "The underground"
 	line "current must have"
@@ -217,7 +217,7 @@ MountMoonDomeFossilText:
 
 	para "It's the DOME"
 	line "FOSSIL that was"
-	cont "lost at Mt.MORTAR!"
+	cont "lost at MT.MORTAR!"
 
 	para "The underground"
 	line "current must have"

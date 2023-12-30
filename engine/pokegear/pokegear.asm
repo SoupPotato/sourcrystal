@@ -2140,6 +2140,7 @@ RadioChannels:
 	ret
 
 LoadStation_OaksPokemonTalk:
+	farcall TownMap_InitCursorAndPlayerIconPositions ; used to load values for swarm region.
 	xor a ; OAKS_POKEMON_TALK
 	ld [wCurRadioLine], a
 	ld [wNumRadioLinesPrinted], a

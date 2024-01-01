@@ -18,8 +18,8 @@ RadioTower4FFisherScript:
 RadioTower4FDJMaryScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_SILK_SCARF_FROM_MARY
-	iftrue .GotPinkBow
+	checkevent EVENT_GOT_BRIGHTPOWDER_FROM_MARY
+	iftrue .GotBrightPowder
 	checkevent EVENT_CLEARED_RADIO_TOWER
 	iftrue .ClearedRockets
 	writetext RadioTower4FDJMaryText
@@ -30,15 +30,15 @@ RadioTower4FDJMaryScript:
 .ClearedRockets:
 	writetext RadioTower4FDJMaryText_ClearedRockets
 	promptbutton
-	verbosegiveitem SILK_SCARF
+	verbosegiveitem BRIGHTPOWDER
 	iffalse .NoRoom
-	writetext RadioTower4FDJMaryText_GivePinkBow
+	writetext RadioTower4FDJMaryText_GiveBrightPowder
 	waitbutton
 	closetext
-	setevent EVENT_GOT_SILK_SCARF_FROM_MARY
+	setevent EVENT_GOT_BRIGHTPOWDER_FROM_MARY
 	end
 
-.GotPinkBow:
+.GotBrightPowder:
 	writetext RadioTower4FDJMaryText_After
 	waitbutton
 .NoRoom:
@@ -128,12 +128,12 @@ RadioTower4FDJMaryText_ClearedRockets:
 	line "as my thanks?"
 	done
 
-RadioTower4FDJMaryText_GivePinkBow:
-	text "MARY: It's just"
-	line "right for #MON"
+RadioTower4FDJMaryText_GiveBrightPowder:
+	text "MARY: When a"
+	line "#MON holds that,"
 
-	para "that know normal-"
-	line "type moves."
+	para "it lowers the"
+	line "foe's ACCURACY."
 	done
 
 RadioTower4FDJMaryText_After:

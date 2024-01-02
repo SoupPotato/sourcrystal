@@ -466,7 +466,8 @@ DexEntryScreen_MenuActionJumptable:
 
 .Cry:
 	ld a, [wCurPartySpecies]
-	jp PlayCry
+	call PlayMonCry
+	ret
 
 .Print:
 	call Pokedex_ApplyPrintPals

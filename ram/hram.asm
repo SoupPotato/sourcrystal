@@ -190,3 +190,5 @@ hFunctionTargetHi:: db
 hCodeBuffer:: ds 3
 
 	ds 10
+
+ENDSECTION

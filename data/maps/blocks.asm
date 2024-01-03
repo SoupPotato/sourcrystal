@@ -996,3 +996,4 @@ SafariRestHouseArea4_Blocks:
 
 SafariZoneEntrance_Blocks:
 	INCBIN "maps/SafariZoneEntrance.blk"
+ENDSECTION

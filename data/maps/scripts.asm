@@ -520,3 +520,5 @@ INCLUDE "maps/SafariRestHouseArea2.asm"
 INCLUDE "maps/SafariRestHouseArea3.asm"
 INCLUDE "maps/SafariRestHouseArea4.asm"
 INCLUDE "maps/Route39.asm"
+
+ENDSECTION

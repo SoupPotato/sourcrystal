@@ -102,7 +102,7 @@ CianwoodCityChucksWife:
 	setflag ENGINE_PAGER_FLY
 	writetext GotFlyPagerText
 	promptbutton
-	writetext ChucksWifeFlySpeechText
+	writetext ChucksWifeFlyPagerSpeechText
 	promptbutton
 	verbosegiveitem HM_FLY
 	iffalse .Done
@@ -236,7 +236,7 @@ ChucksWifeGiveHMText:
 	line "take this PAGER."
 	done
 
-ChucksWifeFlySpeechText:
+ChucksWifeFlyPagerSpeechText:
 	text "With the"
 	line "FLY PAGER,"
 
@@ -250,7 +250,7 @@ ChucksWifeFlySpeechText:
 	line "this too!"
 	done
 
-UnknownText_0x1a021d:
+ChucksWifeFlySpeechText:
 	text "That HM will"
 	line "teach FLY to your"
 	cont "#MON."

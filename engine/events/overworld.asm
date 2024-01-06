@@ -503,6 +503,10 @@ TrySurfOW::
 	ld de, ENGINE_FOGBADGE
 	call CheckEngineFlag
 	jr c, .quit
+	
+	ld de, ENGINE_PAGER_SURF
+	call CheckEngineFlag
+	jr c, .quit
 
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
@@ -1058,6 +1062,10 @@ TryStrengthOW:
 	call CheckEngineFlag
 	jr c, .nope
 
+	ld de, ENGINE_PAGER_STRENGTH
+	call CheckEngineFlag
+	jr c, .nope
+
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_STRENGTH_ACTIVE_F, [hl]
 	jr z, .already_using
@@ -1188,6 +1196,11 @@ TryWhirlpoolOW::
 	ld de, ENGINE_GLACIERBADGE
 	call CheckEngineFlag
 	jr c, .failed
+
+	ld de, ENGINE_PAGER_WHIRLPOOL
+	call CheckEngineFlag
+	jr c, .failed
+
 	call TryWhirlpoolMenu
 	jr c, .failed
 	ld a, BANK(Script_AskWhirlpoolOW)
@@ -1390,8 +1403,9 @@ UseRockSmashText:
 	text_end
 
 AskRockSmashScript:
-	checkflag ENGINE_PAGER_ROCK_SMASH
-	iffalse .no
+	ld de, ENGINE_PAGER_ROCK_SMASH
+	call CheckEngineFlag
+	jr c, .no
 
 	opentext
 	writetext AskRockSmashText
@@ -1768,6 +1782,10 @@ TryCutOW::
 	call CheckEngineFlag
 	jr c, .cant_cut
 
+	ld de, ENGINE_PAGER_CUT
+	call CheckEngineFlag
+	jr c, .cant_cut
+	
 	ld a, BANK(AskCutScript)
 	ld hl, AskCutScript
 	call CallScript

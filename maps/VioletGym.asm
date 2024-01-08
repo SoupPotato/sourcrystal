@@ -177,7 +177,7 @@ FalknerTMMudSlapText:
 	line "are reusable so"
 
 	para "use them however"
-	cont "you like."
+	line "you like."
 
 	para "TM31 contains"
 	line "MUD-SLAP."

@@ -208,8 +208,8 @@ DragonShrineElder1Script:
 .GiveDratini:
 	writetext DragonShrineTakeThisDratiniText
 	waitbutton
-	readvar VAR_BOXSPACE
-	ifequal 0, .PartyFull
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
 	writetext DragonShrinePlayerReceivedDratiniText
 	playsound SFX_CAUGHT_MON
 	waitsfx
@@ -523,8 +523,7 @@ DragonShrinePlayerReceivedDratiniText:
 
 DragonShrinePartyFullText:
 	text "Hm? Your #MON"
-	line "party and PC Box"
-	cont "are full."
+	line "party is full."
 	done
 
 DragonShrineSymbolicDragonText:

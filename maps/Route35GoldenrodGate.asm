@@ -23,8 +23,8 @@ RandyScript:
 	writetext Route35GoldenrodGateRandyThanksText
 	promptbutton
 	waitsfx
-	readvar VAR_BOXSPACE
-	ifequal 0, .partyfull
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .partyfull
 	writetext Route35GoldenrodGatePlayerReceivedAMonWithMailText
 	playsound SFX_KEY_ITEM
 	waitsfx

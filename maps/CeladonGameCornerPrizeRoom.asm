@@ -137,8 +137,8 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 .Pikachu:
 	checkcoins CELADONGAMECORNERPRIZEROOM_PIKACHU_COINS
 	ifequal HAVE_LESS, CeladonPrizeRoom_notenoughcoins
-	readvar VAR_BOXSPACE
-	ifequal 0, CeladonPrizeRoom_notenoughroom
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, CeladonPrizeRoom_notenoughroom
 	getmonname STRING_BUFFER_3, PIKACHU
 	scall CeladonPrizeRoom_askbuy
 	iffalse CeladonPrizeRoom_CancelPurchaseScript
@@ -155,8 +155,8 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 .Porygon:
 	checkcoins CELADONGAMECORNERPRIZEROOM_PORYGON_COINS
 	ifequal HAVE_LESS, CeladonPrizeRoom_notenoughcoins
-	readvar VAR_BOXSPACE
-	ifequal 0, CeladonPrizeRoom_notenoughroom
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, CeladonPrizeRoom_notenoughroom
 	getmonname STRING_BUFFER_3, PORYGON
 	scall CeladonPrizeRoom_askbuy
 	iffalse CeladonPrizeRoom_CancelPurchaseScript
@@ -173,8 +173,8 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 .Larvitar:
 	checkcoins CELADONGAMECORNERPRIZEROOM_LARVITAR_COINS
 	ifequal HAVE_LESS, CeladonPrizeRoom_notenoughcoins
-	readvar VAR_BOXSPACE
-	ifequal 0, CeladonPrizeRoom_notenoughroom
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, CeladonPrizeRoom_notenoughroom
 	getmonname STRING_BUFFER_3, LARVITAR
 	scall CeladonPrizeRoom_askbuy
 	iffalse CeladonPrizeRoom_CancelPurchaseScript

@@ -107,8 +107,8 @@ RuinsOfAlphResearchCenterFossilScientistScript:
 .give_omanyte
 	writetext RuinsOfAlphResearchCenterFossilScientistDoneOmanyteText
 	waitbutton
-	readvar VAR_BOXSPACE
-	ifequal 0, .No_Room
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .No_Room
 	writetext RuinsOfAlphResearchCenterPlayerReceivedOmanyteText
 	playsound SFX_CAUGHT_MON
 	waitsfx
@@ -128,8 +128,8 @@ RuinsOfAlphResearchCenterFossilScientistScript:
 .give_kabuto
 	writetext RuinsOfAlphResearchCenterFossilScientistDoneKabutoText
 	waitbutton
-	readvar VAR_BOXSPACE
-	ifequal 0, .No_Room
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .No_Room
 	writetext RuinsOfAlphResearchCenterPlayerReceivedKabutoText
 	playsound SFX_CAUGHT_MON
 	waitsfx
@@ -149,8 +149,8 @@ RuinsOfAlphResearchCenterFossilScientistScript:
 .give_aerodactyl
 	writetext RuinsOfAlphResearchCenterFossilScientistDoneAerodactylText
 	waitbutton
-	readvar VAR_BOXSPACE
-	ifequal 0, .No_Room
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .No_Room
 	writetext RuinsOfAlphResearchCenterPlayerReceivedAerodactylText
 	playsound SFX_CAUGHT_MON
 	waitsfx
@@ -701,7 +701,7 @@ RuinsOfAlphResearchCenterFossilScientistDoYouHaveFossilText:
 	line "ing the luck!"
 
 	para "I must do the"
-	line "fossil studying"
+	line "fossil-studying"
 
 	para "so that I can be"
 	line "bringing the"

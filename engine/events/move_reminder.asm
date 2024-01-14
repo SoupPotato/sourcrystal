@@ -213,7 +213,8 @@ ChooseMoveToLearn:
 	call Get2bppViaHDMA
 
 	farcall LoadStatsScreenPageTilesGFX
-
+	xor a
+	ld [wMonType], a
 	ld a, [wCurPartySpecies]
 	ld [wNamedObjectIndex], a
 	call GetPokemonName
@@ -352,8 +353,8 @@ ChooseMoveToLearn:
 	call AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
-	and a
-	jr z, .print_move_no_attack
+	cp 2
+	jr c, .print_move_no_attack
 	ld [wBuffer1], a
 	ld de, wBuffer1
 	lb bc, 1, 3

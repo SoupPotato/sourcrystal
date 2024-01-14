@@ -100,7 +100,7 @@ ItemDescriptions:
 	dw WhtApricornDesc
 	dw BlackbeltDesc
 	dw BlkApricornDesc
-	dw TeruSama7Desc
+	dw DomeFossilDesc
 	dw PnkApricornDesc
 	dw BlackGlassesDesc
 	dw SlowpokeTailDesc
@@ -610,6 +610,8 @@ BluApricornDesc:
 	db   "A blue APRICORN.@"
 
 HelixFossilDesc:
+DomeFossilDesc:
+OldAmberDesc:
 	db   "A mysterious"
 	next "#MON fossil.@"
 
@@ -724,10 +726,6 @@ ThickClubDesc:
 FocusBandDesc:
 	db   "May prevent faint-"
 	next "ing. (HOLD)@"
-
-OldAmberDesc:
-	db   "A mysterious"
-	next "#MON fossil.@"
 
 EnergyPowderDesc:
 	db   "Restores #MON"

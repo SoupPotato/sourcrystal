@@ -184,15 +184,17 @@ BattleAnimFrameData:
 	dw .Frameset_Sandstorm           ; BATTLE_ANIM_FRAMESET_SANDSTORM
 	dw .Frameset_EnemyFeet1Row       ; BATTLE_ANIM_FRAMESET_ENEMYFEET_1ROW
 	dw .Frameset_PlayerHead1Row      ; BATTLE_ANIM_FRAMESET_PLAYERHEAD_1ROW
-	dw .Frameset_EnemyFeet2Row       ; BATTLE_ANIM_FRAMESET_ENEMYFEET_2ROW
-	dw .Frameset_PlayerHead2Row      ; BATTLE_ANIM_FRAMESET_PLAYERHEAD_2ROW
-	dw .Frameset_MediumHorn          ; BATTLE_ANIM_FRAMESET_MEDIUM_HORN
-	dw .Frameset_SafariBait          ; BATTLE_ANIM_FRAMESET_SAFARI_BAIT
-	dw .Frameset_Recover             ; BATTLE_ANIM_FRAMESET_RECOVER
-	dw .Frameset_Minimize            ; BATTLE_ANIM_FRAMESET_MINIMIZE
-	dw .Frameset_BubbleSplash        ; BATTLE_ANIM_FRAMESET_BUBBLE_SPLASH
-	dw .Frameset_SmokePuff           ; BATTLE_ANIM_FRAMESET_SMOKE_PUFF
-	dw .Frameset_InkSplash           ; BATTLE_ANIM_FRAMESET_INK_SPLASH
+	dw .Frameset_EnemyFeet2Row           ; BATTLE_ANIM_FRAMESET_ENEMYFEET_2ROW
+	dw .Frameset_PlayerHead2Row          ; BATTLE_ANIM_FRAMESET_PLAYERHEAD_2ROW
+	dw .Frameset_MediumHorn              ; BATTLE_ANIM_FRAMESET_MEDIUM_HORN
+	dw .Frameset_SafariBait              ; BATTLE_ANIM_FRAMESET_SAFARI_BAIT
+	dw .Frameset_Recover                 ; BATTLE_ANIM_FRAMESET_RECOVER
+	dw .Frameset_Minimize                ; BATTLE_ANIM_FRAMESET_MINIMIZE
+	dw .Frameset_BubbleSplash            ; BATTLE_ANIM_FRAMESET_BUBBLE_SPLASH
+	dw .Frameset_SmokePuff               ; BATTLE_ANIM_FRAMESET_SMOKE_PUFF
+	dw .Frameset_InkSplash               ; BATTLE_ANIM_FRAMESET_INK_SPLASH
+	dw .Frameset_SpinningTriangle        ; BATTLE_ANIM_FRAMESET_SPINNING_TRIANGLE
+	dw .Frameset_SpinningTriangleSlow    ; BATTLE_ANIM_FRAMESET_SPINNING_SLOW
 	assert_table_length NUM_BATTLE_ANIM_FRAMESETS
 
 .Frameset_HitBig:
@@ -1305,3 +1307,17 @@ BattleAnimFrameData:
 .Frameset_InkSplash:
 	oamframe BATTLE_ANIM_OAMSET_1F,  8
 	oamend
+
+.Frameset_SpinningTriangle:
+	oamframe BATTLE_ANIM_OAMSET_D9,  0
+	oamframe BATTLE_ANIM_OAMSET_DA,  0
+	oamframe BATTLE_ANIM_OAMSET_D9,  0, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_DA,  0, OAM_X_FLIP
+	oamrestart
+
+.Frameset_SpinningTriangleSlow:
+	oamframe BATTLE_ANIM_OAMSET_D9,  2
+	oamframe BATTLE_ANIM_OAMSET_DA,  2
+	oamframe BATTLE_ANIM_OAMSET_D9,  2, OAM_Y_FLIP
+	oamframe BATTLE_ANIM_OAMSET_DA,  2, OAM_X_FLIP
+	oamrestart

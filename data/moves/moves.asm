@@ -63,7 +63,7 @@ Moves:
 	move SING,         EFFECT_SLEEP,               0, NORMAL,        55, 15,   0
 	move SUPERSONIC,   EFFECT_CONFUSE,             0, NORMAL,        55, 20,   0
 	move SONICBOOM,    EFFECT_STATIC_DAMAGE,      20, NORMAL,        90, 20,   0
-	move DISABLE,      EFFECT_DISABLE,             0, NORMAL,       100, 20,   0 ; OLD ACCURACY: 55
+	move DISABLE,      EFFECT_DISABLE,             0, NORMAL,       100, 20,   0 ; OLD ACCURACY: 55, NOTE: EFFECT_DISABLE now always lasts 4 turns
 	move ACID,         EFFECT_DEFENSE_DOWN_HIT,   40, POISON,       100, 30,  10
 	move EMBER,        EFFECT_BURN_HIT,           40, FIRE,         100, 25,  10
 	move FLAMETHROWER, EFFECT_BURN_HIT,           90, FIRE,         100, 15,  10 ; OLD POWER: 95
@@ -193,7 +193,7 @@ Moves:
 	move AEROBLAST,    EFFECT_NORMAL_HIT,        100, FLYING,        95,  5,   0
 	move COTTON_SPORE, EFFECT_SPEED_DOWN_2,        0, GRASS,        100, 40,   0 ; OLD ACCURACY: 85
 	move REVERSAL,     EFFECT_REVERSAL,            1, FIGHTING,     100, 15,   0
-	move SPITE,        EFFECT_SPITE,               0, GHOST,        100, 10,   0
+	move SPITE,        EFFECT_SPITE,               0, GHOST,        100, 10,   0 ; NOTE: EFFECT_SPITE now reduces 4 PP
 	move POWDER_SNOW,  EFFECT_FREEZE_HIT,         40, ICE,          100, 25,  10
 	move PROTECT,      EFFECT_PROTECT,             0, NORMAL,       100, 10,   0
 	move MACH_PUNCH,   EFFECT_PRIORITY_HIT,       40, FIGHTING,     100, 30,   0
@@ -242,14 +242,14 @@ Moves:
 	move BATON_PASS,   EFFECT_BATON_PASS,          0, NORMAL,       100, 40,   0
 	move ENCORE,       EFFECT_ENCORE,              0, NORMAL,       100,  5,   0
 	move PURSUIT,      EFFECT_PURSUIT,            40, DARK,         100, 20,   0
-	move RAPID_SPIN,   EFFECT_RAPID_SPIN,         50, NORMAL,       100, 40,   0
+	move RAPID_SPIN,   EFFECT_RAPID_SPIN,         50, NORMAL,       100, 40,   0 ; OLD POWER: 30 ; NOTE: EFFECT_RAPID_SPIN now raises SPEED 1 stage
 	move SWEET_SCENT,  EFFECT_EVASION_DOWN_2,      0, NORMAL,       100, 20,   0 ; OLD EFFECT: EFFECT_EVASION_DOWN
 	move IRON_TAIL,    EFFECT_DEFENSE_DOWN_HIT,  100, STEEL,         75, 15,  30
 	move METAL_CLAW,   EFFECT_ATTACK_UP_HIT,      50, STEEL,         95, 35,  10
 	move VITAL_THROW,  EFFECT_ALWAYS_HIT,         70, FIGHTING,     100, 10,   0
-	move MORNING_SUN,  EFFECT_MORNING_SUN,         0, NORMAL,       100,  5,   0
-	move SYNTHESIS,    EFFECT_SYNTHESIS,           0, GRASS,        100,  5,   0
-	move MOONLIGHT,    EFFECT_MOONLIGHT,           0, NORMAL,       100,  5,   0
+	move MORNING_SUN,  EFFECT_MORNING_SUN,         0, NORMAL,       100,  5,   0 ; NOTE: Regular heal is 1/2 max hp
+	move SYNTHESIS,    EFFECT_SYNTHESIS,           0, GRASS,        100,  5,   0 ; NOTE: Regular heal is 1/2 max hp
+	move MOONLIGHT,    EFFECT_MOONLIGHT,           0, NORMAL,       100,  5,   0 ; NOTE: Regular heal is 1/2 max hp
 	move HIDDEN_POWER, EFFECT_HIDDEN_POWER,       60, NORMAL,       100, 15,   0 ; OLD POWER: 1
 	move CROSS_CHOP,   EFFECT_NORMAL_HIT,        100, FIGHTING,      80,  5,   0
 	move TWISTER,      EFFECT_TWISTER,            40, DRAGON,       100, 20,  20

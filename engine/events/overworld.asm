@@ -1403,10 +1403,11 @@ UseRockSmashText:
 	text_end
 
 AskRockSmashScript:
-	ld de, ENGINE_PAGER_ROCK_SMASH
-	call CheckEngineFlag
-	jr c, .no
+	callasm TryRockSmashOW
+	iffalse .AskRockSmash
+	ifequal $1, .no
 
+.AskRockSmash:
 	opentext
 	writetext AskRockSmashText
 	yesorno
@@ -1415,6 +1416,21 @@ AskRockSmashScript:
 	end
 .no
 	jumptext MaySmashText
+
+TryRockSmashOW:
+	ld de, ENGINE_PAGER_ROCK_SMASH
+	call CheckEngineFlag
+	jr c, .nope
+
+	ld a, 2
+	jr .done
+
+.nope
+	ld a, 1
+
+.done
+	ld [wScriptVar], a
+	ret
 
 MaySmashText:
 	text_far _MaySmashText

@@ -1399,10 +1399,19 @@ BattleAnim_Explosion:
 	anim_ret
 
 BattleAnim_Acid:
-	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_YELLOW
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_ACID
 	anim_1gfx BATTLE_ANIM_GFX_POISON
 	anim_call BattleAnimSub_Acid
-	anim_wait 64
+	anim_obj BATTLE_ANIM_OBJ_POISON_DROPLET, 128, 36, $11
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_POISON_DROPLET, 144, 36, $0f
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_POISON_DROPLET, 124, 36, $11
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_POISON_DROPLET, 148, 36, $0f
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_POISON_DROPLET, 120, 36, $11
+	anim_wait 48
 	anim_ret
 
 BattleAnim_RockThrow:
@@ -3122,7 +3131,6 @@ BattleAnim_Sludge:
 BattleAnim_Toxic:
 	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_PURPLE
 	anim_1gfx BATTLE_ANIM_GFX_POISON
-	anim_obp0 $fc
 	anim_bgeffect BATTLE_BG_EFFECT_BLACK_HUES, $0, $8, $0
 	anim_call BattleAnimSub_Acid
 	anim_wait 32
@@ -4918,7 +4926,7 @@ BattleAnimSub_Sludge:
 BattleAnimSub_Acid:
 .loop
 	anim_sound 6, 2, SFX_BUBBLEBEAM
-	anim_obj BATTLE_ANIM_OBJ_ACID, 64, 92, $10
+	anim_obj BATTLE_ANIM_OBJ_ACID, 64, 84, $10
 	anim_wait 5
 	anim_loop 8, .loop
 	anim_ret

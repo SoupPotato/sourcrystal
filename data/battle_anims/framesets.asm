@@ -31,7 +31,7 @@ BattleAnimFrameData:
 	dw .Frameset_Strength            ; BATTLE_ANIM_FRAMESET_STRENGTH
 	dw .Frameset_SkullCrossbone      ; BATTLE_ANIM_FRAMESET_SKULL_CROSSBONE
 	dw .Frameset_Acid                ; BATTLE_ANIM_FRAMESET_ACID
-	dw .Frameset_PoisonDropletUnused ; BATTLE_ANIM_FRAMESET_POISON_DROPLET_UNUSED
+	dw .Frameset_PoisonDroplet       ; BATTLE_ANIM_FRAMESET_POISON_DROPLET
 	dw .Frameset_SludgeBubble        ; BATTLE_ANIM_FRAMESET_SLUDGE_BUBBLE
 	dw .Frameset_SludgeBubbleBurst   ; BATTLE_ANIM_FRAMESET_SLUDGE_BUBBLE_BURST
 	dw .Frameset_SmallBubble         ; BATTLE_ANIM_FRAMESET_SMALL_BUBBLE
@@ -458,9 +458,9 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_1D,  8
 	oamend
 
-.Frameset_PoisonDropletUnused:
-	oamframe BATTLE_ANIM_OAMSET_17,  8
-	oamend
+.Frameset_PoisonDroplet:
+	oamframe BATTLE_ANIM_OAMSET_17,  24
+	oamdelete
 
 .Frameset_SludgeBubble:
 	oamframe BATTLE_ANIM_OAMSET_0F,  3

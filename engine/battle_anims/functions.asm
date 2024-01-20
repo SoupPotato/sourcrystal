@@ -95,6 +95,7 @@ DoBattleAnimFrame:
 	dw BattleAnimFunc_RockSmash
 	dw BattleAnimFunc_Cotton
 	dw BattleAnimFunc_BubbleSplash
+	dw BattleAnimFunction_RadialMoveOut_Slow
 	assert_table_length NUM_BATTLE_ANIM_FUNCS
 
 BattleAnimFunc_Null:
@@ -4215,6 +4216,64 @@ BattleAnimFunc_AncientPower:
 
 .done
 	call DeinitBattleAnimation
+	ret
+
+BattleAnimFunction_RadialMoveOut_Slow:
+	call BattleAnim_AnonJumptable
+
+	dw InitRadial
+	dw Step_Slow
+
+InitRadial:
+	ld hl, BATTLEANIMSTRUCT_VAR2
+	add hl, bc
+	xor a
+	ld [hld], a
+	ld [hl], a ; initial position = 0
+	call BattleAnim_IncAnonJumptableIndex
+
+Step_Slow:
+	call Get_Rad_Pos
+	ld hl, 1.5 ; speed
+	call Set_Rad_Pos
+	cp 120 ; final position
+	jmp nc, DeinitBattleAnimation
+	jr Rad_Move
+
+Get_Rad_Pos:
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, [hli]
+	ld e, [hl]
+	ld d, a
+	ret 
+
+Set_Rad_Pos:
+	add hl, de
+	ld a, h
+	ld e, l
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld [hli], a
+	ld [hl], e
+	ret
+
+Rad_Move:
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld e, [hl]
+	push de
+	ld a, e
+	call BattleAnim_Sine
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld [hl], a
+	pop de
+	ld a, e
+	call BattleAnim_Cosine
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld [hl], a
 	ret
 
 BattleAnim_StepCircle:

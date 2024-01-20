@@ -229,6 +229,7 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_DAZZLE              ; c4
 	const BATTLE_ANIM_OBJ_SHOOTING_TRIANGLE   ; c5
 	const BATTLE_ANIM_OBJ_SPINNING_TRIANGLE   ; c6
+	const BATTLE_ANIM_OBJ_POISON_DROPLET      ; c7
 DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -314,6 +315,7 @@ DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 	const BATTLE_ANIM_FUNC_ROCK_SMASH                ; 4e
 	const BATTLE_ANIM_FUNC_COTTON                    ; 4f
 	const BATTLE_ANIM_FUNC_BUBBLE_SPLASH             ; 50
+	const BATTLE_ANIM_FUNC_RADIAL_MOVE_OUT_SLOW      ; 51
 DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 
 ; BattleAnimFrameData indexes (see data/battle_anims/framesets.asm)
@@ -348,7 +350,7 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_STRENGTH              ; 1b
 	const BATTLE_ANIM_FRAMESET_SKULL_CROSSBONE       ; 1c
 	const BATTLE_ANIM_FRAMESET_ACID                  ; 1d
-	const BATTLE_ANIM_FRAMESET_POISON_DROPLET_UNUSED ; 1e
+	const BATTLE_ANIM_FRAMESET_POISON_DROPLET        ; 1e
 	const BATTLE_ANIM_FRAMESET_SLUDGE_BUBBLE         ; 1f
 	const BATTLE_ANIM_FRAMESET_SLUDGE_BUBBLE_BURST   ; 20
 	const BATTLE_ANIM_FRAMESET_SMALL_BUBBLE          ; 21
@@ -918,6 +920,7 @@ DEF NUM_BG_EFFECTS EQU 5 ; see wActiveBGEffects
 	const PAL_BTLCUSTOM_HP_STEEL        ; 1a
 	const PAL_BTLCUSTOM_HP_PSYCHIC      ; 1b
 	const PAL_BTLCUSTOM_HP_GHOST        ; 1c
+	const PAL_BTLCUSTOM_ACID            ; 1d
 
 DEF NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 

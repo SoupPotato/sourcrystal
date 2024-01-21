@@ -428,17 +428,13 @@ BattleAnim_ThrowBait:
 	anim_ret
 
 BattleAnim_SendOutMon:
-	anim_if_param_equal $0, .Normal
 	anim_if_param_equal $1, .Shiny
 	anim_1gfx BATTLE_ANIM_GFX_SMOKE
-	anim_call BattleAnim_TargetObj_1Row
-	anim_bgeffect BATTLE_BG_EFFECT_BETA_SEND_OUT_MON2, $0, BG_EFFECT_USER, $0
 	anim_sound 0, 0, SFX_BALL_POOF
-	anim_obj BATTLE_ANIM_OBJ_BETA_BALL_POOF, 48, 96, $0
-	anim_bgeffect BATTLE_BG_EFFECT_ENTER_MON, $0, BG_EFFECT_USER, $0
-	anim_wait 128
+	anim_obj BATTLE_ANIM_OBJ_BALL_POOF, 44, 96, $0
 	anim_wait 4
-	anim_call BattleAnim_ShowMon_0
+	anim_bgeffect BATTLE_BG_EFFECT_ENTER_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 32
 	anim_ret
 
 .Shiny:
@@ -468,15 +464,6 @@ BattleAnim_SendOutMon:
 	anim_wait 4
 	anim_sound 0, 0, SFX_SHINE
 	anim_obj BATTLE_ANIM_OBJ_SHINY, 48, 96, $38
-	anim_wait 32
-	anim_ret
-
-.Normal:
-	anim_1gfx BATTLE_ANIM_GFX_SMOKE
-	anim_sound 0, 0, SFX_BALL_POOF
-	anim_obj BATTLE_ANIM_OBJ_BALL_POOF, 44, 96, $0
-	anim_wait 4
-	anim_bgeffect BATTLE_BG_EFFECT_ENTER_MON, $0, BG_EFFECT_USER, $0
 	anim_wait 32
 	anim_ret
 
@@ -1481,10 +1468,6 @@ BattleAnim_Poisonpowder:
 BattleAnim_SleepPowder:
 	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GREEN
 	anim_jump BattleAnim_StunSpore
-BattleAnim_Spore:
-	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_SPORE
-	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
-	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 BattleAnim_StunSpore:
 	anim_1gfx BATTLE_ANIM_GFX_POWDER
 .loop
@@ -1506,6 +1489,25 @@ BattleAnim_StunSpore:
 	anim_loop 2, .loop
 	anim_wait 96
 	anim_ret
+
+BattleAnim_Spore:
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_SPORE
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_DRAGONBREATH
+	anim_3gfx BATTLE_ANIM_GFX_MUSHROOM, BATTLE_ANIM_GFX_POWDER, BATTLE_ANIM_GFX_SMOKE
+	anim_sound 0, 1, SFX_JUMP_OVER_LEDGE
+	anim_obj BATTLE_ANIM_OBJ_BALL_POOF_YFIX, 48, 88, $0
+	anim_wait 12
+	anim_obj BATTLE_ANIM_OBJ_MUSHROOM, 48, 88, $0
+	anim_wait 32
+	anim_sound 0, 1, SFX_SWEET_SCENT_2
+	anim_obj BATTLE_ANIM_OBJ_POWDER_SHOOT, 48, 88, $35
+	anim_obj BATTLE_ANIM_OBJ_POWDER_SHOOT, 48, 88, $2b
+	anim_obj BATTLE_ANIM_OBJ_POWDER_SHOOT, 48, 88, $39
+	anim_obj BATTLE_ANIM_OBJ_POWDER_SHOOT, 48, 88, $27
+	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_wait 16
+	anim_jump BattleAnim_StunSpore.loop
 
 BattleAnim_HyperBeam:
 	anim_1gfx BATTLE_ANIM_GFX_BEAM

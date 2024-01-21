@@ -4236,7 +4236,7 @@ Step_Slow:
 	call Get_Rad_Pos
 	ld hl, 1.5 ; speed
 	call Set_Rad_Pos
-	cp 120 ; final position
+	cp 40 ; final position
 	jmp nc, DeinitBattleAnimation
 	jr Rad_Move
 

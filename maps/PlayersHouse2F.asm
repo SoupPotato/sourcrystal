@@ -127,7 +127,7 @@ if DEF(_DEBUG)
 	giveitem TM_DEFENSE_CURL
 	giveitem TM_THUNDERPUNCH
 	giveitem TM_DREAM_EATER
-	giveitem TM_DETECT
+	giveitem TM_LOW_KICK
 	giveitem TM_REST
 	giveitem TM_ATTRACT
 	giveitem TM_THIEF

@@ -16,6 +16,6 @@ TimeCapsule_CatchRateItems:
 	db ITEM_FA,      ORAN_BERRY
 	db TM_PSYCH_UP,  ORAN_BERRY
 	db TM_ICE_PUNCH, ORAN_BERRY
-	db TM_DETECT,    ORAN_BERRY
+	db TM_LOW_KICK,  ORAN_BERRY
 	db -1,           ORAN_BERRY
 	db 0 ; end

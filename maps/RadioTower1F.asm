@@ -55,9 +55,11 @@ RadioTower1FLuckyNumberManScript:
 	closetext
 	applymovement RADIOTOWER1F_LUCKYNUMBERMAN, RadioTower1FLuckyNumberManReturnToPlayerMovement
 	opentext
-	ifless 2, .NoPrize ; 0-1 digits match
-	ifless 3, .ThirdPlace ; 2 digits match
-	ifless 5, .SecondPlace ; 3-4 digits match
+	ifless 1, .NoPrize ; 0 digits match
+	ifless 2, .FifthPlace ; 1 digit match
+	ifless 3, .FourthPlace ; 2 digits match
+	ifless 4, .ThirdPlace ; 3 digits match
+	ifless 5, .SecondPlace ; 4 digits match
 	sjump .FirstPlace ; all digits match
 
 .GameOver:
@@ -68,6 +70,7 @@ RadioTower1FLuckyNumberManScript:
 
 .FirstPlace:
 	writetext RadioTower1FLuckyNumberManPerfectMatchText
+	pause 4
 	playsound SFX_1ST_PLACE
 	waitsfx
 	promptbutton
@@ -78,8 +81,21 @@ RadioTower1FLuckyNumberManScript:
 	sjump .GameOver
 
 .SecondPlace:
-	writetext RadioTower1FLuckyNumberManOkayMatchText
+	writetext RadioTower1FLuckyNumberManVeryGoodMatchText
+	pause 4
 	playsound SFX_2ND_PLACE
+	waitsfx
+	promptbutton
+	giveitem MAX_REVIVE
+	iffalse .BagFull
+	itemnotify
+	setflag ENGINE_LUCKY_NUMBER_SHOW
+	sjump .GameOver
+
+.ThirdPlace:
+	writetext RadioTower1FLuckyNumberManGoodMatchText
+	pause 4
+	playsound SFX_3RD_PLACE
 	waitsfx
 	promptbutton
 	giveitem EXP_SHARE
@@ -88,12 +104,25 @@ RadioTower1FLuckyNumberManScript:
 	setflag ENGINE_LUCKY_NUMBER_SHOW
 	sjump .GameOver
 
-.ThirdPlace:
-	writetext RadioTower1FLuckyNumberManWeakMatchText
-	playsound SFX_3RD_PLACE
+.FourthPlace:
+	writetext RadioTower1FLuckyNumberManOkayMatchText
+	pause 4
+	playsound SFX_LEVEL_UP
 	waitsfx
 	promptbutton
 	giveitem PP_UP
+	iffalse .BagFull
+	itemnotify
+	setflag ENGINE_LUCKY_NUMBER_SHOW
+	sjump .GameOver
+
+.FifthPlace:
+	writetext RadioTower1FLuckyNumberManWeakMatchText
+	pause 4
+	playsound SFX_LEVEL_UP
+	waitsfx
+	promptbutton
+	giveitem ULTRA_BALL
 	iffalse .BagFull
 	itemnotify
 	setflag ENGINE_LUCKY_NUMBER_SHOW
@@ -269,23 +298,43 @@ RadioTower1FLuckyNumberManPerfectMatchText:
 	line "MASTER BALL!"
 	done
 
-RadioTower1FLuckyNumberManOkayMatchText:
+RadioTower1FLuckyNumberManVeryGoodMatchText:
+	text "Very nice! You've"
+	line "matched the four"
+	cont "three numbers!"
+
+	para "You've won second"
+	line "prize, a MAX"
+	cont "REVIVE!"
+	done
+
+RadioTower1FLuckyNumberManGoodMatchText:
 	text "Hey! You've"
 	line "matched the last"
 	cont "three numbers!"
 
-	para "You've won second"
+	para "You've won third"
 	line "prize, an EXP."
 	cont "SHARE!"
 	done
 
-RadioTower1FLuckyNumberManWeakMatchText:
+RadioTower1FLuckyNumberManOkayMatchText:
 	text "Ooh, you've"
 	line "matched the last"
 	cont "two numbers."
 
-	para "You've won third"
+	para "You've won fourth"
 	line "prize, a PP UP."
+	done
+
+RadioTower1FLuckyNumberManWeakMatchText:
+	text "Not bad, you've"
+	line "matched the last"
+	cont "number."
+
+	para "You've won fifth"
+	line "prize, an ULTRA"
+	cont "BALL."
 	done
 
 RadioTower1FLuckyNumberManNoneOfYourIDNumbersMatchText:

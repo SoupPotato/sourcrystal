@@ -29,7 +29,6 @@ CharmanderEggMoves:
 	db -1 ; end
 
 SquirtleEggMoves:
-	db BUBBLEBEAM
 	db FLAIL
 	db FORESIGHT
 	db HAZE
@@ -74,7 +73,7 @@ SandshrewEggMoves:
 	db COUNTER
 	db FLAIL
 	db METAL_CLAW
-	db RAPID_SPIN
+	db SAFEGUARD
 	db -1 ; end
 
 NidoranFEggMoves:
@@ -100,14 +99,12 @@ NidoranMEggMoves:
 	db -1 ; end
 
 VulpixEggMoves:
-	db FEINT_ATTACK
 	db FLAIL
 	db HYPNOSIS
 	db -1 ; end
 
 ZubatEggMoves:
 	db FEINT_ATTACK
-	db GUST
 	db HYPNOSIS
 	db PURSUIT
 	db QUICK_ATTACK
@@ -143,7 +140,6 @@ VenonatEggMoves:
 DiglettEggMoves:
 	db ANCIENTPOWER
 	db BEAT_UP
-	db FEINT_ATTACK
 	db PURSUIT
 	db REVERSAL
 	db SCREECH
@@ -164,7 +160,6 @@ PsyduckEggMoves:
 	db FORESIGHT
 	db FUTURE_SIGHT
 	db HYPNOSIS
-	db PSYBEAM
 	db -1 ; end
 
 MankeyEggMoves:
@@ -179,7 +174,6 @@ MankeyEggMoves:
 
 GrowlitheEggMoves:
 	db BODY_SLAM
-	db CRUNCH
 	db DOUBLE_EDGE
 	db DOUBLE_KICK
 	db FIRE_SPIN
@@ -536,7 +530,6 @@ PichuEggMoves:
 	db ENCORE
 	db FLAIL
 	db PRESENT
-	db REVERSAL
 	db THUNDERPUNCH
 	db -1 ; end
 

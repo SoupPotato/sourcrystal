@@ -733,6 +733,7 @@ DiglettEvosAttacks:
 
 DugtrioEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, TRI_ATTACK
 	db 1, SCRATCH
 	db 1, SAND_ATTACK
 	db 1, GROWL
@@ -741,7 +742,6 @@ DugtrioEvosAttacks:
 	db 19, FEINT_ATTACK
 	db 23, DIG
 	db 30, SANDSTORM
-	db 32, TRI_ATTACK
 	db 36, SLASH
 	db 42, EARTHQUAKE
 	db 49, FISSURE

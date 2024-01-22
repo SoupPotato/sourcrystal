@@ -766,25 +766,25 @@ SwarmGrassWildMonsAlt:
 	db 3, WEEDLE
 	db 5, METAPOD
 	db 5, KAKUNA
+	db 8, BULBASAUR
+	db 8, BULBASAUR
 	db 7, PIKACHU
-	db 8, BULBASAUR
-	db 8, BULBASAUR
 	; day
 	db 3, CATERPIE
 	db 3, WEEDLE
 	db 5, METAPOD
 	db 5, KAKUNA
+	db 8, BULBASAUR
+	db 8, BULBASAUR
 	db 7, PIKACHU
-	db 8, BULBASAUR
-	db 8, BULBASAUR
 	; nite
 	db 3, HOOTHOOT
 	db 3, HOOTHOOT
 	db 5, HOOTHOOT
 	db 5, NOCTOWL
+	db 8, BULBASAUR
+	db 8, BULBASAUR
 	db 7, PIKACHU
-	db 8, BULBASAUR
-	db 8, BULBASAUR
 
 ; Charmander swarm
 	map_id ROUTE_22
@@ -794,25 +794,25 @@ SwarmGrassWildMonsAlt:
 	db 3, SPEAROW
 	db 5, SPEAROW
 	db 4, DODUO
+	db 8, CHARMANDER
+	db 8, CHARMANDER
 	db 6, PONYTA
-	db 8, CHARMANDER
-	db 8, CHARMANDER
 	; day
 	db 3, RATTATA
 	db 3, SPEAROW
 	db 5, SPEAROW
 	db 4, DODUO
+	db 8, CHARMANDER
+	db 8, CHARMANDER
 	db 6, PONYTA
-	db 8, CHARMANDER
-	db 8, CHARMANDER
 	; nite
 	db 3, RATTATA
 	db 3, POLIWAG
 	db 5, RATTATA
 	db 4, POLIWAG
+	db 8, CHARMANDER
+	db 8, CHARMANDER
 	db 6, PONYTA
-	db 8, CHARMANDER
-	db 8, CHARMANDER
 
 ; Clefairy swarm
 	map_id MOUNT_MOON
@@ -934,25 +934,25 @@ SwarmGrassWildMonsAlt:
 	db 15, BELLSPROUT
 	db 16, VENONAT
 	db 12, ABRA
+	db 8, SQUIRTLE
+	db 8, SQUIRTLE
 	db 16, WEEPINBELL
-	db 8, SQUIRTLE
-	db 8, SQUIRTLE
 	; day
 	db 13, PIDGEY
 	db 15, BELLSPROUT
 	db 16, VENONAT
 	db 12, ABRA
+	db 8, SQUIRTLE
+	db 8, SQUIRTLE
 	db 16, WEEPINBELL
-	db 8, SQUIRTLE
-	db 8, SQUIRTLE
 	; nite
 	db 13, VENONAT
 	db 15, ODDISH
 	db 16, VENOMOTH
 	db 12, ABRA
+	db 8, SQUIRTLE
+	db 8, SQUIRTLE
 	db 16, BELLSPROUT
-	db 8, SQUIRTLE
-	db 8, SQUIRTLE
 
 ; Kangaskhan swarm
 	map_id ROCK_TUNNEL_B1F

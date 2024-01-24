@@ -1027,76 +1027,10 @@ GetSubstitutePic: ; used only for BANK(GetSubstitutePic)
 	call FarCopyBytes
 	ret
 
-BattleAnimCmd_MinimizeOpp:
-	;Disabled for new animation. Remove comments (;) to re-enable
-	;ld a, [rSVBK]
-	;push af
-	;ld a, 1 ; unnecessary bankswitch?
-	;ld [rSVBK], a
-	;xor a ; sScratch
-	;call GetSRAMBank
-	;call GetMinimizePic
-	;call Request2bpp
-	;call CloseSRAM
-	;pop af
-	;ld [rSVBK], a
+BattleAnimCmd_MinimizeOpp: ; unused
 	ret
 
-GetMinimizePic:
-	ld hl, sScratch
-	ld bc, (7 * 7) tiles
-.loop
-	xor a
-	ld [hli], a
-	dec bc
-	ld a, c
-	or b
-	jr nz, .loop
-
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .player
-
-	ld de, sScratch + (3 * 7 + 5) tiles
-	call CopyMinimizePic
-	ld hl, vTiles2 tile $00
-	ld de, sScratch
-	lb bc, BANK(GetMinimizePic), 7 * 7
-	ret
-
-.player
-	ld de, sScratch + (3 * 6 + 4) tiles
-	call CopyMinimizePic
-	ld hl, vTiles2 tile $31
-	ld de, sScratch
-	lb bc, BANK(GetMinimizePic), 6 * 6
-	ret
-
-CopyMinimizePic:
-	ld hl, MinimizePic
-	ld bc, $10
-	ld a, BANK(MinimizePic)
-	call FarCopyBytes
-	ret
-
-MinimizePic:
-INCBIN "gfx/battle/minimize.2bpp"
-
-BattleAnimCmd_Minimize:
-	ldh a, [rSVBK]
-	push af
-	ld a, 1 ; unnecessary bankswitch?
-	ldh [rSVBK], a
-
-	xor a ; BANK(sScratch)
-	call OpenSRAM
-	call GetMinimizePic
-	ld hl, vTiles0 tile $00
-	call Request2bpp
-	call CloseSRAM
-
-	pop af
-	ldh [rSVBK], a
+BattleAnimCmd_Minimize: ; unused
 	ret
 
 BattleAnimCmd_SetBgPal:

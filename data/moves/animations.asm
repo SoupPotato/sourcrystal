@@ -2626,7 +2626,7 @@ BattleAnim_Substitute:
 	anim_wait 32
 	anim_raisesub
 	anim_sound 0, 0, SFX_THROW_BALL
-	anim_obj BATTLE_ANIM_OBJ_BALL_POOF, 48, 96, $0
+	anim_obj BATTLE_ANIM_OBJ_BALL_POOF, 50, 96, $0
 	anim_bgeffect BATTLE_BG_EFFECT_ENTER_MON, $0, BG_EFFECT_USER, $0
 	anim_wait 32
 	anim_ret

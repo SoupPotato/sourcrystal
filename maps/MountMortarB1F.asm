@@ -130,6 +130,7 @@ MountMortarB1FKiyoGotTyrogueText:
 MountMortarB1FKiyoFullPartyText:
 	text "You have no room"
 	line "in your party!"
+	done
 
 MountMortarB1F_MapEvents:
 	db 0, 0 ; filler

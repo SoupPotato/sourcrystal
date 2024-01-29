@@ -8,7 +8,7 @@ BrentPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal MONDAY, .NotMonday
 	checktime MORN
-	iftrue BrentMondayMorning
+	iftrue BrentWantsBattle
 
 .NotMonday:
 	farsjump BrentHangUpScript
@@ -31,9 +31,6 @@ BrentPhoneCallerScript:
 
 .Generic:
 	farsjump Phone_GenericCall_Male
-
-BrentMondayMorning:
-	setflag ENGINE_BRENT_MONDAY_MORNING
 
 BrentWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_43

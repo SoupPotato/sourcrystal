@@ -8,7 +8,7 @@ JoeyPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal MONDAY, .NotMonday
 	checktime DAY
-	iftrue JoeyMondayAfternoon
+	iftrue JoeyWantsBattle
 
 .NotMonday:
 	special RandomPhoneMon
@@ -31,9 +31,6 @@ JoeyPhoneCallerScript:
 
 .Generic:
 	farsjump Phone_GenericCall_Male
-
-JoeyMondayAfternoon:
-	setflag ENGINE_JOEY_MONDAY_AFTERNOON
 
 JoeyWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_30

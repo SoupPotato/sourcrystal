@@ -273,7 +273,7 @@ BattleAnimations::
 	dw BattleAnim_InLove
 	dw BattleAnim_InSandstorm
 	dw BattleAnim_InNightmare
-	dw BattleAnim_InWhirlpool
+	dw BattleAnim_InWhirlpool ; unused
 	dw BattleAnim_Miss
 	dw BattleAnim_EnemyDamage
 	dw BattleAnim_EnemyStatDown
@@ -564,7 +564,7 @@ BattleAnim_InNightmare:
 	anim_wait 40
 	anim_ret
 
-BattleAnim_InWhirlpool:
+BattleAnim_InWhirlpool: ; unused
 	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_WATER
 	anim_1gfx BATTLE_ANIM_GFX_WIND
 	anim_bgeffect BATTLE_BG_EFFECT_WHIRLPOOL, $0, $0, $0

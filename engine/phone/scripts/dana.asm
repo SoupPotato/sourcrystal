@@ -10,7 +10,7 @@ DanaPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal THURSDAY, .NotThursday
 	checktime NITE
-	iftrue DanaThursdayNight
+	iftrue DanaWantsBattle
 
 .NotThursday:
 	farsjump DanaHangUpScript
@@ -47,9 +47,6 @@ DanaPhoneCallerScript:
 	farscall PhoneScript_Random3
 	ifequal 0, DanaFoundRare
 	farsjump Phone_GenericCall_Female
-
-DanaThursdayNight:
-	setflag ENGINE_DANA_THURSDAY_NIGHT
 
 DanaWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_38

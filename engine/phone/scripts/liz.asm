@@ -8,7 +8,9 @@ LizPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal THURSDAY, .NotThursday
 	checktime DAY
-	iftrue LizThursdayAfternoon
+	iftrue LizWantsBattle
+	checktime EVE
+	iftrue LizWantsBattle
 
 .NotThursday:
 	special RandomPhoneMon
@@ -38,9 +40,6 @@ LizPhoneCallerScript:
 
 .Generic:
 	farsjump Phone_GenericCall_Female
-
-LizThursdayAfternoon:
-	setflag ENGINE_LIZ_THURSDAY_AFTERNOON
 
 LizWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_32

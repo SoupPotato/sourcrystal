@@ -8,7 +8,7 @@ ErinPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal SATURDAY, .NotSaturday
 	checktime NITE
-	iftrue ErinSaturdayNight
+	iftrue ErinWantsBattle
 
 .NotSaturday:
 	farsjump ErinWorkingHardScript
@@ -30,9 +30,6 @@ ErinPhoneCallerScript:
 
 .GenericCall:
 	farsjump Phone_GenericCall_Female
-
-ErinSaturdayNight:
-	setflag ENGINE_ERIN_SATURDAY_NIGHT
 
 ErinWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_46

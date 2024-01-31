@@ -8,7 +8,9 @@ BethPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal FRIDAY, .NotFriday
 	checktime DAY
-	iftrue BethFridayAfternoon
+	iftrue BethWantsBattle
+	checktime EVE
+	iftrue BethWantsBattle
 
 .NotFriday:
 	farsjump BethHangUpScript
@@ -29,9 +31,6 @@ BethPhoneCallerScript:
 
 .Generic:
 	farsjump Phone_GenericCall_Female
-
-BethFridayAfternoon:
-	setflag ENGINE_BETH_FRIDAY_AFTERNOON
 
 BethWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_26

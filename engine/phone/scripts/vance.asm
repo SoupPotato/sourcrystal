@@ -8,7 +8,7 @@ VancePhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal WEDNESDAY, .NotWednesday
 	checktime NITE
-	iftrue VanceWednesdayNight
+	iftrue VanceWantsRematch
 
 .NotWednesday:
 	farsjump VanceLookingForwardScript
@@ -30,9 +30,6 @@ VancePhoneCallerScript:
 
 .WantsBattle:
 	farsjump Phone_GenericCall_Male
-
-VanceWednesdayNight:
-	setflag ENGINE_VANCE_WEDNESDAY_NIGHT
 
 VanceWantsRematch:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_44

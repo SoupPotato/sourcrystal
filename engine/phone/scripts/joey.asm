@@ -9,6 +9,8 @@ JoeyPhoneCalleeScript:
 	ifnotequal MONDAY, .NotMonday
 	checktime DAY
 	iftrue JoeyWantsBattle
+	checktime EVE
+	iftrue JoeyWantsBattle
 
 .NotMonday:
 	special RandomPhoneMon

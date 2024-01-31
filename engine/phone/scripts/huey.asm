@@ -8,7 +8,7 @@ HueyPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal WEDNESDAY, .NotWednesday
 	checktime NITE
-	iftrue HueyWednesdayNight
+	iftrue HueyWantsBattle
 
 .NotWednesday:
 	special RandomPhoneMon
@@ -31,9 +31,6 @@ HueyPhoneCallerScript:
 
 .Flavor:
 	farsjump PhoneScript_MonFlavorText
-
-HueyWednesdayNight:
-	setflag ENGINE_HUEY_WEDNESDAY_NIGHT
 
 HueyWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_LIGHTHOUSE

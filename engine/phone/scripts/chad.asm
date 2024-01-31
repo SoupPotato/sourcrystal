@@ -8,7 +8,7 @@ ChadPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal FRIDAY, .NotFriday
 	checktime MORN
-	iftrue ChadFridayMorning
+	iftrue ChadWantsBattle
 
 .NotFriday:
 	farsjump ChadHangUpScript
@@ -33,9 +33,6 @@ ChadPhoneCallerScript:
 	farscall PhoneScript_Random3
 	ifequal 0, ChadFoundRare
 	farsjump Phone_GenericCall_Male
-
-ChadFridayMorning:
-	setflag ENGINE_CHAD_FRIDAY_MORNING
 
 ChadWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_38

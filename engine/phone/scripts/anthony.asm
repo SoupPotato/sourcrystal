@@ -4,7 +4,7 @@ AnthonyPhoneCalleeScript:
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
 	checktime NITE
-	iftrue AnthonyFridayNight
+	iftrue AnthonyWantsBattle
 
 	farsjump AnthonyHangUpScript
 
@@ -18,9 +18,6 @@ AnthonyPhoneCallerScript:
 	farscall PhoneScript_Random2
 	ifequal 0, AnthonyWantsBattle
 	farsjump Phone_GenericCall_Male
-
-AnthonyFridayNight:
-	setflag ENGINE_ANTHONY_FRIDAY_NIGHT
 
 AnthonyWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_33

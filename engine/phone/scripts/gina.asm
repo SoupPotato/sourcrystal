@@ -10,7 +10,9 @@ GinaPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal SUNDAY, .NotSunday
 	checktime DAY
-	iftrue GinaSundayDay
+	iftrue GinaWantsBattle
+	checktime EVE
+	iftrue GinaWantsBattle
 
 .NotSunday:
 	checkflag ENGINE_ROCKETS_IN_RADIO_TOWER
@@ -54,9 +56,6 @@ GinaPhoneCallerScript:
 
 .Generic:
 	farsjump Phone_GenericCall_Female
-
-GinaSundayDay:
-	setflag ENGINE_GINA_SUNDAY_AFTERNOON
 
 GinaWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_34

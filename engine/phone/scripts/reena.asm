@@ -8,7 +8,7 @@ ReenaPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal SUNDAY, .NotSunday
 	checktime MORN
-	iftrue ReenaSundayMorning
+	iftrue ReenaWantsBattle
 
 .NotSunday:
 	farsjump ReenaForwardScript
@@ -29,9 +29,6 @@ ReenaPhoneCallerScript:
 
 .Generic:
 	farsjump Phone_GenericCall_Female
-
-ReenaSundayMorning:
-	setflag ENGINE_REENA_SUNDAY_MORNING
 
 ReenaWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_27

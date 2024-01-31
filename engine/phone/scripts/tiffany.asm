@@ -10,7 +10,9 @@ TiffanyPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal TUESDAY, .NotTuesday
 	checktime DAY
-	iftrue TiffanyTuesdayAfternoon
+	iftrue TiffanyWantsBattle
+	checktime EVE
+	iftrue TiffanyWantsBattle
 
 .NotTuesday:
 	farsjump TiffanyNoItemScript
@@ -47,9 +49,6 @@ TiffanyPhoneCallerScript:
 
 .Generic:
 	farsjump Phone_GenericCall_Female
-
-TiffanyTuesdayAfternoon:
-	setflag ENGINE_TIFFANY_TUESDAY_AFTERNOON
 
 TiffanyWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_43

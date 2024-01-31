@@ -10,7 +10,7 @@ JosePhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal SATURDAY, .NotSaturday
 	checktime NITE
-	iftrue JoseSaturdayNight
+	iftrue JoseWantsBattle
 
 .NotSaturday:
 	farsjump JoseHangUpScript
@@ -41,9 +41,6 @@ JosePhoneCallerScript:
 	farscall PhoneScript_Random3
 	ifequal 0, JoseFoundRare
 	farsjump Phone_GenericCall_Male
-
-JoseSaturdayNight:
-	setflag ENGINE_JOSE_SATURDAY_NIGHT
 
 JoseWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_27

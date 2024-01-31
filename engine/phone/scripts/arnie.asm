@@ -4,7 +4,7 @@ ArniePhoneCalleeScript:
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
 	checktime MORN
-	iftrue ArnieTuesdayMorning
+	iftrue ArnieWantsBattle
 	farsjump ArnieHangUpScript
 
 .WantsBattle:
@@ -17,9 +17,6 @@ ArniePhoneCallerScript:
 	farscall PhoneScript_Random2
 	ifequal 0, ArnieWantsBattle
 	farsjump Phone_GenericCall_Male
-
-ArnieTuesdayMorning:
-	setflag ENGINE_ARNIE_TUESDAY_MORNING
 
 ArnieWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_35

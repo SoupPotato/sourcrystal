@@ -10,7 +10,7 @@ WadePhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal TUESDAY, .NotTuesday
 	checktime NITE
-	iftrue WadeTuesdayNight
+	iftrue WadeWantsBattle2
 
 .NotTuesday:
 	farscall PhoneScript_Random2
@@ -69,9 +69,6 @@ WadePhoneCallerScript:
 
 .ContestToday:
 	farsjump PhoneScript_BugCatchingContest
-
-WadeTuesdayNight:
-	setflag ENGINE_WADE_TUESDAY_NIGHT
 
 WadeWantsBattle2:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_31

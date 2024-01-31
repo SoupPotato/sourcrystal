@@ -10,7 +10,7 @@ WiltonPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal THURSDAY, .NotThursday
 	checktime MORN
-	iftrue WiltonThursdayMorning
+	iftrue WiltonWantsBattle
 
 .NotThursday:
 	farsjump WiltonHaventFoundAnythingScript
@@ -39,9 +39,6 @@ WiltonPhoneCallerScript:
 
 .GenericCall:
 	farsjump Phone_GenericCall_Male
-
-WiltonThursdayMorning:
-	setflag ENGINE_WILTON_THURSDAY_MORNING
 
 WiltonWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_44

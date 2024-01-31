@@ -4,7 +4,7 @@ RalphPhoneCalleeScript:
 	iftrue .Rematch
 	farscall PhoneScript_AnswerPhone_Male
 	checktime MORN
-	iftrue Ralph_WednesdayMorning
+	iftrue Ralph_FightMe
 	farsjump RalphNoItemScript
 
 .Rematch:
@@ -18,8 +18,6 @@ RalphPhoneCallerScript:
 	ifequal 0, Ralph_FightMe
 	farsjump Phone_GenericCall_Male
 
-Ralph_WednesdayMorning:
-	setflag ENGINE_RALPH_WEDNESDAY_MORNING
 Ralph_FightMe:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_32
 	setflag ENGINE_RALPH_READY_FOR_REMATCH

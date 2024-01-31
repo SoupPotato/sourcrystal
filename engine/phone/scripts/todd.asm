@@ -8,7 +8,7 @@ ToddPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal SATURDAY, .NotSaturday
 	checktime MORN
-	iftrue ToddSaturdayMorning
+	iftrue ToddWantsBattle
 
 .NotSaturday:
 	checkflag ENGINE_GOLDENROD_DEPT_STORE_SALE_IS_ON
@@ -42,9 +42,6 @@ ToddPhoneCallerScript:
 	farscall PhoneScript_Random3
 	ifequal 0, ToddFoundRare
 	farsjump Phone_GenericCall_Male
-
-ToddSaturdayMorning:
-	setflag ENGINE_TODD_SATURDAY_MORNING
 
 ToddWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_34

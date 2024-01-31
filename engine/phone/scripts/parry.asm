@@ -8,7 +8,9 @@ ParryPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal FRIDAY, .WantsRematch
 	checktime DAY
-	iftrue ParryFridayDay
+	iftrue ParryWantsBattle
+	checktime EVE
+	iftrue ParryWantsBattle
 
 .WantsRematch:
 	farsjump ParryBattleWithMeScript
@@ -30,9 +32,6 @@ ParryPhoneCallerScript:
 
 .GenericCall:
 	farsjump Phone_GenericCall_Male
-
-ParryFridayDay:
-	setflag ENGINE_PARRY_FRIDAY_AFTERNOON
 
 ParryWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_45

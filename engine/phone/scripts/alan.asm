@@ -10,7 +10,9 @@ AlanPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal WEDNESDAY, .NotWednesday
 	checktime DAY
-	iftrue AlanWednesdayDay
+	iftrue AlanWantsBattle
+	checktime EVE
+	iftrue AlanWantsBattle
 
 .NotWednesday:
 	farsjump AlanHangUpScript
@@ -45,9 +47,6 @@ AlanPhoneCallerScript:
 
 .Generic:
 	farsjump Phone_GenericCall_Male
-
-AlanWednesdayDay:
-	setflag ENGINE_ALAN_WEDNESDAY_AFTERNOON
 
 AlanWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_36

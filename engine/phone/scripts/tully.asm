@@ -10,7 +10,7 @@ TullyPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal SUNDAY, .NotSunday
 	checktime NITE
-	iftrue TullySundayNight
+	iftrue TullyWantsBattle
 
 .NotSunday:
 	farsjump TullyNoItemScript
@@ -45,9 +45,6 @@ TullyPhoneCallerScript:
 
 .Generic:
 	farsjump Phone_GenericCall_Male
-
-TullySundayNight:
-	setflag ENGINE_TULLY_SUNDAY_NIGHT
 
 TullyWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_42

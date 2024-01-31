@@ -1,19 +1,32 @@
 ClearSavedObjPals::
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wUsedObjectPals)
+	ldh [rSVBK], a
+
 	xor a
 	ld [wUsedObjectPals], a
 	ld hl, wUsedObjectPals
 	ld bc, wNeededPalIndex - wUsedObjectPals
 	ld a, -1
-	jp ByteFill
+	call ByteFill
+
+	pop af
+	ldh [rSVBK], a
+	ret
 
 DisableDynPalUpdates::
+	push hl
 	ld hl, wPalFlags
 	set DISABLE_DYN_PAL_F, [hl]
+	pop hl
 	ret
 
 EnableDynPalUpdates::
+	push hl
 	ld hl, wPalFlags
 	res DISABLE_DYN_PAL_F, [hl]
+	pop hl
 	; fallthrough to manually run CheckForUsedObjPals
 
 CheckForUsedObjPals::
@@ -22,9 +35,14 @@ CheckForUsedObjPals::
 	push bc
 	push af
 
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wUsedObjectPals)
+	ldh [rSVBK], a
+
 	ld hl, wPalFlags
 	bit DISABLE_DYN_PAL_F, [hl]
-	jmp nz, PopAFBCDEHL
+	jr nz, .done
 
 	; reset all wUsedObjectPals bits
 	xor a
@@ -43,6 +61,9 @@ CheckForUsedObjPals::
 	; If this flag was set, it's time to reset it
 	ld hl, wPalFlags
 	res NO_DYN_PAL_APPLY_F, [hl]
+.done
+	pop af
+	ldh [rSVBK], a
 	jmp PopAFBCDEHL
 
 ScanObjectStructPals:
@@ -67,6 +88,7 @@ ScanObjectStructPals:
 	call MarkUsedPal
 	; Then load the return into OBJECT_PALETTE, which corresponds
 	; to OBJ 0 - OBJ 7
+	jr nc, .skip
 	and PALETTE_MASK
 	ld c, a
 	ld hl, OBJECT_PALETTE
@@ -106,6 +128,8 @@ MarkUsedPal:
 	; load any pals yet, just mark the still active pals
 	ld hl, wPalFlags
 	bit SCAN_OBJECTS_FIRST_F, [hl]
+	scf
+	ccf
 	jr nz, .done
 
 	ld b, a
@@ -167,5 +191,6 @@ MarkUsedPal:
 	pop bc
 	ld a, c
 
+	scf
 .done
 	jmp PopBCDEHL

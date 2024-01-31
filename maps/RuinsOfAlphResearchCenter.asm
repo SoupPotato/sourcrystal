@@ -725,7 +725,7 @@ RuinsOfAlphResearchCenterFossilScientistIsHelixFossilText:
 	text "Oh! That is"
 	line "HELIX FOSSIL!"
 
-	para "Is Fossil of"
+	para "Is fossil of"
 	line "OMANYTE, a"
 	cont "#MON that is"
 	cont "being extinct!"
@@ -741,7 +741,7 @@ RuinsOfAlphResearchCenterFossilScientistIsDomeFossilText:
 	text "Oh! That is"
 	line "DOME FOSSIL!"
 
-	para "Is Fossil of"
+	para "Is fossil of"
 	line "KABUTO, a"
 	cont "#MON that is"
 	cont "being extinct!"
@@ -757,7 +757,7 @@ RuinsOfAlphResearchCenterFossilScientistIsOldAmberText:
 	text "Oh! That is"
 	line "OLD AMBER!"
 
-	para "Is Fossil of"
+	para "Is fossil of"
 	line "AERODACTYL, a"
 	cont "#MON that is"
 	cont "being extinct!"

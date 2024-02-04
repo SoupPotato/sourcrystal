@@ -218,8 +218,6 @@ FuchsiaCity_MapEvents:
 	warp_event 19, 27, FUCHSIA_POKECENTER_1F, 1
 	warp_event 27, 27, SAFARI_ZONE_WARDENS_HOME, 1
 	warp_event 18,  3, SAFARI_ZONE_FUCHSIA_GATE_BETA, 3 ; inaccessible
-	warp_event 37, 16, ROUTE_15_FUCHSIA_GATE, 1
-	warp_event 37, 17, ROUTE_15_FUCHSIA_GATE, 2
 	warp_event 17, 35, ROUTE_19_FUCHSIA_GATE, 1
 	warp_event 18, 35, ROUTE_19_FUCHSIA_GATE, 2
 

@@ -2,20 +2,11 @@
 	const ROUTE_14_POKEFAN_M1
 	const ROUTE_14_YOUNGSTER
 	const ROUTE_14_POKEFAN_M2
-	const ROUTE_14_KIM
 
 Route14_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-
-Kim:
-	faceplayer
-	opentext
-	trade NPC_TRADE_KIM
-	waitbutton
-	closetext
-	end
 
 TrainerPokefanmCarter:
 	trainer POKEFANM, CARTER, EVENT_BEAT_POKEFANM_CARTER, PokefanmCarterSeenText, PokefanmCarterBeatenText, 0, .Script
@@ -430,4 +421,3 @@ Route14_MapEvents:
 	object_event  4, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSchoolboyTorin, -1
 	object_event  4, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSchoolboyTravis, -1
 	object_event  9, 13, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerTeacherClarice, -1
-	object_event  7,  5, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 4, Kim, -1

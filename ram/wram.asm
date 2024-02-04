@@ -3004,13 +3004,22 @@ endr
 
 wStoneTableAddress:: dw
 
-	ds 24
+	ds 14
 
 
 wBerryPocketCursor::    db
 wBerryPocketScrollPosition::    db
 wNumBerries:: db
 wBerries:: ds MAX_BERRIES * 2 + 1
+
+wUsedObjectPals:: db
+for n, 8
+wLoadedObjPal{d:n}:: db 
+endr
+
+
+wNeededPalIndex:: db
+
 
 wMapObjects::
 wPlayerObject:: map_object wPlayer ; player is map object 0

@@ -1671,17 +1671,16 @@ RhyhornEvosAttacks:
 	db 1, TACKLE
 	db 1, TAIL_WHIP
 	db 7, FURY_ATTACK
-	db 10, ROCK_THROW
-	db 16, MAGNITUDE
-	db 19, HORN_ATTACK
-	db 25, SCARY_FACE
-	db 28, STOMP
-	db 34, ROLLOUT
-	db 37, TAKE_DOWN
-	db 43, ROCK_SLIDE
+	db 11, SCARY_FACE
+	db 16, ROCK_THROW
+	db 22, HORN_ATTACK
+	db 26, MAGNITUDE
+	db 31, STOMP
+	db 37, ROCK_SLIDE
+	db 41, TAKE_DOWN
 	db 46, EARTHQUAKE
 	db 52, MEGAHORN
-	db 55, HORN_DRILL
+	db 56, HORN_DRILL
 	db 0 ; no more level-up moves
 
 RhydonEvosAttacks:
@@ -1689,17 +1688,16 @@ RhydonEvosAttacks:
 	db 1, TACKLE
 	db 1, TAIL_WHIP
 	db 1, FURY_ATTACK
-	db 1, ROCK_THROW
-	db 16, MAGNITUDE
-	db 19, HORN_ATTACK
-	db 25, SCARY_FACE
-	db 28, STOMP
-	db 34, ROLLOUT
-	db 37, TAKE_DOWN
-	db 45, ROCK_SLIDE
-	db 50, EARTHQUAKE
+	db 1, SCARY_FACE
+	db 16, ROCK_THROW
+	db 22, HORN_ATTACK
+	db 26, MAGNITUDE
+	db 31, STOMP
+	db 37, ROCK_SLIDE
+	db 41, TAKE_DOWN
+	db 49, EARTHQUAKE
 	db 57, MEGAHORN
-	db 62, HORN_DRILL
+	db 65, HORN_DRILL
 	db 0 ; no more level-up moves
 
 ChanseyEvosAttacks:

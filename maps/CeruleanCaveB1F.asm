@@ -16,21 +16,8 @@
 
 CeruleanCaveB1F_MapScripts:
 	def_scene_scripts
-	scene_script CeruleanCaveB1FNoop1Scene
 
 	def_callbacks
-
-CeruleanCaveB1FNoop1Scene:
-	checkevent EVENT_FOUGHT_MEWTWO
-	iftrue .DoNothing
-	readvar VAR_BADGES
-	ifequal NUM_BADGES, .MewtwoAppear
-.DoNothing
-	end
-
-.MewtwoAppear
-	setevent EVENT_MEWTWO_APPEAR
-	end
 
 CeruleanCaveB1FMewtwo:
 	opentext
@@ -42,7 +29,7 @@ CeruleanCaveB1FMewtwo:
 	loadwildmon MEWTWO, 70
 	startbattle
 	disappear CERULEAN_CAVE_B1F_MEWTWO
-	setevent EVENT_FOUGHT_MEWTWO
+	setevent EVENT_CERULEAN_CAVE_B1F_MEWTWO
 	reloadmapafterbattle
 	special CheckBattleCaughtResult
 	iffalse .nocatch
@@ -109,4 +96,4 @@ CeruleanCaveB1F_MapEvents:
 	object_event  8,  9, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCaveB1FRock, -1
 	object_event 25, 12, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCaveB1FRock, -1
 	object_event 24, 14, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCaveB1FRock, -1
-	object_event 34, 17, SPRITE_MEWTWO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0,  CeruleanCaveB1FMewtwo, EVENT_MEWTWO_APPEAR
+	object_event 34, 17, SPRITE_MEWTWO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0,  CeruleanCaveB1FMewtwo, EVENT_CERULEAN_CAVE_B1F_MEWTWO

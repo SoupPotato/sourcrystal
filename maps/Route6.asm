@@ -123,12 +123,12 @@ PicnickerSelinaAfterBattleText:
 	done
 
 CamperViktorSeenText:
-	text "Walking along with"
-	line "luggage and your"
-	cont "companion #MON"
-	cont "gives a great"
-	cont "feeling of outdoor"
-	cont "life!"
+	text "Walking with your"
+	line "gear and #MON"
+	
+	para "gives you that"
+	line "great outdoor"
+	cont "feeling!"
 	done
 
 CamperViktorBeatenText:

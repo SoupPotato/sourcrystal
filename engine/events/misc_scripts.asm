@@ -12,8 +12,7 @@ FindItemInBallScript::
 	disappear LAST_TALKED
 	opentext
 	writetext .FoundItemText
-	playsound SFX_ITEM
-	pause 60
+	callasm .ItemTypeSound
 	itemnotify
 	closetext
 	end
@@ -54,4 +53,21 @@ FindItemInBallScript::
 	ret nc
 	ld a, $1
 	ld [wScriptVar], a
+	ret
+
+.ItemTypeSound
+	farcall CheckItemPocket
+	ld a, [wItemAttributeValue]
+	cp TM_HM
+	ld de, SFX_GET_TM
+	jr z, .TMSound
+	ld de, SFX_ITEM
+	call PlaySFX
+	ld c, 120
+	call DelayFrames
+	ret
+
+.TMSound
+	call PlaySFX
+	call WaitSFX
 	ret

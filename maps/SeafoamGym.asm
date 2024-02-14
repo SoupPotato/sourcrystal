@@ -358,7 +358,7 @@ SeafoamGymGuideText:
 	line "easy to get to"
 	cont "BLAINE!"
 
-	para "But keep you cool"
+	para "But keep your cool"
 	line "and defeat the"
 
 	para "Trainers one by"

@@ -7772,7 +7772,7 @@ PicnickerGroup:
 	
 	;Challenge Mode
 	db "CHEL@",TRAINERTYPE_NORMAL
-	db 47, AMPHAROS
+	db 57, AMPHAROS
 	db -1 ; end
 
 	; PICNICKER (31)

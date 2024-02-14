@@ -161,3 +161,5 @@
 	tilecoll WALL, FLOOR, WALL, FLOOR ; a0
 	tilecoll COUNTER, COUNTER, FLOOR, FLOOR ; a1
 	tilecoll FLOOR, COUNTER, COUNTER, COUNTER ; a2
+	tilecoll FLOOR, WALL, FLOOR, FLOOR ; a3
+	tilecoll WALL, FLOOR, FLOOR, FLOOR ; a4

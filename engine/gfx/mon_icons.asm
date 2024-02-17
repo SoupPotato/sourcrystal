@@ -485,6 +485,8 @@ FlyFunction_GetMonIcon: ; hardcoded to pidgeot
 	pop de
 	ld a, e
 	call GetIcon_a
+	ret
+
 SetOWFlyMonColor:
 	ld a, PIDGEOT
 	ld [wCurPartySpecies], a

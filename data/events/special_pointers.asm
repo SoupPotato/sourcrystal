@@ -184,3 +184,4 @@ SpecialsPointers::
 	add_special GiveSafariBalls
 	add_special RespawnOneOffs
 	add_special MoveReminder
+	add_special FadeInPalettes_EnableDynNoApply

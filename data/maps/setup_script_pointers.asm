@@ -52,3 +52,4 @@ MapSetupCommands:
 	add_mapsetup InitMapNameSign ; 2d
 	add_mapsetup DisableDynPalUpdates ; 2e
 	add_mapsetup EnableDynPalUpdates ; 2f
+	add_mapsetup EnableDynPalUpdatesNoApply ; 30

@@ -916,6 +916,7 @@ DEF NUM_BG_EFFECTS EQU 5 ; see wActiveBGEffects
 	const PAL_BTLCUSTOM_SPORE           ; f
 	const PAL_BTLCUSTOM_PEACH           ; 10
 	const PAL_BTLCUSTOM_LIGHT_SCREEN    ; 11
+	const PAL_BTLCUSTOM_REFLECT         ; 11
 	const PAL_BTLCUSTOM_MIRROR_COAT     ; 12
 	const PAL_BTLCUSTOM_HP_FIGHTING     ; 13
 	const PAL_BTLCUSTOM_HP_FLYING       ; 14

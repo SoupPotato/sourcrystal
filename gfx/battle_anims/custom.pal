@@ -58,8 +58,13 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 00, 00, 00
 ; lightscreen
 	RGB 31, 31, 31
-	RGB 16, 31, 28
-	RGB 00, 28, 22
+	RGB 19, 31, 31
+	RGB 00, 28, 15
+	RGB 00, 00, 00
+; reflect
+	RGB 31, 31, 31
+	RGB 31, 23, 30
+	RGB 06, 16, 31
 	RGB 00, 00, 00
 ; mirrorcoat
 	RGB 31, 31, 31

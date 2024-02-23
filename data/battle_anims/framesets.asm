@@ -102,7 +102,7 @@ BattleAnimFrameData:
 	dw .Frameset_Chick2                  ; BATTLE_ANIM_FRAMESET_CHICK_2
 	dw .Frameset_Amnesia1                ; BATTLE_ANIM_FRAMESET_AMNESIA_1
 	dw .Frameset_Amnesia2                ; BATTLE_ANIM_FRAMESET_AMNESIA_2
-	dw .Frameset_Amnesia3                ; BATTLE_ANIM_FRAMESET_AMNESIA_3
+	dw .Frameset_Amnesia3_Recover        ; BATTLE_ANIM_FRAMESET_AMNESIA_3_RECOVER
 	dw .Frameset_Asleep                  ; BATTLE_ANIM_FRAMESET_ASLEEP
 	dw .Frameset_DigSand                 ; BATTLE_ANIM_FRAMESET_DIG_SAND
 	dw .Frameset_DigPile                 ; BATTLE_ANIM_FRAMESET_DIG_PILE
@@ -188,7 +188,6 @@ BattleAnimFrameData:
 	dw .Frameset_PlayerHead2Row          ; BATTLE_ANIM_FRAMESET_PLAYERHEAD_2ROW
 	dw .Frameset_MediumHorn              ; BATTLE_ANIM_FRAMESET_MEDIUM_HORN
 	dw .Frameset_SafariBait              ; BATTLE_ANIM_FRAMESET_SAFARI_BAIT
-	dw .Frameset_Recover                 ; BATTLE_ANIM_FRAMESET_RECOVER
 	dw .Frameset_Minimize                ; BATTLE_ANIM_FRAMESET_MINIMIZE
 	dw .Frameset_BubbleSplash            ; BATTLE_ANIM_FRAMESET_BUBBLE_SPLASH
 	dw .Frameset_SmokePuff               ; BATTLE_ANIM_FRAMESET_SMOKE_PUFF
@@ -860,7 +859,7 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_25,  8
 	oamend
 
-.Frameset_Amnesia3:
+.Frameset_Amnesia3_Recover:
 	oamframe BATTLE_ANIM_OAMSET_80,  8
 	oamend
 
@@ -1285,10 +1284,6 @@ BattleAnimFrameData:
 
 .Frameset_SafariBait:
 	oamframe BATTLE_ANIM_OAMSET_15,  8
-	oamend
-
-.Frameset_Recover:
-	oamframe BATTLE_ANIM_OAMSET_80,  8
 	oamend
 
 .Frameset_Minimize:

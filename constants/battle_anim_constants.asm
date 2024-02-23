@@ -423,7 +423,7 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_CHICK_2                    ; 62
 	const BATTLE_ANIM_FRAMESET_AMNESIA_1                  ; 63
 	const BATTLE_ANIM_FRAMESET_AMNESIA_2                  ; 64
-	const BATTLE_ANIM_FRAMESET_AMNESIA_3                  ; 65
+	const BATTLE_ANIM_FRAMESET_AMNESIA_3_RECOVER          ; 65
 	const BATTLE_ANIM_FRAMESET_ASLEEP                     ; 66
 	const BATTLE_ANIM_FRAMESET_DIG_SAND                   ; 67
 	const BATTLE_ANIM_FRAMESET_DIG_PILE                   ; 68
@@ -509,14 +509,13 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_PLAYERHEAD_2ROW            ; b8
 	const BATTLE_ANIM_FRAMESET_MEDIUM_HORN                ; b9
 	const BATTLE_ANIM_FRAMESET_SAFARI_BAIT                ; ba
-	const BATTLE_ANIM_FRAMESET_RECOVER                    ; bb
-	const BATTLE_ANIM_FRAMESET_MINIMIZE                   ; bc
-	const BATTLE_ANIM_FRAMESET_BUBBLE_SPLASH              ; bd
-	const BATTLE_ANIM_FRAMESET_SMOKE_PUFF                 ; be
-	const BATTLE_ANIM_FRAMESET_INK_SPLASH                 ; bf
-	const BATTLE_ANIM_FRAMESET_SPINNING_TRIANGLE          ; c0
-	const BATTLE_ANIM_FRAMESET_SPINNING_TRIANGLE_SLOW     ; c1
-	const BATTLE_ANIM_FRAMESET_BOUNCING_MUSHROOM          ; c2
+	const BATTLE_ANIM_FRAMESET_MINIMIZE                   ; bb
+	const BATTLE_ANIM_FRAMESET_BUBBLE_SPLASH              ; bc
+	const BATTLE_ANIM_FRAMESET_SMOKE_PUFF                 ; bd
+	const BATTLE_ANIM_FRAMESET_INK_SPLASH                 ; be
+	const BATTLE_ANIM_FRAMESET_SPINNING_TRIANGLE          ; bf
+	const BATTLE_ANIM_FRAMESET_SPINNING_TRIANGLE_SLOW     ; c0
+	const BATTLE_ANIM_FRAMESET_BOUNCING_MUSHROOM          ; c1
 DEF NUM_BATTLE_ANIM_FRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)

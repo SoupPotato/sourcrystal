@@ -34,27 +34,27 @@ SwarmGrassWildMonsAlt:
 	map_id DARK_CAVE_VIOLET_ENTRANCE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 3, GEODUDE
+	db 2, TEDDIURSA
 	db 3, TEDDIURSA
+	db 3, GEODUDE
 	db 2, ZUBAT
 	db 2, GEODUDE
-	db 2, TEDDIURSA
 	db 4, TEDDIURSA
 	db 4, DUNSPARCE
 	; day
-	db 3, GEODUDE
+	db 2, TEDDIURSA
 	db 3, TEDDIURSA
+	db 3, GEODUDE
 	db 2, ZUBAT
 	db 2, GEODUDE
-	db 2, TEDDIURSA
 	db 4, TEDDIURSA
 	db 4, DUNSPARCE
 	; nite
-	db 3, GEODUDE
+	db 2, TEDDIURSA
 	db 3, TEDDIURSA
+	db 3, GEODUDE
 	db 2, ZUBAT
 	db 2, GEODUDE
-	db 2, TEDDIURSA
 	db 4, TEDDIURSA
 	db 4, DUNSPARCE
 
@@ -90,26 +90,26 @@ SwarmGrassWildMonsAlt:
 	map_id ROUTE_35
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 12, SNUBBULL
 	db 12, PSYDUCK
-	db 14, PIDGEY
 	db 14, PSYDUCK
+	db 12, SNUBBULL
+	db 14, PIDGEY
 	db 12, JIGGLYPUFF
 	db 10, DITTO
 	db 10, DITTO
 	; day
-	db 12, SNUBBULL
 	db 12, PSYDUCK
-	db 14, PIDGEY
 	db 14, PSYDUCK
+	db 12, SNUBBULL
+	db 14, PIDGEY
 	db 12, JIGGLYPUFF
 	db 10, DITTO
 	db 10, DITTO
 	; nite
-	db 12, DROWZEE
 	db 12, PSYDUCK
-	db 14, HOOTHOOT
 	db 14, PSYDUCK
+	db 12, DROWZEE
+	db 14, HOOTHOOT
 	db 12, JIGGLYPUFF
 	db 10, DITTO
 	db 10, DITTO
@@ -119,25 +119,25 @@ SwarmGrassWildMonsAlt:
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 13, MACHOP
+	db 13, MACHOP
 	db 13, ZUBAT
 	db 15, MARILL
-	db 13, MACHOP
 	db 14, GEODUDE
 	db 16, RATTATA
 	db 16, RATICATE
 	; day
 	db 13, MACHOP
-	db 13, ZUBAT
-	db 13, MARILL
 	db 13, MACHOP
+	db 13, ZUBAT
+	db 15, MARILL
 	db 14, GEODUDE
 	db 16, RATTATA
 	db 16, RATICATE
 	; nite
 	db 13, MACHOP
+	db 13, MACHOP
 	db 13, ZUBAT
 	db 15, MARILL
-	db 13, MACHOP
 	db 14, GOLBAT
 	db 16, RATTATA
 	db 16, RATICATE
@@ -146,27 +146,27 @@ SwarmGrassWildMonsAlt:
 	map_id ROUTE_38
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
+	db 13, TAUROS
 	db 14, TAUROS
 	db 16, RATICATE
 	db 16, MAGNEMITE
 	db 16, PIDGEOTTO
-	db 13, TAUROS
 	db 13, TAUROS
 	db 13, MILTANK
 	; day
+	db 13, TAUROS
 	db 14, TAUROS
 	db 16, RATICATE
 	db 16, MAGNEMITE
 	db 16, PIDGEOTTO
 	db 13, TAUROS
-	db 13, TAUROS
 	db 13, MILTANK
 	; nite
+	db 13, TAUROS
 	db 14, TAUROS
 	db 16, RATICATE
 	db 16, MAGNEMITE
 	db 16, NOCTOWL
-	db 13, TAUROS
 	db 13, TAUROS
 	db 16, MEOWTH
 
@@ -218,12 +218,12 @@ SwarmGrassWildMonsAlt:
 	db 4, HOPPIP
 	db 4, HOPPIP
 	; nite
-	db 3, SPINARAK
 	db 3, WEEDLE
+	db 4, WEEDLE
+	db 3, SPINARAK
 	db 4, POLIWAG
 	db 4, WEEDLE
 	db 3, ZUBAT
-	db 4, WEEDLE
 	db 4, HOOTHOOT
 
 ; Ledyba swarm
@@ -238,21 +238,21 @@ SwarmGrassWildMonsAlt:
 	db 5, HOPPIP
 	db 5, HOPPIP
 	; day
-	db 4, PIDGEY
 	db 4, LEDYBA
+	db 4, LEDYBA
+	db 4, PIDGEY
 	db 5, BELLSPROUT
 	db 5, PIDGEY
 	db 4, LEDYBA
-	db 5, LEDYBA
 	db 5, HOPPIP
 	; nite
-	db 4, SPINARAK
 	db 4, LEDYBA
+	db 4, LEDYBA
+	db 4, SPINARAK
 	db 5, BELLSPROUT
 	db 5, HOOTHOOT
-	db 4, LEDYBA
-	db 5, LEDYBA
 	db 5, POLIWAG
+	db 5, GASTLY
 
 ; Oddish swarm
 	map_id ILEX_FOREST
@@ -263,7 +263,7 @@ SwarmGrassWildMonsAlt:
 	db 7, METAPOD
 	db 7, KAKUNA
 	db 7, ZUBAT
-	db 6, ODDISH
+	db 6, PARAS
 	db 6, PARAS
 	; day
 	db 5, ODDISH
@@ -271,7 +271,7 @@ SwarmGrassWildMonsAlt:
 	db 7, METAPOD
 	db 7, KAKUNA
 	db 7, ZUBAT
-	db 6, ODDISH
+	db 6, PARAS
 	db 6, PARAS
 	; nite
 	db 5, ODDISH
@@ -287,16 +287,16 @@ SwarmGrassWildMonsAlt:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 13, STANTLER
-	db 14, VULPIX
 	db 15, STANTLER
+	db 14, VULPIX
 	db 16, GROWLITHE
 	db 15, PIDGEOTTO
 	db 15, STANTLER
 	db 15, LEDIAN
 	; day
 	db 13, STANTLER
-	db 14, GROWLITHE
 	db 15, STANTLER
+	db 14, GROWLITHE
 	db 16, VULPIX
 	db 15, PIDGEOTTO
 	db 15, STANTLER
@@ -370,27 +370,27 @@ SwarmGrassWildMonsAlt:
 	map_id ROUTE_36
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 4, LEDYBA
 	db 4, GROWLITHE
+	db 5, GROWLITHE
+	db 4, LEDYBA
 	db 5, BELLSPROUT
 	db 5, VULPIX
-	db 5, GROWLITHE
 	db 6, GROWLITHE
 	db 6, PIDGEY
 	; day
-	db 4, PIDGEY
 	db 4, GROWLITHE
+	db 5, GROWLITHE
+	db 4, PIDGEY
 	db 5, BELLSPROUT
 	db 5, VULPIX
-	db 5, GROWLITHE
 	db 6, GROWLITHE
 	db 6, PIDGEY
 	; nite
-	db 4, SPINARAK
 	db 4, GROWLITHE
+	db 5, GROWLITHE
+	db 4, SPINARAK
 	db 5, BELLSPROUT
 	db 5, HOOTHOOT
-	db 5, GROWLITHE
 	db 5, GROWLITHE
 	db 5, GASTLY
 
@@ -622,26 +622,26 @@ SwarmGrassWildMonsAlt:
 	map_id ICE_PATH_B3F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 24, SWINUB
 	db 22, SNEASEL
+	db 24, SNEASEL
+	db 24, SWINUB
 	db 25, GOLBAT
 	db 26, SWINUB
-	db 24, SNEASEL
 	db 24, JYNX
 	db 26, JYNX
 	; day
-	db 24, SWINUB
 	db 22, SNEASEL
+	db 24, SNEASEL
+	db 24, SWINUB
 	db 25, GOLBAT
 	db 26, SWINUB
-	db 24, SNEASEL
 	db 24, JYNX
 	db 26, JYNX
 	; nite
-	db 24, DELIBIRD
 	db 22, SNEASEL
-	db 25, GOLBAT
 	db 24, SNEASEL
+	db 24, DELIBIRD
+	db 25, GOLBAT
 	db 22, SNEASEL
 	db 24, DELIBIRD
 	db 26, DELIBIRD
@@ -650,27 +650,27 @@ SwarmGrassWildMonsAlt:
 	map_id ROUTE_45
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 23, GEODUDE
 	db 23, SKARMORY
+	db 24, SKARMORY
+	db 23, GEODUDE
 	db 24, GLIGAR
 	db 25, DONPHAN
-	db 24, SKARMORY
 	db 27, SKARMORY
 	db 27, SKARMORY
 	; day
-	db 23, GEODUDE
 	db 23, SKARMORY
+	db 24, SKARMORY
+	db 23, GEODUDE
 	db 24, GLIGAR
 	db 25, DONPHAN
-	db 24, SKARMORY
 	db 27, SKARMORY
 	db 27, SKARMORY
 	; nite
-	db 23, GEODUDE
 	db 23, SKARMORY
+	db 24, SKARMORY
+	db 23, GEODUDE
 	db 24, GLIGAR
 	db 25, GRAVELER
-	db 24, SKARMORY
 	db 27, SKARMORY
 	db 27, SKARMORY
 
@@ -847,24 +847,24 @@ SwarmGrassWildMonsAlt:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 15, NOCTOWL
-	db 15, SNUBBULL
 	db 17, NOCTOWL
+	db 15, SNUBBULL
 	db 12, PIDGEY
 	db 14, JIGGLYPUFF
 	db 14, PIDGEOTTO
 	db 14, ABRA
 	; day
 	db 15, NOCTOWL
-	db 15, SNUBBULL
 	db 17, NOCTOWL
+	db 15, SNUBBULL
 	db 12, PIDGEY
 	db 14, JIGGLYPUFF
 	db 14, PIDGEOTTO
 	db 14, ABRA
 	; nite
 	db 13, NOCTOWL
-	db 13, MEOWTH
 	db 15, NOCTOWL
+	db 13, MEOWTH
 	db 12, HOOTHOOT
 	db 14, JIGGLYPUFF
 	db 14, NOCTOWL
@@ -875,24 +875,24 @@ SwarmGrassWildMonsAlt:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 10, ABRA
-	db 17, BELLSPROUT
 	db 11, ABRA
+	db 17, BELLSPROUT
 	db 17, MAGNEMITE
 	db 12, ABRA
 	db 17, SNUBBULL
 	db 17, GRANBULL
 	; day
 	db 10, ABRA
-	db 17, BELLSPROUT
 	db 11, ABRA
+	db 17, BELLSPROUT
 	db 17, MAGNEMITE
 	db 12, ABRA
 	db 17, SNUBBULL
 	db 17, GRANBULL
 	; nite
 	db 10, ABRA
-	db 17, ODDISH
 	db 11, ABRA
+	db 17, ODDISH
 	db 17, MAGNEMITE
 	db 12, ABRA
 	db 17, MEOWTH
@@ -903,26 +903,26 @@ SwarmGrassWildMonsAlt:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 16, PIDGEOTTO
+	db 20, PIDGEOTTO
 	db 20, RATICATE
 	db 19, MAGNEMITE
-	db 20, PIDGEOTTO
 	db 17, PIDGEOTTO
 	db 18, HOPPIP
 	db 18, HOPPIP
 	; day
 	db 16, PIDGEOTTO
+	db 20, PIDGEOTTO
 	db 20, RATICATE
 	db 19, MAGNEMITE
-	db 20, PIDGEOTTO
 	db 17, PIDGEOTTO
 	db 18, HOPPIP
 	db 18, HOPPIP
 	; nite
+	db 16, PIDGEOTTO
+	db 20, PIDGEOTTO
 	db 16, DROWZEE
-	db 20, PIDGEOTTO
 	db 19, MAGNEMITE
-	db 20, PIDGEOTTO
-	db 17, PIDGEOTTO
+	db 20, RATICATE
 	db 18, HYPNO
 	db 18, HYPNO
 
@@ -958,26 +958,26 @@ SwarmGrassWildMonsAlt:
 	map_id ROCK_TUNNEL_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 17, CUBONE
 	db 17, KANGASKHAN
-	db 18, ONIX
 	db 20, KANGASKHAN
+	db 17, CUBONE
+	db 18, ONIX
 	db 22, KANGASKHAN
 	db 20, MAROWAK
 	db 22, MAROWAK
 	; day
-	db 17, CUBONE
 	db 17, KANGASKHAN
-	db 18, ONIX
 	db 20, KANGASKHAN
+	db 17, CUBONE
+	db 18, ONIX
 	db 22, KANGASKHAN
 	db 20, MAROWAK
 	db 22, MAROWAK
 	; nite
-	db 17, CUBONE
 	db 17, KANGASKHAN
-	db 18, ONIX
 	db 20, KANGASKHAN
+	db 17, CUBONE
+	db 18, ONIX
 	db 22, KANGASKHAN
 	db 20, MAROWAK
 	db 22, MAROWAK
@@ -987,18 +987,18 @@ SwarmGrassWildMonsAlt:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 33, ELECTABUZZ
+	db 34, ELECTABUZZ
 	db 33, VOLTORB
 	db 35, SPEAROW
 	db 37, ELECTABUZZ
-	db 34, ELECTABUZZ
 	db 33, FEAROW
 	db 36, RATICATE
 	; day
 	db 33, ELECTABUZZ
+	db 34, ELECTABUZZ
 	db 33, VOLTORB
 	db 35, SPEAROW
 	db 37, ELECTABUZZ
-	db 34, ELECTABUZZ
 	db 33, FEAROW
 	db 36, RATICATE
 	; nite
@@ -1014,26 +1014,26 @@ SwarmGrassWildMonsAlt:
 	map_id ROUTE_8
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 22, SNUBBULL
-	db 24, PIDGEOTTO
 	db 19, TYROGUE
 	db 16, TYROGUE
+	db 22, SNUBBULL
+	db 24, PIDGEOTTO
 	db 18, TYROGUE
 	db 20, KADABRA
 	db 27, KADABRA
 	; day
-	db 22, SNUBBULL
-	db 24, PIDGEOTTO
 	db 19, TYROGUE
 	db 16, TYROGUE
+	db 22, SNUBBULL
+	db 24, PIDGEOTTO
 	db 18, TYROGUE
 	db 20, KADABRA
 	db 27, KADABRA
 	; nite
-	db 22, MEOWTH
-	db 24, NOCTOWL
 	db 19, TYROGUE
 	db 16, TYROGUE
+	db 22, MEOWTH
+	db 24, NOCTOWL
 	db 18, TYROGUE
 	db 24, HAUNTER
 	db 27, KADABRA
@@ -1043,16 +1043,16 @@ SwarmGrassWildMonsAlt:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 26, GRIMER
-	db 27, FEAROW
 	db 28, GRIMER
+	db 27, FEAROW
 	db 29, GRIMER
 	db 29, SLUGMA
 	db 30, MUK
 	db 32, MUK
 	; day
 	db 26, GRIMER
-	db 27, FEAROW
 	db 28, GRIMER
+	db 27, FEAROW
 	db 29, GRIMER
 	db 29, SLUGMA
 	db 30, MUK
@@ -1071,25 +1071,25 @@ SwarmGrassWildMonsAlt:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 26, EXEGGCUTE
+	db 28, EXEGGCUTE
 	db 28, NIDORINO
 	db 28, NIDORINA
-	db 28, EXEGGCUTE
 	db 28, HOPPIP
 	db 30, HOPPIP
 	db 30, CHANSEY
 	; day
 	db 26, EXEGGCUTE
+	db 28, EXEGGCUTE
 	db 28, NIDORINO
 	db 28, NIDORINA
-	db 28, EXEGGCUTE
 	db 28, HOPPIP
 	db 30, HOPPIP
 	db 30, CHANSEY
 	; nite
 	db 26, EXEGGCUTE
+	db 28, EXEGGCUTE
 	db 28, VENONAT
 	db 32, NOCTOWL
-	db 28, EXEGGCUTE
 	db 28, VENOMOTH
 	db 30, QUAGSIRE
 	db 30, CHANSEY
@@ -1099,26 +1099,26 @@ SwarmGrassWildMonsAlt:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 28, NIDORINA
+	db 28, NIDORINA
 	db 28, NIDORINO
 	db 30, PIDGEOTTO
-	db 28, NIDORINA
 	db 30, NIDORINA
 	db 30, SKIPLOOM
 	db 30, CHANSEY
 	; day
 	db 28, NIDORINA
+	db 28, NIDORINA
 	db 28, NIDORINO
 	db 30, PIDGEOTTO
-	db 28, NIDORINA
 	db 30, NIDORINA
 	db 30, SKIPLOOM
 	db 30, CHANSEY
 	; nite
 	db 28, NIDORINA
+	db 28, NIDORINA
 	db 28, QUAGSIRE
 	db 30, NOCTOWL
-	db 28, NIDORINA
-	db 30, NIDORINA
+	db 28, NIDORINO
 	db 30, QUAGSIRE
 	db 30, CHANSEY
 
@@ -1126,26 +1126,26 @@ SwarmGrassWildMonsAlt:
 	map_id ROUTE_13
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 25, NIDORINO
-	db 25, NIDORINA
 	db 28, CHANSEY
 	db 25, CHANSEY
+	db 25, NIDORINO
+	db 25, NIDORINA
 	db 27, FARFETCH_D
 	db 29, HOPPIP
 	db 31, CHANSEY
 	; day
-	db 25, NIDORINO
-	db 25, NIDORINA
 	db 28, CHANSEY
 	db 25, CHANSEY
+	db 25, NIDORINO
+	db 25, NIDORINA
 	db 27, FARFETCH_D
 	db 29, HOPPIP
 	db 31, CHANSEY
 	; nite
-	db 25, VENONAT
-	db 25, QUAGSIRE
 	db 28, CHANSEY
 	db 25, CHANSEY
+	db 25, VENONAT
+	db 25, QUAGSIRE
 	db 27, FARFETCH_D
 	db 29, QUAGSIRE
 	db 31, CHANSEY
@@ -1155,25 +1155,25 @@ SwarmGrassWildMonsAlt:
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 38, JYNX
+	db 36, JYNX
 	db 38, DEWGONG
 	db 38, GOLDUCK
-	db 36, JYNX
 	db 40, JYNX
 	db 34, SEEL
 	db 40, GOLBAT
 	; day
 	db 38, JYNX
+	db 36, JYNX
 	db 38, DEWGONG
 	db 38, GOLDUCK
-	db 36, JYNX
 	db 40, JYNX
 	db 34, SEEL
 	db 40, GOLBAT
 	; nite
 	db 38, JYNX
+	db 36, JYNX
 	db 38, DEWGONG
 	db 38, GOLDUCK
-	db 36, JYNX
 	db 40, JYNX
 	db 34, SEEL
 	db 40, GOLBAT

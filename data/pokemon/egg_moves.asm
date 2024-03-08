@@ -193,6 +193,7 @@ PoliwagEggMoves:
 AbraEggMoves:
 	db ENCORE
 	db BARRIER
+	db LIGHT_SCREEN
 	db -1 ; end
 
 MachopEggMoves:
@@ -207,6 +208,7 @@ BellsproutEggMoves:
 	db LEECH_LIFE
 	db SYNTHESIS
 	db SWORDS_DANCE
+	db REFLECT
 	db -1 ; end
 
 TentacoolEggMoves:
@@ -215,11 +217,12 @@ TentacoolEggMoves:
 	db HAZE
 	db MIRROR_COAT
 	db RAPID_SPIN
+	db SAFEGUARD
 	db -1 ; end
 
 GeodudeEggMoves:
 	db MEGA_PUNCH
-	db ROCK_SLIDE
+	db FLAIL
 	db -1 ; end
 
 PonytaEggMoves:
@@ -229,12 +232,14 @@ PonytaEggMoves:
 	db HYPNOSIS
 	db LOW_KICK
 	db THRASH
+	db CHARM
 	db -1 ; end
 
 SlowpokeEggMoves:
 	db BELLY_DRUM
 	db FUTURE_SIGHT
 	db STOMP
+	db SAFEGUARD
 	db -1 ; end
 
 FarfetchDEggMoves:
@@ -250,6 +255,7 @@ DoduoEggMoves:
 	db HAZE
 	db MIRROR_MOVE
 	db SUPERSONIC
+	db FLAIL
 	db -1 ; end
 
 SeelEggMoves:
@@ -309,6 +315,9 @@ CuboneEggMoves:
 	db PERISH_SONG
 	db SCREECH
 	db SKULL_BASH
+	db BELLY_DRUM
+	db ROCK_SLIDE
+	db SWORDS_DANCE
 	db -1 ; end
 
 LickitungEggMoves:
@@ -330,6 +339,7 @@ RhyhornEggMoves:
 	db CRUNCH
 	db REVERSAL
 	db THRASH
+	db PURSUIT
 	db -1 ; end
 
 ChanseyEggMoves:
@@ -448,7 +458,6 @@ ChikoritaEggMoves:
 	db -1 ; end
 
 CyndaquilEggMoves:
-	db DOUBLE_EDGE
 	db DOUBLE_KICK
 	db FORESIGHT
 	db FURY_SWIPES
@@ -542,7 +551,8 @@ MareepEggMoves:
 	db BODY_SLAM
 	db SAND_ATTACK
 	db SCREECH
-	db THUNDERBOLT
+	db REFLECT
+	db SAFEGUARD
 	db -1 ; end
 
 MarillEggMoves:
@@ -759,7 +769,7 @@ StantlerEggMoves:
 	db BITE
 	db DISABLE
 	db DOUBLE_KICK
-	db LIGHT_SCREEN
+	db THRASH
 	db MEGAHORN
 	db RAGE
 	db REFLECT
@@ -771,7 +781,6 @@ TyrogueEggMoves:
 	db HI_JUMP_KICK
 	db MACH_PUNCH
 	db MIND_READER
-	db PURSUIT
 	db RAPID_SPIN
 	db -1 ; end
 

@@ -6,9 +6,9 @@ ENDM
 MonMenuIconPals:
 	table_width 1, MonMenuIconPals
 	;         normal, shiny
-	icon_pals GREEN,  YELLOW     ; BULBASAUR
-	icon_pals GREEN,  YELLOW     ; IVYSAUR
-	icon_pals GREEN,  YELLOW     ; VENUSAUR
+	icon_pals GREEN,  YELLOW   ; BULBASAUR
+	icon_pals GREEN,  YELLOW   ; IVYSAUR
+	icon_pals GREEN,  YELLOW   ; VENUSAUR
 	icon_pals RED,    YELLOW   ; CHARMANDER
 	icon_pals RED,    YELLOW   ; CHARMELEON
 	icon_pals RED,    GRAY     ; CHARIZARD
@@ -83,7 +83,7 @@ MonMenuIconPals:
 	icon_pals BROWN,  YELLOW   ; GRAVELER
 	icon_pals BROWN,  YELLOW   ; GOLEM
 	icon_pals RED,    BLUE     ; PONYTA
-	icon_pals RED,    GRAY     ; RAPIDASH
+	icon_pals RED,    PURPLE   ; RAPIDASH
 	icon_pals PINK,   PURPLE   ; SLOWPOKE
 	icon_pals PINK,   BLUE     ; SLOWBRO
 	icon_pals GRAY,   BROWN    ; MAGNEMITE

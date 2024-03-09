@@ -1871,9 +1871,9 @@ ScytherEvosAttacks:
 	db 30, WING_ATTACK
 	db 34, FURY_CUTTER
 	db 39, SLASH
-	db 43, RAZOR_WIND
-	db 48, SWORDS_DANCE
-	db 54, DOUBLE_TEAM
+	db 43, DOUBLE_TEAM
+	db 48, RAZOR_WIND
+	db 54, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
 JynxEvosAttacks:
@@ -3211,9 +3211,9 @@ ScizorEvosAttacks:
 	db 30, METAL_CLAW
 	db 34, FURY_CUTTER
 	db 39, SLASH
-	db 43, RAZOR_WIND
-	db 48, SWORDS_DANCE
-	db 54, DOUBLE_TEAM
+	db 43, DOUBLE_TEAM
+	db 48, STEEL_WING
+	db 54, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
 ShuckleEvosAttacks:

@@ -41,6 +41,10 @@ BattleCommand_Teleport:
 	jp PrintButItFailed
 
 .trainer_battle
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .enemy_trainer
+
 	; Need something to switch to
 	call CheckAnyOtherAlivePartyMons
 	jp z, .failed

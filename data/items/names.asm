@@ -173,7 +173,7 @@ ItemNames::
 	li "TERU-SAMA"
 	li "UP-GRADE"
 	li "ORAN BERRY"
-	li "GOLD BERRY"
+	li "SITRUS BERRY"
 	li "SQUIRTBOTTLE"
 	li "TERU-SAMA"
 	li "PARK BALL"

@@ -1649,13 +1649,13 @@ BirdKeeperGroup:
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
-	db 28, PIDGEOTTO
-	db 28, PIDGEOTTO
+	db 33, HOOTHOOT
+	db 32, PIDGEOTTO
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
-	db 36, PIDGEOTTO
+	db 37, HOOTHOOT
 	db 36, PIDGEOTTO
 	db -1 ; end
 
@@ -1832,14 +1832,14 @@ BirdKeeperGroup:
 	;Normal Mode
 	db TRAINERTYPE_MOVES
 	db 52, PIDGEOT,    TOXIC, QUICK_ATTACK, WHIRLWIND, FLY
-	db 40, PIDGEOT,    SWIFT, PROTECT, STEEL_WING, FLY
+	db 44, PIDGEOT,    SWIFT, PROTECT, STEEL_WING, FLY
 	db 50, NOCTOWL,    HYPNOSIS, DREAM_EATER, PSYCHIC_M, FLY
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_MOVES
 	db 62, PIDGEOT,    TOXIC, QUICK_ATTACK, WHIRLWIND, FLY
-	db 40, PIDGEOT,    SWIFT, PROTECT, STEEL_WING, FLY
+	db 54, PIDGEOT,    SWIFT, PROTECT, STEEL_WING, FLY
 	db 60, NOCTOWL,    HYPNOSIS, DREAM_EATER, PSYCHIC_M, FLY
 	db -1 ; end
 
@@ -2174,14 +2174,14 @@ LassGroup:
 	
 	;Normal Mode
 	db TRAINERTYPE_MOVES
-	db 32, AMPHAROS,   TAKE_DOWN, THUNDERPUNCH, THUNDER_WAVE, COTTON_SPORE
+	db 32, FLAAFFY,    TAKE_DOWN, THUNDERPUNCH, THUNDER_WAVE, COTTON_SPORE
 	db 32, PSYDUCK,    WATER_GUN, DISABLE, CONFUSION, PSYCH_UP
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_MOVES
-	db 42, AMPHAROS,   TAKE_DOWN, THUNDERPUNCH, THUNDER_WAVE, COTTON_SPORE
-	db 42, PSYDUCK,    WATER_GUN, DISABLE, CONFUSION, PSYCH_UP
+	db 42, FLAAFFY,    TAKE_DOWN, THUNDERPUNCH, THUNDER_WAVE, COTTON_SPORE
+	db 42, GOLDUCK,    WATER_GUN, DISABLE, CONFUSION, PSYCH_UP
 	db -1 ; end
 
 	; LASS (14)
@@ -2783,7 +2783,7 @@ CooltrainerFGroup:
 	;Challenge Mode
 	db TRAINERTYPE_MOVES
 	db 54, RAPIDASH,   STOMP, FIRE_SPIN, FURY_ATTACK, AGILITY
-	db 49, AMPHAROS,   THUNDERPUNCH, THUNDER_WAVE, TAKE_DOWN, CONFUSE_RAY
+	db 52, AMPHAROS,   THUNDERPUNCH, THUNDER_WAVE, TAKE_DOWN, CONFUSE_RAY
 	db -1 ; end
 
 	; COOLTRAINERF (13)
@@ -2882,15 +2882,15 @@ CooltrainerFGroup:
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
 	db 44, GROWLITHE
-	db 42, NIDORINA
-	db 44, STARYU
+	db 42, NIDOQUEEN
+	db 44, STARMIE
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 54, GROWLITHE
-	db 52, NIDORINA
-	db 54, STARYU
+	db 52, NIDOQUEEN
+	db 54, STARMIE
 	db -1 ; end
 
 	; COOLTRAINERF (20)
@@ -3817,7 +3817,7 @@ TeacherGroup:
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 53, SUNKERN
-	db 53, AIPOM
+	db 43, AIPOM
 	db -1 ; end
 
 	; TEACHER (3)
@@ -3929,7 +3929,7 @@ BugCatcherGroup:
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 52, BEEDRILL
-	db 52, BUTTERFREE
+	db 51, BUTTERFREE
 	db -1 ; end
 
 	; BUG_CATCHER (3)
@@ -4156,7 +4156,7 @@ BugCatcherGroup:
 	db 52, BUTTERFREE, PSYCHIC_M, POISONPOWDER, SUPERSONIC, WING_ATTACK
 	db 52, BUTTERFREE, PSYCHIC_M, STUN_SPORE, CHARM, WING_ATTACK
 	db 53, BEEDRILL,   SLUDGE_BOMB, OUTRAGE, PIN_MISSILE, DOUBLE_TEAM
-	db 52, BUTTERFREE, PSYCHIC_M, SLEEP_POWDER, WING_ATTACK, CHARM
+	db 55, BUTTERFREE, PSYCHIC_M, SLEEP_POWDER, WING_ATTACK, CHARM
 	db -1 ; end
 
 	; BUG_CATCHER (17)
@@ -4616,14 +4616,14 @@ FisherGroup:
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
 	db 42, GOLDEEN
-	db 42, GOLDEEN
+	db 42, SEAKING
 	db 42, QWILFISH
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 52, GOLDEEN
-	db 52, GOLDEEN
+	db 52, SEAKING
 	db 52, QWILFISH
 	db -1 ; end
 
@@ -6154,9 +6154,9 @@ HikerGroup:
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
-	db 51, SANDSLASH
-	db 53, GRAVELER
-	db 57, GOLEM
+	db 39, SANDSLASH
+	db 41, GRAVELER
+	db 45, GOLEM
 	db -1 ; end
 
 	; HIKER (17)
@@ -6500,7 +6500,7 @@ BikerGroup:
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 57, TEDDIURSA
-	db 56, AZUMARILL
+	db 56, MARILL
 	db -1 ; end
 
 	; BIKER (11)
@@ -7457,15 +7457,15 @@ PicnickerGroup:
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
-	db 16, HOPPIP
-	db 16, HOPPIP
-	db 19, IVYSAUR
+	db 22, HOPPIP
+	db 22, SKIPLOOM
+	db 25, IVYSAUR
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 32, HOPPIP
-	db 32, HOPPIP
+	db 32, SKIPLOOM
 	db 35, IVYSAUR
 	db -1 ; end
 
@@ -7945,8 +7945,8 @@ CamperGroup:
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 39, GEODUDE
-	db 39, GEODUDE
-	db 42, PSYDUCK
+	db 39, GRAVELER
+	db 42, GOLDUCK
 	db -1 ; end
 
 	; CAMPER (12)
@@ -7987,7 +7987,7 @@ CamperGroup:
 	db 38, GRAVELER
 	db 38, GRAVELER
 	db 38, SLUGMA
-	db 40, PSYDUCK
+	db 40, GOLDUCK
 	db $fe ; delimiter
 	
 	;Challenge Mode
@@ -7995,7 +7995,7 @@ CamperGroup:
 	db 48, GRAVELER
 	db 48, GRAVELER
 	db 48, SLUGMA
-	db 50, PSYDUCK
+	db 50, GOLDUCK
 	db -1 ; end
 
 	; CAMPER (15)
@@ -8050,7 +8050,10 @@ CamperGroup:
 	db -1 ; end
 
 	; CAMPER (18)
-	db "VIKTOR@",TRAINERTYPE_NORMAL
+	db "VIKTOR@", TRAINERTYPE_VARIABLE
+	
+	;Normal Mode
+	db TRAINERTYPE_NORMAL
 	db 43, DUNSPARCE
 	db $fe ; delimiter
 	
@@ -8060,7 +8063,10 @@ CamperGroup:
 	db -1 ; end
 
 	; CAMPER (19)
-	db "TANNER@",TRAINERTYPE_NORMAL
+	db "TANNER@", TRAINERTYPE_VARIABLE
+	
+	;Normal Mode
+	db TRAINERTYPE_NORMAL
 	db 38, SUDOWOODO
 	db $fe ; delimiter
 	
@@ -8070,7 +8076,10 @@ CamperGroup:
 	db -1 ; end
 
 	; CAMPER (20)
-	db "CLARK@",TRAINERTYPE_NORMAL
+	db "CLARK@", TRAINERTYPE_VARIABLE
+	
+	;Normal Mode
+	db TRAINERTYPE_NORMAL
 	db 40, LANTURN
 	db $fe ; delimiter
 	
@@ -8080,8 +8089,26 @@ CamperGroup:
 	db -1 ; end
 
 	; CAMPER (21)
-	db "PEDRO@",TRAINERTYPE_NORMAL
+	db "PEDRO@", TRAINERTYPE_VARIABLE
+	
+	;Normal Mode
+	db TRAINERTYPE_NORMAL
 	db 45, GRANBULL
+	db $fe ; delimiter
+	
+	;Challenge Mode
+	db TRAINERTYPE_NORMAL
+	db 57, GRANBULL
+	db -1 ; end
+
+	; CAMPER (22)
+	db "TANNER@", TRAINERTYPE_VARIABLE
+	
+	;Normal Mode
+	db TRAINERTYPE_NORMAL
+	db 46, SUDOWOODO
+	db 45, CHINCHOU
+	db 42, SKIPLOOM
 	db $fe ; delimiter
 	
 	;Challenge Mode
@@ -8091,32 +8118,21 @@ CamperGroup:
 	db 52, SKIPLOOM
 	db -1 ; end
 
-	; CAMPER (22)
-	db "TANNER@",TRAINERTYPE_NORMAL
-	db 46, SUDOWOODO
-	db 45, CHINCHOU
-	db 42, SKIPLOOM
-	db $fe ; delimiter
-	
-	;Challenge Mode
-	;place party here-----
-	db -1 ; end
-
 	; CAMPER (23)
 	db "TANNER@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
 	db TRAINERTYPE_MOVES
-	db 56, SUDOWOODO,  LOW_KICK, ROCK_SLIDE, DIG, DOUBLE_EDGE
-	db 55, LANTURN,    RAIN_DANCE, THUNDER, CONFUSE_RAY, HYDRO_PUMP
-	db 52, JUMPLUFF,   GIGA_DRAIN, POISONPOWDER, LEECH_SEED, PROTECT
+	db 51, SUDOWOODO,  LOW_KICK, ROCK_SLIDE, DIG, DOUBLE_EDGE
+	db 50, LANTURN,    RAIN_DANCE, THUNDER, CONFUSE_RAY, HYDRO_PUMP
+	db 47, JUMPLUFF,   GIGA_DRAIN, POISONPOWDER, LEECH_SEED, PROTECT
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_MOVES
-	db 62, SUDOWOODO,  LOW_KICK, ROCK_SLIDE, DIG, DOUBLE_EDGE
-	db 62, LANTURN,    RAIN_DANCE, THUNDER, CONFUSE_RAY, HYDRO_PUMP
-	db 62, JUMPLUFF,   GIGA_DRAIN, POISONPOWDER, LEECH_SEED, PROTECT
+	db 61, SUDOWOODO,  LOW_KICK, ROCK_SLIDE, DIG, DOUBLE_EDGE
+	db 60, LANTURN,    RAIN_DANCE, THUNDER, CONFUSE_RAY, HYDRO_PUMP
+	db 57, JUMPLUFF,   GIGA_DRAIN, POISONPOWDER, LEECH_SEED, PROTECT
 	db -1 ; end
 
 
@@ -8930,14 +8946,14 @@ TwinsGroup:
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
-	db 53, QUAGSIRE
-	db 53, QUAGSIRE
+	db 48, QUAGSIRE
+	db 48, QUAGSIRE
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
-	db 63, QUAGSIRE
-	db 63, QUAGSIRE
+	db 58, QUAGSIRE
+	db 58, QUAGSIRE
 	db -1 ; end
 
 	; TWINS (15)
@@ -9276,7 +9292,7 @@ CoupleGroup:
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
-	db 48, KADABRA
+	db 47, KADABRA
 	db 52, GOLDUCK
 	db $fe ; delimiter
 	
@@ -9291,7 +9307,7 @@ CoupleGroup:
 	
 	;Normal Mode
 	db TRAINERTYPE_MOVES
-	db 54, ALAKAZAM,    PSYCHIC_M, RECOVER, REFLECT, FIRE_PUNCH
+	db 51, ALAKAZAM,    PSYCHIC_M, RECOVER, REFLECT, FIRE_PUNCH
 	db 56, GOLDUCK,     ICE_BEAM, SURF, LIGHT_SCREEN, PSYCHIC_M
 	db $fe ; delimiter
 	

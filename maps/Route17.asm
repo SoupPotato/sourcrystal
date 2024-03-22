@@ -399,8 +399,8 @@ BikerAidenBeatenText:
 	done
 
 BikerAidenAfterBattleText:
-	text "See you later!"
-	line "Come back anytime!"
+	text "Awesome Bike!"
+	line "Treat it well!"
 	done
 
 BikerDanSeenText:

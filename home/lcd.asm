@@ -5,6 +5,10 @@ LCDGeneric::
 ; At this point it's assumed we're in BANK(wLYOverrides)!
 	push bc
 	ldh a, [rLY]
+	cp SCREEN_HEIGHT_PX
+	jr c, .continue
+	xor a
+.continue
 	ld c, a
 	ld b, HIGH(wLYOverrides)
 	ld a, [bc]

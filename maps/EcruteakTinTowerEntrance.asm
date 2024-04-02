@@ -48,6 +48,7 @@ EcruteakTinTowerEntranceSageBlocksLeft:
 	moveobject ECRUTEAKTINTOWERENTRANCE_SAGE1, 4, 6
 	appear ECRUTEAKTINTOWERENTRANCE_SAGE1
 	pause 5
+	callasm UpdateSprites
 	disappear ECRUTEAKTINTOWERENTRANCE_SAGE2
 	end
 
@@ -58,6 +59,7 @@ EcruteakTinTowerEntranceSageBlocksRight:
 	moveobject ECRUTEAKTINTOWERENTRANCE_SAGE2, 5, 6
 	appear ECRUTEAKTINTOWERENTRANCE_SAGE2
 	pause 5
+	callasm UpdateSprites
 	disappear ECRUTEAKTINTOWERENTRANCE_SAGE1
 	end
 

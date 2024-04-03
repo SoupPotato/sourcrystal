@@ -1,6 +1,6 @@
 AlfredAskNumber1Text:
 	text "Well, now that"
-	line "we've me each"
+	line "we've met each"
 	
 	para "other's acquain-"
 	line "tance, shall we"

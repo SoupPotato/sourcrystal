@@ -129,11 +129,11 @@ RadioTower4FDJMaryText_ClearedRockets:
 	done
 
 RadioTower4FDJMaryText_GiveBrightPowder:
-	text "MARY: When a"
-	line "#MON holds that,"
+	text "MARY: When held,"
+	line "that tricky powder"
 
-	para "it lowers the"
-	line "foe's ACCURACY."
+	para "lowers the foe's"
+	line "ACCURACY."
 	done
 
 RadioTower4FDJMaryText_After:

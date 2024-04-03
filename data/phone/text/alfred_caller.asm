@@ -33,3 +33,7 @@ AlfredNoctowlTradeText:
 	cont "in this world,"
 	cont "right?"
 	done
+
+AlfredHangUpText:
+	text "Well, goodbye!"
+	done

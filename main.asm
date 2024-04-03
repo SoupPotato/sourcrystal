@@ -702,7 +702,6 @@ INCLUDE "data/phone/text/unused.asm"
 INCLUDE "data/phone/text/vance_callee.asm"
 INCLUDE "data/phone/text/wade_callee.asm"
 INCLUDE "data/phone/text/walt_callee.asm" ; new
-INCLUDE "data/phone/text/wilton_callee.asm"
 
 
 SECTION "Special Phone Text 2", ROMX
@@ -714,6 +713,7 @@ INCLUDE "data/phone/text/kayandtia_callee.asm" ; new
 INCLUDE "data/phone/text/kenny_callee.asm" ; new
 INCLUDE "data/phone/text/reese_callee.asm" ; new
 INCLUDE "data/phone/text/timandsue_callee.asm" ; new
+INCLUDE "data/phone/text/wilton_callee.asm"
 
 
 SECTION "Miscellaneous Text", ROMX

@@ -144,7 +144,7 @@ MoveDeletersHouse_MoveReminderIntroText:
 
 	para "I can make your"
 	line "#MON remember"
-	cont "it's moves."
+	cont "its moves."
 
 	para "Are you"
 	line "interested?"

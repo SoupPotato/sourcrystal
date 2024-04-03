@@ -6769,7 +6769,7 @@ BattleCommand_WeightDamage:
 
 ; The output with these specific values is correct,
 ;  but it might be inaccurate for other values, especially bigger ones.
-kg EQUS "* 10000000 / 453592"
+DEF kg EQUS "* 10000000 / 453592"
 .table
 	dwb 200 kg, 120
 	dwb 100 kg, 100

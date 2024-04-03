@@ -710,6 +710,7 @@ PhoneScript_HangUpText_Male:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext JackHangUpText
@@ -789,6 +790,10 @@ PhoneScript_HangUpText_Male:
 
 .Parry:
 	farwritetext ParryHangUpText
+	end
+
+.Alfred:
+	farwritetext AlfredHangUpText
 	end
 
 PhoneScript_KyleConnectionLostText:

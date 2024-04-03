@@ -44,6 +44,7 @@ PhoneScript_AnswerPhone_Male:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext JackAnswerPhoneText
@@ -145,6 +146,11 @@ PhoneScript_AnswerPhone_Male:
 	promptbutton
 	end
 
+.Alfred:
+	farwritetext AlfredAnswerPhoneText
+	promptbutton
+	end
+
 PhoneScript_AnswerPhone_Male_Day:
 	readvar VAR_CALLERID
 	ifequal PHONE_SCHOOLBOY_JACK, .Jack
@@ -167,6 +173,7 @@ PhoneScript_AnswerPhone_Male_Day:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext JackAnswerPhoneDayText
@@ -268,6 +275,11 @@ PhoneScript_AnswerPhone_Male_Day:
 	promptbutton
 	end
 
+.Alfred:
+	farwritetext AlfredAnswerPhoneDayText
+	promptbutton
+	end
+
 PhoneScript_AnswerPhone_Male_Nite:
 	readvar VAR_CALLERID
 	ifequal PHONE_SCHOOLBOY_JACK, .Jack
@@ -290,6 +302,7 @@ PhoneScript_AnswerPhone_Male_Nite:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext JackAnswerPhoneNiteText
@@ -388,6 +401,11 @@ PhoneScript_AnswerPhone_Male_Nite:
 
 .Parry:
 	farwritetext ParryAnswerPhoneNiteText
+	promptbutton
+	end
+
+.Alfred:
+	farwritetext AlfredAnswerPhoneNiteText
 	promptbutton
 	end
 
@@ -574,6 +592,7 @@ PhoneScript_GreetPhone_Male:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext JackGreetText
@@ -675,6 +694,11 @@ PhoneScript_GreetPhone_Male:
 	promptbutton
 	end
 
+.Alfred:
+	farwritetext AlfredGreetText
+	promptbutton
+	end
+
 PhoneScript_GreetPhone_Male_Day:
 	readvar VAR_CALLERID
 	ifequal PHONE_SCHOOLBOY_JACK, .Jack
@@ -697,6 +721,7 @@ PhoneScript_GreetPhone_Male_Day:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext JackGreetDayText
@@ -798,6 +823,11 @@ PhoneScript_GreetPhone_Male_Day:
 	promptbutton
 	end
 
+.Alfred:
+	farwritetext AlfredGreetDayText
+	promptbutton
+	end
+
 PhoneScript_GreetPhone_Male_Nite:
 	readvar VAR_CALLERID
 	ifequal PHONE_SCHOOLBOY_JACK, .Jack
@@ -820,6 +850,7 @@ PhoneScript_GreetPhone_Male_Nite:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BLACKBELT_KENJI, .Kenji
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext JackGreetNiteText
@@ -918,6 +949,11 @@ PhoneScript_GreetPhone_Male_Nite:
 
 .Parry:
 	farwritetext ParryGreetNiteText
+	promptbutton
+	end
+
+.Alfred:
+	farwritetext AlfredGreetNiteText
 	promptbutton
 	end
 

@@ -3377,11 +3377,11 @@ ClearPhoneOrPagerArea:
 
 ClearPhoneOrPagerCursors:
 	ld a, " "
-x = 4
+DEF x = 4
 rept PHONE_OR_PAGER_HEIGHT
 	hlcoord 1, x
 	ld [hl], a
-x = x + 2
+DEF x = x + 2
 endr
 	ret
 

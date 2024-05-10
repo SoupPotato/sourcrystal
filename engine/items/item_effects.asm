@@ -751,6 +751,8 @@ PokeBallEffect:
 	ret
 
 .used_safari_ball
+	call ClearBGPalettes
+	call ClearTilemap
 	ld hl, wSafariBallsRemaining
 	dec [hl]
 	ret

@@ -1281,6 +1281,11 @@ HeadbuttScript:
 	randomwildmon
 	startbattle
 	reloadmapafterbattle
+	checkflag ENGINE_SAFARI_ZONE
+	iffalse .nosafarigame
+	copybytetovar wSafariBallsRemaining
+	iffalse .SafariZoneOutOfBallsScript
+.nosafarigame
 	end
 
 .no_battle
@@ -1288,6 +1293,9 @@ HeadbuttScript:
 	waitbutton
 	closetext
 	end
+
+.SafariZoneOutOfBallsScript
+	farjump SafariZoneGameOverScript
 
 TryHeadbuttOW::
 	ld d, HEADBUTT
@@ -1581,7 +1589,15 @@ Script_GotABite:
 	randomwildmon
 	startbattle
 	reloadmapafterbattle
+	checkflag ENGINE_SAFARI_ZONE
+	iffalse .nosafarigame
+	copybytetovar wSafariBallsRemaining
+	iffalse .SafariZoneOutOfBallsScript
+.nosafarigame
 	end
+
+.SafariZoneOutOfBallsScript
+	farjump SafariZoneGameOverScript
 
 .Movement_NotFacingUp:
 	fish_got_bite

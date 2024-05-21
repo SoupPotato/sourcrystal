@@ -98,8 +98,8 @@ MonMenuIconPals:
 	icon_pals PURPLE, YELLOW   ; SHELLDER
 	icon_pals PURPLE, BLUE     ; CLOYSTER
 	icon_pals PURPLE, BLUE     ; GASTLY
-	icon_pals RED,    BLUE     ; HAUNTER
-	icon_pals RED,    BLUE     ; GENGAR
+	icon_pals PURPLE, BLUE     ; HAUNTER
+	icon_pals PURPLE, BLUE     ; GENGAR
 	icon_pals GRAY,   BROWN    ; ONIX
 	icon_pals YELLOW, PINK     ; DROWZEE
 	icon_pals YELLOW, PINK     ; HYPNO
@@ -112,7 +112,7 @@ MonMenuIconPals:
 	icon_pals BROWN,  GREEN    ; CUBONE
 	icon_pals BROWN,  GREEN    ; MARROWAK
 	icon_pals BROWN,  GREEN    ; HITMONLEE
-	icon_pals RED,    BLUE     ; HITMONCHAN
+	icon_pals BROWN,  BLUE     ; HITMONCHAN
 	icon_pals PINK,   YELLOW   ; LICKITUNG
 	icon_pals PURPLE, GRAY     ; KOFFING
 	icon_pals PURPLE, GRAY     ; WEEZING
@@ -142,7 +142,7 @@ MonMenuIconPals:
 	icon_pals BLUE,   PURPLE   ; VAPOREON
 	icon_pals YELLOW, GREEN    ; JOLTEON
 	icon_pals RED,    BROWN    ; FLAREON
-	icon_pals BLUE,   GRAY     ; PORYGON
+	icon_pals PURPLE, BLUE     ; PORYGON
 	icon_pals BLUE,   PURPLE   ; OMANYTE
 	icon_pals BLUE,   PURPLE   ; OMASTAR
 	icon_pals BROWN,  GREEN    ; KABUTO
@@ -185,7 +185,7 @@ MonMenuIconPals:
 	icon_pals GREEN,  GRAY     ; NATU
 	icon_pals GREEN,  GRAY     ; XATU
 	icon_pals BLUE,   PINK     ; MAREEP
-	icon_pals RED,    PINK     ; FLAAFFY
+	icon_pals PINK,   PURPLE   ; FLAAFFY
 	icon_pals YELLOW, PINK     ; AMPHAROS
 	icon_pals GREEN,  PURPLE   ; BELLOSSOM
 	icon_pals BLUE,   GREEN    ; MARILL
@@ -201,8 +201,8 @@ MonMenuIconPals:
 	icon_pals RED,    BLUE     ; YANMA
 	icon_pals BLUE,   PINK     ; WOOPER
 	icon_pals BLUE,   PINK     ; QUAGSIRE
-	icon_pals PINK,   GREEN    ; ESPEON
-	icon_pals BROWN,  BLUE     ; UMBREON
+	icon_pals PURPLE, GREEN    ; ESPEON
+	icon_pals GRAY,   BLUE     ; UMBREON
 	icon_pals BLUE,   PURPLE   ; MURKROW
 	icon_pals PINK,   BLUE     ; SLOWKING
 	icon_pals RED,    YELLOW   ; MISDREAVUS
@@ -238,12 +238,12 @@ MonMenuIconPals:
 	icon_pals BLUE,   PURPLE   ; KINGDRA
 	icon_pals GRAY,   GRAY     ; PHANPY
 	icon_pals GRAY,   BROWN    ; DONPHAN
-	icon_pals BLUE,   GRAY     ; PORYGON2
+	icon_pals PURPLE, BLUE     ; PORYGON2
 	icon_pals BROWN,  GREEN    ; STANTLER
 	icon_pals BROWN,  GREEN    ; SMEARGLE
 	icon_pals BROWN,  BLUE     ; TYROGUE
-	icon_pals BLUE,   PURPLE   ; HITMONTOP
-	icon_pals RED,    PINK     ; SMOOCHUM
+	icon_pals BROWN,  PURPLE   ; HITMONTOP
+	icon_pals PINK,   PURPLE   ; SMOOCHUM
 	icon_pals YELLOW, BROWN    ; ELEKID
 	icon_pals RED,    YELLOW   ; MAGBY
 	icon_pals PINK,   BLUE     ; MILTANK

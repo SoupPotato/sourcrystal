@@ -7746,7 +7746,10 @@ PicnickerGroup:
 	db -1 ; end
 
 	; PICNICKER (28)
-	db "PIPER@",TRAINERTYPE_MOVES
+	db "PIPER@", TRAINERTYPE_VARIABLE
+	
+	;Normal Mode
+	db TRAINERTYPE_MOVES
 	db 40, SWINUB,   BLIZZARD, EARTHQUAKE, ENDURE, FLAIL
 	db $fe ; delimiter
 	
@@ -7756,32 +7759,41 @@ PicnickerGroup:
 	db -1 ; end
 
 	; PICNICKER (29)
-	db "GINGER@",TRAINERTYPE_MOVES
+	db "GINGER@", TRAINERTYPE_VARIABLE
+	
+	;Normal Mode
+	db TRAINERTYPE_MOVES
 	db 41, SMEARGLE,   FLAMETHROWER, SURF, THUNDERBOLT, PSYCHIC_M
 	db $fe ; delimiter
 	
 	;Challenge Mode
-	db "GINGER@",TRAINERTYPE_MOVES
+	db TRAINERTYPE_MOVES
 	db 53, SMEARGLE,   FLAMETHROWER, SURF, THUNDERBOLT, PSYCHIC_M
 	db -1 ; end
 
 	; PICNICKER (30)
-	db "CHEL@",TRAINERTYPE_NORMAL
+	db "CHEL@", TRAINERTYPE_VARIABLE
+	
+	;Normal Mode
+	db TRAINERTYPE_NORMAL
 	db 45, AMPHAROS
 	db $fe ; delimiter
 	
 	;Challenge Mode
-	db "CHEL@",TRAINERTYPE_NORMAL
+	db TRAINERTYPE_NORMAL
 	db 57, AMPHAROS
 	db -1 ; end
 
 	; PICNICKER (31)
-	db "ADRIAN@",TRAINERTYPE_NORMAL
+	db "ADRIAN@", TRAINERTYPE_VARIABLE
+	
+	;Normal Mode
+	db TRAINERTYPE_NORMAL
 	db 45, PARASECT
 	db $fe ; delimiter
 	
 	;Challenge Mode
-	db "ADRIAN@",TRAINERTYPE_NORMAL
+	db TRAINERTYPE_NORMAL
 	db 57, PARASECT
 	db -1 ; end
 

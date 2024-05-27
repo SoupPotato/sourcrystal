@@ -8,13 +8,9 @@ MountMoon_MapScripts:
 	scene_script MountMoonNoopScene,           SCENE_MOUNTMOON_NOOP
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, CheckFossilAndRival
+	callback MAPCALLBACK_OBJECTS, CheckRival
 
-CheckFossilAndRival:
-	checkevent EVENT_MT_MORTAR_OBTAINED_FOSSIL
-	iftrue .checkRival
-	disappear MOUNTMOON_FOSSIL
-.checkRival
+CheckRival:
 	checkevent EVENT_BEAT_RIVAL_IN_MT_MOON
 	iffalse .notgone
 	end

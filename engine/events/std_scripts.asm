@@ -671,6 +671,7 @@ InitializeEventsScript:
 	setevent EVENT_OLIVINE_LIGHTHOUSE_AMPHY_SICK
 	setevent EVENT_ROUTE_11_SNORLAX_RESPAWN
 	setevent EVENT_POKEMON_MANSION_B1F_MEW
+	setevent EVENT_MT_MOON_OBTAINED_FOSSIL
 	endcallback
 
 AskNumber1MScript:

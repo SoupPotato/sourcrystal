@@ -775,6 +775,11 @@ SECTION "Crystal Events", ROMX
 INCLUDE "engine/events/battle_tower/load_trainer.asm"
 INCLUDE "engine/events/odd_egg.asm"
 
+
+SECTION "Dynamic Pals", ROMX
+
+INCLUDE "engine/overworld/dynamic_pals.asm"
+
 ; Regular
 SECTION "Regular Mode", ROMX
 

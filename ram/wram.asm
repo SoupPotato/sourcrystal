@@ -3004,13 +3004,7 @@ endr
 
 wStoneTableAddress:: dw
 
-wUsedObjectPals:: db
-for n, 8
-wLoadedObjPal{d:n}:: db 
-endr
-
-wNeededPalIndex:: db
-	ds 14
+	ds 24
 
 
 wBerryPocketCursor::    db

@@ -958,12 +958,10 @@ Script_variablesprite:
 	call GetScriptByte
 	ld e, a
 	ld d, 0
-	ld [hUsedSpriteIndex], a
 	ld hl, wVariableSprites
 	add hl, de
 	call GetScriptByte
 	ld [hl], a
-	farcall ReloadSpriteIndex
 	ret
 
 Script_appear:

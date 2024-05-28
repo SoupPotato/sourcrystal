@@ -421,7 +421,7 @@ CopyTempObjectToObjectStruct:
 	call CopySpriteMovementData
 
 	ld a, [wTempObjectCopyPalette]
-	ld hl, OBJECT_PAL_INDEX
+	ld hl, OBJECT_PALETTE
 	add hl, de
 	or [hl]
 	ld [hl], a

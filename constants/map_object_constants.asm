@@ -33,11 +33,9 @@ DEF OBJECT_1D               rb ; 1d
 DEF OBJECT_1E               rb ; 1e
 DEF OBJECT_JUMP_HEIGHT      rb ; 1f
 DEF OBJECT_RANGE            rb ; 20
-DEF OBJECT_PAL_INDEX        rb ; 21
-                            rb_skip 6
+                            rb_skip 7
 DEF OBJECT_LENGTH EQU _RS
 DEF NUM_OBJECT_STRUCTS EQU 13 ; see wObjectStructs
-DEF FIRST_VRAM1_OBJECT_STRUCT EQU 10
 
 ; object_struct OBJECT_DIRECTION values
 DEF OW_DOWN  EQU DOWN  << 2

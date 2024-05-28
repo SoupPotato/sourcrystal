@@ -224,7 +224,7 @@
 	const EVENT_CINNABAR_ROCKS_CLEARED
 	const EVENT_CLEARED_NUGGET_BRIDGE
 	const EVENT_TALKED_TO_WARDENS_GRANDDAUGHTER
-	const EVENT_GOT_TM03_CURSE
+	const_skip ; unused in Sour Crystal. Caused issues, new method of checking is used.
 	const EVENT_GOT_CLEANSE_TAG
 	const EVENT_GOT_TM19_GIGA_DRAIN
 	const EVENT_GOT_TM06_TOXIC

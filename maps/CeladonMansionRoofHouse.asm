@@ -9,7 +9,7 @@ CeladonMansionRoofHouse_MapScripts:
 CeladonMansionRoofHousePharmacistScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TM03_CURSE
+	checkitem TM_CURSE
 	iftrue .GotCurse
 	writetext CeladonMansionRoofHousePharmacistIntroText
 	promptbutton
@@ -25,7 +25,6 @@ CeladonMansionRoofHousePharmacistScript:
 	promptbutton
 	verbosegiveitem TM_CURSE
 	iffalse .NoRoom
-	setevent EVENT_GOT_TM03_CURSE
 .GotCurse:
 	writetext CeladonMansionRoofHousePharmacistCurseText
 	waitbutton

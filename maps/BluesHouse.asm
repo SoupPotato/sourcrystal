@@ -32,9 +32,10 @@ DaisyScript:
 	waitbutton
 	closetext
 	special FadeOutPalettes
+	special LoadMapPalettes
 	playmusic MUSIC_HEAL
 	pause 60
-	special FadeInPalettes
+	special FadeInPalettes_EnableDynNoApply
 	special RestartMapMusic
 	opentext
 	writetext GroomedMonLooksContentText

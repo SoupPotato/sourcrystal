@@ -1901,6 +1901,8 @@ FadeToMenu::
 	ret
 
 CloseSubmenu::
+	farcall ClearSavedObjPals
+	farcall DisableDynPalUpdates
 	call ClearBGPalettes
 	call ReloadTilesetAndPalettes
 	call UpdateSprites
@@ -1909,6 +1911,8 @@ CloseSubmenu::
 	jr FinishExitMenu
 
 ExitAllMenus::
+	farcall ClearSavedObjPals
+	farcall DisableDynPalUpdates
 	call ClearBGPalettes
 	call Call_ExitMenu
 	call ReloadTilesetAndPalettes
@@ -1919,7 +1923,7 @@ FinishExitMenu::
 	call GetSGBLayout
 	farcall LoadOW_BGPal7
 	call WaitBGMap2
-	farcall FadeInPalettes
+	farcall FadeInPalettes_EnableDynNoApply
 	call EnableSpriteUpdates
 	ret
 
@@ -1929,6 +1933,8 @@ ReturnToMapWithSpeechTextbox::
 	ld [wSpriteUpdatesEnabled], a
 	call ClearBGPalettes
 	call ClearSprites
+	farcall ClearSavedObjPals
+	farcall DisableDynPalUpdates
 	call ReloadTilesetAndPalettes
 	hlcoord 0, 12
 	lb bc, 4, 18
@@ -1941,6 +1947,7 @@ ReturnToMapWithSpeechTextbox::
 	call GetSGBLayout
 	farcall LoadOW_BGPal7
 	call UpdateTimePals
+	farcall EnableDynPalUpdates
 	call DelayFrame
 	ld a, $1
 	ldh [hMapAnims], a

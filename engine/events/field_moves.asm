@@ -18,10 +18,11 @@ BlindingFlash:
 	ld b, SCGB_MAPPALS
 	call GetSGBLayout
 	farcall LoadOW_BGPal7
-	farcall FadeInPalettes
+	farcall FadeInPalettes_EnableDynNoApply
 	ret
 
 ShakeHeadbuttTree:
+	farcall CopyBGGreenToOBPal7
 	farcall ClearSpriteAnims
 	ld de, HeadbuttTreeKantoGFX ; tree frames
 
@@ -400,6 +401,7 @@ endr
 
 FlyFunction_InitGFX:
 	callfar ClearSpriteAnims
+	call SetOWFlyMonColor
 	ld de, CutGrassGFX
 	ld hl, vTiles0 tile FIELDMOVE_GRASS
 	lb bc, BANK(CutGrassGFX), 4

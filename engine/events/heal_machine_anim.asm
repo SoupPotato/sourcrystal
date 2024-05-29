@@ -134,25 +134,25 @@ ENDM
 	ret
 
 .PC_ElmsLab_OAM:
-	dbsprite   4,   4, 2, 0, $7c, PAL_OW_TREE | OBP_NUM
-	dbsprite   4,   4, 6, 0, $7c, PAL_OW_TREE | OBP_NUM
-	dbsprite   4,   4, 0, 6, $7d, PAL_OW_TREE | OBP_NUM
-	dbsprite   5,   4, 0, 6, $7d, PAL_OW_TREE | OBP_NUM | X_FLIP
-	dbsprite   4,   5, 0, 3, $7d, PAL_OW_TREE | OBP_NUM
-	dbsprite   5,   5, 0, 3, $7d, PAL_OW_TREE | OBP_NUM | X_FLIP
-	dbsprite   4,   6, 0, 0, $7d, PAL_OW_TREE | OBP_NUM
-	dbsprite   5,   6, 0, 0, $7d, PAL_OW_TREE | OBP_NUM | X_FLIP
+	dbsprite   4,   4, 2, 0, $7c, 7 | OBP_NUM
+	dbsprite   4,   4, 6, 0, $7c, 7 | OBP_NUM
+	dbsprite   4,   4, 0, 6, $7d, 7 | OBP_NUM
+	dbsprite   5,   4, 0, 6, $7d, 7 | OBP_NUM | X_FLIP
+	dbsprite   4,   5, 0, 3, $7d, 7 | OBP_NUM
+	dbsprite   5,   5, 0, 3, $7d, 7 | OBP_NUM | X_FLIP
+	dbsprite   4,   6, 0, 0, $7d, 7 | OBP_NUM
+	dbsprite   5,   6, 0, 0, $7d, 7 | OBP_NUM | X_FLIP
 
 .HealMachineGFX:
 INCBIN "gfx/overworld/heal_machine.2bpp"
 
 .HOF_OAM:
-	dbsprite  10,   7, 1, 4, $7d, PAL_OW_TREE | OBP_NUM
-	dbsprite  10,   7, 6, 4, $7d, PAL_OW_TREE | OBP_NUM
-	dbsprite   9,   7, 5, 3, $7d, PAL_OW_TREE | OBP_NUM
-	dbsprite  11,   7, 2, 3, $7d, PAL_OW_TREE | OBP_NUM
-	dbsprite   9,   7, 1, 1, $7d, PAL_OW_TREE | OBP_NUM
-	dbsprite  11,   7, 5, 1, $7d, PAL_OW_TREE | OBP_NUM
+	dbsprite  10,   7, 1, 4, $7d, 7 | OBP_NUM
+	dbsprite  10,   7, 6, 4, $7d, 7 | OBP_NUM
+	dbsprite   9,   7, 5, 3, $7d, 7 | OBP_NUM
+	dbsprite  11,   7, 2, 3, $7d, 7 | OBP_NUM
+	dbsprite   9,   7, 1, 1, $7d, 7 | OBP_NUM
+	dbsprite  11,   7, 5, 1, $7d, 7 | OBP_NUM
 
 .LoadPalettes:
 	call IsCGB
@@ -163,7 +163,7 @@ INCBIN "gfx/overworld/heal_machine.2bpp"
 
 .cgb
 	ld hl, .palettes
-	ld de, wOBPals2 palette PAL_OW_TREE
+	ld de, wOBPals2 palette 7
 	ld bc, 1 palettes
 	ld a, BANK(wOBPals2)
 	call FarCopyWRAM
@@ -200,7 +200,7 @@ INCLUDE "gfx/overworld/heal_machine.pal"
 	ld a, BANK(wOBPals2)
 	ldh [rSVBK], a
 
-	ld hl, wOBPals2 palette PAL_OW_TREE
+	ld hl, wOBPals2 palette 7
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]

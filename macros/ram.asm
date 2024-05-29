@@ -368,7 +368,8 @@ MACRO object_struct
 \1Field1e::        ds 1
 \1JumpHeight::     db
 \1Range::          db
-	ds 7
+\1PalIndex::       db
+	ds 6
 \1StructEnd::
 ENDM
 
@@ -379,10 +380,8 @@ MACRO map_object
 \1ObjectXCoord::     db
 \1ObjectMovement::   db
 \1ObjectRadius::     db
-\1ObjectHour1::      db
-\1ObjectHour2::
+\1ObjectPalette::    db
 \1ObjectTimeOfDay::  db
-\1ObjectPalette::
 \1ObjectType::       db
 \1ObjectSightRange:: db
 \1ObjectScript::     dw

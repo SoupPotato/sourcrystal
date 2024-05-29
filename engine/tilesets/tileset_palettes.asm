@@ -174,102 +174,6 @@ MapSpecificPalettes:
 	scf
 	ret
 
-LoadSpecialMapOBPalette:
-	ld hl, MapSpecificOBPalettes
-	jp SearchPaletteRoutine
-
-MapSpecificOBPalettes:
-	_use_palette_routine_for_map ROUTE_30, .PurpleOverRockOBPalette
-	_use_palette_routine_for_map VIOLET_CITY, .YellowOverRockOBPalette
-	_use_palette_routine_for_map AZALEA_TOWN, .WhiteOverRockOBPalette
-	_use_palette_routine_for_map ROUTE_38, .WhiteOverRockOBPalette
-	_use_palette_routine_for_map ROUTE_42, .YellowOverRockOBPalette
-	_use_palette_routine_for_map ROUTE_44, .YellowOverRockOBPalette
-	_use_palette_routine_for_map ROUTE_46, .YellowOverRockOBPalette
-	_use_palette_routine_for_map PEWTER_CITY, .WhiteOverRockOBPalette
-	_use_palette_routine_for_map PEWTER_NIDORAN_SPEECH_HOUSE, .PurpleOverRockOBPalette
-	_use_palette_routine_for_map ROUTE_8, .PurpleOverRockYellowOverPinkOBPalette
-	_use_palette_routine_for_map FUCHSIA_CITY, .YellowOverRockOBPalette
-	_use_palette_routine_for_map OLIVINE_LIGHTHOUSE_6F, .YellowOverRockOBPalette
-	_use_palette_routine_for_map VIRIDIAN_NICKNAME_SPEECH_HOUSE, .PurpleOverRockOBPalette
-	_use_palette_routine_for_map INDIGO_PLATEAU_POKECENTER_1F, .YellowOverRockOBPalette
-	_use_palette_routine_for_map VERMILION_CITY, .GrayOverRockOBPalette
-	_use_palette_routine_for_map GOLDENROD_DEPT_STORE_B1F, .GrayOverRockOBPalette
-	_use_palette_routine_for_map DANCE_THEATER, .GrayOverRockOBPalette
-	_use_palette_routine_for_map ROUTE_10_SOUTH, .YellowOverRockOBPalette
-	_use_palette_routine_for_map CERULEAN_CAVE_B1F, .PurpleOverPinkOBPalette
-	_use_palette_routine_for_map MR_FUJIS_HOUSE, .PurpleOverRockYellowOverPinkOBPalette
-	_use_palette_routine_for_map SAFARI_ZONE_AREA_2, .SandOverTreeOBPalette
-	_use_palette_routine_for_map SAFARI_ZONE_AREA_3, .SwampOverTreeOBPalette
-	_use_palette_routine_for_map PEWTER_MUSEUM_1F, .YellowOverRockOBPalette
-	_use_palette_routine_for_map PEWTER_MUSEUM_2F, .YellowOverRockOBPalette
-	db -1 ; terminator
-
-.PurpleOverRockOBPalette:
-	ld a, [wTimeOfDayPal]
-	maskbits NUM_DAYTIMES
-	ld bc, 8 palettes
-	ld hl, PurpleOverRock
-	jr .finish
-
-.YellowOverRockOBPalette:
-	ld a, [wTimeOfDayPal]
-	maskbits NUM_DAYTIMES
-	ld bc, 8 palettes
-	ld hl, YellowOverRock
-	jr .finish
-
-.WhiteOverRockOBPalette:
-	ld a, [wTimeOfDayPal]
-	maskbits NUM_DAYTIMES
-	ld bc, 8 palettes
-	ld hl, WhiteOverRock
-	jr .finish
-
-.PurpleOverRockYellowOverPinkOBPalette
-	ld a, [wTimeOfDayPal]
-	maskbits NUM_DAYTIMES
-	ld bc, 8 palettes
-	ld hl, PurpleOverRockYellowOverPink
-	jr .finish
-
-.GrayOverRockOBPalette
-	ld a, [wTimeOfDayPal]
-	maskbits NUM_DAYTIMES
-	ld bc, 8 palettes
-	ld hl, GrayOverRock
-	jr .finish
-
-.PurpleOverPinkOBPalette:
-	ld a, [wTimeOfDayPal]
-	maskbits NUM_DAYTIMES
-	ld bc, 8 palettes
-	ld hl, PurpleOverPink
-	jr .finish
-
-.SandOverTreeOBPalette:
-	ld a, [wTimeOfDayPal]
-	maskbits NUM_DAYTIMES
-	ld bc, 8 palettes
-	ld hl, SandOverTree
-	jr .finish
-
-.SwampOverTreeOBPalette
-	ld a, [wTimeOfDayPal]
-	maskbits NUM_DAYTIMES
-	ld bc, 8 palettes
-	ld hl, SwampOverTree
-	jr .finish
-	
-.finish
-	call AddNTimes
-	ld de, wOBPals1
-	ld bc, 8 palettes
-	ld a, BANK(wOBPals1)
-	call FarCopyWRAM
-	scf
-	ret
-
 LoadMuseumPalette:
 	ld a, BANK(wBGPals1)
 	ld de, wBGPals1
@@ -374,33 +278,6 @@ LoadMansionPalette:
 
 MansionPalette2:
 INCLUDE "gfx/tilesets/mansion_2.pal"
-
-LoadSpecialNPCPalette:
-	call GetMapTimeOfDay
-	bit IN_DARKNESS_F, a
-	jr z, .do_nothing
-	ld a, [wStatusFlags]
-	bit STATUSFLAGS_FLASH_F, a
-	jr nz, .do_nothing
-
-;darkness
-	call LoadNPCDarknessPalette
-	scf
-	ret
-
-.do_nothing
-	and a
-	ret
-
-LoadNPCDarknessPalette:
-	ld a, BANK(wOBPals1)
-	ld de, wOBPals1
-	ld hl, NPCDarknessPalette
-	ld bc, 8 palettes
-	jp FarCopyWRAM
-
-NPCDarknessPalette:
-INCLUDE "gfx/overworld/npc_sprites_darkness.pal"
 
 INCLUDE "gfx/overworld/npc_sprites_special.pal"
 

@@ -131,7 +131,9 @@ wUnusedScriptByte:: db
 
 wMapTimeOfDay:: db
 
-	ds 3
+wPalFlags:: db
+
+	ds 2
 
 wPrinterConnectionOpen:: db
 wPrinterOpcode:: db
@@ -3004,8 +3006,13 @@ endr
 
 wStoneTableAddress:: dw
 
-	ds 24
-
+	ds 14
+	
+wUsedObjectPals:: db
+for n, 8
+wLoadedObjPal{d:n}:: db 
+endr
+wNeededPalIndex:: db
 
 wBerryPocketCursor::    db
 wBerryPocketScrollPosition::    db
@@ -3104,7 +3111,7 @@ wPlayerState:: db
 wHallOfFameCount:: db
 	ds 1
 wTradeFlags:: flag_array NUM_NPC_TRADES
-	ds 1
+wEmotePal:: db
 wMooMooBerries:: db
 wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db

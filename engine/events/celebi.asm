@@ -12,6 +12,10 @@ CelebiShrineEvent:
 	push af
 	xor a
 	ld [wVramState], a
+
+	ld a, PAL_OW_GREEN
+	farcall CopySpritePalToOBPal7
+
 	call LoadCelebiGFX
 	depixel 0, 10, 7, 0
 	ld a, SPRITE_ANIM_OBJ_CELEBI

@@ -487,6 +487,17 @@ FlyFunction_GetMonIcon: ; hardcoded to pidgeot
 	call GetIcon_a
 	ret
 
+SetOWFlyMonColor:
+	ld a, PIDGEOT
+	ld [wCurPartySpecies], a
+	call GetMenuMonIconPalette_PredeterminedShininess
+	add a
+	add a
+	add a
+	ld e, a
+	farcall SetFirstOBJPalette
+	ret
+
 GetMemIconGFX:
 	ld a, [wCurIconTile]
 GetIconGFX:

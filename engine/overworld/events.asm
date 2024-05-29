@@ -547,7 +547,6 @@ TryObjectEvent:
 	ld hl, MAPOBJECT_TYPE
 	add hl, bc
 	ld a, [hl]
-	and MAPOBJECT_TYPE_MASK
 
 	push bc
 	ld de, 3

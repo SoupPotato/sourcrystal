@@ -36,12 +36,14 @@ Copycat:
 	iftrue .Default_Female_1
 	applymovement COPYCATSHOUSE2F_COPYCAT1, CopycatSpinAroundMovementData
 	faceplayer
+	loadmem wObject1Palette, 0
 	variablesprite SPRITE_COPYCAT, SPRITE_CHRIS
 	sjump .Default_Merge_1
 
 .Default_Female_1:
 	applymovement COPYCATSHOUSE2F_COPYCAT2, CopycatSpinAroundMovementData
 	faceplayer
+	loadmem wObject1Palette, 0
 	variablesprite SPRITE_COPYCAT, SPRITE_KRIS
 .Default_Merge_1:
 	special LoadUsedSpritesGFX
@@ -67,6 +69,7 @@ Copycat:
 	applymovement COPYCATSHOUSE2F_COPYCAT2, CopycatSpinAroundMovementData
 .Default_Merge_3a:
 	faceplayer
+	loadmem wObject1Palette, 1
 	variablesprite SPRITE_COPYCAT, SPRITE_LASS
 	special LoadUsedSpritesGFX
 	opentext
@@ -96,6 +99,7 @@ Copycat:
 	applymovement COPYCATSHOUSE2F_COPYCAT2, CopycatSpinAroundMovementData
 .Default_Merge_3b:
 	faceplayer
+	loadmem wObject1Palette, 1
 	variablesprite SPRITE_COPYCAT, SPRITE_LASS
 	special LoadUsedSpritesGFX
 	opentext
@@ -132,12 +136,14 @@ Copycat:
 	iftrue .GotPass_Female_1
 	applymovement COPYCATSHOUSE2F_COPYCAT1, CopycatSpinAroundMovementData
 	faceplayer
+	loadmem wObject1Palette, 0
 	variablesprite SPRITE_COPYCAT, SPRITE_CHRIS
 	sjump .GotPass_Merge_1
 
 .GotPass_Female_1:
 	applymovement COPYCATSHOUSE2F_COPYCAT2, CopycatSpinAroundMovementData
 	faceplayer
+	loadmem wObject1Palette, 0
 	variablesprite SPRITE_COPYCAT, SPRITE_KRIS
 .GotPass_Merge_1:
 	special LoadUsedSpritesGFX

@@ -103,6 +103,7 @@ MACRO def_object_events
 ENDM
 
 MACRO object_event
+; TODO: Remove unused argument \7 (Old HOUR_1)
 ;\1: x: left to right, starts at 0
 ;\2: y: top to bottom, starts at 0
 ;\3: sprite: a SPRITE_* constant
@@ -121,8 +122,8 @@ MACRO object_event
 ;\<13>: event flag: an EVENT_* constant, or -1 to always appear
 	db \3, \2 + 4, \1 + 4, \4
 	dn \6, \5
-	db \7, \8
-	dn \9, \<10>
+	db \9, \8
+	db \<10>
 	db \<11>
 	dw \<12>, \<13>
 	; the dummy PlayerObjectTemplate object_event has no def_object_events

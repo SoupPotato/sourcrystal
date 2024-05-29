@@ -391,3 +391,10 @@ DEF DAYCARELADY_ACTIVE_F         EQU 7
 	const UNLOCKED_UNOWNS_S_TO_W_F
 	const UNLOCKED_UNOWNS_X_TO_Z_F
 DEF NUM_UNLOCKED_UNOWN_SETS EQU const_value
+
+; wPalFlags
+	const_def
+	const NO_DYN_PAL_APPLY_F   ; 0
+	const SCAN_OBJECTS_FIRST_F ; 1
+	const USE_DAYTIME_PAL_F    ; 2
+	const DISABLE_DYN_PAL_F    ; 3

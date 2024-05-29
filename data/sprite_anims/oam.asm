@@ -157,6 +157,8 @@ SpriteAnimOAMData:
 	spriteanimoam $04, .OAMData_BrownWalk                ; SPRITE_ANIM_OAMSET_BROWN_WALK_2
 	spriteanimoam $00, .OAMData_GreyWalk                 ; SPRITE_ANIM_OAMSET_GREY_WALK_1
 	spriteanimoam $04, .OAMData_GreyWalk                 ; SPRITE_ANIM_OAMSET_GREY_WALK_2
+	spriteanimoam $00, .OAMData_GreenWalk                ; SPRITE_ANIM_OAMSET_GREEN_WALK_1
+	spriteanimoam $04, .OAMData_GreenWalk                ; SPRITE_ANIM_OAMSET_GREEN_WALK_2
 	assert_table_length NUM_SPRITE_ANIM_OAMSETS
 
 .OAMData_1x1_Palette0:
@@ -1213,3 +1215,10 @@ SpriteAnimOAMData:
 	dsprite -1,  0,  0,  0, $01, PAL_OW_SILVER
 	dsprite  0,  0, -1,  0, $02, PAL_OW_SILVER
 	dsprite  0,  0,  0,  0, $03, PAL_OW_SILVER
+
+.OAMData_GreenWalk:
+	db 4
+	dsprite -1,  0, -1,  0, $00, PAL_OW_GREEN
+	dsprite -1,  0,  0,  0, $01, PAL_OW_GREEN
+	dsprite  0,  0, -1,  0, $02, PAL_OW_GREEN
+	dsprite  0,  0,  0,  0, $03, PAL_OW_GREEN

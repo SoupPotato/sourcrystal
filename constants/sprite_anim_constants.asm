@@ -367,6 +367,8 @@ DEF NUM_SPRITE_ANIM_FRAMESETS EQU const_value
 	const SPRITE_ANIM_OAMSET_BROWN_WALK_2                ; 93
 	const SPRITE_ANIM_OAMSET_GREY_WALK_1                 ; 94
 	const SPRITE_ANIM_OAMSET_GREY_WALK_2                 ; 95
+	const SPRITE_ANIM_OAMSET_GREEN_WALK_1                 ; 96
+	const SPRITE_ANIM_OAMSET_GREEN_WALK_2                 ; 97
 DEF NUM_SPRITE_ANIM_OAMSETS EQU const_value
 
 assert NUM_SPRITE_ANIM_OAMSETS <= FIRST_OAM_CMD, \

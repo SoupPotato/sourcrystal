@@ -533,8 +533,8 @@ SpriteAnimFrameData:
 	dorestart
 
 .Frameset_PagerMonGreen:
-	frame SPRITE_ANIM_OAMSET_CELEBI_1,  8
-	frame SPRITE_ANIM_OAMSET_CELEBI_2,  8
+	frame SPRITE_ANIM_OAMSET_GREEN_WALK_1,  8
+	frame SPRITE_ANIM_OAMSET_GREEN_WALK_2,  8
 	dorestart
 
 .Frameset_PagerMonBrown:

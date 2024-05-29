@@ -81,6 +81,17 @@ CopySpritePal::
 	pop hl
 	ret
 
+CopyGenericPals::
+	ld hl, MapObjectPals
+	ld a, 1
+	ld bc, NUM_OW_TIME_OF_DAY_PALS palettes
+	call AddNTimes
+	ld de, wOBPals1
+	ld bc, 8 palettes
+	ld a, BANK(wOBPals2)
+	call FarCopyWRAM
+	ret
+
 ApplyOBPals:
 	ld hl, wOBPals1
 	ld de, wOBPals2

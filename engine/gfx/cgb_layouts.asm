@@ -244,6 +244,9 @@ _CGB_PokegearPals:
 	ld bc, 7 palettes
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
+
+	farcall CopyGenericPals
+
 	call ApplyPals
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a

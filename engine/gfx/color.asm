@@ -1321,9 +1321,6 @@ LoadMapPals:
 	ldh [rSVBK], a
 	farcall ClearSavedObjPals
 
-	farcall LoadSpecialMapOBPalette
-	farcall LoadSpecialNPCPalette
-
 	ld a, [wEnvironment]
 	cp TOWN
 	jr z, .outside

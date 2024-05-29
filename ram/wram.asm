@@ -2971,6 +2971,8 @@ wStartSecond:: db
 
 wRTC:: ds 4
 
+	ds 4
+
 wDST::
 ; bit 7: dst
 	db

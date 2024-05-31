@@ -3320,7 +3320,7 @@ wdc41:: ds 1
 wdc42:: ds 8
 wBuenasPassword:: db
 wBlueCardBalance:: db
-wDailyRematchFlags:: ds 4
+wDailyRematchFlags:: ds 6
 wDailyPhoneItemFlags:: ds 4
 wDailyPhoneTimeOfDayFlags:: ds 4
 wKenjiBreakTimer:: ds 2 ; Kenji
@@ -3333,7 +3333,7 @@ wdc60:: db
 wSwarmSpecies:: db
 wSwarmLandmark:: db
 
-	ds 15
+	ds 13
 
 wFossilStepCount:: ds 1
 

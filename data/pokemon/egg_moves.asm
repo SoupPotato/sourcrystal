@@ -307,6 +307,7 @@ KrabbyEggMoves:
 ExeggcuteEggMoves:
 	db ANCIENTPOWER
 	db MOONLIGHT
+	db SYNTHESIS
 	db -1 ; end
 
 CuboneEggMoves:

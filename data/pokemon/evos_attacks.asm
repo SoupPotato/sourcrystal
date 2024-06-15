@@ -1521,17 +1521,16 @@ ExeggcuteEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BARRAGE
 	db 1, HYPNOSIS
-	db 4, ABSORB
-	db 9, REFLECT
-	db 13, LEECH_SEED
-	db 18, MEGA_DRAIN
-	db 22, CONFUSION
-	db 24, STUN_SPORE
-	db 26, POISONPOWDER
-	db 28, SLEEP_POWDER
-	db 33, SYNTHESIS
+	db 6, ABSORB
+	db 10, REFLECT
+	db 15, LEECH_SEED
+	db 19, CONFUSION
+	db 24, MEGA_DRAIN
+	db 28, STUN_SPORE
+	db 30, POISONPOWDER
+	db 32, SLEEP_POWDER
 	db 37, GIGA_DRAIN
-	db 42, PSYCHIC_M
+	db 41, PSYCHIC_M
 	db 46, SOLARBEAM
 	db 0 ; no more level-up moves
 
@@ -1541,9 +1540,8 @@ ExeggutorEvosAttacks:
 	db 1, HYPNOSIS
 	db 1, ABSORB
 	db 1, CONFUSION
-	db 22, STOMP
+	db 19, STOMP
 	db 28, EGG_BOMB
-	db 37, GIGA_DRAIN
 	db 0 ; no more level-up moves
 
 CuboneEvosAttacks:

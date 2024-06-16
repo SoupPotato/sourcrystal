@@ -391,6 +391,17 @@ BillsPC_PreviewTheme:
 	push hl
 	call LoadHLPaletteIntoDE
 	pop hl
+	push hl
+	call LoadHLPaletteIntoDE
+	pop hl
+	ld de, wOBPals1 palette 5
+	push hl
+	call LoadHLPaletteIntoDE
+	pop hl
+	ld de, wOBPals1 palette 3
+	call LoadHLPaletteIntoDE
+	ld hl, BillsPC_ItemPalette
+	ld de, wOBPals1 palette 0
 	call LoadHLPaletteIntoDE
 	ld hl, BillsPC_PackPalette
 	ld de, wOBPals1 palette 4

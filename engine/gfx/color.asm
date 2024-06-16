@@ -1439,6 +1439,8 @@ BillsPC_PackPalette:
 	RGB 31,31,31, 31,31,31, 07,19,07, 00,00,00
 BillsPC_WhitePalette:
 	RGB 31,31,31, 31,31,31, 31,31,31, 31,31,31
+BillsPC_ItemPalette:
+	RGB 31,31,31, 31,19,10, 31,07,01, 00,00,00
 
 TilesetBGPalette:
 INCLUDE "gfx/tilesets/bg_tiles.pal"

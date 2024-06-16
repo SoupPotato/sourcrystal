@@ -274,6 +274,10 @@ _DoesSpriteHaveFacings::
 
 _GetSpritePalette::
 	ld a, c
+	cp SPRITE_DAY_CARE_MON_1
+	jr z, .is_breedmon
+	cp SPRITE_DAY_CARE_MON_2
+	jr z, .is_breedmon
 	call GetMonSprite
 	jr c, .is_pokemon
 
@@ -288,6 +292,45 @@ _GetSpritePalette::
 
 .is_pokemon
 	xor a
+	ld c, a
+	ret
+
+.is_breedmon
+	push de
+	cp SPRITE_DAY_CARE_MON_1
+	ld a, [wBreedMon1Species]
+	jr z, .got_species
+	ld a, [wBreedMon2Species]
+.got_species
+	dec a
+	ld h, 0
+	ld l, a
+	ld de, MonMenuIconPals
+	add hl, de
+	ld a, BANK(MonMenuIconPals)
+	call GetFarByte
+	ld d, a
+	ld a, c
+	cp SPRITE_DAY_CARE_MON_1
+	ld bc, wBreedMon1DVs
+	jr z, .check_shiny
+	ld bc, wBreedMon2DVs
+.check_shiny
+	farcall CheckShininess
+	ld a, d
+	pop de
+	jr c, .shiny
+	swap a
+.shiny
+	and $f
+	push de
+	ld de, MonMenuIconPalToNPCPalTable
+	ld h, 0
+	ld l, a
+	add hl, de
+	ld a, BANK(MonMenuIconPalToNPCPalTable)
+	call GetFarByte
+	pop de
 	ld c, a
 	ret
 

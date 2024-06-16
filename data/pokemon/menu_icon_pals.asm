@@ -248,7 +248,7 @@ MonMenuIconPals:
 	icon_pals RED,    YELLOW   ; MAGBY
 	icon_pals PINK,   BLUE     ; MILTANK
 	icon_pals PINK,   PURPLE   ; BLISSEY
-	icon_pals BROWN,  RED      ; RAIKOU
+	icon_pals YELLOW, RED      ; RAIKOU
 	icon_pals RED,    BLUE     ; ENTEI
 	icon_pals BLUE,   GRAY     ; SUICUNE
 	icon_pals GREEN,  YELLOW   ; LARVITAR

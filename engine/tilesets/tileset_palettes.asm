@@ -279,6 +279,4 @@ LoadMansionPalette:
 MansionPalette2:
 INCLUDE "gfx/tilesets/mansion_2.pal"
 
-INCLUDE "gfx/overworld/npc_sprites_special.pal"
-
 INCLUDE "gfx/tilesets/bg_tiles_special_pals.pal"

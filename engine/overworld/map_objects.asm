@@ -2062,15 +2062,27 @@ SpawnEmote:
 
 ShakeGrass:
 	push bc
+	ld a, [wMapNumber]
+	cp MAP_SAFARI_ZONE_AREA_2
+	jr z, .sandgrass
 	ld de, .GrassObject
+.done
 	call CopyTempObjectData
 	call InitTempObject
 	pop bc
 	ret
 
+.sandgrass
+	ld de, .SandGrassObject
+	jr .done
+
 .GrassObject:
 	; vtile, palette, movement
 	db $00, PAL_OW_COPY_BG_GREEN, SPRITEMOVEDATA_GRASS
+
+.SandGrassObject:
+	; vtile, palette, movement
+	db $01, PAL_OW_COPY_BG_BROWN, SPRITEMOVEDATA_GRASS
 
 ShakeScreen:
 	push bc

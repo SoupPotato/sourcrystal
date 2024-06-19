@@ -2227,7 +2227,7 @@ Script_pause:
 	jr z, .loop
 	ld [wScriptDelay], a
 .loop
-	ld c, 4
+	ld c, 2
 	call DelayFrames
 	ld hl, wScriptDelay
 	dec [hl]

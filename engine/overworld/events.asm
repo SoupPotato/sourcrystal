@@ -1194,6 +1194,10 @@ RandomEncounter::
 	ret
 
 .ok
+	push bc
+	ld bc, wPlayerStruct
+	farcall ResetObject
+	pop bc
 	ld a, [wTempWildMonSpecies]
 	cp SUICUNE
 	jr nz, .notroamingsuicune

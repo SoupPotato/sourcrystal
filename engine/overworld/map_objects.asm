@@ -2694,7 +2694,7 @@ UnfreezeObject: ; unreferenced
 	res FROZEN_F, [hl]
 	ret
 
-ResetObject:
+ResetObject::
 	ld hl, OBJECT_MAP_OBJECT_INDEX
 	add hl, bc
 	ld a, [hl]

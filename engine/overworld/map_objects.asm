@@ -402,20 +402,20 @@ StepVectors:
 	db -1,  0, 32, 1
 	db  1,  0, 32, 1
 	; normal
-	db  0,  1, 16, 1
-	db  0, -1, 16, 1
-	db -1,  0, 16, 1
-	db  1,  0, 16, 1
+	db  0,  1, 16, 2
+	db  0, -1, 16, 2
+	db -1,  0, 16, 2
+	db  1,  0, 16, 2
 	; running shoes
-	db  0,  2,  8, 2
-	db  0, -2,  8, 2
-	db -2,  0,  8, 2
-	db  2,  0,  8, 2
+	db  0,  2,  8, 4
+	db  0, -2,  8, 4
+	db -2,  0,  8, 4
+	db  2,  0,  8, 4
 	; bike
-	db  0,  4,  4, 4
-	db  0, -4,  4, 4
-	db -4,  0,  4, 4
-	db  4,  0,  4, 4
+	db  0,  4,  4, 8
+	db  0, -4,  4, 8
+	db -4,  0,  4, 8
+	db  4,  0,  4, 8
 
 GetStepVectorSign:
 	add a
@@ -1883,8 +1883,8 @@ UpdateJumpPosition:
 	ret
 
 .y_offsets:
-	db  -4,  -6,  -8, -10, -11, -12, -12, -12
-	db -11, -10,  -9,  -8,  -6,  -4,   0,   0
+	db -4, -5, -6, -7, -8, -9, -10, -11, -11, -12, -12, -12, -12, -12, -12, -12
+	db -11, -11, -10, -10, -9, -9, -8, -7, -7, -6, -5, -5, -4, -2, -1, 0
 
 GetPlayerNextMovementIndex:
 ; copy [wPlayerNextMovement] to [wPlayerMovement]

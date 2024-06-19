@@ -8350,7 +8350,7 @@ StartBattle:
 ; Those using walk-through-walls to bypass getting a Pokemon experience
 ; the effects of this check.
 	; exit out of doublespeed during battles
-	; the UI needs CGB Doublespeed to work as it should.
+	; the UI needs CGB DoubleSpeed to work as it should.
 	ldh a, [rIE]
 	push af
 	call NormalSpeed

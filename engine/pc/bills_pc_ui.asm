@@ -66,7 +66,7 @@ _BillsPC:
 	; Restore regular speed.
 	ldh a, [rIE]
 	push af
-	call Doublespeed
+	call DoubleSpeed
 	pop af
 	ldh [rIE], a
 
@@ -200,7 +200,7 @@ UseBillsPC:
 	res 0, a
 	ld [wVramState], a
 
-	; the UI needs CGB Doublespeed to work as it should.
+	; the UI needs CGB DoubleSpeed to work as it should.
 	ldh a, [rIE]
 	push af
 	call DoubleSpeed

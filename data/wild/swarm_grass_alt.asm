@@ -30,6 +30,33 @@ SwarmGrassWildMonsAlt:
 	db 8, SLOWPOKE
 	db 8, ZUBAT
 
+	map_id SLOWPOKE_WELL_B2F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	db 21, SLOWPOKE
+	db 23, SLOWPOKE
+	db 19, ZUBAT
+	db 21, SLOWPOKE
+	db 23, GOLBAT
+	db 23, SLOWPOKE
+	db 23, GOLBAT
+	; day
+	db 21, SLOWPOKE
+	db 23, SLOWPOKE
+	db 19, ZUBAT
+	db 21, SLOWPOKE
+	db 23, GOLBAT
+	db 23, SLOWPOKE
+	db 23, GOLBAT
+	; nite
+	db 21, SLOWPOKE
+	db 23, SLOWPOKE
+	db 19, ZUBAT
+	db 21, SLOWPOKE
+	db 23, GOLBAT
+	db 23, SLOWPOKE
+	db 23, GOLBAT
+
 ; Teddiursa swarm
 	map_id DARK_CAVE_VIOLET_ENTRANCE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
@@ -141,6 +168,87 @@ SwarmGrassWildMonsAlt:
 	db 14, GOLBAT
 	db 16, RATTATA
 	db 16, RATICATE
+
+	map_id MOUNT_MORTAR_1F_INSIDE
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 13, MACHOP
+	db 15, MACHOP
+	db 15, MARILL
+	db 14, RATICATE
+	db 15, ZUBAT
+	db 15, GOLBAT
+	db 15, GOLBAT
+	; day
+	db 13, MACHOP
+	db 15, MACHOP
+	db 15, MARILL
+	db 14, RATICATE
+	db 15, ZUBAT
+	db 15, GOLBAT
+	db 15, GOLBAT
+	; nite
+	db 13, MACHOP
+	db 15, MACHOP
+	db 15, RATICATE
+	db 14, ZUBAT
+	db 15, MARILL
+	db 15, GOLBAT
+	db 15, GOLBAT
+
+	map_id MOUNT_MORTAR_2F_INSIDE
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 31, MACHOP
+	db 32, MACHOP
+	db 31, GRAVELER
+	db 30, RATICATE
+	db 32, MACHOKE
+	db 30, GOLBAT
+	db 30, GOLBAT
+	; day
+	db 31, MACHOP
+	db 32, MACHOP
+	db 31, GRAVELER
+	db 30, RATICATE
+	db 32, MACHOKE
+	db 30, GOLBAT
+	db 30, GOLBAT
+	; nite
+	db 31, MACHOP
+	db 32, MACHOP
+	db 31, GRAVELER
+	db 30, RATICATE
+	db 32, MARILL
+	db 30, GOLBAT
+	db 30, GOLBAT
+
+	map_id MOUNT_MORTAR_B1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 15, MACHOP
+	db 17, MACHOP
+	db 17, GOLBAT
+	db 16, MACHOP
+	db 16, GEODUDE
+	db 18, RATICATE
+	db 18, RATICATE
+	; day
+	db 15, MACHOP
+	db 17, MACHOP
+	db 17, GOLBAT
+	db 16, MACHOP
+	db 16, GEODUDE
+	db 18, RATICATE
+	db 18, RATICATE
+	; nite
+	db 15, MACHOP
+	db 17, MACHOP
+	db 17, GOLBAT
+	db 16, MARILL
+	db 16, GEODUDE
+	db 18, RATICATE
+	db 18, RATICATE
 
 ; Tauros swarm
 	map_id ROUTE_38
@@ -478,6 +586,33 @@ SwarmGrassWildMonsAlt:
 	db 6, ONIX
 	db 6, ONIX
 
+	map_id UNION_CAVE_B1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 6, WOOPER
+	db 7, WOOPER
+	db 8, ZUBAT
+	db 8, ONIX
+	db 6, GEODUDE
+	db 8, RATTATA
+	db 8, RATTATA
+	; day
+	db 6, WOOPER
+	db 7, WOOPER
+	db 8, ZUBAT
+	db 8, ONIX
+	db 6, GEODUDE
+	db 8, RATTATA
+	db 8, RATTATA
+	; nite
+	db 6, WOOPER
+	db 7, WOOPER
+	db 8, WOOPER
+	db 8, ONIX
+	db 6, GEODUDE
+	db 8, RATTATA
+	db 8, RATTATA
+
 ; Koffing swarm
 	map_id BURNED_TOWER_1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
@@ -505,6 +640,33 @@ SwarmGrassWildMonsAlt:
 	db 15, KOFFING
 	db 15, RATICATE
 	db 15, RATICATE
+
+	map_id BURNED_TOWER_B1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 14, KOFFING
+	db 16, KOFFING
+	db 14, RATTATA
+	db 16, RATTATA
+	db 15, ZUBAT
+	db 14, MAGMAR
+	db 14, MAGMAR
+	; day  
+	db 14, KOFFING
+	db 16, KOFFING
+	db 14, RATTATA
+	db 16, MAGMAR
+	db 15, ZUBAT
+	db 14, RATTATA
+	db 14, RATTATA
+	; nite 
+	db 14, KOFFING
+	db 16, KOFFING
+	db 14, RATTATA
+	db 16, RATTATA
+	db 15, ZUBAT
+	db 14, MAGMAR
+	db 14, MAGMAR
 
 ; Mareep swarm
 	map_id ROUTE_42
@@ -619,6 +781,114 @@ SwarmGrassWildMonsAlt:
 	db 23, STEELIX
 
 ; Sneasel swarm
+	map_id ICE_PATH_1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 21, SNEASEL
+	db 22, SNEASEL
+	db 22, ZUBAT
+	db 23, SWINUB
+	db 24, GOLBAT
+	db 22, GOLBAT
+	db 22, GOLBAT
+	; day
+	db 21, SNEASEL
+	db 22, SNEASEL
+	db 22, ZUBAT
+	db 23, SWINUB
+	db 24, GOLBAT
+	db 22, GOLBAT
+	db 22, GOLBAT
+	; nite
+	db 21, SNEASEL
+	db 22, SNEASEL
+	db 22, ZUBAT
+	db 23, DELIBIRD
+	db 24, GOLBAT
+	db 22, DELIBIRD
+	db 22, DELIBIRD
+
+	map_id ICE_PATH_B1F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	db 22, SNEASEL
+	db 23, SNEASEL
+	db 23, ZUBAT
+	db 24, SWINUB
+	db 25, GOLBAT
+	db 23, GOLBAT
+	db 22, JYNX
+	; day
+	db 22, SNEASEL
+	db 23, SNEASEL
+	db 23, ZUBAT
+	db 24, SWINUB
+	db 25, GOLBAT
+	db 23, GOLBAT
+	db 22, JYNX
+	; nite
+	db 22, SNEASEL
+	db 23, SNEASEL
+	db 23, ZUBAT
+	db 24, DELIBIRD
+	db 25, GOLBAT
+	db 23, DELIBIRD
+	db 22, DELIBIRD
+
+	map_id ICE_PATH_B2F_MAHOGANY_SIDE
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	db 23, SNEASEL
+	db 24, SNEASEL
+	db 24, GOLBAT
+	db 25, SWINUB
+	db 26, GOLBAT
+	db 22, JYNX
+	db 24, JYNX
+	; day
+	db 23, SNEASEL
+	db 24, SNEASEL
+	db 24, GOLBAT
+	db 25, SWINUB
+	db 26, GOLBAT
+	db 22, JYNX
+	db 24, JYNX
+	; nite
+	db 23, SNEASEL
+	db 24, SNEASEL
+	db 24, GOLBAT
+	db 25, DELIBIRD
+	db 26, GOLBAT
+	db 22, DELIBIRD
+	db 24, DELIBIRD
+
+	map_id ICE_PATH_B2F_BLACKTHORN_SIDE
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	db 23, SNEASEL
+	db 24, SNEASEL
+	db 24, GOLBAT
+	db 25, SWINUB
+	db 26, GOLBAT
+	db 22, JYNX
+	db 24, JYNX
+	; day
+	db 23, SNEASEL
+	db 24, SNEASEL
+	db 24, GOLBAT
+	db 25, SWINUB
+	db 26, GOLBAT
+	db 22, JYNX
+	db 24, JYNX
+	; nite
+	db 23, SNEASEL
+	db 24, SNEASEL
+	db 24, GOLBAT
+	db 25, DELIBIRD
+	db 26, GOLBAT
+	db 22, DELIBIRD
+	db 24, DELIBIRD
+
 	map_id ICE_PATH_B3F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
@@ -955,6 +1225,33 @@ SwarmGrassWildMonsAlt:
 	db 16, BELLSPROUT
 
 ; Kangaskhan swarm
+	map_id ROCK_TUNNEL_1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 15, KANGASKHAN
+	db 16, KANGASKHAN
+	db 17, MACHOP
+	db 17, ZUBAT
+	db 21, MACHOKE
+	db 17, CUBONE
+	db 19, CUBONE
+	; day
+	db 15, KANGASKHAN
+	db 16, KANGASKHAN
+	db 17, MACHOP
+	db 17, ZUBAT
+	db 21, MACHOKE
+	db 17, CUBONE
+	db 19, CUBONE
+	; nite
+	db 15, KANGASKHAN
+	db 16, KANGASKHAN
+	db 17, MACHOP
+	db 17, ZUBAT
+	db 21, MACHOKE
+	db 17, CUBONE
+	db 19, CUBONE
+
 	map_id ROCK_TUNNEL_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
@@ -1151,6 +1448,87 @@ SwarmGrassWildMonsAlt:
 	db 31, CHANSEY
 
 ; Jynx swarm
+	map_id SEAFOAM_ISLANDS_B1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 32, JYNX
+	db 34, JYNX
+	db 34, SEEL
+	db 28, PSYDUCK
+	db 34, GOLDUCK
+	db 28, GOLBAT
+	db 29, ZUBAT
+	; day
+	db 32, JYNX
+	db 34, JYNX
+	db 34, SEEL
+	db 28, PSYDUCK
+	db 34, GOLDUCK
+	db 28, GOLBAT
+	db 29, ZUBAT
+	; nite
+	db 32, JYNX
+	db 34, JYNX
+	db 34, SEEL
+	db 28, PSYDUCK
+	db 34, GOLDUCK
+	db 28, GOLBAT
+	db 29, ZUBAT
+
+	map_id SEAFOAM_ISLANDS_B2F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 33, JYNX
+	db 35, JYNX
+	db 35, SEEL
+	db 30, PSYDUCK
+	db 35, GOLDUCK
+	db 29, GOLBAT
+	db 30, ZUBAT
+	; day
+	db 33, JYNX
+	db 35, JYNX
+	db 35, SEEL
+	db 30, PSYDUCK
+	db 35, GOLDUCK
+	db 29, GOLBAT
+	db 30, ZUBAT
+	; nite
+	db 33, JYNX
+	db 35, JYNX
+	db 35, SEEL
+	db 30, PSYDUCK
+	db 35, GOLDUCK
+	db 29, GOLBAT
+	db 30, ZUBAT
+
+	map_id SEAFOAM_ISLANDS_B3F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 36, JYNX
+	db 36, JYNX
+	db 36, DEWGONG
+	db 36, GOLDUCK
+	db 32, PSYDUCK
+	db 34, SEEL
+	db 32, ZUBAT
+	; day
+	db 36, JYNX
+	db 36, JYNX
+	db 36, DEWGONG
+	db 36, GOLDUCK
+	db 32, PSYDUCK
+	db 34, SEEL
+	db 32, ZUBAT
+	; nite
+	db 36, JYNX
+	db 36, JYNX
+	db 36, DEWGONG
+	db 36, GOLDUCK
+	db 32, PSYDUCK
+	db 34, SEEL
+	db 32, ZUBAT
+
 	map_id SEAFOAM_ISLANDS_B4F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn

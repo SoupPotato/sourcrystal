@@ -519,13 +519,14 @@ _JohtoWildmonCheck:
 	ret
 
 _SwarmWildmonCheck:
-	call CopyCurrMapDE
+	call CopyCurrLandmarkDE
 	ld a, [wSwarmMapGroup]
 	cp d
 	jr nz, _NoSwarmWildmon
-	ld a, [wSwarmMapNumber]
+	ld a, [wSwarmLandmark]
 	cp e
 	jr nz, _NoSwarmWildmon
+	call CopyCurrMapDE
 	call LookUpWildmonsForMapDE
 	jr nc, _NoSwarmWildmon
 	scf
@@ -538,6 +539,13 @@ _NoSwarmWildmon:
 _NormalWildmonOK:
 	call CopyCurrMapDE
 	jr LookUpWildmonsForMapDE
+
+CopyCurrLandmarkDE:
+	ld a, [wMapGroup]
+	ld d, a
+	ld a, [wCurLandmark]
+	ld e, a
+	ret
 
 CopyCurrMapDE:
 	ld a, [wMapGroup]

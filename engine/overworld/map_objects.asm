@@ -2062,9 +2062,13 @@ SpawnEmote:
 
 ShakeGrass:
 	push bc
+	ld a, [wMapGroup]
+	cp GROUP_SAFARI_ZONE_AREA_2
+	jr nz, .not_safari
 	ld a, [wMapNumber]
 	cp MAP_SAFARI_ZONE_AREA_2
 	jr z, .sandgrass
+.not_safari
 	ld de, .GrassObject
 .done
 	call CopyTempObjectData

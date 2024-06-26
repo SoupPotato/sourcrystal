@@ -58,9 +58,8 @@ CopySpritePal::
 .check_daytimes
 	ld a, [wPalFlags]
 	bit USE_DAYTIME_PAL_F, a
-	ld a, 1
+	ld a, DAY
 	jr nz, .daytime
-	jr .daytime ; always daytime pals for this hack, remove to change.
 	ld a, [wTimeOfDayPal]
 .daytime
 	maskbits NUM_DAYTIMES

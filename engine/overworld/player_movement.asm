@@ -318,9 +318,6 @@ endc
 	ret
 
 .walk
-;	ld a, [wCurInput]
-;	and B_BUTTON
-;	jr nz, .run
 	ld a, STEP_WALK
 	call .DoStep
 	scf
@@ -328,12 +325,6 @@ endc
 
 .ice
 	ld a, STEP_ICE
-	call .DoStep
-	scf
-	ret
-
-.run
-	ld a, STEP_RUN
 	call .DoStep
 	scf
 	ret
@@ -506,8 +497,7 @@ endc
 	table_width 2, DoPlayerMovement.Steps
 	dw .SlowStep
 	dw .NormalStep
-	dw .RunStep
-	dw .BikeStep
+	dw .FastStep
 	dw .JumpStep
 	dw .SlideStep
 	dw .TurningStep
@@ -526,16 +516,11 @@ endc
 	step UP
 	step LEFT
 	step RIGHT
-.RunStep:
+.FastStep:
 	big_step DOWN
 	big_step UP
 	big_step LEFT
 	big_step RIGHT
-.BikeStep:
-	bike_step DOWN
-	bike_step UP
-	bike_step LEFT
-	bike_step RIGHT
 .JumpStep:
 	jump_step DOWN
 	jump_step UP

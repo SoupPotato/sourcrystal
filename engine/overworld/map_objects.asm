@@ -406,16 +406,11 @@ StepVectors:
 	db  0, -1, 16, 2
 	db -1,  0, 16, 2
 	db  1,  0, 16, 2
-	; running shoes
+	; bike
 	db  0,  2,  8, 4
 	db  0, -2,  8, 4
 	db -2,  0,  8, 4
 	db  2,  0,  8, 4
-	; bike
-	db  0,  4,  4, 8
-	db  0, -4,  4, 8
-	db -4,  0,  4, 8
-	db  4,  0,  4, 8
 
 GetStepVectorSign:
 	add a

@@ -66,7 +66,7 @@ _BillsPC:
 	; Restore regular speed.
 	ldh a, [rIE]
 	push af
-	call NormalSpeed
+	call DoubleSpeed
 	pop af
 	ldh [rIE], a
 

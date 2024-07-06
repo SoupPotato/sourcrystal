@@ -87,29 +87,29 @@ ContestSafariMonsChallenge:
 	db 10, CUBONE,         21, 21
 	db 10, PONYTA,         23, 23
 	db 10, SANDSLASH,      26, 26
-	db  5, GLIGAR,         24, 24
+	db  5, TAUROS,         24, 24
 	db  5, NATU,           23, 23
 	db  4, MAROWAK,        26, 26
 	db  1, RAPIDASH,       27, 27
-; day/eve
+; day/eve  
 	db 20, NIDORAN_M,      22, 22
 	db 20, NIDORAN_F,      22, 22
 	db 15, SANDSHREW,      23, 23
 	db 10, CUBONE,         21, 21
 	db 10, PONYTA,         23, 23
 	db 10, SANDSLASH,      26, 26
-	db  5, GLIGAR,         24, 24
+	db  5, TAUROS,         24, 24
 	db  5, NATU,           23, 23
 	db  4, MAROWAK,        26, 26
 	db  1, RAPIDASH,       27, 27
-; nite
+; nite     
 	db 20, NIDORINO,       22, 22
 	db 20, NIDORINA,       22, 22
 	db 15, SANDSHREW,      23, 23
 	db 10, NOCTOWL,        23, 23
 	db 10, HOUNDOUR,       23, 23
 	db 10, SANDSLASH,      26, 26
-	db  5, GLIGAR,         24, 24
+	db  5, TAUROS,         24, 24
 	db  5, NATU,           23, 23
 	db  4, CUBONE,         26, 26
 	db  1, HOUNDOOM,       27, 27
@@ -123,31 +123,31 @@ ContestSafariMonsChallenge:
 	db 20, BELLSPROUT,    24, 24
 	db 15, MARILL,        22, 22
 	db 10, GRIMER,        24, 24
-	db 10, TANGELA,       25, 25
+	db 10, YANMA,         25, 25
 	db 10, ARBOK,         23, 23
-	db  5, YANMA,         22, 22
+	db  5, TANGELA,       22, 22
 	db  5, WEEPINBELL,    26, 26
 	db  4, FARFETCH_D,    25, 25
 	db  1, MUK,           28, 28
-; day/eve
+; day/eve  
 	db 20, EKANS,         21, 21
 	db 20, BELLSPROUT,    24, 24
 	db 15, MARILL,        22, 22
 	db 10, GRIMER,        24, 24
-	db 10, TANGELA,       25, 25
+	db 10, YANMA,         25, 25
 	db 10, ARBOK,         23, 23
-	db  5, YANMA,         22, 22
+	db  5, TANGELA,       22, 22
 	db  5, WEEPINBELL,    26, 26
 	db  4, FARFETCH_D,    25, 25
 	db  1, MUK,           28, 28
-; nite
+; nite     
 	db 20, WOOPER,        21, 21
 	db 20, ODDISH,        24, 24
 	db 15, MARILL,        22, 22
 	db 10, GRIMER,        24, 24
-	db 10, HAUNTER,       25, 25
+	db 10, YANMA,         25, 25
 	db 10, QUAGSIRE,      23, 23
-	db  5, YANMA,         22, 22
+	db  5, HAUNTER,       22, 22
 	db  5, GLOOM,         26, 26
 	db  4, MISDREAVUS,    25, 25
 	db  1, MUK,           28, 28
@@ -158,36 +158,36 @@ ContestSafariMonsChallenge:
 	table_width 4, .Safari4
 ; morning
 	db 20, MACHOP,      22, 22
-	db 20, GEODUDE,     21, 21
+	db 20, PARAS,       21, 21
 	db 15, VOLTORB,     24, 24
-	db 10, ONIX,        21, 21
+	db 10, GLIGAR,      21, 21
 	db 10, RHYHORN,     22, 22
 	db 10, MACHOKE,     27, 27
-	db  5, GRAVELER,    24, 24
+	db  5, PARASECT,    24, 24
 	db  5, LICKITUNG,   23, 23
 	db  4, KANGASKHAN,  25, 25
 	db  1, LARVITAR,    20, 20
-; day/eve
+; day/eve  
 	db 20, MACHOP,      22, 22
-	db 20, GEODUDE,     21, 21
+	db 20, PARAS,       21, 21
 	db 15, VOLTORB,     24, 24
-	db 10, ONIX,        21, 21
+	db 10, GLIGAR,      21, 21
 	db 10, RHYHORN,     22, 22
 	db 10, MACHOKE,     27, 27
-	db  5, GRAVELER,    24, 24
+	db  5, PARASECT,    24, 24
 	db  5, LICKITUNG,   23, 23
 	db  4, KANGASKHAN,  25, 25
 	db  1, LARVITAR,    20, 20
-; nite
-	db 20, ZUBAT,       22, 22
-	db 20, MAGNEMITE,   21, 21
+; nite     
+	db 20, MAGNEMITE,   22, 22
+	db 20, PARAS,       21, 21
 	db 15, VOLTORB,     24, 24
-	db 10, ONIX,        21, 21
+	db 10, GLIGAR,      21, 21
 	db 10, RHYHORN,     22, 22
-	db 10, GOLBAT,      27, 27
-	db  5, MAGNETON,    24, 24
+	db 10, MAGNETON,    27, 27
+	db  5, PARASECT,    24, 24
 	db  5, WOBBUFFET,   23, 23
-	db  4, ONIX,        25, 25
+	db  4, KANGASKHAN,  25, 25
 	db  1, LARVITAR,    20, 20
 	assert_table_length 30
 	

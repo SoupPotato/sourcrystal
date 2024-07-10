@@ -233,6 +233,7 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_MUSHROOM            ; c8
 	const BATTLE_ANIM_OBJ_POWDER_SHOOT        ; c9
 	const BATTLE_ANIM_OBJ_EGG_BOMB            ; ca
+	const BATTLE_ANIM_OBJ_SHOOTING_MIST       ; cb
 DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -808,51 +809,51 @@ DEF NUM_BATTLE_BG_EFFECTS EQU const_value - 1
 ; wBattleAnimTileDict keys (see wram.asm)
 ; AnimObjGFX indexes (see data/battle_anims/object_gfx.asm)
 	const_def 1
-	const BATTLE_ANIM_GFX_HIT        ; 01
-	const BATTLE_ANIM_GFX_CUT        ; 02
-	const BATTLE_ANIM_GFX_FIRE       ; 03
-	const BATTLE_ANIM_GFX_WATER      ; 04
-	const BATTLE_ANIM_GFX_LIGHTNING  ; 05
-	const BATTLE_ANIM_GFX_PLANT      ; 06
-	const BATTLE_ANIM_GFX_SMOKE      ; 07
-	const BATTLE_ANIM_GFX_EXPLOSION  ; 08
-	const BATTLE_ANIM_GFX_ROCKS      ; 09
-	const BATTLE_ANIM_GFX_ICE        ; 0a
-	const BATTLE_ANIM_GFX_POKE_BALL  ; 0b
-	const BATTLE_ANIM_GFX_POISON     ; 0c
-	const BATTLE_ANIM_GFX_BUBBLE     ; 0d
-	const BATTLE_ANIM_GFX_NOISE      ; 0e
-	const BATTLE_ANIM_GFX_POWDER     ; 0f
-	const BATTLE_ANIM_GFX_BEAM       ; 10
-	const BATTLE_ANIM_GFX_SPEED      ; 11
-	const BATTLE_ANIM_GFX_CHARGE     ; 12
-	const BATTLE_ANIM_GFX_WIND       ; 13
-	const BATTLE_ANIM_GFX_WHIP       ; 14
-	const BATTLE_ANIM_GFX_EGG        ; 15
-	const BATTLE_ANIM_GFX_ROPE       ; 16
-	const BATTLE_ANIM_GFX_PSYCHIC    ; 17
-	const BATTLE_ANIM_GFX_REFLECT    ; 18
-	const BATTLE_ANIM_GFX_STATUS     ; 19
-	const BATTLE_ANIM_GFX_SAND       ; 1a
-	const BATTLE_ANIM_GFX_WEB        ; 1b
-	const BATTLE_ANIM_GFX_HAZE       ; 1c
-	const BATTLE_ANIM_GFX_HORN       ; 1d
-	const BATTLE_ANIM_GFX_FLOWER     ; 1e
-	const BATTLE_ANIM_GFX_MISC       ; 1f
-	const BATTLE_ANIM_GFX_SKY_ATTACK ; 20
-	const BATTLE_ANIM_GFX_GLOBE      ; 21
-	const BATTLE_ANIM_GFX_SHAPES     ; 22
-	const BATTLE_ANIM_GFX_OBJECTS    ; 23
-	const BATTLE_ANIM_GFX_SHINE      ; 24
-	const BATTLE_ANIM_GFX_ANGELS     ; 25
-	const BATTLE_ANIM_GFX_MISC_2     ; 26
-	const BATTLE_ANIM_GFX_AEROBLAST  ; 27
-	const BATTLE_ANIM_GFX_BEAM_LIGHT ; 28
-	const BATTLE_ANIM_GFX_SMOKE_PUFF ; 29
-	const BATTLE_ANIM_GFX_TRIANGLE   ; 2a
-	const BATTLE_ANIM_GFX_MUSHROOM   ; 2b
-	const BATTLE_ANIM_GFX_PLAYERHEAD ; 2c
-	const BATTLE_ANIM_GFX_ENEMYFEET  ; 2d
+	const BATTLE_ANIM_GFX_HIT            ; 01
+	const BATTLE_ANIM_GFX_CUT            ; 02
+	const BATTLE_ANIM_GFX_FIRE           ; 03
+	const BATTLE_ANIM_GFX_WATER          ; 04
+	const BATTLE_ANIM_GFX_LIGHTNING      ; 05
+	const BATTLE_ANIM_GFX_PLANT          ; 06
+	const BATTLE_ANIM_GFX_SMOKE          ; 07
+	const BATTLE_ANIM_GFX_EXPLOSION      ; 08
+	const BATTLE_ANIM_GFX_ROCKS          ; 09
+	const BATTLE_ANIM_GFX_ICE            ; 0a
+	const BATTLE_ANIM_GFX_POKE_BALL      ; 0b
+	const BATTLE_ANIM_GFX_POISON         ; 0c
+	const BATTLE_ANIM_GFX_BUBBLE         ; 0d
+	const BATTLE_ANIM_GFX_NOISE          ; 0e
+	const BATTLE_ANIM_GFX_POWDER         ; 0f
+	const BATTLE_ANIM_GFX_BEAM           ; 10
+	const BATTLE_ANIM_GFX_SPEED          ; 11
+	const BATTLE_ANIM_GFX_CHARGE         ; 12
+	const BATTLE_ANIM_GFX_WIND           ; 13
+	const BATTLE_ANIM_GFX_WHIP           ; 14
+	const BATTLE_ANIM_GFX_EGG            ; 15
+	const BATTLE_ANIM_GFX_ROPE           ; 16
+	const BATTLE_ANIM_GFX_PSYCHIC        ; 17
+	const BATTLE_ANIM_GFX_REFLECT        ; 18
+	const BATTLE_ANIM_GFX_STATUS         ; 19
+	const BATTLE_ANIM_GFX_SAND           ; 1a
+	const BATTLE_ANIM_GFX_WEB            ; 1b
+	const BATTLE_ANIM_GFX_HAZE           ; 1c
+	const BATTLE_ANIM_GFX_HORN           ; 1d
+	const BATTLE_ANIM_GFX_FLOWER         ; 1e
+	const BATTLE_ANIM_GFX_MISC           ; 1f
+	const BATTLE_ANIM_GFX_SKY_ATTACK     ; 20
+	const BATTLE_ANIM_GFX_GLOBE          ; 21
+	const BATTLE_ANIM_GFX_SHAPES         ; 22
+	const BATTLE_ANIM_GFX_OBJECTS        ; 23
+	const BATTLE_ANIM_GFX_SHINE          ; 24
+	const BATTLE_ANIM_GFX_ANGELS         ; 25
+	const BATTLE_ANIM_GFX_MISC_2         ; 26
+	const BATTLE_ANIM_GFX_AEROBLAST      ; 27
+	const BATTLE_ANIM_GFX_BEAM_LIGHT     ; 28
+	const BATTLE_ANIM_GFX_SMOKE_PUFF     ; 29
+	const BATTLE_ANIM_GFX_TRIANGLE       ; 2a
+	const BATTLE_ANIM_GFX_MUSHROOM       ; 2b
+	const BATTLE_ANIM_GFX_PLAYERHEAD     ; 2c
+	const BATTLE_ANIM_GFX_ENEMYFEET      ; 2d
 DEF NUM_BATTLE_ANIM_GFX EQU const_value - 1
 
 ; battle_bg_effect struct members (see macros/ram.asm)

@@ -3731,19 +3731,25 @@ BattleAnim_PerishSong:
 
 BattleAnim_IcyWind:
 	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_ICE
-	anim_1gfx BATTLE_ANIM_GFX_SPEED
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_ICE
+	anim_2gfx BATTLE_ANIM_GFX_SPEED, BATTLE_ANIM_GFX_HAZE
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
 	anim_battlergfx_1row
 	anim_sound 0, 0, SFX_PSYCHIC
 .loop
-	anim_wait 8
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_MIST, 64, 80, $4
+	anim_wait 4
 	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 88, $4
-	anim_wait 8
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_MIST, 64, 96, $4
+	anim_wait 4
 	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 80, $4
-	anim_wait 8
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_SHOOTING_MIST, 64, 88, $4
+	anim_wait 4
 	anim_obj BATTLE_ANIM_OBJ_SHOOTING_SPARKLE, 64, 96, $4
-	anim_wait 8
+	anim_wait 4
 	anim_loop 2, .loop
 	anim_wait 16
 	anim_bgeffect BATTLE_BG_EFFECT_BATTLEROBJ_2ROW, $0, BG_EFFECT_USER, $0

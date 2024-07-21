@@ -674,6 +674,19 @@ SetFirstOBJPalette::
 	ldh [hCGBPalUpdate], a
 	jp ApplyPals
 
+SetSecondOBJPalette::
+; input: e must contain the offset of the selected palette from PartyMenuOBPals
+	ld hl, PartyMenuOBPals
+	ld d, 0
+	add hl, de
+	ld de, wOBPals1 palette 1
+	ld bc, 1 palettes
+	ld a, BANK(wOBPals1)
+	call FarCopyWRAM
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	jmp ApplyPals
+
 InitPokegearOBPal:
 	ld a, d
 	ld hl, PartyMenuOBPals

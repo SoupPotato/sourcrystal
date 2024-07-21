@@ -2227,8 +2227,10 @@ Script_pause:
 	jr z, .loop
 	ld [wScriptDelay], a
 .loop
-	ld c, 2
-	call DelayFrames
+rept 2
+	farcall DoOverworldWeather
+	call DelayFrame
+endr
 	ld hl, wScriptDelay
 	dec [hl]
 	jr nz, .loop

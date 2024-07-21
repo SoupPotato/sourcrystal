@@ -4499,6 +4499,20 @@ Sfx_Thunder_Ch8:
 	noise_note 15, 15, 2, 84
 	sound_ret
 
+Sfx_Thunder_OW:
+	channel_count 1
+	channel 8, .Ch8
+
+.Ch8:
+	noise_note 10, 8, -7, 80
+	noise_note 15, 8, -7, 81
+	noise_note 8, 8, 2, 81
+	noise_note 6, 8, -7, 82
+	noise_note 6, 8, -7, 83
+	noise_note 8, 8, -7, 84
+	noise_note 15, 8, 2, 84
+	sound_ret
+
 Sfx_Supersonic_Ch5:
 	duty_cycle 2
 	square_note 15, 3, -7, 1984

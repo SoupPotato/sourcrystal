@@ -1011,6 +1011,7 @@ MapTextbox::
 	rst Bankswitch
 
 	push hl
+	call ClearSpritesUnderTextbox
 	call SpeechTextbox
 	call SafeUpdateSprites
 	ld a, 1
@@ -1916,6 +1917,7 @@ ExitAllMenus::
 	call ClearBGPalettes
 	call Call_ExitMenu
 	call ReloadTilesetAndPalettes
+	call RestoreSprites
 	call UpdateSprites
 	call GSReloadPalettes
 FinishExitMenu::
@@ -1923,6 +1925,8 @@ FinishExitMenu::
 	call GetSGBLayout
 	farcall LoadOW_BGPal7
 	call WaitBGMap2
+	farcall LoadWeatherPalNoApply
+	farcall LoadWeatherGraphics
 	farcall FadeInPalettes_EnableDynNoApply
 	call EnableSpriteUpdates
 	ret
@@ -2143,9 +2147,6 @@ GetMapEnvironment::
 	pop bc
 	pop de
 	pop hl
-	ret
-
-Map_DummyFunction:: ; unreferenced
 	ret
 
 GetAnyMapEnvironment::

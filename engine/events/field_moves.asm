@@ -41,7 +41,12 @@ ShakeHeadbuttTree:
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
 	ld [hl], FIELDMOVE_TREE
-	ld a, 36 * SPRITEOAMSTRUCT_LENGTH
+
+	ldh a, [hUsedOAMIndex]
+	; a = (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH - a
+	cpl
+	add (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH + 1
+
 	ld [wCurSpriteOAMAddr], a
 	farcall DoNextFrameForAllSprites
 	call HideHeadbuttTree
@@ -56,7 +61,12 @@ ShakeHeadbuttTree:
 	and a
 	jr z, .done
 	dec [hl]
-	ld a, 36 * SPRITEOAMSTRUCT_LENGTH
+
+	ldh a, [hUsedOAMIndex]
+	; a = (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH - a
+	cpl
+	add (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH + 1
+
 	ld [wCurSpriteOAMAddr], a
 	farcall DoNextFrameForAllSprites
 	call DelayFrame
@@ -67,11 +77,19 @@ ShakeHeadbuttTree:
 	call WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
-	farcall ClearSpriteAnims
-	ld hl, wShadowOAMSprite36
-	ld bc, wShadowOAMEnd - wShadowOAMSprite36
+	; a = LOW(wShadowOAMEnd) - ([wCurSpriteOAMAddr] - 4 * SPRITEOAMSTRUCT_LENGTH)
+	ld a, [wCurSpriteOAMAddr]
+	cpl
+	add LOW(wShadowOAMEnd) + 4 * SPRITEOAMSTRUCT_LENGTH + 1
+	ld c, a
+	ld b, 0
+	ld h, HIGH(wShadowOAM)
+	ld a, [wCurSpriteOAMAddr]
+	sub 12 * SPRITEOAMSTRUCT_LENGTH
+	ld l, a
 	xor a
 	call ByteFill
+	call ClearSpriteAnims
 	ld de, Font
 	ld hl, vTiles1
 	lb bc, BANK(Font), 12
@@ -138,9 +156,15 @@ OWCutAnimation:
 	ld a, [wJumptableIndex]
 	bit 7, a
 	jr nz, .finish
-	ld a, 36 * SPRITEOAMSTRUCT_LENGTH
+
+	ldh a, [hUsedOAMIndex]
+	; a = (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH - a
+	cpl
+	add (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH + 1
+
 	ld [wCurSpriteOAMAddr], a
 	callfar DoNextFrameForAllSprites
+	farcall DoOverworldWeather
 	call OWCutJumptable
 	call DelayFrame
 	jr .loop
@@ -310,6 +334,16 @@ Cut_Headbutt_GetPixelFacing:
 	dbpixel 12, 11
 
 FlyFromAnim:
+	farcall CheckForUsedObjPals
+	ldh a, [hUsedOAMIndex]
+	cp (NUM_SPRITE_OAM_STRUCTS - NUM_FLYFROM_ANIM_OAMS - 1) * SPRITEOAMSTRUCT_LENGTH
+	call nc, ClearNormalSprites ; not enough OAM slots, clear all sprites.
+	ld a, [wUsedObjectPals]
+	set 7, a ; slot 7 already reserved for leaves.
+	ld [wUsedObjectPals], a
+	inc a
+	call z, ClearSprites ; no more object palettes available, clear all sprites.
+	call HidePlayerSprite
 	call DelayFrame
 	ld a, [wVramState]
 	push af
@@ -331,9 +365,19 @@ FlyFromAnim:
 	ld a, [wJumptableIndex]
 	bit 7, a
 	jr nz, .exit
-	ld a, 0 * SPRITEOAMSTRUCT_LENGTH
+
+	ldh a, [hUsedOAMIndex]
+	cp (NUM_SPRITE_OAM_STRUCTS - NUM_FLYFROM_ANIM_OAMS - 1) * SPRITEOAMSTRUCT_LENGTH
+	ld a, (NUM_SPRITE_OAM_STRUCTS - NUM_FLYFROM_ANIM_OAMS) * SPRITEOAMSTRUCT_LENGTH
+	jr nc, .got_oam_addr
+	ldh a, [hUsedOAMIndex]
+	; a = (NUM_SPRITE_OAM_STRUCTS - NUM_FLYFROM_ANIM_OAMS) * SPRITEOAMSTRUCT_LENGTH - a
+	cpl
+	add (NUM_SPRITE_OAM_STRUCTS - NUM_FLYFROM_ANIM_OAMS) * SPRITEOAMSTRUCT_LENGTH + 1
+.got_oam_addr
 	ld [wCurSpriteOAMAddr], a
 	callfar DoNextFrameForAllSprites
+	farcall DoOverworldWeather
 	call FlyFunction_FrameTimer
 	call DelayFrame
 	jr .loop
@@ -344,6 +388,10 @@ FlyFromAnim:
 	ret
 
 FlyToAnim:
+	call HideSprites
+	farcall LoadWeatherGraphics
+	farcall LoadWeatherPal
+	farcall SpawnRandomWeatherFullScreen
 	call DelayFrame
 	ld a, [wVramState]
 	push af
@@ -368,9 +416,19 @@ FlyToAnim:
 	ld a, [wJumptableIndex]
 	bit 7, a
 	jr nz, .exit
-	ld a, 0 * SPRITEOAMSTRUCT_LENGTH
+
+	ldh a, [hUsedOAMIndex]
+	cp (NUM_SPRITE_OAM_STRUCTS - NUM_FLYFROM_ANIM_OAMS - 1) * SPRITEOAMSTRUCT_LENGTH
+	ld a, (NUM_SPRITE_OAM_STRUCTS - NUM_FLYFROM_ANIM_OAMS) * SPRITEOAMSTRUCT_LENGTH
+	jr nc, .got_oam_addr
+	ldh a, [hUsedOAMIndex]
+	; a = (NUM_SPRITE_OAM_STRUCTS - NUM_FLYFROM_ANIM_OAMS) * SPRITEOAMSTRUCT_LENGTH - a
+	cpl
+	add (NUM_SPRITE_OAM_STRUCTS - NUM_FLYFROM_ANIM_OAMS) * SPRITEOAMSTRUCT_LENGTH + 1
+.got_oam_addr
 	ld [wCurSpriteOAMAddr], a
 	callfar DoNextFrameForAllSprites
+	farcall DoOverworldWeather
 	call FlyFunction_FrameTimer
 	call DelayFrame
 	jr .loop
@@ -382,7 +440,19 @@ FlyToAnim:
 	ret
 
 .RestorePlayerSprite_DespawnLeaves:
-	ld hl, wShadowOAMSprite00TileID
+	ld a, [wCurSpriteOAMAddr]
+	sub NUM_FLYTO_ANIM_OAMS * SPRITEOAMSTRUCT_LENGTH
+	cpl
+	add LOW(wShadowOAMEnd) + 1
+	ld b, a
+	ld h, HIGH(wShadowOAM)
+	ld a, [wCurSpriteOAMAddr]
+	sub NUM_FLYTO_ANIM_OAMS * SPRITEOAMSTRUCT_LENGTH
+	ld l, a
+	call HideSpritesInRange
+
+
+	ld hl, wShadowOAMSprite36TileID
 	xor a
 	ld c, 4
 .OAMloop
@@ -393,10 +463,6 @@ endr
 	inc a
 	dec c
 	jr nz, .OAMloop
-	ld hl, wShadowOAMSprite04
-	ld bc, wShadowOAMEnd - wShadowOAMSprite04
-	xor a
-	call ByteFill
 	ret
 
 FlyFunction_InitGFX:

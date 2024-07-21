@@ -25,6 +25,8 @@ CloseText::
 	ldh [hOAMUpdate], a
 	ld hl, wVramState
 	res 6, [hl]
+	ld hl, wWeatherFlags
+	res OW_WEATHER_DISABLED_F, [hl]
 	ret
 
 .CloseText:
@@ -44,12 +46,15 @@ CloseText::
 	ret
 
 OpenText::
+	ld hl, wWeatherFlags
+	set OW_WEATHER_DISABLED_F, [hl]
 	call ClearWindowData
 	ldh a, [hROMBank]
 	push af
 	ld a, BANK(ReanchorBGMap_NoOAMUpdate) ; aka BANK(LoadFonts_NoOAMUpdate)
 	rst Bankswitch
 
+	call ClearSpritesUnderTextbox
 	call ReanchorBGMap_NoOAMUpdate ; clear bgmap
 	call SpeechTextbox
 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap ; anchor bgmap
@@ -58,6 +63,35 @@ OpenText::
 	rst Bankswitch
 
 	ret
+
+ClearSpritesUnderTextbox::
+	ld de, wShadowOAM
+	ld h, d
+	ld l, e
+	ld c, NUM_SPRITE_OAM_STRUCTS
+.loop
+	; check if YCoord ≥ (TEXTBOX_Y + 1) * TILE_WIDTH
+	ld a, [hl]
+	cp (TEXTBOX_Y + 1) * TILE_WIDTH
+	jr nc, .clear_sprite
+.next
+	ld hl, SPRITEOAMSTRUCT_LENGTH
+	add hl, de
+	ld e, l
+	dec c
+	jr nz, .loop
+	ldh a, [hOAMUpdate]
+	push af
+	ld a, TRUE
+	ldh [hOAMUpdate], a
+	call DelayFrame
+	pop af
+	ldh [hOAMUpdate], a
+	ret
+
+.clear_sprite
+	ld [hl], OAM_YCOORD_HIDDEN
+	jr .next
 
 _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap::
 	ldh a, [hOAMUpdate]

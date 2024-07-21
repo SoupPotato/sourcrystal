@@ -23,6 +23,8 @@ PlaySpriteAnimations:
 
 	ld a, LOW(wShadowOAM)
 	ld [wCurSpriteOAMAddr], a
+	ld a, LOW(wShadowOAMEnd) - SPRITEOAMSTRUCT_LENGTH
+	ldh [hUsedOAMIndex], a
 	call DoNextFrameForAllSprites
 
 	pop af
@@ -60,9 +62,9 @@ DoNextFrameForAllSprites:
 	ld h, HIGH(wShadowOAM)
 
 .loop2 ; Clear (wShadowOAM + [wCurSpriteOAMAddr] --> wShadowOAMEnd)
-	ld a, l
-	cp LOW(wShadowOAMEnd)
-	jr nc, .done
+	ldh a, [hUsedOAMIndex]
+	cp l
+	ret c
 	xor a
 	ld [hli], a
 	jr .loop2

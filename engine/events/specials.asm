@@ -32,7 +32,7 @@ GameCornerPrizeMonCheckDex:
 	ld a, [wScriptVar]
 	dec a
 	call SetSeenAndCaughtMon
-	call FadeToMenu
+	call FadeToMenu_BackupSprites
 	ld a, [wScriptVar]
 	ld [wNamedObjectIndex], a
 	farcall NewPokedexEntry
@@ -100,19 +100,19 @@ NameRater:
 	ret
 
 OverworldTownMap:
-	call FadeToMenu
+	call FadeToMenu_BackupSprites
 	farcall _TownMap
 	call ExitAllMenus
 	ret
 
 UnownPrinter:
-	call FadeToMenu
+	call FadeToMenu_BackupSprites
 	farcall _UnownPrinter
 	call ExitAllMenus
 	ret
 
 DisplayLinkRecord:
-	call FadeToMenu
+	call FadeToMenu_BackupSprites
 	farcall _DisplayLinkRecord
 	call ExitAllMenus
 	ret
@@ -183,7 +183,7 @@ MapRadio:
 	ret
 
 UnownPuzzle:
-	call FadeToMenu
+	call FadeToMenu_BackupSprites
 	farcall _UnownPuzzle
 	ld a, [wSolvedUnownPuzzle]
 	ld [wScriptVar], a
@@ -216,7 +216,7 @@ UnusedMemoryGame:
 
 StartGameCornerGame:
 	call FarQueueScript
-	call FadeToMenu
+	call FadeToMenu_BackupSprites
 	ld hl, wQueuedScriptBank
 	ld a, [hli]
 	push af
@@ -435,13 +435,13 @@ FadeOutMusic:
 	ret
 
 Diploma:
-	call FadeToMenu
+	call FadeToMenu_BackupSprites
 	farcall _Diploma
 	call ExitAllMenus
 	ret
 
 PrintDiploma:
-	call FadeToMenu
+	call FadeToMenu_BackupSprites
 	farcall _PrintDiploma
 	call ExitAllMenus
 	ret

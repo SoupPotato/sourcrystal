@@ -209,22 +209,22 @@ SpriteAnimOAMData:
 
 .OAMData_TradePoofBubble:
 	db 16
-	dbsprite -2, -2,  0,  0, $00, 0
-	dbsprite -1, -2,  0,  0, $01, 0
-	dbsprite -2, -1,  0,  0, $02, 0
-	dbsprite -1, -1,  0,  0, $03, 0
-	dbsprite  0, -2,  0,  0, $01, 0 | X_FLIP
-	dbsprite  1, -2,  0,  0, $00, 0 | X_FLIP
-	dbsprite  0, -1,  0,  0, $03, 0 | X_FLIP
-	dbsprite  1, -1,  0,  0, $02, 0 | X_FLIP
-	dbsprite -2,  0,  0,  0, $02, 0 | Y_FLIP
-	dbsprite -1,  0,  0,  0, $03, 0 | Y_FLIP
-	dbsprite -2,  1,  0,  0, $00, 0 | Y_FLIP
-	dbsprite -1,  1,  0,  0, $01, 0 | Y_FLIP
-	dbsprite  0,  0,  0,  0, $03, 0 | X_FLIP | Y_FLIP
-	dbsprite  1,  0,  0,  0, $02, 0 | X_FLIP | Y_FLIP
-	dbsprite  0,  1,  0,  0, $01, 0 | X_FLIP | Y_FLIP
-	dbsprite  1,  1,  0,  0, $00, 0 | X_FLIP | Y_FLIP
+	dbsprite -2, -2,  0,  0, $00, 7
+	dbsprite -1, -2,  0,  0, $01, 7
+	dbsprite -2, -1,  0,  0, $02, 7
+	dbsprite -1, -1,  0,  0, $03, 7
+	dbsprite  0, -2,  0,  0, $01, 7 | X_FLIP
+	dbsprite  1, -2,  0,  0, $00, 7 | X_FLIP
+	dbsprite  0, -1,  0,  0, $03, 7 | X_FLIP
+	dbsprite  1, -1,  0,  0, $02, 7 | X_FLIP
+	dbsprite -2,  0,  0,  0, $02, 7 | Y_FLIP
+	dbsprite -1,  0,  0,  0, $03, 7 | Y_FLIP
+	dbsprite -2,  1,  0,  0, $00, 7 | Y_FLIP
+	dbsprite -1,  1,  0,  0, $01, 7 | Y_FLIP
+	dbsprite  0,  0,  0,  0, $03, 7 | X_FLIP | Y_FLIP
+	dbsprite  1,  0,  0,  0, $02, 7 | X_FLIP | Y_FLIP
+	dbsprite  0,  1,  0,  0, $01, 7 | X_FLIP | Y_FLIP
+	dbsprite  1,  1,  0,  0, $00, 7 | X_FLIP | Y_FLIP
 
 .OAMData_GSIntroBigFireball:
 	db 36

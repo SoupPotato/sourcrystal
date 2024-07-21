@@ -656,16 +656,23 @@ TradeAnim_EnterLinkTube1:
 	lb bc, 3, 12
 	call TradeAnim_CopyBoxFromDEtoHL
 	call WaitBGMap
-	ld b, SCGB_TRADE_TUBE
-	call GetSGBLayout
-	ld a, %11100100 ; 3,2,1,0
-	call DmgToCgbBGPals
-	lb de, %11100100, %11100100 ; 3,2,1,0, 3,2,1,0
-	call DmgToCgbObjPals
+
+	ld hl, .TubePal
+	ld de, wBGPals2 palette 0
+	ld bc, 1 palettes
+	ld a, BANK(wBGPals2)
+	call FarCopyWRAM
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	call DelayFrame
+
 	ld de, SFX_POTION
 	call PlaySFX
 	call TradeAnim_IncrementJumptableIndex
 	ret
+
+.TubePal
+	RGB 31,31,31, 18,20,27, 11,15,23, 00,00,00 ; PREDEFPAL_TRADE_TUBE
 
 TradeAnim_EnterLinkTube2:
 	ldh a, [hSCX]
@@ -787,6 +794,7 @@ TradeAnim_ShowGivemonData:
 	ld [wTempMonDVs], a
 	ld a, [wPlayerTrademonDVs + 1]
 	ld [wTempMonDVs + 1], a
+; works well enough
 	ld b, SCGB_PLAYER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
 	ld a, %11100100 ; 3,2,1,0
@@ -812,6 +820,7 @@ TradeAnim_ShowGetmonData:
 	ld [wTempMonDVs], a
 	ld a, [wOTTrademonDVs + 1]
 	ld [wTempMonDVs + 1], a
+; and here
 	ld b, SCGB_PLAYER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
 	ld a, %11100100 ; 3,2,1,0
@@ -1061,11 +1070,28 @@ TradeAnim_Poof:
 	ld [wFrameCounter], a
 	ld de, SFX_BALL_POOF
 	call PlaySFX
+	ld hl, .PoofPal
+	ld de, wOBPals2 palette 7
+	ld bc, 1 palettes
+	ld a, BANK(wOBPals2)
+	call FarCopyWRAM
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	call DelayFrame
 	ret
+.PoofPal
+	RGB 31,31,31, 27,27,27, 16,16,16, 00,00,00
 
 TradeAnim_BulgeThroughTube:
-	ld a, %11100100 ; 3,2,1,0
-	call DmgToCgbObjPal0
+; "poof" and tube bulge shouldn't appear at the same exact time
+	ld hl, TradeAnim_EnterLinkTube1.TubePal
+	ld de, wOBPals2 palette 7
+	ld bc, 1 palettes
+	ld a, BANK(wOBPals2)
+	call FarCopyWRAM
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	call DelayFrame
 	depixel 5, 11
 	ld a, SPRITE_ANIM_OBJ_TRADE_TUBE_BULGE
 	call InitSpriteAnimStruct

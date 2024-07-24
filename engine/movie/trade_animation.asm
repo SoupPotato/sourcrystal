@@ -313,8 +313,7 @@ TradeAnim_End:
 	ret
 
 TradeAnim_TubeToOT1:
-	ld a, TRADEANIM_RIGHT_ARROW
-	call TradeAnim_PlaceTrademonStatsOnTubeAnim
+	;ld a, TRADEANIM_RIGHT_ARROW ; points down
 	ld a, [wLinkTradeSendmonSpecies]
 	ld [wTempIconSpecies], a
 	ld hl, wOTTrademonDVs
@@ -333,8 +332,7 @@ TradeAnim_TubeToOT1:
 	jr TradeAnim_InitTubeAnim
 
 TradeAnim_TubeToPlayer1:
-	ld a, TRADEANIM_LEFT_ARROW
-	call TradeAnim_PlaceTrademonStatsOnTubeAnim
+	;ld a, TRADEANIM_LEFT_ARROW ; points up
 	ld a, [wLinkTradeGetmonSpecies]
 	ld [wTempIconSpecies], a
 	ld hl, wPlayerTrademonDVs
@@ -351,47 +349,17 @@ TradeAnim_TubeToPlayer1:
 	depixel 9, 18, 4, 4
 	ld b, $4
 TradeAnim_InitTubeAnim:
-
 	push bc
 	push de
 	push bc
 	push de
 
-
-
-	push af
 	call DisableLCD
 
 	ld hl, .NewTradeBgGFX
 	ld de, vTiles2 tile $30
 	call Decompress
-
-	xor a
-	ld hl, vTiles2 tile " "
-	ld bc, 1 tiles
-	call ByteFill
-
-	callfar ClearSpriteAnims
-
-	pop af
-
-	;call TradeAnim_TubeAnimJumptable
-
-	;call DelayFrame
-
-	xor a
-	ldh [hSCX], a
-	ldh [hSCY], a
-	; ensure the buffer does not overwrite our custom BG
- 	ldh [hBGMapMode], a
-	; TODO: PlaceTrademonStatsOnTubeAnim copies to window layer, not needed here
-	ld a, $7
-	ldh [hWX], a
-	ld a, 144
-	ldh [hWY], a
-
-
-; copy bg manually
+; copy bg map manually
 	ld de, .TradeBGTilemap
 	call .CopyMapStuffs
 	ld a, 1
@@ -401,17 +369,7 @@ TradeAnim_InitTubeAnim:
 ; TODO: use attrs to flip the arrows vertically on 2nd tube anim (use hlbgcoord here and spam set bits)
 	xor a
 	ldh [rVBK], a
-
-
-	; TODO: Move PlaceTrademonStatsOnTubeAnim here
-	hlbgcoord 10, 11
-	ld de, wLinkPlayer1Name
-	call PlaceString
-	hlbgcoord 10, 20
-	ld de, wLinkPlayer2Name
-	call PlaceString
-
-	; palettes
+; palettes
 	ld hl, .BGPalettes
 	ld de, wBGPals2 palette 0
 	ld bc, 8 palettes
@@ -419,16 +377,31 @@ TradeAnim_InitTubeAnim:
 	call FarCopyWRAM
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
+	call TradeAnim_PlaceTrademonStatsOnTubeAnim
+
+	xor a
+; reset screen positions
+	ldh [hSCX], a
+	ldh [hSCY], a
+; ensure the buffer does not overwrite our custom BG
+ 	ldh [hBGMapMode], a
+; blank out tile $7f just in case
+	ld hl, vTiles2 tile " "
+	ld bc, 1 tiles
+	call ByteFill
+
+	callfar ClearSpriteAnims
+ 
+; window layer was used for vanilla link overlay, not needed here
+; put them off-screen
+	ld a, $7
+	ldh [hWX], a
+	ld a, 144
+	ldh [hWY], a
 
 	call EnableLCD
 
-.test ; TODO dedicated graphics and adjust animation ??
-	halt
-	nop
-	jr .test
-
-	call EnableLCD
-	;call LoadTradeBubbleGFX
+	call LoadTradeBubbleGFX
 
 	pop de
 	ld a, SPRITE_ANIM_OBJ_TRADEMON_ICON
@@ -447,7 +420,6 @@ TradeAnim_InitTubeAnim:
 	add hl, bc
 	pop bc
 	ld [hl], b
-	call WaitBGMap
 
 	call TradeAnim_IncrementJumptableIndex
 	ld a, 92
@@ -528,9 +500,9 @@ INCBIN "gfx/trade/background.attrmap"
 
 TradeAnim_TubeToOT2:
 	call TradeAnim_FlashBGPals
-	ldh a, [hSCX]
+	ldh a, [hSCY]
 	add $2
-	ldh [hSCX], a
+	ldh [hSCY], a
 	cp $50
 	ret nz
 	ld a, TRADEANIMSTATE_1
@@ -726,43 +698,12 @@ TradeAnim_CopyTradeGameBoyTilemap:
 	ret
 
 TradeAnim_PlaceTrademonStatsOnTubeAnim:
-	push af
-	call ClearBGPalettes
-	call WaitTop
-	ld a, HIGH(vBGMap1)
-	ldh [hBGMapAddress + 1], a
-	call ClearTilemap
-	hlcoord 0, 0
-	ld bc, SCREEN_WIDTH
-	ld a, "─"
-	call ByteFill
-	hlcoord 0, 1
+	hlbgcoord 10, 11
 	ld de, wLinkPlayer1Name
 	call PlaceString
-	ld hl, wLinkPlayer2Name
-	ld de, 0
-.find_name_end_loop
-	ld a, [hli]
-	cp "@"
-	jr z, .done
-	dec de
-	jr .find_name_end_loop
-
-.done
-	hlcoord 0, 4
-	add hl, de
+	hlbgcoord 10, 20
 	ld de, wLinkPlayer2Name
-	call PlaceString
-	hlcoord 7, 2
-	ld bc, 6
-	pop af
-	call ByteFill
-	call WaitBGMap
-	call WaitTop
-	ld a, HIGH(vBGMap0)
-	ldh [hBGMapAddress + 1], a
-	call ClearTilemap
-	ret
+	jp PlaceString
 
 TradeAnim_EnterLinkTube1:
 	call ClearTilemap

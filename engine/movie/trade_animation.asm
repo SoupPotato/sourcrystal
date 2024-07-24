@@ -1,14 +1,6 @@
 DEF TRADEANIM_RIGHT_ARROW EQU "▶" ; $ed
 DEF TRADEANIM_LEFT_ARROW  EQU "▼" ; $ee
 
-; TradeAnim_TubeAnimJumptable.Jumptable indexes
-	const_def
-	const TRADEANIMSTATE_0 ; 0
-	const TRADEANIMSTATE_1 ; 1
-	const TRADEANIMSTATE_2 ; 2
-	const TRADEANIMSTATE_3 ; 3
-DEF TRADEANIMJUMPTABLE_LENGTH EQU const_value
-
 MACRO add_tradeanim
 \1_TradeCmd:
 	dw \1
@@ -327,7 +319,9 @@ TradeAnim_TubeToOT1:
 	ld a, [hl]
 	ld [wTempMonDVs + 1], a
 	xor a
-	depixel 5, 11, 4, 0
+; setup position of mon at top gameboy
+	depixel 5, 9, 4, 6
+; starting position of sprite jumptable
 	ld b, $0
 	jr TradeAnim_InitTubeAnim
 
@@ -345,9 +339,10 @@ TradeAnim_TubeToPlayer1:
 	ld [wTempMonDVs], a
 	ld a, [hl]
 	ld [wTempMonDVs + 1], a
-	ld a, TRADEANIMSTATE_2
+; TODO setup position of mon at bottom gameboy
 	depixel 9, 18, 4, 4
-	ld b, $4
+; TODO starting position of sprite jumptable
+	ld b, $0
 TradeAnim_InitTubeAnim:
 	push bc
 	push de
@@ -355,7 +350,6 @@ TradeAnim_InitTubeAnim:
 	push de
 
 	call DisableLCD
-
 	ld hl, .NewTradeBgGFX
 	ld de, vTiles2 tile $30
 	call Decompress
@@ -400,7 +394,6 @@ TradeAnim_InitTubeAnim:
 	ldh [hWY], a
 
 	call EnableLCD
-
 	call LoadTradeBubbleGFX
 
 	pop de
@@ -422,7 +415,9 @@ TradeAnim_InitTubeAnim:
 	ld [hl], b
 
 	call TradeAnim_IncrementJumptableIndex
-	ld a, 92
+
+; setup for first wait, either end
+	ld a, 40
 	ld [wFrameCounter], a
 	ret
 
@@ -498,39 +493,46 @@ INCBIN "gfx/trade/background.tilemap"
 .TradeBGAttrmap:
 INCBIN "gfx/trade/background.attrmap"
 
+; Wait 40 frames
 TradeAnim_TubeToOT2:
 	call TradeAnim_FlashBGPals
-	ldh a, [hSCY]
-	add $2
-	ldh [hSCY], a
-	cp $50
-	ret nz
-	ld a, TRADEANIMSTATE_1
-	call TradeAnim_TubeAnimJumptable
-	call TradeAnim_IncrementJumptableIndex
+	ld hl, wFrameCounter
+	ld a, [hl]
+	and a
+	jp z, TradeAnim_IncrementJumptableIndex
+	dec [hl]
 	ret
 
+; Move down from Player to OT
 TradeAnim_TubeToOT3:
 	call TradeAnim_FlashBGPals
-	ldh a, [hSCX]
-	add $2
-	ldh [hSCX], a
-	cp $a0
+	ldh a, [hSCY]
+	add $1
+	ldh [hSCY], a
+	cp $70
 	ret nz
-	ld a, TRADEANIMSTATE_2
-	call TradeAnim_TubeAnimJumptable
+; setup for next wait
+	ld a, 110
+	ld [wFrameCounter], a
 	call TradeAnim_IncrementJumptableIndex
 	ret
 
 TradeAnim_TubeToOT4:
 	call TradeAnim_FlashBGPals
-	ldh a, [hSCX]
-	add $2
-	ldh [hSCX], a
+	ld hl, wFrameCounter
+	ld a, [hl]
 	and a
-	ret nz
-	call TradeAnim_IncrementJumptableIndex
+	jp z, TradeAnim_IncrementJumptableIndex
+	dec [hl]
 	ret
+.done
+	jp TradeAnim_IncrementJumptableIndex
+
+; TODO: clean this up
+TradeAnim_TubeToOT5:
+TradeAnim_TubeToOT6:
+TradeAnim_TubeToOT7:
+	jp TradeAnim_IncrementJumptableIndex
 
 TradeAnim_TubeToPlayer3:
 	call TradeAnim_FlashBGPals
@@ -539,8 +541,6 @@ TradeAnim_TubeToPlayer3:
 	ldh [hSCX], a
 	cp $b0
 	ret nz
-	ld a, TRADEANIMSTATE_1
-	call TradeAnim_TubeAnimJumptable
 	call TradeAnim_IncrementJumptableIndex
 	ret
 
@@ -551,8 +551,6 @@ TradeAnim_TubeToPlayer4:
 	ldh [hSCX], a
 	cp $60
 	ret nz
-	xor a ; TRADEANIMSTATE_0
-	call TradeAnim_TubeAnimJumptable
 	call TradeAnim_IncrementJumptableIndex
 	ret
 
@@ -566,7 +564,6 @@ TradeAnim_TubeToPlayer5:
 	call TradeAnim_IncrementJumptableIndex
 	ret
 
-TradeAnim_TubeToOT6:
 TradeAnim_TubeToPlayer6:
 	ld a, 128
 	ld [wFrameCounter], a
@@ -585,7 +582,7 @@ TradeAnim_TubeToPlayer8:
 	ld a, " "
 	call ByteFill
 	xor a
-	ldh [hSCX], a
+	ldh [hSCY], a
 	ld a, $90
 	ldh [hWY], a
 	call EnableLCD
@@ -595,8 +592,6 @@ TradeAnim_TubeToPlayer8:
 	call TradeAnim_AdvanceScriptPointer
 	ret
 
-TradeAnim_TubeToOT5:
-TradeAnim_TubeToOT7:
 TradeAnim_TubeToPlayer2:
 TradeAnim_TubeToPlayer7:
 	call TradeAnim_FlashBGPals
@@ -621,80 +616,6 @@ TradeAnim_GetTrademonSFX:
 	call TradeAnim_AdvanceScriptPointer
 	ld de, SFX_GET_TRADEMON
 	call PlaySFX
-	ret
-
-TradeAnim_TubeAnimJumptable:
-	maskbits TRADEANIMJUMPTABLE_LENGTH
-	ld e, a
-	ld d, 0
-	ld hl, .Jumptable
-	add hl, de
-	add hl, de
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	jp hl
-
-.Jumptable:
-; entries correspond to TRADEANIMSTATE_* constants
-	dw .Zero
-	dw .One
-	dw .Two
-	dw .Three
-
-.Zero:
-.Three:
-	call TradeAnim_BlankTilemap
-	hlcoord 9, 3
-	ld [hl], $5b
-	inc hl
-	ld bc, 10
-	ld a, $60
-	call ByteFill
-	hlcoord 3, 2
-	call TradeAnim_CopyTradeGameBoyTilemap
-	ret
-
-.One:
-	call TradeAnim_BlankTilemap
-	hlcoord 0, 3
-	ld bc, SCREEN_WIDTH
-	ld a, $60
-	call ByteFill
-	ret
-
-.Two:
-	call TradeAnim_BlankTilemap
-	hlcoord 0, 3
-	ld bc, $11
-	ld a, $60
-	call ByteFill
-	hlcoord 17, 3
-	ld a, $5d
-	ld [hl], a
-
-	ld a, $61
-	ld de, SCREEN_WIDTH
-	ld c, $3
-.loop
-	add hl, de
-	ld [hl], a
-	dec c
-	jr nz, .loop
-
-	add hl, de
-	ld a, $5f
-	ld [hld], a
-	ld a, $5b
-	ld [hl], a
-	hlcoord 10, 6
-	call TradeAnim_CopyTradeGameBoyTilemap
-	ret
-
-TradeAnim_CopyTradeGameBoyTilemap:
-	ld de, TradeGameBoyTilemap
-	lb bc, 8, 6
-	call TradeAnim_CopyBoxFromDEtoHL
 	ret
 
 TradeAnim_PlaceTrademonStatsOnTubeAnim:
@@ -1174,22 +1095,33 @@ TradeAnim_AnimateTrademonInTube:
 	jp hl
 
 .Jumptable:
-	dw .InitTimer
-	dw .WaitTimer1
-	dw .MoveRight
-	dw .MoveDown
-	dw .MoveUp
+; player to OT
 	dw .MoveLeft
-	dw .WaitTimer2
+	dw .WaitTimer1
+	dw .MoveDown
+	dw .MoveRight
+	dw .DeleteSelf
+; TODO OT to player
+	; dw .InitTimer
+	; dw .WaitTimer1
+	; dw .MoveRight
+	; dw .MoveDown
+	; dw .MoveUp
+	; dw .MoveLeft
+	; dw .WaitTimer2
 
-.JumptableNext:
-	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
+
+.MoveLeft:
+	ld hl, SPRITEANIMSTRUCT_XCOORD
 	add hl, bc
-	inc [hl]
+	ld a, [hl]
+	cp $2c
+	jr z, .done_move_left
+	dec [hl]
 	ret
-
-.InitTimer:
+.done_move_left
 	call .JumptableNext
+; setup for delay
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
 	ld [hl], $80
@@ -1202,19 +1134,7 @@ TradeAnim_AnimateTrademonInTube:
 	dec [hl]
 	and a
 	ret nz
-	call .JumptableNext
-
-.MoveRight:
-	ld hl, SPRITEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld a, [hl]
-	cp $94
-	jr nc, .done_move_right
-	inc [hl]
-	ret
-
-.done_move_right
-	call .JumptableNext
+	jp .JumptableNext
 
 .MoveDown:
 	ld hl, SPRITEANIMSTRUCT_YCOORD
@@ -1224,11 +1144,30 @@ TradeAnim_AnimateTrademonInTube:
 	jr nc, .done_move_down
 	inc [hl]
 	ret
-
 .done_move_down
-	ld hl, SPRITEANIMSTRUCT_INDEX
+	call .JumptableNext
+	;ld hl, SPRITEANIMSTRUCT_INDEX
+	;add hl, bc
+	;ld [hl], $0
+	ret
+
+.MoveRight:
+	ld hl, SPRITEANIMSTRUCT_XCOORD
 	add hl, bc
-	ld [hl], $0
+	ld a, [hl]
+	cp $94
+	jr nc, .done_move_right
+	inc [hl]
+	ret
+.done_move_right
+	call .JumptableNext
+	ret
+
+.InitTimer:
+	call .JumptableNext
+	ld hl, SPRITEANIMSTRUCT_VAR1
+	add hl, bc
+	ld [hl], $80
 	ret
 
 .MoveUp:
@@ -1243,22 +1182,6 @@ TradeAnim_AnimateTrademonInTube:
 .done_move_up
 	call .JumptableNext
 
-.MoveLeft:
-	ld hl, SPRITEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld a, [hl]
-	cp $58
-	jr z, .done_move_left
-	dec [hl]
-	ret
-
-.done_move_left
-	call .JumptableNext
-	ld hl, SPRITEANIMSTRUCT_VAR1
-	add hl, bc
-	ld [hl], $80
-	ret
-
 .WaitTimer2:
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
@@ -1266,6 +1189,15 @@ TradeAnim_AnimateTrademonInTube:
 	dec [hl]
 	and a
 	ret nz
+	jp .JumptableNext
+
+.JumptableNext:
+	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
+	add hl, bc
+	inc [hl]
+	ret
+
+.DeleteSelf:
 	ld hl, SPRITEANIMSTRUCT_INDEX
 	add hl, bc
 	ld [hl], $0

@@ -1366,10 +1366,66 @@ LinkTradeAnim_LoadTradeMonSpecies:
 TradeAnim_FlashBGPals:
 	ld a, [wFrameCounter2]
 	and $7
-	ret nz
-	;ldh a, [rBGP]
-	;xor %00111100
-	;call DmgToCgbBGPals
+	jr nz, .original_pal
+; .a
+	ldh a, [rSVBK]
+	push af
+		ld a, BANK(wBGPals2)
+		ldh [rSVBK], a
+	; hmm...
+		ld hl, wBGPals2 palette 2 color 1
+		ld bc, palred (31) + palgreen (15) + palblue (00)
+		ld [hl], c
+		inc hl
+		ld [hl], b
+		ld hl, wBGPals2 palette 2 color 2
+		ld bc, palred (31) + palgreen (31) + palblue (00)
+		ld [hl], c
+		inc hl
+		ld [hl], b
+		ld hl, wBGPals2 palette 6 color 1
+		ld bc, palred (31) + palgreen (15) + palblue (00)
+		ld [hl], c
+		inc hl
+		ld [hl], b
+		ld hl, wBGPals2 palette 6 color 2
+		ld bc, palred (31) + palgreen (31) + palblue (00)
+		ld [hl], c
+		inc hl
+		ld [hl], b
+	pop af
+	ldh [rSVBK], a
+	jr .done
+.original_pal
+	ldh a, [rSVBK]
+	push af
+		ld a, BANK(wBGPals2)
+		ldh [rSVBK], a
+		ld hl, wBGPals2 palette 2 color 1
+		ld bc, palred (31) + palgreen (31) + palblue (00)
+		ld [hl], c
+		inc hl
+		ld [hl], b
+		ld hl, wBGPals2 palette 2 color 2
+		ld bc, palred (31) + palgreen (15) + palblue (00)
+		ld [hl], c
+		inc hl
+		ld [hl], b
+		ld hl, wBGPals2 palette 6 color 1
+		ld bc, palred (31) + palgreen (31) + palblue (00)
+		ld [hl], c
+		inc hl
+		ld [hl], b
+		ld hl, wBGPals2 palette 6 color 2
+		ld bc, palred (31) + palgreen (15) + palblue (00)
+		ld [hl], c
+		inc hl
+		ld [hl], b
+	pop af
+	ldh [rSVBK], a
+.done
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
 	ret
 
 LoadTradeBallAndCableGFX:

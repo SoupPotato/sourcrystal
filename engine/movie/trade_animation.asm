@@ -305,7 +305,6 @@ TradeAnim_End:
 	ret
 
 TradeAnim_TubeToOT1:
-	;ld a, TRADEANIM_RIGHT_ARROW ; points down
 	ld a, [wLinkTradeSendmonSpecies]
 	ld [wTempIconSpecies], a
 	ld hl, wOTTrademonDVs
@@ -322,11 +321,13 @@ TradeAnim_TubeToOT1:
 ; setup position of mon at top gameboy
 	depixel 5, 9, 4, 6
 ; starting position of sprite jumptable
-	ld b, $0
+	ld b, 0
+; let InitTubeAnim know we're starting from the top
+	ld a, 0
+	push af
 	jr TradeAnim_InitTubeAnim
 
 TradeAnim_TubeToPlayer1:
-	;ld a, TRADEANIM_LEFT_ARROW ; points up
 	ld a, [wLinkTradeGetmonSpecies]
 	ld [wTempIconSpecies], a
 	ld hl, wPlayerTrademonDVs
@@ -339,10 +340,13 @@ TradeAnim_TubeToPlayer1:
 	ld [wTempMonDVs], a
 	ld a, [hl]
 	ld [wTempMonDVs + 1], a
-; TODO setup position of mon at bottom gameboy
-	depixel 9, 18, 4, 4
-; TODO starting position of sprite jumptable
-	ld b, $0
+; setup position of mon at bottom gameboy
+	depixel 12, 9, 4, 6
+; starting position of sprite jumptable
+	ld b, 5
+; let InitTubeAnim know we're starting from the bottom
+	ld a, 1
+	push af
 TradeAnim_InitTubeAnim:
 	push bc
 	push de
@@ -379,7 +383,6 @@ TradeAnim_InitTubeAnim:
 	ldh [rVBK], a
 	ld de, .TradeBGAttrmap
 	call .CopyMapStuffs
-; TODO: use attrs to flip the arrows vertically on 2nd tube anim (use hlbgcoord here and spam set bits)
 	xor a
 	ldh [rVBK], a
 	call TradeAnim_PlaceTrademonStatsOnTubeAnim
@@ -417,9 +420,38 @@ TradeAnim_InitTubeAnim:
 	add hl, bc
 	pop bc
 	ld [hl], b
-	
-	call EnableLCD
 
+; load the stuff we saved earlier
+	pop af
+	and a
+	jr z, .from_player
+;.from_ot
+; start from the bottom
+	ld a, $70
+	ldh [hSCY], a
+; flip all the arrow tiles to point up
+	ld a, 1
+	ldh [rVBK], a
+	hlbgcoord 12, 14
+	set OAM_Y_FLIP, [hl]
+	inc hl
+	set OAM_Y_FLIP, [hl]
+	hlbgcoord 12, 15
+	set OAM_Y_FLIP, [hl]
+	inc hl
+	set OAM_Y_FLIP, [hl]
+	hlbgcoord 12, 16
+	set OAM_Y_FLIP, [hl]
+	inc hl
+	set OAM_Y_FLIP, [hl]
+	hlbgcoord 12, 17
+	set OAM_Y_FLIP, [hl]
+	inc hl
+	set OAM_Y_FLIP, [hl]
+	xor a
+	ldh [rVBK], a
+.from_player
+	call EnableLCD
 	call TradeAnim_IncrementJumptableIndex
 
 ; setup for first wait, either end
@@ -513,7 +545,7 @@ TradeAnim_TubeToOT2:
 TradeAnim_TubeToOT3:
 	call TradeAnim_FlashBGPals
 	ldh a, [hSCY]
-	add $1
+	inc a
 	ldh [hSCY], a
 	cp $70
 	ret nz
@@ -523,6 +555,7 @@ TradeAnim_TubeToOT3:
 	call TradeAnim_IncrementJumptableIndex
 	ret
 
+TradeAnim_TubeToOT6:
 TradeAnim_TubeToOT4:
 	call TradeAnim_FlashBGPals
 	ld hl, wFrameCounter
@@ -536,42 +569,24 @@ TradeAnim_TubeToOT4:
 
 ; TODO: clean this up
 TradeAnim_TubeToOT5:
-TradeAnim_TubeToOT6:
+	ld a, 90
+	ld [wFrameCounter], a
 TradeAnim_TubeToOT7:
 	jp TradeAnim_IncrementJumptableIndex
 
 TradeAnim_TubeToPlayer3:
 	call TradeAnim_FlashBGPals
-	ldh a, [hSCX]
-	sub $2
-	ldh [hSCX], a
-	cp $b0
+	ldh a, [hSCY]
+	dec a
+	ldh [hSCY], a
+	and a
 	ret nz
 	call TradeAnim_IncrementJumptableIndex
 	ret
 
 TradeAnim_TubeToPlayer4:
 	call TradeAnim_FlashBGPals
-	ldh a, [hSCX]
-	sub $2
-	ldh [hSCX], a
-	cp $60
-	ret nz
-	call TradeAnim_IncrementJumptableIndex
-	ret
-
-TradeAnim_TubeToPlayer5:
-	call TradeAnim_FlashBGPals
-	ldh a, [hSCX]
-	sub $2
-	ldh [hSCX], a
-	and a
-	ret nz
-	call TradeAnim_IncrementJumptableIndex
-	ret
-
-TradeAnim_TubeToPlayer6:
-	ld a, 128
+	ld a, 128 + 60
 	ld [wFrameCounter], a
 	call TradeAnim_IncrementJumptableIndex
 	ret
@@ -591,6 +606,18 @@ TradeAnim_TubeToPlayer8:
 	ldh [hSCY], a
 	ld a, $90
 	ldh [hWY], a
+; restore pipe GFX
+	ld hl, TradeGameBoyLZ
+	ld de, vTiles2 tile $31
+	call Decompress
+; clear attrs
+	ld a, $1
+	ldh [rVBK], a
+	ld hl, vBGMap0
+	ld bc, vBGMap1 - vBGMap0
+	xor a
+	call ByteFill
+	ldh [rVBK], a
 	call EnableLCD
 	call LoadTradeBallAndCableGFX
 	call WaitBGMap
@@ -599,7 +626,7 @@ TradeAnim_TubeToPlayer8:
 	ret
 
 TradeAnim_TubeToPlayer2:
-TradeAnim_TubeToPlayer7:
+TradeAnim_TubeToPlayer5:
 	call TradeAnim_FlashBGPals
 	ld hl, wFrameCounter
 	ld a, [hl]
@@ -607,10 +634,13 @@ TradeAnim_TubeToPlayer7:
 	jr z, .done
 	dec [hl]
 	ret
-
 .done
 	call TradeAnim_IncrementJumptableIndex
 	ret
+
+TradeAnim_TubeToPlayer6:
+TradeAnim_TubeToPlayer7:
+	jp TradeAnim_IncrementJumptableIndex
 
 TradeAnim_GiveTrademonSFX:
 	call TradeAnim_AdvanceScriptPointer
@@ -1100,22 +1130,20 @@ TradeAnim_AnimateTrademonInTube:
 	ld l, a
 	jp hl
 
+
 .Jumptable:
 ; player to OT
 	dw .MoveLeft
-	dw .WaitTimer1 ; as background scrolls down
+	dw .WaitTimer ; as background scrolls down
 	dw .MoveDown
 	dw .MoveRight
 	dw .DeleteSelf
-; TODO OT to player
-	; dw .InitTimer
-	; dw .WaitTimer1
-	; dw .MoveRight
-	; dw .MoveDown
-	; dw .MoveUp
-	; dw .MoveLeft
-	; dw .WaitTimer2
-
+; OT to player
+	dw .MoveLeft
+	dw .WaitTimer ; as background scrolls up
+	dw .MoveUp
+	dw .MoveRight
+	dw .DeleteSelf
 
 .MoveLeft:
 	ld hl, SPRITEANIMSTRUCT_XCOORD
@@ -1133,7 +1161,7 @@ TradeAnim_AnimateTrademonInTube:
 	ld [hl], $73
 	ret
 
-.WaitTimer1:
+.WaitTimer:
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
 	ld a, [hl]

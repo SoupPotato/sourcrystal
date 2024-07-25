@@ -348,11 +348,30 @@ TradeAnim_InitTubeAnim:
 	push de
 	push bc
 	push de
-
+	call ClearTilemap
+	xor a
+; reset screen positions
+	ldh [hSCX], a
+	ldh [hSCY], a
 	call DisableLCD
 	ld hl, .NewTradeBgGFX
 	ld de, vTiles2 tile $30
 	call Decompress
+
+	callfar ClearSpriteAnims
+
+	call EnableLCD
+	call LoadTradeBubbleGFX ; needs DelayFrame...
+	; and overwrites some of the BG palette
+	call DisableLCD
+
+	xor a
+; ensure the buffer does not overwrite our custom BG
+ 	ldh [hBGMapMode], a
+; blank out tile $7f just in case
+	ld hl, vTiles2 tile " "
+	ld bc, 1 tiles
+	call ByteFill
 ; copy bg map manually
 	ld de, .TradeBGTilemap
 	call .CopyMapStuffs
@@ -363,6 +382,8 @@ TradeAnim_InitTubeAnim:
 ; TODO: use attrs to flip the arrows vertically on 2nd tube anim (use hlbgcoord here and spam set bits)
 	xor a
 	ldh [rVBK], a
+	call TradeAnim_PlaceTrademonStatsOnTubeAnim
+	
 ; palettes
 	ld hl, .BGPalettes
 	ld de, wBGPals2 palette 0
@@ -371,20 +392,6 @@ TradeAnim_InitTubeAnim:
 	call FarCopyWRAM
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
-	call TradeAnim_PlaceTrademonStatsOnTubeAnim
-
-	xor a
-; reset screen positions
-	ldh [hSCX], a
-	ldh [hSCY], a
-; ensure the buffer does not overwrite our custom BG
- 	ldh [hBGMapMode], a
-; blank out tile $7f just in case
-	ld hl, vTiles2 tile " "
-	ld bc, 1 tiles
-	call ByteFill
-
-	callfar ClearSpriteAnims
  
 ; window layer was used for vanilla link overlay, not needed here
 ; put them off-screen
@@ -392,9 +399,6 @@ TradeAnim_InitTubeAnim:
 	ldh [hWX], a
 	ld a, 144
 	ldh [hWY], a
-
-	call EnableLCD
-	call LoadTradeBubbleGFX
 
 	pop de
 	ld a, SPRITE_ANIM_OBJ_TRADEMON_ICON
@@ -413,11 +417,13 @@ TradeAnim_InitTubeAnim:
 	add hl, bc
 	pop bc
 	ld [hl], b
+	
+	call EnableLCD
 
 	call TradeAnim_IncrementJumptableIndex
 
 ; setup for first wait, either end
-	ld a, 40
+	ld a, 34
 	ld [wFrameCounter], a
 	ret
 
@@ -512,7 +518,7 @@ TradeAnim_TubeToOT3:
 	cp $70
 	ret nz
 ; setup for next wait
-	ld a, 110
+	ld a, 90
 	ld [wFrameCounter], a
 	call TradeAnim_IncrementJumptableIndex
 	ret
@@ -1097,7 +1103,7 @@ TradeAnim_AnimateTrademonInTube:
 .Jumptable:
 ; player to OT
 	dw .MoveLeft
-	dw .WaitTimer1
+	dw .WaitTimer1 ; as background scrolls down
 	dw .MoveDown
 	dw .MoveRight
 	dw .DeleteSelf
@@ -1124,7 +1130,7 @@ TradeAnim_AnimateTrademonInTube:
 ; setup for delay
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
-	ld [hl], $80
+	ld [hl], $73
 	ret
 
 .WaitTimer1:
@@ -1140,7 +1146,7 @@ TradeAnim_AnimateTrademonInTube:
 	ld hl, SPRITEANIMSTRUCT_YCOORD
 	add hl, bc
 	ld a, [hl]
-	cp $4c
+	cp $64
 	jr nc, .done_move_down
 	inc [hl]
 	ret
@@ -1155,7 +1161,7 @@ TradeAnim_AnimateTrademonInTube:
 	ld hl, SPRITEANIMSTRUCT_XCOORD
 	add hl, bc
 	ld a, [hl]
-	cp $94
+	cp $56
 	jr nc, .done_move_right
 	inc [hl]
 	ret
@@ -1365,14 +1371,15 @@ LinkTradeAnim_LoadTradeMonSpecies:
 
 TradeAnim_FlashBGPals:
 	ld a, [wFrameCounter2]
-	and $7
+	and %100
 	jr nz, .original_pal
-; .a
+; .flash_pal
 	ldh a, [rSVBK]
 	push af
 		ld a, BANK(wBGPals2)
 		ldh [rSVBK], a
 	; hmm...
+		; tubes (1)
 		ld hl, wBGPals2 palette 2 color 1
 		ld bc, palred (31) + palgreen (15) + palblue (00)
 		ld [hl], c
@@ -1383,6 +1390,7 @@ TradeAnim_FlashBGPals:
 		ld [hl], c
 		inc hl
 		ld [hl], b
+		; tubes (2)
 		ld hl, wBGPals2 palette 6 color 1
 		ld bc, palred (31) + palgreen (15) + palblue (00)
 		ld [hl], c
@@ -1390,6 +1398,18 @@ TradeAnim_FlashBGPals:
 		ld [hl], b
 		ld hl, wBGPals2 palette 6 color 2
 		ld bc, palred (31) + palgreen (31) + palblue (00)
+		ld [hl], c
+		inc hl
+		ld [hl], b
+		; game boy
+		ld hl, wBGPals2 palette 3 color 0
+		ld bc, palred (31) + palgreen (31) + palblue (00)
+		ld [hl], c
+		inc hl
+		ld [hl], b
+		; arrow
+		ld hl, wBGPals2 palette 7 color 2
+		ld bc, palred (31) + palgreen (20) + palblue (08)
 		ld [hl], c
 		inc hl
 		ld [hl], b
@@ -1401,6 +1421,7 @@ TradeAnim_FlashBGPals:
 	push af
 		ld a, BANK(wBGPals2)
 		ldh [rSVBK], a
+		; tubes (1)
 		ld hl, wBGPals2 palette 2 color 1
 		ld bc, palred (31) + palgreen (31) + palblue (00)
 		ld [hl], c
@@ -1411,12 +1432,25 @@ TradeAnim_FlashBGPals:
 		ld [hl], c
 		inc hl
 		ld [hl], b
+		; tubes (2)
 		ld hl, wBGPals2 palette 6 color 1
 		ld bc, palred (31) + palgreen (31) + palblue (00)
 		ld [hl], c
 		inc hl
 		ld [hl], b
 		ld hl, wBGPals2 palette 6 color 2
+		ld bc, palred (31) + palgreen (15) + palblue (00)
+		ld [hl], c
+		inc hl
+		ld [hl], b
+		; game boy
+		ld hl, wBGPals2 palette 3 color 0
+		ld bc, palred (31) + palgreen (15) + palblue (00)
+		ld [hl], c
+		inc hl
+		ld [hl], b
+		; arrow
+		ld hl, wBGPals2 palette 7 color 2
 		ld bc, palred (31) + palgreen (15) + palblue (00)
 		ld [hl], c
 		inc hl
@@ -1449,7 +1483,6 @@ LoadTradeBallAndCableGFX:
 	ret
 
 LoadTradeBubbleGFX:
-	call DelayFrame
 	ld e, MONICON_TRADE
 	callfar LoadMenuMonIcon
 	ld de, TradeBubbleGFX

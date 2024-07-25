@@ -1982,6 +1982,7 @@ GetTwoThirdsMaxHP:
 	ld [hDivisor], a
 	ld b, 2
 	call Divide
+GetTwoThirdsMaxHP_end:
 	ld a, [hQuotient + 2]
 	ld b, a
 	ld a, [hQuotient + 3]
@@ -1992,6 +1993,19 @@ GetTwoThirdsMaxHP:
 	inc c
 .ok
 	ret
+
+GetOneSixthMaxHP:
+	call GetMaxHP
+
+	ld a, b
+	ld [hDividend + 0], a
+	ld a, c
+	ld [hDividend + 1], a
+	ld a, 6
+	ld [hDivisor], a
+	ld b, 2
+	call Divide
+	jr GetTwoThirdsMaxHP_end
 
 GetMaxHP:
 ; output: bc, wHPBuffer1
@@ -4242,6 +4256,22 @@ BreakAttraction:
 	res SUBSTATUS_IN_LOVE, [hl]
 	ret
 
+GetSpikesDamage:
+	dec a
+	jr z, .one ; one spikes set
+	dec a
+	jr z, .two ; two spikes set
+; assume three spikes set
+.three
+	call GetQuarterMaxHP
+	ret
+.two
+	call GetOneSixthMaxHP
+	ret
+.one
+	call GetEighthMaxHP
+	ret
+
 SpikesDamage:
 	ld hl, wPlayerScreens
 	ld de, wBattleMonType
@@ -4254,7 +4284,9 @@ SpikesDamage:
 	ld bc, UpdateEnemyHUD
 .ok
 
-	bit SCREENS_SPIKES, [hl]
+	ld a, [hl]
+	and 3
+	; return if zero spikes set
 	ret z
 
 	; Flying-types aren't affected by Spikes.
@@ -4267,11 +4299,15 @@ SpikesDamage:
 	ret z
 
 	push bc
+	push hl
 
 	ld hl, BattleText_UserHurtBySpikes ; "hurt by SPIKES!"
 	call StdBattleTextbox
 
-	call GetEighthMaxHP
+	pop hl
+	ld a, [hl]
+	and 3
+	call GetSpikesDamage
 	call SubtractHPFromTarget
 
 	pop hl

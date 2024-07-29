@@ -656,13 +656,13 @@ TradeAnim_TubeToPlayer7:
 TradeAnim_GiveTrademonSFX:
 	call TradeAnim_AdvanceScriptPointer
 	ld de, SFX_GIVE_TRADEMON
-	call PlaySFX
+	call WaitPlaySFX
 	ret
 
 TradeAnim_GetTrademonSFX:
 	call TradeAnim_AdvanceScriptPointer
 	ld de, SFX_GET_TRADEMON
-	call PlaySFX
+	call WaitPlaySFX
 	ret
 
 TradeAnim_PlaceTrademonStatsOnTubeAnim:

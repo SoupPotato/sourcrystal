@@ -357,6 +357,15 @@ TradeAnim_InitTubeAnim:
 ; reset screen positions
 	ldh [hSCX], a
 	ldh [hSCY], a
+	ldh [rSCX], a
+	ldh [rSCY], a
+; window layer was used for vanilla link overlay, not needed here
+; put them off-screen
+	ld a, $7
+	ldh [hWX], a
+	ld a, 144
+	ldh [hWY], a
+	call DelayFrame
 	call DisableLCD
 	ld hl, .NewTradeBgGFX
 	ld de, vTiles2 tile $30
@@ -367,6 +376,21 @@ TradeAnim_InitTubeAnim:
 	call EnableLCD
 	call LoadTradeBubbleGFX ; needs DelayFrame...
 	; and overwrites some of the BG palette
+
+	ld hl, .BGPalettes
+	ld de, wBGPals2 palette 0
+	ld bc, 8 palettes
+	ld a, BANK(wBGPals2)
+	call FarCopyWRAM
+	ld hl, .BubblePalette
+	ld de, wOBPals2 palette 7
+	ld bc, 1 palettes
+	ld a, BANK(wOBPals2)
+	call FarCopyWRAM
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+
+	call DelayFrame
 	call DisableLCD
 
 	xor a
@@ -386,27 +410,6 @@ TradeAnim_InitTubeAnim:
 	xor a
 	ldh [rVBK], a
 	call TradeAnim_PlaceTrademonStatsOnTubeAnim
-	
-; palettes
-	ld hl, .BGPalettes
-	ld de, wBGPals2 palette 0
-	ld bc, 8 palettes
-	ld a, BANK(wBGPals2)
-	call FarCopyWRAM
-	ld hl, .BubblePalette
-	ld de, wOBPals2 palette 7
-	ld bc, 1 palettes
-	ld a, BANK(wOBPals2)
-	call FarCopyWRAM
-	ld a, TRUE
-	ldh [hCGBPalUpdate], a
- 
-; window layer was used for vanilla link overlay, not needed here
-; put them off-screen
-	ld a, $7
-	ldh [hWX], a
-	ld a, 144
-	ldh [hWY], a
 
 	pop de
 	ld a, SPRITE_ANIM_OBJ_TRADEMON_ICON
@@ -434,6 +437,7 @@ TradeAnim_InitTubeAnim:
 ; start from the bottom
 	ld a, $70
 	ldh [hSCY], a
+	ldh [rSCY], a
 ; flip all the arrow tiles to point up
 	ld a, 1
 	ldh [rVBK], a

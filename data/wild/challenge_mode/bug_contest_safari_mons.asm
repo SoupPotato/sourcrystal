@@ -124,8 +124,8 @@ ContestSafariMonsChallenge:
 	db 15, MARILL,        22, 22
 	db 10, GRIMER,        24, 24
 	db 10, YANMA,         25, 25
-	db 10, ARBOK,         23, 23
-	db  5, TANGELA,       22, 22
+	db 10, TANGELA,       22, 22
+	db  5, ARBOK,         23, 23
 	db  5, WEEPINBELL,    26, 26
 	db  4, FARFETCH_D,    25, 25
 	db  1, MUK,           28, 28
@@ -135,8 +135,8 @@ ContestSafariMonsChallenge:
 	db 15, MARILL,        22, 22
 	db 10, GRIMER,        24, 24
 	db 10, YANMA,         25, 25
-	db 10, ARBOK,         23, 23
-	db  5, TANGELA,       22, 22
+	db 10, TANGELA,       22, 22
+	db  5, ARBOK,         23, 23
 	db  5, WEEPINBELL,    26, 26
 	db  4, FARFETCH_D,    25, 25
 	db  1, MUK,           28, 28
@@ -146,10 +146,10 @@ ContestSafariMonsChallenge:
 	db 15, MARILL,        22, 22
 	db 10, GRIMER,        24, 24
 	db 10, YANMA,         25, 25
-	db 10, QUAGSIRE,      23, 23
-	db  5, HAUNTER,       22, 22
+	db 10, MISDREAVUS,    22, 22
+	db  5, QUAGSIRE,      23, 23
 	db  5, GLOOM,         26, 26
-	db  4, MISDREAVUS,    25, 25
+	db  4, HAUNTER,       25, 25
 	db  1, MUK,           28, 28
 	assert_table_length 30
 	

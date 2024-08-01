@@ -105,6 +105,7 @@ VulpixEggMoves:
 
 ZubatEggMoves:
 	db FEINT_ATTACK
+	db GUST
 	db HYPNOSIS
 	db PURSUIT
 	db QUICK_ATTACK

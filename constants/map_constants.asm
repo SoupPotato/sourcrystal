@@ -135,8 +135,8 @@ ENDM
 	map_const WHIRL_ISLAND_B1F,                            20, 18 ; 71
 	map_const WHIRL_ISLAND_B2F,                            10, 18 ; 72
 	map_const WHIRL_ISLAND_LUGIA_CHAMBER,                  10,  9 ; 73
-	map_const SILVER_CAVE_ROOM_1,                          10, 18 ; 74
-	map_const SILVER_CAVE_ROOM_2,                          15, 19 ; 75
+	map_const SILVER_CAVE_ROOM_1,                          10, 23 ; 74
+	map_const SILVER_CAVE_ROOM_2,                          15, 20 ; 75
 	map_const SILVER_CAVE_ROOM_3,                          10, 18 ; 76
 	map_const SILVER_CAVE_ITEM_ROOMS,                      10, 17 ; 77
 	map_const DARK_CAVE_VIOLET_ENTRANCE,                   20, 18 ; 78
@@ -538,6 +538,8 @@ ENDM
 
 	newgroup SAFARI_ZONE                                          ; 28
 	map_const SAFARI_ZONE_AREA_3,                          21, 17 ;  1
+	map_const SILVER_CAVE_CLIFF_SIDE_1F,                   15, 20 ;  2
+	map_const SILVER_CAVE_CLIFF_SIDE_2F,                   17, 18 ;  3
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 26

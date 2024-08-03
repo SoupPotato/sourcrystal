@@ -1878,4 +1878,60 @@ JohtoGrassWildMons:
 	db 52, SNEASEL
 	end_grass_wildmons
 
+	def_grass_wildmons SILVER_CAVE_CLIFF_SIDE_1F
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 53, GOLBAT
+	db 54, GOLDUCK
+	db 54, DONPHAN
+	db 54, URSARING
+	db 55, PARASECT
+	db 40, LARVITAR
+	db 45, LARVITAR
+	; day
+	db 53, GOLBAT
+	db 54, GOLDUCK
+	db 54, DONPHAN
+	db 54, URSARING
+	db 55, PARASECT
+	db 40, LARVITAR
+	db 45, LARVITAR
+	; nite
+	db 53, GOLBAT
+	db 54, GOLDUCK
+	db 54, DONPHAN
+	db 54, URSARING
+	db 55, PARASECT
+	db 40, LARVITAR
+	db 45, LARVITAR
+	end_grass_wildmons
+
+	def_grass_wildmons SILVER_CAVE_CLIFF_SIDE_2F
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 55, GOLBAT
+	db 55, GOLDUCK
+	db 54, SNEASEL
+	db 54, URSARING
+	db 55, DONPHAN
+	db 40, LARVITAR
+	db 45, LARVITAR
+	; day
+	db 55, GOLBAT
+	db 55, GOLDUCK
+	db 54, SNEASEL
+	db 54, URSARING
+	db 55, DONPHAN
+	db 40, LARVITAR
+	db 45, LARVITAR
+	; nite
+	db 55, GOLBAT
+	db 55, MISDREAVUS
+	db 54, SNEASEL
+	db 54, PARASECT
+	db 55, GOLDUCK
+	db 40, LARVITAR
+	db 45, LARVITAR
+	end_grass_wildmons
+
 	db -1 ; end

@@ -271,7 +271,6 @@ INCBIN "data/tilesets/ruins_of_alph_metatiles.bin"
 TilesetRuinsOfAlphColl::
 INCLUDE "data/tilesets/ruins_of_alph_collision.asm"
 
-
 SECTION "Tileset Data 8", ROMX
 
 TilesetHoOhWordRoomMeta::
@@ -337,3 +336,16 @@ INCBIN "gfx/tilesets/forest.2bpp.lz"
 
 TilesetForestMeta::
 INCBIN "data/tilesets/forest_metatiles.bin"
+
+
+SECTION "Tileset Data 10", ROMX
+
+
+TilesetCliffSideGFX::
+INCBIN "gfx/tilesets/cliff_side.2bpp.lz"
+
+TilesetCliffSideMeta::
+INCBIN "data/tilesets/cliff_side_metatiles.bin"
+
+TilesetCliffSideColl::
+INCLUDE "data/tilesets/cliff_side_collision.asm"

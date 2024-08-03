@@ -38,6 +38,7 @@ _AnimateTileset::
 Tileset0Anim:
 TilesetJohtoModernAnim:
 TilesetKantoAnim:
+TilesetCliffSideAnim:
 	dw vTiles2 tile $14, AnimateWaterTile
 	dw NULL,  WaitTileAnimation
 	dw vTiles2 tile $64, AnimateFountainTile

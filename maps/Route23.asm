@@ -27,7 +27,7 @@ Route23_MapEvents:
 	warp_event  9,  5, INDIGO_PLATEAU_POKECENTER_1F, 1
 	warp_event 10,  5, INDIGO_PLATEAU_POKECENTER_1F, 2
 	warp_event  9, 13, VICTORY_ROAD, 10
-	warp_event 10, 13, VICTORY_ROAD, 10
+	warp_event 10, 13, VICTORY_ROAD, 11
 
 	def_coord_events
 

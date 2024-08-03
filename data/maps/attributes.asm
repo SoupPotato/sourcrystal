@@ -738,3 +738,5 @@ ENDM
 	map_attributes SafariRestHouseArea2, SAFARI_REST_HOUSE_AREA_2, $00, 0
 	map_attributes SafariRestHouseArea3, SAFARI_REST_HOUSE_AREA_3, $00, 0
 	map_attributes SafariRestHouseArea4, SAFARI_REST_HOUSE_AREA_4, $00, 0
+	map_attributes SilverCaveCliffSide1F, SILVER_CAVE_CLIFF_SIDE_1F, $48, 0
+	map_attributes SilverCaveCliffSide2F, SILVER_CAVE_CLIFF_SIDE_2F, $0c, 0

@@ -18,7 +18,7 @@ DoOverworldWeather::
 
 	; rolling counter from 0 to 255 used to run weather
 	; in 30fps or every odd frame.
-;	ld a, [wOverworldWeatherTimer]
+;	ld a, [wOverworldWeatherInternalTimer]
 ;	and %1
 ;	jr z, .done
 
@@ -53,7 +53,7 @@ DoOverworldWeather::
 	call JumpTable
 .done
 	; we are done, increment the weather delay rolling counter (0->255->0)
-	ld hl, wOverworldWeatherTimer
+	ld hl, wOverworldWeatherInternalTimer
 	inc [hl]
 	; always check if we have exceeded the sprite limit
 	call WeatherSpriteLimitCheck
@@ -337,7 +337,7 @@ endr
 RainSplashCleanup:
 	; we leave rain splashs on screen for approx 3.75fps.
 	; we have to ignore the LSB as we only run weather every odd frame.
-	ld a, [wOverworldWeatherTimer]
+	ld a, [wOverworldWeatherInternalTimer]
 	and %1111
 	ret nz
 

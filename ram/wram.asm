@@ -1886,7 +1886,8 @@ wDaysSince:: db
 
 SECTION "Weather RAM", WRAM0
 
-wOverworldWeatherTimer:: db
+wOverworldRunTimer:: db
+wOverworldWeatherInternalTimer:: db
 wOverworldWeatherCooldown:: db
 wSpriteOverlapCount:: db
 wWeatherFlags:: db

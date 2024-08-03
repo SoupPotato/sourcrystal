@@ -128,6 +128,7 @@ StartMenu::
 
 .ExitMenuRunScript:
 	call ExitMenu
+	call RestoreSprites
 	ld a, HMENURETURN_SCRIPT
 	ldh [hMenuReturn], a
 	ret

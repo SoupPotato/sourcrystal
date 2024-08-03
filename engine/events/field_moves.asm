@@ -377,7 +377,13 @@ FlyFromAnim:
 .got_oam_addr
 	ld [wCurSpriteOAMAddr], a
 	callfar DoNextFrameForAllSprites
+	ld a, [wOverworldRunTimer]
+	and %1
+	jr z, .skip_weather
 	farcall DoOverworldWeather
+.skip_weather
+	ld hl, wOverworldRunTimer
+	inc [hl]
 	call FlyFunction_FrameTimer
 	call DelayFrame
 	jr .loop

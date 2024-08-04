@@ -55,6 +55,9 @@ ShakeHeadbuttTree:
 	call WaitSFX
 	ld de, SFX_SANDSTORM
 	call PlaySFX
+	; enable weather
+	ld hl, wWeatherFlags
+	res OW_WEATHER_DISABLED_F, [hl]
 .loop
 	ld hl, wFrameCounter
 	ld a, [hl]
@@ -69,6 +72,13 @@ ShakeHeadbuttTree:
 
 	ld [wCurSpriteOAMAddr], a
 	farcall DoNextFrameForAllSprites
+	ld a, [wOverworldRunTimer]
+	and %1
+	jr z, .skip_weather
+	farcall DoOverworldWeather
+.skip_weather
+	ld hl, wOverworldRunTimer
+	inc [hl]
 	call DelayFrame
 	jr .loop
 

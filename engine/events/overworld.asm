@@ -967,6 +967,8 @@ TeleportFunction:
 .TeleportScript:
 	reloadmappart
 	special UpdateTimePals
+	callasm ClearSpritesUnderTextbox
+	opentext
 	writetext .TeleportReturnText
 	pause 60
 	reloadmappart

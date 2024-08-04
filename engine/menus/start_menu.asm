@@ -650,7 +650,7 @@ ClearSpritesUnderStartMenu:
 	call DelayFrame
 	pop af
 	ldh [hOAMUpdate], a
-	ret
+	jp ClearSpritesUnderTextbox
 
 .clear_sprite
 	dec l

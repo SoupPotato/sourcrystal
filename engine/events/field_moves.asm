@@ -190,7 +190,12 @@ OWCutAnimation:
 
 .finish
 	; clear wCurSpriteOAMAddr -> hUsedOAMIndex
-	ld a, [wCurSpriteOAMAddr]
+
+	ldh a, [hUsedOAMIndex]
+	; a = (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH - a
+	cpl
+	add (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH + 1
+
 	ld h, HIGH(wShadowOAM)
 	ld l, a
 	ldh a, [hUsedOAMIndex]

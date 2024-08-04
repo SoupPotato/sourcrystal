@@ -1158,24 +1158,24 @@ JohtoGrassWildMons:
 	db 54, URSARING
 	db 54, DONPHAN
 	db 55, GOLBAT
-	db 40, LARVITAR
-	db 45, LARVITAR
+	db 25, LARVITAR
+	db 30, LARVITAR
 	; day
 	db 53, GRAVELER
 	db 54, ONIX
 	db 54, URSARING
 	db 54, DONPHAN
 	db 55, GOLBAT
-	db 40, LARVITAR
-	db 45, LARVITAR
+	db 25, LARVITAR
+	db 30, LARVITAR
 	; nite
 	db 53, GRAVELER
 	db 54, ONIX
 	db 54, URSARING
 	db 54, DONPHAN
 	db 55, GOLBAT
-	db 40, LARVITAR
-	db 45, LARVITAR
+	db 25, LARVITAR
+	db 30, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons SILVER_CAVE_ROOM_2
@@ -1186,16 +1186,16 @@ JohtoGrassWildMons:
 	db 57, SNEASEL
 	db 57, PARASECT
 	db 58, PARASECT
-	db 40, LARVITAR
-	db 45, LARVITAR
+	db 25, LARVITAR
+	db 30, LARVITAR
 	; day
 	db 58, GOLBAT
 	db 58, GOLDUCK
 	db 57, SNEASEL
 	db 57, PARASECT
 	db 58, PARASECT
-	db 40, LARVITAR
-	db 45, LARVITAR
+	db 25, LARVITAR
+	db 30, LARVITAR
 	; nite
 	db 58, GOLBAT
 	db 58, GOLDUCK
@@ -1214,24 +1214,24 @@ JohtoGrassWildMons:
 	db 58, SNEASEL
 	db 58, QUAGSIRE
 	db 60, GOLBAT
-	db 45, LARVITAR
-	db 50, PUPITAR
+	db 30, LARVITAR
+	db 40, PUPITAR
 	; day
 	db 61, QUAGSIRE
 	db 58, GOLDUCK
 	db 58, SNEASEL
 	db 58, QUAGSIRE
 	db 60, GOLBAT
-	db 45, LARVITAR
-	db 50, PUPITAR
+	db 30, LARVITAR
+	db 40, PUPITAR
 	; nite
 	db 61, QUAGSIRE
 	db 58, GOLDUCK
 	db 58, SNEASEL
 	db 58, MISDREAVUS
 	db 60, GOLBAT
-	db 45, LARVITAR
-	db 50, PUPITAR
+	db 30, LARVITAR
+	db 40, PUPITAR
 	end_grass_wildmons
 
 	def_grass_wildmons SILVER_CAVE_ITEM_ROOMS
@@ -1243,7 +1243,7 @@ JohtoGrassWildMons:
 	db 58, PARASECT
 	db 58, GOLBAT
 	db 60, PARASECT
-	db 45, LARVITAR
+	db 30, LARVITAR
 	; day
 	db 58, QUAGSIRE
 	db 58, GOLDUCK
@@ -1251,7 +1251,7 @@ JohtoGrassWildMons:
 	db 58, PARASECT
 	db 58, GOLBAT
 	db 60, PARASECT
-	db 45, LARVITAR
+	db 30, LARVITAR
 	; nite
 	db 58, QUAGSIRE
 	db 58, GOLDUCK
@@ -1259,7 +1259,7 @@ JohtoGrassWildMons:
 	db 58, MISDREAVUS
 	db 58, GOLBAT
 	db 60, PARASECT
-	db 45, LARVITAR
+	db 30, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons DARK_CAVE_VIOLET_ENTRANCE
@@ -1881,57 +1881,57 @@ JohtoGrassWildMons:
 	def_grass_wildmons SILVER_CAVE_CLIFF_SIDE_1F
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 53, GOLBAT
-	db 54, GOLDUCK
-	db 54, DONPHAN
-	db 54, URSARING
-	db 55, PARASECT
-	db 40, LARVITAR
-	db 45, LARVITAR
+	db 55, GOLBAT
+	db 57, GOLDUCK
+	db 58, PARASECT
+	db 57, DONPHAN
+	db 57, URSARING
+	db 25, LARVITAR
+	db 30, LARVITAR
 	; day
-	db 53, GOLBAT
-	db 54, GOLDUCK
-	db 54, DONPHAN
-	db 54, URSARING
-	db 55, PARASECT
-	db 40, LARVITAR
-	db 45, LARVITAR
+	db 55, GOLBAT
+	db 57, GOLDUCK
+	db 58, PARASECT
+	db 57, DONPHAN
+	db 57, URSARING
+	db 25, LARVITAR
+	db 30, LARVITAR
 	; nite
-	db 53, GOLBAT
-	db 54, GOLDUCK
-	db 54, DONPHAN
-	db 54, URSARING
-	db 55, PARASECT
-	db 40, LARVITAR
-	db 45, LARVITAR
+	db 55, GOLBAT
+	db 57, GOLDUCK
+	db 58, PARASECT
+	db 57, DONPHAN
+	db 57, URSARING
+	db 25, LARVITAR
+	db 30, LARVITAR
 	end_grass_wildmons
 
 	def_grass_wildmons SILVER_CAVE_CLIFF_SIDE_2F
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 55, GOLBAT
-	db 55, GOLDUCK
-	db 54, SNEASEL
-	db 54, URSARING
-	db 55, DONPHAN
-	db 40, LARVITAR
-	db 45, LARVITAR
+	db 59, GOLBAT
+	db 57, GOLDUCK
+	db 57, SNEASEL
+	db 58, URSARING
+	db 58, DONPHAN
+	db 25, LARVITAR
+	db 35, PUPITAR
 	; day
-	db 55, GOLBAT
-	db 55, GOLDUCK
-	db 54, SNEASEL
-	db 54, URSARING
-	db 55, DONPHAN
-	db 40, LARVITAR
-	db 45, LARVITAR
+	db 59, GOLBAT
+	db 57, GOLDUCK
+	db 57, SNEASEL
+	db 58, URSARING
+	db 58, DONPHAN
+	db 25, LARVITAR
+	db 35, PUPITAR
 	; nite
-	db 55, GOLBAT
-	db 55, MISDREAVUS
-	db 54, SNEASEL
-	db 54, PARASECT
-	db 55, GOLDUCK
-	db 40, LARVITAR
-	db 45, LARVITAR
+	db 59, GOLBAT
+	db 57, MISDREAVUS
+	db 57, SNEASEL
+	db 58, URSARING
+	db 58, DONPHAN
+	db 25, LARVITAR
+	db 35, PUPITAR
 	end_grass_wildmons
 
 	db -1 ; end

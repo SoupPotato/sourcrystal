@@ -443,8 +443,16 @@ MoveList_InitAnimatedMonIcon:
 	ret
 
 Trade_LoadMonIconGFX:
+	ld hl, wTempMonDVs
 	ld a, [wTempIconSpecies]
+	ld [wCurPartySpecies], a
 	ld [wCurIcon], a
+	call GetMenuMonIconPalette
+	add a
+	add a
+	add a
+	ld e, a
+	farcall SetSecondOBJPalette
 	ld a, $62
 	ld [wCurIconTile], a
 	ld de, wTempMonDVs

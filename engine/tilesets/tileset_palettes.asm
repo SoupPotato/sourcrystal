@@ -117,6 +117,7 @@ MapSpecificPalettes:
 	_use_palette_routine_for_map KOGAS_ROOM, .KogasRoomBGPalettes
 	_use_palette_routine_for_map WILLS_ROOM, .WillsRoomBGPalettes
 	_use_palette_routine_for_map VIRIDIAN_GYM, .ViridianGymBGPalettes
+	_use_palette_routine_for_map SILVER_CAVE_CLIFF_SIDE_2F, .CliffSideBGPalettes
 	db -1 ; terminator
 
 .LavaOverRedCoalOverBrownBGPalette:
@@ -131,6 +132,13 @@ MapSpecificPalettes:
 	jp .next_TimeOfDay
 .SwampBGPalettes:
 	ld hl, SwampPals
+	ld a, [wTimeOfDayPal]
+	maskbits NUM_DAYTIMES
+	ld bc, 8 palettes
+	call AddNTimes
+	jp .next_TimeOfDay
+.CliffSideBGPalettes:
+	ld hl, CliffSidePals
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes

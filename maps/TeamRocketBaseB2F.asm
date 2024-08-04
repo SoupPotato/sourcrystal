@@ -224,7 +224,7 @@ RocketElectrode1:
 	cry ELECTRODE
 	checkflag ENGINE_CHALLENGE_MODE_ACTIVE
 	iftrue .Electrode1_challenge_mode
-	loadwildmon ELECTRODE, 23
+	loadwildmon ELECTRODE, 25
 	jump .Electrode1_finish
 .Electrode1_challenge_mode
 	loadwildmon ELECTRODE, 36

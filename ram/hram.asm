@@ -193,3 +193,5 @@ hUsedWeatherSpriteIndex:: db
 hUsedOAMIndex:: db
 
 	ds 8
+
+ENDSECTION

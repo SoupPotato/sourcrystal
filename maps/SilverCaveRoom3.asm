@@ -52,7 +52,7 @@ SilverCaveRoom3_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  9, 33, SILVER_CAVE_ROOM_2, 2
+	warp_event  9, 33, SILVER_CAVE_CLIFF_SIDE_2F, 2
 
 	def_coord_events
 

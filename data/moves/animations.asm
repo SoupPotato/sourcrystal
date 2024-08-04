@@ -970,7 +970,7 @@ BattleAnim_IceBeam:
 	anim_obj BATTLE_ANIM_OBJ_ICE_BEAM, 64, 92, $4
 	anim_wait 4
 	anim_loop 5, .loop
-	anim_obj BATTLE_ANIM_OBJ_ICE_BUILDUP, 136, 74, $10
+	anim_obj BATTLE_ANIM_OBJ_ICE_BUILDUP, 136, 72, $10
 .loop2
 	anim_sound 6, 2, SFX_SHINE
 	anim_obj BATTLE_ANIM_OBJ_ICE_BEAM, 64, 92, $4

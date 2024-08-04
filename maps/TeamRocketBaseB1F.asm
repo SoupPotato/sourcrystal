@@ -452,9 +452,16 @@ VoltorbExplodingTrap:
 	special FadeInPalettes_EnableDynNoApply
 	setlasttalked -1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
-	loadwildmon VOLTORB, 23
+	checkflag ENGINE_CHALLENGE_MODE_ACTIVE
+	iftrue .VoltorbTrap_challenge_mode
+	loadwildmon VOLTORB, 25
+	jump .VoltorbTrap_finish
+.VoltorbTrap_challenge_mode
+	loadwildmon VOLTORB, 36
+.VoltorbTrap_finish
 	startbattle
 	end
+
 
 GeodudeExplodingTrap:
 	special FadeOutPalettes
@@ -463,7 +470,13 @@ GeodudeExplodingTrap:
 	special FadeInPalettes_EnableDynNoApply
 	setlasttalked -1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
-	loadwildmon GEODUDE, 21
+	checkflag ENGINE_CHALLENGE_MODE_ACTIVE
+	iftrue .GeodudeTrap_challenge_mode
+	loadwildmon GEODUDE, 25
+	jump .GeodudeTrap_finish
+.GeodudeTrap_challenge_mode
+	loadwildmon GEODUDE, 36
+.GeodudeTrap_finish
 	startbattle
 	end
 
@@ -474,7 +487,13 @@ KoffingExplodingTrap:
 	special FadeInPalettes_EnableDynNoApply
 	setlasttalked -1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
-	loadwildmon KOFFING, 21
+	checkflag ENGINE_CHALLENGE_MODE_ACTIVE
+	iftrue .KoffingTrap_challenge_mode
+	loadwildmon KOFFING, 25
+	jump .KoffingTrap_finish
+.KoffingTrap_challenge_mode
+	loadwildmon KOFFING, 36
+.KoffingTrap_finish
 	startbattle
 	end
 

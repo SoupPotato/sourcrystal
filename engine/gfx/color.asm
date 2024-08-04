@@ -1318,20 +1318,6 @@ LoadMapPals:
 	ldh [rSVBK], a
 
 .got_pals
-	ldh a, [rSVBK]
-	push af
-	ld a, BANK(wOBPals1)
-	ldh [rSVBK], a
-	ld hl, wOBPals1
-	ld bc, 8 palettes
-	ld a, $ff
-	call ByteFill
-	ld hl, wOBPals2
-	ld bc, 8 palettes
-	ld a, $ff
-	call ByteFill
-	pop af
-	ldh [rSVBK], a
 	farcall ClearSavedObjPals
 
 	ld a, [wEnvironment]

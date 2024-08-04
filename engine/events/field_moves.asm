@@ -395,7 +395,7 @@ FlyFromAnim:
 	ld [wVramState], a
 	call FlyFunction_InitGFX
 	depixel 10, 10, 4, 0
-	ld a, SPRITE_ANIM_OBJ_RED_WALK
+	ld a, SPRITE_ANIM_OBJ_FLY_MON
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
@@ -449,7 +449,7 @@ FlyToAnim:
 	ld [wVramState], a
 	call FlyFunction_InitGFX
 	depixel 31, 10, 4, 0
-	ld a, SPRITE_ANIM_OBJ_RED_WALK
+	ld a, SPRITE_ANIM_OBJ_FLY_MON
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc

@@ -292,11 +292,23 @@ UpdateAnimFrame:
 	; fourth byte: attributes
 	; [de] = GetSpriteOAMAttr([hl])
 	ld a, [hl]
-	cp -1
-	jr z, .skip_attributes
+	cp SPRITEOAM_SKIP_PAL_APPLY
+	jr z, .skipOAMAttributes
+	cp SPRITEOAM_SKIP_PAL_APPLY_XFLIP
+	jr z, .skipOAMAttributes_xflip
 	call GetSpriteOAMAttr
 	ld [de], a
-.skip_attributes
+	jr .attributes_done
+.skipOAMAttributes
+	ld a, [de]
+	and ~X_FLIP
+	ld [de], a
+	jr .attributes_done
+.skipOAMAttributes_xflip
+	ld a, [de]
+	or X_FLIP
+	ld [de], a
+.attributes_done
 	inc hl
 	inc de
 	ld a, e

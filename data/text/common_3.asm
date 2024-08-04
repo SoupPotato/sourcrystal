@@ -1058,8 +1058,8 @@ _PokegearPressButtonText::
 	done
 
 _PokegearSelectPagerText::
-	text "Select a PAGER"
-	line "to summon."
+	text "Page a #MON"
+	line "to summon?"
 	done
 
 _PokegearAskDeleteText::

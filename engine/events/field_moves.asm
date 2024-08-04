@@ -152,6 +152,9 @@ OWCutAnimation:
 	call WaitSFX
 	ld de, SFX_PLACE_PUZZLE_PIECE_DOWN
 	call PlaySFX
+	; enable weather
+	ld hl, wWeatherFlags
+	res OW_WEATHER_DISABLED_F, [hl]
 .loop
 	ld a, [wJumptableIndex]
 	bit 7, a
@@ -176,6 +179,26 @@ OWCutAnimation:
 	jr .loop
 
 .finish
+	; clear wCurSpriteOAMAddr -> hUsedOAMIndex
+	ld a, [wCurSpriteOAMAddr]
+	ld h, HIGH(wShadowOAM)
+	ld l, a
+	ldh a, [hUsedOAMIndex]
+	; a = NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH - a
+	cpl
+	add NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH + 1
+	sub l
+	
+	srl a
+	srl a ; / 4
+	ld b, a
+	ld de, 4
+	ld a, OAM_YCOORD_HIDDEN
+.clear_loop
+	ld [hl], a
+	add hl, de
+	dec b
+	jr nz, .clear_loop
 	ret
 
 .LoadCutGFX:

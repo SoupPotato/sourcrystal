@@ -5,6 +5,14 @@ MACRO weather_map
 ENDM
 
 SetCurrentWeather::
+	; check for mandatory snow maps
+	ld a, [wMapGroup]
+	cp GROUP_SILVER_CAVE_CLIFF_SIDE_2F
+	jr nz, .not_silver_cave_cliff_side_2f
+	ld a, [wMapNumber]
+	cp MAP_SILVER_CAVE_CLIFF_SIDE_2F
+	jp z, .snow
+.not_silver_cave_cliff_side_2f
 	; check for mandatory rain maps
 	ld a, [wMapGroup]
 	cp GROUP_LAKE_OF_RAGE
@@ -92,6 +100,10 @@ SetCurrentWeather::
 	ld a, 32
 	ld [wOverworldWeatherCooldown], a
 	ret
+
+.snow
+	ld a, OW_WEATHER_SNOW
+	jr .set_weather
 
 GenerateNewRandomRainMap:
 	ld a, NUM_WEATHER_MAPS

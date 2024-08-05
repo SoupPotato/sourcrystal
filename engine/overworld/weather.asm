@@ -235,12 +235,11 @@ DoSnowFall:
 	jr c, .despawn
 .ok
 
-	; double the player's step vector (may be positive or negative)
+	; add the player's step vector (may be positive or negative)
 	ld a, [wPlayerStepVectorY]
-	add a
 	ld c, a
 
-	; get the sprite's y coord and subtract the player's doubled step vector
+	; get the sprite's y coord and subtract the player's step vector
 	ld hl, SPRITEOAMSTRUCT_YCOORD
 	add hl, de
 	ld a, [hl]
@@ -261,9 +260,8 @@ DoSnowFall:
 	ld [hl], a
 	jr nc, .despawn
 
-	; double the player's step vector (may be positive or negative)
+	; add the player's step vector (may be positive or negative)
 	ld a, [wPlayerStepVectorX]
-	add a
 	ld c, a
 
 	; sprite has a 50% chance to wiggle left 1.
@@ -275,7 +273,7 @@ DoSnowFall:
 .no_add_1
 	ld c, a
 
-	; get the sprite's x coord and subtract the player's doubled step vector + wiggle
+	; get the sprite's x coord and subtract the player's step vector + wiggle
 	ld hl, SPRITEOAMSTRUCT_XCOORD
 	add hl, de
 	ld a, [hl]

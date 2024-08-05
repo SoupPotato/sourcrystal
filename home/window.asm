@@ -93,6 +93,35 @@ ClearSpritesUnderTextbox::
 	ld [hl], OAM_YCOORD_HIDDEN
 	jr .next
 
+ClearSpritesUnderPhoneCall::
+	ld de, wShadowOAM
+	ld h, d
+	ld l, e
+	ld c, NUM_SPRITE_OAM_STRUCTS
+.loop
+	; check if YCoord < 6 * TILE_WIDTH
+	ld a, [hl]
+	cp 6 * TILE_WIDTH
+	jr c, .clear_sprite
+.next
+	ld hl, SPRITEOAMSTRUCT_LENGTH
+	add hl, de
+	ld e, l
+	dec c
+	jr nz, .loop
+	ldh a, [hOAMUpdate]
+	push af
+	ld a, TRUE
+	ldh [hOAMUpdate], a
+	call DelayFrame
+	pop af
+	ldh [hOAMUpdate], a
+	ret
+
+.clear_sprite
+	ld [hl], OAM_YCOORD_HIDDEN
+	jr .next
+
 _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap::
 	ldh a, [hOAMUpdate]
 	push af

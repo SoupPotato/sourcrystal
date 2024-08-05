@@ -1075,4 +1075,11 @@ MACRO trainerpic
 	db \1 ; trainer
 ENDM
 
+	const set_object_priority_command ; $ab
+MACRO set_object_priority
+	db set_object_priority_command
+	db \1 ; object
+	db \2 ; priority
+ENDM
+
 DEF NUM_EVENT_COMMANDS EQU const_value

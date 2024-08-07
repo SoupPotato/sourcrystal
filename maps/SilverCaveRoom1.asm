@@ -32,7 +32,7 @@ SilverCaveRoom1_MapEvents:
 
 	def_warp_events
 	warp_event  9, 43, SILVER_CAVE_OUTSIDE, 2
-	warp_event  9,  3, SILVER_CAVE_CLIFF_SIDE_1F, 1
+	warp_event  9,  3, SILVER_CAVE_LOWER_MOUNTAINSIDE, 1
 
 	def_coord_events
 

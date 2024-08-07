@@ -538,8 +538,8 @@ ENDM
 
 	newgroup SAFARI_ZONE                                          ; 28
 	map_const SAFARI_ZONE_AREA_3,                          21, 17 ;  1
-	map_const SILVER_CAVE_CLIFF_SIDE_1F,                   15, 20 ;  2
-	map_const SILVER_CAVE_CLIFF_SIDE_2F,                   17, 18 ;  3
+	map_const SILVER_CAVE_LOWER_MOUNTAINSIDE,              15, 20 ;  2
+	map_const SILVER_CAVE_UPPER_MOUNTAINSIDE,              17, 18 ;  3
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 26

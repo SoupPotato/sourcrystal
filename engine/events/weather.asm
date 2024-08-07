@@ -7,12 +7,12 @@ ENDM
 SetCurrentWeather::
 	; check for mandatory snow maps
 	ld a, [wMapGroup]
-	cp GROUP_SILVER_CAVE_CLIFF_SIDE_2F
-	jr nz, .not_silver_cave_cliff_side_2f
+	cp GROUP_SILVER_CAVE_UPPER_MOUNTAINSIDE
+	jr nz, .not_silver_cave_upper_mountainside
 	ld a, [wMapNumber]
-	cp MAP_SILVER_CAVE_CLIFF_SIDE_2F
+	cp MAP_SILVER_CAVE_UPPER_MOUNTAINSIDE
 	jp z, .snow
-.not_silver_cave_cliff_side_2f
+.not_silver_cave_upper_mountainside
 	; check for mandatory rain maps
 	ld a, [wMapGroup]
 	cp GROUP_LAKE_OF_RAGE

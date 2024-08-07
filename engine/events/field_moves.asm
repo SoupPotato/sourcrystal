@@ -48,7 +48,7 @@ ShakeHeadbuttTree:
 	add (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH + 1
 
 	ld [wCurSpriteOAMAddr], a
-	farcall DoNextFrameForAllSprites
+	farcall DoNextFrameForAllSprites_OW
 	call HideHeadbuttTree
 	ld a, 32
 	ld [wFrameCounter], a
@@ -71,7 +71,7 @@ ShakeHeadbuttTree:
 	add (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH + 1
 
 	ld [wCurSpriteOAMAddr], a
-	farcall DoNextFrameForAllSprites
+	farcall DoNextFrameForAllSprites_OW
 	ld a, [wOverworldRunTimer]
 	and %1
 	jr z, .skip_weather
@@ -176,7 +176,7 @@ OWCutAnimation:
 	add (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH + 1
 
 	ld [wCurSpriteOAMAddr], a
-	callfar DoNextFrameForAllSprites
+	callfar DoNextFrameForAllSprites_OW
 	ld a, [wOverworldRunTimer]
 	and %1
 	jr z, .skip_weather
@@ -420,7 +420,7 @@ FlyFromAnim:
 	add (NUM_SPRITE_OAM_STRUCTS - NUM_FLYFROM_ANIM_OAMS) * SPRITEOAMSTRUCT_LENGTH + 1
 .got_oam_addr
 	ld [wCurSpriteOAMAddr], a
-	callfar DoNextFrameForAllSprites
+	callfar DoNextFrameForAllSprites_OW
 	ld a, [wOverworldRunTimer]
 	and %1
 	jr z, .skip_weather
@@ -477,7 +477,7 @@ FlyToAnim:
 	add (NUM_SPRITE_OAM_STRUCTS - NUM_FLYFROM_ANIM_OAMS) * SPRITEOAMSTRUCT_LENGTH + 1
 .got_oam_addr
 	ld [wCurSpriteOAMAddr], a
-	callfar DoNextFrameForAllSprites
+	callfar DoNextFrameForAllSprites_OW
 	ld a, [wOverworldRunTimer]
 	and %1
 	jr z, .skip_weather

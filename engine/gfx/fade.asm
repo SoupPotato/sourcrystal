@@ -1,3 +1,10 @@
+MapConnOWFadePalettesInit::
+	ld a, [wCurWeather]
+	ld b, a
+	ld a, [wPrevWeather]
+	cp b
+	jp z, UpdateTimePals
+	; fallthrough
 OWFadePalettesInit::
 	ldh a, [rSVBK]
 	push af

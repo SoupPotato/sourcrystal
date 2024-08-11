@@ -55,3 +55,4 @@ MapSetupCommands:
 	add_mapsetup EnableDynPalUpdatesNoApply ; 30
 	add_mapsetup ClearWeather ; 31
 	add_mapsetup SetCurrentWeather ; 32
+	add_mapsetup MapConnOWFadePalettesInit ; 33

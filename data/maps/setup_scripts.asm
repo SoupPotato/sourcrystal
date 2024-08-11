@@ -96,8 +96,8 @@ MapSetupScript_Connection:
 	mapsetup FadeToMapMusic
 	mapsetup LoadMapPalettes
 	mapsetup EnableDynPalUpdates
+	mapsetup MapConnOWFadePalettesInit
 	mapsetup InitMapNameSign
-	mapsetup ApplyMapPalettes
 	mapsetup LoadWildMonData
 	mapsetup UpdateRoamMons
 	mapsetup ActivateMapAnims

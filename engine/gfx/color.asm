@@ -1336,7 +1336,12 @@ LoadMapPals:
 	add a
 	ld e, a
 	ld d, 0
+	ld a, [wCurWeather]
+	and a
 	ld hl, RoofPals
+	jr z, .got_roof_pals
+	ld hl, OvercastRoofPals
+.got_roof_pals
 	add hl, de
 	add hl, de
 	add hl, de
@@ -1455,6 +1460,11 @@ INCLUDE "gfx/tilesets/overcast_bg_tiles.pal"
 RoofPals:
 	table_width PAL_COLOR_SIZE * 3 * 2, RoofPals
 INCLUDE "gfx/tilesets/roofs.pal"
+	assert_table_length NUM_MAP_GROUPS + 1
+
+OvercastRoofPals:
+	table_width PAL_COLOR_SIZE * 3 * 2, OvercastRoofPals
+INCLUDE "gfx/tilesets/overcast_roofs.pal"
 	assert_table_length NUM_MAP_GROUPS + 1
 
 DiplomaPalettes:

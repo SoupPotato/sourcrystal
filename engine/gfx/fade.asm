@@ -1,8 +1,10 @@
 MapConnOWFadePalettesInit::
 	ld a, [wCurWeather]
 	ld b, a
-	ld a, [wPrevWeather]
+	ld a, [wPrevOvercastIndex]
 	cp b
+	ld a, b
+	ld [wPrevOvercastIndex], a
 	jp z, UpdateTimePals
 	; fallthrough
 OWFadePalettesInit::

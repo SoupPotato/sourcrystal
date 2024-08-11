@@ -55,7 +55,7 @@ SetCurrentWeather::
 	ld c, a
 	ld a, [wMapGroup]
 	cp b
-	jr nz, .not_rain
+	jr nz, .not_raining
 	ld a, [wMapNumber]
 	cp c
 	jr z, .rain

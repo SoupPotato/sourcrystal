@@ -35,13 +35,27 @@ SetCurrentWeather::
 	cp b
 	ld [wWeatherRandomDay], a
 	call nz, GenerateNewRandomRainMap
-	ld a, [wWeatherRandomMapGroup]
+
+	; check Johto maps
+	ld a, [wWeatherRandomMapGroupJohto]
 	ld b, a
-	ld a, [wWeatherRandomMapNumber]
+	ld a, [wWeatherRandomMapNumberJohto]
 	ld c, a
 	ld a, [wMapGroup]
 	cp b
-	jr nz, .not_raining
+	jr nz, .check_kanto_rain
+	ld a, [wMapNumber]
+	cp c
+	jr z, .rain
+
+.check_kanto_rain
+	ld a, [wWeatherRandomMapGroupKanto]
+	ld b, a
+	ld a, [wWeatherRandomMapNumberKanto]
+	ld c, a
+	ld a, [wMapGroup]
+	cp b
+	jr nz, .not_rain
 	ld a, [wMapNumber]
 	cp c
 	jr z, .rain
@@ -106,20 +120,32 @@ SetCurrentWeather::
 	jr .set_weather
 
 GenerateNewRandomRainMap:
-	ld a, NUM_WEATHER_MAPS
+	ld a, NUM_JOHTO_WEATHER_MAPS
 	call RandomRange
 	ld h, 0
 	ld l, a
 	add hl, hl
-	ld de, RandomRainMaps
+	ld de, RandomRainMapsJohto
 	add hl, de
 	ld a, [hli]
-	ld [wWeatherRandomMapGroup], a
+	ld [wWeatherRandomMapGroupJohto], a
 	ld a, [hl]
-	ld [wWeatherRandomMapNumber], a
+	ld [wWeatherRandomMapNumberJohto], a
+
+	ld a, NUM_KANTO_WEATHER_MAPS
+	call RandomRange
+	ld h, 0
+	ld l, a
+	add hl, hl
+	ld de, RandomRainMapsKanto
+	add hl, de
+	ld a, [hli]
+	ld [wWeatherRandomMapGroupKanto], a
+	ld a, [hl]
+	ld [wWeatherRandomMapNumberKanto], a
 	ret
 
-RandomRainMaps:
+RandomRainMapsJohto:
 	const_def
 	weather_map ROUTE_29
 	weather_map ROUTE_30
@@ -137,5 +163,10 @@ RandomRainMaps:
 	weather_map ROUTE_43
 	weather_map ROUTE_44
 	db -1 ; end
-	DEF NUM_WEATHER_MAPS EQU const_value
+	DEF NUM_JOHTO_WEATHER_MAPS EQU const_value
 
+RandomRainMapsKanto:
+	const_def
+	weather_map ROUTE_1
+	db -1 ; end
+	DEF NUM_KANTO_WEATHER_MAPS EQU const_value

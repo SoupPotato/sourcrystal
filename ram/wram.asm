@@ -1895,8 +1895,10 @@ wPrevWeather:: db
 wCurWeather:: db
 wPrevOvercastIndex:: db
 wWeatherRandomDay:: db
-wWeatherRandomMapGroup:: db
-wWeatherRandomMapNumber:: db
+wWeatherRandomMapGroupJohto:: db
+wWeatherRandomMapNumberJohto:: db
+wWeatherRandomMapGroupKanto:: db
+wWeatherRandomMapNumberKanto:: db
 
 
 SECTION "Fade System Ram", WRAM0

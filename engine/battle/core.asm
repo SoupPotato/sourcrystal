@@ -116,7 +116,27 @@ DoBattle:
 	call SpikesDamage
 
 .not_linked_2
+	call StartAutomaticBattleWeather
 	jp BattleTurn
+
+StartAutomaticBattleWeather:
+	ld a, [wCurWeather]
+	and a
+	ret z
+	cp OW_WEATHER_RAIN
+	jr z, .raining
+	cp OW_WEATHER_THUNDERSTORM
+	ret nz
+.raining
+	ld a, WEATHER_RAIN
+	ld [wBattleWeather], a
+	ld de, RAIN_DANCE
+	ld a, 255
+	ld [wWeatherCount], a
+	call Call_PlayBattleAnim
+	ld hl, StartedToRainText
+	call StdBattleTextbox
+	jp EmptyBattleTextbox
 
 SafariBattleTurn:
 .loop
@@ -148,7 +168,6 @@ CheckSafariBattleOver:
 .safari_not_over:
 	and a
 	ret
-
 
 WildFled_EnemyFled_LinkBattleCanceled:
 	call SafeLoadTempTilemapToTilemap
@@ -193,7 +212,6 @@ WildFled_EnemyFled_LinkBattleCanceled:
 
 BattleTurn:
 .loop
-	call Stubbed_Increments5_a89a
 	call CheckContestBattleOver
 	jp c, .quit
 
@@ -265,23 +283,6 @@ BattleTurn:
 
 .quit
 	ret
-
-Stubbed_Increments5_a89a:
-	ret
-	ld a, BANK(s5_a89a) ; MBC30 bank used by JP Crystal; inaccessible by MBC3
-	call OpenSRAM
-	ld hl, s5_a89a + 1 ; address of MBC30 bank
-	inc [hl]
-	jr nz, .finish
-	dec hl
-	inc [hl]
-	jr nz, .finish
-	dec [hl]
-	inc hl
-	dec [hl]
-
-.finish
-	jp CloseSRAM
 
 HandleBetweenTurnEffects:
 	ldh a, [hSerialConnectionStatus]
@@ -6836,17 +6837,6 @@ CheckUnownLetter:
 
 INCLUDE "data/wild/unlocked_unowns.asm"
 
-SwapBattlerLevels: ; unreferenced
-	push bc
-	ld a, [wBattleMonLevel]
-	ld b, a
-	ld a, [wEnemyMonLevel]
-	ld [wBattleMonLevel], a
-	ld a, b
-	ld [wEnemyMonLevel], a
-	pop bc
-	ret
-
 BattleWinSlideInEnemyTrainerFrontpic:
 	xor a
 	ld [wTempEnemyMonSpecies], a
@@ -7198,20 +7188,6 @@ _LoadBattleFontsHPBar:
 _LoadHPBar:
 	callfar LoadHPBar
 	ret
-
-LoadHPExpBarGFX: ; unreferenced
-	ld de, EnemyHPBarBorderGFX
-	ld hl, vTiles2 tile $6c
-	lb bc, BANK(EnemyHPBarBorderGFX), 4
-	call Get1bpp
-	ld de, HPExpBarBorderGFX
-	ld hl, vTiles2 tile $73
-	lb bc, BANK(HPExpBarBorderGFX), 6
-	call Get1bpp
-	ld de, ExpBarGFX
-	ld hl, vTiles2 tile $55
-	lb bc, BANK(ExpBarGFX), 8
-	jp Get2bpp
 
 EmptyBattleTextbox:
 	ld hl, .empty
@@ -8122,10 +8098,6 @@ OKComeBackText:
 GoodComeBackText:
 	text_far _GoodComeBackText
 	text_end
-
-TextJump_ComeBack: ; unreferenced
-	ld hl, ComeBackText
-	ret
 
 ComeBackText:
 	text_far _ComeBackText

@@ -111,6 +111,8 @@ GenerateNewRandomRainMap:
 	ld h, 0
 	ld l, a
 	add hl, hl
+	ld de, RandomRainMaps
+	add hl, de
 	ld a, [hli]
 	ld [wWeatherRandomMapGroup], a
 	ld a, [hl]

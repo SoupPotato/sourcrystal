@@ -1299,6 +1299,11 @@ LoadMapPals:
 	add hl, hl
 	add hl, hl
 	ld de, TilesetBGPalette
+	ld a, [wCurWeather]
+	and a
+	jr z, .got_bg_pals
+	ld de, OvercastTilesetBGPalette
+.got_bg_pals
 	add hl, de
 	ld e, l
 	ld d, h
@@ -1443,6 +1448,9 @@ BillsPC_ItemPalette:
 
 TilesetBGPalette:
 INCLUDE "gfx/tilesets/bg_tiles.pal"
+
+OvercastTilesetBGPalette:
+INCLUDE "gfx/tilesets/overcast_bg_tiles.pal"
 
 RoofPals:
 	table_width PAL_COLOR_SIZE * 3 * 2, RoofPals

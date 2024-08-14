@@ -35,6 +35,7 @@ MainMenu:
 	res GAME_TIMER_PAUSED_F, [hl]
 	call MainMenu_GetWhichMenu
 	ld [wWhichIndexSet], a
+	call MainMenu_PrintCurrentVersion
 	call MainMenu_PrintCurrentTimeAndDay
 	ld hl, .MenuHeader
 	call LoadMenuHeader
@@ -257,6 +258,28 @@ MainMenuJoypadLoop:
 .b_button
 	scf
 	ret
+
+MainMenu_PrintCurrentVersion:
+	lb bc, 1, 4
+	ld a, [wSaveFileExists]
+	and a
+	jr nz, .has_save_file
+; no save file
+	hlcoord 14, 15
+	call Textbox
+	hlcoord 15, 16
+	jr .no_save_file
+.has_save_file
+	hlcoord 14, 11
+	call Textbox
+	hlcoord 15, 12
+.no_save_file
+	ld de, .VersionString
+	jp PlaceString
+
+.VersionString
+	db "v5.0"
+	db "@"
 
 MainMenu_PrintCurrentTimeAndDay:
 	ld a, [wSaveFileExists]

@@ -39,6 +39,18 @@ InitMapNameSign::
 	call .CheckSpecialMap
 	jr z, .dont_do_map_sign
 
+; Load Sign palettes
+	ld hl, SignPals
+	ld de, wBGPals1 palette PAL_BG_TEXT
+	ld bc, 1 palettes
+	call FarCopyColorWRAM
+	ld hl, wBGPals1 palette PAL_BG_TEXT
+	ld de, wBGPals2 palette PAL_BG_TEXT
+	ld bc, 1 palettes
+	call FarCopyColorWRAM
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+
 ; Display for 60 frames
 	ld a, 60
 	ld [wLandmarkSignTimer], a
@@ -253,3 +265,6 @@ PlaceMapNameFrame:
 	dec c
 	jr nz, .continueloop
 	ret
+
+SignPals:
+INCLUDE "gfx/tilesets/mapsign.pal"

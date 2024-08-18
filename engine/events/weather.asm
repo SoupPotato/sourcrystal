@@ -153,20 +153,45 @@ RandomRainMapsJohto:
 	weather_map ROUTE_32
 	weather_map ROUTE_34
 	weather_map ROUTE_35
-	weather_map ROUTE_36
 	weather_map ROUTE_37
 	weather_map ROUTE_38
 	weather_map ROUTE_39
-	weather_map ROUTE_47
-	weather_map ROUTE_48
+	weather_map ROUTE_40
+	weather_map ROUTE_41
 	weather_map ROUTE_42
 	weather_map ROUTE_43
 	weather_map ROUTE_44
+	weather_map ROUTE_47
+	weather_map ROUTE_48
 	db -1 ; end
 	DEF NUM_JOHTO_WEATHER_MAPS EQU const_value
 
 RandomRainMapsKanto:
 	const_def
 	weather_map ROUTE_1
+	weather_map ROUTE_2_NORTH
+	weather_map ROUTE_2_SOUTH
+	weather_map ROUTE_3
+	weather_map ROUTE_4
+	weather_map ROUTE_5
+	weather_map ROUTE_6
+	weather_map ROUTE_7
+	weather_map ROUTE_8
+	weather_map ROUTE_9
+	weather_map ROUTE_10_NORTH
+	weather_map ROUTE_11
+	weather_map ROUTE_12
+	weather_map ROUTE_13
+	weather_map ROUTE_14
+	weather_map ROUTE_15
+	weather_map ROUTE_19
+	weather_map ROUTE_20
+	weather_map ROUTE_21
+	weather_map ROUTE_22
+	weather_map ROUTE_23
+	weather_map ROUTE_24
+	weather_map ROUTE_25
+	weather_map ROUTE_26
+	weather_map ROUTE_27
 	db -1 ; end
 	DEF NUM_KANTO_WEATHER_MAPS EQU const_value

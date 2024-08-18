@@ -77,6 +77,7 @@ SpriteAnimFrameData:
 	dw .Frameset_PagerMonGreen
 	dw .Frameset_PagerMonBrown
 	dw .Frameset_PagerMonGrey
+	dw .Frameset_FlyMon
 	assert_table_length NUM_SPRITE_ANIM_FRAMESETS
 
 .Frameset_00:
@@ -546,3 +547,10 @@ SpriteAnimFrameData:
 	frame SPRITE_ANIM_OAMSET_GREY_WALK_1,  8
 	frame SPRITE_ANIM_OAMSET_GREY_WALK_2,  8
 	dorestart
+
+.Frameset_FlyMon:
+	oamframe SPRITE_ANIM_OAMSET_FLY_MON_1,  8
+	oamframe SPRITE_ANIM_OAMSET_FLY_MON_2,  8
+	oamframe SPRITE_ANIM_OAMSET_FLY_MON_1,  8
+	oamframe SPRITE_ANIM_OAMSET_FLY_MON_3,  8, OAM_X_FLIP
+	oamrestart

@@ -46,6 +46,11 @@ DEF SPRITE_GFX_LIST_CAPACITY EQU 32 ; see wUsedSprites
 
 DEF PHONE_OR_PAGER_HEIGHT EQU 4 ; pokegear
 
+; Used to prevent updating the OAM's palette (0-7) during the next anim frame,
+; useful when dynamically applying a palette, such as party menu sprites and overworld fly mon sprites.
+DEF SPRITEOAM_SKIP_PAL_APPLY       EQU -1
+DEF SPRITEOAM_SKIP_PAL_APPLY_XFLIP EQU -2 ; Same as above, but with X-flip attribute.
+
 ; PokeAnims indexes (see engine/gfx/pic_animation.asm)
 	const_def
 	const ANIM_MON_SLOW
@@ -57,3 +62,8 @@ DEF PHONE_OR_PAGER_HEIGHT EQU 4 ; pokegear
 	const ANIM_MON_HOF
 	const ANIM_MON_EGG1
 	const ANIM_MON_EGG2
+
+DEF OAM_YCOORD_HIDDEN EQU 160 ; hides an OAM offscreen
+
+DEF NUM_FLYFROM_ANIM_OAMS EQU 4 + 9 ; 4 for flymon, 9 for leaves
+DEF NUM_FLYTO_ANIM_OAMS   EQU 4 + 8 ; 4 for flymon, 8 for leaves

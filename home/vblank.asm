@@ -111,7 +111,7 @@ VBlank0::
 	jr nz, .done_oam
 	call hTransferShadowOAM
 .done_oam
-
+	call UpdateCGBPalsLYTimed
 	; vblank-sensitive operations are done
 
 	xor a

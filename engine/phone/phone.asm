@@ -589,6 +589,7 @@ Phone_TextboxWithName:
 	ret
 
 Phone_CallerTextbox:
+	call ClearSpritesUnderPhoneCall
 	hlcoord 0, 0
 	ld b, 2
 	ld c, SCREEN_WIDTH - 2

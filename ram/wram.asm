@@ -133,7 +133,9 @@ wMapTimeOfDay:: db
 
 wPalFlags:: db
 
-	ds 2
+wPlayerCurrentOAMSlot:: db
+
+	ds 1
 
 wPrinterConnectionOpen:: db
 wPrinterOpcode:: db
@@ -1882,6 +1884,27 @@ wHoursSince:: db
 wDaysSince:: db
 
 
+SECTION "Weather RAM", WRAM0
+
+wOverworldRunTimer:: db
+wOverworldWeatherInternalTimer:: db
+wOverworldWeatherCooldown:: db
+wSpriteOverlapCount:: db
+wWeatherFlags:: db
+wPrevWeather:: db
+wCurWeather:: db
+wPrevOvercastIndex:: db
+wWeatherRandomDay:: db
+wWeatherRandomMapGroupJohto:: db
+wWeatherRandomMapNumberJohto:: db
+wWeatherRandomMapGroupKanto:: db
+wWeatherRandomMapNumberKanto:: db
+
+
+SECTION "Fade System Ram", WRAM0
+wPalFadeMode:: db
+
+
 SECTION "WRAM 1", WRAMX
 
 wGBCOnlyDecompressBuffer:: ; a $540-byte buffer that continues past this SECTION
@@ -3622,7 +3645,10 @@ wMagnetTrainHoldPosition:: db
 wMagnetTrainFinalPosition:: db
 wMagnetTrainPlayerSpriteInitX:: db
 
-	ds 106
+wPalFadeDelayFrames:: db
+wPalFadeDelay:: db
+
+	ds 104
 
 	align 8
 wLYOverridesBackup:: ds SCREEN_HEIGHT_PX
@@ -3635,6 +3661,16 @@ wPokeDBUsedEntries::
 wPokeDB1UsedEntries:: flag_array MONDB_ENTRIES
 wPokeDB2UsedEntries:: flag_array MONDB_ENTRIES
 wPokeDBUsedEntriesEnd::
+
+
+SECTION "Sprites Backup", WRAMX
+
+wShadowOAMBackup::
+; wShadowOAMSpriteBackup00 - wShadowOAMSpriteBackup39
+for n, NUM_SPRITE_OAM_STRUCTS
+wShadowOAMSpriteBackup{02d:n}:: sprite_oam_struct wShadowOAMSpriteBackup{02d:n}
+endr
+wShadowOAMBackupEnd::
 
 
 SECTION "Battle Animations", WRAMX
@@ -3741,6 +3777,9 @@ wDecompressScratch:: ds $100 tiles
 NEXTU
 ; unidentified uses
 w6_d000:: ds $1000
+
+NEXTU
+wWeatherScratch:: ds SCREEN_HEIGHT_PX
 ENDU
 
 

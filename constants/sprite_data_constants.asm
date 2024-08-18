@@ -41,24 +41,26 @@ ENDM
 	ow_npc_pal_const DECO_ITEM         ; 0e (blue)
 	ow_npc_pal_const KEY_ITEM          ; 0f (green)
 	ow_npc_pal_const TREE              ; 10
+	ow_npc_pal_const RAIN              ; 11
+	ow_npc_pal_const SAND              ; 12
 DEF NUM_OW_TIME_OF_DAY_PALS EQU const_value
-	ow_npc_pal_const EMOTE_GRAY        ; 11
-	ow_npc_pal_const EMOTE_BLACK       ; 12
-	ow_npc_pal_const EMOTE_GREEN       ; 13
-	ow_npc_pal_const EMOTE_PURPLE      ; 14
-	ow_npc_pal_const EMOTE_RED         ; 15
-	ow_npc_pal_const EMOTE_ORANGE      ; 16
-	ow_npc_pal_const EMOTE_BLUE        ; 17
+	ow_npc_pal_const EMOTE_GRAY        ; 13
+	ow_npc_pal_const EMOTE_BLACK       ; 14
+	ow_npc_pal_const EMOTE_GREEN       ; 15
+	ow_npc_pal_const EMOTE_PURPLE      ; 16
+	ow_npc_pal_const EMOTE_RED         ; 17
+	ow_npc_pal_const EMOTE_ORANGE      ; 18
+	ow_npc_pal_const EMOTE_BLUE        ; 19
 DEF NUM_OW_INDIVIDUAL_PALS EQU const_value - NUM_OW_TIME_OF_DAY_PALS
 DEF FIRST_COPY_BG_PAL EQU const_value
-	ow_npc_pal_const COPY_BG_GRAY      ; 18
-	ow_npc_pal_const COPY_BG_RED       ; 19
-	ow_npc_pal_const COPY_BG_GREEN     ; 1a
-	ow_npc_pal_const COPY_BG_WATER     ; 1b
-	ow_npc_pal_const COPY_BG_YELLOW    ; 1c
-	ow_npc_pal_const COPY_BG_BROWN     ; 1d
-	ow_npc_pal_const COPY_BG_ROOF      ; 1e
-	ow_npc_pal_const COPY_BG_TEXT      ; 1f
+	ow_npc_pal_const COPY_BG_GRAY      ; 1a
+	ow_npc_pal_const COPY_BG_RED       ; 1b
+	ow_npc_pal_const COPY_BG_GREEN     ; 1c
+	ow_npc_pal_const COPY_BG_WATER     ; 1d
+	ow_npc_pal_const COPY_BG_YELLOW    ; 1e
+	ow_npc_pal_const COPY_BG_BROWN     ; 1f
+	ow_npc_pal_const COPY_BG_ROOF      ; 20
+	ow_npc_pal_const COPY_BG_TEXT      ; 21
 DEF NUM_OW_BG_COPY_PALS EQU const_value - NUM_OW_INDIVIDUAL_PALS
 DEF NUM_OW_PALS EQU const_value
 
@@ -67,3 +69,6 @@ DEF PAL_NPC_ROCK EQU PAL_NPC_BROWN
 DEF PAL_OW_GREY EQU PAL_OW_GRAY
 DEF PAL_NPC_SILVER EQU PAL_NPC_GRAY
 DEF PAL_OW_SILVER EQU PAL_OW_GRAY
+
+; used by wLoadedObjPal0-7 to mark that no palette is loaded
+DEF NO_PAL_LOADED EQU -1

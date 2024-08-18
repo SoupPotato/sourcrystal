@@ -10,6 +10,12 @@ UpdatePalsIfCGB::
 	and a
 	ret z
 
+UpdateCGBPalsLYTimed:
+; checks if there is time to run UpdateCGBPals.
+	ldh a, [rLY]
+	cp 150
+	ret nc
+	; fallthrough
 UpdateCGBPals::
 ; return carry if successful
 ; any pals to update?

@@ -335,6 +335,7 @@ WRAM0
 	"Overworld Map"
 	align 4
 	"Video"
+	"Weather RAM"
 WRAMX 1
 	"WRAM 1"
 	"Miscellaneous WRAM 1"
@@ -343,6 +344,7 @@ WRAMX 1
 	"Party"
 WRAMX 2
 	"Pic Animations"
+	"Sprites Backup"
 WRAMX 3
 	"Battle Tower RAM"
 WRAMX 4

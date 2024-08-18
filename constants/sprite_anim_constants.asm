@@ -89,6 +89,7 @@ DEF NUM_SPRITEANIMDICT_ENTRIES EQU 10
 	const SPRITE_ANIM_OBJ_PAGER_MON_GREEN           ; 33
 	const SPRITE_ANIM_OBJ_PAGER_MON_BROWN           ; 34
 	const SPRITE_ANIM_OBJ_PAGER_MON_GREY            ; 35
+	const SPRITE_ANIM_OBJ_FLY_MON                   ; 36
 DEF NUM_SPRITE_ANIM_OBJS EQU const_value
 
 ; DoSpriteAnimFrame.Jumptable indexes (see engine/sprite_anims/functions.asm)
@@ -213,6 +214,7 @@ DEF NUM_SPRITE_ANIM_FUNCS EQU const_value
 	const SPRITE_ANIM_FRAMESET_PAGER_MON_GREEN           ; 49
 	const SPRITE_ANIM_FRAMESET_PAGER_MON_BROWN           ; 4a
 	const SPRITE_ANIM_FRAMESET_PAGER_MON_GREY            ; 4b
+	const SPRITE_ANIM_FRAMESET_FLY_MON                   ; 4c
 DEF NUM_SPRITE_ANIM_FRAMESETS EQU const_value
 
 ; SpriteAnimOAMData indexes (see data/sprite_anims/oam.asm)
@@ -369,6 +371,9 @@ DEF NUM_SPRITE_ANIM_FRAMESETS EQU const_value
 	const SPRITE_ANIM_OAMSET_GREY_WALK_2                 ; 95
 	const SPRITE_ANIM_OAMSET_GREEN_WALK_1                 ; 96
 	const SPRITE_ANIM_OAMSET_GREEN_WALK_2                 ; 97
+	const SPRITE_ANIM_OAMSET_FLY_MON_1                   ; 98
+	const SPRITE_ANIM_OAMSET_FLY_MON_2                   ; 99
+	const SPRITE_ANIM_OAMSET_FLY_MON_3                   ; 9a
 DEF NUM_SPRITE_ANIM_OAMSETS EQU const_value
 
 assert NUM_SPRITE_ANIM_OAMSETS <= FIRST_OAM_CMD, \

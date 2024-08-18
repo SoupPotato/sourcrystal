@@ -105,3 +105,18 @@ IncGradGBPalTable_13:: dc 2,1,0,0, 2,0,0,0, 2,1,0,0
 IncGradGBPalTable_14:: dc 1,0,0,0, 1,0,0,0, 1,0,0,0
 
 IncGradGBPalTable_15:: dc 0,0,0,0, 0,0,0,0, 0,0,0,0
+
+SetWhitePals::
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+
+	ld a, -1
+	ld hl, wBGPals1
+	ld bc, 16 palettes
+	call ByteFill
+
+	pop af
+	ldh [rSVBK], a
+	ret

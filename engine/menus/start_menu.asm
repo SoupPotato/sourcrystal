@@ -13,6 +13,8 @@
 
 StartMenu::
 	call ClearWindowData
+	call BackupSprites
+	call ClearSpritesUnderStartMenu
 
 	ld de, SFX_MENU
 	call PlaySFX
@@ -43,6 +45,9 @@ StartMenu::
 	jr .Select
 
 .Reopen:
+	call RestoreSprites
+	farcall LoadWeatherPal
+	call ClearSpritesUnderStartMenu
 	call UpdateSprites
 	call UpdateTimePals
 	call .SetUpMenuItems
@@ -86,6 +91,7 @@ StartMenu::
 	ld a, 1
 	ldh [hOAMUpdate], a
 	call LoadFontsExtra
+	call RestoreSprites
 	pop af
 	ldh [hOAMUpdate], a
 .ReturnEnd:
@@ -122,6 +128,7 @@ StartMenu::
 
 .ExitMenuRunScript:
 	call ExitMenu
+	call RestoreSprites
 	ld a, HMENURETURN_SCRIPT
 	ldh [hMenuReturn], a
 	ret
@@ -506,7 +513,7 @@ StartMenu_Retire:
 
 StartMenu_Save:
 ; Save the game.
-
+	call ClearSprites
 	call BufferScreen
 	farcall SaveMenu
 	jr nc, .saved
@@ -617,3 +624,36 @@ StartMenu_Pokemon:
 	call ExitAllMenus
 	pop af
 	ret
+
+ClearSpritesUnderStartMenu:
+	ld de, wShadowOAMSprite00XCoord
+	ld h, d
+	ld l, e
+	ld c, NUM_SPRITE_OAM_STRUCTS
+.loop
+	; Check if XCoord >= 10 * TILE_WIDTH,
+	; which is the starting x-coord of the start menu.
+	ld a, [hl]
+	cp 10 * TILE_WIDTH + 1
+	jr nc, .clear_sprite
+; fallthrough
+.next
+	ld hl, SPRITEOAMSTRUCT_LENGTH
+	add hl, de
+	ld e, l
+	dec c
+	jr nz, .loop
+	ldh a, [hOAMUpdate]
+	push af
+	ld a, TRUE
+	ldh [hOAMUpdate], a
+	call DelayFrame
+	pop af
+	ldh [hOAMUpdate], a
+	jp ClearSpritesUnderTextbox
+
+.clear_sprite
+	dec l
+	ld [hl], OAM_YCOORD_HIDDEN
+	inc l
+	jr .next

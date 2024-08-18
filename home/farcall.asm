@@ -119,3 +119,7 @@ RetrieveAHLAndCallFunction::
 	ld l, a
 	ldh a, [hFarCallSavedA]
 	ret
+
+StackJumpTable::
+	pop hl
+	jp JumpTable

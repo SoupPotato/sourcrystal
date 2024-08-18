@@ -1878,11 +1878,11 @@ JohtoGrassWildMonsChallenge:
 	db 59, SNEASEL
 	end_grass_wildmons
 
-	def_grass_wildmons SILVER_CAVE_CLIFF_SIDE_1F
+	def_grass_wildmons SILVER_CAVE_LOWER_MOUNTAINSIDE
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 62, GOLBAT
-	db 64, GOLDUCK
+	db 64, ONIX
 	db 64, PARASECT
 	db 64, DONPHAN
 	db 65, URSARING
@@ -1890,7 +1890,7 @@ JohtoGrassWildMonsChallenge:
 	db 45, LARVITAR
 	; day
 	db 62, GOLBAT
-	db 64, GOLDUCK
+	db 64, ONIX
 	db 64, PARASECT
 	db 64, DONPHAN
 	db 65, URSARING
@@ -1898,7 +1898,7 @@ JohtoGrassWildMonsChallenge:
 	db 45, LARVITAR
 	; nite
 	db 62, GOLBAT
-	db 64, GOLDUCK
+	db 64, ONIX
 	db 64, PARASECT
 	db 64, DONPHAN
 	db 65, URSARING
@@ -1906,10 +1906,10 @@ JohtoGrassWildMonsChallenge:
 	db 45, LARVITAR
 	end_grass_wildmons
 
-	def_grass_wildmons SILVER_CAVE_CLIFF_SIDE_2F
+	def_grass_wildmons SILVER_CAVE_UPPER_MOUNTAINSIDE
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 66, GOLBAT
+	db 66, QUAGSIRE
 	db 64, GOLDUCK
 	db 64, SNEASEL
 	db 65, URSARING
@@ -1917,7 +1917,7 @@ JohtoGrassWildMonsChallenge:
 	db 32, LARVITAR
 	db 42, PUPITAR
 	; day
-	db 66, GOLBAT
+	db 66, QUAGSIRE
 	db 64, GOLDUCK
 	db 64, SNEASEL
 	db 65, URSARING
@@ -1925,7 +1925,7 @@ JohtoGrassWildMonsChallenge:
 	db 32, LARVITAR
 	db 42, PUPITAR
 	; nite
-	db 66, GOLBAT
+	db 66, GOLDUCK
 	db 64, MISDREAVUS
 	db 64, SNEASEL
 	db 65, URSARING

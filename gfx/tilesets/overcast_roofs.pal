@@ -1,0 +1,144 @@
+; group 0 (unused)
+ 	RGB 21,21,21, 11,11,11 ; morn/day
+ 	RGB 21,21,21, 11,11,11 ; nite
+	RGB 18,16,16, 09,08,08 ; eve
+
+; group 1 (Olivine)
+ 	RGB 10,13,26, 06,08,11 ; morn/day
+ 	RGB 07,08,14, 04,05,08 ; nite
+	RGB 11,12,20, 05,06,07 ; eve
+
+; group 2 (Mahogany)
+ 	RGB 09,13,00, 04,06,00 ; morn/day
+ 	RGB 05,07,05, 02,03,03 ; nite
+	RGB 09,12,00, 04,05,00 ; eve
+
+; group 3 (dungeons) (unused)
+ 	RGB 31,10,00, 18,06,00 ; morn/day
+ 	RGB 18,05,06, 11,04,04 ; nite
+	RGB 25,08,00, 15,04,00 ; eve
+
+; group 4 (Ecruteak) (unused)
+ 	RGB 31,19,00, 27,10,05 ; morn/day
+ 	RGB 15,07,02, 11,04,02 ; nite
+	RGB 25,14,00, 22,08,03 ; eve
+
+; group 5 (Blackthorn) (unused)
+ 	RGB 11,10,16, 05,06,07 ; morn/day
+ 	RGB 03,04,08, 00,00,00 ; nite
+	RGB 09,08,12, 04,04,05 ; eve
+
+; group 6 (Cinnabar) (unused)
+ 	RGB 31,10,00, 18,06,00 ; morn/day
+ 	RGB 18,05,07, 11,03,03 ; nite
+	RGB 25,08,00, 15,04,00 ; eve
+
+; group 7 (Cerulean)
+ 	RGB 04,16,25, 02,09,20 ; morn/day
+ 	RGB 05,08,16, 04,04,09 ; nite
+	RGB 11,16,21, 04,09,17 ; eve
+
+; group 8 (Azalea) (unused)
+ 	RGB 22,20,10, 17,14,03 ; morn/day
+ 	RGB 11,11,05, 10,09,07 ; nite
+	RGB 19,15,08, 14,10,01 ; eve
+
+; group 9 (Lake of Rage)
+ 	RGB 19,06,04, 05,05,04 ; morn/day
+ 	RGB 10,03,05, 03,03,02 ; nite
+	RGB 16,02,02, 04,04,03 ; eve
+
+; group 10 (Violet) 
+ 	RGB 18,10,23, 10,07,16 ; morn/day
+ 	RGB 09,04,15, 06,03,11 ; nite
+	RGB 16,09,18, 09,05,12 ; eve
+
+; group 11 (Goldenrod)
+ 	RGB 17,17,02, 15,13,08 ; morn/day
+ 	RGB 09,09,00, 07,07,04 ; nite
+	RGB 16,15,01, 13,10,05 ; eve
+
+; group 12 (Vermilion)
+ 	RGB 18,14,01, 14,06,01 ; morn/day
+ 	RGB 12,09,02, 06,06,01 ; nite
+	RGB 17,12,00, 13,05,01 ; eve
+
+; group 13 (Pallet)
+ 	RGB 16,17,19, 09,10,12 ; morn/day
+ 	RGB 09,09,14, 05,05,08 ; nite
+	RGB 19,15,16, 10,09,09 ; eve
+
+; group 14 (Pewter)
+ 	RGB 14,14,12, 07,08,10 ; morn/day
+ 	RGB 06,06,07, 02,02,03 ; nite
+	RGB 12,10,09, 05,06,07 ; eve
+
+; group 15 (Mount Moon Square) (unused)
+ 	RGB 14,17,31, 07,11,15 ; morn/day
+ 	RGB 09,13,19, 07,07,16 ; nite
+	RGB 12,13,23, 06,08,11 ; eve
+
+ ; group 16 (Indigo) (unused)
+ 	RGB 21,21,21, 13,13,13 ; morn/day
+ 	RGB 11,11,19, 07,07,12 ; nite
+	RGB 20,19,19, 11,10,10 ; eve
+
+; group 17 (Fuchsia) (unused)
+ 	RGB 31,18,29, 17,13,20 ; morn/day
+ 	RGB 14,06,12, 11,03,10 ; nite
+	RGB 25,13,21, 14,10,15 ; eve
+
+; group 18 (Lavender)
+ 	RGB 20,11,28, 12,05,24 ; morn/day
+ 	RGB 10,05,14, 05,03,07 ; nite
+	RGB 19,11,21, 11,04,17 ; eve
+
+; group 19 (Silver Cave) (unused)
+ 	RGB 21,21,25, 16,16,16 ; morn/day
+ 	RGB 11,11,17, 06,06,09 ; nite
+	RGB 19,17,21, 12,11,11 ; eve
+
+; group 20 (Cable Club) (unused)
+ 	RGB 21,21,21, 11,11,11 ; morn/day
+ 	RGB 21,21,21, 11,11,11 ; nite
+	RGB 20,19,19, 10,09,09 ; eve
+
+; group 21 (Celadon)
+ 	RGB 11,19,11, 05,12,06 ; morn/day
+ 	RGB 05,10,08, 02,05,05 ; nite
+	RGB 11,17,11, 03,09,03 ; eve
+
+; group 22 (Cianwood)
+ 	RGB 11,07,24, 05,04,11 ; morn/day
+ 	RGB 05,04,11, 02,02,05 ; nite
+	RGB 11,08,17, 04,02,08 ; eve
+
+; group 23 (Viridian)
+ 	RGB 16,20,08, 08,13,04 ; morn/day
+ 	RGB 08,11,07, 03,05,02 ; nite
+	RGB 14,18,06, 06,10,02 ; eve
+
+; group 24 (New Bark)
+ 	RGB 14,23,10, 08,14,05 ; morn/day
+ 	RGB 06,11,07, 04,06,03 ; nite
+	RGB 14,19,09, 06,11,03 ; eve
+
+; group 25 (Saffron)
+ 	RGB 19,16,02, 18,09,02 ; morn/day
+ 	RGB 11,10,01, 07,04,01 ; nite
+	RGB 20,15,01, 18,07,02 ; eve
+
+; group 26 (Cherrygrove)
+ 	RGB 24,11,21, 18,06,13 ; morn/day
+ 	RGB 13,05,15, 09,03,06 ; nite
+	RGB 21,09,18, 16,05,12 ; eve
+
+; group 27 (Route 47) (unused)
+	RGB 30,26,00, 22,14,00 ; morn/day
+	RGB 13,13,00, 08,06,04 ; nite
+	RGB 24,19,00, 16,12,00 ; eve
+
+; group 28 (Safari Zone Area 3 Water Leaves) (unused)
+	RGB 08,16,12, 04,10,19 ; morn/day
+	RGB 03,11,12, 03,03,10 ; nite
+	RGB 08,13,07, 07,08,17 ; eve

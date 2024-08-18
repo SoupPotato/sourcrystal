@@ -997,9 +997,9 @@ SafariRestHouseArea4_Blocks:
 SafariZoneEntrance_Blocks:
 	INCBIN "maps/SafariZoneEntrance.blk"
 
-SilverCaveCliffSide1F_Blocks:
-	INCBIN "maps/SilverCaveCliffSide1F.blk"
+SilverCaveLowerMountainSide_Blocks:
+	INCBIN "maps/SilverCaveLowerMountainSide.blk"
 
-SilverCaveCliffSide2F_Blocks:
-	INCBIN "maps/SilverCaveCliffSide2F.blk"
+SilverCaveUpperMountainSide_Blocks:
+	INCBIN "maps/SilverCaveUpperMountainSide.blk"
 ENDSECTION

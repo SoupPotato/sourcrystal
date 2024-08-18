@@ -24,8 +24,8 @@ SilverCaveRoom2_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17, 37, SILVER_CAVE_CLIFF_SIDE_1F, 2
-	warp_event 15,  1, SILVER_CAVE_CLIFF_SIDE_2F, 1
+	warp_event 17, 37, SILVER_CAVE_LOWER_MOUNTAINSIDE, 2
+	warp_event 15,  1, SILVER_CAVE_UPPER_MOUNTAINSIDE, 1
 	warp_event 13, 27, SILVER_CAVE_ITEM_ROOMS, 1
 	warp_event 11, 11, SILVER_CAVE_ITEM_ROOMS, 2
 	warp_event 23,  9, SILVER_CAVE_ITEM_ROOMS, 3

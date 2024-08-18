@@ -235,6 +235,7 @@ ScriptCommandTable:
 	dw Script_wait                       ; a8
 	dw Script_checksave                  ; a9
 	dw Script_trainerpic                 ; aa
+	dw Script_setobjectpriority          ; ab
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -1021,6 +1022,24 @@ Script_follow:
 
 Script_stopfollow:
 	farcall StopFollow
+	ret
+
+Script_setobjectpriority:
+	call GetScriptByte
+	dec a
+	call GetMapObject
+	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
+	add hl, bc
+	ld a, [hl]
+	call GetObjectStruct
+	ld hl, OBJECT_FLAGS2
+	add hl, bc
+	ld a, [hl]
+	and ~(LOW_PRIORITY | HIGH_PRIORITY)
+	ld d, a
+	call GetScriptByte
+	or d
+	ld [hl], a
 	ret
 
 Script_moveobject:
@@ -2227,8 +2246,10 @@ Script_pause:
 	jr z, .loop
 	ld [wScriptDelay], a
 .loop
-	ld c, 2
-	call DelayFrames
+	farcall DoOverworldWeather
+rept 2
+	call DelayFrame
+endr
 	ld hl, wScriptDelay
 	dec [hl]
 	jr nz, .loop

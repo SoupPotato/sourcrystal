@@ -331,10 +331,8 @@ MenuTextbox::
 	pop hl
 	jp PrintText
 
-Menu_DummyFunction:: ; unreferenced
-	ret
-
 LoadMenuTextbox::
+	call ClearSpritesUnderTextbox
 	ld hl, .MenuHeader
 	call LoadMenuHeader
 	ret
@@ -416,14 +414,11 @@ CopyNameFromMenu::
 	ret
 
 YesNoBox::
+	call ClearSpritesUnderYesNoBox
 	lb bc, SCREEN_WIDTH - 6, 7
 
 PlaceYesNoBox::
 	jr _YesNoBox
-
-PlaceGenericTwoOptionBox:: ; unreferenced
-	call LoadMenuHeader
-	jr InterpretTwoOptionMenu
 
 NoYesBox::
 	newfarjp _NoYesBox
@@ -484,6 +479,42 @@ YesNoMenuHeader::
 	db 2
 	db "YES@"
 	db "NO@"
+
+ClearSpritesUnderYesNoBox:
+	ld de, wShadowOAMSprite00
+	ld h, d
+	ld l, e
+	ld c, NUM_SPRITE_OAM_STRUCTS
+.loop
+	; Check if YCoord >= 8 * TILE_WIDTH + 1
+	ld a, [hli]
+	cp 8 * TILE_WIDTH + 1
+	jr c, .next
+	; Check if XCoord >= 14 * TILE_WIDTH + 1
+	ld a, [hl]
+	cp 14 * TILE_WIDTH + 1
+	jr nc, .clear_sprite
+; fallthrough
+.next
+	ld hl, SPRITEOAMSTRUCT_LENGTH
+	add hl, de
+	ld e, l
+	dec c
+	jr nz, .loop
+	ldh a, [hOAMUpdate]
+	push af
+	ld a, TRUE
+	ldh [hOAMUpdate], a
+	call DelayFrame
+	pop af
+	ldh [hOAMUpdate], a
+	ret
+
+.clear_sprite
+	dec l
+	ld [hl], OAM_YCOORD_HIDDEN
+	inc l
+	jr .next
 
 OffsetMenuHeader::
 	call _OffsetMenuHeader

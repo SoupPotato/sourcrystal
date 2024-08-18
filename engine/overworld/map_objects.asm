@@ -2529,6 +2529,8 @@ _ContinueSpawnFacing:
 	ret
 
 StartFollow::
+	ld hl, wPlayerFlags + 1
+	set HIGH_PRIORITY_F, [hl]
 	push bc
 	ld a, b
 	call SetLeaderIfVisible
@@ -2547,6 +2549,8 @@ SetLeaderIfVisible:
 	ret
 
 StopFollow::
+	ld hl, wPlayerFlags + 1
+	res HIGH_PRIORITY_F, [hl]
 	call ResetLeader
 	call ResetFollower
 	ret
@@ -2725,37 +2729,58 @@ _UpdateSprites::
 	bit 0, a
 	ret z
 	xor a
-	ldh [hUsedSpriteIndex], a
+	ldh [hUsedOAMIndex], a
 	ldh a, [hOAMUpdate]
 	push af
 	ld a, 1
 	ldh [hOAMUpdate], a
 	call InitSprites
-	call .fill
+	call .hide_unused_sprites
 	pop af
 	ldh [hOAMUpdate], a
 	ret
 
-.fill
-	ld a, [wVramState]
-	bit 1, a
+.hide_unused_sprites
+	; if objects fill the entire OAM, there are no unused sprites.
 	ld b, NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH
-	jr z, .ok
-	ld b, (NUM_SPRITE_OAM_STRUCTS - 12) * SPRITEOAMSTRUCT_LENGTH
-.ok
-	ldh a, [hUsedSpriteIndex]
+	ldh a, [hUsedOAMIndex]
 	cp b
 	ret nc
+	
+	ldh a, [hUsedWeatherSpriteIndex]
+	ld c, a
+
+	; objects are at the end of the OAM, so we need to get the OAM index of the slot before.
+	ldh a, [hUsedOAMIndex]
+	; a = (NUM_SPRITE_OAM_STRUCTS - 1) * SPRITEOAMSTRUCT_LENGTH - a
+	cpl
+	add (NUM_SPRITE_OAM_STRUCTS - 1) * SPRITEOAMSTRUCT_LENGTH + 1
+
+	; if the weather index is greater than the index of the slot before the objects,
+	; then we need to override the weather index with the slot before the objects.
+	; else if the weather index is equal to the index of the slot before the objects,
+	; then there are no sprites to hide.
+	cp c
+	jr c, .override_weather_index
+	ret z
+
+	; from the slot before the objects to the weather index, hide the sprites.
 	ld l, a
 	ld h, HIGH(wShadowOAM)
-	ld de, SPRITEOAMSTRUCT_LENGTH
-	ld a, b
+	ld de, -SPRITEOAMSTRUCT_LENGTH
+	ld a, c
+	sub SPRITEOAMSTRUCT_LENGTH
 	ld c, SCREEN_HEIGHT_PX + 2 * TILE_WIDTH
 .loop
 	ld [hl], c ; y
 	add hl, de
 	cp l
 	jr nz, .loop
+	ret
+
+.override_weather_index
+	ldh [hUsedWeatherSpriteIndex], a
+	ld c, a
 	ret
 
 ApplyBGMapAnchorToObjects:
@@ -2803,12 +2828,13 @@ DEF PRIORITY_NORM EQU $20
 DEF PRIORITY_HIGH EQU $30
 
 InitSprites:
+	; Since OAM's are loaded in reverse order, we need to load the sprite priorities in reverse order.
 	call .DeterminePriorities
-	ld c, PRIORITY_HIGH
+	ld c, PRIORITY_LOW
 	call .InitSpritesByPriority
 	ld c, PRIORITY_NORM
 	call .InitSpritesByPriority
-	ld c, PRIORITY_LOW
+	ld c, PRIORITY_HIGH
 	call .InitSpritesByPriority
 	ret
 
@@ -2885,6 +2911,7 @@ InitSprites:
 	jr .next_sprite
 
 .InitSprite:
+	call .StorePlayerOAMLocation
 	ld hl, OBJECT_SPRITE_TILE
 	add hl, bc
 	ld a, [hl]
@@ -2956,14 +2983,17 @@ InitSprites:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ldh a, [hUsedSpriteIndex]
+	ldh a, [hUsedOAMIndex]
+	; a = (NUM_SPRITE_OAM_STRUCTS - 1) * SPRITEOAMSTRUCT_LENGTH - a
+	cpl
+	add SPRITEOAMSTRUCT_LENGTH * (NUM_SPRITE_OAM_STRUCTS - 1) + 1
 	ld c, a
 	ld b, HIGH(wShadowOAM)
 	ld a, [hli]
 	ldh [hUsedSpriteTile], a
-	add c
-	cp LOW(wShadowOAMEnd)
-	jr nc, .full
+	sub c
+	cp LOW(wShadowOAM)
+	jr c, .full
 .addsprite
 	ldh a, [hCurSpriteYPixel]
 	add [hl]
@@ -2996,12 +3026,17 @@ InitSprites:
 	or d
 	ld [bc], a ; attributes
 	inc c
+	ld a, c
+	sub SPRITEOAMSTRUCT_LENGTH * 2
+	ld c, a
 	ldh a, [hUsedSpriteTile]
 	dec a
 	ldh [hUsedSpriteTile], a
 	jr nz, .addsprite
-	ld a, c
-	ldh [hUsedSpriteIndex], a
+	ld a, SPRITEOAMSTRUCT_LENGTH * (NUM_SPRITE_OAM_STRUCTS - 1)
+	sub c
+	ld c, a
+	ldh [hUsedOAMIndex], a
 .done
 	xor a
 	ret
@@ -3035,3 +3070,17 @@ InitSprites:
 	dw wObject10Struct
 	dw wObject11Struct
 	dw wObject12Struct
+
+.StorePlayerOAMLocation
+	ld a, b
+	cp HIGH(wPlayerStruct)
+	ret nz
+	ld a, c
+	cp LOW(wPlayerStruct)
+	ret nz
+	ldh a, [hUsedOAMIndex]
+	; a = (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH - a
+	cpl
+	add (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH + 1
+	ld [wPlayerCurrentOAMSlot], a
+	ret

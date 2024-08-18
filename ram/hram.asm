@@ -189,6 +189,9 @@ hFunctionTargetHi:: db
 
 hCodeBuffer:: ds 3
 
-	ds 10
+hUsedWeatherSpriteIndex:: db
+hUsedOAMIndex:: db
+
+	ds 8
 
 ENDSECTION

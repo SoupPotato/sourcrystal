@@ -175,6 +175,7 @@ DoEggStep::
 	jr .loop
 
 OverworldHatchEgg::
+	call BackupSprites
 	call RefreshScreen
 	call LoadStandardMenuHeader
 	call HatchEggs

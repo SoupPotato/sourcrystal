@@ -35,6 +35,7 @@ MainMenu:
 	res GAME_TIMER_PAUSED_F, [hl]
 	call MainMenu_GetWhichMenu
 	ld [wWhichIndexSet], a
+	call MainMenu_PrintCurrentVersion
 	call MainMenu_PrintCurrentTimeAndDay
 	ld hl, .MenuHeader
 	call LoadMenuHeader
@@ -258,6 +259,28 @@ MainMenuJoypadLoop:
 	scf
 	ret
 
+MainMenu_PrintCurrentVersion:
+	lb bc, 1, 4
+	ld a, [wSaveFileExists]
+	and a
+	jr nz, .has_save_file
+; no save file
+	hlcoord 14, 15
+	call Textbox
+	hlcoord 15, 16
+	jr .no_save_file
+.has_save_file
+	hlcoord 14, 11
+	call Textbox
+	hlcoord 15, 12
+.no_save_file
+	ld de, .VersionString
+	jp PlaceString
+
+.VersionString
+	db "v5.0"
+	db "@"
+
 MainMenu_PrintCurrentTimeAndDay:
 	ld a, [wSaveFileExists]
 	and a
@@ -287,7 +310,10 @@ MainMenu_PrintCurrentTimeAndDay:
 	ret
 
 .TimeFail:
-	call SpeechTextbox
+	hlcoord 0, 14
+	ld b, 2
+	ld c, 18
+	jp Textbox
 	ret
 
 .PlaceTime:
@@ -317,13 +343,13 @@ MainMenu_PrintCurrentTimeAndDay:
 	db "min.@"
 
 .PrintTimeNotSet:
-	hlcoord 1, 14
+	hlcoord 3, 16
 	ld de, .TimeNotSetString
 	call PlaceString
 	ret
 
 .TimeNotSetString:
-	db "TIME NOT SET@"
+	db "TIME  NOT SET@"
 
 .MainMenuTimeUnknownText: ; unreferenced
 	text_far _MainMenuTimeUnknownText

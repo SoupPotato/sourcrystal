@@ -50,5 +50,5 @@ Tilesets::
 	tileset TilesetKabutoWordRoom
 	tileset TilesetOmanyteWordRoom
 	tileset TilesetAerodactylWordRoom
-	tileset TilesetCliffSide
+	tileset TilesetMountainSide
 	assert_table_length NUM_TILESETS + 1

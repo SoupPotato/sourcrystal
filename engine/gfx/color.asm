@@ -1299,6 +1299,11 @@ LoadMapPals:
 	add hl, hl
 	add hl, hl
 	ld de, TilesetBGPalette
+	ld a, [wCurWeather]
+	and a
+	jr z, .got_bg_pals
+	ld de, OvercastTilesetBGPalette
+.got_bg_pals
 	add hl, de
 	ld e, l
 	ld d, h
@@ -1318,20 +1323,6 @@ LoadMapPals:
 	ldh [rSVBK], a
 
 .got_pals
-	ldh a, [rSVBK]
-	push af
-	ld a, BANK(wOBPals1)
-	ldh [rSVBK], a
-	ld hl, wOBPals1
-	ld bc, 8 palettes
-	ld a, $ff
-	call ByteFill
-	ld hl, wOBPals2
-	ld bc, 8 palettes
-	ld a, $ff
-	call ByteFill
-	pop af
-	ldh [rSVBK], a
 	farcall ClearSavedObjPals
 
 	ld a, [wEnvironment]
@@ -1345,7 +1336,12 @@ LoadMapPals:
 	add a
 	ld e, a
 	ld d, 0
+	ld a, [wCurWeather]
+	and a
 	ld hl, RoofPals
+	jr z, .got_roof_pals
+	ld hl, OvercastRoofPals
+.got_roof_pals
 	add hl, de
 	add hl, de
 	add hl, de
@@ -1458,9 +1454,17 @@ BillsPC_ItemPalette:
 TilesetBGPalette:
 INCLUDE "gfx/tilesets/bg_tiles.pal"
 
+OvercastTilesetBGPalette:
+INCLUDE "gfx/tilesets/overcast_bg_tiles.pal"
+
 RoofPals:
 	table_width PAL_COLOR_SIZE * 3 * 2, RoofPals
 INCLUDE "gfx/tilesets/roofs.pal"
+	assert_table_length NUM_MAP_GROUPS + 1
+
+OvercastRoofPals:
+	table_width PAL_COLOR_SIZE * 3 * 2, OvercastRoofPals
+INCLUDE "gfx/tilesets/overcast_roofs.pal"
 	assert_table_length NUM_MAP_GROUPS + 1
 
 DiplomaPalettes:

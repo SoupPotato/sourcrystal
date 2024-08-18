@@ -90,7 +90,7 @@
 
 ; group 18 (Lavender)
  	RGB 23,15,31, 16,05,31 ; morn/day
- 	RGB 12,07,17, 08,06,10 ; nite
+ 	RGB 12,07,17, 06,04,09 ; nite
 	RGB 20,11,23, 13,03,23 ; eve
 
 ; group 19 (Silver Cave)
@@ -125,7 +125,7 @@
 
 ; group 25 (Saffron)
  	RGB 31,26,00, 31,15,00 ; morn/day
- 	RGB 13,13,01, 08,08,01 ; nite
+ 	RGB 14,13,01, 09,06,01 ; nite
 	RGB 25,20,00, 25,11,00 ; eve
 
 ; group 26 (Cherrygrove)

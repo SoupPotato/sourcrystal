@@ -341,11 +341,11 @@ INCBIN "data/tilesets/forest_metatiles.bin"
 SECTION "Tileset Data 10", ROMX
 
 
-TilesetCliffSideGFX::
-INCBIN "gfx/tilesets/cliff_side.2bpp.lz"
+TilesetMountainSideGFX::
+INCBIN "gfx/tilesets/mountainside.2bpp.lz"
 
-TilesetCliffSideMeta::
-INCBIN "data/tilesets/cliff_side_metatiles.bin"
+TilesetMountainSideMeta::
+INCBIN "data/tilesets/mountainside_metatiles.bin"
 
-TilesetCliffSideColl::
-INCLUDE "data/tilesets/cliff_side_collision.asm"
+TilesetMountainSideColl::
+INCLUDE "data/tilesets/mountainside_collision.asm"

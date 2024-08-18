@@ -49,6 +49,7 @@ Route30Fruittrees:
 	endcallback
 
 YoungsterJoey_ImportantBattleScript:
+	set_object_priority ROUTE_30_MONSTER1, LOW_PRIORITY
 	waitsfx
 	playmusic MUSIC_JOHTO_TRAINER_BATTLE
 	opentext

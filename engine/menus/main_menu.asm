@@ -310,7 +310,10 @@ MainMenu_PrintCurrentTimeAndDay:
 	ret
 
 .TimeFail:
-	call SpeechTextbox
+	hlcoord 0, 14
+	ld b, 2
+	ld c, 18
+	jp Textbox
 	ret
 
 .PlaceTime:
@@ -340,13 +343,13 @@ MainMenu_PrintCurrentTimeAndDay:
 	db "min.@"
 
 .PrintTimeNotSet:
-	hlcoord 1, 14
+	hlcoord 3, 16
 	ld de, .TimeNotSetString
 	call PlaceString
 	ret
 
 .TimeNotSetString:
-	db "TIME NOT SET@"
+	db "TIME  NOT SET@"
 
 .MainMenuTimeUnknownText: ; unreferenced
 	text_far _MainMenuTimeUnknownText

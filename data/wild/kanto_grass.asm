@@ -458,24 +458,24 @@ KantoGrassWildMons:
 	db 5, PIDGEY
 	db 7, BEEDRILL
 	db 7, LEDIAN
-	db 4, PIKACHU
-	db 4, PIKACHU
+	db 4, LEDIAN
+	db 4, LEDIAN
 	; day
 	db 3, WEEDLE
 	db 3, PIDGEY
 	db 5, PIDGEY
 	db 7, BEEDRILL
 	db 7, PIDGEOTTO
-	db 4, PIKACHU
-	db 4, PIKACHU
+	db 4, PIDGEOTTO
+	db 4, PIDGEOTTO
 	; nite
 	db 3, HOOTHOOT
 	db 3, SPINARAK
 	db 5, HOOTHOOT
 	db 7, NOCTOWL
 	db 7, ARIADOS
-	db 4, NOCTOWL
-	db 4, NOCTOWL
+	db 4, ARIADOS
+	db 4, ARIADOS
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_2_SOUTH
@@ -486,24 +486,24 @@ KantoGrassWildMons:
 	db 5, PIDGEY
 	db 7, BUTTERFREE
 	db 7, LEDIAN
-	db 4, PIKACHU
-	db 4, PIKACHU
+	db 4, LEDIAN
+	db 4, LEDIAN
 	; day
 	db 3, CATERPIE
 	db 3, PIDGEY
 	db 5, PIDGEY
 	db 7, BUTTERFREE
 	db 7, PIDGEOTTO
-	db 4, PIKACHU
-	db 4, PIKACHU
+	db 4, PIDGEOTTO
+	db 4, PIDGEOTTO
 	; nite
 	db 3, HOOTHOOT
 	db 3, SPINARAK
 	db 5, HOOTHOOT
 	db 7, NOCTOWL
 	db 7, ARIADOS
-	db 4, NOCTOWL
-	db 4, NOCTOWL
+	db 4, ARIADOS
+	db 4, ARIADOS
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_3

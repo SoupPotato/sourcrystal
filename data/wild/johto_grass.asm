@@ -1437,7 +1437,7 @@ JohtoGrassWildMons:
 	db 7, BELLSPROUT
 	db 6, MAREEP
 	db 6, HOPPIP
-	db 7, PIDGEY
+	db 7, ZUBAT
 	db 6, RATTATA
 	db 6, RATTATA
 	; day
@@ -1445,7 +1445,7 @@ JohtoGrassWildMons:
 	db 7, BELLSPROUT
 	db 6, MAREEP
 	db 6, HOPPIP
-	db 7, PIDGEY
+	db 7, RATTATA
 	db 6, RATTATA
 	db 6, RATTATA
 	; nite
@@ -1453,7 +1453,7 @@ JohtoGrassWildMons:
 	db 6, WOOPER
 	db 7, BELLSPROUT
 	db 6, MAREEP
-	db 7, HOOTHOOT
+	db 7, ZUBAT
 	db 7, GASTLY
 	db 7, GASTLY
 	end_grass_wildmons

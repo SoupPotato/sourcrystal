@@ -926,7 +926,26 @@ OHKOHit:
 	buildopponentrage
 	endmove
 
-RecoilHit:
+Struggle:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	struggle
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+
+RecoilHit_1_3:
 	checkobedience
 	usedmovetext
 	doturn
@@ -941,7 +960,28 @@ RecoilHit:
 	applydamage
 	criticaltext
 	supereffectivetext
-	recoil
+	recoil_1_3
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+
+RecoilHit_1_4:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	recoil_1_4
 	checkfaint
 	buildopponentrage
 	kingsrock

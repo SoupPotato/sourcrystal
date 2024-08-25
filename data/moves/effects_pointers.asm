@@ -49,7 +49,9 @@ MoveEffectsPointers:
 	dw NormalHit
 	dw Mist
 	dw FocusEnergy
-	dw RecoilHit
+	dw Struggle
+	dw RecoilHit_1_3
+	dw RecoilHit_1_4
 	dw DoConfuse
 	dw AttackUp2
 	dw DefenseUp2

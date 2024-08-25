@@ -5650,7 +5650,19 @@ INCLUDE "engine/battle/move_effects/mist.asm"
 
 INCLUDE "engine/battle/move_effects/focus_energy.asm"
 
-BattleCommand_Recoil:
+BattleCommand_Struggle:
+	callfar GetQuarterMaxHP
+	callfar SubtractHPFromUser
+	ld hl, RecoilText
+	jp StdBattleTextbox
+
+BattleCommand_Recoil_1_3:
+	ld a, 3
+	jr BattleCommand_Recoil_1_4.continue
+BattleCommand_Recoil_1_4:
+	ld a, 4
+.continue
+	push af
 	ld hl, wBattleMonMaxHP
 	ldh a, [hBattleTurn]
 	and a
@@ -5660,15 +5672,23 @@ BattleCommand_Recoil:
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 	ld d, a
-; get 1/4 damage or 1 HP, whichever is higher
+	pop af
+; divide damage by parameter
+	ldh [hDivisor], a
+	xor a
+	ldh [hDividend], a
+	ldh [hDividend + 1], a
 	ld a, [wCurDamage]
-	ld b, a
+	ldh [hDividend + 2], a
 	ld a, [wCurDamage + 1]
+	ldh [hDividend + 3], a
+	ld b, 4
+	call Divide
+	ldh a, [hQuotient + 2]
+	ld b, a
+	ldh a, [hQuotient + 3]
 	ld c, a
-	srl b
-	rr c
-	srl b
-	rr c
+; if recoil damage is 0, set to 1
 	ld a, b
 	or c
 	jr nz, .min_damage

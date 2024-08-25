@@ -24,6 +24,10 @@ DEF EFFECTIVE          EQU 10
 DEF NOT_VERY_EFFECTIVE EQU 05
 DEF NO_EFFECT          EQU 00
 
+; levels of recoil damage
+DEF RECOIL_1_3 EQU 3
+DEF RECOIL_1_4 EQU 4
+
 ; enemy AI behavior
 DEF BASE_AI_SWITCH_SCORE EQU 10
 

@@ -49,9 +49,9 @@ Moves:
 	move TACKLE,       EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0 ; OLD POWER: 35, OLD ACCURACY: 95
 	move BODY_SLAM,    EFFECT_BODY_SLAM,          85, NORMAL,       100, 15,  30 ; OLD EFFECT: EFFECT_PARALYZE_HIT
 	move WRAP,         EFFECT_TRAP_TARGET,        15, NORMAL,        90, 20, 100 ; OLD ACCURACY: 85
-	move TAKE_DOWN,    EFFECT_RECOIL_HIT,         90, NORMAL,        85, 20,   0
+	move TAKE_DOWN,    EFFECT_RECOIL_1_4,         90, NORMAL,        85, 20,   0
 	move THRASH,       EFFECT_RAMPAGE,           120, NORMAL,       100, 10,   0 ; OLD POWER: 90, OLD PP: 20
-	move DOUBLE_EDGE,  EFFECT_RECOIL_HIT,        120, NORMAL,       100, 15,   0
+	move DOUBLE_EDGE,  EFFECT_RECOIL_1_3,        120, NORMAL,       100, 15,   0
 	move TAIL_WHIP,    EFFECT_DEFENSE_DOWN,        0, NORMAL,       100, 30,   0
 	move POISON_STING, EFFECT_POISON_HIT,         15, POISON,       100, 35,  30
 	move TWINEEDLE,    EFFECT_POISON_MULTI_HIT,   25, BUG,          100, 20,  36 ; OLD EFFECT CHANCE: 20
@@ -79,7 +79,7 @@ Moves:
 	move HYPER_BEAM,   EFFECT_HYPER_BEAM,        150, NORMAL,        90,  5,   0
 	move PECK,         EFFECT_NORMAL_HIT,         35, FLYING,       100, 35,   0
 	move DRILL_PECK,   EFFECT_NORMAL_HIT,         80, FLYING,       100, 20,   0
-	move SUBMISSION,   EFFECT_RECOIL_HIT,         80, FIGHTING,      80, 25,   0
+	move SUBMISSION,   EFFECT_RECOIL_1_4,         80, FIGHTING,      80, 25,   0
 	move LOW_KICK,     EFFECT_WEIGHT_DAMAGE,       0, FIGHTING,     100, 20,   0 ; OLD POWER 50, OLD ACCURACY: 90
 	move COUNTER,      EFFECT_COUNTER,             1, FIGHTING,     100, 20,   0
 	move SEISMIC_TOSS, EFFECT_LEVEL_DAMAGE,        1, FIGHTING,     100, 20,   0
@@ -178,7 +178,7 @@ Moves:
 	move SUPER_FANG,   EFFECT_SUPER_FANG,          1, NORMAL,        90, 10,   0
 	move SLASH,        EFFECT_NORMAL_HIT,         70, NORMAL,       100, 20,   0
 	move SUBSTITUTE,   EFFECT_SUBSTITUTE,          0, NORMAL,       100, 10,   0
-	move STRUGGLE,     EFFECT_RECOIL_HIT,         50, NORMAL,       100,  1,   0
+	move STRUGGLE,     EFFECT_STRUGGLE,           50, NORMAL,       100,  1,   0
 	move SKETCH,       EFFECT_SKETCH,              0, NORMAL,       100,  1,   0
 	move TRIPLE_KICK,  EFFECT_TRIPLE_KICK,        10, FIGHTING,      90, 10,   0
 	move THIEF,        EFFECT_THIEF,              60, DARK,         100, 25, 100 ; OLD POWER: 40, OLD PP: 10

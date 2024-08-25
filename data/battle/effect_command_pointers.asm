@@ -43,7 +43,9 @@ BattleCommandPointers:
 	dw BattleCommand_EndLoop
 	dw BattleCommand_FlinchTarget
 	dw BattleCommand_OHKO
-	dw BattleCommand_Recoil
+	dw BattleCommand_Struggle
+	dw BattleCommand_Recoil_1_3
+	dw BattleCommand_Recoil_1_4
 	dw BattleCommand_Mist
 	dw BattleCommand_FocusEnergy
 	dw BattleCommand_Confuse

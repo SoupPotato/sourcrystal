@@ -84,7 +84,7 @@ RadioTower1FLuckyNumberManScript:
 	playsound SFX_2ND_PLACE
 	waitsfx
 	promptbutton
-	giveitem MAX_REVIVE
+	giveitem RARE_CANDY
 	iffalse .BagFull
 	itemnotify
 	setflag ENGINE_LUCKY_NUMBER_SHOW
@@ -302,8 +302,8 @@ RadioTower1FLuckyNumberManVeryGoodMatchText:
 	cont "three numbers!"
 
 	para "You've won second"
-	line "prize, a MAX"
-	cont "REVIVE!"
+	line "prize, a RARE"
+	cont "CANDY!"
 	done
 
 RadioTower1FLuckyNumberManGoodMatchText:

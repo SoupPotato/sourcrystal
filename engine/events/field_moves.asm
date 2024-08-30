@@ -87,18 +87,20 @@ ShakeHeadbuttTree:
 	call WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
-	; a = LOW(wShadowOAMEnd) - ([wCurSpriteOAMAddr] - 4 * SPRITEOAMSTRUCT_LENGTH)
-	ld a, [wCurSpriteOAMAddr]
-	cpl
-	add LOW(wShadowOAMEnd) + 4 * SPRITEOAMSTRUCT_LENGTH + 1
-	ld c, a
-	ld b, 0
+	ld c, 4
 	ld h, HIGH(wShadowOAM)
 	ld a, [wCurSpriteOAMAddr]
-	sub 12 * SPRITEOAMSTRUCT_LENGTH
+	sub 4 * SPRITEOAMSTRUCT_LENGTH
 	ld l, a
-	xor a
-	call ByteFill
+
+	ld de, SPRITEOAMSTRUCT_LENGTH
+	ld a, OAM_YCOORD_HIDDEN
+.hide_loop
+	ld [hl], a
+	add hl, de
+	dec c
+	jr nz, .hide_loop
+
 	call ClearSpriteAnims
 	ld de, Font
 	ld hl, vTiles1

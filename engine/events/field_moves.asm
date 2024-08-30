@@ -43,10 +43,22 @@ ShakeHeadbuttTree:
 	ld [hl], FIELDMOVE_TREE
 
 	ldh a, [hUsedOAMIndex]
+	; a = (NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH - a
+	cpl
+	add NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH + 1
+	push af
+	ld l, a
+	ld h, HIGH(wShadowOAM)
+	ld bc, SPRITEOAMSTRUCT_LENGTH * 4
+	ldh a, [hUsedOAMIndex]
 	; a = (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH - a
 	cpl
 	add (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH + 1
+	ld e, a
+	ld d, HIGH(wShadowOAM)
+	call CopyBytes
 
+	pop af
 	ld [wCurSpriteOAMAddr], a
 	farcall DoNextFrameForAllSprites_OW
 	call HideHeadbuttTree
@@ -66,9 +78,9 @@ ShakeHeadbuttTree:
 	dec [hl]
 
 	ldh a, [hUsedOAMIndex]
-	; a = (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH - a
+	; a = (NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH - a
 	cpl
-	add (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH + 1
+	add NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH + 1
 
 	ld [wCurSpriteOAMAddr], a
 	farcall DoNextFrameForAllSprites_OW

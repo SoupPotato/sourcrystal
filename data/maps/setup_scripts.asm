@@ -92,7 +92,7 @@ MapSetupScript_Connection:
 	mapsetup LoadBlockData
 	mapsetup LoadMapTileset
 	mapsetup SaveScreen
-	mapsetup LoadMapObjects
+	mapsetup LoadMapObjects_Connection
 	mapsetup FadeToMapMusic
 	mapsetup LoadMapPalettes
 	mapsetup EnableDynPalUpdatesNoApply

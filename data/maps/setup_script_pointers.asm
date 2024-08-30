@@ -56,3 +56,4 @@ MapSetupCommands:
 	add_mapsetup ClearWeather ; 31
 	add_mapsetup SetCurrentWeather ; 32
 	add_mapsetup MapConnOWFadePalettesInit ; 33
+	add_mapsetup LoadMapObjects_Connection ; 35

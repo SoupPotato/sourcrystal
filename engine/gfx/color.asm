@@ -1323,7 +1323,12 @@ LoadMapPals:
 	ldh [rSVBK], a
 
 .got_pals
+	ld hl, wPalFlags
+	bit MAP_CONNECTION_PAL_F, [hl]
+	res MAP_CONNECTION_PAL_F, [hl]
+	jr nz, .skip_clearing_obj_pals
 	farcall ClearSavedObjPals
+.skip_clearing_obj_pals
 
 	ld a, [wEnvironment]
 	cp TOWN

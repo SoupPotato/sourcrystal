@@ -399,6 +399,7 @@ DEF NUM_UNLOCKED_UNOWN_SETS EQU const_value
 	const USE_DAYTIME_PAL_F              ; 2
 	const DISABLE_DYN_PAL_F              ; 3
 	const NO_DYN_PAL_APPLY_UNTIL_RESET_F ; 4
+	const MAP_CONNECTION_PAL_F           ; 5
 DEF NO_DYN_PAL_APPLY EQU (1 << NO_DYN_PAL_APPLY_ONCE_F) | (1 << NO_DYN_PAL_APPLY_UNTIL_RESET_F)
 
 ; wPalFadeMode::

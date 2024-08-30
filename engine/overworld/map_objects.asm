@@ -4,13 +4,15 @@ INCLUDE "data/sprites/map_objects.asm"
 
 DeleteMapObject::
 	push bc
-	ld hl, OBJECT_MAP_OBJECT_INDEX
-	add hl, bc
-	ld a, [hl]
-	push af
 	ld h, b
 	ld l, c
-	ld bc, OBJECT_LENGTH
+	xor a
+	ld [hli], a
+	ld a, [hl]
+	push af
+	ld a, -1
+	ld [hli], a
+	ld bc, OBJECT_LENGTH - 2
 	xor a
 	call ByteFill
 	pop af

@@ -42,23 +42,28 @@ ShakeHeadbuttTree:
 	add hl, bc
 	ld [hl], FIELDMOVE_TREE
 
+	; shift all sprites left in OAM by 4 slots
+	; hl = source, de = destination, bc = length
 	ldh a, [hUsedOAMIndex]
 	; a = (NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH - a
 	cpl
 	add NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH + 1
-	push af
-	ld l, a
 	ld h, HIGH(wShadowOAM)
-	ld bc, SPRITEOAMSTRUCT_LENGTH * 4
-	ldh a, [hUsedOAMIndex]
-	; a = (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH - a
-	cpl
-	add (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH + 1
+	ld l, a
+	sub (4 * SPRITEOAMSTRUCT_LENGTH)
 	ld e, a
-	ld d, HIGH(wShadowOAM)
-	call CopyBytes
+	ld d, h
+	ld b, 0
+	ldh a, [hUsedOAMIndex]
+	ld c, a
+.copy_loop
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec c
+	jr nz, .copy_loop
 
-	pop af
+	ld a, LOW(wShadowOAMSprite36)
 	ld [wCurSpriteOAMAddr], a
 	farcall DoNextFrameForAllSprites_OW
 	call HideHeadbuttTree
@@ -77,11 +82,7 @@ ShakeHeadbuttTree:
 	jr z, .done
 	dec [hl]
 
-	ldh a, [hUsedOAMIndex]
-	; a = (NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH - a
-	cpl
-	add NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH + 1
-
+	ld a, LOW(wShadowOAMSprite36)
 	ld [wCurSpriteOAMAddr], a
 	farcall DoNextFrameForAllSprites_OW
 	ld a, [wOverworldRunTimer]
@@ -99,12 +100,32 @@ ShakeHeadbuttTree:
 	call WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
-	ld c, 4
+
+	; shift all sprites right in OAM by 4 slots
+	; hl = source, de = destination, bc = length
+	ldh a, [hUsedOAMIndex]
+	; a = (NUM_SPRITE_OAM_STRUCTS) * SPRITEOAMSTRUCT_LENGTH - a - 1
+	cpl
+	add NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH
+	ld l, a
 	ld h, HIGH(wShadowOAM)
-	ld a, [wCurSpriteOAMAddr]
-	sub 4 * SPRITEOAMSTRUCT_LENGTH
+	ld de, wShadowOAMSprite39 + 3
+	ld c, SPRITEOAMSTRUCT_LENGTH * 4
+.copy_done_loop
+	ld a, [hld]
+	ld [de], a
+	dec de
+	dec c
+	jr nz, .copy_done_loop
+
+	ld h, HIGH(wShadowOAM)
+	ldh a, [hUsedOAMIndex]
+	; a = (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH - a
+	cpl
+	add (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH + 1
 	ld l, a
 
+	ld c, 4
 	ld de, SPRITEOAMSTRUCT_LENGTH
 	ld a, OAM_YCOORD_HIDDEN
 .hide_loop

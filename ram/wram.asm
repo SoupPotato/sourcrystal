@@ -135,7 +135,7 @@ wPalFlags:: db
 
 wPlayerCurrentOAMSlot:: db
 
-	ds 1
+wMapSetupFlags:: db
 
 wPrinterConnectionOpen:: db
 wPrinterOpcode:: db

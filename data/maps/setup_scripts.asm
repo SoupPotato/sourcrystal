@@ -85,14 +85,14 @@ MapSetupScript_BadWarp:
 MapSetupScript_Connection:
 	mapsetup SuspendMapAnims
 	mapsetup EnterMapConnection
-	mapsetup LoadMapAttributes
+	mapsetup LoadMapAttributes_Connection
 	mapsetup HandleNewMap
 	mapsetup SetCurrentWeather
 	mapsetup RefreshPlayerCoords
 	mapsetup LoadBlockData
 	mapsetup LoadMapTileset
 	mapsetup SaveScreen
-	mapsetup LoadMapObjects
+	mapsetup LoadMapObjects_Connection
 	mapsetup FadeToMapMusic
 	mapsetup LoadMapPalettes
 	mapsetup EnableDynPalUpdatesNoApply

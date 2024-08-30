@@ -18,6 +18,10 @@ HandleContinueMap:
 
 EnterMapConnection:
 ; Return carry if a connection has been entered.
+
+	ld hl, wPalFlags
+	set MAP_CONNECTION_PAL_F, [hl]
+
 	ld a, [wPlayerStepDirection]
 	and a ; DOWN
 	jp z, .south
@@ -34,8 +38,12 @@ EnterMapConnection:
 	ld [wMapGroup], a
 	ld a, [wWestConnectedMapNumber]
 	ld [wMapNumber], a
+	ld a, [wXCoord]
+	ld [wLastMapXCoord], a
 	ld a, [wWestConnectionStripXOffset]
 	ld [wXCoord], a
+	ld a, [wYCoord]
+	ld [wLastMapYCoord], a
 	ld a, [wWestConnectionStripYOffset]
 	ld hl, wYCoord
 	add [hl]
@@ -69,8 +77,12 @@ EnterMapConnection:
 	ld [wMapGroup], a
 	ld a, [wEastConnectedMapNumber]
 	ld [wMapNumber], a
+	ld a, [wXCoord]
+	ld [wLastMapXCoord], a
 	ld a, [wEastConnectionStripXOffset]
 	ld [wXCoord], a
+	ld a, [wYCoord]
+	ld [wLastMapYCoord], a
 	ld a, [wEastConnectionStripYOffset]
 	ld hl, wYCoord
 	add [hl]
@@ -104,8 +116,12 @@ EnterMapConnection:
 	ld [wMapGroup], a
 	ld a, [wNorthConnectedMapNumber]
 	ld [wMapNumber], a
+	ld a, [wYCoord]
+	ld [wLastMapYCoord], a
 	ld a, [wNorthConnectionStripYOffset]
 	ld [wYCoord], a
+	ld a, [wXCoord]
+	ld [wLastMapXCoord], a
 	ld a, [wNorthConnectionStripXOffset]
 	ld hl, wXCoord
 	add [hl]
@@ -129,8 +145,12 @@ EnterMapConnection:
 	ld [wMapGroup], a
 	ld a, [wSouthConnectedMapNumber]
 	ld [wMapNumber], a
+	ld a, [wYCoord]
+	ld [wLastMapYCoord], a
 	ld a, [wSouthConnectionStripYOffset]
 	ld [wYCoord], a
+	ld a, [wXCoord]
+	ld [wLastMapXCoord], a
 	ld a, [wSouthConnectionStripXOffset]
 	ld hl, wXCoord
 	add [hl]

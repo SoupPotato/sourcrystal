@@ -17,7 +17,6 @@ CeruleanCity_MapScripts:
 CaveCooltrainerCaveBlock:
 	readvar VAR_BADGES
 	ifequal NUM_BADGES, .Dissapear
-	appear CERULEANCITY_CAVE_COOLTRAINER_M
 	endcallback
 
 .Dissapear:

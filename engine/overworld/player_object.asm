@@ -137,13 +137,14 @@ CopyObjectStruct::
 	and a
 	ret nz ; masked
 
-	ld hl, wObjectStructs + OBJECT_LENGTH * 1
+	ld hl, wObjectStructs + OBJECT_LENGTH + OBJECT_MAP_OBJECT_INDEX
 	ld a, 1
 	ld de, OBJECT_LENGTH
 .loop
 	ldh [hObjectStructIndex], a
 	ld a, [hl]
-	and a
+	inc a
+	assert UNASSOCIATED_OBJECT == -1
 	jr z, .done
 	add hl, de
 	ldh a, [hObjectStructIndex]
@@ -156,6 +157,7 @@ CopyObjectStruct::
 .done
 	ld d, h
 	ld e, l
+	dec de
 	call CopyMapObjectToObjectStruct
 	ld hl, wVramState
 	bit 7, [hl]
@@ -242,7 +244,7 @@ InitializeVisibleSprites:
 	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
 	add hl, bc
 	ld a, [hl]
-	cp -1
+	cp UNASSOCIATED_MAPOBJECT
 	jr nz, .next
 
 	ld a, [wXCoord]
@@ -332,7 +334,7 @@ CheckObjectEnteringVisibleRange::
 	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
 	add hl, bc
 	ld a, [hl]
-	cp -1
+	cp UNASSOCIATED_MAPOBJECT
 	jr nz, .next_v
 	ld hl, MAPOBJECT_X_COORD
 	add hl, bc
@@ -388,7 +390,7 @@ CheckObjectEnteringVisibleRange::
 	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
 	add hl, bc
 	ld a, [hl]
-	cp -1
+	cp UNASSOCIATED_MAPOBJECT
 	jr nz, .next_h
 	ld hl, MAPOBJECT_Y_COORD
 	add hl, bc

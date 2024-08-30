@@ -336,7 +336,7 @@ RainSplashCleanup:
 	; we leave rain splashs on screen for approx 3.75fps.
 	; we have to ignore the LSB as we only run weather every odd frame.
 	ld a, [wOverworldWeatherInternalTimer]
-	and %1111
+	and %111
 	ret nz
 
 	ld de, wShadowOAM

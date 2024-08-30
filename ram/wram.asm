@@ -135,7 +135,7 @@ wPalFlags:: db
 
 wPlayerCurrentOAMSlot:: db
 
-	ds 1
+wMapSetupFlags:: db
 
 wPrinterConnectionOpen:: db
 wPrinterOpcode:: db
@@ -3048,6 +3048,7 @@ wPlayerObject:: map_object wPlayer ; player is map object 0
 for n, 1, NUM_OBJECTS
 wMap{d:n}Object:: map_object wMap{d:n}
 endr
+wMapObjectsEnd::
 
 wObjectMasks:: ds NUM_OBJECTS
 
@@ -3356,7 +3357,10 @@ wdc60:: db
 wSwarmSpecies:: db
 wSwarmLandmark:: db
 
-	ds 13
+wLastMapYCoord:: db ; current y coordinate relative to top-left corner of the previous map
+wLastMapXCoord:: db ; current x coordinate relative to top-left corner of previous map
+
+	ds 11
 
 wFossilStepCount:: ds 1
 

@@ -197,6 +197,28 @@ OWCutAnimation:
 	call WaitSFX
 	ld de, SFX_PLACE_PUZZLE_PIECE_DOWN
 	call PlaySFX
+
+	; shift all sprites left in OAM by 4 slots
+	; hl = source, de = destination, bc = length
+	ldh a, [hUsedOAMIndex]
+	; a = (NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH) - a
+	cpl
+	add NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH + 1
+	ld h, HIGH(wShadowOAM)
+	ld l, a
+	sub (4 * SPRITEOAMSTRUCT_LENGTH)
+	ld e, a
+	ld d, h
+	ld b, 0
+	ldh a, [hUsedOAMIndex]
+	ld c, a
+.copy_loop
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec c
+	jr nz, .copy_loop
+
 	; enable weather
 	ld hl, wWeatherFlags
 	res OW_WEATHER_DISABLED_F, [hl]
@@ -205,11 +227,7 @@ OWCutAnimation:
 	bit 7, a
 	jr nz, .finish
 
-	ldh a, [hUsedOAMIndex]
-	; a = (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH - a
-	cpl
-	add (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH + 1
-
+	ld a, LOW(wShadowOAMSprite36)
 	ld [wCurSpriteOAMAddr], a
 	callfar DoNextFrameForAllSprites_OW
 	ld a, [wOverworldRunTimer]
@@ -226,29 +244,38 @@ OWCutAnimation:
 .finish
 	; clear wCurSpriteOAMAddr -> hUsedOAMIndex
 
+	; shift all sprites right in OAM by 4 slots
+	; hl = source, de = destination, bc = length
+	ldh a, [hUsedOAMIndex]
+	; a = (NUM_SPRITE_OAM_STRUCTS) * SPRITEOAMSTRUCT_LENGTH - a - 1
+	cpl
+	add NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH
+	ld l, a
+	ld h, HIGH(wShadowOAM)
+	ld de, wShadowOAMSprite39 + 3
+	ld c, SPRITEOAMSTRUCT_LENGTH * 4
+.copy_done_loop
+	ld a, [hld]
+	ld [de], a
+	dec de
+	dec c
+	jr nz, .copy_done_loop
+
+	ld h, HIGH(wShadowOAM)
 	ldh a, [hUsedOAMIndex]
 	; a = (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH - a
 	cpl
 	add (NUM_SPRITE_OAM_STRUCTS - 4) * SPRITEOAMSTRUCT_LENGTH + 1
-
-	ld h, HIGH(wShadowOAM)
 	ld l, a
-	ldh a, [hUsedOAMIndex]
-	; a = NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH - a
-	cpl
-	add NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH + 1
-	sub l
-	
-	srl a
-	srl a ; / 4
-	ld b, a
-	ld de, 4
+
+	ld c, 4
+	ld de, SPRITEOAMSTRUCT_LENGTH
 	ld a, OAM_YCOORD_HIDDEN
-.clear_loop
+.hide_loop
 	ld [hl], a
 	add hl, de
-	dec b
-	jr nz, .clear_loop
+	dec c
+	jr nz, .hide_loop
 	ret
 
 .LoadCutGFX:

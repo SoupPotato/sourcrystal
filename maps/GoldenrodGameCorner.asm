@@ -460,7 +460,7 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	waitbutton
 	setval PORYGON
 	special GameCornerPrizeMonCheckDex
-	givepoke PORYGON, 12
+	givepoke PORYGON, 10
 	takecoins GOLDENRODGAMECORNER_PORYGON_COINS
 	sjump .loop
 

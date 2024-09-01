@@ -10,13 +10,13 @@ Route5CleanseTagHouse_MapScripts:
 Route5CleanseTagHouseGrannyScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_CLEANSE_TAG
+	checkevent EVENT_ROUTE_5_GOT_CLEANSE_TAG
 	iftrue .GotCleanseTag
 	writetext Route5CleanseTagHouseGrannyText1
 	promptbutton
 	verbosegiveitem CLEANSE_TAG
 	iffalse .NoRoom
-	setevent EVENT_GOT_CLEANSE_TAG
+	setevent EVENT_ROUTE_5_GOT_CLEANSE_TAG
 .GotCleanseTag:
 	writetext Route5CleanseTagHouseGrannyText2
 	waitbutton

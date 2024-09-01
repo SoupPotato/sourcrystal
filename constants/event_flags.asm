@@ -224,8 +224,8 @@
 	const EVENT_CINNABAR_ROCKS_CLEARED
 	const EVENT_CLEARED_NUGGET_BRIDGE
 	const EVENT_TALKED_TO_WARDENS_GRANDDAUGHTER
-	const_skip ; unused in Sour Crystal. Caused issues, new method of checking is used.
-	const EVENT_GOT_CLEANSE_TAG
+	const_skip ; unused in Sour Crystal. Caused issues, new method of checking is used. DO NOT USE
+	const_skip ; unused in Sour Crystal. Flag gets unintensionally set. DO NOT USE
 	const EVENT_GOT_TM19_GIGA_DRAIN
 	const EVENT_GOT_TM06_TOXIC
 	const EVENT_GOT_UP_GRADE
@@ -1714,7 +1714,9 @@
 	const EVENT_SILVER_CAVE_LOWER_MOUNTAINSIDE_CARBOS
 	const EVENT_SILVER_CAVE_UPPER_MOUNTAINSIDE_HYPER_POTION
 	const EVENT_SILVER_CAVE_UPPER_MOUNTAINSIDE_RARE_CANDY
-; Unused: next 44 events
+	const EVENT_ROUTE_5_GOT_CLEANSE_TAG
+	const EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_SPOKE_TO_TUTOR
+; Unused: next 42 events
 
-	const_next 2044
+	const_next 2042
 DEF NUM_EVENTS EQU const_value ; 800

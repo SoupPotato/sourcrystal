@@ -65,7 +65,7 @@ ShakeHeadbuttTree:
 
 	ld a, LOW(wShadowOAMSprite36)
 	ld [wCurSpriteOAMAddr], a
-	farcall DoNextFrameForAllSprites_OW
+	farcall DoNextFrameForAllSprites
 	call HideHeadbuttTree
 	ld a, 32
 	ld [wFrameCounter], a
@@ -229,7 +229,7 @@ OWCutAnimation:
 
 	ld a, LOW(wShadowOAMSprite36)
 	ld [wCurSpriteOAMAddr], a
-	callfar DoNextFrameForAllSprites_OW
+	callfar DoNextFrameForAllSprites
 	ld a, [wOverworldRunTimer]
 	and %1
 	jr z, .skip_weather

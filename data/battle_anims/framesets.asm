@@ -192,8 +192,8 @@ BattleAnimFrameData:
 	dw .Frameset_BubbleSplash            ; BATTLE_ANIM_FRAMESET_BUBBLE_SPLASH
 	dw .Frameset_SmokePuff               ; BATTLE_ANIM_FRAMESET_SMOKE_PUFF
 	dw .Frameset_InkSplash               ; BATTLE_ANIM_FRAMESET_INK_SPLASH
-	dw .Frameset_SpinningTriangle        ; BATTLE_ANIM_FRAMESET_SPINNING_TRIANGLE
-	dw .Frameset_SpinningTriangleSlow    ; BATTLE_ANIM_FRAMESET_SPINNING_SLOW
+	dw .Frameset_SpinningTriangle        ; BATTLE_ANIM_FRAMESET_SHOOTING_TRIANGLE
+	dw .Frameset_SpinningTriangleSlow    ; BATTLE_ANIM_FRAMESET_SPINNING_TRIANGLE
 	dw .Frameset_BouncingMushroom        ; BATTLE_ANIM_FRAMESET_BOUNCING_MUSHROOM
 	assert_table_length NUM_BATTLE_ANIM_FRAMESETS
 

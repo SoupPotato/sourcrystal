@@ -263,7 +263,7 @@
 	const EVENT_CELADON_CITY_HIDDEN_PP_UP
 	const EVENT_CINNABAR_ISLAND_HIDDEN_RARE_CANDY
 	const EVENT_BURNED_TOWER_1F_HIDDEN_ULTRA_BALL
-	const_EVENT_ROUTE_4_HIDDEN_BIG_MUSHROOM
+	const EVENT_ROUTE_4_HIDDEN_BIG_MUSHROOM
 	const_skip ; unused in Sour Crystal
 	const_skip ; unused in Sour Crystal
 	const_skip ; unused in Sour Crystal

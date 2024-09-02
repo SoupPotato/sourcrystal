@@ -63,6 +63,9 @@ Route4HPUp:
 Route4HiddenUltraBall:
 	hiddenitem ULTRA_BALL, EVENT_ROUTE_4_HIDDEN_ULTRA_BALL
 
+Route4HiddenBigMushroom:
+	hiddenitem BIG_MUSHROOM, EVENT_ROUTE_4_HIDDEN_BIG_MUSHROOM
+
 BirdKeeperHankSeenText:
 	text "I'm raising my"
 	line "#MON. Want to"
@@ -141,6 +144,7 @@ Route4_MapEvents:
 	def_bg_events
 	bg_event  5,  7, BGEVENT_READ, MtMoonSquareSign
 	bg_event 18,  3, BGEVENT_ITEM, Route4HiddenUltraBall
+	bg_event 62,  4, BGEVENT_ITEM, Route4HiddenBigMushroom
 
 	def_object_events
 	object_event 27,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperHank, -1

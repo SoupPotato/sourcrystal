@@ -263,7 +263,7 @@
 	const EVENT_CELADON_CITY_HIDDEN_PP_UP
 	const EVENT_CINNABAR_ISLAND_HIDDEN_RARE_CANDY
 	const EVENT_BURNED_TOWER_1F_HIDDEN_ULTRA_BALL
-	const_skip ; unused in Sour Crystal
+	const_EVENT_ROUTE_4_HIDDEN_BIG_MUSHROOM
 	const_skip ; unused in Sour Crystal
 	const_skip ; unused in Sour Crystal
 	const_skip ; unused in Sour Crystal
@@ -1480,7 +1480,7 @@
 	const EVENT_COPYCAT_2
 	const EVENT_GOLDENROD_SALE_OFF
 	const EVENT_GOLDENROD_SALE_ON
-	const_skip ; unused in Crystal
+	const EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_SPOKE_TO_TUTOR
 	const EVENT_ILEX_FOREST_APPRENTICE
 	const EVENT_ILEX_FOREST_CHARCOAL_MASTER
 	const EVENT_CHARCOAL_KILN_FARFETCH_D
@@ -1715,8 +1715,7 @@
 	const EVENT_SILVER_CAVE_UPPER_MOUNTAINSIDE_HYPER_POTION
 	const EVENT_SILVER_CAVE_UPPER_MOUNTAINSIDE_RARE_CANDY
 	const EVENT_ROUTE_5_GOT_CLEANSE_TAG
-	const EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_SPOKE_TO_TUTOR
-; Unused: next 42 events
+; Unused: next 43 events
 
-	const_next 2042
+	const_next 2043
 DEF NUM_EVENTS EQU const_value ; 800

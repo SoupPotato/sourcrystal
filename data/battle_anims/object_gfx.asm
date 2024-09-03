@@ -47,10 +47,11 @@ AnimObjGFX:
 	anim_obj_gfx 35, AnimObjAngelsGFX
 	anim_obj_gfx  2, AnimObjMisc2GFX
 	anim_obj_gfx 24, AnimObjAeroblastGFX
-	anim_obj_gfx 10, AnimObjBeamLightGFX
+	anim_obj_gfx 10, AnimObjBeamSolarGFX
 	anim_obj_gfx  9, AnimObjSmokePuffGFX
 	anim_obj_gfx 12, AnimObjTriangleGFX
 	anim_obj_gfx 18, AnimObjMushroomGFX
+	anim_obj_gfx 10, AnimObjBeamAuroraGFX
 	anim_obj_gfx  1, NULL
 	anim_obj_gfx  1, NULL
 	assert_table_length NUM_BATTLE_ANIM_GFX + 1

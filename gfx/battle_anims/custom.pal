@@ -42,10 +42,10 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 03, 09, 26
 	RGB 00, 00, 00
 ; aurora
-	RGB 28, 22, 31
-	RGB 31, 31, 07
-	RGB 13, 27, 31
-	RGB 31, 20, 24
+	RGB 31, 28, 16
+	RGB 15, 31, 20
+	RGB 15, 24, 31
+	RGB 31, 15, 26
 ; spore
 	RGB 31, 12 ,10
 	RGB 05, 27, 06

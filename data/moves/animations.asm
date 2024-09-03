@@ -1208,7 +1208,7 @@ BattleAnim_Solarbeam:
 
 .FireSolarBeam
 	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_LIME
-	anim_1gfx BATTLE_ANIM_GFX_BEAM_LIGHT
+	anim_1gfx BATTLE_ANIM_GFX_BEAM_SOLAR
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $1, $0
 	anim_call BattleAnimSub_Beam
@@ -1506,8 +1506,8 @@ BattleAnim_HyperBeam:
 
 BattleAnim_AuroraBeam:
 	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_AURORA
-	anim_1gfx BATTLE_ANIM_GFX_BEAM_LIGHT
-	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_1gfx BATTLE_ANIM_GFX_BEAM_AURORA
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW_FULL_SHIFT, $0, $2, $0
 	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
 	anim_wait 64
 	anim_call BattleAnimSub_Beam

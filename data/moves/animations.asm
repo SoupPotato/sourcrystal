@@ -290,6 +290,8 @@ BattleAnimations::
 
 BattleAnim_Dummy:
 BattleAnim_MirrorMove:
+BattleAnim_InWhirlpool: ; unused/removed
+BattleAnim_Miss:
 	anim_ret
 
 BattleAnim_HeldItemTrigger:
@@ -515,7 +517,8 @@ BattleAnim_Psn:
 	anim_ret
 
 BattleAnim_Sap:
-	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GREEN
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_LIME
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $6, $0
 	anim_1gfx BATTLE_ANIM_GFX_CHARGE
 	anim_sound 6, 3, SFX_WATER_GUN
 	anim_obj BATTLE_ANIM_OBJ_ABSORB, 128, 48, $2
@@ -564,27 +567,11 @@ BattleAnim_InNightmare:
 	anim_wait 40
 	anim_ret
 
-BattleAnim_InWhirlpool: ; unused
-	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_WATER
-	anim_1gfx BATTLE_ANIM_GFX_WIND
-	anim_bgeffect BATTLE_BG_EFFECT_WHIRLPOOL, $0, $0, $0
-	anim_sound 0, 1, SFX_SURF
-.loop
-	anim_obj BATTLE_ANIM_OBJ_GUST, 132, 72, $0
-	anim_wait 6
-	anim_loop 6, .loop
-	anim_incbgeffect BATTLE_BG_EFFECT_WHIRLPOOL
-	anim_wait 1
-	anim_ret
-
 BattleAnim_HitConfusion:
 	anim_1gfx BATTLE_ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_POUND
 	anim_obj BATTLE_ANIM_OBJ_HIT, 44, 96, $0
 	anim_wait 16
-	anim_ret
-
-BattleAnim_Miss:
 	anim_ret
 
 BattleAnim_EnemyDamage:
@@ -1220,6 +1207,7 @@ BattleAnim_Solarbeam:
 	anim_ret
 
 .FireSolarBeam
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_LIME
 	anim_1gfx BATTLE_ANIM_GFX_BEAM
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $1, $0
@@ -1675,7 +1663,8 @@ BattleAnim_Recover_branch:
 	anim_ret
 
 BattleAnim_Absorb:
-	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GREEN
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_LIME
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $6, $0
 	anim_1gfx BATTLE_ANIM_GFX_CHARGE
 	anim_obj BATTLE_ANIM_OBJ_ABSORB_CENTER, 44, 88, $0
 .loop
@@ -1693,7 +1682,8 @@ BattleAnim_Absorb:
 	anim_ret
 
 BattleAnim_MegaDrain:
-	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GREEN
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_LIME
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $6, $0
 	anim_1gfx BATTLE_ANIM_GFX_CHARGE
 	anim_call BattleAnim_TargetObj_1Row
 	anim_bgeffect BATTLE_BG_EFFECT_FADE_MONS_TO_BLACK_REPEATING, $0, BG_EFFECT_TARGET, $10
@@ -3831,7 +3821,8 @@ BattleAnim_InSandstorm:
 	anim_ret
 
 BattleAnim_GigaDrain:
-	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_GREEN
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_LIME
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $6, $0
 	anim_2gfx BATTLE_ANIM_GFX_CHARGE, BATTLE_ANIM_GFX_SHINE
 	anim_call BattleAnim_TargetObj_1Row
 	anim_bgeffect BATTLE_BG_EFFECT_FADE_MONS_TO_BLACK_REPEATING, $0, BG_EFFECT_TARGET, $10

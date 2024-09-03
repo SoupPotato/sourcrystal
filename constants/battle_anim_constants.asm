@@ -930,6 +930,7 @@ DEF NUM_BG_EFFECTS EQU 5 ; see wActiveBGEffects
 	const PAL_BTLCUSTOM_HP_PSYCHIC      ; 1b
 	const PAL_BTLCUSTOM_HP_GHOST        ; 1c
 	const PAL_BTLCUSTOM_ACID            ; 1d
+	const PAL_BTLCUSTOM_LIME            ; 1e
 
 DEF NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 

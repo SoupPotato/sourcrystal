@@ -1338,6 +1338,7 @@ SwitchTurnCore:
 	ldh a, [hBattleTurn]
 	xor 1
 	ldh [hBattleTurn], a
+	call FinishBattleAnim
 	ret
 
 HandleLeftovers:

@@ -70,7 +70,7 @@ BlackthornGymClairScript:
 	iffalse .BagFull
 	getitemname STRING_BUFFER_3, TM_DRAGONBREATH
 	writetext BlackthornGymText_ReceivedTM24
-	playsound SFX_ITEM
+	playsound SFX_GET_TM
 	waitsfx
 	itemnotify
 	setevent EVENT_GOT_TM24_DRAGONBREATH

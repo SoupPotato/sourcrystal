@@ -1208,7 +1208,7 @@ BattleAnim_Solarbeam:
 
 .FireSolarBeam
 	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_LIME
-	anim_1gfx BATTLE_ANIM_GFX_BEAM
+	anim_1gfx BATTLE_ANIM_GFX_BEAM_LIGHT
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $1, $0
 	anim_call BattleAnimSub_Beam

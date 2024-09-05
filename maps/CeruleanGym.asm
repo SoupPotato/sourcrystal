@@ -71,9 +71,9 @@ CeruleanGymMistyScript:
 	setevent EVENT_BEAT_MISTY
 	setevent EVENT_BEAT_SWIMMERF_DIANA
 	setevent EVENT_BEAT_SWIMMERF_BRIANA
-	setevent EVENT_BEAT_SAILOR_PARKER
+	setevent EVENT_BEAT_SWIMMERM_PARKER
 	setevent EVENT_BEAT_SWIMMERF_JOY
-	setevent EVENT_BEAT_SAILOR_EDDY
+	setevent EVENT_BEAT_PICNICKER_EAMER
 	opentext
 	writetext ReceivedCascadeBadgeText
 	playsound SFX_GET_BADGE
@@ -118,24 +118,24 @@ TrainerSwimmerfBriana:
 	closetext
 	end
 
-TrainerSailorParker:
-	trainer SAILOR, PARKER, EVENT_BEAT_SAILOR_PARKER, SailorParkerSeenText, SailorParkerBeatenText, 0, .Script
+TrainerSwimmermParker:
+	trainer SWIMMERM, PARKER, EVENT_BEAT_SWIMMERM_PARKER, SwimmermParkerSeenText, SwimmermParkerBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext SailorParkerAfterBattleText
+	writetext SwimmermParkerAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerSailorEddy:
-	trainer SAILOR, EDDY, EVENT_BEAT_SAILOR_EDDY, SailorEddySeenText, SailorEddyBeatenText, 0, .Script
+TrainerPicnickerEamer:
+	trainer PICNICKER, EAMER, EVENT_BEAT_PICNICKER_EAMER, PicnickerEamerSeenText, PicnickerEamerBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext SailorEddyAfterBattleText
+	writetext PicnickerEamerAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -368,18 +368,18 @@ SwimmerfJoyAfterBattleText:
 	line "idea…"
 	done
 
-SailorParkerSeenText:
+SwimmermParkerSeenText:
 	text "Glub…"
 
 	para "I'm first! Come"
 	line "and get me!"
 	done
 
-SailorParkerBeatenText:
+SwimmermParkerBeatenText:
 	text "This can't be…"
 	done
 
-SailorParkerAfterBattleText:
+SwimmermParkerAfterBattleText:
 	text "MISTY has gotten"
 	line "much better in the"
 	cont "past few years."
@@ -389,25 +389,22 @@ SailorParkerAfterBattleText:
 	cont "you'll be crushed!"
 	done
 
-SailorEddySeenText:
-	text "I've been relaxing"
-	line "poolside,"
+PicnickerEamerSeenText:
+	text "I've been training"
+	line "by the poolside,"
 
-	para "so I've got"
-	line "enough strength!"
+	para "so I've got lots"
+	line "of energy!"
 	done
 
-SailorEddyBeatenText:
+PicnickerEamerBeatenText:
 	text "You can't win with"
-	line "strength alone."
+	line "energy alone."
 	done
 
-SailorEddyAfterBattleText:
-	text "Hey, let's go"
-	line "for a swim!"
-
-	para "Sailors have to"
-	line "be able to swim!"
+PicnickerEamerAfterBattleText:
+	text "I should go for"
+	line "a swim soon!"
 	done
 
 CeruleanGymGuideText:
@@ -450,6 +447,6 @@ CeruleanGym_MapEvents:
 	object_event  4,  6, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfDiana, EVENT_TRAINERS_IN_CERULEAN_GYM
 	object_event  1,  9, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerSwimmerfBriana, EVENT_TRAINERS_IN_CERULEAN_GYM
 	object_event  8,  9, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfJoy, EVENT_TRAINERS_IN_CERULEAN_GYM
-	object_event  3, 12, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerSailorParker, EVENT_TRAINERS_IN_CERULEAN_GYM
-	object_event  2,  4, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSailorEddy, EVENT_TRAINERS_IN_CERULEAN_GYM
+	object_event  4,  9, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerSwimmermParker, EVENT_TRAINERS_IN_CERULEAN_GYM
+	object_event  2,  4, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerEamer, EVENT_TRAINERS_IN_CERULEAN_GYM
 	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanGymGuideScript, EVENT_TRAINERS_IN_CERULEAN_GYM

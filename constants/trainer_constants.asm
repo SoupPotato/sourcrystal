@@ -429,6 +429,7 @@ DEF KRIS EQU __trainer_class__
 	const ELMO
 	const ESTEBAN
 	const DUANE
+	const PARKER
 
 	trainerclass SWIMMERF ; 27
 	const ELAINE
@@ -464,8 +465,6 @@ DEF KRIS EQU __trainer_class__
 	const HUEY2
 	const HUEY3
 	const HUEY4
-	const PARKER
-	const EDDY
 
 	trainerclass SUPER_NERD ; 29
 	const ERIC
@@ -633,6 +632,7 @@ DEF KRIS EQU __trainer_class__
 	const GINGER
 	const CHEL
 	const ADRIAN
+	const EAMER
 
 	trainerclass CAMPER ; 36
 	const ROLAND

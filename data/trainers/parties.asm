@@ -5069,6 +5069,21 @@ SwimmerMGroup:
 	db 52, KABUTOPS
 	db -1 ; end
 
+	; SWIMMERM (17)
+	db "PARKER@", TRAINERTYPE_VARIABLE
+	
+	;Normal Mode
+	db TRAINERTYPE_NORMAL
+	db 43, HORSEA
+	db 43, SEADRA
+	db $fe ; delimiter
+	
+	;Challenge Mode
+	db TRAINERTYPE_NORMAL
+	db 55, HORSEA
+	db 55, SEADRA
+	db -1 ; end
+
 
 SwimmerFGroup:
 	; SWIMMERF (1)
@@ -5533,35 +5548,6 @@ SailorGroup:
 	db 60, POLITOED,   WHIRLPOOL, RAIN_DANCE, BODY_SLAM, PERISH_SONG
 	db 60, POLIWRATH,  SURF, STRENGTH, ICE_PUNCH, SUBMISSION
 	db -1 ; end
-
-	; SAILOR (14)
-	db "PARKER@", TRAINERTYPE_VARIABLE
-	
-	;Normal Mode
-	db TRAINERTYPE_NORMAL
-	db 43, HORSEA
-	db 43, SEADRA
-	db $fe ; delimiter
-	
-	;Challenge Mode
-	db TRAINERTYPE_NORMAL
-	db 55, HORSEA
-	db 55, SEADRA
-	db -1 ; end
-
-	; SAILOR (15)
-	db "EDDY@", TRAINERTYPE_VARIABLE
-	
-	;Normal Mode
-	db TRAINERTYPE_NORMAL
-	db 48, AZUMARILL
-	db $fe ; delimiter
-	
-	;Challenge Mode
-	db TRAINERTYPE_NORMAL
-	db 60, AZUMARILL
-	db -1 ; end
-
 
 SuperNerdGroup:
 	; SUPER_NERD (1)
@@ -7795,6 +7781,19 @@ PicnickerGroup:
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 57, PARASECT
+	db -1 ; end
+
+	; PICNICKER (32)
+	db "EAMER@", TRAINERTYPE_VARIABLE
+	
+	;Normal Mode
+	db TRAINERTYPE_NORMAL
+	db 48, AZUMARILL
+	db $fe ; delimiter
+	
+	;Challenge Mode
+	db TRAINERTYPE_NORMAL
+	db 60, AZUMARILL
 	db -1 ; end
 
 CamperGroup:

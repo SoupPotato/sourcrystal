@@ -3360,7 +3360,10 @@ wSwarmLandmark:: db
 wLastMapYCoord:: db ; current y coordinate relative to top-left corner of the previous map
 wLastMapXCoord:: db ; current x coordinate relative to top-left corner of previous map
 
-	ds 11
+	ds 9
+
+wVermilionGymTrashCan1:: db
+wVermilionGymTrashCan2:: db
 
 wFossilStepCount:: ds 1
 

@@ -234,6 +234,7 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_POWDER_SHOOT        ; c9
 	const BATTLE_ANIM_OBJ_EGG_BOMB            ; ca
 	const BATTLE_ANIM_OBJ_SHOOTING_MIST       ; cb
+	const BATTLE_ANIM_OBJ_PETAL_DANCE_IMPACT  ; cc
 DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -854,8 +855,9 @@ DEF NUM_BATTLE_BG_EFFECTS EQU const_value - 1
 	const BATTLE_ANIM_GFX_TRIANGLE       ; 2a
 	const BATTLE_ANIM_GFX_MUSHROOM       ; 2b
 	const BATTLE_ANIM_GFX_BEAM_AURORA    ; 2c
-	const BATTLE_ANIM_GFX_PLAYERHEAD     ; 2d
-	const BATTLE_ANIM_GFX_ENEMYFEET      ; 2e
+	const BATTLE_ANIM_GFX_PETALS         ; 2d
+	const BATTLE_ANIM_GFX_PLAYERHEAD     ; 2e
+	const BATTLE_ANIM_GFX_ENEMYFEET      ; 2f
 DEF NUM_BATTLE_ANIM_GFX EQU const_value - 1
 
 ; battle_bg_effect struct members (see macros/ram.asm)
@@ -933,6 +935,7 @@ DEF NUM_BG_EFFECTS EQU 5 ; see wActiveBGEffects
 	const PAL_BTLCUSTOM_HP_GHOST        ; 1c
 	const PAL_BTLCUSTOM_ACID            ; 1d
 	const PAL_BTLCUSTOM_LIME            ; 1e
+	const PAL_BTLCUSTOM_PINK            ; 1f
 
 DEF NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 

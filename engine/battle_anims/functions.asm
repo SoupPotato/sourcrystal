@@ -2778,8 +2778,9 @@ BattleAnimFunc_PetalDance:
 	ld hl, BATTLEANIMSTRUCT_VAR2
 	add hl, bc
 	ld a, [hl]
-	cp $28
+	cp $30
 	jr nc, .end
+	inc [hl]
 	inc [hl]
 	ret
 

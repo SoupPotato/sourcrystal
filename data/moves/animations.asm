@@ -1526,6 +1526,7 @@ BattleAnim_Vicegrip:
 
 BattleAnim_Scratch:
 	anim_1gfx BATTLE_ANIM_GFX_CUT
+.hit
 	anim_sound 0, 1, SFX_SCRATCH
 	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_LEFT, 144, 48, $0
 	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_LEFT, 140, 44, $0
@@ -1743,6 +1744,9 @@ BattleAnim_Softboiled:
 	anim_wait 16
 	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $40
 	anim_sound 0, 0, SFX_METRONOME
+	anim_jump BattleAnimSub_SoftboiledHeal
+
+BattleAnimSub_SoftboiledHeal:
 .loop
 	anim_obj BATTLE_ANIM_OBJ_RECOVER, 44, 88, $20
 	anim_wait 8
@@ -2382,16 +2386,17 @@ BattleAnim_Transform:
 	anim_ret
 
 BattleAnim_PetalDance:
-	anim_2gfx BATTLE_ANIM_GFX_FLOWER, BATTLE_ANIM_GFX_HIT
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_PINK
+	anim_3gfx BATTLE_ANIM_GFX_PETALS, BATTLE_ANIM_GFX_FLOWER, BATTLE_ANIM_GFX_HIT
 	anim_sound 0, 1, SFX_GAME_FREAK_LOGO_GS
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING, $0, BG_EFFECT_USER, $20
 .loop
-	anim_obj BATTLE_ANIM_OBJ_PETAL_DANCE, 48, 56, $5
+	anim_obj BATTLE_ANIM_OBJ_PETAL_DANCE, 48, 56, $1
 	anim_wait 11
 	anim_loop 8, .loop
-	anim_wait 128
+	anim_wait 48
 	anim_incbgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING
-	anim_wait 24
+	anim_wait 32
 	anim_clearobjs
 	anim_wait 1
 	anim_call BattleAnim_TargetObj_1Row
@@ -2399,11 +2404,22 @@ BattleAnim_PetalDance:
 	anim_sound 0, 1, SFX_COMET_PUNCH
 	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 56, $0
 	anim_wait 16
+	anim_sound 0, 1, SFX_SWEET_SCENT
 	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_TARGET, $0
-	anim_wait 4
 	anim_clearobjs
 	anim_bgeffect BATTLE_BG_EFFECT_SHOW_MON, $0, BG_EFFECT_USER, $0
-	anim_wait 1
+	anim_obj BATTLE_ANIM_OBJ_PETAL_DANCE_IMPACT, 136, 56, $28
+	anim_obj BATTLE_ANIM_OBJ_PETAL_DANCE_IMPACT, 136, 56, $5c
+	anim_obj BATTLE_ANIM_OBJ_PETAL_DANCE_IMPACT, 136, 56, $10
+	anim_obj BATTLE_ANIM_OBJ_PETAL_DANCE_IMPACT, 136, 56, $e8
+	anim_obj BATTLE_ANIM_OBJ_PETAL_DANCE_IMPACT, 136, 56, $9c
+	anim_obj BATTLE_ANIM_OBJ_PETAL_DANCE_IMPACT, 136, 56, $d0
+	anim_wait 6
+	anim_obj BATTLE_ANIM_OBJ_PETAL_DANCE_IMPACT, 136, 56, $1c
+	anim_obj BATTLE_ANIM_OBJ_PETAL_DANCE_IMPACT, 136, 56, $50
+	anim_obj BATTLE_ANIM_OBJ_PETAL_DANCE_IMPACT, 136, 56, $dc
+	anim_obj BATTLE_ANIM_OBJ_PETAL_DANCE_IMPACT, 136, 56, $90
+	anim_wait 64
 	anim_ret
 
 BattleAnim_Barrage:
@@ -3178,6 +3194,7 @@ BattleAnim_LowKick:
 
 BattleAnim_WingAttack:
 	anim_1gfx BATTLE_ANIM_GFX_HIT
+.hit
 	anim_sound 0, 1, SFX_WING_ATTACK
 	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 148, 56, $0
 	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 116, 56, $0
@@ -3948,14 +3965,7 @@ BattleAnim_MilkDrink:
 	anim_wait 16
 	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $40
 	anim_sound 0, 0, SFX_MILK_DRINK
-.loop
-	anim_obj BATTLE_ANIM_OBJ_RECOVER, 44, 88, $20
-	anim_wait 8
-	anim_loop 8, .loop
-	anim_wait 128
-	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING
-	anim_call BattleAnim_ShowMon_0
-	anim_ret
+	anim_jump BattleAnimSub_SoftboiledHeal
 
 BattleAnim_Spark:
 	anim_2gfx BATTLE_ANIM_GFX_LIGHTNING, BATTLE_ANIM_GFX_EXPLOSION
@@ -4006,19 +4016,7 @@ BattleAnim_SteelWing:
 	anim_call BattleAnim_ShowMon_0
 	anim_1gfx BATTLE_ANIM_GFX_HIT
 	anim_resetobp0
-	anim_sound 0, 1, SFX_WING_ATTACK
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 148, 56, $0
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 116, 56, $0
-	anim_wait 6
-	anim_sound 0, 1, SFX_WING_ATTACK
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 144, 56, $0
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 120, 56, $0
-	anim_wait 6
-	anim_sound 0, 1, SFX_WING_ATTACK
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 140, 56, $0
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 124, 56, $0
-	anim_wait 16
-	anim_ret
+	anim_jump BattleAnim_WingAttack.hit
 
 BattleAnim_MeanLook:
 	anim_1gfx BATTLE_ANIM_GFX_PSYCHIC
@@ -4341,12 +4339,7 @@ BattleAnim_MetalClaw:
 	anim_call BattleAnim_ShowMon_0
 	anim_1gfx BATTLE_ANIM_GFX_CUT
 	anim_resetobp0
-	anim_sound 0, 1, SFX_SCRATCH
-	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_LEFT, 144, 48, $0
-	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_LEFT, 140, 44, $0
-	anim_obj BATTLE_ANIM_OBJ_CUT_DOWN_LEFT, 136, 40, $0
-	anim_wait 32
-	anim_ret
+	anim_jump BattleAnim_Scratch.hit
 
 BattleAnim_VitalThrow:
 	anim_1gfx BATTLE_ANIM_GFX_HIT

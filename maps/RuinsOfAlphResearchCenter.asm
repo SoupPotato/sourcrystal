@@ -450,6 +450,86 @@ RuinsOfAlphResearchCenterPrinter:
 	closetext
 	end
 
+RuinsOfAlphResearchCenterTutotScientistScript:
+	faceplayer
+	opentext
+	checkevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_SPOKE_TO_TUTOR
+	iftrue .AlreadySpokeToTutor
+	setevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_SPOKE_TO_TUTOR
+	writetext RuinsOfAlphResearchCenterTutorExplainText
+	waitbutton
+.AlreadySpokeToTutor:
+	writetext RuinsOfAlphResearchCenterTutorWantMeToTeachText
+	yesorno
+	iffalse .Refused
+	writetext RuinsOfAlphResearchCenterTutorShallITeachText
+	loadmenu .MoveMenuHeader4Moves
+	verticalmenu
+	closewindow
+	ifequal MOVETUTOR_FLAMETHROWER, .WaterGun
+	ifequal MOVETUTOR_THUNDERBOLT, .Teleport
+	ifequal MOVETUTOR_ICE_BEAM, .MegaPunch
+	ifequal MOVETUTOR_ICE_BEAM, .Psywave
+	sjump .Refused
+
+.WaterGun:
+	setval MOVETUTOR_FLAMETHROWER
+	writetext RuinsOfAlphResearchCenterTutorMoveText
+	special MoveTutor
+	ifequal FALSE, .TeachMove
+	sjump .Refused
+
+.Teleport:
+	setval MOVETUTOR_THUNDERBOLT
+	writetext RuinsOfAlphResearchCenterTutorMoveText
+	special MoveTutor
+	ifequal FALSE, .TeachMove
+	sjump .Refused
+
+.MegaPunch:
+	setval MOVETUTOR_ICE_BEAM
+	writetext RuinsOfAlphResearchCenterTutorMoveText
+	special MoveTutor
+	ifequal FALSE, .TeachMove
+	sjump .Refused
+
+.Psywave:
+	setval MOVETUTOR_ICE_BEAM
+	writetext RuinsOfAlphResearchCenterTutorMoveText
+	special MoveTutor
+	ifequal FALSE, .TeachMove
+	sjump .Refused
+
+.MoveMenuHeader4Moves:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, 15, TEXTBOX_Y - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	db 5 ; items
+	db "WATER GUN@"
+	db "TELEPORT@"
+	db "MEGA PUNCH@"
+	db "PSYWAVE@"
+	db "CANCEL@"
+
+.Refused:
+	writetext RuinsOfAlphResearchCenterTutorThatsUnfortunateText
+	waitbutton
+	closetext
+	end
+
+.TeachMove:
+	writetext RuinsOfAlphResearchCenterTutorExcellentTheseBricksText
+	waitbutton
+;	takecoins 4000
+;	waitsfx
+;	playsound SFX_TRANSACTION
+	closetext
+	end
+
 RuinsOfAlphResearchCenterPhoto: ; unreferenced
 	jumptext RuinsOfAlphResearchCenterProfSilktreePhotoText
 
@@ -851,6 +931,61 @@ RuinsOfAlphResearchCenterPlayerReceivedAerodactylText:
 	line "AERODACTYL!"
 	done
 
+RuinsOfAlphResearchCenterTutorExplainText:
+	text "Me? I'm in charge"
+	line "of archaeology."
+
+	para "Say, do you have"
+	line "any BRICK PIECES?"
+
+	para "They can be found"
+	line "all around JOHTO!"
+
+	para "I have a theory"
+	line "that these bricks"
+
+	para "are remnants of"
+	line "structures built"
+
+	para "by the ancient"
+	line "civilisation that"
+	cont "built these ruins!"
+
+	para "I would gladly"
+	line "teach your #MON"
+
+	para "some moves in"
+	line "exchange."
+	done
+
+RuinsOfAlphResearchCenterTutorWantMeToTeachText:
+	text "Want me to teach"
+	line "your #MON some"
+	cont "moves?"
+	done
+
+RuinsOfAlphResearchCenterTutorShallITeachText:
+	text "Which move shall"
+	line "I teach?"
+	done
+
+RuinsOfAlphResearchCenterTutorThatsUnfortunateText:
+	text "That's unfortunate…"
+	done
+
+RuinsOfAlphResearchCenterTutorExcellentTheseBricksText:
+	text "Excellent!"
+	
+	para "These bricks may"
+	line "come in handy!"
+	
+	para "Thanks again!"
+	done
+
+RuinsOfAlphResearchCenterTutorMoveText:
+	text_start
+	done
+
 RuinsOfAlphResearchCenter_MapEvents:
 	db 0, 0 ; filler
 
@@ -870,3 +1005,4 @@ RuinsOfAlphResearchCenter_MapEvents:
 	object_event  5,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_WANDER, 2, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphResearchCenterScientist2Script, -1
 	object_event  2,  5, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphResearchCenterScientist3Script, EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_SCIENTIST
 	object_event  0,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphResearchCenterFossilScientistScript, -1
+	object_event  2,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphResearchCenterTutotScientistScript, -1

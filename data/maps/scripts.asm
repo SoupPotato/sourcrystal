@@ -27,7 +27,6 @@ INCLUDE "maps/RuinsOfAlphKabutoChamber.asm"
 INCLUDE "maps/RuinsOfAlphOmanyteChamber.asm"
 INCLUDE "maps/RuinsOfAlphAerodactylChamber.asm"
 INCLUDE "maps/RuinsOfAlphInnerChamber.asm"
-INCLUDE "maps/RuinsOfAlphResearchCenter.asm"
 INCLUDE "maps/RuinsOfAlphHoOhItemRoom.asm"
 INCLUDE "maps/RuinsOfAlphKabutoItemRoom.asm"
 INCLUDE "maps/RuinsOfAlphOmanyteItemRoom.asm"
@@ -522,5 +521,9 @@ INCLUDE "maps/SafariRestHouseArea4.asm"
 INCLUDE "maps/Route39.asm"
 INCLUDE "maps/SilverCaveLowerMountainSide.asm"
 INCLUDE "maps/SilverCaveUpperMountainSide.asm"
+
+SECTION "Map Scripts 27", ROMX
+
+INCLUDE "maps/RuinsOfAlphResearchCenter.asm"
 
 ENDSECTION

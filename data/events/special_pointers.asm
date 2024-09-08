@@ -185,3 +185,4 @@ SpecialsPointers::
 	add_special RespawnOneOffs
 	add_special MoveReminder
 	add_special FadeInPalettes_EnableDynNoApply
+	add_special MoveTutor2

@@ -10,6 +10,7 @@ MoveTutor:
 	call .GetMoveTutorMove
 	ld [wNamedObjectIndex], a
 	ld [wPutativeTMHMMove], a
+.Continue: ; ref'd by MoveTutor2
 	call GetMoveName
 	call CopyName1
 	farcall ChooseMonToLearnTMHM
@@ -101,3 +102,20 @@ CheckCanLearnMoveTutorMove:
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
 	menu_coords 0, 12, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+
+; duplicate; the difference is that instead of taking a predetermined
+; set of moves, it can take *any move* provided you store it in
+; wNamedObjectIndex and is listed in the tutor move list under
+; constants/item_constants.asm
+MoveTutor2:
+	call FadeToMenu
+	call ClearBGPalettes
+	call ClearScreen
+	call DelayFrame
+	ld b, SCGB_PACKPALS
+	call GetSGBLayout
+	xor a
+	ld [wItemAttributeValue], a
+	ld a, [wNamedObjectIndex]
+	ld [wPutativeTMHMMove], a
+	jmp MoveTutor.Continue

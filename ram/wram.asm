@@ -279,6 +279,7 @@ wCurIconForm:: db
 	ds 10
 
 ; mobile data
+UNION
 wc3cc:: ds 1
 wEmailAddress:: ds MOBILE_EMAIL_LENGTH
 	ds 1
@@ -299,6 +300,14 @@ wc3f9:: ds 1
 wc3fa:: ds 1
 wc3fb:: ds 1
 wc3fc:: ds 1
+NEXTU
+; needed since I don't want to have multiple copies
+; of the same thing :skull:
+wRuinsMoveTutorScratch:: ds \
+	(20 * 2) + \ ; total items
+	1 + \ ; cancel button
+	1 ; number of items
+ENDU
 	ds 3
 wMobileWRAMEnd::
 

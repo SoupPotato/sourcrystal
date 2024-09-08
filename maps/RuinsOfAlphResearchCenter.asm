@@ -463,57 +463,172 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	yesorno
 	iffalse .Refused
 	writetext RuinsOfAlphResearchCenterTutorShallITeachText
-	loadmenu .MoveMenuHeader4Moves
-	verticalmenu
-	closewindow
-	ifequal MOVETUTOR_FLAMETHROWER, .WaterGun
-	ifequal MOVETUTOR_THUNDERBOLT, .Teleport
-	ifequal MOVETUTOR_ICE_BEAM, .MegaPunch
-	ifequal MOVETUTOR_ICE_BEAM, .Psywave
-	sjump .Refused
-
-.WaterGun:
-	setval MOVETUTOR_FLAMETHROWER
+	callasm .SetupMovesMenu
+	callasm .LoadMovesMenu
+	; closewindow ; doesn't work for some reason… it leaves the textbox border hanging
 	writetext RuinsOfAlphResearchCenterTutorMoveText
-	special MoveTutor
-	ifequal FALSE, .TeachMove
+	iffalse .CloseTutor
+	special MoveTutor2
+	iffalse .TeachMove
+.CloseTutor
+	closetext
+	opentext
 	sjump .Refused
 
-.Teleport:
-	setval MOVETUTOR_THUNDERBOLT
-	writetext RuinsOfAlphResearchCenterTutorMoveText
-	special MoveTutor
-	ifequal FALSE, .TeachMove
-	sjump .Refused
+.LoadMovesMenu:
+	call ClearSprites
+	call LoadStandardMenuHeader
+	ld hl, .MovesMenu
+	call LoadMenuHeader
+	xor a
+	ld [wMenuCursorPosition], a
+	ld [wMenuScrollPosition], a
+	ldh [hBGMapMode], a
+	call InitScrollingMenu
+	call ScrollingMenu
+	ld a, [wMenuJoypad]
+	cp B_BUTTON
+	jr z, .cancel_selection
+	ld a, [wMenuSelection]
+	cp -1
+	jr z, .cancel_selection
+	ld [wNamedObjectIndex], a
+	ld a, TRUE
+	ld [wScriptVar], a
+	ret
+.cancel_selection:
+	ld a, FALSE
+	ld [wScriptVar], a
+	ret
 
-.MegaPunch:
-	setval MOVETUTOR_ICE_BEAM
-	writetext RuinsOfAlphResearchCenterTutorMoveText
-	special MoveTutor
-	ifequal FALSE, .TeachMove
-	sjump .Refused
+.MovesMenu:
+	db MENU_BACKUP_TILES
+	menu_coords 1, 1, 15, 7
+	dw .MovesMenuData
+	db 1
 
-.Psywave:
-	setval MOVETUTOR_ICE_BEAM
-	writetext RuinsOfAlphResearchCenterTutorMoveText
-	special MoveTutor
-	ifequal FALSE, .TeachMove
-	sjump .Refused
+.MovesMenuData:
+	db SCROLLINGMENU_DISPLAY_ARROWS | SCROLLINGMENU_ENABLE_FUNCTION3
+	db 3 ; height
+	db 1 ; width ("1" triggers Function 2 to run)
+	db SCROLLINGMENU_ITEMS_QUANTITY ; item format
+	dba wRuinsMoveTutorScratch
+	dba .DisplayMoveName
+	dba .DisplayAmountOkNotReally
+	dba .UpdateNeededShardsIndicator
 
-.MoveMenuHeader4Moves:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 2, 15, TEXTBOX_Y - 1
-	dw .MenuData
-	db 1 ; default option
+.UpdateNeededShardsIndicator:
+; skip if on "CANCEL"
+; XXX: maybe on "CANCEL" it can show how many
+;      shards the player has?
+	ld a, [wMenuSelection]
+	cp -1
+	ret z
+; update quantity
+	hlcoord 3, 9
+	lb bc, 1, 15
+	call Textbox
+	hlcoord 4, 10
+	ld de, .ShardText
+	call PlaceString
+	hlcoord 17, 10
+	ld de, wMenuSelectionQuantity
+	lb bc, 1, 2
+	call PrintNum
+	ret
 
-.MenuData:
-	db STATICMENU_CURSOR ; flags
-	db 5 ; items
-	db "WATER GUN@"
-	db "TELEPORT@"
-	db "MEGA PUNCH@"
-	db "PSYWAVE@"
-	db "CANCEL@"
+.ShardText
+	db "COLOR SHARD ×11@"
+
+.DisplayAmountOkNotReally:
+; this is usually for displaying something on the right
+; hand side of the menu, but we don't need that here
+	ret
+
+.DisplayMoveName:
+	push de
+	ld a, [wMenuSelection]
+	ld [wNamedObjectIndex], a
+	call GetMoveName
+	pop hl
+	jp PlaceString
+
+.SetupMovesMenu:
+; copy the whole move list
+	ld hl, .FullMoveList
+	ld de, wRuinsMoveTutorScratch
+	ld bc, .FullMoveListEnd - .FullMoveList
+	call CopyBytes
+; get unown count
+	ld c, VAR_UNOWNCOUNT
+	farcall _GetVarAction
+	ld a, [de]
+; cut the menu
+	; the way this works requires this condition to hold
+	; i don't feel like doing a full 16-bit add
+	assert HIGH(wRuinsMoveTutorScratch) \
+		== HIGH(wRuinsMoveTutorScratch + 20)
+;--
+	ld hl, wRuinsMoveTutorScratch
+	cp NUM_UNOWN
+	jr nc, .got_menu
+	cp 21
+	jr c, .lessthan21
+; cut menu to 16 items
+	ld a, 16
+	jr .cut_menu
+.lessthan21
+	cp 14
+	jr c, .lessthan14
+; cut menu to 12 items
+	ld a, 12
+	jr .cut_menu
+.lessthan14
+	cp 7
+	jr c, .lessthan7
+; cut menu to 8 items
+	ld a, 8
+	jr .cut_menu
+.lessthan7
+; cut menu to 4 items
+	ld a, 4
+	; fallthrough
+.cut_menu
+	ld [hli], a ; cut length
+; move the CANCEL indicator
+	sla a ; a *= 2, because quantity is factored in
+	add l
+	ld l, a
+	ld a, -1
+	ld [hl], a
+.got_menu
+	ret
+
+.FullMoveList:
+	db 20 ; list length
+; list items
+	db PAY_DAY, 10
+	db TELEPORT, 20
+	db MEGA_PUNCH, 30
+	db PSYWAVE, 40
+	db SEISMIC_TOSS, 11
+	db BUBBLEBEAM, 21
+	db REFLECT, 31
+	db MEGA_KICK, 41
+	db BODY_SLAM, 12
+	db MIMIC, 22
+	db SELFDESTRUCT, 32
+	db THUNDER_WAVE, 42
+	db TRI_ATTACK, 13
+	db MEGA_DRAIN, 23
+	db SUBSTITUTE, 33
+	db METRONOME, 43
+	db ROCK_SLIDE, 14
+	db SWORDS_DANCE, 24
+	db DOUBLE_EDGE, 34
+	db EXPLOSION, 44
+	db -1 ; terminator
+.FullMoveListEnd:
 
 .Refused:
 	writetext RuinsOfAlphResearchCenterTutorThatsUnfortunateText
@@ -522,6 +637,8 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	end
 
 .TeachMove:
+	closetext
+	opentext
 	writetext RuinsOfAlphResearchCenterTutorExcellentTheseBricksText
 	waitbutton
 ;	takecoins 4000

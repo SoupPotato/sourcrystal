@@ -490,8 +490,13 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	cp B_BUTTON
 	jr z, .cancel_selection
 	ld a, [wMenuSelection]
-	cp -1
+	cp -1 ; CANCEL
 	jr z, .cancel_selection
+	ld a, [wMenuSelectionQuantity]
+	ld b, a
+	call .GetAmountOfOpalShards
+	cp b
+	jr c, .cancel_selection ; not enough shards!
 	ld [wNamedObjectIndex], a
 	ld a, TRUE
 	ld [wScriptVar], a

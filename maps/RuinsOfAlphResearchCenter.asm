@@ -467,6 +467,7 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	callasm .LoadMovesMenu
 	; closewindow ; doesn't work for some reason… it leaves the textbox border hanging
 	writetext RuinsOfAlphResearchCenterTutorMoveText
+	ifequal 2, .NotEnough
 	iffalse .CloseTutor
 	special MoveTutor2
 	iffalse .TeachMove
@@ -492,17 +493,26 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	ld a, [wMenuSelection]
 	cp -1 ; CANCEL
 	jr z, .cancel_selection
-	ld a, [wMenuSelectionQuantity]
+; selection confirmed
+	assert wMenuSelectionQuantity == wMenuSelection + 1
+	ld hl, wMenuSelection
+	ld a, [hli]
+	ld [wNamedObjectIndex], a
+	ld a, [hl]
+	ld [wRuinsMoveTutorScratch], a ; not used for menus anymore at this point
 	ld b, a
 	call .GetAmountOfOpalShards
 	cp b
-	jr c, .cancel_selection ; not enough shards!
-	ld [wNamedObjectIndex], a
+	jr c, .not_enough_shards
 	ld a, TRUE
 	ld [wScriptVar], a
 	ret
 .cancel_selection:
 	ld a, FALSE
+	ld [wScriptVar], a
+	ret
+.not_enough_shards:
+	ld a, 2
 	ld [wScriptVar], a
 	ret
 
@@ -617,7 +627,7 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	ret
 
 .GetAmountOfOpalShards:
-; returns: [wMenuSelectionQuantity] = qty. of opal shards
+; returns: a = qty. of opal shards
 	ld hl, wItems ; pocket of OPAL_SHARD, see attributes.asm
 	ld c, MAX_ITEMS ; search bound
 .keep_looking
@@ -638,7 +648,6 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 .write_result
 	ld [wMenuSelectionQuantity], a
 	ret
-
 
 .FullMoveList:
 	db 20 ; list length
@@ -680,11 +689,25 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 
 .TeachMove:
 	closetext
+	callasm .PayTutorInShards
 	opentext
 	writetext RuinsOfAlphResearchCenterTutorExcellentTheseShardsText
 	waitbutton
 	closetext
 	end
+
+.PayTutorInShards:
+; this is a variable `takeitem`, and idk what the script equivalent of this
+; is soooo...
+	ld a, OPAL_SHARD
+	ld [wCurItem], a
+	ld a, [wRuinsMoveTutorScratch] ; should have been set back in .LoadMovesMenu
+	ld [wItemQuantityChange], a
+	ld a, -1
+	ld [wCurItemQuantity], a
+	ld hl, wNumItems
+	call TossItem
+	ret
 
 RuinsOfAlphResearchCenterPhoto: ; unreferenced
 	jumptext RuinsOfAlphResearchCenterProfSilktreePhotoText

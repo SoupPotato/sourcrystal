@@ -1124,8 +1124,8 @@ RuinsOfAlphResearchCenterTutorExplainText:
 	line "that these shards"
 
 	para "are remnants of"
-	line "the ancient civil"
-	cont "-isation that"
+	line "the ancient civi-"
+	cont "lization that"
 	cont "built these ruins!"
 
 	para "I would gladly"

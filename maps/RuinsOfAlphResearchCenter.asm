@@ -527,17 +527,22 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	hlcoord 4, 9
 	lb bc, 1, 14
 	call Textbox
-	hlcoord 5, 10
-	ld de, .ShardText
-	call PlaceString
 	ld a, [wMenuSelection]
 	cp -1 ; CANCEL
-	jr nz, .continue_print
-; wMenuSelectionQuantity should already be set (or not) here
-; so we can play with it a bit
-	call .GetAmountOfOpalShards
-	ld [wMenuSelectionQuantity], a
-.continue_print
+	hlcoord 5, 10 ; text starting position
+	jr nz, .display_needed_amount
+; display "-------" instead of the "currency"
+	ld a, "-"
+	ld c, 14 ; how many dashes to display
+	         ; should cover item name and " x##"
+.fill_bytes
+	ld [hli], a
+	dec c
+	ret z
+	jr .fill_bytes
+.display_needed_amount
+	ld de, .ShardText
+	call PlaceString
 	hlcoord 17, 10
 	ld de, wMenuSelectionQuantity
 	lb bc, 1, 2

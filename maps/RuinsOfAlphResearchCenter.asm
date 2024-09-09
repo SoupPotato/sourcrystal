@@ -643,28 +643,34 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 .FullMoveList:
 	db 20 ; list length
 ; list items
-	db PAY_DAY, 10
-	db TELEPORT, 20
-	db MEGA_PUNCH, 30
-	db PSYWAVE, 40
-	db SEISMIC_TOSS, 11
-	db BUBBLEBEAM, 21
-	db REFLECT, 31
-	db MEGA_KICK, 41
+	db PAY_DAY, 4
+	db TELEPORT, 1
+	db MEGA_PUNCH, 3
+	db PSYWAVE, 2
+	db SEISMIC_TOSS, 6
+	db BUBBLEBEAM, 6
+	db REFLECT, 4
+	db MEGA_KICK, 5
 	db BODY_SLAM, 12
-	db MIMIC, 22
-	db SELFDESTRUCT, 32
-	db THUNDER_WAVE, 42
-	db TRI_ATTACK, 13
-	db MEGA_DRAIN, 23
-	db SUBSTITUTE, 33
-	db METRONOME, 43
-	db ROCK_SLIDE, 14
-	db SWORDS_DANCE, 24
-	db DOUBLE_EDGE, 34
-	db EXPLOSION, 44
+	db MIMIC, 10
+	db SELFDESTRUCT, 16
+	db THUNDER_WAVE, 12
+	db TRI_ATTACK, 18
+	db MEGA_DRAIN, 17
+	db SUBSTITUTE, 20
+	db METRONOME, 15
+	db ROCK_SLIDE, 25
+	db SWORDS_DANCE, 23
+	db DOUBLE_EDGE, 24
+	db EXPLOSION, 23
 	db -1 ; terminator
 .FullMoveListEnd:
+
+.NotEnough:
+	writetext RuinsOfAlphResearchCenterTutorNotEnoughShardsText
+	waitbutton
+	closetext
+	end
 
 .Refused:
 	writetext RuinsOfAlphResearchCenterTutorThatsUnfortunateText
@@ -677,9 +683,6 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	opentext
 	writetext RuinsOfAlphResearchCenterTutorExcellentTheseShardsText
 	waitbutton
-;	takecoins 4000
-;	waitsfx
-;	playsound SFX_TRANSACTION
 	closetext
 	end
 
@@ -1118,6 +1121,11 @@ RuinsOfAlphResearchCenterTutorWantMeToTeachText:
 RuinsOfAlphResearchCenterTutorShallITeachText:
 	text "Which move shall"
 	line "I teach?"
+	done
+
+RuinsOfAlphResearchCenterTutorNotEnoughShardsText:
+	text "You don't have"
+	line "enough shards…"
 	done
 
 RuinsOfAlphResearchCenterTutorThatsUnfortunateText:

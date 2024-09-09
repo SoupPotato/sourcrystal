@@ -180,7 +180,7 @@ ItemDescriptions:
 	dw ParkBallDesc
 	dw RainbowWingDesc
 	dw TeruSama24Desc
-	dw BrickPieceDesc
+	dw OpalShardDesc
 	dw SurfMailDesc
 	dw LiteBlueMailDesc
 	dw PortraitMailDesc
@@ -947,9 +947,9 @@ RainbowWingDesc:
 TeruSama24Desc:
 	db   "?@"
 
-BrickPieceDesc:
-	db   "A rare chunk of"
-	next "tile.@"
+OpalShardDesc:
+	db   "A beautiful shard."
+	next "Sell low.@"
 
 SurfMailDesc:
 	db   "LAPRAS-print MAIL."

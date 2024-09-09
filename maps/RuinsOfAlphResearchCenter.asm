@@ -525,10 +525,10 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	cp -1
 	ret z
 ; update quantity
-	hlcoord 3, 9
-	lb bc, 1, 15
+	hlcoord 4, 9
+	lb bc, 1, 14
 	call Textbox
-	hlcoord 4, 10
+	hlcoord 5, 10
 	ld de, .ShardText
 	call PlaceString
 	hlcoord 17, 10
@@ -538,7 +538,7 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	ret
 
 .ShardText
-	db "COLOR SHARD ×11@"
+	db "OPAL SHARD ×11@"
 
 .DisplayAmountOkNotReally:
 ; this is usually for displaying something on the right
@@ -639,7 +639,7 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 .TeachMove:
 	closetext
 	opentext
-	writetext RuinsOfAlphResearchCenterTutorExcellentTheseBricksText
+	writetext RuinsOfAlphResearchCenterTutorExcellentTheseShardsText
 	waitbutton
 ;	takecoins 4000
 ;	waitsfx
@@ -1053,19 +1053,17 @@ RuinsOfAlphResearchCenterTutorExplainText:
 	line "of archaeology."
 
 	para "Say, do you have"
-	line "any BRICK PIECES?"
+	line "any OPAL SHARDs?"
 
 	para "They can be found"
 	line "all around JOHTO!"
 
 	para "I have a theory"
-	line "that these bricks"
+	line "that these shards"
 
 	para "are remnants of"
-	line "structures built"
-
-	para "by the ancient"
-	line "civilisation that"
+	line "the ancient civil"
+	cont "-isation that"
 	cont "built these ruins!"
 
 	para "I would gladly"
@@ -1090,12 +1088,12 @@ RuinsOfAlphResearchCenterTutorThatsUnfortunateText:
 	text "That's unfortunate…"
 	done
 
-RuinsOfAlphResearchCenterTutorExcellentTheseBricksText:
+RuinsOfAlphResearchCenterTutorExcellentTheseShardsText:
 	text "Excellent!"
-	
-	para "These bricks may"
+
+	para "These shards may"
 	line "come in handy!"
-	
+
 	para "Thanks again!"
 	done
 

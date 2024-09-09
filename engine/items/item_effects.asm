@@ -195,7 +195,7 @@ ItemEffects:
 	dw NoEffect            ; ITEM_B3
 	assert_table_length ITEM_B3
 ; The items past ITEM_B3 do not have effect entries:
-;	BRICK_PIECE
+;	OPAL_SHARD
 ;	SURF_MAIL
 ;	LITEBLUEMAIL
 ;	PORTRAITMAIL

@@ -179,7 +179,7 @@ ItemNames::
 	li "PARK BALL"
 	li "RAINBOW WING"
 	li "TERU-SAMA"
-	li "BRICK PIECE"
+	li "OPAL SHARD"
 	li "SURF MAIL"
 	li "LITEBLUEMAIL"
 	li "PORTRAITMAIL"

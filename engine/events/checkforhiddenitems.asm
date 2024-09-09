@@ -102,13 +102,13 @@ RockItemEncounter:
 	ret
 	
 .RockItems:
-	db 2, STAR_PIECE
-	db 6, NUGGET
+	db 2, NUGGET
+	db 6, STAR_PIECE
 	db 13, BIG_PEARL
 	db 16, STARDUST
 	db 18, REVIVE
-	db 25, PEARL
-	db 51, GOLD_LEAF
+	db 25, GOLD_LEAF
+	db 38, PEARL
 	db 51, SILVER_LEAF
-	db 64, BRICK_PIECE
+	db 64, OPAL_SHARD
 	db -1

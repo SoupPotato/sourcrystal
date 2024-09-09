@@ -518,12 +518,6 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	dba .UpdateNeededShardsIndicator
 
 .UpdateNeededShardsIndicator:
-; skip if on "CANCEL"
-; XXX: maybe on "CANCEL" it can show how many
-;      shards the player has?
-	ld a, [wMenuSelection]
-	cp -1
-	ret z
 ; update quantity
 	hlcoord 4, 9
 	lb bc, 1, 14
@@ -531,6 +525,14 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	hlcoord 5, 10
 	ld de, .ShardText
 	call PlaceString
+	ld a, [wMenuSelection]
+	cp -1 ; CANCEL
+	jr nz, .continue_print
+; wMenuSelectionQuantity should already be set (or not) here
+; so we can play with it a bit
+	call .GetAmountOfOpalShards
+	ld [wMenuSelectionQuantity], a
+.continue_print
 	hlcoord 17, 10
 	ld de, wMenuSelectionQuantity
 	lb bc, 1, 2
@@ -538,7 +540,7 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	ret
 
 .ShardText
-	db "OPAL SHARD ×11@"
+	db "OPAL SHARD ×@"
 
 .DisplayAmountOkNotReally:
 ; this is usually for displaying something on the right
@@ -603,6 +605,30 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	ld [hl], a
 .got_menu
 	ret
+
+.GetAmountOfOpalShards:
+; returns: [wMenuSelectionQuantity] = qty. of opal shards
+	ld hl, wItems ; pocket of OPAL_SHARD, see attributes.asm
+	ld c, MAX_ITEMS ; search bound
+.keep_looking
+	ld a, [hli]
+	cp -1
+	jr z, .no_opal_shard
+	dec c
+	jr z, .no_opal_shard
+	cp OPAL_SHARD
+	jr z, .found_opal_shard
+	inc hl ; skip quantity
+	jr .keep_looking
+.found_opal_shard
+	ld a, [hl] ; get quantity
+	jr .write_result
+.no_opal_shard
+	xor a
+.write_result
+	ld [wMenuSelectionQuantity], a
+	ret
+
 
 .FullMoveList:
 	db 20 ; list length

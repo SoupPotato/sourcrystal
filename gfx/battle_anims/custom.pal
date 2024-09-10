@@ -35,7 +35,7 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 31, 31, 31
 	RGB 31, 26, 09
 	RGB 27, 08, 22
-	RGB 00, 00, 00
+	RGB 03, 09, 26
 ; dragonrage
 	RGB 31, 31, 31
 	RGB 31, 29, 09
@@ -65,11 +65,6 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 31, 31, 31
 	RGB 31, 23, 30
 	RGB 06, 16, 31
-	RGB 00, 00, 00
-; mirrorcoat
-	RGB 31, 31, 31
-	RGB 31, 22, 25
-	RGB 29, 11, 11
 	RGB 00, 00, 00
 ; hp_fighting
 	RGB 31, 31, 31

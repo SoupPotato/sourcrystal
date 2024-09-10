@@ -95,6 +95,7 @@ DoBattleAnimFrame:
 	dw BattleAnimFunc_RockSmash
 	dw BattleAnimFunc_Cotton
 	dw BattleAnimFunc_BubbleSplash
+	dw BattleAnimFunction_RadialMoveOut
 	dw BattleAnimFunction_RadialMoveOut_Slow
 	assert_table_length NUM_BATTLE_ANIM_FUNCS
 
@@ -4219,6 +4220,12 @@ BattleAnimFunc_AncientPower:
 	call DeinitBattleAnimation
 	ret
 
+BattleAnimFunction_RadialMoveOut:
+	call BattleAnim_AnonJumptable
+
+	dw InitRadial
+	dw Step
+
 BattleAnimFunction_RadialMoveOut_Slow:
 	call BattleAnim_AnonJumptable
 
@@ -4232,6 +4239,14 @@ InitRadial:
 	ld [hld], a
 	ld [hl], a ; initial position = 0
 	call BattleAnim_IncAnonJumptableIndex
+
+Step:
+	call Get_Rad_Pos
+	ld hl, 6.0 ; speed
+	call Set_Rad_Pos
+	cp 80 ; final position
+	jmp nc, DeinitBattleAnimation
+	jr Rad_Move
 
 Step_Slow:
 	call Get_Rad_Pos

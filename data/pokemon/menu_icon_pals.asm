@@ -195,7 +195,7 @@ MonMenuIconPals:
 	icon_pals PINK,   GREEN    ; HOPPIP
 	icon_pals GREEN,  PURPLE   ; SKIPLOOM
 	icon_pals BLUE,   PINK     ; JUMPLUFF
-	icon_pals PURPLE, RED      ; AIPOM
+	icon_pals PURPLE, PINK     ; AIPOM
 	icon_pals GREEN,  YELLOW   ; SUNKERN
 	icon_pals GREEN,  YELLOW   ; SUNFLORA
 	icon_pals RED,    BLUE     ; YANMA

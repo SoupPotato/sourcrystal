@@ -18,9 +18,9 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 00, 00, 00
 ; globe
 	RGB 31, 31, 31
-	RGB 03, 22, 31
-	RGB 04, 19, 08
-	RGB 00, 00, 00
+	RGB 03, 27, 14
+	RGB 04, 11, 18
+	RGB 04, 19, 31
 ; water
 	RGB 31, 31, 31
 	RGB 00, 19, 28

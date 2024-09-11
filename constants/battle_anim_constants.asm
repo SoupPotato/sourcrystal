@@ -944,6 +944,7 @@ DEF NUM_BG_EFFECTS EQU 5 ; see wActiveBGEffects
 	const PAL_BTLCUSTOM_ACID            ; 1c
 	const PAL_BTLCUSTOM_LIME            ; 1d
 	const PAL_BTLCUSTOM_PINK            ; 1e
+	const PAL_BTLCUSTOM_OUTRAGE         ; 1f
 
 DEF NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 

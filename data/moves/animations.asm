@@ -2306,6 +2306,7 @@ BattleAnim_HornDrill:
 BattleAnim_PoisonSting:
 	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_PURPLE
 	anim_2gfx BATTLE_ANIM_GFX_HORN, BATTLE_ANIM_GFX_HIT
+.hit
 	anim_obj BATTLE_ANIM_OBJ_NEEDLE, 64, 92, $14
 	anim_wait 16
 	anim_sound 0, 1, SFX_POISON_STING
@@ -2793,13 +2794,8 @@ BattleAnim_DreamEater:
 BattleAnim_LeechLife:
 	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PEACH
 	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_GRAY
-	anim_2gfx BATTLE_ANIM_GFX_HORN, BATTLE_ANIM_GFX_HIT
-	anim_obj BATTLE_ANIM_OBJ_NEEDLE, 64, 92, $14
-	anim_wait 16
-	anim_sound 0, 1, SFX_POISON_STING
-	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL, 136, 56, $0
-	anim_wait 16
-	anim_1gfx BATTLE_ANIM_GFX_CHARGE
+	anim_3gfx BATTLE_ANIM_GFX_HORN, BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_CHARGE
+	anim_call BattleAnim_PoisonSting.hit
 .loop
 	anim_call BattleAnimSub_Drain
 	anim_loop 4, .loop
@@ -3783,8 +3779,8 @@ BattleAnim_LockOn:
 
 BattleAnim_Outrage:
 	anim_3gfx BATTLE_ANIM_GFX_SWIRL, BATTLE_ANIM_GFX_VORTEX, BATTLE_ANIM_GFX_FIRE
-	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_DRAGONBREATH
-	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_DRAGONBREATH
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_OUTRAGE
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_OUTRAGE
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $8, $0
 	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $88, $1, $8
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING, $0, BG_EFFECT_USER, $20
@@ -3798,24 +3794,24 @@ BattleAnim_Outrage:
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_BGPALS_INVERTED, $0, $4, $0
 .loop2
 	anim_sound 0, 0, SFX_RAZOR_WIND
-	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 48, 96, $38
-	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 48, 96, $10
+	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 44, 96, $38
+	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 44, 96, $10
 	anim_wait 6
 	anim_sound 0, 0, SFX_RAZOR_WIND
-	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 48, 96, $2a
-	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 48, 96, $4
+	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 44, 96, $2a
+	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 44, 96, $4
 	anim_wait 6
 	anim_sound 0, 0, SFX_RAZOR_WIND
-	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 48, 96, $18
-	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 48, 96, $3b
+	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 44, 96, $18
+	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 44, 96, $3b
 	anim_wait 6
 	anim_sound 0, 0, SFX_RAZOR_WIND
-	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 48, 96, $1a
-	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 48, 96, $0a
+	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 44, 96, $1a
+	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 44, 96, $0a
 	anim_wait 6
 	anim_sound 0, 0, SFX_RAZOR_WIND
-	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 48, 96, $1e
-	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 48, 96, $30
+	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 44, 96, $1e
+	anim_obj BATTLE_ANIM_OBJ_RADIAL_FLAME, 44, 96, $30
 	anim_wait 6
 	anim_loop 2, .loop2
 	anim_wait 16

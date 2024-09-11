@@ -35,7 +35,7 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 31, 31, 31
 	RGB 31, 26, 09
 	RGB 27, 08, 22
-	RGB 03, 09, 26
+	RGB 00, 00, 00
 ; dragonrage
 	RGB 31, 31, 31
 	RGB 31, 29, 09
@@ -131,6 +131,11 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 31, 19, 24
 	RGB 30, 09, 13
 	RGB 00, 00, 00
+; outrage
+	RGB 31, 31, 31
+	RGB 31, 26, 09
+	RGB 27, 08, 22
+	RGB 25, 01, 05
 
 rept NUM_CUSTOM_BATTLE_PALETTES - 6
 endr

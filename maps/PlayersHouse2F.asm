@@ -209,20 +209,20 @@ if DEF(_DEBUG)
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke SEADRA, 50, LEFTOVERS
-	givepoke VENOMOTH, 50, LEFTOVERS
+	givepoke SNEASEL, 50, LEFTOVERS
+	givepoke BEEDRILL, 50, LEFTOVERS
 	givepoke VICTREEBEL, 50, LEFTOVERS
-	givepoke WEEZING, 50, LEFTOVERS
+	givepoke CLOYSTER, 50, LEFTOVERS
 	givepoke MAGMAR, 50, LEFTOVERS
 	givepoke MAGNETON, 50, LEFTOVERS
-	loadmem wPartyMon1Moves+0, AURORA_BEAM
-	loadmem wPartyMon1Moves+1, DRAGONBREATH
-	loadmem wPartyMon1Moves+2, BUBBLEBEAM
-	loadmem wPartyMon1Moves+3, DRAGON_RAGE
-	loadmem wPartyMon2Moves+0, PSYCHIC_M
-	loadmem wPartyMon2Moves+1, GUST
-	loadmem wPartyMon2Moves+2, SLEEP_POWDER
-	loadmem wPartyMon2Moves+3, LEECH_LIFE
+	loadmem wPartyMon1Moves+0, BEAT_UP
+	loadmem wPartyMon1Moves+1, ICY_WIND
+	loadmem wPartyMon1Moves+2, SLASH
+	loadmem wPartyMon1Moves+3, METAL_CLAW
+	loadmem wPartyMon2Moves+0, PIN_MISSILE
+	loadmem wPartyMon2Moves+1, SLUDGE_BOMB
+	loadmem wPartyMon2Moves+2, FEINT_ATTACK
+	loadmem wPartyMon2Moves+3, OUTRAGE
 	loadmem wPartyMon2DVs+0, $ea
 	loadmem wPartyMon2DVs+1, $aa
 	loadmem wPartyMon3Moves+0, RAZOR_LEAF
@@ -231,12 +231,10 @@ if DEF(_DEBUG)
 	loadmem wPartyMon3Moves+3, SLEEP_POWDER
 	loadmem wPartyMon3DVs+0, $ea
 	loadmem wPartyMon3DVs+1, $aa
-	loadmem wPartyMon4Moves+0, SLUDGE_BOMB
-	loadmem wPartyMon4Moves+1, SMOKESCREEN
-	loadmem wPartyMon4Moves+2, FEINT_ATTACK
-	loadmem wPartyMon4Moves+3, EXPLOSION
-	loadmem wPartyMon4DVs+0, $ea
-	loadmem wPartyMon4DVs+1, $aa
+	loadmem wPartyMon4Moves+0, AURORA_BEAM
+	loadmem wPartyMon4Moves+1, PROTECT
+	loadmem wPartyMon4Moves+2, SURF
+	loadmem wPartyMon4Moves+3, SPIKE_CANNON
 	loadmem wPartyMon5Moves+0, FLAMETHROWER
 	loadmem wPartyMon5Moves+1, THUNDERPUNCH
 	loadmem wPartyMon5Moves+2, FEINT_ATTACK

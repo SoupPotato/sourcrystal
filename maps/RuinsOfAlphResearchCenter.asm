@@ -460,7 +460,7 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	waitbutton
 .AlreadySpokeToTutor:
 	readvar VAR_UNOWNCOUNT
-	ifequal 25, .CaughtAllUnown
+	ifgreater 24, .CaughtAllUnown
 	ifequal 21, .Caught21Unown
 	ifequal 14, .Caught14Unown
 	ifequal 7, .Caught7Unown
@@ -1065,10 +1065,10 @@ RuinsOfAlphResearchCenterFossilScientistIsOldAmberText:
 
 RuinsOfAlphResearchCenterFossilScientistGaveFossilText:
 	text "Is good!"
-	
+
 	para "But I take a"
 	line "little time!"
-	
+
 	para "You go for walk"
 	line "a little while…"
 	done
@@ -1076,47 +1076,47 @@ RuinsOfAlphResearchCenterFossilScientistGaveFossilText:
 RuinsOfAlphResearchCenterFossilScientistNotDoneYetText:
 	text "I am not being"
 	line "done yet."
-	
+
 	para "I take a little"
 	line "time!"
-	
+
 	para "You go walk."
 	line "I am the busy!"
 	done
 
 RuinsOfAlphResearchCenterFossilScientistDoneOmanyteText:
 	text "Where were you?"
-	
+
 	para "Your fossil is"
 	line "back to life!"
-	
+
 	para "It was OMANYTE"
 	line "like I think!"
 	done
 
 RuinsOfAlphResearchCenterFossilScientistDoneKabutoText:
 	text "Where were you?"
-	
+
 	para "Your fossil is"
 	line "back to life!"
-	
+
 	para "It was KABUTO"
 	line "like I think!"
 	done
 
 RuinsOfAlphResearchCenterFossilScientistDoneAerodactylText:
 	text "Where were you?"
-	
+
 	para "Your fossil is"
 	line "back to life!"
-	
+
 	para "It was AERODACTYL"
 	line "like I think!"
 	done
 
 RuinsOfAlphResearchCenterFossilScientistTakeGoodCareOfItText:
 	text "Is very good!"
-	
+
 	para "You take good"
 	line "care of it!"
 	done
@@ -1225,7 +1225,7 @@ RuinsOfAlphResearchCenterTutorCaught14UnownText:
 
 	para "We are discovering"
 	line "more about the"
-	
+
 	para "RUINS every day"
 	line "now thanks to you."
 

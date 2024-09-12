@@ -459,6 +459,12 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	writetext RuinsOfAlphResearchCenterTutorExplainText
 	waitbutton
 .AlreadySpokeToTutor:
+	readvar VAR_UNOWNCOUNT
+	ifequal 25, .CaughtAllUnown
+	ifequal 21, .Caught21Unown
+	ifequal 14, .Caught14Unown
+	ifequal 7, .Caught7Unown
+.BeginTeach:
 	writetext RuinsOfAlphResearchCenterTutorWantMeToTeachText
 	yesorno
 	iffalse .Refused
@@ -475,6 +481,35 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	closetext
 	opentext
 	sjump .Refused
+
+.CaughtAllUnown:
+	checkevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_ALL_UNOWN
+	iftrue .BeginTeach
+	setevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_ALL_UNOWN
+	writetext RuinsOfAlphResearchCenterTutorCaughtAllUnownText
+	waitbutton
+	sjump .BeginTeach
+.Caught21Unown:
+	checkevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_21_UNOWN
+	iftrue .BeginTeach
+	setevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_21_UNOWN
+	writetext RuinsOfAlphResearchCenterTutorCaught21UnownText
+	waitbutton
+	sjump .BeginTeach
+.Caught14Unown:
+	checkevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_14_UNOWN
+	iftrue .BeginTeach
+	setevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_14_UNOWN
+	writetext RuinsOfAlphResearchCenterTutorCaught14UnownText
+	waitbutton
+	sjump .BeginTeach
+.Caught7Unown:
+	checkevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_7_UNOWN
+	iftrue .BeginTeach
+	setevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_7_UNOWN
+	writetext RuinsOfAlphResearchCenterTutorCaught7UnownText
+	waitbutton
+	sjump .BeginTeach
 
 .LoadMovesMenu:
 	call ClearSprites
@@ -653,25 +688,25 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	db 20 ; list length
 ; list items
 	db PAY_DAY, 4
-	db TELEPORT, 1
-	db MEGA_PUNCH, 3
+	db TELEPORT, 2
+	db MEGA_PUNCH, 4
 	db PSYWAVE, 2
-	db SEISMIC_TOSS, 6
+	db SEISMIC_TOSS, 8
 	db BUBBLEBEAM, 6
-	db REFLECT, 4
-	db MEGA_KICK, 5
-	db BODY_SLAM, 12
-	db MIMIC, 10
-	db SELFDESTRUCT, 16
-	db THUNDER_WAVE, 12
-	db TRI_ATTACK, 18
-	db MEGA_DRAIN, 17
-	db SUBSTITUTE, 20
-	db METRONOME, 15
-	db ROCK_SLIDE, 25
-	db SWORDS_DANCE, 23
-	db DOUBLE_EDGE, 24
-	db EXPLOSION, 23
+	db REFLECT, 6
+	db MEGA_KICK, 8
+	db BODY_SLAM, 10
+	db MIMIC, 8
+	db SELFDESTRUCT, 12
+	db THUNDER_WAVE, 10
+	db TRI_ATTACK, 16
+	db MEGA_DRAIN, 14
+	db SUBSTITUTE, 18
+	db METRONOME, 16
+	db ROCK_SLIDE, 22
+	db SWORDS_DANCE, 20
+	db DOUBLE_EDGE, 22
+	db EXPLOSION, 24
 	db -1 ; terminator
 .FullMoveListEnd:
 
@@ -1126,13 +1161,19 @@ RuinsOfAlphResearchCenterTutorExplainText:
 	para "are remnants of"
 	line "the ancient civi-"
 	cont "lization that"
-	cont "built these ruins!"
+	cont "built these RUINS!"
 
 	para "I would gladly"
 	line "teach your #MON"
 
 	para "some moves in"
 	line "exchange."
+
+	para "And the more you"
+	line "help with our"
+
+	para "research, the more"
+	line "moves I can teach!"
 	done
 
 RuinsOfAlphResearchCenterTutorWantMeToTeachText:
@@ -1162,6 +1203,76 @@ RuinsOfAlphResearchCenterTutorExcellentTheseShardsText:
 	line "come in handy!"
 
 	para "Thanks again!"
+	done
+
+RuinsOfAlphResearchCenterTutorCaught7UnownText:
+	text "Hey!"
+
+	para "Thanks so much for"
+	line "your help so far."
+
+	para "You've caught 7"
+	line "different kinds of"
+	cont "UNOWN!"
+
+	para "Now I can teach"
+	line "more moves to your"
+	cont "#MON!"
+	done
+
+RuinsOfAlphResearchCenterTutorCaught14UnownText:
+	text "Wow!"
+
+	para "We are discovering"
+	line "more about the"
+	
+	para "RUINS every day"
+	line "now thanks to you."
+
+	para "You've caught 14"
+	line "different kinds of"
+	cont "UNOWN!"
+
+	para "Now I can teach"
+	line "more moves to your"
+	cont "#MON!"
+	done
+
+RuinsOfAlphResearchCenterTutorCaught21UnownText:
+	text "Amazing!"
+
+	para "We are getting"
+	line "closer to finding"
+
+	para "the secrets of the"
+	line "RUINS!"
+
+	para "You've caught 21"
+	line "different kinds of"
+	cont "UNOWN!"
+
+	para "Now I can teach"
+	line "more moves to your"
+	cont "#MON!"
+	done
+
+RuinsOfAlphResearchCenterTutorCaughtAllUnownText:
+	text "Incredible!"
+
+	para "Thanks to your"
+	line "efforts, our re-"
+	cont "search is almost"
+		cont "complete!"
+
+	para "You've caught all"
+	line "of the UNOWN!"
+
+	para "Now I can teach"
+	line "more moves to your"
+	cont "#MON!"
+
+	para "Our research has"
+	line "your help so far."
 	done
 
 RuinsOfAlphResearchCenterTutorMoveText:

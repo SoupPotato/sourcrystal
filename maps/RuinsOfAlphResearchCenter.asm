@@ -460,7 +460,7 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	waitbutton
 .AlreadySpokeToTutor:
 	readvar VAR_UNOWNCOUNT
-	ifgreater 24, .CaughtAllUnown
+	ifequal 26, .CaughtAllUnown
 	ifequal 21, .Caught21Unown
 	ifequal 14, .Caught14Unown
 	ifequal 7, .Caught7Unown
@@ -487,28 +487,36 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	iftrue .BeginTeach
 	setevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_ALL_UNOWN
 	writetext RuinsOfAlphResearchCenterTutorCaughtAllUnownText
-	waitbutton
+	playsound SFX_LEVEL_UP
+	waitsfx
+	promptbutton
 	sjump .BeginTeach
 .Caught21Unown:
 	checkevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_21_UNOWN
 	iftrue .BeginTeach
 	setevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_21_UNOWN
 	writetext RuinsOfAlphResearchCenterTutorCaught21UnownText
-	waitbutton
+	playsound SFX_LEVEL_UP
+	waitsfx
+	promptbutton
 	sjump .BeginTeach
 .Caught14Unown:
 	checkevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_14_UNOWN
 	iftrue .BeginTeach
 	setevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_14_UNOWN
 	writetext RuinsOfAlphResearchCenterTutorCaught14UnownText
-	waitbutton
+	playsound SFX_LEVEL_UP
+	waitsfx
+	promptbutton
 	sjump .BeginTeach
 .Caught7Unown:
 	checkevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_7_UNOWN
 	iftrue .BeginTeach
 	setevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_TUTOR_CAUGHT_7_UNOWN
 	writetext RuinsOfAlphResearchCenterTutorCaught7UnownText
-	waitbutton
+	playsound SFX_LEVEL_UP
+	waitsfx
+	promptbutton
 	sjump .BeginTeach
 
 .LoadMovesMenu:
@@ -1170,10 +1178,9 @@ RuinsOfAlphResearchCenterTutorExplainText:
 	line "exchange."
 
 	para "And the more you"
-	line "help with our"
-
-	para "research, the more"
-	line "moves I can teach!"
+	line "help with our re-"
+	cont "search, the more"
+	cont "moves I can teach!"
 	done
 
 RuinsOfAlphResearchCenterTutorWantMeToTeachText:

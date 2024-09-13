@@ -4,6 +4,7 @@
 	const CINNABARISLAND_ROCK2
 	const CINNABARISLAND_ROCK3
 	const CINNABARISLAND_ROCK4
+	const CINNABARISLAND_SWIMMER_GIRL
 
 CinnabarIsland_MapScripts:
 	def_scene_scripts
@@ -166,3 +167,4 @@ CinnabarIsland_MapEvents:
 	object_event 16,  1, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandRock, -1
 	object_event 14,  8, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandRock, -1
 	object_event 20,  7, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandRock, -1
+	object_event 16, -2, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, ObjectEvent, -1

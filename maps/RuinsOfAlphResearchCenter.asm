@@ -1161,7 +1161,8 @@ RuinsOfAlphResearchCenterTutorExplainText:
 	line "any OPAL SHARDs?"
 
 	para "They can be found"
-	line "all around JOHTO!"
+	line "in breakable rocks"
+	cont "almost everywhere."
 
 	para "I have a theory"
 	line "that these shards"

@@ -14,8 +14,8 @@ Route47MysticWater:
 Route47SilverPowder:
 	itemball SILVERPOWDER
 
-Route47MaxRepel:
-	itemball MAX_REPEL
+Route47OpalShard:
+	itemball OPAL_SHARD
 
 Route47HiddenPearl:
 	hiddenitem PEARL, EVENT_ROUTE_47_HIDDEN_PEARL
@@ -207,8 +207,8 @@ Route47_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	signpost 33, 34, BGEVENT_ITEM, Route47HiddenPearl
-	signpost 28, 12, BGEVENT_ITEM, Route47HiddenStardust
+	bg_event 34, 33, BGEVENT_ITEM, Route47HiddenPearl
+	bg_event 12, 28, BGEVENT_ITEM, Route47HiddenStardust
 
 	def_object_events
 	object_event 59, 26, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, GenericTrainerHikerDevin, -1
@@ -220,4 +220,4 @@ Route47_MapEvents:
 	object_event 39, 28, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route47Revive, EVENT_ROUTE_47_REVIVE
 	object_event 11, 24, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route47MysticWater, EVENT_ROUTE_47_MYSTIC_WATER
 	object_event 31, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route47SilverPowder, EVENT_ROUTE_47_SILVER_POWDER
-	object_event 7, 6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route47MaxRepel, EVENT_ROUTE_47_MAX_REPEL
+	object_event 7, 6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route47OpalShard, EVENT_ROUTE_47_OPAL_SHARD

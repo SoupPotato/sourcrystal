@@ -1,3 +1,6 @@
+	object_const_def
+	const ROUTE16_POKEBALL
+
 Route16_MapScripts:
 	def_scene_scripts
 
@@ -18,6 +21,9 @@ Route16AlwaysOnBikeCallback:
 
 CyclingRoadSign:
 	jumptext CyclingRoadSignText
+
+Route16OpalShard:
+	itemball OPAL_SHARD
 
 CyclingRoadSignText:
 	text "CYCLING ROAD"
@@ -42,3 +48,4 @@ Route16_MapEvents:
 	bg_event 13, 11, BGEVENT_READ, CyclingRoadSign
 
 	def_object_events
+	object_event 31,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route16OpalShard, EVENT_ROUTE_16_OPAL_SHARD

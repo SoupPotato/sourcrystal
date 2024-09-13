@@ -56,8 +56,8 @@ MountMoonPokecenter1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  3,  7, ROUTE_3, 2
-	warp_event  4,  7, ROUTE_3, 2
+	warp_event  3,  7, ROUTE_4, 3
+	warp_event  4,  7, ROUTE_4, 3
 	warp_event  0,  7, POKECENTER_2F, 1
 
 	def_coord_events

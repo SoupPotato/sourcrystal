@@ -1,9 +1,15 @@
 	object_const_def
-	const ROUTE3_FISHER1
-	const ROUTE3_YOUNGSTER1
-	const ROUTE3_YOUNGSTER2
-	const ROUTE3_YOUNGSTER3
-	const ROUTE3_FISHER2
+	const ROUTE3_YOUNGSTER_1
+	const ROUTE3_YOUNGSTER_2
+	const ROUTE3_YOUNGSTER_3
+	const ROUTE3_COOLTRAINER_M
+	const ROUTE3_COOLTRAINER_F
+	const ROUTE3_FISHER_1
+	const ROUTE3_POKEFAN_M_1
+	const ROUTE3_POKEFAN_M_2
+	const ROUTE3_BLACK_BELT_1
+	const ROUTE3_BLACK_BELT_2
+	const ROUTE3_POKEBALL
 
 Route3_MapScripts:
 	def_scene_scripts
@@ -119,23 +125,6 @@ TrainerFirebreatherOtis:
 	waitbutton
 	closetext
 	end
-
-TrainerFirebreatherBurt:
-	trainer FIREBREATHER, BURT, EVENT_BEAT_FIREBREATHER_BURT, FirebreatherBurtSeenText, FirebreatherBurtBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext FirebreatherBurtAfterBattleText
-	waitbutton
-	closetext
-	end
-
-Route3MtMoonSquareSign:
-	jumptext Route3MtMoonSquareSignText
-
-Route3MtMoonPokecenterSign:
-	jumpstd PokecenterSignScript
 
 HikerBruceSeenText:
 	text "My Bag is"
@@ -343,53 +332,23 @@ FirebreatherOtisAfterBattleText:
 	cont "ignition…"
 	done
 
-FirebreatherBurtSeenText:
-	text "Step right up and"
-	line "take a look!"
-	done
-
-FirebreatherBurtBeatenText:
-	text "Yow! That's hot!"
-	done
-
-FirebreatherBurtAfterBattleText:
-	text "The greatest fire-"
-	line "breather in KANTO,"
-	cont "that's me."
-
-	para "But not the best"
-	line "trainer…"
-	done
-
-Route3MtMoonSquareSignText:
-	text "MT.MOON SQUARE"
-
-	para "Just go up the"
-	line "stairs."
-	done
-
 Route3_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 64,  7, MOUNT_MOON, 1
-	warp_event 57,  7, MOUNT_MOON_POKECENTER_1F, 1
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 55, 29, BGEVENT_READ, Route3MtMoonSquareSign
-	bg_event 58,  7, BGEVENT_READ, Route3MtMoonPokecenterSign
 
 	def_object_events
-	object_event 11, 29, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerYoungsterRegis, -1
-	object_event 16, 25, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerYoungsterWarren, -1
-	object_event 19, 24, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterJimmy, -1
-	object_event 12, 32, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCoolDuoZacandJen1, -1
-	object_event 13, 32, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCoolDuoZacandJen2, -1
-	object_event 26, 30, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerFirebreatherOtis, -1
-	object_event 58, 12, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerFirebreatherBurt, -1
-	object_event 34, 25, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerHikerBruce, -1
-	object_event 54, 33, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerDwight, -1
-	object_event 41, 29, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBlackBeltManford, -1
-	object_event 50, 32, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerBlackBeltAnder, -1
+	object_event 11,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerYoungsterRegis, -1
+	object_event 16,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerYoungsterWarren, -1
+	object_event 19,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterJimmy, -1
+	object_event 12, 12, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCoolDuoZacandJen1, -1
+	object_event 13, 12, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerCoolDuoZacandJen2, -1
+	object_event 26, 10, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerFirebreatherOtis, -1
+	object_event 34,  5, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerHikerBruce, -1
+	object_event 54, 13, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerDwight, -1
+	object_event 41,  9, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBlackBeltManford, -1
+	object_event 50, 12, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerBlackBeltAnder, -1

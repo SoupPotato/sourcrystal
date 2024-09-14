@@ -264,57 +264,73 @@ Route30Antidote:
 
 Route30BerryTree:
 	opentext
+	getitemname STRING_BUFFER_3, ORAN_BERRY
 	writetext Route30BerryTreeText
 	promptbutton
-	writetext Route30HeyItsBerryText
+	writetext Route30HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem ORAN_BERRY
-	iffalse .NoRoomInBag
+	giveitem ORAN_BERRY
+	iffalse Route30NoRoomInBag
 	disappear ROUTE_30_BERRY
 	setflag ENGINE_DAILY_ROUTE_30_BERRY
-.NoRoomInBag
+	writetext Route30FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route30BerryTree2:
 	opentext
+	getitemname STRING_BUFFER_3, PECHA_BERRY
 	writetext Route30BerryTreeText
 	promptbutton
-	writetext Route30HeyItsBERRY_2Text
+	writetext Route30HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem PECHA_BERRY
-	iffalse .NoRoomInBag
+	giveitem PECHA_BERRY
+	iffalse Route30NoRoomInBag
 	disappear ROUTE_30_BERRY_2
 	setflag ENGINE_DAILY_ROUTE_30_BERRY_2
-.NoRoomInBag
+	writetext Route30FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route30ApricornTree:
 	opentext
+	getitemname STRING_BUFFER_3, GRN_APRICORN
 	writetext Route30ApricornTreeText
 	promptbutton
-	writetext Route30HeyItsApricornText
+	writetext Route30HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem GRN_APRICORN
-	iffalse .NoRoomInBag
+	giveitem GRN_APRICORN
+	iffalse Route30NoRoomInBag
 	disappear ROUTE_30_APRICORN
 	setflag ENGINE_DAILY_ROUTE_30_APRICORN
-.NoRoomInBag
+	writetext Route30FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route30ApricornTree2:
 	opentext
+	getitemname STRING_BUFFER_3, PNK_APRICORN
 	writetext Route30ApricornTreeText
 	promptbutton
-	writetext Route30HeyItsAPRICORN_2Text
+	writetext Route30HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem PNK_APRICORN
-	iffalse .NoRoomInBag
+	giveitem PNK_APRICORN
+	iffalse Route29NoRoomInBag
 	disappear ROUTE_30_APRICORN_2
 	setflag ENGINE_DAILY_ROUTE_30_APRICORN_2
-.NoRoomInBag
+	writetext Route30FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
@@ -332,6 +348,12 @@ Route30NoApricorn:
 	writetext Route30ApricornTreeText
 	promptbutton
 	writetext Route30NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route30NoRoomInBag:
+	writetext Route30NoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -500,35 +522,30 @@ Route30BerryTreeText:
 	line "BERRY tree…"
 	done
 
-Route30HeyItsBerryText:
-	text "Hey! It's"
-	line "ORAN BERRY!"
-	done
-
-Route30HeyItsBERRY_2Text:
-	text "Hey! It's"
-	line "PECHA BERRY!"
-	done
-
 Route30ApricornTreeText:
 	text "It's an"
 	line "APRICORN tree…"
-	done
-
-Route30HeyItsApricornText:
-	text "Hey! It's"
-	line "GRN APRICORN!"
-	done
-
-Route30HeyItsAPRICORN_2Text:
-	text "Hey! It's"
-	line "PNK APRICORN!"
 	done
 
 Route30NothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+Route30HeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+Route30FoundItemText:
+	text_far _FoundItemText
+	text_end
+
+Route30NoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 Route30_MapEvents:
 	db 0, 0 ; filler

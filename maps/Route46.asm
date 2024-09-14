@@ -192,57 +192,73 @@ Route46XSpeed:
 
 Route46BerryTree:
 	opentext
+	getitemname STRING_BUFFER_3, CHERI_BERRY
 	writetext Route46BerryTreeText
 	promptbutton
-	writetext Route46HeyItsBerryText
+	writetext Route46HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem CHERI_BERRY
-	iffalse .NoRoomInBag
+	giveitem CHERI_BERRY
+	iffalse Route46NoRoomInBag
 	disappear ROUTE_46_BERRY
 	setflag ENGINE_DAILY_ROUTE_46_BERRY
-.NoRoomInBag
+	writetext Route46FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route46BerryTree2:
 	opentext
+	getitemname STRING_BUFFER_3, ORAN_BERRY
 	writetext Route46BerryTreeText
 	promptbutton
-	writetext Route46HeyItsBERRY_2Text
+	writetext Route46HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem ORAN_BERRY
-	iffalse .NoRoomInBag
+	giveitem ORAN_BERRY
+	iffalse Route46NoRoomInBag
 	disappear ROUTE_46_BERRY_2
 	setflag ENGINE_DAILY_ROUTE_46_BERRY_2
-.NoRoomInBag
+	writetext Route46FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route46ApricornTree:
 	opentext
+	getitemname STRING_BUFFER_3, GRN_APRICORN
 	writetext Route46ApricornTreeText
 	promptbutton
-	writetext Route46HeyItsApricornText
+	writetext Route46HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem GRN_APRICORN
-	iffalse .NoRoomInBag
+	giveitem GRN_APRICORN
+	iffalse Route46NoRoomInBag
 	disappear ROUTE_46_APRICORN
 	setflag ENGINE_DAILY_ROUTE_46_APRICORN
-.NoRoomInBag
+	writetext Route46FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route46ApricornTree2:
 	opentext
+	getitemname STRING_BUFFER_3, YLW_APRICORN
 	writetext Route46ApricornTreeText
 	promptbutton
-	writetext Route46HeyItsAPRICORN_2Text
+	writetext Route46HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem YLW_APRICORN
-	iffalse .NoRoomInBag
+	giveitem YLW_APRICORN
+	iffalse Route46NoRoomInBag
 	disappear ROUTE_46_APRICORN_2
 	setflag ENGINE_DAILY_ROUTE_46_APRICORN_2
-.NoRoomInBag
+	writetext Route46FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
@@ -260,6 +276,12 @@ Route46NoApricorn:
 	writetext Route46ApricornTreeText
 	promptbutton
 	writetext Route46NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route46NoRoomInBag:
+	writetext Route46NoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -378,6 +400,21 @@ Route46NothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+Route46HeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+Route46FoundItemText:
+	text_far _FoundItemText
+	text_end
+
+Route46NoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 Route46_MapEvents:
 	db 0, 0 ; filler

@@ -76,29 +76,37 @@ Route1Sign:
 
 Route1BerryTree:
 	opentext
+	getitemname STRING_BUFFER_3, PERSIM_BERRY
 	writetext Route1BerryTreeText
 	promptbutton
-	writetext Route1HeyItsBerryText
+	writetext Route1HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem PERSIM_BERRY
-	iffalse .NoRoomInBag
+	giveitem PERSIM_BERRY
+	iffalse Route1NoRoomInBag
 	disappear ROUTE_1_BERRY
 	setflag ENGINE_DAILY_ROUTE_1_BERRY
-.NoRoomInBag
+	writetext Route1FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route1ApricornTree:
 	opentext
+	getitemname STRING_BUFFER_3, BLK_APRICORN
 	writetext Route1ApricornTreeText
 	promptbutton
-	writetext Route1HeyItsApricornText
+	writetext Route1HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem BLK_APRICORN
-	iffalse .NoRoomInBag
+	giveitem BLK_APRICORN
+	iffalse Route1NoRoomInBag
 	disappear ROUTE_1_APRICORN
 	setflag ENGINE_DAILY_ROUTE_1_APRICORN
-.NoRoomInBag
+	writetext Route1FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
@@ -116,6 +124,12 @@ Route1NoApricorn:
 	writetext Route1ApricornTreeText
 	promptbutton
 	writetext Route1NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route1NoRoomInBag:
+	writetext Route1NoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -210,25 +224,30 @@ Route1BerryTreeText:
 	line "BERRY tree…"
 	done
 
-Route1HeyItsBerryText:
-	text "Hey! It's"
-	line "PERSIM BERRY!"
-	done
-
 Route1ApricornTreeText:
 	text "It's an"
 	line "APRICORN tree…"
-	done
-
-Route1HeyItsApricornText:
-	text "Hey! It's"
-	line "BLK APRICORN!"
 	done
 
 Route1NothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+Route1HeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+Route1FoundItemText:
+	text_far _FoundItemText
+	text_end
+
+Route1NoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 Route1_MapEvents:
 	db 0, 0 ; filler

@@ -126,43 +126,55 @@ Route37Sign:
 
 Route37ApricornTree:
 	opentext
+	getitemname STRING_BUFFER_3, RED_APRICORN
 	writetext Route37ApricornTreeText
 	promptbutton
-	writetext Route37HeyItsApricornText
+	writetext Route37HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem RED_APRICORN
-	iffalse .NoRoomInBag
+	giveitem RED_APRICORN
+	iffalse Route37NoRoomInBag
 	disappear ROUTE_37_APRICORN
 	setflag ENGINE_DAILY_ROUTE_37_APRICORN
-.NoRoomInBag
+	writetext Route37FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route37ApricornTree2:
 	opentext
+	getitemname STRING_BUFFER_3, BLU_APRICORN
 	writetext Route37ApricornTreeText
 	promptbutton
-	writetext Route37HeyItsAPRICORN_2Text
+	writetext Route37HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem BLU_APRICORN
-	iffalse .NoRoomInBag
+	giveitem BLU_APRICORN
+	iffalse Route37NoRoomInBag
 	disappear ROUTE_37_APRICORN_2
 	setflag ENGINE_DAILY_ROUTE_37_APRICORN_2
-.NoRoomInBag
+	writetext Route37FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route37ApricornTree3:
 	opentext
+	getitemname STRING_BUFFER_3, BLK_APRICORN
 	writetext Route37ApricornTreeText
 	promptbutton
-	writetext Route37HeyItsAPRICORN_3Text
+	writetext Route37HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem BLK_APRICORN
-	iffalse .NoRoomInBag
+	giveitem BLK_APRICORN
+	iffalse Route37NoRoomInBag
 	disappear ROUTE_37_APRICORN_3
 	setflag ENGINE_DAILY_ROUTE_37_APRICORN_3
-.NoRoomInBag
+	writetext Route37FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
@@ -171,6 +183,12 @@ Route37NoApricorn:
 	writetext Route37ApricornTreeText
 	promptbutton
 	writetext Route37NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route37NoRoomInBag:
+	writetext Route37NoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -309,25 +327,25 @@ Route37ApricornTreeText:
 	line "APRICORN tree…"
 	done
 
-Route37HeyItsApricornText:
-	text "Hey! It's"
-	line "RED APRICORN!"
-	done
-
-Route37HeyItsAPRICORN_2Text:
-	text "Hey! It's"
-	line "BLU APRICORN!"
-	done
-
-Route37HeyItsAPRICORN_3Text:
-	text "Hey! It's"
-	line "BLK APRICORN!"
-	done
-
 Route37NothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+Route37HeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+Route37FoundItemText:
+	text_far _FoundItemText
+	text_end
+
+Route37NoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 Route37_MapEvents:
 	db 0, 0 ; filler

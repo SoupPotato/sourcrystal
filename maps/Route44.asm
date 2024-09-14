@@ -316,29 +316,37 @@ Route44Sign2:
 
 Route44BerryTree:
 	opentext
+	getitemname STRING_BUFFER_3, ASPEAR_BERRY
 	writetext Route44BerryTreeText
 	promptbutton
-	writetext Route44HeyItsBerryText
+	writetext Route44HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem ASPEAR_BERRY
-	iffalse .NoRoomInBag
+	giveitem ASPEAR_BERRY
+	iffalse Route44NoRoomInBag
 	disappear ROUTE_44_BERRY
 	setflag ENGINE_DAILY_ROUTE_44_BERRY
-.NoRoomInBag
+	writetext Route44FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route44ApricornTree:
 	opentext
+	getitemname STRING_BUFFER_3, RED_APRICORN
 	writetext Route44ApricornTreeText
 	promptbutton
-	writetext Route44HeyItsApricornText
+	writetext Route44HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem RED_APRICORN
-	iffalse .NoRoomInBag
+	giveitem RED_APRICORN
+	iffalse Route44NoRoomInBag
 	disappear ROUTE_44_APRICORN
 	setflag ENGINE_DAILY_ROUTE_44_APRICORN
-.NoRoomInBag
+	writetext Route44FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
@@ -356,6 +364,12 @@ Route44NoApricorn:
 	writetext Route44ApricornTreeText
 	promptbutton
 	writetext Route44NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route44NoRoomInBag:
+	writetext Route44NoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -563,25 +577,30 @@ Route44BerryTreeText:
 	line "BERRY tree…"
 	done
 
-Route44HeyItsBerryText:
-	text "Hey! It's"
-	line "ASPEAR BERRY!"
-	done
-
 Route44ApricornTreeText:
 	text "It's an"
 	line "APRICORN tree…"
-	done
-
-Route44HeyItsApricornText:
-	text "Hey! It's"
-	line "RED APRICORN!"
 	done
 
 Route44NothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+Route44HeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+Route44FoundItemText:
+	text_far _FoundItemText
+	text_end
+
+Route44NoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 Route44_MapEvents:
 	db 0, 0 ; filler

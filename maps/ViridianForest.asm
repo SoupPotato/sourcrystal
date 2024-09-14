@@ -42,29 +42,37 @@ ViridianForestHiddenFullRestore:
 
 ViridianForestBerryTree:
 	opentext
+	getitemname STRING_BUFFER_3, PECHA_BERRY
 	writetext ViridianForestBerryTreeText
 	promptbutton
-	writetext ViridianForestHeyItsBerryText
+	writetext ViridianForestHeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem PECHA_BERRY
-	iffalse .NoRoomInBag
+	giveitem PECHA_BERRY
+	iffalse ViridianForestNoRoomInBag
 	disappear VIRIDIAN_FOREST_BERRY
 	setflag ENGINE_DAILY_VIRIDIAN_FOREST_BERRY
-.NoRoomInBag
+	writetext ViridianForestFoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 ViridianForestApricornTree:
 	opentext
+	getitemname STRING_BUFFER_3, PNK_APRICORN
 	writetext ViridianForestApricornTreeText
 	promptbutton
-	writetext ViridianForestHeyItsApricornText
+	writetext ViridianForestHeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem PNK_APRICORN
-	iffalse .NoRoomInBag
+	giveitem PNK_APRICORN
+	iffalse ViridianForestNoRoomInBag
 	disappear VIRIDIAN_FOREST_APRICORN
 	setflag ENGINE_DAILY_VIRIDIAN_FOREST_APRICORN
-.NoRoomInBag
+	writetext ViridianForestFoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
@@ -82,6 +90,12 @@ ViridianForestNoApricorn:
 	writetext ViridianForestApricornTreeText
 	promptbutton
 	writetext ViridianForestNothingHereText
+	waitbutton
+	closetext
+	end
+
+ViridianForestNoRoomInBag:
+	writetext ViridianForestNoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -280,25 +294,30 @@ ViridianForestBerryTreeText:
 	line "BERRY tree…"
 	done
 
-ViridianForestHeyItsBerryText:
-	text "Hey! It's"
-	line "PECHA BERRY!"
-	done
-
 ViridianForestApricornTreeText:
 	text "It's an"
 	line "APRICORN tree…"
-	done
-
-ViridianForestHeyItsApricornText:
-	text "Hey! It's"
-	line "PNK APRICORN!"
 	done
 
 ViridianForestNothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+ViridianForestHeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+ViridianForestFoundItemText:
+	text_far _FoundItemText
+	text_end
+
+ViridianForestNoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 ViridianForest_MapEvents:
 	db 0, 0 ; filler

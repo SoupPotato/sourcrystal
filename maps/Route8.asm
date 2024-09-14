@@ -124,29 +124,37 @@ Route8UndergroundPathSign:
 
 Route8BerryTree:
 	opentext
+	getitemname STRING_BUFFER_3, CHERI_BERRY
 	writetext Route8BerryTreeText
 	promptbutton
-	writetext Route8HeyItsBerryText
+	writetext Route8HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem CHERI_BERRY
-	iffalse .NoRoomInBag
+	giveitem CHERI_BERRY
+	iffalse Route8NoRoomInBag
 	disappear ROUTE_8_BERRY
 	setflag ENGINE_DAILY_ROUTE_8_BERRY
-.NoRoomInBag
+	writetext Route8FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route8ApricornTree:
 	opentext
+	getitemname STRING_BUFFER_3, YLW_APRICORN
 	writetext Route8ApricornTreeText
 	promptbutton
-	writetext Route8HeyItsApricornText
+	writetext Route8HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem YLW_APRICORN
-	iffalse .NoRoomInBag
+	giveitem YLW_APRICORN
+	iffalse Route8NoRoomInBag
 	disappear ROUTE_8_APRICORN
 	setflag ENGINE_DAILY_ROUTE_8_APRICORN
-.NoRoomInBag
+	writetext Route8FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
@@ -164,6 +172,12 @@ Route8NoApricorn:
 	writetext Route8ApricornTreeText
 	promptbutton
 	writetext Route8NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route8NoRoomInBag:
+	writetext Route8NoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -336,25 +350,30 @@ Route8BerryTreeText:
 	line "BERRY tree…"
 	done
 
-Route8HeyItsBerryText:
-	text "Hey! It's"
-	line "CHERI BERRY!"
-	done
-
 Route8ApricornTreeText:
 	text "It's an"
 	line "APRICORN tree…"
-	done
-
-Route8HeyItsApricornText:
-	text "Hey! It's"
-	line "YLW APRICORN!"
 	done
 
 Route8NothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+Route8HeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+Route8FoundItemText:
+	text_far _FoundItemText
+	text_end
+
+Route8NoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 Route8_MapEvents:
 	db 0, 0 ; filler
@@ -378,7 +397,7 @@ Route8_MapEvents:
 	object_event 21, 11, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSupernerdSam, -1
 	object_event 39,  8, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSupernerdTom, -1
 	object_event  5, 14, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route8BerryTree, EVENT_ROUTE_8_BERRY
-	object_event 49,  6, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route8ApricornTree, EVENT_ROUTE_8_APRICORN
+	object_event 49,  6, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_SCRIPT, 0, Route8ApricornTree, EVENT_ROUTE_8_APRICORN
 	object_event 30,  3, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerCoupleMoeandLulu1, -1
 	object_event 31,  3, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerCoupleMoeandLulu2, -1
 	object_event 45, 15, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, GentlemanMilton, -1

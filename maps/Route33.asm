@@ -148,43 +148,55 @@ Route33Sign:
 
 Route33BerryTree:
 	opentext
+	getitemname STRING_BUFFER_3, PECHA_BERRY
 	writetext Route33BerryTreeText
 	promptbutton
-	writetext Route33HeyItsBerryText
+	writetext Route33HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem PECHA_BERRY
-	iffalse .NoRoomInBag
+	giveitem PECHA_BERRY
+	iffalse Route33NoRoomInBag
 	disappear ROUTE_33_BERRY
 	setflag ENGINE_DAILY_ROUTE_33_BERRY
-.NoRoomInBag
+	writetext Route33FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route33ApricornTree:
 	opentext
+	getitemname STRING_BUFFER_3, BLK_APRICORN
 	writetext Route33ApricornTreeText
 	promptbutton
-	writetext Route33HeyItsApricornText
+	writetext Route33HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem BLK_APRICORN
-	iffalse .NoRoomInBag
+	giveitem BLK_APRICORN
+	iffalse Route33NoRoomInBag
 	disappear ROUTE_33_APRICORN
 	setflag ENGINE_DAILY_ROUTE_33_APRICORN
-.NoRoomInBag
+	writetext Route33FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route33ApricornTree2:
 	opentext
+	getitemname STRING_BUFFER_3, PNK_APRICORN
 	writetext Route33ApricornTreeText
 	promptbutton
-	writetext Route33HeyItsAPRICORN_2Text
+	writetext Route33HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem PNK_APRICORN
-	iffalse .NoRoomInBag
+	giveitem PNK_APRICORN
+	iffalse Route33NoRoomInBag
 	disappear ROUTE_33_APRICORN_2
 	setflag ENGINE_DAILY_ROUTE_33_APRICORN_2
-.NoRoomInBag
+	writetext Route33FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
@@ -202,6 +214,12 @@ Route33NoApricorn:
 	writetext Route33ApricornTreeText
 	promptbutton
 	writetext Route33NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route33NoRoomInBag:
+	writetext Route33NoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -260,20 +278,25 @@ Route33ApricornTreeText:
 	line "APRICORN tree…"
 	done
 
-Route33HeyItsApricornText:
-	text "Hey! It's"
-	line "BLK APRICORN!"
-	done
-
-Route33HeyItsAPRICORN_2Text:
-	text "Hey! It's"
-	line "PNK APRICORN!"
-	done
-
 Route33NothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+Route33HeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+Route33FoundItemText:
+	text_far _FoundItemText
+	text_end
+
+Route33NoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 Route33_MapEvents:
 	db 0, 0 ; filler

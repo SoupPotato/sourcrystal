@@ -218,43 +218,55 @@ Route42SuperPotion:
 
 Route42ApricornTree:
 	opentext
+	getitemname STRING_BUFFER_3, PNK_APRICORN
 	writetext Route42ApricornTreeText
 	promptbutton
-	writetext Route42HeyItsApricornText
+	writetext Route42HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem PNK_APRICORN
-	iffalse .NoRoomInBag
+	giveitem PNK_APRICORN
+	iffalse Route42NoRoomInBag
 	disappear ROUTE_42_APRICORN
 	setflag ENGINE_DAILY_ROUTE_42_APRICORN
-.NoRoomInBag
+	writetext Route42FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
-Route42APRICORN_2Tree:
+Route42Apricorn2Tree:
 	opentext
+	getitemname STRING_BUFFER_3, GRN_APRICORN
 	writetext Route42ApricornTreeText
 	promptbutton
-	writetext Route42HeyItsAPRICORN_2Text
+	writetext Route42HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem GRN_APRICORN
-	iffalse .NoRoomInBag
+	giveitem GRN_APRICORN
+	iffalse Route42NoRoomInBag
 	disappear ROUTE_42_APRICORN_2
 	setflag ENGINE_DAILY_ROUTE_42_APRICORN_2
-.NoRoomInBag
+	writetext Route42FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
-Route42APRICORN_3Tree:
+Route42Apricorn3Tree:
 	opentext
+	getitemname STRING_BUFFER_3, YLW_APRICORN
 	writetext Route42ApricornTreeText
 	promptbutton
-	writetext Route42HeyItsAPRICORN_3Text
+	writetext Route42HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem YLW_APRICORN
-	iffalse .NoRoomInBag
+	giveitem YLW_APRICORN
+	iffalse Route42NoRoomInBag
 	disappear ROUTE_42_APRICORN_3
 	setflag ENGINE_DAILY_ROUTE_42_APRICORN_3
-.NoRoomInBag
+	writetext Route42FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
@@ -263,6 +275,12 @@ Route42NoApricorn:
 	writetext Route42ApricornTreeText
 	promptbutton
 	writetext Route42NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route42NoRoomInBag:
+	writetext Route42NoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -379,25 +397,25 @@ Route42ApricornTreeText:
 	line "APRICORN tree…"
 	done
 
-Route42HeyItsApricornText:
-	text "Hey! It's"
-	line "PNK APRICORN!"
-	done
-
-Route42HeyItsAPRICORN_2Text:
-	text "Hey! It's"
-	line "GRN APRICORN!"
-	done
-
-Route42HeyItsAPRICORN_3Text:
-	text "Hey! It's"
-	line "YLW APRICORN!"
-	done
-
 Route42NothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+Route42HeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+Route42FoundItemText:
+	text_far _FoundItemText
+	text_end
+
+Route42NoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 Route42_MapEvents:
 	db 0, 0 ; filler
@@ -427,8 +445,8 @@ Route42_MapEvents:
 	object_event 51,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerBenjamin, -1
 	object_event 47,  8, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPokemaniacShane, -1
 	object_event 27, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route42ApricornTree, EVENT_ROUTE_42_APRICORN
-	object_event 28, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route42APRICORN_2Tree, EVENT_ROUTE_42_APRICORN_2
-	object_event 29, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_SCRIPT, 0, Route42APRICORN_3Tree, EVENT_ROUTE_42_APRICORN_3
+	object_event 28, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route42Apricorn2Tree, EVENT_ROUTE_42_APRICORN_2
+	object_event 29, 16, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_SCRIPT, 0, Route42Apricorn3Tree, EVENT_ROUTE_42_APRICORN_3
 	object_event  6,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route42UltraBall, EVENT_ROUTE_42_ULTRA_BALL
 	object_event 33,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route42SuperPotion, EVENT_ROUTE_42_SUPER_POTION
 	object_event 26, 16, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_ON_ROUTE_42

@@ -268,29 +268,37 @@ Route31CooltrainerMScript:
 
 Route31BerryTree:
 	opentext
+	getitemname STRING_BUFFER_3, PERSIM_BERRY
 	writetext Route31BerryTreeText
 	promptbutton
-	writetext Route31HeyItsBerryText
+	writetext Route31HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem PERSIM_BERRY
-	iffalse .NoRoomInBag
+	giveitem PERSIM_BERRY
+	iffalse Route31NoRoomInBag
 	disappear ROUTE_31_BERRY
 	setflag ENGINE_DAILY_ROUTE_31_BERRY
-.NoRoomInBag
+	writetext Route31FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route31ApricornTree:
 	opentext
+	getitemname STRING_BUFFER_3, BLK_APRICORN
 	writetext Route31ApricornTreeText
 	promptbutton
-	writetext Route31HeyItsApricornText
+	writetext Route31HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem BLK_APRICORN
-	iffalse .NoRoomInBag
+	giveitem BLK_APRICORN
+	iffalse Route31NoRoomInBag
 	disappear ROUTE_31_APRICORN
 	setflag ENGINE_DAILY_ROUTE_31_APRICORN
-.NoRoomInBag
+	writetext Route31FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
@@ -308,6 +316,12 @@ Route31NoApricorn:
 	writetext Route31ApricornTreeText
 	promptbutton
 	writetext Route31NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route31NoRoomInBag:
+	writetext Route29NoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -473,25 +487,30 @@ Route31BerryTreeText:
 	line "BERRY tree…"
 	done
 
-Route31HeyItsBerryText:
-	text "Hey! It's"
-	line "PERSIM BERRY!"
-	done
-
 Route31ApricornTreeText:
 	text "It's an"
 	line "APRICORN tree…"
-	done
-
-Route31HeyItsApricornText:
-	text "Hey! It's"
-	line "BLK APRICORN!"
 	done
 
 Route31NothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+Route31HeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+Route31FoundItemText:
+	text_far _FoundItemText
+	text_end
+
+Route31NoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 Route31_MapEvents:
 	db 0, 0 ; filler

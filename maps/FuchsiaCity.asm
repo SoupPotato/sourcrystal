@@ -64,48 +64,62 @@ FuchsiaCityPokecenterSign:
 FuchsiaCityMartSign:
 	jumpstd MartSignScript
 
-FuchsiaBerryTree:
+FuchsiaCityBerryTree:
 	opentext
-	writetext FuchsiaBerryTreeText
+	getitemname STRING_BUFFER_3, ASPEAR_BERRY
+	writetext FuchsiaCityBerryTreeText
 	promptbutton
-	writetext FuchsiaHeyItsBerryText
+	writetext FuchsiaCityHeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem ASPEAR_BERRY
-	iffalse .NoRoomInBag
+	giveitem ASPEAR_BERRY
+	iffalse FuchsiaCityNoRoomInBag
 	disappear FUCHSIACITY_BERRY
 	setflag ENGINE_DAILY_FUCHSIA_BERRY
-.NoRoomInBag
+	writetext FuchsiaCityFoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
-FuchsiaApricornTree:
+FuchsiaCityApricornTree:
 	opentext
-	writetext FuchsiaApricornTreeText
+	getitemname STRING_BUFFER_3, RED_APRICORN
+	writetext FuchsiaCityApricornTreeText
 	promptbutton
-	writetext FuchsiaHeyItsApricornText
+	writetext FuchsiaCityHeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem RED_APRICORN
-	iffalse .NoRoomInBag
+	giveitem RED_APRICORN
+	iffalse FuchsiaCityNoRoomInBag
 	disappear FUCHSIACITY_APRICORN
 	setflag ENGINE_DAILY_FUCHSIA_APRICORN
-.NoRoomInBag
+	writetext FuchsiaCityFoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
-FuchsiaNoBerry:
+FuchsiaCityNoBerry:
 	opentext
-	writetext FuchsiaBerryTreeText
+	writetext FuchsiaCityBerryTreeText
 	promptbutton
-	writetext FuchsiaNothingHereText
+	writetext FuchsiaCityNothingHereText
 	waitbutton
 	closetext
 	end
 
-FuchsiaNoApricorn:
+FuchsiaCityNoApricorn:
 	opentext
-	writetext FuchsiaApricornTreeText
+	writetext FuchsiaCityApricornTreeText
 	promptbutton
-	writetext FuchsiaNothingHereText
+	writetext FuchsiaCityNothingHereText
+	waitbutton
+	closetext
+	end
+
+FuchsiaCityNoRoomInBag:
+	writetext FuchsiaCityNoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -182,30 +196,35 @@ NoLitteringSignText:
 	line "waste with you."
 	done
 
-FuchsiaBerryTreeText:
+FuchsiaCityBerryTreeText:
 	text "It's a"
 	line "BERRY tree…"
 	done
 
-FuchsiaHeyItsBerryText:
-	text "Hey! It's"
-	line "ASPEAR BERRY!"
-	done
-
-FuchsiaApricornTreeText:
+FuchsiaCityApricornTreeText:
 	text "It's an"
 	line "APRICORN tree…"
 	done
 
-FuchsiaHeyItsApricornText:
-	text "Hey! It's"
-	line "RED APRICORN!"
-	done
-
-FuchsiaNothingHereText:
+FuchsiaCityNothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+FuchsiaCityHeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+FuchsiaCityFoundItemText:
+	text_far _FoundItemText
+	text_end
+
+FuchsiaCityNoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 FuchsiaCity_MapEvents:
 	db 0, 0 ; filler
@@ -232,12 +251,12 @@ FuchsiaCity_MapEvents:
 	bg_event 13, 15, BGEVENT_READ, NoLitteringSign
 	bg_event 20, 27, BGEVENT_READ, FuchsiaCityPokecenterSign
 	bg_event  6, 13, BGEVENT_READ, FuchsiaCityMartSign
-	bg_event 17, 17, BGEVENT_READ, FuchsiaNoBerry
-	bg_event 15, 17, BGEVENT_READ, FuchsiaNoApricorn
+	bg_event 17, 17, BGEVENT_READ, FuchsiaCityNoBerry
+	bg_event 15, 17, BGEVENT_READ, FuchsiaCityNoApricorn
 
 	def_object_events
 	object_event 23, 18, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityYoungster, -1
 	object_event 13,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityPokefanM, -1
 	object_event 16, 14, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FuchsiaCityTeacher, -1
-	object_event 17, 17, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_SCRIPT, 0, FuchsiaBerryTree, EVENT_FUCHSIA_BERRY
-	object_event 15, 17, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FuchsiaApricornTree, EVENT_FUCHSIA_APRICORN
+	object_event 17, 17, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBerryTree, EVENT_FUCHSIA_BERRY
+	object_event 15, 17, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FuchsiaCityApricornTree, EVENT_FUCHSIA_APRICORN

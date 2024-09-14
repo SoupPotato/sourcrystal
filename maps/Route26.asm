@@ -257,29 +257,37 @@ Route26Sign:
 
 Route26BerryTree:
 	opentext
+	getitemname STRING_BUFFER_3, RAWST_BERRY
 	writetext Route26BerryTreeText
 	promptbutton
-	writetext Route26HeyItsBerryText
+	writetext Route26HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem RAWST_BERRY
-	iffalse .NoRoomInBag
+	giveitem RAWST_BERRY
+	iffalse Route26NoRoomInBag
 	disappear ROUTE_26_BERRY
 	setflag ENGINE_DAILY_ROUTE_26_BERRY
-.NoRoomInBag
+	writetext Route26FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route26ApricornTree:
 	opentext
+	getitemname STRING_BUFFER_3, BLU_APRICORN
 	writetext Route26ApricornTreeText
 	promptbutton
-	writetext Route26HeyItsApricornText
+	writetext Route26HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem BLU_APRICORN
-	iffalse .NoRoomInBag
+	giveitem BLU_APRICORN
+	iffalse Route26NoRoomInBag
 	disappear ROUTE_26_APRICORN
 	setflag ENGINE_DAILY_ROUTE_26_APRICORN
-.NoRoomInBag
+	writetext Route26FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
@@ -297,6 +305,12 @@ Route26NoApricorn:
 	writetext Route26ApricornTreeText
 	promptbutton
 	writetext Route26NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route26NoRoomInBag:
+	writetext Route26NoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -467,25 +481,30 @@ Route26BerryTreeText:
 	line "BERRY tree…"
 	done
 
-Route26HeyItsBerryText:
-	text "Hey! It's"
-	line "RAWST BERRY!"
-	done
-
 Route26ApricornTreeText:
 	text "It's an"
 	line "APRICORN tree…"
-	done
-
-Route26HeyItsApricornText:
-	text "Hey! It's"
-	line "BLU APRICORN!"
 	done
 
 Route26NothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+Route26HeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+Route26FoundItemText:
+	text_far _FoundItemText
+	text_end
+
+Route26NoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 Route26_MapEvents:
 	db 0, 0 ; filler

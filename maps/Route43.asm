@@ -313,29 +313,37 @@ Route43TrainerTips:
 
 Route43BerryTree:
 	opentext
+	getitemname STRING_BUFFER_3, PERSIM_BERRY
 	writetext Route43BerryTreeText
 	promptbutton
-	writetext Route43HeyItsBerryText
+	writetext Route43HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem PERSIM_BERRY
-	iffalse .NoRoomInBag
+	giveitem PERSIM_BERRY
+	iffalse Route43NoRoomInBag
 	disappear ROUTE_43_BERRY
 	setflag ENGINE_DAILY_ROUTE_43_BERRY
-.NoRoomInBag
+	writetext Route43FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route43ApricornTree:
 	opentext
+	getitemname STRING_BUFFER_3, BLK_APRICORN
 	writetext Route43ApricornTreeText
 	promptbutton
-	writetext Route43HeyItsApricornText
+	writetext Route43HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem BLK_APRICORN
-	iffalse .NoRoomInBag
+	giveitem BLK_APRICORN
+	iffalse Route43NoRoomInBag
 	disappear ROUTE_43_APRICORN
 	setflag ENGINE_DAILY_ROUTE_43_APRICORN
-.NoRoomInBag
+	writetext Route43FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
@@ -353,6 +361,12 @@ Route43NoApricorn:
 	writetext Route43ApricornTreeText
 	promptbutton
 	writetext Route43NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route43NoRoomInBag:
+	writetext Route43NoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -535,25 +549,30 @@ Route43BerryTreeText:
 	line "BERRY tree…"
 	done
 
-Route43HeyItsBerryText:
-	text "Hey! It's"
-	line "PERSIM BERRY!"
-	done
-
 Route43ApricornTreeText:
 	text "It's an"
 	line "APRICORN tree…"
-	done
-
-Route43HeyItsApricornText:
-	text "Hey! It's"
-	line "BLK APRICORN!"
 	done
 
 Route43NothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+Route43HeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+Route43FoundItemText:
+	text_far _FoundItemText
+	text_end
+
+Route43NoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 Route43_MapEvents:
 	db 0, 0 ; filler

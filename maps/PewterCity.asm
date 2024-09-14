@@ -95,57 +95,73 @@ PewterCityMartSign:
 
 PewterCityBerryTree:
 	opentext
+	getitemname STRING_BUFFER_3, RAWST_BERRY
 	writetext PewterCityBerryTreeText
 	promptbutton
-	writetext PewterCityHeyItsBerryText
+	writetext PewterCityHeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem RAWST_BERRY
-	iffalse .NoRoomInBag
+	giveitem RAWST_BERRY
+	iffalse PewterCityNoRoomInBag
 	disappear PEWTERCITY_BERRY
 	setflag ENGINE_DAILY_PEWTER_BERRY
-.NoRoomInBag
+	writetext PewterCityFoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 PewterCityBerryTree2:
 	opentext
-	writetext PewterCityBerryTreeText
+	getitemname STRING_BUFFER_3, CHESTO_BERRY
+	writetext PewterCityApricornTreeText
 	promptbutton
-	writetext PewterCityHeyItsBERRY_2Text
+	writetext PewterCityHeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem CHESTO_BERRY
-	iffalse .NoRoomInBag
+	giveitem CHESTO_BERRY
+	iffalse PewterCityNoRoomInBag
 	disappear PEWTERCITY_BERRY_2
 	setflag ENGINE_DAILY_PEWTER_BERRY_2
-.NoRoomInBag
+	writetext PewterCityFoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 PewterCityApricornTree:
 	opentext
+	getitemname STRING_BUFFER_3, BLU_APRICORN
 	writetext PewterCityApricornTreeText
 	promptbutton
-	writetext PewterCityHeyItsApricornText
+	writetext PewterCityHeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem BLU_APRICORN
-	iffalse .NoRoomInBag
+	giveitem BLU_APRICORN
+	iffalse PewterCityNoRoomInBag
 	disappear PEWTERCITY_APRICORN
 	setflag ENGINE_DAILY_PEWTER_APRICORN
-.NoRoomInBag
+	writetext PewterCityFoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 PewterCityApricornTree2:
 	opentext
+	getitemname STRING_BUFFER_3, WHT_APRICORN
 	writetext PewterCityApricornTreeText
 	promptbutton
-	writetext PewterCityHeyItsAPRICORN_2Text
+	writetext PewterCityHeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem WHT_APRICORN
-	iffalse .NoRoomInBag
+	giveitem WHT_APRICORN
+	iffalse PewterCityNoRoomInBag
 	disappear PEWTERCITY_APRICORN_2
 	setflag ENGINE_DAILY_PEWTER_APRICORN_2
-.NoRoomInBag
+	writetext PewterCityFoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
@@ -163,6 +179,12 @@ PewterCityNoApricorn:
 	writetext PewterCityApricornTreeText
 	promptbutton
 	writetext PewterCityNothingHereText
+	waitbutton
+	closetext
+	end
+
+PewterCityNoRoomInBag:
+	writetext PewterCityNoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -252,35 +274,30 @@ PewterCityBerryTreeText:
 	line "BERRY tree…"
 	done
 
-PewterCityHeyItsBerryText:
-	text "Hey! It's"
-	line "RAWST BERRY!"
-	done
-
-PewterCityHeyItsBERRY_2Text:
-	text "Hey! It's"
-	line "CHESTO BERRY!"
-	done
-
 PewterCityApricornTreeText:
 	text "It's an"
 	line "APRICORN tree…"
-	done
-
-PewterCityHeyItsApricornText:
-	text "Hey! It's"
-	line "BLU APRICORN!"
-	done
-
-PewterCityHeyItsAPRICORN_2Text:
-	text "Hey! It's"
-	line "WHT APRICORN!"
 	done
 
 PewterCityNothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+PewterCityHeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+PewterCityFoundItemText:
+	text_far _FoundItemText
+	text_end
+
+PewterCityNoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 PewterCity_MapEvents:
 	db 0, 0 ; filler

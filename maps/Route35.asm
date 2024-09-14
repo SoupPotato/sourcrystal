@@ -345,29 +345,37 @@ Route35TMRollout:
 
 Route35BerryTree:
 	opentext
+	getitemname STRING_BUFFER_3, LEPPA_BERRY
 	writetext Route35BerryTreeText
 	promptbutton
-	writetext Route35HeyItsBerryText
+	writetext Route35HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem LEPPA_BERRY
-	iffalse .NoRoomInBag
+	giveitem LEPPA_BERRY
+	iffalse Route35NoRoomInBag
 	disappear ROUTE_35_BERRY
 	setflag ENGINE_DAILY_ROUTE_35_BERRY
-.NoRoomInBag
+	writetext Route35FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
 Route35ApricornTree:
 	opentext
+	getitemname STRING_BUFFER_3, GRN_APRICORN
 	writetext Route35ApricornTreeText
 	promptbutton
-	writetext Route35HeyItsApricornText
+	writetext Route35HeyItsBerryApricornText
 	promptbutton
-	verbosegiveitem GRN_APRICORN
-	iffalse .NoRoomInBag
+	giveitem GRN_APRICORN
+	iffalse Route35NoRoomInBag
 	disappear ROUTE_35_APRICORN
 	setflag ENGINE_DAILY_ROUTE_35_APRICORN
-.NoRoomInBag
+	writetext Route35FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
 	closetext
 	end
 
@@ -385,6 +393,12 @@ Route35NoApricorn:
 	writetext Route35ApricornTreeText
 	promptbutton
 	writetext Route35NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route35NoRoomInBag:
+	writetext Route35NoRoomInBagText
 	waitbutton
 	closetext
 	end
@@ -572,25 +586,30 @@ Route35BerryTreeText:
 	line "BERRY tree…"
 	done
 
-Route35HeyItsBerryText:
-	text "Hey! It's"
-	line "LEPPA BERRY!"
-	done
-
 Route35ApricornTreeText:
 	text "It's an"
 	line "APRICORN tree…"
-	done
-
-Route35HeyItsApricornText:
-	text "Hey! It's"
-	line "GRN APRICORN!"
 	done
 
 Route35NothingHereText:
 	text "There's nothing"
 	line "here…"
 	done
+
+Route35HeyItsBerryApricornText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+Route35FoundItemText:
+	text_far _FoundItemText
+	text_end
+
+Route35NoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 Route35_MapEvents:
 	db 0, 0 ; filler

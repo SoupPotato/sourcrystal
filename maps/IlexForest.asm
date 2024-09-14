@@ -450,6 +450,7 @@ IlexForestEther:
 
 IlexForestTinyMushroom1: ;Daily
 ; This whole script is written out rather than as an itemball
+	scall IlexForestParasBattle
 	giveitem TINYMUSHROOM
 	iffalse IlexForestNoRoomInBagForMushroom
 	disappear ILEXFOREST_TINYMUSHROOM1
@@ -463,8 +464,27 @@ IlexForestTinyMushroom1: ;Daily
 	closetext
 	end
 
+IlexForestParasBattle:
+	random 5
+	ifnotequal 0, .skip
+; 20% chance
+	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
+	checkflag ENGINE_CHALLENGE_MODE_ACTIVE
+	iftrue .challenge_mode
+	loadwildmon PARAS, 8
+	jump .got_wild_mon
+.challenge_mode
+	loadwildmon PARAS, 10
+.got_wild_mon
+	cry PARAS
+	startbattle
+	reloadmapafterbattle
+.skip
+	end
+
 IlexForestTinyMushroom2: ;Daily
 ; This whole script is written out rather than as an itemball
+	scall IlexForestParasBattle
 	giveitem TINYMUSHROOM
 	iffalse IlexForestNoRoomInBagForMushroom
 	disappear ILEXFOREST_TINYMUSHROOM2
@@ -480,6 +500,7 @@ IlexForestTinyMushroom2: ;Daily
 
 IlexForestTinyMushroom3: ;Daily
 ; This whole script is written out rather than as an itemball
+	scall IlexForestParasBattle
 	giveitem TINYMUSHROOM
 	iffalse IlexForestNoRoomInBagForMushroom
 	disappear ILEXFOREST_TINYMUSHROOM3

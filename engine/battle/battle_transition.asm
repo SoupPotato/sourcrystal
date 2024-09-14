@@ -71,7 +71,11 @@ DoBattleTransition:
 	cp LINK_MOBILE
 	jr z, .mobile
 	farcall ReanchorBGMap_NoOAMUpdate
+	ld a, [wCurWeather]
+	and a
+	jr nz, .skip_update_sprites ; lets the rain still be on screen for a bit
 	call UpdateSprites
+.skip_update_sprites
 	call DelayFrame
 	call .NonMobile_LoadPokeballTiles
 	call BattleStart_CopyTilemapAtOnce

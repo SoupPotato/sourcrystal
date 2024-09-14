@@ -112,6 +112,7 @@
 	const SPRITE_OLD_AMBER              ; 6e
 	const SPRITE_AMPHY_SICK             ; 6f
 	const SPRITE_CLEFAIRY_MOVE          ; 70
+	const SPRITE_MUSHROOM               ; 71
 DEF NUM_OVERWORLD_SPRITES EQU const_value - 1
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)

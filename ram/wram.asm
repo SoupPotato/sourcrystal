@@ -3310,7 +3310,6 @@ wCurMapSceneScriptsPointer:: dw
 wCurMapCallbackCount:: db
 wCurMapCallbacksPointer:: dw
 
-	ds 2
 
 ; Sprite id of each decoration
 wDecoBed::           db
@@ -3328,7 +3327,7 @@ wWhichMomItemSet:: db
 wMomItemTriggerBalance:: ds 3
 
 wDailyResetTimer:: dw
-wDailyFlags1:: ds 8
+wDailyFlags1:: ds 9
 wDailyFlags2:: db
 wSwarmFlags:: db
 
@@ -3369,7 +3368,7 @@ wSwarmLandmark:: db
 wLastMapYCoord:: db ; current y coordinate relative to top-left corner of the previous map
 wLastMapXCoord:: db ; current x coordinate relative to top-left corner of previous map
 
-	ds 9
+	ds 10
 
 wVermilionGymTrashCan1:: db
 wVermilionGymTrashCan2:: db

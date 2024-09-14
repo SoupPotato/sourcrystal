@@ -43,6 +43,18 @@ SetCurrentWeather::
 	ld c, a
 	ld a, [wMapGroup]
 	cp b
+	jr nz, .check_johto_next_rain
+	ld a, [wMapNumber]
+	cp c
+	jr z, .rain
+
+.check_johto_next_rain
+	ld a, [wWeatherRandomMapGroupJohto + 1]
+	ld b, a
+	ld a, [wWeatherRandomMapNumberJohto + 1]
+	ld c, a
+	ld a, [wMapGroup]
+	cp b
 	jr nz, .check_kanto_rain
 	ld a, [wMapNumber]
 	cp c
@@ -55,10 +67,23 @@ SetCurrentWeather::
 	ld c, a
 	ld a, [wMapGroup]
 	cp b
+	jr nz, .check_kanto_next_rain
+	ld a, [wMapNumber]
+	cp c
+	jr z, .rain
+
+.check_kanto_next_rain
+	ld a, [wWeatherRandomMapGroupKanto + 1]
+	ld b, a
+	ld a, [wWeatherRandomMapNumberKanto + 1]
+	ld c, a
+	ld a, [wMapGroup]
+	cp b
 	jr nz, .not_raining
 	ld a, [wMapNumber]
 	cp c
 	jr z, .rain
+
 .not_raining
 	ld a, OW_WEATHER_NONE
 	jr .set_weather
@@ -120,6 +145,9 @@ SetCurrentWeather::
 	jr .set_weather
 
 GenerateNewRandomRainMap:
+	; sorry, just kinda hacked this in
+	assert NUM_WEATHER_MAPS_PER_DAY == 2
+
 	ld a, NUM_JOHTO_WEATHER_MAPS
 	call RandomRange
 	ld h, 0
@@ -132,6 +160,18 @@ GenerateNewRandomRainMap:
 	ld a, [hl]
 	ld [wWeatherRandomMapNumberJohto], a
 
+	ld a, NUM_JOHTO_WEATHER_MAPS
+	call RandomRange
+	ld h, 0
+	ld l, a
+	add hl, hl
+	ld de, RandomRainMapsJohto
+	add hl, de
+	ld a, [hli]
+	ld [wWeatherRandomMapGroupJohto + 1], a
+	ld a, [hl]
+	ld [wWeatherRandomMapNumberJohto + 1], a
+
 	ld a, NUM_KANTO_WEATHER_MAPS
 	call RandomRange
 	ld h, 0
@@ -143,6 +183,18 @@ GenerateNewRandomRainMap:
 	ld [wWeatherRandomMapGroupKanto], a
 	ld a, [hl]
 	ld [wWeatherRandomMapNumberKanto], a
+
+	ld a, NUM_KANTO_WEATHER_MAPS
+	call RandomRange
+	ld h, 0
+	ld l, a
+	add hl, hl
+	ld de, RandomRainMapsKanto
+	add hl, de
+	ld a, [hli]
+	ld [wWeatherRandomMapGroupKanto + 1], a
+	ld a, [hl]
+	ld [wWeatherRandomMapNumberKanto + 1], a
 	ret
 
 RandomRainMapsJohto:

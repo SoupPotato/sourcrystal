@@ -1904,10 +1904,10 @@ wPrevWeather:: db
 wCurWeather:: db
 wPrevOvercastIndex:: db
 wWeatherRandomDay:: db
-wWeatherRandomMapGroupJohto:: db
-wWeatherRandomMapNumberJohto:: db
-wWeatherRandomMapGroupKanto:: db
-wWeatherRandomMapNumberKanto:: db
+wWeatherRandomMapGroupJohto:: ds NUM_WEATHER_MAPS_PER_DAY
+wWeatherRandomMapNumberJohto:: ds NUM_WEATHER_MAPS_PER_DAY
+wWeatherRandomMapGroupKanto:: ds NUM_WEATHER_MAPS_PER_DAY
+wWeatherRandomMapNumberKanto:: ds NUM_WEATHER_MAPS_PER_DAY
 
 
 SECTION "Fade System Ram", WRAM0

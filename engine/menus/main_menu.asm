@@ -265,9 +265,9 @@ MainMenu_PrintCurrentVersion:
 	and a
 	jr nz, .has_save_file
 ; no save file
-	hlcoord 14, 15
+	hlcoord 13, 15 ;Box - Position
 	call Textbox
-	hlcoord 15, 16
+	hlcoord 14, 16 ;Text - Width
 	jr .no_save_file
 .has_save_file
 	hlcoord 13, 11 ;Box - Position

@@ -13,6 +13,9 @@
 	const ILEXFOREST_TINYMUSHROOM1
 	const ILEXFOREST_TINYMUSHROOM2
 	const ILEXFOREST_TINYMUSHROOM3
+	const ILEXFOREST_BIG_MUSHROOM1
+	const ILEXFOREST_BIG_MUSHROOM2
+	const ILEXFOREST_BIG_MUSHROOM3
 
 IlexForest_MapScripts:
 	def_scene_scripts
@@ -21,20 +24,38 @@ IlexForest_MapScripts:
 	callback MAPCALLBACK_OBJECTS, IlexForestMushroomsAndFarfetchdCallback
 
 IlexForestMushroomsAndFarfetchdCallback:
-	checkflag ENGINE_DAILY_ILEX_FOREST_TINYMUSHROOM_1
-	iftrue .NoTinyMushroom1
+	checkflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_1
+	iftrue .finishMushroom1
+	random 5
+	ifnotequal 0, .skipBigMushroom1
+; 20% chance
+	appear ILEXFOREST_BIG_MUSHROOM1
+	sjump .finishMushroom1
+.skipBigMushroom1
 	appear ILEXFOREST_TINYMUSHROOM1
-.NoTinyMushroom1:
+.finishMushroom1
 	;fallthrough
-	checkflag ENGINE_DAILY_ILEX_FOREST_TINYMUSHROOM_2
-	iftrue .NoTinyMushroom2
+	checkflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_2
+	iftrue .finishMushroom2
+	random 5
+	ifnotequal 0, .skipBigMushroom2
+; 20% chance
+	appear ILEXFOREST_BIG_MUSHROOM2
+	sjump .finishMushroom2
+.skipBigMushroom2
 	appear ILEXFOREST_TINYMUSHROOM2
-.NoTinyMushroom2:
+.finishMushroom2
 	;fallthrough
-	checkflag ENGINE_DAILY_ILEX_FOREST_TINYMUSHROOM_3
-	iftrue .NoTinyMushroom3
+	checkflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_3
+	iftrue .finishMushroom3
+	random 5
+	ifnotequal 0, .skipBigMushroom3
+; 20% chance
+	appear ILEXFOREST_BIG_MUSHROOM3
+	sjump .finishMushroom3
+.skipBigMushroom3
 	appear ILEXFOREST_TINYMUSHROOM3
-.NoTinyMushroom3:
+.finishMushroom3
 	;fallthrough
 	checkevent EVENT_GOT_HM01_CUT
 	iftrue .Static
@@ -452,12 +473,92 @@ IlexForestTinyMushroom1: ;Daily
 ; This whole script is written out rather than as an itemball
 	scall IlexForestParasBattle
 	giveitem TINYMUSHROOM
-	iffalse IlexForestNoRoomInBagForMushroom
+	iffalse IlexForestNoRoomInBagForTinyMushroom
 	disappear ILEXFOREST_TINYMUSHROOM1
-	setflag ENGINE_DAILY_ILEX_FOREST_TINYMUSHROOM_1
+	setflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_1
 	opentext
 	getitemname STRING_BUFFER_3, TINYMUSHROOM
-	writetext IlexForestFoundTinyMushroomText
+	writetext IlexForestFoundMushroomText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
+	closetext
+	end
+
+IlexForestTinyMushroom2: ;Daily
+; This whole script is written out rather than as an itemball
+	scall IlexForestParasBattle
+	giveitem TINYMUSHROOM
+	iffalse IlexForestNoRoomInBagForTinyMushroom
+	disappear ILEXFOREST_TINYMUSHROOM2
+	setflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_2
+	opentext
+	getitemname STRING_BUFFER_3, TINYMUSHROOM
+	writetext IlexForestFoundMushroomText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
+	closetext
+	end
+
+IlexForestTinyMushroom3: ;Daily
+; This whole script is written out rather than as an itemball
+	scall IlexForestParasBattle
+	giveitem TINYMUSHROOM
+	iffalse IlexForestNoRoomInBagForTinyMushroom
+	disappear ILEXFOREST_TINYMUSHROOM3
+	setflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_3
+	opentext
+	getitemname STRING_BUFFER_3, TINYMUSHROOM
+	writetext IlexForestFoundMushroomText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
+	closetext
+	end
+
+IlexForestBigMushroom1: ;Daily
+; This whole script is written out rather than as an itemball
+	scall IlexForestParasBattle
+	giveitem BIG_MUSHROOM
+	iffalse IlexForestNoRoomInBagForBigMushroom
+	disappear ILEXFOREST_BIG_MUSHROOM1
+	setflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_1
+	opentext
+	getitemname STRING_BUFFER_3, BIG_MUSHROOM
+	writetext IlexForestFoundMushroomText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
+	closetext
+	end
+
+IlexForestBigMushroom2: ;Daily
+; This whole script is written out rather than as an itemball
+	scall IlexForestParasBattle
+	giveitem BIG_MUSHROOM
+	iffalse IlexForestNoRoomInBagForBigMushroom
+	disappear ILEXFOREST_BIG_MUSHROOM2
+	setflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_2
+	opentext
+	getitemname STRING_BUFFER_3, BIG_MUSHROOM
+	writetext IlexForestFoundMushroomText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
+	closetext
+	end
+
+IlexForestBigMushroom3: ;Daily
+; This whole script is written out rather than as an itemball
+	scall IlexForestParasBattle
+	giveitem BIG_MUSHROOM
+	iffalse IlexForestNoRoomInBagForBigMushroom
+	disappear ILEXFOREST_BIG_MUSHROOM3
+	setflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_3
+	opentext
+	getitemname STRING_BUFFER_3, BIG_MUSHROOM
+	writetext IlexForestFoundMushroomText
 	playsound SFX_ITEM
 	waitsfx
 	itemnotify
@@ -482,44 +583,22 @@ IlexForestParasBattle:
 .skip
 	end
 
-IlexForestTinyMushroom2: ;Daily
-; This whole script is written out rather than as an itemball
-	scall IlexForestParasBattle
-	giveitem TINYMUSHROOM
-	iffalse IlexForestNoRoomInBagForMushroom
-	disappear ILEXFOREST_TINYMUSHROOM2
-	setflag ENGINE_DAILY_ILEX_FOREST_TINYMUSHROOM_2
+IlexForestNoRoomInBagForTinyMushroom:
 	opentext
 	getitemname STRING_BUFFER_3, TINYMUSHROOM
-	writetext IlexForestFoundTinyMushroomText
-	playsound SFX_ITEM
-	waitsfx
-	itemnotify
-	closetext
-	end
-
-IlexForestTinyMushroom3: ;Daily
-; This whole script is written out rather than as an itemball
-	scall IlexForestParasBattle
-	giveitem TINYMUSHROOM
-	iffalse IlexForestNoRoomInBagForMushroom
-	disappear ILEXFOREST_TINYMUSHROOM3
-	setflag ENGINE_DAILY_ILEX_FOREST_TINYMUSHROOM_3
-	opentext
-	getitemname STRING_BUFFER_3, TINYMUSHROOM
-	writetext IlexForestFoundTinyMushroomText
-	playsound SFX_ITEM
-	waitsfx
-	itemnotify
-	closetext
-	end
-
-IlexForestNoRoomInBagForMushroom:
-	opentext
-	getitemname STRING_BUFFER_3, TINYMUSHROOM
-	writetext IlexForestFoundTinyMushroomText
+	writetext IlexForestFoundMushroomText
 	promptbutton
-	writetext IlexForestNoRoomForTinyMushroomText
+	writetext IlexForestNoRoomForMushroomText
+	waitbutton
+	closetext
+	end
+
+IlexForestNoRoomInBagForBigMushroom:
+	opentext
+	getitemname STRING_BUFFER_3, BIG_MUSHROOM
+	writetext IlexForestFoundMushroomText
+	promptbutton
+	writetext IlexForestNoRoomForMushroomText
 	waitbutton
 	closetext
 	end
@@ -1061,14 +1140,14 @@ BugCatcherWayneAfterBattleText:
 	cont "places too."
 	done
 
-IlexForestFoundTinyMushroomText:
+IlexForestFoundMushroomText:
 	text "<PLAYER> found"
 	line "@"
 	text_ram wStringBuffer3
 	text "!"
 	done
 
-IlexForestNoRoomForTinyMushroomText:
+IlexForestNoRoomForMushroomText:
 	text "But <PLAYER> can't"
 	line "carry any more"
 	cont "items."
@@ -1103,6 +1182,9 @@ IlexForest_MapEvents:
 	object_event  9, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestXAttack, EVENT_ILEX_FOREST_X_ATTACK
 	object_event 17,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestAntidote, EVENT_ILEX_FOREST_ANTIDOTE
 	object_event 27,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestEther, EVENT_ILEX_FOREST_ETHER
-	object_event 23, 22, SPRITE_MUSHROOM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestTinyMushroom1, EVENT_ILEX_FOREST_TINYMUSHROOM_1
-	object_event 27, 12, SPRITE_MUSHROOM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestTinyMushroom2, EVENT_ILEX_FOREST_TINYMUSHROOM_2
-	object_event  0,  9, SPRITE_MUSHROOM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestTinyMushroom3, EVENT_ILEX_FOREST_TINYMUSHROOM_3
+	object_event 23, 22, SPRITE_TINYMUSHROOM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestTinyMushroom1, EVENT_ILEX_FOREST_MUSHROOM_1
+	object_event 27, 12, SPRITE_TINYMUSHROOM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestTinyMushroom2, EVENT_ILEX_FOREST_MUSHROOM_2
+	object_event  0,  9, SPRITE_TINYMUSHROOM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestTinyMushroom3, EVENT_ILEX_FOREST_MUSHROOM_3
+	object_event 23, 22, SPRITE_BIG_MUSHROOM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestBigMushroom1, EVENT_ILEX_FOREST_MUSHROOM_1
+	object_event 27, 12, SPRITE_BIG_MUSHROOM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestBigMushroom2, EVENT_ILEX_FOREST_MUSHROOM_2
+	object_event  0,  9, SPRITE_BIG_MUSHROOM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestBigMushroom3, EVENT_ILEX_FOREST_MUSHROOM_3

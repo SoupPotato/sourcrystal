@@ -117,5 +117,6 @@ OverworldSprites:
 	overworld_sprite OldAmberSpriteGFX, 4, STILL_SPRITE, PAL_OW_YELLOW
 	overworld_sprite AmphySickSpriteGFX, 12, WALKING_SPRITE, PAL_OW_YELLOW
 	overworld_sprite ClefairyMoveSpriteGFX, 12, WALKING_SPRITE, PAL_OW_PINK
-	overworld_sprite MushroomSpriteGFX, 4, STILL_SPRITE, PAL_OW_PINK
+	overworld_sprite TinyMushroomSpriteGFX, 4, STILL_SPRITE, PAL_OW_PINK
+	overworld_sprite BigMushroomSpriteGFX, 4, STILL_SPRITE, PAL_OW_PINK
 	assert_table_length NUM_OVERWORLD_SPRITES

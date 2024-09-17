@@ -191,10 +191,12 @@ DEF SPRITE_VARS EQU const_value
 	const SPRITE_DOLL_1              ; f1
 	const SPRITE_DOLL_2              ; f2
 	const SPRITE_BIG_DOLL            ; f3
-	const SPRITE_AMPHY               ; f4
+	const SPRITE_MUSHROOM_1          ; f4
 	const SPRITE_FUCHSIA_GYM_1       ; f5
 	const SPRITE_FUCHSIA_GYM_2       ; f6
 	const SPRITE_FUCHSIA_GYM_3       ; f7
 	const SPRITE_FUCHSIA_GYM_4       ; f8
 	const SPRITE_COPYCAT             ; f9
 	const SPRITE_JANINE_IMPERSONATOR ; fa
+	const SPRITE_MUSHROOM_2          ; fb
+	const SPRITE_MUSHROOM_3          ; fc

@@ -53,6 +53,29 @@ RuinsOfAlphResearchCenterGetUnownDexScript:
 	waitbutton
 	closetext
 	applymovement RUINSOFALPHRESEARCHCENTER_SCIENTIST3, RuinsOfAlphResearchCenterLeavesPlayerMovement
+	pause 15
+	showemote EMOTE_SHOCK, RUINSOFALPHRESEARCHCENTER_SCIENTIST3, 15
+	applymovement RUINSOFALPHRESEARCHCENTER_SCIENTIST3, RuinsOfAlphResearchCenterApproachesPlayerMovement
+	opentext
+	writetext RuinsOfAlphResearchCenterIAlmostForgotText
+	waitbutton
+	giveitem OPAL_SHARD, 10
+	iffalse RuinsOfAlphResearchCenterNoRoomInBag
+	writetext RuinsOfAlphResearchCenterPlayerReceived10OpalShardsText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
+	setevent EVENT_GOT_OPAL_SHARDS_FROM_SCIENTIST
+	closetext
+	applymovement RUINSOFALPHRESEARCHCENTER_SCIENTIST3, RuinsOfAlphResearchCenterLeavesPlayerMovement
+	setscene SCENE_RUINSOFALPHRESEARCHCENTER_NOOP
+	special RestartMapMusic
+	end
+
+RuinsOfAlphResearchCenterNoRoomInBag:
+	writetext RuinsOfAlphResearchCenterNoRoomInBagText
+	closetext
+	applymovement RUINSOFALPHRESEARCHCENTER_SCIENTIST3, RuinsOfAlphResearchCenterLeavesPlayerMovement
 	setscene SCENE_RUINSOFALPHRESEARCHCENTER_NOOP
 	special RestartMapMusic
 	end
@@ -343,6 +366,18 @@ GaveOldAmber:
 RuinsOfAlphResearchCenterScientist3Script:
 	faceplayer
 	opentext
+	checkevent EVENT_GOT_OPAL_SHARDS_FROM_SCIENTIST
+	iftrue .GotShards
+	writetext RuinsOfAlphResearchCenterIAlmostForgotText
+	waitbutton
+	giveitem OPAL_SHARD, 10
+	iffalse RuinsOfAlphResearchCenterNoRoomInBag
+	writetext RuinsOfAlphResearchCenterPlayerReceived10OpalShardsText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
+	setevent EVENT_GOT_OPAL_SHARDS_FROM_SCIENTIST
+.GotShards
 	readvar VAR_UNOWNCOUNT
 	ifequal NUM_UNOWN, .PrinterAvailable
 	writetext RuinsOfAlphResearchCenterScientist3Text
@@ -1270,7 +1305,7 @@ RuinsOfAlphResearchCenterTutorCaughtAllUnownText:
 	para "Thanks to your"
 	line "efforts, our re-"
 	cont "search is almost"
-		cont "complete!"
+	cont "complete!"
 
 	para "You've caught all"
 	line "of the UNOWN!"
@@ -1286,6 +1321,26 @@ RuinsOfAlphResearchCenterTutorCaughtAllUnownText:
 RuinsOfAlphResearchCenterTutorMoveText:
 	text_start
 	done
+
+RuinsOfAlphResearchCenterIAlmostForgotText:
+	text "Oh!"
+	line "I almost forgot…"
+	
+	para "I found these in"
+	line "in the RUINS,"
+	
+	para "Maybe you can make"
+	line "use of them?"
+	done
+
+RuinsOfAlphResearchCenterPlayerReceived10OpalShardsText:
+	text "<PLAYER> received"
+	line "10 OPAL SHARDs!"
+	done
+
+RuinsOfAlphResearchCenterNoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
 
 RuinsOfAlphResearchCenter_MapEvents:
 	db 0, 0 ; filler

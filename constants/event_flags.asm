@@ -769,7 +769,8 @@
 	const EVENT_ILEX_FOREST_MUSHROOM_1
 	const EVENT_ILEX_FOREST_MUSHROOM_2
 	const EVENT_ILEX_FOREST_MUSHROOM_3
-; Unused: next 97 events
+	const EVENT_GOT_OPAL_SHARDS_FROM_SCIENTIST
+; Unused: next 96 events
 
 	const_next 1000
 ; Trainer flags

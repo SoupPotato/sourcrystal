@@ -810,8 +810,8 @@ RockTunnelB1F_Blocks:
 DiglettsCave_Blocks:
 	INCBIN "maps/DiglettsCave.blk"
 
-MountMoon_Blocks:
-	INCBIN "maps/MountMoon.blk"
+MountMoon1F_Blocks:
+	INCBIN "maps/MountMoon1F.blk"
 
 SeafoamGym_Blocks:
 	INCBIN "maps/SeafoamGym.blk"
@@ -1002,4 +1002,10 @@ SilverCaveLowerMountainSide_Blocks:
 
 SilverCaveUpperMountainSide_Blocks:
 	INCBIN "maps/SilverCaveUpperMountainSide.blk"
+
+MountMoonB1F_Blocks:
+	INCBIN "maps/MountMoonB1F.blk"
+
+MountMoonB2F_Blocks:
+	INCBIN "maps/MountMoonB2F.blk"
 ENDSECTION

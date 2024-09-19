@@ -209,47 +209,10 @@ if DEF(_DEBUG)
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke SNEASEL, 50, LEFTOVERS
-	givepoke BEEDRILL, 50, LEFTOVERS
-	givepoke VICTREEBEL, 50, LEFTOVERS
-	givepoke CLOYSTER, 50, LEFTOVERS
-	givepoke MAGMAR, 50, LEFTOVERS
-	givepoke MAGNETON, 50, LEFTOVERS
-	loadmem wPartyMon1Moves+0, BEAT_UP
-	loadmem wPartyMon1Moves+1, ICY_WIND
-	loadmem wPartyMon1Moves+2, SLASH
-	loadmem wPartyMon1Moves+3, METAL_CLAW
-	loadmem wPartyMon2Moves+0, PIN_MISSILE
-	loadmem wPartyMon2Moves+1, SLUDGE_BOMB
-	loadmem wPartyMon2Moves+2, FEINT_ATTACK
-	loadmem wPartyMon2Moves+3, OUTRAGE
-	loadmem wPartyMon2DVs+0, $ea
-	loadmem wPartyMon2DVs+1, $aa
-	loadmem wPartyMon3Moves+0, RAZOR_LEAF
-	loadmem wPartyMon3Moves+1, ACID
-	loadmem wPartyMon3Moves+2, WRAP
-	loadmem wPartyMon3Moves+3, SLEEP_POWDER
-	loadmem wPartyMon3DVs+0, $ea
-	loadmem wPartyMon3DVs+1, $aa
-	loadmem wPartyMon4Moves+0, AURORA_BEAM
-	loadmem wPartyMon4Moves+1, PROTECT
-	loadmem wPartyMon4Moves+2, SURF
-	loadmem wPartyMon4Moves+3, SPIKE_CANNON
-	loadmem wPartyMon5Moves+0, FLAMETHROWER
-	loadmem wPartyMon5Moves+1, THUNDERPUNCH
-	loadmem wPartyMon5Moves+2, FEINT_ATTACK
-	loadmem wPartyMon5Moves+3, DIZZY_PUNCH
-	loadmem wPartyMon5DVs+0, $ea
-	loadmem wPartyMon5DVs+1, $aa
-	loadmem wPartyMon6Moves+0, SPARK
-	loadmem wPartyMon6Moves+1, SONICBOOM
-	loadmem wPartyMon6Moves+2, DOUBLE_TEAM
-	loadmem wPartyMon6Moves+3, THUNDER_WAVE
-	loadmem wPartyMon6DVs+0, $ea
-	loadmem wPartyMon6DVs+1, $aa
+
 ;	; Grant All Pokemon
-	for x, NUM_POKEMON
-	givepoke BULBASAUR + x, 50
+	for x, 154
+	givepoke KRABBY + x, 50
 endr
 	; intro events
 	addcellnum PHONE_MOM

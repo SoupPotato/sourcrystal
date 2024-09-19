@@ -146,7 +146,7 @@ ENDM
 	map_const DRAGON_SHRINE,                                5,  5 ; 82
 	map_const TOHJO_FALLS,                                 15,  9 ; 83
 	map_const DIGLETTS_CAVE,                               19, 17 ; 84
-	map_const MOUNT_MOON,                                  15,  9 ; 85
+	map_const MOUNT_MOON_1F,                               11, 15 ; 85
 	map_const UNDERGROUND_PATH,                             3, 14 ; 86
 	map_const ROCK_TUNNEL_1F,                              15, 18 ; 87
 	map_const ROCK_TUNNEL_B1F,                             15, 18 ; 88
@@ -540,6 +540,8 @@ ENDM
 	map_const SAFARI_ZONE_AREA_3,                          21, 17 ;  1
 	map_const SILVER_CAVE_LOWER_MOUNTAINSIDE,              15, 20 ;  2
 	map_const SILVER_CAVE_UPPER_MOUNTAINSIDE,              17, 18 ;  3
+	map_const MOUNT_MOON_B1F,                              14, 13 ;  4
+	map_const MOUNT_MOON_B2F,                              14, 12 ;  5
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 26

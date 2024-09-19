@@ -1085,7 +1085,7 @@ SwarmGrassWildMonsAltChallenge:
 	db 19, CHARMANDER
 
 ; Clefairy swarm
-	map_id MOUNT_MOON
+	map_id MOUNT_MOON_1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 18, CLEFAIRY

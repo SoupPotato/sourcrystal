@@ -176,8 +176,8 @@ Route4_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 16,  5, MOUNT_MOON, 1
-	warp_event 22,  5, MOUNT_MOON, 2
+	warp_event 16,  5, MOUNT_MOON_1F, 1
+	warp_event 22,  5, MOUNT_MOON_B1F, 6
 	warp_event  9,  5, MOUNT_MOON_POKECENTER_1F, 1
 
 	def_coord_events

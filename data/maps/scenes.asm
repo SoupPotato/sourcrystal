@@ -55,7 +55,7 @@ MapScenes::
 	scene_var BATTLE_TOWER_HALLWAY,                        wBattleTowerHallwaySceneID
 	scene_var BATTLE_TOWER_OUTSIDE,                        wBattleTowerOutsideSceneID ; unused
 	scene_var ROUTE_43_GATE,                               wRoute43GateSceneID
-	scene_var MOUNT_MOON,                                  wMountMoonSceneID
+	scene_var MOUNT_MOON_1F,                               wMountMoon1FSceneID
 	scene_var SPROUT_TOWER_3F,                             wSproutTower3FSceneID
 	scene_var TIN_TOWER_1F,                                wTinTower1FSceneID
 	scene_var BURNED_TOWER_1F,                             wBurnedTower1FSceneID

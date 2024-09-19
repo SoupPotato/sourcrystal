@@ -1001,31 +1001,31 @@ SwarmGrassWildMons:
 	db 42, WEEZING
 
 ; Geodude swarm
-	map_id MOUNT_MOON
+	map_id MOUNT_MOON_1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 8, GEODUDE
 	db 10, GEODUDE
 	db 12, SANDSHREW
-	db 12, PARAS
-	db 11, ZUBAT
-	db 10, CLEFAIRY
+	db 12, ZUBAT
+	db 11, PARAS
+	db 10, ZUBAT
 	db 12, CLEFAIRY
 	; day
 	db 8, GEODUDE
 	db 10, GEODUDE
 	db 12, SANDSHREW
-	db 12, PARAS
-	db 11, ZUBAT
-	db 10, CLEFAIRY
+	db 12, ZUBAT
+	db 11, PARAS
+	db 10, ZUBAT
 	db 12, CLEFAIRY
 	; nite
 	db 8, GEODUDE
 	db 10, GEODUDE
 	db 12, SANDSHREW
-	db 12, PARAS
-	db 11, ZUBAT
-	db 10, CLEFAIRY
+	db 12, ZUBAT
+	db 11, PARAS
+	db 10, ZUBAT
 	db 12, CLEFAIRY
 
 ; Jigglypuff swarm

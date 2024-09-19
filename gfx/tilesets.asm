@@ -310,15 +310,6 @@ INCLUDE "data/tilesets/gate_collision.asm"
 SECTION "Tileset Data 9", ROMX
 
 
-TilesetCaveGFX::
-INCBIN "gfx/tilesets/cave.2bpp.lz"
-
-TilesetCaveColl::
-INCLUDE "data/tilesets/cave_collision.asm"
-
-TilesetCaveMeta::
-INCBIN "data/tilesets/cave_metatiles.bin"
-
 TilesetFacilityGFX::
 INCBIN "gfx/tilesets/facility.2bpp.lz"
 
@@ -349,3 +340,12 @@ INCBIN "data/tilesets/mountainside_metatiles.bin"
 
 TilesetMountainSideColl::
 INCLUDE "data/tilesets/mountainside_collision.asm"
+
+TilesetCaveGFX::
+INCBIN "gfx/tilesets/cave.2bpp.lz"
+
+TilesetCaveColl::
+INCLUDE "data/tilesets/cave_collision.asm"
+
+TilesetCaveMeta::
+INCBIN "data/tilesets/cave_metatiles.bin"

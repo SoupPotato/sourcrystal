@@ -488,7 +488,7 @@ ENDM
 	map_attributes MahoganyPokecenter1F, MAHOGANY_POKECENTER_1F, $00, 0
 	map_attributes Route42EcruteakGate, ROUTE_42_ECRUTEAK_GATE, $00, 0
 	map_attributes DiglettsCave, DIGLETTS_CAVE, $09, 0
-	map_attributes MountMoon, MOUNT_MOON, $09, 0
+	map_attributes MountMoon1F, MOUNT_MOON_1F, $09, 0
 	map_attributes UndergroundPath, UNDERGROUND_PATH, $00, 0
 	map_attributes RockTunnel1F, ROCK_TUNNEL_1F, $09, 0
 	map_attributes RockTunnelB1F, ROCK_TUNNEL_B1F, $09, 0
@@ -740,3 +740,5 @@ ENDM
 	map_attributes SafariRestHouseArea4, SAFARI_REST_HOUSE_AREA_4, $00, 0
 	map_attributes SilverCaveLowerMountainSide, SILVER_CAVE_LOWER_MOUNTAINSIDE, $48, 0
 	map_attributes SilverCaveUpperMountainSide, SILVER_CAVE_UPPER_MOUNTAINSIDE, $0c, 0
+	map_attributes MountMoonB1F, MOUNT_MOON_B1F, $00, 0
+	map_attributes MountMoonB2F, MOUNT_MOON_B2F, $00, 0

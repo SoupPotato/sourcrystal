@@ -10,11 +10,7 @@ MountMoonB1F_MapScripts:
 MountMoonB1FCheckMushroom:
 	checkflag ENGINE_DAILY_MOUNT_MOON_B1F_MUSHROOM
 	iftrue .finishMushroom
-	checkevent EVENT_MOUNT_MOON_B1F_BIG_MUSHROOM_SPAWN
-	iftrue .BigMushroom
-	checkevent EVENT_MOUNT_MOON_B1F_TINY_MUSHROOM_SPAWN
-	iftrue .TinyMushroom
-	appear MOUNTMOONB1F_MUSHROOM
+	clearevent EVENT_MOUNT_MOON_B1F_MUSHROOM
 	random 5
 	ifnotequal 0, .TinyMushroom
 ; 20% chance
@@ -23,7 +19,6 @@ MountMoonB1FCheckMushroom:
 	variablesprite SPRITE_MUSHROOM_1, SPRITE_BIG_MUSHROOM
 	sjump .finishMushroom
 .TinyMushroom
-	setevent EVENT_MOUNT_MOON_B1F_TINY_MUSHROOM_SPAWN
 	variablesprite SPRITE_MUSHROOM_1, SPRITE_TINYMUSHROOM
 .finishMushroom
 	endcallback
@@ -44,7 +39,6 @@ MountMoonB1FMushroom: ;Daily
 .Mushroom_Finish
 	disappear MOUNTMOONB1F_MUSHROOM
 	setflag ENGINE_DAILY_MOUNT_MOON_B1F_MUSHROOM
-	clearevent EVENT_MOUNT_MOON_B1F_TINY_MUSHROOM_SPAWN
 	clearevent EVENT_MOUNT_MOON_B1F_BIG_MUSHROOM_SPAWN
 	opentext
 	writetext MountMoonB1FFoundMushroomText
@@ -71,6 +65,10 @@ MountMoonB1FParasBattle:
 	reloadmapafterbattle
 .skip
 	end
+
+MountMoonB1FMushroomPicked:
+	disappear MOUNTMOONB1F_MUSHROOM
+	sjump MountMoonB1FCheckMushroom.finishMushroom
 
 MountMoonB1FNoRoomInBagForTinyMushroom:
 	opentext

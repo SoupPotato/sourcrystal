@@ -13,11 +13,7 @@ MountMoon1F_MapScripts:
 MountMoon1FCheckRivalAndMushroom:
 	checkflag ENGINE_DAILY_MOUNT_MOON_1F_MUSHROOM
 	iftrue .finishMushroom
-	checkevent EVENT_MOUNT_MOON_1F_BIG_MUSHROOM_SPAWN
-	iftrue .BigMushroom
-	checkevent EVENT_MOUNT_MOON_1F_TINY_MUSHROOM_SPAWN
-	iftrue .TinyMushroom
-	appear MOUNTMOON1F_MUSHROOM
+	clearevent EVENT_MOUNT_MOON_1F_MUSHROOM
 	random 5
 	ifnotequal 0, .TinyMushroom
 ; 20% chance
@@ -26,7 +22,6 @@ MountMoon1FCheckRivalAndMushroom:
 	variablesprite SPRITE_MUSHROOM_1, SPRITE_BIG_MUSHROOM
 	sjump .finishMushroom
 .TinyMushroom
-	setevent EVENT_MOUNT_MOON_1F_TINY_MUSHROOM_SPAWN
 	variablesprite SPRITE_MUSHROOM_1, SPRITE_TINYMUSHROOM
 .finishMushroom
 	;fallthrough
@@ -44,6 +39,10 @@ MountMoon1FRivalEncounterScene:
 
 MountMoon1FNoopScene:
 	end
+
+MountMoon1FMushroomPicked:
+	disappear MOUNTMOON1F_MUSHROOM
+	sjump MountMoon1FCheckRivalAndMushroom.finishMushroom
 
 MountMoon1FRivalBattleScript:
 	showemote EMOTE_SHOCK, PLAYER, 15
@@ -114,7 +113,6 @@ MountMoon1FMushroom: ;Daily
 .Mushroom_Finish
 	disappear MOUNTMOON1F_MUSHROOM
 	setflag ENGINE_DAILY_MOUNT_MOON_1F_MUSHROOM
-	clearevent EVENT_MOUNT_MOON_1F_TINY_MUSHROOM_SPAWN
 	clearevent EVENT_MOUNT_MOON_1F_BIG_MUSHROOM_SPAWN
 	opentext
 	writetext MountMoon1FFoundMushroomText

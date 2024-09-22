@@ -24,57 +24,42 @@ IlexForestMushroomsAndFarfetchdCallback:
 	checkflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_1
 	iftrue IlexForestMushroom1Picked
 	clearevent EVENT_ILEX_FOREST_MUSHROOM_1
-	checkevent EVENT_ILEX_FOREST_BIG_MUSHROOM_1_SPAWN
-	iftrue IlexForestMushroom1Picked
-	checkevent EVENT_ILEX_FOREST_TINY_MUSHROOM_1_SPAWN
-	iftrue IlexForestMushroom1Picked
 	random 5
 	ifnotequal 0, .TinyMushroom1
 ; 20% chance
 .BigMushroom1
-	clearevent EVENT_ILEX_FOREST_BIG_MUSHROOM_1_SPAWN
+	setevent EVENT_ILEX_FOREST_BIG_MUSHROOM_1_SPAWN
 	variablesprite SPRITE_MUSHROOM_1, SPRITE_BIG_MUSHROOM
 	sjump .finishMushroom1
 .TinyMushroom1
-	clearevent EVENT_ILEX_FOREST_TINY_MUSHROOM_1_SPAWN
 	variablesprite SPRITE_MUSHROOM_1, SPRITE_TINYMUSHROOM
 .finishMushroom1
 	;fallthrough
 	checkflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_2
 	iftrue IlexForestMushroom2Picked
 	clearevent EVENT_ILEX_FOREST_MUSHROOM_2
-	checkevent EVENT_ILEX_FOREST_BIG_MUSHROOM_2_SPAWN
-	iftrue IlexForestMushroom2Picked
-	checkevent EVENT_ILEX_FOREST_TINY_MUSHROOM_2_SPAWN
-	iftrue IlexForestMushroom2Picked
 	random 5
 	ifnotequal 0, .TinyMushroom2
 ; 20% chance
 .BigMushroom2
-	clearevent EVENT_ILEX_FOREST_BIG_MUSHROOM_2_SPAWN
+	setevent EVENT_ILEX_FOREST_BIG_MUSHROOM_2_SPAWN
 	variablesprite SPRITE_MUSHROOM_2, SPRITE_BIG_MUSHROOM
 	sjump .finishMushroom2
 .TinyMushroom2
-	clearevent EVENT_ILEX_FOREST_TINY_MUSHROOM_2_SPAWN
 	variablesprite SPRITE_MUSHROOM_2, SPRITE_TINYMUSHROOM
 .finishMushroom2
 	;fallthrough
 	checkflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_3
 	iftrue IlexForestMushroom3Picked
 	clearevent EVENT_ILEX_FOREST_MUSHROOM_3
-	checkevent EVENT_ILEX_FOREST_BIG_MUSHROOM_3_SPAWN
-	iftrue IlexForestMushroom3Picked
-	checkevent EVENT_ILEX_FOREST_TINY_MUSHROOM_3_SPAWN
-	iftrue IlexForestMushroom3Picked
 	random 5
 	ifnotequal 0, .TinyMushroom3
 ; 20% chance
 .BigMushroom3
-	clearevent EVENT_ILEX_FOREST_BIG_MUSHROOM_3_SPAWN
+	setevent EVENT_ILEX_FOREST_BIG_MUSHROOM_3_SPAWN
 	variablesprite SPRITE_MUSHROOM_3, SPRITE_BIG_MUSHROOM
 	sjump .finishMushroom3
 .TinyMushroom3
-	clearevent EVENT_ILEX_FOREST_TINY_MUSHROOM_3_SPAWN
 	variablesprite SPRITE_MUSHROOM_3, SPRITE_TINYMUSHROOM
 .finishMushroom3
 	;fallthrough
@@ -162,15 +147,15 @@ IlexForestCharcoalApprenticeScript:
 
 IlexForestMushroom1Picked:
 	disappear ILEXFOREST_MUSHROOM1
-	endcallback
+	sjump IlexForestMushroomsAndFarfetchdCallback.finishMushroom1
 
 IlexForestMushroom2Picked:
 	disappear ILEXFOREST_MUSHROOM2
-	endcallback
+	sjump IlexForestMushroomsAndFarfetchdCallback.finishMushroom2
 
 IlexForestMushroom3Picked:
 	disappear ILEXFOREST_MUSHROOM3
-	endcallback
+	sjump IlexForestMushroomsAndFarfetchdCallback.finishMushroom3
 
 IlexForestFarfetchdScript:
 	readmem wFarfetchdPosition
@@ -506,7 +491,7 @@ IlexForestMushroom1: ;Daily
 ; This whole script is written out rather than as an itemball
 	scall IlexForestParasBattle
 	checkevent EVENT_ILEX_FOREST_BIG_MUSHROOM_1_SPAWN
-	iftrue .skipBigMushroom1
+	iffalse .skipBigMushroom1
 	giveitem BIG_MUSHROOM
 	getitemname STRING_BUFFER_3, BIG_MUSHROOM
 	iffalse IlexForestNoRoomInBagForBigMushroom
@@ -518,9 +503,8 @@ IlexForestMushroom1: ;Daily
 .BigMushroom1_Finish
 	disappear ILEXFOREST_MUSHROOM1
 	setflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_1
-	setevent EVENT_ILEX_FOREST_TINY_MUSHROOM_1_SPAWN
-	setevent EVENT_ILEX_FOREST_BIG_MUSHROOM_1_SPAWN
 	setevent EVENT_ILEX_FOREST_MUSHROOM_1
+	clearevent EVENT_ILEX_FOREST_BIG_MUSHROOM_1_SPAWN
 	opentext
 	writetext IlexForestFoundMushroomText
 	playsound SFX_ITEM
@@ -533,7 +517,7 @@ IlexForestMushroom2: ;Daily
 ; This whole script is written out rather than as an itemball
 	scall IlexForestParasBattle
 	checkevent EVENT_ILEX_FOREST_BIG_MUSHROOM_2_SPAWN
-	iftrue .skipBigMushroom2
+	iffalse .skipBigMushroom2
 	giveitem BIG_MUSHROOM
 	getitemname STRING_BUFFER_3, BIG_MUSHROOM
 	iffalse IlexForestNoRoomInBagForBigMushroom
@@ -545,9 +529,8 @@ IlexForestMushroom2: ;Daily
 .BigMushroom2_Finish
 	disappear ILEXFOREST_MUSHROOM2
 	setflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_2
-	setevent EVENT_ILEX_FOREST_TINY_MUSHROOM_2_SPAWN
-	setevent EVENT_ILEX_FOREST_BIG_MUSHROOM_2_SPAWN
 	setevent EVENT_ILEX_FOREST_MUSHROOM_2
+	clearevent EVENT_ILEX_FOREST_BIG_MUSHROOM_2_SPAWN
 	opentext
 	writetext IlexForestFoundMushroomText
 	playsound SFX_ITEM
@@ -560,7 +543,7 @@ IlexForestMushroom3: ;Daily
 ; This whole script is written out rather than as an itemball
 	scall IlexForestParasBattle
 	checkevent EVENT_ILEX_FOREST_BIG_MUSHROOM_3_SPAWN
-	iftrue .skipBigMushroom3
+	iffalse .skipBigMushroom3
 	giveitem BIG_MUSHROOM
 	getitemname STRING_BUFFER_3, BIG_MUSHROOM
 	iffalse IlexForestNoRoomInBagForBigMushroom
@@ -572,9 +555,8 @@ IlexForestMushroom3: ;Daily
 .BigMushroom3_Finish
 	disappear ILEXFOREST_MUSHROOM3
 	setflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_3
-	setevent EVENT_ILEX_FOREST_TINY_MUSHROOM_3_SPAWN
-	setevent EVENT_ILEX_FOREST_BIG_MUSHROOM_3_SPAWN
 	setevent EVENT_ILEX_FOREST_MUSHROOM_3
+	clearevent EVENT_ILEX_FOREST_BIG_MUSHROOM_3_SPAWN
 	opentext
 	writetext IlexForestFoundMushroomText
 	playsound SFX_ITEM
@@ -1202,4 +1184,4 @@ IlexForest_MapEvents:
 	object_event 27,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestEther, EVENT_ILEX_FOREST_ETHER
 	object_event 23, 22, SPRITE_MUSHROOM_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestMushroom1,  EVENT_ILEX_FOREST_MUSHROOM_1
 	object_event 27, 12, SPRITE_MUSHROOM_2, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestMushroom2,  EVENT_ILEX_FOREST_MUSHROOM_2
-	object_event  0,  9, SPRITE_MUSHROOM_3, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestMushroom3,  EVENT_ILEX_FOREST_MUSHROOM_3
+	object_event  8,  6, SPRITE_MUSHROOM_3, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestMushroom3,  EVENT_ILEX_FOREST_MUSHROOM_3

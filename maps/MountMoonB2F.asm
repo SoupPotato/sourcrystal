@@ -12,11 +12,7 @@ MountMoonB2F_MapScripts:
 MountMoonB2FCheckMushroom:
 	checkflag ENGINE_DAILY_MOUNT_MOON_B2F_MUSHROOM
 	iftrue .finishMushroom
-	checkevent EVENT_MOUNT_MOON_B2F_BIG_MUSHROOM_SPAWN
-	iftrue .BigMushroom
-	checkevent EVENT_MOUNT_MOON_B2F_TINY_MUSHROOM_SPAWN
-	iftrue .TinyMushroom
-	appear MOUNTMOONB2F_MUSHROOM
+	clearevent EVENT_MOUNT_MOON_B2F_MUSHROOM
 	random 5
 	ifnotequal 0, .TinyMushroom
 ; 20% chance
@@ -25,7 +21,6 @@ MountMoonB2FCheckMushroom:
 	variablesprite SPRITE_MUSHROOM_1, SPRITE_BIG_MUSHROOM
 	sjump .finishMushroom
 .TinyMushroom
-	setevent EVENT_MOUNT_MOON_B2F_TINY_MUSHROOM_SPAWN
 	variablesprite SPRITE_MUSHROOM_1, SPRITE_TINYMUSHROOM
 .finishMushroom
 	endcallback
@@ -46,7 +41,6 @@ MountMoonB2FMushroom: ;Daily
 .Mushroom_Finish
 	disappear MOUNTMOONB2F_MUSHROOM
 	setflag ENGINE_DAILY_MOUNT_MOON_B2F_MUSHROOM
-	clearevent EVENT_MOUNT_MOON_B2F_TINY_MUSHROOM_SPAWN
 	clearevent EVENT_MOUNT_MOON_B2F_BIG_MUSHROOM_SPAWN
 	opentext
 	writetext MountMoonB2FFoundMushroomText
@@ -73,6 +67,10 @@ MountMoonB2FParasBattle:
 	reloadmapafterbattle
 .skip
 	end
+
+MountMoonB2FMushroomPicked:
+	disappear MOUNTMOONB2F_MUSHROOM
+	sjump MountMoonB2FCheckMushroom.finishMushroom
 
 MountMoonB2FNoRoomInBagForTinyMushroom:
 	opentext

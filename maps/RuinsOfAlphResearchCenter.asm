@@ -495,10 +495,10 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	waitbutton
 .AlreadySpokeToTutor:
 	readvar VAR_UNOWNCOUNT
-	ifequal 26, .CaughtAllUnown
-	ifequal 21, .Caught21Unown
-	ifequal 14, .Caught14Unown
-	ifequal 7, .Caught7Unown
+	ifgreater 25, .CaughtAllUnown
+	ifgreater 20, .Caught21Unown
+	ifgreater 13, .Caught14Unown
+	ifgreater 6, .Caught7Unown
 .BeginTeach:
 	writetext RuinsOfAlphResearchCenterTutorWantMeToTeachText
 	yesorno

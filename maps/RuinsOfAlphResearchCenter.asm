@@ -737,7 +737,7 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	db SEISMIC_TOSS, 8
 	db BUBBLEBEAM, 6
 	db REFLECT, 6
-	db MEGA_KICK, 8
+	db MEGA_KICK, 10
 	db BODY_SLAM, 10
 	db MIMIC, 8
 	db SELFDESTRUCT, 12

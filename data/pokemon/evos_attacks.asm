@@ -75,11 +75,11 @@ CharmanderEvosAttacks:
 	db 1, GROWL
 	db 7, EMBER
 	db 13, SMOKESCREEN
-	db 19, DRAGONBREATH
+	db 19, DRAGON_RAGE
 	db 25, SCARY_FACE
 	db 31, FLAMETHROWER
 	db 37, SLASH
-	db 43, DRAGON_RAGE
+	db 43, DRAGONBREATH
 	db 49, FIRE_SPIN
 	db 0 ; no more level-up moves
 
@@ -90,11 +90,11 @@ CharmeleonEvosAttacks:
 	db 1, GROWL
 	db 1, EMBER
 	db 13, SMOKESCREEN
-	db 20, DRAGONBREATH
+	db 20, DRAGON_RAGE
 	db 27, SCARY_FACE
 	db 34, FLAMETHROWER
 	db 41, SLASH
-	db 48, DRAGON_RAGE
+	db 48, DRAGONBREATH
 	db 55, FIRE_SPIN
 	db 0 ; no more level-up moves
 
@@ -104,12 +104,12 @@ CharizardEvosAttacks:
 	db 1, GROWL
 	db 1, EMBER
 	db 1, SMOKESCREEN
-	db 20, DRAGONBREATH
+	db 20, DRAGON_RAGE
 	db 27, SCARY_FACE
 	db 34, FLAMETHROWER
 	db 36, WING_ATTACK
 	db 44, SLASH
-	db 54, DRAGON_RAGE
+	db 54, DRAGONBREATH
 	db 64, FIRE_SPIN
 	db 0 ; no more level-up moves
 
@@ -1754,9 +1754,9 @@ HorseaEvosAttacks:
 	db 16, TWISTER
 	db 19, FOCUS_ENERGY
 	db 25, BUBBLEBEAM
-	db 28, DRAGONBREATH
+	db 28, DRAGON_RAGE
 	db 34, AGILITY
-	db 37, DRAGON_RAGE
+	db 37, DRAGONBREATH
 	db 43, HYDRO_PUMP
 	db 46, RAIN_DANCE
 	db 0 ; no more level-up moves
@@ -1772,9 +1772,9 @@ SeadraEvosAttacks:
 	db 16, TWISTER
 	db 19, FOCUS_ENERGY
 	db 25, BUBBLEBEAM
-	db 28, DRAGONBREATH
+	db 28, DRAGON_RAGE
 	db 35, AGILITY
-	db 40, DRAGON_RAGE
+	db 40, DRAGONBREATH
 	db 47, HYDRO_PUMP
 	db 52, RAIN_DANCE
 	db 0 ; no more level-up moves
@@ -3472,11 +3472,12 @@ KingdraEvosAttacks:
 	db 16, TWISTER
 	db 19, FOCUS_ENERGY
 	db 25, BUBBLEBEAM
-	db 28, DRAGONBREATH
+	db 28, DRAGON_RAGE
 	db 35, AGILITY
-	db 40, DRAGON_RAGE
+	db 40, DRAGONBREATH
 	db 47, HYDRO_PUMP
 	db 52, RAIN_DANCE
+	db 60, OUTRAGE
 	db 0 ; no more level-up moves
 
 PhanpyEvosAttacks:

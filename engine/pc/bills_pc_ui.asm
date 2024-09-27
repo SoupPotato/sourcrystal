@@ -2654,32 +2654,7 @@ BillsPC_CanReleaseMon:
 	ld a, 2
 	ret z
 
-	; Ensure that the mon doesn't know any HMs.
-	push de
-	push hl
-	push bc
-	ld hl, wBufferMonMoves
-	ld b, NUM_MOVES
-.loop
-	ld a, [hli]
-	and a
-	jr z, .hm_check_done
-	push hl
-	push bc
-	call IsHMMove
-	pop bc
-	pop hl
-	ld a, 3
-	jr c, .hm_check_done
-	dec b
-	jr nz, .loop
 	xor a
-.hm_check_done
-	pop bc
-	pop hl
-	; fallthrough
-.pop_de_done
-	pop de
 .done
 	and a
 	ret

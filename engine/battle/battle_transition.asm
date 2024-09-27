@@ -694,18 +694,10 @@ StartTrainerBattle_LoadPokeBallGraphics:
 	ld a, BANK(wBGPals1)
 	ldh [rSVBK], a
 	call .copypals
-	push hl
-	ld de, wBGPals1 palette PAL_BG_TEXT
-	ld bc, 1 palettes
-	call CopyBytes
-	pop hl
-	ld de, wBGPals2 palette PAL_BG_TEXT
-	ld bc, 1 palettes
-	call CopyBytes
 	pop af
 	ldh [rSVBK], a
-	farcall ClearSavedObjPals
-	farcall CheckForUsedObjPals
+	;farcall ClearSavedObjPals
+	;farcall CheckForUsedObjPals
 	farcall _UpdateSprites
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
@@ -716,19 +708,40 @@ StartTrainerBattle_LoadPokeBallGraphics:
 	call StartTrainerBattle_NextScene
 	ret
 
-; todo: verify the following (dyn pal)
 .copypals
+; PAL_BG_TEXT assumed to be unchanged
 	ld de, wBGPals1 palette PAL_BG_TEXT
 	call .copy
 	ld de, wBGPals2 palette PAL_BG_TEXT
 	call .copy
-	ld de, wOBPals1 palette PAL_OW_TREE
+
+; Replace the rock and tree obj palettes, if they
+; are loaded in
+	ld a, PAL_OW_COPY_BG_BROWN
+	ld de, wOBPals1
+	call .find_and_translate_palette_position
+	jr c, .next1
 	call .copy
-	ld de, wOBPals2 palette PAL_OW_TREE
+
+.next1
+	ld a, PAL_OW_COPY_BG_BROWN
+	ld de, wOBPals2
+	call .find_and_translate_palette_position
+	jr c, .next2
 	call .copy
-	ld de, wOBPals1 palette PAL_OW_ROCK
+
+.next2
+	ld a, PAL_OW_COPY_BG_GREEN
+	ld de, wOBPals1
+	call .find_and_translate_palette_position
+	jr c, .next3
 	call .copy
-	ld de, wOBPals2 palette PAL_OW_ROCK
+
+.next3
+	ld a, PAL_OW_COPY_BG_GREEN
+	ld de, wOBPals2
+	call .find_and_translate_palette_position
+	ret c
 
 .copy
 	push hl
@@ -737,6 +750,67 @@ StartTrainerBattle_LoadPokeBallGraphics:
 	pop hl
 	ret
 
+.find_and_translate_palette_position
+; args:
+;   a  = target palette
+;   de = base address
+; ret:
+;   de = address of palette to replace
+;   if carry: no such palette found
+	call .find_dyn_pal ; XXX can be optimized later...
+	ld a, c
+	cp 8
+	jr nc, .nothing_found
+	dec c
+	ld b, 0
+	sla c
+	sla c
+	sla c
+	ld a, e
+	add c
+	ld e, a
+	ld a, d
+	adc 0
+	ld d, a
+	ret nc
+; clear carry
+	ccf
+	ret
+.nothing_found
+; set carry
+	and a
+	scf
+	ret
+
+.find_dyn_pal
+; args:
+;   a = what to find?
+; ret:
+;   c = position, > 7 if not found
+; clobber:
+;   b
+	ld b, a
+	push hl
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wLoadedObjPal0)
+	ldh [rSVBK], a
+		ld hl, wLoadedObjPal0
+		ld c, 0
+.keep_find_dyn_pal
+		ld a, [hli]
+		inc c
+		cp b
+		jr z, .done_find_dyn_pal
+		ld a, c
+		cp 8
+		jr z, .done_find_dyn_pal
+		jr .keep_find_dyn_pal
+.done_find_dyn_pal
+	pop af
+	ldh [rSVBK], a
+	pop hl
+	ret
 .pals:
 INCLUDE "gfx/overworld/trainer_battle.pal"
 

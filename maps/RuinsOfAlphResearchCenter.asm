@@ -732,7 +732,7 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 ; list items
 	db PAY_DAY, 4
 	db TELEPORT, 2
-	db MEGA_PUNCH, 4
+	db MEGA_PUNCH, 6
 	db PSYWAVE, 2
 	db SEISMIC_TOSS, 8
 	db BUBBLEBEAM, 6

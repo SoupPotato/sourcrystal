@@ -738,12 +738,12 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	db BUBBLEBEAM, 6
 	db REFLECT, 6
 	db MEGA_KICK, 10
-	db BODY_SLAM, 10
+	db MEGA_DRAIN, 10
 	db MIMIC, 8
 	db SELFDESTRUCT, 12
 	db THUNDER_WAVE, 10
 	db TRI_ATTACK, 16
-	db MEGA_DRAIN, 14
+	db BODY_SLAM, 14
 	db SUBSTITUTE, 18
 	db METRONOME, 16
 	db ROCK_SLIDE, 22

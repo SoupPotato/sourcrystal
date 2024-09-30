@@ -14,9 +14,9 @@ MountMoon1FCheckRivalAndMushroom:
 	checkflag ENGINE_DAILY_MOUNT_MOON_1F_MUSHROOM
 	iftrue .finishMushroom
 	clearevent EVENT_MOUNT_MOON_1F_MUSHROOM
-	random 5
+	random 10
 	ifnotequal 0, .TinyMushroom
-; 20% chance
+; 10% chance
 .BigMushroom
 	setevent EVENT_MOUNT_MOON_1F_BIG_MUSHROOM_SPAWN
 	variablesprite SPRITE_MUSHROOM_1, SPRITE_BIG_MUSHROOM

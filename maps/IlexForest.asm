@@ -24,9 +24,9 @@ IlexForestMushroomsAndFarfetchdCallback:
 	checkflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_1
 	iftrue IlexForestMushroom1Picked
 	clearevent EVENT_ILEX_FOREST_MUSHROOM_1
-	random 5
+	random 10
 	ifnotequal 0, .TinyMushroom1
-; 20% chance
+; 10% chance
 .BigMushroom1
 	setevent EVENT_ILEX_FOREST_BIG_MUSHROOM_1_SPAWN
 	variablesprite SPRITE_MUSHROOM_1, SPRITE_BIG_MUSHROOM
@@ -38,9 +38,9 @@ IlexForestMushroomsAndFarfetchdCallback:
 	checkflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_2
 	iftrue IlexForestMushroom2Picked
 	clearevent EVENT_ILEX_FOREST_MUSHROOM_2
-	random 5
+	random 10
 	ifnotequal 0, .TinyMushroom2
-; 20% chance
+; 10% chance
 .BigMushroom2
 	setevent EVENT_ILEX_FOREST_BIG_MUSHROOM_2_SPAWN
 	variablesprite SPRITE_MUSHROOM_2, SPRITE_BIG_MUSHROOM
@@ -52,9 +52,9 @@ IlexForestMushroomsAndFarfetchdCallback:
 	checkflag ENGINE_DAILY_ILEX_FOREST_MUSHROOM_3
 	iftrue IlexForestMushroom3Picked
 	clearevent EVENT_ILEX_FOREST_MUSHROOM_3
-	random 5
+	random 10
 	ifnotequal 0, .TinyMushroom3
-; 20% chance
+; 10% chance
 .BigMushroom3
 	setevent EVENT_ILEX_FOREST_BIG_MUSHROOM_3_SPAWN
 	variablesprite SPRITE_MUSHROOM_3, SPRITE_BIG_MUSHROOM

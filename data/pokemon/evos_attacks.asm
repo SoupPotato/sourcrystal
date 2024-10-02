@@ -2880,32 +2880,34 @@ AipomEvosAttacks:
 SunkernEvosAttacks:
 	db EVOLVE_ITEM, SUN_STONE, SUNFLORA
 	db 0 ; no more evolutions
+	db 1, ABSORB
 	db 1, TACKLE
-	db 1, GROWTH
-	db 4, ABSORB
-	db 10, MEGA_DRAIN
-	db 14, RAZOR_LEAF
-	db 19, LEECH_SEED
-	db 24, GIGA_DRAIN
+	db 5, GROWTH
+	db 9, MEGA_DRAIN
+	db 13, RAZOR_LEAF
+	db 17, SING
+	db 21, LEECH_SEED
+	db 25, GIGA_DRAIN
 	db 29, SYNTHESIS
-	db 35, SOLARBEAM
-	db 41, DOUBLE_EDGE
-	db 47, SUNNY_DAY
+	db 33, SOLARBEAM
+	db 37, DOUBLE_EDGE
+	db 41, SUNNY_DAY
 	db 0 ; no more level-up moves
 
 SunfloraEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, ABSORB
 	db 1, POUND
-	db 1, GROWTH
-	db 4, ABSORB
-	db 10, MEGA_DRAIN
-	db 14, RAZOR_LEAF
-	db 19, LEECH_SEED
-	db 24, GIGA_DRAIN
-	db 29, PETAL_DANCE
-	db 35, SOLARBEAM
-	db 41, DOUBLE_EDGE
-	db 47, SUNNY_DAY
+	db 5, GROWTH
+	db 9, MEGA_DRAIN
+	db 13, RAZOR_LEAF
+	db 17, SING
+	db 21, LEECH_SEED
+	db 25, GIGA_DRAIN
+	db 29, SYNTHESIS
+	db 33, SOLARBEAM
+	db 37, DOUBLE_EDGE
+	db 41, SUNNY_DAY
 	db 0 ; no more level-up moves
 
 YanmaEvosAttacks:

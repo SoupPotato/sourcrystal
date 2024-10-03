@@ -2774,9 +2774,10 @@ BattleAnim_Psybeam:
 	anim_ret
 
 BattleAnim_DreamEater:
-	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_RED
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PINK
 	anim_1gfx BATTLE_ANIM_GFX_CHARGE
 	anim_bgp $1b
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $6, $0
 .loop
 	anim_sound 6, 3, SFX_WARP_TO
 	anim_obj BATTLE_ANIM_OBJ_ABSORB, 128, 48, $2

@@ -64,6 +64,7 @@ Route11Snorlax:
 	disappear ROUTE_11_BIG_SNORLAX
 	disappear ROUTE_11_BIG_SNORLAX_RESPAWN
 	setevent EVENT_FOUGHT_SNORLAX
+	setevent EVENT_ROUTE_11_SNORLAX
 	reloadmapafterbattle
 	special CheckBattleCaughtResult
 	iffalse .nocatch

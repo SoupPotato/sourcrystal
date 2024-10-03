@@ -459,6 +459,9 @@ RespawnOneOffs:
 	ld de, ENGINE_PLAYER_CAUGHT_SNORLAX
 	farcall EngineFlagAction
 	jr nz, .CaughtSnorlax
+	ld de, EVENT_ROUTE_11_SNORLAX
+	farcall EventFlagAction
+	jr z, .CaughtSnorlax ; Snorlax Not Been Woken Yet
 	eventflagreset EVENT_ROUTE_11_SNORLAX_RESPAWN
 .CaughtSnorlax
 

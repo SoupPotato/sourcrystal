@@ -172,8 +172,8 @@ BugCatcherAbnerSeenText:
 	line "people out there"
 
 	para "who prefer solid"
-	line "bug #MON over"
-	cont "squishy bug-"
+	line "Bug #MON over"
+	cont "squishy Bug"
 	cont "#MON."
 	done
 
@@ -261,7 +261,7 @@ BugCatcherDionAfterBattleText:
 	para "swimming in "
 	line "puddles…"
 
-	para "For bug #MON"
+	para "For Bug #MON"
 	line "fans, knowing how"
 
 	para "to distinguish"

@@ -240,7 +240,6 @@ RandomRainMapsKanto:
 	weather_map ROUTE_20
 	weather_map ROUTE_21
 	weather_map ROUTE_22
-	weather_map ROUTE_23
 	weather_map ROUTE_24
 	weather_map ROUTE_25
 	weather_map ROUTE_26

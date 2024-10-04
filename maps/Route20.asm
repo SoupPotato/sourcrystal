@@ -321,9 +321,7 @@ PicnickerAdrianBeatenText:
 
 PicnickerAdrianAfterBattleText:
 	text "Even though I"
-	line "lost,"
-
-	para "I had fun!"
+	line "lost, I had fun!"
 	done
 
 CamperPedroSeenText:
@@ -364,8 +362,8 @@ BirdkeeperBertAfterBattleText:
 	text "That was an"
 	line "incredible battle!"
 
-	para "I've got"
-	line "goose bumps!"
+	para "I've got goose"
+	line "bumps!"
 	done
 
 BirdkeeperErnieSeenText:

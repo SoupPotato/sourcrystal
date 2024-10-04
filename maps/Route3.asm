@@ -127,8 +127,8 @@ TrainerFirebreatherOtis:
 	end
 
 HikerBruceSeenText:
-	text "My Bag is"
-	line "digging into my"
+	text "My Bag is dig-"
+	line "ging into my"
 	cont "shoulders!"
 
 	para "When that happens,"
@@ -197,12 +197,11 @@ BlackBeltManfordBeatenText:
 	done
 
 BlackBeltManfordAfterBattleText:
-	text "Even though"
-	line "you're so young,"
+	text "Even though you're"
+	line "so young, you have"
 
-	para "you have the"
-	line "spirit of battle"
-	cont "within."
+	para "the spirit of"
+	line "battle within."
 
 	para "You must have"
 	line "trained under a"
@@ -265,11 +264,12 @@ CoolDuoZacandJen2AfterBattleText:
 
 YoungsterRegisSeenText:
 	text "Youngster?"
-	line "Goodness,"
-	cont "how rude!"
 
-	para "Call me"
-	line "Shorts Boy!"
+	para "Goodness, how"
+	line "rude!"
+
+	para "Call me Shorts"
+	line "Boy!"
 	done
 
 YoungsterRegisBeatenText:
@@ -278,9 +278,9 @@ YoungsterRegisBeatenText:
 	done
 
 YoungsterRegisAfterBattleText:
-	text "Looks like I"
-	line "need a bit more"
-	cont "training!"
+	text "Looks like I need"
+	line "a bit more train-"
+	cont "ing!"
 	done
 
 YoungsterWarrenSeenText:

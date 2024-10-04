@@ -183,18 +183,18 @@ SwimmermEstebanBeatenText:
 	done
 
 SwimmermEstebanAfterBattleText:
-	text "Due to the incre-"
-	line "dible resemblance,"
+	text "Due to the incred-"
+	line "ible resemblance,"
 
-	para "we called"
-	line "our teacher "
-	cont "PROF. POLIWHIRL!"
+	para "we called our"
+	line "teacher PROF."
+	cont "POLIWHIRL!"
 	done
 
 SwimmermDuaneSeenText:
-	text "Swimming is"
-	line "a full-body"
-	cont "exercise,"
+	text "Swimming is a"
+	line "full-body exer-"
+	cont "cise,"
 
 	para "so it's really"
 	line "good for building"
@@ -202,15 +202,15 @@ SwimmermDuaneSeenText:
 	done
 
 SwimmermDuaneBeatenText:
-	text "My #MON"
-	line "and I have no"
-	cont "body strength…"
+	text "My #MON and"
+	line "I have no body"
+	cont "strength…"
 	done
 
 SwimmermDuaneAfterBattleText:
-	text "To win more,"
-	line "I need to work"
-	cont "on my stamina!"
+	text "To win more, I"
+	line "need to work on my"
+	cont "stamina!"
 	done
 
 SwimmerfNikkiSeenText:
@@ -302,8 +302,8 @@ FisherMurphyBeatenText:
 
 FisherMurphyAfterBattleText:
 	text "It's said that the"
-	line "#MON that"
-	cont "escaped were huge."
+	line "#MON that es-"
+	cont "caped were huge."
 
 	para "It's the truth!"
 	done
@@ -383,8 +383,8 @@ BirdkeeperEastonSeenText:
 	text "Bird Keepers are"
 	line "so wonderful with"
 
-	para "their bird"
-	line "#MON!"
+	para "their bird #-"
+	line "MON!"
 	done
 
 BirdkeeperEastonBeatenText:

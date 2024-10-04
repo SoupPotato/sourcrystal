@@ -54,7 +54,6 @@ DragonsDenB1F_ClairScene:
 	writetext ClairText_GiveDragonbreathDragonDen
 	promptbutton
 	giveitem TM_DRAGONBREATH
-	iffalse .BagFull
 	getitemname STRING_BUFFER_3, TM_DRAGONBREATH
 	writetext Text_ReceivedTM24
 	playsound SFX_GET_TM
@@ -63,15 +62,16 @@ DragonsDenB1F_ClairScene:
 	setevent EVENT_GOT_TM24_DRAGONBREATH
 	writetext ClairText_DescribeDragonbreathDragonDen
 	promptbutton
+	writetext ClairText_PagerUpgrade
+	playsound SFX_ITEM
+	waitsfx
+	writetext ClairText_PagerExplain
+	promptbutton
 	writetext ClairText_WhatsTheMatterDragonDen
 	waitbutton
 	closetext
 	sjump .FinishClair
 
-.BagFull:
-	writetext ClairText_NoRoom
-	waitbutton
-	closetext
 .FinishClair:
 	applymovement DRAGONSDENB1F_CLAIR, MovementDragonsDen_ClairWalksAway
 	special FadeOutMusic
@@ -230,17 +230,22 @@ ClairText_DescribeDragonbreathDragonDen:
 	para "If you don't want"
 	line "it, you don't have"
 	cont "to take it."
+
+	para "But I am obligated"
+	line "to give you this."
 	done
 
-ClairText_NoRoom:
-	text "Oh? You don't have"
-	line "any room for this."
+ClairText_PagerUpgrade:
+	text "The SURF PAGER"
+	line "was upgraded!"
+	done
 
-	para "I'm going back to"
-	line "the GYM, so make"
+ClairText_PagerExplain:
+	text "With that, your"
+	line "SURF PAGER will"
 
-	para "room, then come"
-	line "see me there."
+	para "allow you to also"
+	line "climb waterfalls."
 	done
 
 ClairText_WhatsTheMatterDragonDen:

@@ -346,7 +346,7 @@ BikerReeseAfterBattleText:
 	done
 
 BikerJosephSeenText:
-	text "Modding my Bike"
+	text "Modding my BIKE"
 	line "costs a bunch of"
 	cont "money!"
 
@@ -358,7 +358,7 @@ BikerJosephBeatenText:
 	done
 
 BikerJosephAfterBattleText:
-	text "Bike?"
+	text "BIKE?"
 
 	para "Oh, I was talking"
 	line "about my BICYCLE!"
@@ -399,7 +399,7 @@ BikerAidenBeatenText:
 	done
 
 BikerAidenAfterBattleText:
-	text "Awesome Bike!"
+	text "Awesome BIKE!"
 	line "Treat it well!"
 	done
 
@@ -445,7 +445,7 @@ BikerTheronAfterBattleText:
 
 BikerTeddySeenText:
 	text "Hey, that's a"
-	line "cool Bike you're"
+	line "cool BIKE you're"
 	cont "riding!"
 	done
 

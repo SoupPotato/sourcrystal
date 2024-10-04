@@ -18,22 +18,20 @@ MountMoonPokecenter1FLassScript:
 	jumptextfaceplayer MountMoonPokecenter1FLassText
 
 MountMoonPokecenter1FHikerText:
-	text "Oh my!"
-	line "I remember there"
+	text "Oh my! I remember"
+	line "there was nothing"
 
-	para "was nothing built"
-	line "here when I "
-	cont "climbed the"
-	cont "mountain."
+	para "built here when I"
+	line "climbed the moun-"
+	cont "tain."
 
 	para "Things change, and"
 	line "it's getting more"
-	cont "and more con-"
-	cont "venient."
+	cont "convenient."
 	done
 
 MountMoonPokecenter1FLassText:
-	text "Many Trainers are"
+	text "Many trainers are"
 	line "visiting the"
 	cont "mountain."
 
@@ -66,5 +64,5 @@ MountMoonPokecenter1F_MapEvents:
 
 	def_object_events
 	object_event  3,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MountMoonPokecenter1FNurseScript, -1
-	object_event  2,  5, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MountMoonPokecenter1FHikerScript, -1
+	object_event  2,  5, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MountMoonPokecenter1FHikerScript, -1
 	object_event  7,  4, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MountMoonPokecenter1FLassScript, -1

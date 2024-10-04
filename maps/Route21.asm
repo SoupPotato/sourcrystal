@@ -254,7 +254,7 @@ SwimmerfChelanAfterBattleText:
 	done
 
 SwimmerfKaidynSeenText:
-	text "Hey, Trainer!"
+	text "Hey, trainer!"
 	line "How about you put"
 
 	para "on a swimsuit,"
@@ -291,7 +291,7 @@ FisherArnoldAfterBattleText:
 
 FisherMurphySeenText:
 	text "Huh? I've caught"
-	line "a Trainer instead"
+	line "a trainer instead"
 	cont "of a #MON!"
 	done
 
@@ -352,7 +352,7 @@ FisherGideonBeatenText:
 FisherGideonAfterBattleText:
 	text "What's the reason"
 	line "you became a"
-	cont "#MON Trainer?"
+	cont "#MON trainer?"
 	done
 
 BirdkeeperKarterSeenText:
@@ -393,7 +393,7 @@ BirdkeeperEastonBeatenText:
 	done
 
 BirdkeeperEastonAfterBattleText:
-	text "We Bird Keepers"
+	text "We BIRD KEEPERS"
 	line "think we're using"
 	cont "bird #MON."
 

@@ -2793,8 +2793,8 @@ BattleAnim_DreamEater:
 	anim_ret
 
 BattleAnim_LeechLife:
-	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PEACH
 	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_GRAY
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_PEACH
 	anim_3gfx BATTLE_ANIM_GFX_HORN, BATTLE_ANIM_GFX_HIT, BATTLE_ANIM_GFX_CHARGE
 	anim_call BattleAnim_PoisonSting.hit
 .loop

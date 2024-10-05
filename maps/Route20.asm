@@ -347,7 +347,7 @@ CamperPedroAfterBattleText:
 
 BirdkeeperBertSeenText:
 	text "Found it!"
-	line "A Trainer that"
+	line "A trainer that"
 
 	para "I can enjoy"
 	line "fighting!"

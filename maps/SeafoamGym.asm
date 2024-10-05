@@ -348,7 +348,7 @@ SeafoamGymGuideText:
 	text "Yo, CHAMP in"
 	line "making!"
 
-	para "This Gym has many"
+	para "This GYM has many"
 	line "Trainers and rocks"
 
 	para "in the way from"
@@ -369,15 +369,15 @@ SeafoamGymGuideText:
 	done
 
 SeafoamGymGuideWinText:
-	text "The Gym Leader"
+	text "The GYM Leader"
 	line "rebuilding his"
 
-	para "Gym and the"
+	para "GYM and the"
 	line "Trainer from"
 
 	para "JOHTO who has come"
 	line "to challenge that"
-	cont "Gym Leader…"
+	cont "GYM Leader…"
 
 	para "I have witnessed"
 	line "a hot battle!"
@@ -412,7 +412,7 @@ ScientistLowellAfterBattleText:
 	done
 
 ScientistDannieSeenText:
-	text "We lost the Gym on"
+	text "We lost the GYM on"
 	line "CINNABAR ISLAND"
 
 	para "and felt lost"
@@ -436,12 +436,12 @@ ScientistDannieAfterBattleText:
 	para "Never put us in"
 	line "the same category"
 
-	para "as Scientists who"
+	para "as SCIENTISTS who"
 	line "help bad guys."
 	done
 
 SuperNerdCarySeenText:
-	text "Wow, to see a Gym"
+	text "Wow, to see a GYM"
 	line "in a cave like"
 	cont "this?"
 
@@ -464,7 +464,7 @@ SuperNerdCaryAfterBattleText:
 
 ScientistLindenSeenText:
 	text "BLAINE may have"
-	line "lost his Gym,"
+	line "lost his GYM,"
 
 	para "but he never gives"
 	line "up."
@@ -486,7 +486,7 @@ ScientistLindenAfterBattleText:
 	line "BLAINE,"
 
 	para "we will rebuild"
-	line "our Gym!"
+	line "our GYM!"
 	done
 
 SuperNerdWaldoSeenText:

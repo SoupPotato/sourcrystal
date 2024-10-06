@@ -223,7 +223,7 @@ Moves:
 	move SWAGGER,      EFFECT_SWAGGER,             0, NORMAL,        85, 15, 100 ; OLD ACCURACY: 90
 	move MILK_DRINK,   EFFECT_HEAL,                0, NORMAL,       100, 10,   0
 	move SPARK,        EFFECT_PARALYZE_HIT,       65, ELECTRIC,     100, 20,  30
-	move FURY_CUTTER,  EFFECT_FURY_CUTTER,        40, BUG,           95, 20,   0 ; OLD POWER: 10
+	move FURY_CUTTER,  EFFECT_FURY_CUTTER,        20, BUG,           95, 20,   0 ; OLD POWER: 10
 	move STEEL_WING,   EFFECT_DEFENSE_UP_HIT,     70, STEEL,         90, 25,  10
 	move MEAN_LOOK,    EFFECT_MEAN_LOOK,           0, NORMAL,       100,  5,   0
 	move ATTRACT,      EFFECT_ATTRACT,             0, NORMAL,       100, 15,   0

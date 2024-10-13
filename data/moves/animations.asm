@@ -2559,28 +2559,28 @@ BattleAnim_DrillPeck:
 	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $64, $1, $0
 .loop
 	anim_sound 0, 1, SFX_PECK
-	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 128, 40, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 132, 32, $0
 	anim_wait 2
 	anim_sound 0, 1, SFX_PECK
-	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 139, 45, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 143, 37, $0
 	anim_wait 2
 	anim_sound 0, 1, SFX_PECK
-	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 144, 56, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 148, 48, $0
 	anim_wait 2
 	anim_sound 0, 1, SFX_PECK
-	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 139, 67, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 143, 59, $0
 	anim_wait 2
 	anim_sound 0, 1, SFX_PECK
-	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 128, 72, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 132, 64, $0
 	anim_wait 2
 	anim_sound 0, 1, SFX_PECK
-	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 117, 67, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 121, 59, $0
 	anim_wait 2
 	anim_sound 0, 1, SFX_PECK
-	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 112, 56, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 116, 48, $0
 	anim_wait 2
 	anim_sound 0, 1, SFX_PECK
-	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 117, 45, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT_SMALL_YFIX, 121, 37, $0
 	anim_wait 2
 	anim_loop 3, .loop
 	anim_wait 16

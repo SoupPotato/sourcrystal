@@ -209,10 +209,8 @@ ChucksWifeEasierToFlyText:
 	line "been hard."
 
 	para "It would be much"
-	line "easier if your"
-
-	para "#MON knew how"
-	line "to FLY…"
+	line "easier if you"
+	cont "could FLY…"
 	done
 
 ChucksWifeBeatChuckText:

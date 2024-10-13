@@ -42,13 +42,12 @@ HikerDevinAfterBattleText:
 	done
 
 HikerDevinSeenText:
-	text "Longing for"
-	line "others is…"
-	cont "what it is…"
+	text "Longing for others"
+	line "is… what it is…"
 
 	para "But battles are"
-	line "battles,"
-	cont "so let's go!"
+	line "battles, so let's"
+	cont "go!"
 	done
 
 HikerDevinBeatenText:

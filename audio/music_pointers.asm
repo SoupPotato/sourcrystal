@@ -110,7 +110,7 @@ Music:
 ; new to SourCrystal
 	dba Music_Route47HGSS
 	dba Music_SafariZoneGateHGSS
-	dba Music_CeruleanCityHGSS
+	dba Music_CeruleanCity
 	dba Music_NuggetBridgeHGSS
 	dba Music_CinnabarIslandHGSS
 	dba Music_HoOhBattleHGSS

@@ -316,7 +316,7 @@ ENDM
 	connection north, Route13, ROUTE_13, 0
 	connection west, Route15, ROUTE_15, 9
 
-	map_attributes Route13, ROUTE_13, $43, NORTH | SOUTH
+	map_attributes Route13, ROUTE_13, $0f, NORTH | SOUTH
 	connection north, Route12, ROUTE_12, 28
 	connection south, Route14, ROUTE_14, 0
 

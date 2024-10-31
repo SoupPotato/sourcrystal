@@ -185,6 +185,8 @@ EngineFlags:
 	engine_flag wDailyFlags1, DAILYFLAGS_MOUNT_MOON_1F_MUSHROOM
 	engine_flag wDailyFlags1, DAILYFLAGS_MOUNT_MOON_B1F_MUSHROOM
 	engine_flag wDailyFlags1, DAILYFLAGS_MOUNT_MOON_B2F_MUSHROOM
+	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE13_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_SILVER_CAVE_OUTSIDE_BERRY
 
 	engine_flag wDailyFlags2, DAILYFLAGS2_MT_MOON_SQUARE_CLEFAIRY_F
 	engine_flag wDailyFlags2, DAILYFLAGS2_UNION_CAVE_LAPRAS_F

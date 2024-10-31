@@ -4,11 +4,27 @@
 	const ROUTE_13_POKEFAN_M1
 	const ROUTE_13_POKEFAN_M2
 	const ROUTE_13_POKEFAN_M3
+	const ROUTE_13_YOUNGSTER3
+	const ROUTE_13_YOUNGSTER4
+	const ROUTE_13_LASS1
+	const ROUTE_13_LASS2
+	const ROUTE_13_YOUNGSTER5
+	const ROUTE_13_LASS3
+	const ROUTE_13_BERRY
 
 Route13_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, Route13Fruittree
+
+Route13Fruittree:
+.Berry:
+	checkflag ENGINE_DAILY_ROUTE_13_BERRY
+	iftrue .NoBerry
+	appear ROUTE_13_BERRY
+.NoBerry:
+	endcallback
 
 TrainerCoupleTimandSue1:
 	trainer COUPLE, TIMANDSUE1, EVENT_BEAT_COUPLE_TIMANDSUE, CoupleTimandSueSeenText, CoupleTimandSueBeatenText, 0, .Script
@@ -383,6 +399,39 @@ Route13DirectionsSign:
 Route13HiddenCalcium:
 	hiddenitem CALCIUM, EVENT_ROUTE_13_HIDDEN_CALCIUM
 
+Route13BerryTree:
+	opentext
+	getitemname STRING_BUFFER_3, SITRUS_BERRY
+	writetext Route13BerryTreeText
+	promptbutton
+	writetext Route13HeyItsBerryText
+	promptbutton
+	giveitem SITRUS_BERRY
+	iffalse Route13NoRoomInBag
+	disappear ROUTE_13_BERRY
+	setflag ENGINE_DAILY_ROUTE_13_BERRY
+	writetext Route13FoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
+	closetext
+	end
+
+Route13NoBerry:
+	opentext
+	writetext Route13BerryTreeText
+	promptbutton
+	writetext Route13NothingHereText
+	waitbutton
+	closetext
+	end
+
+Route13NoRoomInBag:
+	writetext Route13NoRoomInBagText
+	waitbutton
+	closetext
+	end
+
 PicnickerPiperSeenText:
 	text "Hey, hey, how"
 	line "about we bring out"
@@ -625,6 +674,31 @@ Route13DirectionsSignText:
 	line "CITY"
 	done
 
+Route13BerryTreeText:
+	text "It's a"
+	line "BERRY tree…"
+	done
+
+Route13NothingHereText:
+	text "There's nothing"
+	line "here…"
+	done
+
+Route13HeyItsBerryText:
+	text "Hey! It's"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+Route13FoundItemText:
+	text_far _FoundItemText
+	text_end
+
+Route13NoRoomInBagText:
+	text_far _CantCarryItemText
+	text_end
+
 Route13_MapEvents:
 	db 0, 0 ; filler
 
@@ -637,6 +711,7 @@ Route13_MapEvents:
 	bg_event 51, 11, BGEVENT_READ, Route13Sign
 	bg_event 17, 13, BGEVENT_READ, Route13DirectionsSign
 	bg_event 36, 13, BGEVENT_ITEM, Route13HiddenCalcium
+	bg_event 63,  3, BGEVENT_READ, Route13NoBerry
 
 	def_object_events
 	object_event 63, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperPerry, -1
@@ -650,3 +725,4 @@ Route13_MapEvents:
 	object_event 16,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerGinger, -1
 	object_event 52,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerCoupleTimandSue1, -1
 	object_event 53,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerCoupleTimandSue2, -1
+	object_event 63,  3, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_SCRIPT, 0, Route13BerryTree, EVENT_ROUTE_13_BERRY

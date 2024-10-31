@@ -14,7 +14,13 @@ Red:
 	waitbutton
 	closetext
 	winlosstext RedWinLossText, RedWinLossText
+	checkevent EVENT_BEAT_RED
+	iffalse .not_defeated
+	loadtrainer RED, RED2
+	sjump .go
+.not_defeated:
 	loadtrainer RED, RED1
+.go:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -29,6 +35,23 @@ Red:
 	pause 15
 	special FadeInQuickly
 	pause 30
+	setevent EVENT_BEAT_RED
+	clearevent EVENT_BEAT_FALKNER_REMATCH
+	clearevent EVENT_BEAT_BUGSY_REMATCH
+	clearevent EVENT_BEAT_WHITNEY_REMATCH
+	clearevent EVENT_BEAT_MORTY_REMATCH
+	clearevent EVENT_BEAT_CHUCK_REMATCH
+	clearevent EVENT_BEAT_JASMINE_REMATCH
+	clearevent EVENT_BEAT_PRYCE_REMATCH
+	clearevent EVENT_BEAT_CLAIR_REMATCH
+	clearevent EVENT_BEAT_BROCK_REMATCH
+	clearevent EVENT_BEAT_MISTY_REMATCH
+	clearevent EVENT_BEAT_LT_SURGE_REMATCH
+	clearevent EVENT_BEAT_ERIKA_REMATCH
+	clearevent EVENT_BEAT_JANINE_REMATCH
+	clearevent EVENT_BEAT_SABRINA_REMATCH
+	clearevent EVENT_BEAT_BLAINE_REMATCH
+	clearevent EVENT_BEAT_BLUE_REMATCH
 	special HealParty
 	refreshscreen
 	credits

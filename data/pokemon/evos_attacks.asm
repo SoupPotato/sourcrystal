@@ -1155,6 +1155,7 @@ SlowpokeEvosAttacks:
 
 SlowbroEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, FUTURE_SIGHT
 	db 1, CURSE
 	db 1, TACKLE
 	db 1, GROWL
@@ -3005,6 +3006,7 @@ MurkrowEvosAttacks:
 
 SlowkingEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, FUTURE_SIGHT
 	db 1, CURSE
 	db 1, TACKLE
 	db 1, GROWL

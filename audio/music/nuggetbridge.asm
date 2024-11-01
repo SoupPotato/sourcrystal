@@ -285,7 +285,7 @@ Music_NuggetBridgeHGSS_Loop2:
 	loopchannel 0, Music_NuggetBridgeHGSS_Loop2
 
 Music_NuggetBridgeHGSS_Ch3:
-	notetype $C, $15
+	notetype $C, $14
 	octave 2
 	note E_, 4
 	note __, 8
@@ -302,7 +302,7 @@ Music_NuggetBridgeHGSS_Loop3:
 	note E_, 1
 	note __, 11
 	note G#, 4
-	notetype 4, $24
+	notetype 4, $23
 	octave 3
 	note A_, 2
 	octave 5
@@ -367,7 +367,7 @@ Music_NuggetBridgeHGSS_Loop3:
 	octave 6
 	note C#, 3
 	note __, 9
-	notetype $C, $15
+	notetype $C, $14
 	callchannel Music_NuggetBridgeHGSS_Bar7
 	callchannel Music_NuggetBridgeHGSS_Bar7
 	callchannel Music_NuggetBridgeHGSS_Bar7
@@ -392,7 +392,7 @@ Music_NuggetBridgeHGSS_Loop3:
 	callchannel Music_NuggetBridgeHGSS_Bar12
 	callchannel Music_NuggetBridgeHGSS_Bar12
 	callchannel Music_NuggetBridgeHGSS_Bar12
-	notetype 6, $15
+	notetype 6, $14
 	octave 1
 	note B_, 2
 	note __, 16
@@ -412,7 +412,7 @@ Music_NuggetBridgeHGSS_Loop3:
 	note __, 1
 	note B_, 6
 	note __, 2
-	notetype $C, $15
+	notetype $C, $14
 	octave 2
 	note E_, 4
 	note __, 8
@@ -428,7 +428,7 @@ Music_NuggetBridgeHGSS_Bar7:
 	note A_, 1
 	octave 4
 	note D_, 1
-	intensity $15
+	intensity $14
 	endchannel
 Music_NuggetBridgeHGSS_Bar8:
 	octave 2
@@ -439,7 +439,7 @@ Music_NuggetBridgeHGSS_Bar8:
 	note B_, 1
 	octave 4
 	note E_, 1
-	intensity $15
+	intensity $14
 	endchannel
 Music_NuggetBridgeHGSS_Bar9:
 	octave 1
@@ -450,7 +450,7 @@ Music_NuggetBridgeHGSS_Bar9:
 	note D_, 1
 	octave 4
 	note F#, 1
-	intensity $15
+	intensity $14
 	endchannel
 Music_NuggetBridgeHGSS_Bar10:
 	octave 2
@@ -461,7 +461,7 @@ Music_NuggetBridgeHGSS_Bar10:
 	note E_, 1
 	octave 4
 	note B_, 1
-	intensity $15
+	intensity $14
 	endchannel
 Music_NuggetBridgeHGSS_Bar11:
 	octave 1
@@ -473,7 +473,7 @@ Music_NuggetBridgeHGSS_Bar11:
 	note F#, 1
 	octave 5
 	note D_, 1
-	intensity $15
+	intensity $14
 	endchannel
 Music_NuggetBridgeHGSS_Bar12:
 	octave 2
@@ -485,7 +485,7 @@ Music_NuggetBridgeHGSS_Bar12:
 	note G#, 1
 	octave 5
 	note E_, 1
-	intensity $15
+	intensity $14
 	endchannel
 
 Music_NuggetBridgeHGSS_Ch4:

@@ -12,6 +12,9 @@ VioletGym_MapScripts:
 VioletGymFalknerScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkevent EVENT_BEAT_FALKNER
 	iftrue .FightDone
 	writetext FalknerIntroText
@@ -50,6 +53,23 @@ VioletGymFalknerScript:
 	writetext FalknerFightDoneText
 	waitbutton
 .NoRoomForMudSlap:
+	closetext
+	end
+
+.rematch:
+	checkflag ENGINE_DAILY_FALKNER_REMATCH
+	iftrue .skip_rematch
+	writetext FalknerRematchIntroText
+	waitbutton
+	closetext
+	winlosstext FalknerRematchWinLossText, 0
+	loadtrainer FALKNER, FALKNER2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_FALKNER_REMATCH
+	opentext
+	writetext FalknerRematchAfterBattleText
+	waitbutton
 	closetext
 	end
 
@@ -279,6 +299,27 @@ VioletGymGuideWinText:
 
 	para "be the CHAMP in no"
 	line "time at all!"
+	done
+
+FalknerRematchIntroText:
+	text "Hi! I've been"
+	line "waiting for you!"
+
+	para "It's a pleasure to"
+	line "battle you again!"
+	done 
+	
+FalknerRematchWinLossText:
+	text "I understand…"
+
+	para "I'll bow out"
+	line "gracefully."
+	done 
+
+FalknerRematchAfterBattleText:
+	text "Hmm… It's still a"
+	line "long way to become"
+	cont "the best trainer…"
 	done
 
 VioletGym_MapEvents:

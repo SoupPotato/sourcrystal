@@ -11,6 +11,9 @@ PewterGym_MapScripts:
 PewterGymBrockScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkflag ENGINE_BOULDERBADGE
 	iftrue .FightDone
 	writetext BrockIntroText
@@ -35,6 +38,23 @@ PewterGymBrockScript:
 
 .FightDone:
 	writetext BrockFightDoneText
+	waitbutton
+	closetext
+	end
+
+.rematch:
+	checkflag ENGINE_DAILY_BROCK_REMATCH
+	iftrue .skip_rematch
+	writetext BrockRematchIntroText
+	waitbutton
+	closetext
+	winlosstext BrockRematchWinLossText, 0
+	loadtrainer BROCK, BROCK2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_BROCK_REMATCH
+	opentext
+	writetext BrockRematchAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -232,6 +252,30 @@ PewterGymGuideWinText:
 	para "inspiring. I mean"
 	line "that seriously."
 	done
+	
+BrockRematchIntroText:
+	text "BROCK: All right!"
+	
+	para "Time to show you"
+	line "my #MON's rock-"
+	cont "hard defense!"
+
+	para "Let's go!"
+	done 
+	
+BrockRematchWinLossText:
+	text "Looks like you're"
+	line "the stronger one…"
+	done 
+
+BrockRematchAfterBattleText:
+	text "BROCK: I've lost"
+	line "again…"
+	
+	para "You aren't adven-"
+	line "turing around for"
+	cont "nothing!"
+	done 
 
 PewterGym_MapEvents:
 	db 0, 0 ; filler

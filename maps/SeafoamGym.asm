@@ -27,6 +27,9 @@ SeafoamGymNoopScene:
 SeafoamGymBlaineScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkflag ENGINE_VOLCANOBADGE
 	iftrue .FightDone
 	writetext BlaineIntroText
@@ -57,6 +60,23 @@ SeafoamGymBlaineScript:
 
 .FightDone:
 	writetext BlaineFightDoneText
+	waitbutton
+	closetext
+	end
+
+.rematch:
+	checkflag ENGINE_DAILY_BLAINE_REMATCH
+	iftrue .skip_rematch
+	writetext BlaineRematchIntroText
+	waitbutton
+	closetext
+	winlosstext BlaineRematchWinLossText, 0
+	loadtrainer BLAINE, BLAINE2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_BLAINE_REMATCH
+	opentext
+	writetext BlaineRematchAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -526,6 +546,35 @@ SuperNerdMerleAfterBattleText:
 
 	para "how strong"
 	line "you are."
+	done
+
+BlaineRematchIntroText:
+	text "BLAINE: Your back"
+	line "for a rematch?"
+
+	para "Great stuff kiddo!"
+
+	para "Let's have another"
+	line "scorching battle!"
+	done 
+	
+BlaineRematchWinLossText:
+	text "I lost the battle,"
+	line "but my fiery soul"
+
+	para "hasn't fizzled"
+	line "out!"
+	done 
+
+BlaineRematchAfterBattleText:
+	text "BLAINE: Waaah!"
+
+	para "If I had known you"
+	line "were coming, I"
+	
+	para "would have made"
+	line "us some CINNABAR"
+	cont "VOLCANO BURGERS!"
 	done
 
 SeafoamGym_MapEvents:

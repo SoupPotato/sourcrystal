@@ -29,6 +29,9 @@ BlackthornGym1FBouldersCallback:
 BlackthornGymClairScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkflag ENGINE_RISINGBADGE
 	iftrue .AlreadyGotBadge
 	checkevent EVENT_BEAT_CLAIR
@@ -86,6 +89,23 @@ BlackthornGymClairScript:
 
 .GotTM24:
 	writetext BlackthornGymClairText_League
+	waitbutton
+	closetext
+	end
+
+.rematch:
+	checkflag ENGINE_DAILY_CLAIR_REMATCH
+	iftrue .skip_rematch
+	writetext ClairRematchIntroText
+	waitbutton
+	closetext
+	winlosstext ClairWinText, 0
+	loadtrainer CLAIR, CLAIR2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_CLAIR_REMATCH
+	opentext
+	writetext ClairRematchAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -383,6 +403,19 @@ BlackthornGymGuideWinText:
 	line "to becoming the"
 	cont "#MON CHAMPION!"
 	done
+
+ClairRematchIntroText:
+	text "…You are here."
+	line "Now let's battle!"
+	done 
+
+ClairRematchAfterBattleText:
+	text "Way to go."
+	line "…"
+
+	para "Now give it your"
+	line "all!"
+	done 
 
 BlackthornGym1F_MapEvents:
 	db 0, 0 ; filler

@@ -196,6 +196,9 @@ CheckVermilionGymTrashCan:
 VermilionGymSurgeScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkflag ENGINE_THUNDERBADGE
 	iftrue .FightDone
 	writetext LtSurgeIntroText
@@ -221,6 +224,23 @@ VermilionGymSurgeScript:
 
 .FightDone:
 	writetext LtSurgeFightDoneText
+	waitbutton
+	closetext
+	end
+
+.rematch:
+	checkflag ENGINE_DAILY_LTSURGE_REMATCH
+	iftrue .skip_rematch
+	writetext LtSurgeRematchIntroText
+	waitbutton
+	closetext
+	winlosstext LtSurgeRematchWinLossText, 0
+	loadtrainer LT_SURGE, LT_SURGE2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_LTSURGE_REMATCH
+	opentext
+	writetext LtSurgeRematchAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -467,6 +487,30 @@ VermilionGymFoundSecondSwitchText:
 VermilionGymResetSwitchesText:
 	text "Hey! The electric"
 	line "locks were reset!"
+	done
+
+LtSurgeRematchIntroText:
+	text "SURGE: Hey!"
+
+	para "Your back for"
+	line "more?"
+	
+	para "Then we'll elec-"
+	line "trify you!"
+	done 
+	
+LtSurgeRematchWinLossText:
+	text "My electric trick…"
+	done 
+
+LtSurgeRematchAfterBattleText:
+	text "SURGE: Arrrgh!"
+
+	para "You are major"
+	line "strong kid!"
+	
+	para "But I will repay"
+	line "my debt someday."
 	done
 
 VermilionGym_MapEvents:

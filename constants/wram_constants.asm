@@ -354,6 +354,22 @@ DEF CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const DAILYFLAGS_MOUNT_MOON_B2F_MUSHROOM          ; 67
 	const DAILYFLAGS_ROUTE13_BERRY                    ; 68
 	const DAILYFLAGS_SILVER_CAVE_OUTSIDE_BERRY        ; 69
+	const DAILYFLAGS_FALKNER_REMATCH                  ; 70
+	const DAILYFLAGS_BUGSY_REMATCH                    ; 71
+	const DAILYFLAGS_WHITNEY_REMATCH                  ; 72
+	const DAILYFLAGS_MORTY_REMATCH                    ; 73
+	const DAILYFLAGS_CHUCK_REMATCH                    ; 74
+	const DAILYFLAGS_JASMINE_REMATCH                  ; 75
+	const DAILYFLAGS_PRYCE_REMATCH                    ; 76
+	const DAILYFLAGS_CLAIR_REMATCH                    ; 77
+	const DAILYFLAGS_BROCK_REMATCH                    ; 78
+	const DAILYFLAGS_MISTY_REMATCH                    ; 79
+	const DAILYFLAGS_LTSURGE_REMATCH                  ; 80
+	const DAILYFLAGS_ERIKA_REMATCH                    ; 81
+	const DAILYFLAGS_JANINE_REMATCH                   ; 82
+	const DAILYFLAGS_SABRINA_REMATCH                  ; 83
+	const DAILYFLAGS_BLAINE_REMATCH                   ; 84
+	const DAILYFLAGS_BLUE_REMATCH                     ; 85
 
 ; wDailyFlags2::
 	const_def

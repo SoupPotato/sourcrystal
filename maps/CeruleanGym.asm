@@ -59,6 +59,9 @@ CeruleanGymGruntRunsOutScript:
 CeruleanGymMistyScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkflag ENGINE_CASCADEBADGE
 	iftrue .FightDone
 	writetext MistyIntroText
@@ -81,6 +84,23 @@ CeruleanGymMistyScript:
 	setflag ENGINE_CASCADEBADGE
 .FightDone:
 	writetext MistyFightDoneText
+	waitbutton
+	closetext
+	end
+
+.rematch:
+	checkflag ENGINE_DAILY_MISTY_REMATCH
+	iftrue .skip_rematch
+	writetext MistyRematchIntroText
+	waitbutton
+	closetext
+	winlosstext MistyRematchWinLossText, 0
+	loadtrainer MISTY, MISTY2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_MISTY_REMATCH
+	opentext
+	writetext MistyRematchAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -425,6 +445,34 @@ CeruleanGymGuideWinText:
 	para "As always, that"
 	line "was one heck of a"
 	cont "great battle!"
+	done
+
+MistyRematchIntroText:
+	text "MISTY: So here you"
+	line "are… Don't make me"
+	cont "wait!"
+
+	para "I've heard lots of"
+	line "good things about"
+
+	para "you since our last"
+	line "battle."
+
+	para "Let me test how"
+	line "good you are!"
+	done 
+
+MistyRematchWinLossText:
+	text "Looks like this is"
+	line "it…"
+	done 
+
+MistyRematchAfterBattleText:
+	text "MISTY: Wow!"
+	line "You are getting"
+
+	para "stronger with each"
+	line "battle!"
 	done
 
 CeruleanGym_MapEvents:

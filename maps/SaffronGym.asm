@@ -10,10 +10,21 @@ SaffronGym_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, SaffronGymWarpPanelCallback
+
+SaffronGymWarpPanelCallback:
+	checkevent EVENT_BEAT_SABRINA
+	iffalse .skip
+	changeblock 12, 14, $40 ; warp panel active
+.skip
+	endcallback
 
 SaffronGymSabrinaScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkflag ENGINE_MARSHBADGE
 	iftrue .FightDone
 	writetext SabrinaIntroText
@@ -28,6 +39,7 @@ SaffronGymSabrinaScript:
 	setevent EVENT_BEAT_MEDIUM_DORIS
 	setevent EVENT_BEAT_PSYCHIC_FRANKLIN
 	setevent EVENT_BEAT_PSYCHIC_JARED
+	changeblock 12, 14, $40 ; warp panel active
 	opentext
 	writetext ReceivedMarshBadgeText
 	playsound SFX_GET_BADGE
@@ -40,6 +52,23 @@ SaffronGymSabrinaScript:
 
 .FightDone:
 	writetext SabrinaFightDoneText
+	waitbutton
+	closetext
+	end
+
+.rematch:
+	checkflag ENGINE_DAILY_SABRINA_REMATCH
+	iftrue .skip_rematch
+	writetext SabrinaRematchIntroText
+	waitbutton
+	closetext
+	winlosstext SabrinaRematchWinLossText, 0
+	loadtrainer SABRINA, SABRINA2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_SABRINA_REMATCH
+	opentext
+	writetext SabrinaRematchAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -288,6 +317,27 @@ SaffronGymGuideWinText:
 	line "fantastic battle!"
 	done
 
+SabrinaRematchIntroText:
+	text "SABRINA: I knew"
+	line "you'd come again…"
+
+	para "I had a feeling."
+
+	para "Let me test you"
+	line "once more."
+	done 
+	
+SabrinaRematchWinLossText:
+	text "I get it…"
+	done 
+
+SabrinaRematchAfterBattleText:
+	text "SABRINA: I know…"
+
+	para "You will battle me"
+	line "again sometime."
+	done
+
 SaffronGym_MapEvents:
 	db 0, 0 ; filler
 
@@ -323,7 +373,9 @@ SaffronGym_MapEvents:
 	warp_event 15, 11, SAFFRON_GYM, 14
 	warp_event 15,  3, SAFFRON_GYM, 15
 	warp_event  1,  3, SAFFRON_GYM, 16
-	warp_event 11,  9, SAFFRON_GYM, 17
+	warp_event 11, 11, SAFFRON_GYM, 17
+	warp_event  8, 11, SAFFRON_GYM, 34
+	warp_event 12, 15, SAFFRON_GYM, 33
 
 	def_coord_events
 

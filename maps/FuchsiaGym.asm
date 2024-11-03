@@ -12,6 +12,9 @@ FuchsiaGym_MapScripts:
 	def_callbacks
 
 FuchsiaGymJanineScript:
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkflag ENGINE_SOULBADGE
 	iftrue .FightDone
 	applymovement FUCHSIAGYM_JANINE, Movement_NinjaSpin
@@ -53,6 +56,25 @@ FuchsiaGymJanineScript:
 	setevent EVENT_GOT_TM06_TOXIC
 .AfterTM:
 	writetext JanineText_ApplyMyself
+	waitbutton
+	closetext
+	end
+
+.rematch:
+	faceplayer
+	opentext
+	checkflag ENGINE_DAILY_JANINE_REMATCH
+	iftrue .skip_rematch
+	writetext JanineRematchIntroText
+	waitbutton
+	closetext
+	winlosstext JanineRematchWinLossText, 0
+	loadtrainer JANINE, JANINE2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_JANINE_REMATCH
+	opentext
+	writetext JanineRematchAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -376,6 +398,24 @@ FuchsiaGymGuideWinText:
 	text "That was a great"
 	line "battle, trainer"
 	cont "from JOHTO!"
+	done
+
+JanineRematchIntroText:
+	text "JANINE: I can't"
+	line "use my ninja tech-"
+	cont "nique, but I won't"
+	cont "let you win!"
+	done 
+	
+JanineRematchWinLossText:
+	text "…!!!"
+	line "So… So strong!"
+	done 
+
+JanineRematchAfterBattleText:
+	text "JANINE: I lost"
+	line "today, but I'll"
+	cont "win next time!"
 	done
 
 FuchsiaGym_MapEvents:

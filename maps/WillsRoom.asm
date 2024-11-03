@@ -49,7 +49,13 @@ WillScript_Battle:
 	waitbutton
 	closetext
 	winlosstext WillScript_WillBeatenText, 0
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
 	loadtrainer WILL, WILL1
+	sjump .battle
+.rematch
+	loadtrainer WILL, WILL2
+.battle
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_WILL

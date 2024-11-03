@@ -24,6 +24,9 @@ EcruteakGymNoopScene:
 EcruteakGymMortyScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkevent EVENT_BEAT_MORTY
 	iftrue .FightDone
 	writetext MortyIntroText
@@ -65,6 +68,23 @@ EcruteakGymMortyScript:
 	writetext MortyFightDoneText
 	waitbutton
 .NoRoomForShadowBall:
+	closetext
+	end
+
+.rematch:
+	checkflag ENGINE_DAILY_MORTY_REMATCH
+	iftrue .skip_rematch
+	writetext MortyRematchIntroText
+	waitbutton
+	closetext
+	winlosstext MortyRematchWinLossText, 0
+	loadtrainer MORTY, MORTY2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_MORTY_REMATCH
+	opentext
+	writetext MortyRematchAfterBattleText
+	waitbutton
 	closetext
 	end
 
@@ -383,6 +403,26 @@ EcruteakGymClosedText:
 
 	para "Hohohoho."
 	done
+
+MortyRematchIntroText:
+	text "I was just talk-"
+	line "ing about you…"
+
+	para "Let's battle!"
+	done 
+	
+MortyRematchWinLossText:
+	text "How is this"
+	line "possible…"
+	done 
+
+MortyRematchAfterBattleText:
+	text "I've lost again…"
+	
+	para "You may have some-"
+	line "thing more than"
+	cont "just strength."
+	done 
 
 EcruteakGym_MapEvents:
 	db 0, 0 ; filler

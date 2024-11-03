@@ -17,6 +17,9 @@ CianwoodGym_MapScripts:
 CianwoodGymChuckScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkevent EVENT_BEAT_CHUCK
 	iftrue .FightDone
 	writetext ChuckIntroText1
@@ -70,6 +73,23 @@ CianwoodGymChuckScript:
 	writetext ChuckAfterText
 	waitbutton
 .BagFull:
+	closetext
+	end
+
+.rematch:
+	checkflag ENGINE_DAILY_CHUCK_REMATCH
+	iftrue .skip_rematch
+	writetext ChuckRematchIntroText
+	waitbutton
+	closetext
+	winlosstext ChuckRematchWinLossText, 0
+	loadtrainer CHUCK, CHUCK2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_CHUCK_REMATCH
+	opentext
+	writetext ChuckRematchAfterBattleText
+	waitbutton
 	closetext
 	end
 
@@ -302,6 +322,24 @@ BlackbeltLungAfterText:
 	line "My… my pride is"
 	cont "shattered…"
 	done
+
+ChuckRematchIntroText:
+	text "There you are!"
+
+	para "Taste my 24-hour"
+	line "training!"
+	done 
+	
+ChuckRematchWinLossText:
+	text "We…lost…"
+	done 
+
+ChuckRematchAfterBattleText:
+	text "Wahaha!"
+
+	para "A battle with you"
+	line "is never boring!"
+	done 
 
 CianwoodGym_MapEvents:
 	db 0, 0 ; filler

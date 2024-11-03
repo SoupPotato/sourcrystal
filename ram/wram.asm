@@ -3327,7 +3327,7 @@ wWhichMomItemSet:: db
 wMomItemTriggerBalance:: ds 3
 
 wDailyResetTimer:: dw
-wDailyFlags1:: ds 9
+wDailyFlags1:: ds 11
 wDailyFlags2:: db
 wSwarmFlags:: db
 
@@ -3339,7 +3339,7 @@ wFruitTreeFlags:: flag_array NUM_FRUIT_TREES
 
 
 wLuckyNumberDayTimer:: dw
-	ds 2
+
 wSpecialPhoneCallID:: db
 	ds 3
 wBugContestStartTime:: ds 4 ; day, hour, min, sec

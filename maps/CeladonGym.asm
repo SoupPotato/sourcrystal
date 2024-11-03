@@ -14,6 +14,9 @@ CeladonGym_MapScripts:
 CeladonGymErikaScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkflag ENGINE_RAINBOWBADGE
 	iftrue .FightDone
 	writetext ErikaBeforeBattleText
@@ -43,6 +46,23 @@ CeladonGymErikaScript:
 	setevent EVENT_GOT_TM19_GIGA_DRAIN
 .GotGigaDrain:
 	writetext ErikaAfterBattleText
+	waitbutton
+	closetext
+	end
+
+.rematch:
+	checkflag ENGINE_DAILY_ERIKA_REMATCH
+	iftrue .skip_rematch
+	writetext ErikaRematchIntroText
+	waitbutton
+	closetext
+	winlosstext ErikaRematchWinLossText, 0
+	loadtrainer ERIKA, ERIKA2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_ERIKA_REMATCH
+	opentext
+	writetext ErikaRematchAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -263,6 +283,33 @@ TwinsJoAndZoe2BeatenText:
 TwinsJoAndZoe2AfterBattleText:
 	text "ERIKA is much,"
 	line "much stronger!"
+	done
+
+ErikaRematchIntroText:
+	text "ERIKA: How are"
+	line "you? Good to see"
+	cont "you again!"
+
+	para "I just love the"
+	line "fragrance here…"
+	
+	para "but…let's ignore"
+	line "that and battle!"
+	done 
+	
+ErikaRematchWinLossText:
+	text "Looks like I un-"
+	line "derestimated you…"
+
+	para "I'll bow out"
+	line "gracefully."
+	done 
+
+ErikaRematchAfterBattleText:
+	text "ERIKA: Oh my!"
+	
+	para "You have grown"
+	line "even stronger…"
 	done
 
 CeladonGym_MapEvents:

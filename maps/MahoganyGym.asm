@@ -15,6 +15,9 @@ MahoganyGym_MapScripts:
 MahoganyGymPryceScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkevent EVENT_BEAT_PRYCE
 	iftrue .FightDone
 	writetext PryceText_Intro
@@ -34,7 +37,7 @@ MahoganyGymPryceScript:
 	scall MahoganyGymActivateRockets
 .FightDone:
 	checkevent EVENT_GOT_TM16_ICY_WIND
-	iftrue PryceScript_Defeat
+	iftrue .PryceScript_Defeat
 	setevent EVENT_BEAT_SKIER_ROXANNE
 	setevent EVENT_BEAT_SKIER_CLARISSA
 	setevent EVENT_BEAT_BOARDER_RONALD
@@ -43,17 +46,34 @@ MahoganyGymPryceScript:
 	writetext PryceText_GlacierBadgeSpeech
 	promptbutton
 	verbosegiveitem TM_ICY_WIND
-	iffalse MahoganyGym_NoRoomForIcyWind
+	iffalse .MahoganyGym_NoRoomForIcyWind
 	setevent EVENT_GOT_TM16_ICY_WIND
 	writetext PryceText_IcyWindSpeech
 	waitbutton
 	closetext
 	end
 
-PryceScript_Defeat:
+.PryceScript_Defeat:
 	writetext PryceText_CherishYourPokemon
 	waitbutton
-MahoganyGym_NoRoomForIcyWind:
+.MahoganyGym_NoRoomForIcyWind:
+	closetext
+	end
+
+.rematch:
+	checkflag ENGINE_DAILY_PRYCE_REMATCH
+	iftrue .skip_rematch
+	writetext PryceRematchIntroText
+	waitbutton
+	closetext
+	winlosstext PryceRematchWinLossText, 0
+	loadtrainer PRYCE, PRYCE2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_PRYCE_REMATCH
+	opentext
+	writetext PryceRematchAfterBattleText
+	waitbutton
 	closetext
 	end
 
@@ -369,6 +389,29 @@ MahoganyGymGuideWinText:
 	para "bridged the gen-"
 	line "eration gap!"
 	done
+
+PryceRematchIntroText:
+	text "Finally."
+
+	para "No need for words."
+	line "A #MON battle"
+	
+	para "is the way for us"
+	line "to communicate."
+	done 
+	
+PryceRematchWinLossText:
+	text "I understand…"
+
+	para "I'll bow out"
+	line "gracefully."
+	done 
+
+PryceRematchAfterBattleText:
+	text "Hmm… It's still a"
+	line "long way to become"
+	cont "the best trainer…"
+	done 
 
 MahoganyGym_MapEvents:
 	db 0, 0 ; filler

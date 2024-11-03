@@ -21,6 +21,9 @@ GoldenrodGymNoop2Scene:
 
 GoldenrodGymWhitneyScript:
 	faceplayer
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkevent EVENT_BEAT_WHITNEY
 	iftrue .FightDone
 	opentext
@@ -76,6 +79,24 @@ GoldenrodGymWhitneyScript:
 	writetext WhitneyGoodCryText
 	waitbutton
 .NoRoomForAttract:
+	closetext
+	end
+
+.rematch:
+	checkflag ENGINE_DAILY_WHITNEY_REMATCH
+	iftrue .skip_rematch
+	opentext
+	writetext WhitneyRematchIntroText
+	waitbutton
+	closetext
+	winlosstext WhitneyRematchWinLossText, 0
+	loadtrainer WHITNEY, WHITNEY2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_WHITNEY_REMATCH
+	opentext
+	writetext WhitneyRematchAfterBattleText
+	waitbutton
 	closetext
 	end
 
@@ -376,6 +397,25 @@ GoldenrodGymGuideWinText:
 	line "was busy admiring"
 	cont "the ladies here."
 	done
+
+WhitneyRematchIntroText:
+	text "I never turn down"
+	line "a rematch!"
+
+	para "Are you ready?"
+	done 
+	
+WhitneyRematchWinLossText:
+	text "Ugh…"
+	done 
+
+WhitneyRematchAfterBattleText:
+	text "You really are"
+	line "strong!"
+	
+	para "But I won't lose"
+	line "next time!"
+	done 
 
 GoldenrodGym_MapEvents:
 	db 0, 0 ; filler

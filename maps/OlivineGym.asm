@@ -10,6 +10,9 @@ OlivineGym_MapScripts:
 OlivineGymJasmineScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkevent EVENT_BEAT_JASMINE
 	iftrue .FightDone
 	writetext Jasmine_SteelTypeIntro
@@ -44,6 +47,23 @@ OlivineGymJasmineScript:
 	writetext Jasmine_GoodLuck
 	waitbutton
 .NoRoomForIronTail:
+	closetext
+	end
+
+.rematch:
+	checkflag ENGINE_DAILY_JASMINE_REMATCH
+	iftrue .skip_rematch
+	writetext JasmineRematchIntroText
+	waitbutton
+	closetext
+	winlosstext JasmineRematchWinLossText, 0
+	loadtrainer JASMINE, JASMINE2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_JASMINE_REMATCH
+	opentext
+	writetext JasmineRematchAfterBattleText
+	waitbutton
 	closetext
 	end
 
@@ -194,6 +214,23 @@ OlivineGymGuidePreText:
 	line "has to be compas-"
 	cont "sionate."
 	done
+
+JasmineRematchIntroText:
+	text "I have just re-"
+	line "turned from visit-"
+	cont "ing AMPHY…"
+
+	para "Are you prepared?"
+	done 
+	
+JasmineRematchWinLossText:
+	text "Well done…"
+	done 
+
+JasmineRematchAfterBattleText:
+	text "True to your"
+	line "reputation…"
+	done 
 
 OlivineGym_MapEvents:
 	db 0, 0 ; filler

@@ -10,6 +10,9 @@ ViridianGym_MapScripts:
 ViridianGymBlueScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_RED
+	iftrue .rematch
+.skip_rematch
 	checkflag ENGINE_EARTHBADGE
 	iftrue .FightDone
 	writetext LeaderBlueBeforeText
@@ -36,6 +39,23 @@ ViridianGymBlueScript:
 
 .FightDone:
 	writetext LeaderBlueEpilogueText
+	waitbutton
+	closetext
+	end
+
+.rematch:
+	checkflag ENGINE_DAILY_BLUE_REMATCH
+	iftrue .skip_rematch
+	writetext BlueRematchIntroText
+	waitbutton
+	closetext
+	winlosstext BlueRematchWinLossText, 0
+	loadtrainer BLUE, BLUE2
+	startbattle
+	reloadmapafterbattle
+	setflag ENGINE_DAILY_BLUE_REMATCH
+	opentext
+	writetext BlueRematchAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -330,6 +350,28 @@ CooltrainerfSalmaAfterBattleText:
 
 	para "but I really like"
 	line "this one!"
+	done
+
+BlueRematchIntroText:
+	text "BLUE: Good!"
+
+	para "Thanks for coming"
+	line "to lose to me!"
+	done 
+	
+BlueRematchWinLossText:
+	text "Just as I expect-"
+	line "ed!"
+
+	para "No wonder you be-"
+	line "came CHAMPION…"
+	done 
+
+BlueRematchAfterBattleText:
+	text "BLUE: Hahaha!"
+
+	para "My scare tactics"
+	line "don't scare you!"
 	done
 
 ViridianGym_MapEvents:

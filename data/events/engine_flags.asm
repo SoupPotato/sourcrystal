@@ -187,6 +187,22 @@ EngineFlags:
 	engine_flag wDailyFlags1, DAILYFLAGS_MOUNT_MOON_B2F_MUSHROOM
 	engine_flag wDailyFlags1, DAILYFLAGS_ROUTE13_BERRY
 	engine_flag wDailyFlags1, DAILYFLAGS_SILVER_CAVE_OUTSIDE_BERRY
+	engine_flag wDailyFlags1, DAILYFLAGS_FALKNER_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_BUGSY_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_WHITNEY_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_MORTY_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_CHUCK_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_JASMINE_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_PRYCE_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_CLAIR_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_BROCK_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_MISTY_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_LTSURGE_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_ERIKA_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_JANINE_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_SABRINA_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_BLAINE_REMATCH
+	engine_flag wDailyFlags1, DAILYFLAGS_BLUE_REMATCH
 
 	engine_flag wDailyFlags2, DAILYFLAGS2_MT_MOON_SQUARE_CLEFAIRY_F
 	engine_flag wDailyFlags2, DAILYFLAGS2_UNION_CAVE_LAPRAS_F

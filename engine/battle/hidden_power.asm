@@ -76,45 +76,22 @@ HiddenPowerDamage:
 	add a
 	or b
 
-; Skip Normal
-	inc a
-
-; Skip Bird
-	cp BIRD
-	jr c, .done
-	inc a
-
-; Skip unused types
-	cp UNUSED_TYPES
-	jr c, .done
-	add UNUSED_TYPES_END - UNUSED_TYPES
-
-.done
+; Map to vanilla types
+	ld hl, .VanillaTypeRemapping
+; hl <- .VanillaTypeRemapping + a
+	add l
+	ld l, a
+	ld a, h
+	adc 0
+	ld h, a
+; get the entry
+	ld a, [hl]
 
 ; Overwrite the current move type.
 	push af
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVarAddr
 	pop af
-
-; Map back to vanilla types
-	push hl
-	; ASSUMES a > 0!
-	; The table starts at FIGHTING and not NORMAL,
-	; but the value assumes we're starting from NORMAL
-	; so subtract by 1 to compensate for it
-		dec a
-	; map back to the proper type
-		ld hl, .VanillaTypeRemapping
-	; hl <- .VanillaTypeRemapping + a
-		add l
-		ld l, a
-		ld a, h
-		adc 0
-		ld h, a
-	; should get the proper type now
-		ld a, [hl]
-	pop hl
 	ld [hl], a
 
 ; Get the rest of the damage formula variables
@@ -127,6 +104,7 @@ HiddenPowerDamage:
 	ret
 
 .VanillaTypeRemapping:
+	table_width 1, HiddenPowerDamage.VanillaTypeRemapping
 ; physical/special split changed the order of the
 ; move enums, remap it back to vanilla format
 	db FIGHTING
@@ -134,11 +112,9 @@ HiddenPowerDamage:
 	db POISON
 	db GROUND
 	db ROCK
-	db BIRD ; not used
 	db BUG
 	db GHOST
 	db STEEL
-	ds UNUSED_TYPES_END - UNUSED_TYPES
 	db FIRE
 	db WATER
 	db GRASS
@@ -147,3 +123,4 @@ HiddenPowerDamage:
 	db ICE
 	db DRAGON
 	db DARK
+	assert_table_length 16

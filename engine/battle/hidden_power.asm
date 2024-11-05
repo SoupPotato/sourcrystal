@@ -96,6 +96,25 @@ HiddenPowerDamage:
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVarAddr
 	pop af
+
+; Map back to vanilla types
+	push hl
+	; ASSUMES a > 0!
+	; The table starts at FIGHTING and not NORMAL,
+	; but the value assumes we're starting from NORMAL
+	; so subtract by 1 to compensate for it
+		dec a
+	; map back to the proper type
+		ld hl, .VanillaTypeRemapping
+	; hl <- .VanillaTypeRemapping + a
+		add l
+		ld l, a
+		ld a, h
+		adc 0
+		ld h, a
+	; should get the proper type now
+		ld a, [hl]
+	pop hl
 	ld [hl], a
 
 ; Get the rest of the damage formula variables
@@ -106,3 +125,28 @@ HiddenPowerDamage:
 	pop af
 	ld d, a
 	ret
+
+.VanillaTypeRemapping:
+; physical/special split changed the order of the
+; move enums, remap it back to vanilla format
+	table_width 1, HiddenPowerDamage.VanillaTypeRemapping
+	db FIGHTING
+	db FLYING
+	db POISON
+	db GROUND
+	db ROCK
+	db BIRD ; not used
+	db BUG
+	db GHOST
+	db STEEL
+	ds UNUSED_TYPES_END - UNUSED_TYPES
+	db CURSE_TYPE
+	db FIRE
+	db WATER
+	db GRASS
+	db ELECTRIC
+	db PSYCHIC_TYPE
+	db ICE
+	db DRAGON
+	db DARK
+	assert_table_length TYPES_END

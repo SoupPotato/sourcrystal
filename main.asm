@@ -267,7 +267,7 @@ INCLUDE "engine/pokemon/switchpartymons.asm"
 INCLUDE "engine/gfx/load_pics.asm"
 INCLUDE "data/pokemon/base_stats.asm"
 INCLUDE "data/pokemon/names.asm"
-INCLUDE "data/pokemon/unused_pic_banks.asm"
+; INCLUDE "data/pokemon/unused_pic_banks.asm"
 
 
 SECTION "Crystal Phone Text", ROMX

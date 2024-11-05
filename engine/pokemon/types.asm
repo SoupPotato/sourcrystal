@@ -120,20 +120,39 @@ HiddenPowerType:
 	add a
 	or b
 
-; Skip Normal
-	inc a
+; duplicated in ../battle/hidden_power.asm
+; Map to vanilla types
+	ld hl, .VanillaTypeRemapping
+; hl <- .VanillaTypeRemapping + a
+	add l
+	ld l, a
+	ld a, h
+	adc 0
+	ld h, a
+; get the entry
+	ld a, [hl]
 
-; Skip Bird
-	cp BIRD
-	jr c, .done
-	inc a
-
-; Skip unused types
-	cp UNUSED_TYPES
-	jr c, .done
-	add UNUSED_TYPES_END - UNUSED_TYPES
-.done
 	ret
+
+.VanillaTypeRemapping:
+	table_width 1, HiddenPowerType.VanillaTypeRemapping
+	db FIGHTING
+	db FLYING
+	db POISON
+	db GROUND
+	db ROCK
+	db BUG
+	db GHOST
+	db STEEL
+	db FIRE
+	db WATER
+	db GRASS
+	db ELECTRIC
+	db PSYCHIC_TYPE
+	db ICE
+	db DRAGON
+	db DARK
+	assert_table_length 16
 
 PrintBattleMoveType:
 ; Print the type of move b at hl.

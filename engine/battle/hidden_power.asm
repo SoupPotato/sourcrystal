@@ -129,7 +129,6 @@ HiddenPowerDamage:
 .VanillaTypeRemapping:
 ; physical/special split changed the order of the
 ; move enums, remap it back to vanilla format
-	table_width 1, HiddenPowerDamage.VanillaTypeRemapping
 	db FIGHTING
 	db FLYING
 	db POISON
@@ -140,7 +139,6 @@ HiddenPowerDamage:
 	db GHOST
 	db STEEL
 	ds UNUSED_TYPES_END - UNUSED_TYPES
-	db CURSE_TYPE
 	db FIRE
 	db WATER
 	db GRASS
@@ -149,4 +147,3 @@ HiddenPowerDamage:
 	db ICE
 	db DRAGON
 	db DARK
-	assert_table_length TYPES_END

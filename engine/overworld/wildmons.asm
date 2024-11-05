@@ -1082,6 +1082,11 @@ RandomPhoneMon:
 	inc c
 	inc c
 .no_dvs
+; TRAINERTYPE_HAPPINESS uses 1 more byte
+	bit TRAINERTYPE_HAPPINESS_F, b
+	jr z, .no_happiness
+	inc c
+.no_happiness
 ; TRAINERTYPE_ITEM uses 1 more byte
 	bit TRAINERTYPE_ITEM_F, b
 	jr z, .no_item

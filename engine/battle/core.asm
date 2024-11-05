@@ -6562,7 +6562,16 @@ LoadEnemyMon:
 
 .Happiness:
 ; Set happiness
+	ld a, [wBattleMode]
+	dec a
 	ld a, BASE_HAPPINESS
+	jr z, .load_happiness
+
+	ld a, [wCurPartyMon]
+	ld hl, wOTPartyMon1Happiness
+	call GetPartyLocation
+	ld a, [hl]
+.load_happiness
 	ld [wEnemyMonHappiness], a
 ; Set level
 	ld a, [wCurPartyLevel]

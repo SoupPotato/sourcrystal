@@ -1384,6 +1384,9 @@ StepFunction_Skyfall:
 	ld hl, OBJECT_ACTION
 	add hl, bc
 	ld [hl], OBJECT_ACTION_00
+	ld hl, OBJECT_FLAGS2
+	add hl, bc
+	set HIGH_PRIORITY_F, [hl]
 	ld hl, OBJECT_STEP_DURATION
 	add hl, bc
 	ld [hl], 16
@@ -1424,6 +1427,9 @@ StepFunction_Skyfall:
 	ret nz
 	call ObjectStep_IncAnonJumptableIndex
 .Finish:
+	ld hl, OBJECT_FLAGS2
+	add hl, bc
+	res HIGH_PRIORITY_F, [hl]
 	ld hl, OBJECT_STEP_FRAME
 	add hl, bc
 	ld [hl], 0

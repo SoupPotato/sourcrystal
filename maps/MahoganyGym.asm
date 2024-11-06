@@ -401,16 +401,13 @@ PryceRematchIntroText:
 	done 
 	
 PryceRematchWinLossText:
-	text "I understand…"
-
-	para "I'll bow out"
-	line "gracefully."
+	text "Hmm. Seems my luck"
+	line "has run out."
 	done 
 
 PryceRematchAfterBattleText:
-	text "Hmm… It's still a"
-	line "long way to become"
-	cont "the best trainer…"
+	text "Mmm…"
+	line "Impressive!"
 	done 
 
 MahoganyGym_MapEvents:

@@ -144,6 +144,7 @@ GligarFrontpic:      INCBIN "gfx/pokemon/gligar/front.animated.2bpp.lz"
 DunsparceFrontpic:   INCBIN "gfx/pokemon/dunsparce/front.animated.2bpp.lz"
 
 
+
 SECTION "Pics 7", ROMX
 
 VaporeonFrontpic:    INCBIN "gfx/pokemon/vaporeon/front.animated.2bpp.lz"
@@ -184,7 +185,6 @@ GoldeenFrontpic:     INCBIN "gfx/pokemon/goldeen/front.animated.2bpp.lz"
 EspeonFrontpic:      INCBIN "gfx/pokemon/espeon/front.animated.2bpp.lz"
 MewFrontpic:         INCBIN "gfx/pokemon/mew/front.animated.2bpp.lz"
 OctilleryFrontpic:   INCBIN "gfx/pokemon/octillery/front.animated.2bpp.lz"
-JynxFrontpic:        INCBIN "gfx/pokemon/jynx/front.animated.2bpp.lz"
 WobbuffetFrontpic:   INCBIN "gfx/pokemon/wobbuffet/front.animated.2bpp.lz"
 DelibirdFrontpic:    INCBIN "gfx/pokemon/delibird/front.animated.2bpp.lz"
 LedianFrontpic:      INCBIN "gfx/pokemon/ledian/front.animated.2bpp.lz"
@@ -193,6 +193,7 @@ FlaaffyFrontpic:     INCBIN "gfx/pokemon/flaaffy/front.animated.2bpp.lz"
 FurretFrontpic:      INCBIN "gfx/pokemon/furret/front.animated.2bpp.lz"
 HitmonchanFrontpic:  INCBIN "gfx/pokemon/hitmonchan/front.animated.2bpp.lz"
 QuagsireFrontpic:    INCBIN "gfx/pokemon/quagsire/front.animated.2bpp.lz"
+CouplePic:           INCBIN "gfx/trainers/couple.2bpp.lz"
 
 
 SECTION "Pics 9", ROMX
@@ -303,7 +304,6 @@ CelebiBackpic:       INCBIN "gfx/pokemon/celebi/back.2bpp.lz"
 KrabbyBackpic:       INCBIN "gfx/pokemon/krabby/back.2bpp.lz"
 BugCatcherPic:       INCBIN "gfx/trainers/bug_catcher.2bpp.lz"
 SnorlaxBackpic:      INCBIN "gfx/pokemon/snorlax/back.2bpp.lz"
-
 
 
 SECTION "Pics 12", ROMX
@@ -715,8 +715,6 @@ UnownWBackpic:       INCBIN "gfx/pokemon/unown_w/back.2bpp.lz"
 
 SECTION "Pics 20", ROMX
 UrsaringFrontpic:    INCBIN "gfx/pokemon/ursaring/front.animated.2bpp.lz"
-CouplePic:           INCBIN "gfx/trainers/couple.2bpp.lz"
-CoolduoPic:          INCBIN "gfx/trainers/cool_duo.2bpp.lz"
 ButterfreeFrontpic:  INCBIN "gfx/pokemon/butterfree/front.animated.2bpp.lz"
 KabutopsFossilPic:   INCBIN "gfx/trainers/kabutops_fossil.2bpp.lz"
 AerodactylFossilPic: INCBIN "gfx/trainers/aerodactyl_fossil.2bpp.lz"
@@ -724,9 +722,11 @@ BellossomFrontpic:   INCBIN "gfx/pokemon/bellossom/front.animated.2bpp.lz"
 HoundoomFrontpic:    INCBIN "gfx/pokemon/houndoom/front.animated.2bpp.lz"
 HoOhFrontpic:        INCBIN "gfx/pokemon/ho_oh/front.animated.2bpp.lz"
 SlowbroFrontpic:     INCBIN "gfx/pokemon/slowbro/front.animated.2bpp.lz"
+JynxFrontpic:        INCBIN "gfx/pokemon/jynx/front.animated.2bpp.lz"
 
 
 SECTION "Pics 21", ROMX
+CoolduoPic:          INCBIN "gfx/trainers/cool_duo.2bpp.lz"
 
 
 SECTION "Pics 22", ROMX

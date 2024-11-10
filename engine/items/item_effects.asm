@@ -1966,6 +1966,25 @@ LoadHPFromBuffer1:
 	ld e, a
 	ret
 
+GetOneFourthMaxHP:
+	push bc
+	ld a, MON_MAXHP
+	call GetPartyParamLocation
+	ld a, [hli]
+	ldh [hDividend + 0], a
+	ld a, [hl]
+	ldh [hDividend + 1], a
+	ld a, 4
+	ldh [hDivisor], a
+	ld b, 2
+	call Divide
+	ldh a, [hQuotient + 2]
+	ld d, a
+	ldh a, [hQuotient + 3]
+	ld e, a
+	pop bc
+	ret
+
 GetOneFifthMaxHP:
 	push bc
 	ld a, MON_MAXHP
@@ -1988,6 +2007,8 @@ GetOneFifthMaxHP:
 GetHealingItemAmount:
 	push hl
 	ld a, [wCurItem]
+	cp SITRUS_BERRY
+	jr z, .SitrusBerry
 	ld hl, HealingHPAmounts
 	ld d, a
 .next
@@ -2006,6 +2027,12 @@ GetHealingItemAmount:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
+	pop hl
+	ret
+
+.SitrusBerry:
+; use Gen 4 effect (25% max HP)
+	call GetOneFourthMaxHP
 	pop hl
 	ret
 

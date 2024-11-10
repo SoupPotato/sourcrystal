@@ -927,7 +927,7 @@ OranBerryDesc:
 
 SitrusBerryDesc:
 	db   "A self-restore"
-	next "item. (30HP, HOLD)@"
+	next "item. (HOLD)@"
 
 SquirtBottleDesc:
 	db   "A bottle used for"

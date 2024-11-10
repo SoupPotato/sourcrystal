@@ -4469,7 +4469,6 @@ BugCatcherGroup:
 	db $fe ; delimiter
 	
 	;Challenge Mode
-	; BUG_CATCHER (10)
 	db TRAINERTYPE_NORMAL
 	db 16, METAPOD
 	db 16, METAPOD

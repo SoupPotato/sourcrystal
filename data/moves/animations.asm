@@ -4710,8 +4710,14 @@ BattleAnim_Ancientpower:
 	anim_ret
 
 BattleAnim_ShadowBall:
-	anim_2gfx BATTLE_ANIM_GFX_EGG, BATTLE_ANIM_GFX_SMOKE
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_SHADOW_BALL
+	anim_2gfx BATTLE_ANIM_GFX_GLOW, BATTLE_ANIM_GFX_SMOKE
 	anim_bgp $1b
+	anim_obj BATTLE_ANIM_OBJ_GROWING_BALL, 64, 92, $0
+.loop
+	anim_sound 6, 3, SFX_WARP_TO
+	anim_wait 8
+	anim_loop 6, .loop
 	anim_sound 6, 2, SFX_SLUDGE_BOMB
 	anim_obj BATTLE_ANIM_OBJ_SHADOW_BALL, 64, 92, $2
 	anim_wait 32

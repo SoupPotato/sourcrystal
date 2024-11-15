@@ -437,7 +437,6 @@ INCLUDE "maps/Route14.asm"
 
 SECTION "Map Scripts 23", ROMX
 
-INCLUDE "maps/NewBarkTown.asm"
 INCLUDE "maps/VioletCity.asm"
 INCLUDE "maps/OlivineCity.asm"
 INCLUDE "maps/Route37.asm"
@@ -527,5 +526,6 @@ SECTION "Map Scripts 27", ROMX
 INCLUDE "maps/RuinsOfAlphResearchCenter.asm"
 INCLUDE "maps/MountMoonB1F.asm"
 INCLUDE "maps/MountMoonB2F.asm"
+INCLUDE "maps/NewBarkTown.asm"
 
 ENDSECTION

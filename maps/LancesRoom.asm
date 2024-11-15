@@ -63,11 +63,23 @@ LancesRoomLanceScript:
 	sjump .battle
 .rematch
 	loadtrainer CHAMPION, LANCE2
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	setevent EVENT_BEAT_CHAMPION_LANCE_REMATCH
+	checkevent EVENT_GOT_GOLD_TROPHY
+	iftrue .done
+	clearevent EVENT_NEW_BARK_TOWN_PACKAGE
+	sjump .done
 .battle
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
 	setevent EVENT_BEAT_CHAMPION_LANCE
+	checkevent EVENT_GOT_SILVER_TROPHY
+	iftrue .done
+	clearevent EVENT_NEW_BARK_TOWN_PACKAGE
+.done
 	opentext
 	writetext LanceBattleAfterText
 	waitbutton

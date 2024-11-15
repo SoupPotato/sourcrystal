@@ -100,7 +100,7 @@ OverworldSprites:
 	overworld_sprite SnesSpriteGFX, 4, STILL_SPRITE, PAL_OW_BLUE
 	overworld_sprite FamicomSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
 	overworld_sprite BerrySpriteGFX, 4, STILL_SPRITE, PAL_OW_TREE
-	overworld_sprite GoldTrophySpriteGFX, 4, STILL_SPRITE, PAL_OW_BROWN
+	overworld_sprite GoldTrophySpriteGFX, 4, STILL_SPRITE, PAL_OW_YELLOW
 	overworld_sprite SilverTrophySpriteGFX, 4, STILL_SPRITE, PAL_OW_EMOTE_GRAY
 	overworld_sprite KrisSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	overworld_sprite KrisBikeSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
@@ -119,4 +119,6 @@ OverworldSprites:
 	overworld_sprite ClefairyMoveSpriteGFX, 12, WALKING_SPRITE, PAL_OW_PINK
 	overworld_sprite TinyMushroomSpriteGFX, 4, STILL_SPRITE, PAL_OW_PINK
 	overworld_sprite BigMushroomSpriteGFX, 4, STILL_SPRITE, PAL_OW_PINK
+	overworld_sprite UnownDollSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
+	overworld_sprite PackageSpriteGFX, 4, STILL_SPRITE, PAL_OW_BROWN
 	assert_table_length NUM_OVERWORLD_SPRITES

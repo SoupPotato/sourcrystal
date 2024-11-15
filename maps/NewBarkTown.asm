@@ -2,6 +2,7 @@
 	const NEWBARKTOWN_TEACHER
 	const NEWBARKTOWN_FISHER
 	const NEWBARKTOWN_RIVAL
+	const NEWBARKTOWN_PACKAGE
 
 NewBarkTown_MapScripts:
 	def_scene_scripts
@@ -123,6 +124,35 @@ NewBarkTownRivalScript:
 	playsound SFX_TACKLE
 	applymovement PLAYER, NewBarkTown_RivalShovesYouOutMovement
 	applymovement NEWBARKTOWN_RIVAL, NewBarkTown_RivalReturnsToTheShadowsMovement
+	end
+
+NewBarkTownPackageScript:
+	opentext
+	writetext NewBarkTownItsAPackageText
+	waitbutton
+	checkevent EVENT_BEAT_CHAMPION_LANCE_REMATCH
+	iffalse .skipGoldTrophy
+	checkevent EVENT_GOT_GOLD_TROPHY
+	iftrue .skipGoldTrophy
+	writetext NewBarkTownPresentWithThisGiftEliteChampText
+	waitbutton
+	verbosegiveitem GORGEOUS_BOX, 1
+	iffalse .NoRoomInBag
+	setevent EVENT_GOT_GOLD_TROPHY
+	checkevent EVENT_GOT_SILVER_TROPHY
+	iftrue .done
+	writetext NewBarkTownSomethingElseText
+	waitbutton
+.skipGoldTrophy
+	writetext NewBarkTownPresentWithThisGiftText
+	waitbutton
+	verbosegiveitem NORMAL_BOX, 1
+	iffalse .NoRoomInBag
+	setevent EVENT_GOT_SILVER_TROPHY
+.done
+	disappear NEWBARKTOWN_PACKAGE
+.NoRoomInBag
+	closetext
 	end
 
 NewBarkTownSign:
@@ -279,6 +309,47 @@ NewBarkTownElmsHouseSignText:
 	text "ELM'S HOUSE"
 	done
 
+NewBarkTownItsAPackageText:
+	text "It's a package…"
+	line "Let's open it!"
+	done
+
+NewBarkTownPresentWithThisGiftText:
+	text "Congratulations"
+	line "<PLAYER>!"
+	
+	para "For acquiring the"
+	line "title of CHAMPION,"
+	
+	para "we are pleased to"
+	line "present you with"
+	cont "this gift!"
+	
+	para "-#MON LEAGUE"
+	line "ADMINISTRATION-"
+	done
+
+NewBarkTownPresentWithThisGiftEliteChampText:
+	text "Congratulations"
+	line "<PLAYER>!"
+	
+	para "For acquiring the"
+	line "grand title of"
+	cont "ELITE CHAMPION,"
+	
+	para "we are pleased to"
+	line "present you with"
+	cont "this gift!"
+	
+	para "-#MON LEAGUE"
+	line "ADMINISTRATION-"
+	done
+
+NewBarkTownSomethingElseText:
+	text "Oh? There's some-"
+	line "thing else here…"
+	done
+
 NewBarkTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -302,3 +373,4 @@ NewBarkTown_MapEvents:
 	object_event  6,  8, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownTeacherScript, -1
 	object_event 12,  9, SPRITE_FISHER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NewBarkTownFisherScript, -1
 	object_event  3,  2, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownRivalScript, EVENT_RIVAL_NEW_BARK_TOWN
+	object_event 12,  6, SPRITE_PACKAGE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownPackageScript, EVENT_NEW_BARK_TOWN_PACKAGE

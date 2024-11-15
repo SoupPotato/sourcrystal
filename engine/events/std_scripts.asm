@@ -672,6 +672,7 @@ InitializeEventsScript:
 	setevent EVENT_ROUTE_11_SNORLAX_RESPAWN
 	setevent EVENT_POKEMON_MANSION_B1F_MEW
 	setevent EVENT_MT_MOON_OBTAINED_FOSSIL
+	setevent EVENT_NEW_BARK_TOWN_PACKAGE
 	endcallback
 
 AskNumber1MScript:

@@ -90,7 +90,208 @@ Binoculars3:
 	jumptext Binoculars3Text
 
 PokeDollVendingMachine:
-	jumptext PokeDollVendingMachineText
+	opentext
+	writetext PokeDollVendingMachineText
+	yesorno
+	iffalse PokeDollVendingMachineCancel
+	checkmoney YOUR_MONEY, 5000
+	ifequal HAVE_LESS, .NotEnoughMoney
+	takemoney YOUR_MONEY, 5000
+	waitsfx
+	playsound SFX_TRANSACTION
+	closetext
+	playsound SFX_SQUEAK
+	pause 15
+	playsound SFX_SQUEAK
+	pause 15
+	playsound SFX_SQUEAK
+	pause 30
+	playsound SFX_THROW_BALL
+	pause 15
+	random 18
+	ifequal  0, .JigglypuffDoll
+	ifequal  1, .BulbasaurDoll
+	ifequal  2, .CharmanderDoll
+	ifequal  3, .SquirtleDoll
+	ifequal  4, .DiglettDoll
+	ifequal  5, .StaryuDoll
+	ifequal  6, .MagikarpDoll
+	ifequal  7, .OddishDoll
+	ifequal  8, .GengarDoll
+	ifequal  9, .ShellderDoll
+	ifequal 10, .GrimerDoll
+	ifequal 11, .VoltorbDoll
+	ifequal 12, .WeedleDoll
+	ifequal 13, .UnownDoll
+	ifequal 14, .GeodudeDoll
+	ifequal 15, .MachopDoll
+	ifequal 16, .TentacoolDoll
+	ifequal 17, .SurfPikachuDoll
+	end
+
+.JigglypuffDoll:
+	checkevent EVENT_DECO_JIGGLYPUFF_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, JIGGLYPUFF
+	setevent EVENT_DECO_JIGGLYPUFF_DOLL
+	sjump .givedoll
+
+.BulbasaurDoll:
+	checkevent EVENT_DECO_BULBASAUR_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, BULBASAUR
+	setevent EVENT_DECO_BULBASAUR_DOLL
+	sjump .givedoll
+
+.CharmanderDoll:
+	checkevent EVENT_DECO_CHARMANDER_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, CHARMANDER
+	setevent EVENT_DECO_CHARMANDER_DOLL
+	sjump .givedoll
+
+.SquirtleDoll:
+	checkevent EVENT_DECO_SQUIRTLE_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, SQUIRTLE
+	setevent EVENT_DECO_SQUIRTLE_DOLL
+	sjump .givedoll
+
+.DiglettDoll:
+	checkevent EVENT_DECO_DIGLETT_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, DIGLETT
+	setevent EVENT_DECO_DIGLETT_DOLL
+	sjump .givedoll
+
+.StaryuDoll:
+	checkevent EVENT_DECO_STARYU_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, STARYU
+	setevent EVENT_DECO_STARYU_DOLL
+	sjump .givedoll
+
+.MagikarpDoll:
+	checkevent EVENT_DECO_MAGIKARP_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, MAGIKARP
+	setevent EVENT_DECO_MAGIKARP_DOLL
+	sjump .givedoll
+
+.OddishDoll:
+	checkevent EVENT_DECO_ODDISH_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, ODDISH
+	setevent EVENT_DECO_ODDISH_DOLL
+	sjump .givedoll
+
+.GengarDoll:
+	checkevent EVENT_DECO_GENGAR_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, GENGAR
+	setevent EVENT_DECO_GENGAR_DOLL
+	sjump .givedoll
+
+.ShellderDoll:
+	checkevent EVENT_DECO_SHELLDER_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, SHELLDER
+	setevent EVENT_DECO_SHELLDER_DOLL
+	sjump .givedoll
+
+.GrimerDoll:
+	checkevent EVENT_DECO_GRIMER_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, GRIMER
+	setevent EVENT_DECO_GRIMER_DOLL
+	sjump .givedoll
+
+.VoltorbDoll:
+	checkevent EVENT_DECO_VOLTORB_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, VOLTORB
+	setevent EVENT_DECO_VOLTORB_DOLL
+	sjump .givedoll
+
+.WeedleDoll:
+	checkevent EVENT_DECO_WEEDLE_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, WEEDLE
+	setevent EVENT_DECO_WEEDLE_DOLL
+	sjump .givedoll
+
+.UnownDoll:
+	checkevent EVENT_DECO_UNOWN_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, UNOWN
+	setevent EVENT_DECO_UNOWN_DOLL
+	sjump .givedoll
+
+.GeodudeDoll:
+	checkevent EVENT_DECO_GEODUDE_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, GEODUDE
+	setevent EVENT_DECO_GEODUDE_DOLL
+	sjump .givedoll
+
+.MachopDoll:
+	checkevent EVENT_DECO_MACHOP_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, MACHOP
+	setevent EVENT_DECO_MACHOP_DOLL
+	sjump .givedoll
+
+.TentacoolDoll:
+	checkevent EVENT_DECO_TENTACOOL_DOLL
+	iftrue .alreadyOwned
+	getmonname STRING_BUFFER_3, TENTACOOL
+	setevent EVENT_DECO_TENTACOOL_DOLL
+	sjump .givedoll
+
+.SurfPikachuDoll:
+	checkevent EVENT_DECO_SURFING_PIKACHU_DOLL
+	iftrue .alreadyOwned
+	getstring STRING_BUFFER_3, .SurfPikachuString
+	setevent EVENT_DECO_SURFING_PIKACHU_DOLL
+;fallthrough
+.givedoll:
+	opentext
+	writetext PokeDollVendingMachineHeyItsText
+	promptbutton
+	writetext PokeDollVendingMachineGotDollText
+	playsound SFX_ITEM
+	waitsfx
+	waitbutton
+	writetext PokeDollVendingMachineDollWasSentToPCText
+	waitbutton
+	closetext
+	end
+
+.alreadyOwned:
+	opentext
+	writetext PokeDollVendingMachineHeyItsText
+	promptbutton
+	writetext PokeDollVendingMachineAlreadyOwnedText
+	playsound SFX_WRONG
+	waitsfx
+	waitbutton
+	closetext
+	end
+
+.NotEnoughMoney:
+	writetext PokeDollVendingMachineEnoughMoneyText
+	waitbutton
+	closetext
+	end
+
+.SurfPikachuString:
+	db "SURF PIKACHU@"
+
+PokeDollVendingMachineCancel:
+	writetext PokeDollVendingMachineBetterToSaveText
+	waitbutton
+	closetext
+	end
 
 GoldenrodDeptStoreRoofPokefanFText:
 	text "Whew, I'm tired."
@@ -202,11 +403,49 @@ PokeDollVendingMachineText:
 	text "A vending machine"
 	line "for #MON dolls?"
 
-	para "Insert money, then"
+	para "Pay ¥5000, then"
 	line "turn the crank…"
 
-	para "But it's almost"
-	line "empty…"
+	para "Would you like to"
+	line "try it?"
+	done
+
+PokeDollVendingMachineBetterToSaveText:
+	text "Better to save"
+	line "your money…"
+	done
+
+PokeDollVendingMachineEnoughMoneyText:
+	text "You don't have"
+	line "enough money…"
+	done
+
+PokeDollVendingMachineHeyItsText:
+	text "Hey! It's a"
+	line "@"
+	text_ram wStringBuffer3
+	text " DOLL!"
+	done
+
+PokeDollVendingMachineGotDollText:
+	text "<PLAYER> obtained"
+	line "@"
+	text_ram wStringBuffer3
+	text " DOLL!"
+	done
+
+PokeDollVendingMachineAlreadyOwnedText:
+	text "But you already"
+	line "own this…"
+	done
+
+PokeDollVendingMachineDollWasSentToPCText:
+	text "@"
+	text_ram wStringBuffer3
+	text " DOLL"
+
+	line "was sent to your"
+	cont "home PC."
 	done
 
 GoldenrodDeptStoreRoof_MapEvents:

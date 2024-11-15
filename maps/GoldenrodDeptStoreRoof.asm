@@ -94,9 +94,9 @@ PokeDollVendingMachine:
 	writetext PokeDollVendingMachineText
 	yesorno
 	iffalse PokeDollVendingMachineCancel
-	checkmoney YOUR_MONEY, 5000
+	checkmoney YOUR_MONEY, 1000
 	ifequal HAVE_LESS, .NotEnoughMoney
-	takemoney YOUR_MONEY, 5000
+	takemoney YOUR_MONEY, 1000
 	waitsfx
 	playsound SFX_TRANSACTION
 	closetext
@@ -403,7 +403,7 @@ PokeDollVendingMachineText:
 	text "A vending machine"
 	line "for #MON dolls?"
 
-	para "Pay ¥5000, then"
+	para "Pay ¥1000, then"
 	line "turn the crank…"
 
 	para "Would you like to"

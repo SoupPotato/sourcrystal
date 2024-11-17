@@ -84,7 +84,7 @@ SafariZoneGateGrampsMartScript:
 	writetext SafariZoneGateGrampsMartText
 	waitbutton
 	refreshscreen
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_4F
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_4F_1
 	closetext
 	end
 

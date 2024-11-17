@@ -8,8 +8,8 @@ Marts:
 	dw MartCianwood
 	dw MartGoldenrod2F1
 	dw MartGoldenrod2F2
-	dw MartGoldenrod3F
-	dw MartGoldenrod4F
+	dw MartGoldenrod4F1
+	dw MartGoldenrod4F2
 	dw MartGoldenrod5F
 	dw MartOlivine
 	dw MartEcruteak
@@ -111,7 +111,16 @@ MartGoldenrod2F2:
 	db FLOWER_MAIL
 	db -1 ; end
 
-MartGoldenrod3F:
+MartGoldenrod4F1:
+	db 5 ; # items
+	db PROTEIN
+	db IRON
+	db CARBOS
+	db CALCIUM
+	db HP_UP
+	db -1 ; end
+
+MartGoldenrod4F2:
 	db 7 ; # items
 	db X_SPEED
 	db X_SPECIAL
@@ -120,15 +129,6 @@ MartGoldenrod3F:
 	db DIRE_HIT
 	db GUARD_SPEC
 	db X_ACCURACY
-	db -1 ; end
-
-MartGoldenrod4F:
-	db 5 ; # items
-	db PROTEIN
-	db IRON
-	db CARBOS
-	db CALCIUM
-	db HP_UP
 	db -1 ; end
 
 MartGoldenrod5F:

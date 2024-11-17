@@ -1031,8 +1031,8 @@ ProtectedItselfText:
 	prompt
 
 ProtectingItselfText:
-	text "<TARGET>'s"
-	line "PROTECTING itself!"
+	text "<TARGET>"
+	line "PROTECTED itself!"
 	done
 
 SpikesText:

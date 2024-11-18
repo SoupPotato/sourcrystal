@@ -311,7 +311,7 @@ TrainerCoupleMoeandLulu2AfterBattleText:
 
 GentlemanMiltonSeenText:
 	text "I am but a"
-	line "Gentleman stopped"
+	line "GENTLEMAN stopped"
 	cont "on the road."
 
 	para "Would you care to"
@@ -330,7 +330,7 @@ GentlemanMiltonAfterBattleText:
 	cont "isn't rude."
 
 	para "No matter what,"
-	line "I am a Gentleman"
+	line "I am a GENTLEMAN"
 	cont "first!"
 	done
 

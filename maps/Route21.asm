@@ -380,7 +380,7 @@ BirdkeeperKarterAfterBattleText:
 	done
 
 BirdkeeperEastonSeenText:
-	text "Bird Keepers are"
+	text "BIRD KEEPERS are"
 	line "so wonderful with"
 
 	para "their bird #-"

@@ -26,8 +26,6 @@ GoldenrodDeptStore3FClerkScript:
 	closetext
 	end
 
-
-
 .PostersAndBeds
 	readvar VAR_WEEKDAY
 	ifequal SUNDAY,    .SundayPostersBeds
@@ -50,7 +48,7 @@ GoldenrodDeptStore3FClerkScript:
 
 .DollsAndConsoles
 	readvar VAR_WEEKDAY
-	ifequal SUNDAY,    .SundayDollsAndConsoles; TODO
+	ifequal SUNDAY,    .SundayDollsAndConsoles
 	ifequal MONDAY,    .MondayThursdayDollsAndConsoles
 	ifequal TUESDAY,   .TuesdayFridayDollsAndConsoles
 	ifequal WEDNESDAY, .WednesdaySaturdayDollsAndConsoles
@@ -768,23 +766,21 @@ GoldenrodDeptStore3FTeacherText:
 	done
 
 GoldenrodDeptStore3FBeautyText:
-	text "I cant decide!"
+	text "The selection of"
+	line "decorations change"
+	cont "with each day."
 
-	para "Posters, plants,"
-	line "and even beds!"
-
-	para "They're are all so"
-	line "cute! I want them!"
+	para "Some are rarer,"
+	line "but expensive too!"
 	done
 
 GoldenrodDeptStore3FYoungsterText:
-	text "I cant decide!"
+	text "Wow! They sell"
+	line "Game Consoles too!"
 
-	para "Posters, plants,"
-	line "and even beds!"
-
-	para "They're are all so"
-	line "cute! I want them!"
+	para "I hear the VIRTUAL"
+	line "BOY is all the"
+	cont "rage right now."
 	done
 
 GoldenrodDeptStore3FGameboyKidText:
@@ -849,7 +845,7 @@ GoldenrodDeptStore3FAlreadyBoughtText:
 
 GoldenrodDeptStore3FDirectoryText:
 	text "For A Happy"
-	line "Homecomming!"
+	line "Homecomming"
 
 	para "3F DECORATION"
 	line "   DEPOT"
@@ -873,5 +869,5 @@ GoldenrodDeptStore3F_MapEvents:
 	object_event  6,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FClerkScript, -1
 	object_event 12,  5, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FTeacherScript, -1
 	object_event 8,  7, SPRITE_BEAUTY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FBeautyScript, -1
-	object_event 2,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FBeautyScript, -1
+	object_event 2,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FYoungsterScript, -1
 	object_event  1,  1, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FGameboyKidScript, -1

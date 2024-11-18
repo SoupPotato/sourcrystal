@@ -64,10 +64,7 @@ GoldenrodDeptStore3FClerkScript:
 	closewindow
 	ifequal $1, .JigglypuffPoster
 	ifequal $2, .PinkBed
-	writetext GoldenrodDeptStore3FClerkEndText
-	waitbutton
-	closetext
-	end
+	sjump .ResumeMart
 
 .TuesdaySaturdayPostersBeds:
 	special PlaceMoneyTopRight
@@ -76,10 +73,7 @@ GoldenrodDeptStore3FClerkScript:
 	closewindow
 	ifequal $1, .ClefairyPoster
 	ifequal $2, .PolkaDotBed
-	writetext GoldenrodDeptStore3FClerkEndText
-	waitbutton
-	closetext
-	end
+	sjump .ResumeMart
 
 .WednesdayPostersBeds:
 	special PlaceMoneyTopRight
@@ -88,10 +82,7 @@ GoldenrodDeptStore3FClerkScript:
 	closewindow
 	ifequal $1, .JigglypuffPoster
 	ifequal $2, .PolkaDotBed
-	writetext GoldenrodDeptStore3FClerkEndText
-	waitbutton
-	closetext
-	end
+	sjump .ResumeMart
 
 .ThursdayPostersBeds:
 	special PlaceMoneyTopRight
@@ -100,10 +91,7 @@ GoldenrodDeptStore3FClerkScript:
 	closewindow
 	ifequal $1, .ClefairyPoster
 	ifequal $2, .PinkBed
-	writetext GoldenrodDeptStore3FClerkEndText
-	waitbutton
-	closetext
-	end
+	sjump .ResumeMart
 
 .SundayPostersBeds:
 	special PlaceMoneyTopRight
@@ -112,10 +100,7 @@ GoldenrodDeptStore3FClerkScript:
 	closewindow
 	ifequal $1, .PikachuPoster
 	ifequal $2, .PikachuBed
-	writetext GoldenrodDeptStore3FClerkEndText
-	waitbutton
-	closetext
-	end
+	sjump .ResumeMart
 
 .MondayThursdayPlantsCarpets:
 	special PlaceMoneyTopRight
@@ -124,10 +109,7 @@ GoldenrodDeptStore3FClerkScript:
 	closewindow
 	ifequal $1, .MagnaPlant
 	ifequal $2, .GreenCarpet
-	writetext GoldenrodDeptStore3FClerkEndText
-	waitbutton
-	closetext
-	end
+	sjump .ResumeMart
 
 .TuesdayFridayPlantsCarpets:
 	special PlaceMoneyTopRight
@@ -136,10 +118,7 @@ GoldenrodDeptStore3FClerkScript:
 	closewindow
 	ifequal $1, .TropicalPlant
 	ifequal $2, .BlueCarpet
-	writetext GoldenrodDeptStore3FClerkEndText
-	waitbutton
-	closetext
-	end
+	sjump .ResumeMart
 
 .WednesdaySaturdayPlantsCarpets:
 	special PlaceMoneyTopRight
@@ -148,10 +127,7 @@ GoldenrodDeptStore3FClerkScript:
 	closewindow
 	ifequal $1, .MagnaPlant
 	ifequal $2, .YellowCarpet
-	writetext GoldenrodDeptStore3FClerkEndText
-	waitbutton
-	closetext
-	end
+	sjump .ResumeMart
 
 .SundayPlantsCarpets:
 	special PlaceMoneyTopRight
@@ -160,10 +136,7 @@ GoldenrodDeptStore3FClerkScript:
 	closewindow
 	ifequal $1, .JumboPlant
 	ifequal $2, .RedCarpet
-	writetext GoldenrodDeptStore3FClerkEndText
-	waitbutton
-	closetext
-	end
+	sjump .ResumeMart
 
 .MondayThursdayDollsAndConsoles:
 	special PlaceMoneyTopRight
@@ -172,10 +145,7 @@ GoldenrodDeptStore3FClerkScript:
 	closewindow
 	ifequal $1, .BigOnixDoll
 	ifequal $2, .NES_FAMICOM
-	writetext GoldenrodDeptStore3FClerkEndText
-	waitbutton
-	closetext
-	end
+	sjump .ResumeMart
 
 .TuesdayFridayDollsAndConsoles:
 	special PlaceMoneyTopRight
@@ -184,10 +154,7 @@ GoldenrodDeptStore3FClerkScript:
 	closewindow
 	ifequal $1, .BigLaprasDoll
 	ifequal $2, .SNES
-	writetext GoldenrodDeptStore3FClerkEndText
-	waitbutton
-	closetext
-	end
+	sjump .ResumeMart
 
 .WednesdaySaturdayDollsAndConsoles:
 	special PlaceMoneyTopRight
@@ -196,10 +163,7 @@ GoldenrodDeptStore3FClerkScript:
 	closewindow
 	ifequal $1, .BigOnixDoll
 	ifequal $2, .N64
-	writetext GoldenrodDeptStore3FClerkEndText
-	waitbutton
-	closetext
-	end
+	sjump .ResumeMart
 
 .SundayDollsAndConsoles:
 	special PlaceMoneyTopRight
@@ -208,10 +172,7 @@ GoldenrodDeptStore3FClerkScript:
 	closewindow
 	ifequal $1, .BigLaprasDoll
 	ifequal $2, .VirtualBoy
-	writetext GoldenrodDeptStore3FClerkEndText
-	waitbutton
-	closetext
-	end
+	sjump .ResumeMart
 
 .JigglypuffPoster:
 	checkmoney $0, 4500
@@ -224,9 +185,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .ClefairyPoster:
 	checkmoney $0, 6000
@@ -239,9 +198,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .PikachuPoster:
 	checkmoney $0, 8500
@@ -254,9 +211,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .PinkBed:
 	checkmoney $0, 10000
@@ -269,9 +224,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .PolkaDotBed:
 	checkmoney $0, 14000
@@ -284,9 +237,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .PikachuBed:
 	checkmoney $0, 20000
@@ -299,9 +250,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .MagnaPlant:
 	checkmoney $0, 6000
@@ -314,9 +263,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .TropicalPlant:
 	checkmoney $0, 9000
@@ -329,9 +276,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .JumboPlant:
 	checkmoney $0, 12000
@@ -344,9 +289,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .GreenCarpet:
 	checkmoney $0, 8000
@@ -359,9 +302,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .BlueCarpet:
 	checkmoney $0, 9500
@@ -374,9 +315,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .YellowCarpet:
 	checkmoney $0, 11000
@@ -389,9 +328,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .RedCarpet:
 	checkmoney $0, 12500
@@ -404,9 +341,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .BigOnixDoll:
 	checkmoney $0, 8000
@@ -419,9 +354,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .BigLaprasDoll:
 	checkmoney $0, 10000
@@ -434,9 +367,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .NES_FAMICOM:
 	checkmoney $0, 10000
@@ -449,9 +380,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .SNES:
 	checkmoney $0, 13000
@@ -464,9 +393,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .N64:
 	checkmoney $0, 16500
@@ -479,9 +406,7 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .VirtualBoy:
 	checkmoney $0, 15000
@@ -494,18 +419,23 @@ GoldenrodDeptStore3FClerkScript:
 	writetext GoldenrodDeptStore3FBoughtDecoText
 	playsound SFX_TRANSACTION
 	waitbutton
-	writetext GoldenrodDeptStore3FSentDecoText
-	waitbutton
-	sjump .Start
+	sjump .DecoSent
 
 .NotEnoughMoney:
 	writetext GoldenrodDeptStore3FNoMoneyText
 	waitbutton
-	sjump .Start
+	sjump .ResumeMart
 
 .AlreadyBought:
 	writetext GoldenrodDeptStore3FAlreadyBoughtText
 	waitbutton
+	sjump .ResumeMart
+
+.DecoSent:
+	writetext GoldenrodDeptStore3FSentDecoText
+	waitbutton
+.ResumeMart
+	writetext GoldenrodDeptStore3FAnythingElseText
 	sjump .Start
 
 .MenuData:
@@ -811,18 +741,9 @@ GoldenrodDeptStore3FBoughtDecoText:
 GoldenrodDeptStore3FSentDecoText:
 	text "@"
 	text_ram wStringBuffer3
-	text " was"
-	line "sent to home PC."
-	done
-
-BoughtSquirtleDollText:
-	text "<PLAYER> bought"
-	line "Squirtle Doll."
-	done
-
-SquirtleDollSentText:
-	text "Squirtle Doll"
-	line "was sent home."
+	text ""
+	line "was sent to your"
+	cont "home PC."
 	done
 
 GoldenrodDeptStore3FNoMoneyText:
@@ -833,6 +754,11 @@ GoldenrodDeptStore3FNoMoneyText:
 GoldenrodDeptStore3FAlreadyBoughtText:
 	text "You already have"
 	line "that!"
+	done
+
+GoldenrodDeptStore3FAnythingElseText:
+	text "Can I get you"
+	line "anything else?"
 	done
 
 GoldenrodDeptStore3FDirectoryText:

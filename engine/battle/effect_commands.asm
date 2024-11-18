@@ -5860,7 +5860,7 @@ BattleCommand_Paralyze:
 	jr nz, .failed
 	call CheckSubstituteOpp
 	jr nz, .failed
-	ld c, 30
+	ld c, 20
 	call DelayFrames
 	call AnimateCurrentMove
 	ld a, $1

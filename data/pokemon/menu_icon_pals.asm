@@ -210,7 +210,7 @@ MonMenuIconPals:
 	icon_pals BLUE,   PURPLE   ; WOBBUFFET
 	icon_pals PINK,   BLUE     ; GIRAFARIG
 	icon_pals BLUE,   YELLOW   ; PINECO
-	icon_pals RED,    YELLOW   ; FORRETRESS
+	icon_pals GRAY,   YELLOW   ; FORRETRESS
 	icon_pals BLUE,   PINK     ; DUNSPARCE
 	icon_pals PURPLE, BLUE     ; GLIGAR
 	icon_pals GRAY,   BROWN    ; STEELIX

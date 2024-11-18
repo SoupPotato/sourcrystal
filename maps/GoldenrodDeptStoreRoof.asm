@@ -130,128 +130,128 @@ PokeDollVendingMachine:
 	end
 
 .JigglypuffDoll:
+	getmonname STRING_BUFFER_3, JIGGLYPUFF
 	checkevent EVENT_DECO_JIGGLYPUFF_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, JIGGLYPUFF
 	setevent EVENT_DECO_JIGGLYPUFF_DOLL
 	sjump .givedoll
 
 .BulbasaurDoll:
+	getmonname STRING_BUFFER_3, BULBASAUR
 	checkevent EVENT_DECO_BULBASAUR_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, BULBASAUR
 	setevent EVENT_DECO_BULBASAUR_DOLL
 	sjump .givedoll
 
 .CharmanderDoll:
+	getmonname STRING_BUFFER_3, CHARMANDER
 	checkevent EVENT_DECO_CHARMANDER_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, CHARMANDER
 	setevent EVENT_DECO_CHARMANDER_DOLL
 	sjump .givedoll
 
 .SquirtleDoll:
+	getmonname STRING_BUFFER_3, SQUIRTLE
 	checkevent EVENT_DECO_SQUIRTLE_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, SQUIRTLE
 	setevent EVENT_DECO_SQUIRTLE_DOLL
 	sjump .givedoll
 
 .DiglettDoll:
+	getmonname STRING_BUFFER_3, DIGLETT
 	checkevent EVENT_DECO_DIGLETT_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, DIGLETT
 	setevent EVENT_DECO_DIGLETT_DOLL
 	sjump .givedoll
 
 .StaryuDoll:
+	getmonname STRING_BUFFER_3, STARYU
 	checkevent EVENT_DECO_STARYU_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, STARYU
 	setevent EVENT_DECO_STARYU_DOLL
 	sjump .givedoll
 
 .MagikarpDoll:
+	getmonname STRING_BUFFER_3, MAGIKARP
 	checkevent EVENT_DECO_MAGIKARP_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, MAGIKARP
 	setevent EVENT_DECO_MAGIKARP_DOLL
 	sjump .givedoll
 
 .OddishDoll:
+	getmonname STRING_BUFFER_3, ODDISH
 	checkevent EVENT_DECO_ODDISH_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, ODDISH
 	setevent EVENT_DECO_ODDISH_DOLL
 	sjump .givedoll
 
 .GengarDoll:
+	getmonname STRING_BUFFER_3, GENGAR
 	checkevent EVENT_DECO_GENGAR_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, GENGAR
 	setevent EVENT_DECO_GENGAR_DOLL
 	sjump .givedoll
 
 .ShellderDoll:
+	getmonname STRING_BUFFER_3, SHELLDER
 	checkevent EVENT_DECO_SHELLDER_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, SHELLDER
 	setevent EVENT_DECO_SHELLDER_DOLL
 	sjump .givedoll
 
 .GrimerDoll:
+	getmonname STRING_BUFFER_3, GRIMER
 	checkevent EVENT_DECO_GRIMER_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, GRIMER
 	setevent EVENT_DECO_GRIMER_DOLL
 	sjump .givedoll
 
 .VoltorbDoll:
+	getmonname STRING_BUFFER_3, VOLTORB
 	checkevent EVENT_DECO_VOLTORB_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, VOLTORB
 	setevent EVENT_DECO_VOLTORB_DOLL
 	sjump .givedoll
 
 .WeedleDoll:
+	getmonname STRING_BUFFER_3, WEEDLE
 	checkevent EVENT_DECO_WEEDLE_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, WEEDLE
 	setevent EVENT_DECO_WEEDLE_DOLL
 	sjump .givedoll
 
 .UnownDoll:
+	getmonname STRING_BUFFER_3, UNOWN
 	checkevent EVENT_DECO_UNOWN_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, UNOWN
 	setevent EVENT_DECO_UNOWN_DOLL
 	sjump .givedoll
 
 .GeodudeDoll:
+	getmonname STRING_BUFFER_3, GEODUDE
 	checkevent EVENT_DECO_GEODUDE_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, GEODUDE
 	setevent EVENT_DECO_GEODUDE_DOLL
 	sjump .givedoll
 
 .MachopDoll:
+	getmonname STRING_BUFFER_3, MACHOP
 	checkevent EVENT_DECO_MACHOP_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, MACHOP
 	setevent EVENT_DECO_MACHOP_DOLL
 	sjump .givedoll
 
 .TentacoolDoll:
+	getmonname STRING_BUFFER_3, TENTACOOL
 	checkevent EVENT_DECO_TENTACOOL_DOLL
 	iftrue .alreadyOwned
-	getmonname STRING_BUFFER_3, TENTACOOL
 	setevent EVENT_DECO_TENTACOOL_DOLL
 	sjump .givedoll
 
 .SurfPikachuDoll:
+	getstring STRING_BUFFER_3, .SurfPikachuString
 	checkevent EVENT_DECO_SURFING_PIKACHU_DOLL
 	iftrue .alreadyOwned
-	getstring STRING_BUFFER_3, .SurfPikachuString
 	setevent EVENT_DECO_SURFING_PIKACHU_DOLL
 ;fallthrough
 .givedoll:

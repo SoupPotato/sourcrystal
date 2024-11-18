@@ -3,7 +3,7 @@
 	const GOLDENRODDEPTSTORE3F_TEACHER
 	const GOLDENRODDEPTSTORE3F_BEAUTY
 	const GOLDENRODDEPTSTORE3F_YOUNGSTER
-	const GOLDENRODDEPTSTORE3F_GAMEBOY_KID
+	const GOLDENRODDEPTSTORE3F_SUPER_NERD
 
 GoldenrodDeptStore3F_MapScripts:
 	def_scene_scripts
@@ -737,14 +737,8 @@ GoldenrodDeptStore3FTeacherScript:
 GoldenrodDeptStore3FYoungsterScript:
 	jumptextfaceplayer GoldenrodDeptStore3FYoungsterText
 
-GoldenrodDeptStore3FGameboyKidScript:
-	faceplayer
-	opentext
-	writetext GoldenrodDeptStore3FGameboyKidText
-	waitbutton
-	closetext
-	turnobject GOLDENRODDEPTSTORE3F_GAMEBOY_KID, DOWN
-	end
+GoldenrodDeptStore3FSuperNerdScript:
+	jumptextfaceplayer GoldenrodDeptStore3FSuperNerdText
 
 GoldenrodDeptStore3FBeautyScript:
 	jumptextfaceplayer GoldenrodDeptStore3FBeautyText
@@ -783,21 +777,19 @@ GoldenrodDeptStore3FYoungsterText:
 	cont "rage right now."
 	done
 
-GoldenrodDeptStore3FGameboyKidText:
-	text "Some #MON"
-	line "evolve only by"
+GoldenrodDeptStore3FSuperNerdText:
+	text "There are vending"
+	line "machines that give"
 
-	para "being traded via a"
-	line "Game Link cable."
+	para "out #MON dolls"
+	line "on the top floor."
 
-	para "I know of four:"
-	line "MACHOKE, KADABRA,"
+	para "But whatever you"
+	line "get is totally"
+	cont "random…"
 
-	para "HAUNTER and, um,"
-	line "GRAVELER."
-
-	para "I heard there are"
-	line "others too."
+	para "It can be very"
+	line "expensive!"
 	done
 
 GoldenrodDeptStore3FClerkText:
@@ -866,8 +858,8 @@ GoldenrodDeptStore3F_MapEvents:
 	bg_event  3,  0, BGEVENT_READ, GoldenrodDeptStore3FElevatorButton
 
 	def_object_events
-	object_event  6,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FClerkScript, -1
-	object_event 12,  5, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FTeacherScript, -1
+	object_event 6,  1, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FClerkScript, -1
+	object_event 12, 5, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FTeacherScript, -1
 	object_event 8,  7, SPRITE_BEAUTY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FBeautyScript, -1
 	object_event 2,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FYoungsterScript, -1
-	object_event  1,  1, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FGameboyKidScript, -1
+	object_event 10, 1, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore3FSuperNerdScript, -1

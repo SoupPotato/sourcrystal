@@ -206,6 +206,8 @@ GetMonSprite:
 	ld hl, SpriteMons
 	add hl, de
 	ld a, [hl]
+; save index for palette loading
+	ld [wTempOWMonSpecies], a
 	jr .Mon
 
 .BreedMon1
@@ -291,9 +293,18 @@ _GetSpritePalette::
 	ret
 
 .is_pokemon
-	xor a
-	ld c, a
-	ret
+; load pokemon OW sprite index
+	ld a, [wTempOWMonSpecies]
+; get the corresponding menu palette
+	dec a
+	ld l, a
+	ld h, 0
+	ld de, MonMenuIconPals
+	add hl, de
+	ld a, BANK(MonMenuIconPals)
+	call GetFarByte
+; map it to OW palette; use existing code
+	jr .non_shiny
 
 .is_breedmon
 	push de
@@ -320,6 +331,7 @@ _GetSpritePalette::
 	ld a, d
 	pop de
 	jr c, .shiny
+.non_shiny
 	swap a
 .shiny
 	and $f

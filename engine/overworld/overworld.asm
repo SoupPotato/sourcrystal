@@ -7,12 +7,18 @@ GetEmote2bpp:
 	ret
 
 _UpdatePlayerSprite::
+	ld hl, wSpriteFlags
+	ld a, [hl]
+	push af
+	res 5, [hl]
 	call GetPlayerSprite
 	ld a, [wUsedSprites]
 	ldh [hUsedSpriteIndex], a
 	ld a, [wUsedSprites + 1]
 	ldh [hUsedSpriteTile], a
 	call GetUsedSprite
+	pop af
+	ld [wSpriteFlags], a
 	ret
 
 _RefreshSprites: ; mobile

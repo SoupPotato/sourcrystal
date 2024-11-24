@@ -236,7 +236,7 @@ MonMenuIconPals:
 	icon_pals RED,    BLUE     ; HOUNDOUR
 	icon_pals RED,    BLUE     ; HOUNDOOM
 	icon_pals BLUE,   PURPLE   ; KINGDRA
-	icon_pals GRAY,   GRAY     ; PHANPY
+	icon_pals BLUE,   GRAY     ; PHANPY
 	icon_pals GRAY,   BROWN    ; DONPHAN
 	icon_pals PURPLE, BLUE     ; PORYGON2
 	icon_pals BROWN,  GREEN    ; STANTLER

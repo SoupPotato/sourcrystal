@@ -6552,6 +6552,7 @@ HikerGroup:
 	db 27, SANDSLASH
 	db 29, GRAVELER
 	db 33, GOLEM
+	db 29, GRAVELER
 	db $fe ; delimiter
 	
 	;Challenge Mode
@@ -6559,6 +6560,7 @@ HikerGroup:
 	db 39, SANDSLASH
 	db 41, GRAVELER
 	db 45, GOLEM
+	db 41, GRAVELER
 	db -1 ; end
 
 	; HIKER (17)

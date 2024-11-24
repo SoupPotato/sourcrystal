@@ -136,7 +136,7 @@ SetCurrentWeather::
 	ld [wPrevWeather], a
 	ld a, b
 	ld [wCurWeather], a
-	ld a, 32
+	ld a, 64
 	ld [wOverworldWeatherCooldown], a
 	ret
 

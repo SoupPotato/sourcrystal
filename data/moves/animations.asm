@@ -1060,39 +1060,37 @@ BattleAnim_WaterGun:
 
 BattleAnim_HydroPump:
 	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_WATER
-	anim_bgeffect BATTLE_BG_EFFECT_START_WATER, $0, BG_EFFECT_TARGET, $0
-	anim_1gfx BATTLE_ANIM_GFX_WATER
-	anim_call BattleAnim_UserObj_2Row
+	anim_2gfx BATTLE_ANIM_GFX_WATER, BATTLE_ANIM_GFX_WATER_BALL
+	anim_battlergfx_1row
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $40, $2, $0
+.loop
+	anim_sound 0, 1, SFX_AEROBLAST
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP_SHOT, 64, 88, $6
+	anim_wait 1
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP_SHOT, 64, 88, $6
+	anim_wait 1
+	anim_loop 14, .loop
+	anim_wait 6
+	anim_bgeffect BATTLE_BG_EFFECT_BATTLEROBJ_2ROW, $0, BG_EFFECT_USER, $0
+	anim_wait 2
+	anim_bgeffect BATTLE_BG_EFFECT_NIGHT_SHADE, $0, BG_EFFECT_TARGET, $8
 	anim_sound 0, 1, SFX_HYDRO_PUMP
-	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 108, 72, $0
-	anim_bgeffect BATTLE_BG_EFFECT_WATER, $1c, $0, $0
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 132, 72, $3a
 	anim_wait 8
-	anim_sound 0, 1, SFX_HYDRO_PUMP
-	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 116, 72, $0
-	anim_bgeffect BATTLE_BG_EFFECT_WATER, $8, $0, $0
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 124, 72, $3a
 	anim_wait 8
-	anim_sound 0, 1, SFX_HYDRO_PUMP
-	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 124, 72, $0
-	anim_bgeffect BATTLE_BG_EFFECT_WATER, $30, $0, $0
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 140, 72, $3a
 	anim_wait 8
-	anim_sound 0, 1, SFX_HYDRO_PUMP
-	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 132, 72, $0
-	anim_bgeffect BATTLE_BG_EFFECT_WATER, $1c, $0, $0
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 116, 72, $3a
 	anim_wait 8
-	anim_sound 0, 1, SFX_HYDRO_PUMP
-	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 140, 72, $0
-	anim_bgeffect BATTLE_BG_EFFECT_WATER, $8, $0, $0
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 148, 72, $3a
 	anim_wait 8
-	anim_sound 0, 1, SFX_HYDRO_PUMP
-	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 148, 72, $0
-	anim_bgeffect BATTLE_BG_EFFECT_WATER, $30, $0, $0
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 108, 72, $3a
 	anim_wait 8
-	anim_sound 0, 1, SFX_HYDRO_PUMP
-	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 156, 72, $0
-	anim_bgeffect BATTLE_BG_EFFECT_WATER, $1c, $0, $0
+	anim_obj BATTLE_ANIM_OBJ_HYDRO_PUMP, 156, 72, $3a
 	anim_wait 32
+	anim_incbgeffect BATTLE_BG_EFFECT_NIGHT_SHADE
 	anim_call BattleAnim_ShowMon_1
-	anim_bgeffect BATTLE_BG_EFFECT_END_WATER, $0, $0, $0
 	anim_wait 16
 	anim_ret
 

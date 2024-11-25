@@ -4665,13 +4665,13 @@ BattleAnim_Extremespeed:
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $6, $0
 	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $0a, $2, $0
 	anim_sound 0, 1, SFX_MEGA_PUNCH
-	anim_obj BATTLE_ANIM_OBJ_HIT, 152, 48, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT, 120, 52, $0
 	anim_wait 5
 	anim_sound 0, 1, SFX_MEGA_PUNCH
 	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 136, 44, $0
 	anim_wait 5
 	anim_sound 0, 1, SFX_MEGA_PUNCH
-	anim_obj BATTLE_ANIM_OBJ_HIT, 120, 52, $0
+	anim_obj BATTLE_ANIM_OBJ_HIT, 152, 48, $0
 	anim_wait 24
 	anim_clearobjs
 	anim_wait 8
@@ -5001,6 +5001,7 @@ BattleAnimSub_QuickAttack:
 	anim_ret
 
 BattleAnimSub_Agility:
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_WATER
 	anim_obj BATTLE_ANIM_OBJ_AGILITY, 8, 24, $10
 	anim_obj BATTLE_ANIM_OBJ_AGILITY, 8, 48, $2
 	anim_obj BATTLE_ANIM_OBJ_AGILITY, 8, 88, $8

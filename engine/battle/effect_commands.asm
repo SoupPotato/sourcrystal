@@ -6526,6 +6526,9 @@ GetItemHeldEffect:
 	and a
 	ret z
 
+	cp SITRUS_BERRY
+	jr z, .SitrusBerry
+
 	push hl
 	ld hl, ItemAttributes + ITEMATTR_EFFECT
 	dec a
@@ -6538,6 +6541,30 @@ GetItemHeldEffect:
 	ld b, l
 	ld c, h
 	pop hl
+	ret
+
+.SitrusBerry:
+; copy of GetMaxHP then GetQuarterMaxHP
+	push hl
+; get which max HP is to be used
+; at the point of healing, the battle turn
+; has already switched, so use the opposite
+; MaxHP variables...
+		ld hl, wEnemyMonMaxHP
+		ldh a, [hBattleTurn]
+		and a
+		jr z, .got_max_hp
+		ld hl, wBattleMonMaxHP
+.got_max_hp
+		inc hl
+		ld a, [hl]
+	pop hl
+	ld c, a
+; quarter result
+	srl c
+	srl c
+; fixed effect
+	ld b, HELD_BERRY
 	ret
 
 AnimateCurrentMoveEitherSide:

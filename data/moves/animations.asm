@@ -1738,7 +1738,7 @@ BattleAnim_Softboiled:
 	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $40
 	anim_sound 0, 0, SFX_METRONOME
 	anim_jump BattleAnimSub_SoftboiledHeal
-
+;fallthrough
 BattleAnimSub_SoftboiledHeal:
 .loop
 	anim_obj BATTLE_ANIM_OBJ_RECOVER, 44, 88, $20

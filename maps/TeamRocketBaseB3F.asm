@@ -1,7 +1,7 @@
 	object_const_def
 	const TEAMROCKETBASEB3F_LANCE
 	const TEAMROCKETBASEB3F_ROCKET1
-	const TEAMROCKETBASEB3F_MOLTRES
+	const TEAMROCKETBASEB3F_MURKROW
 	const TEAMROCKETBASEB3F_ROCKET_GIRL
 	const TEAMROCKETBASEB3F_ROCKET2
 	const TEAMROCKETBASEB3F_SCIENTIST1
@@ -49,7 +49,7 @@ TeamRocketBaseB3FCheckGiovanniDoorCallback:
 LanceGetPasswordScript:
 	turnobject PLAYER, LEFT
 	pause 5
-	turnobject TEAMROCKETBASEB3F_MOLTRES, RIGHT
+	turnobject TEAMROCKETBASEB3F_MURKROW, RIGHT
 	pause 20
 	applymovement TEAMROCKETBASEB3F_LANCE, RocketBaseLanceApproachesPlayerMovement
 	opentext

@@ -105,7 +105,7 @@ RuinsOfAlphKabutoChamberScientistScript:
 	end
 
 .AllUnownCaught:
-	writetext RuinsOfAlphResearchCenterScientist1Text_GotAllUnown
+	writetext RuinsOfAlphKabutoChamberScientistText_GotAllUnown
 	waitbutton
 	closetext
 	end
@@ -249,6 +249,20 @@ RuinsOfAlphKabutoChamberDescriptionText:
 
 	para "Eyes on its back"
 	line "scanned the area."
+	done
+
+RuinsOfAlphKabutoChamberScientistText_GotAllUnown:
+	text "Our investigation,"
+	line "with your help, is"
+
+	para "giving us insight"
+	line "into the RUINS."
+
+	para "The RUINS appear"
+	line "to have been built"
+
+	para "as a habitat for"
+	line "#MON."
 	done
 
 RuinsOfAlphKabutoChamber_MapEvents:

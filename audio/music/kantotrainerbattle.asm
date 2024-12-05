@@ -2055,10 +2055,10 @@ Music_KantoTrainerBattle_Extend_Ch3:
 	vibrato 18, 2, 3
 	transpose 0, 0
 	note_type 12, 1, 4
-	octave 5
+	octave 6
 	note C_, 5
 	note_type 6, 1, 4
-	octave 4
+	octave 5
 	note B_, 1
 	note A#, 1
 	note_type 12, 1, 4
@@ -2067,33 +2067,33 @@ Music_KantoTrainerBattle_Extend_Ch3:
 	note_type 6, 1, 4
 	note A#, 1
 	note B_, 1
-	octave 5
+	octave 6
 	note C_, 6
-	octave 4
+	octave 5
 	note B_, 1
 	note A#, 1
 	note A_, 8
-	octave 5
+	octave 6
 	note C_, 7
-	octave 4
+	octave 5
 	note B_, 1
 	note A#, 11
-	octave 5
+	octave 6
 	note E_, 1
 	note_type 12, 1, 4
 	note F_, 10
 	rest 4
 	note_type 6, 1, 4
-	octave 4
-	note A#, 7
 	octave 5
+	note A#, 7
+	octave 6
 	note E_, 1
 	note F_, 8
 	note D_, 8
 	note C_, 6
 	rest 2
 	note C_, 4
-	octave 4
+	octave 5
 	note B_, 1
 	note A#, 1
 	note_type 12, 1, 4
@@ -2102,19 +2102,19 @@ Music_KantoTrainerBattle_Extend_Ch3:
 	note_type 6, 1, 4
 	note A_, 1
 	note B_, 1
-	octave 5
+	octave 6
 	note C_, 8
 	note E_, 4
 	note D_, 4
 	note C_, 4
 	note E_, 4
 	note D_, 4
-	octave 4
+	octave 5
 	note A#, 2
 	rest 2
 	note A#, 2
 	rest 1
-	octave 5
+	octave 6
 	note E_, 1
 	note_type 12, 1, 4
 	note F_, 10
@@ -2124,7 +2124,7 @@ Music_KantoTrainerBattle_Extend_Ch3:
 	note F_, 12
 	note D_, 8
 	note_type 12, 1, 0
-    octave 5
+	octave 5
 	note F_, 16
 	note E_, 16
 	note D_, 16

@@ -2124,11 +2124,11 @@ Music_KantoTrainerBattle_Extend_Ch3:
 	note F_, 12
 	note D_, 8
 	note_type 12, 1, 0
-	octave 5
 	note F_, 16
 	note E_, 16
 	note D_, 16
 	note E_, 8
+	octave 5
 	note_type 12, 1, 5
 	sound_call .sub_0
 	note E_, 4

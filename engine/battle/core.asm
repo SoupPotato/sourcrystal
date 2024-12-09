@@ -6347,17 +6347,18 @@ LoadEnemyMon:
 
 ; 50% chance of getting an item
 	call BattleRandom
-	cp 50 percent + 1
-	ld a, NO_ITEM
+	cp 50 percent
+	ld a, [wBaseItems]
 	jr c, .UpdateItem
 
-; From there, an 5% chance for Item2
+; From there, an 5% chance for Item2 (10% of (100% - 50%) = 5%)
 	call BattleRandom
-	cp 5 percent ; 10% of 50% = 2% Item2
-	ld a, [wBaseItem1]
-	jr nc, .UpdateItem
-	ld a, [wBaseItem2]
+	cp 10 percent
+	ld a, [wBaseItems+1]
+	jr c, .UpdateItem
 
+	; 45% chance of not getting an item (100% - 50% - 5% = 45%)
+	xor a ; NO_ITEM
 .UpdateItem:
 	ld [wEnemyMonItem], a
 

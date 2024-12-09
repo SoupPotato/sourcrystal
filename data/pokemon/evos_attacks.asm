@@ -2921,12 +2921,11 @@ YanmaEvosAttacks:
 	db 15, DETECT
 	db 19, LEECH_LIFE
 	db 23, SUPERSONIC
-	db 27, SWIFT
+	db 27, HYPNOSIS
 	db 29, PURSUIT
 	db 33, ANCIENTPOWER
-	db 37, HYPNOSIS
-	db 41, WING_ATTACK
-	db 43, SCREECH
+	db 37, WING_ATTACK
+	db 41, SCREECH
 	db 0 ; no more level-up moves
 
 WooperEvosAttacks:

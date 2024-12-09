@@ -71,6 +71,11 @@ BattleCommand_Thief:
 	farcall ItemIsMail
 	ret c
 
+; Wildmons can't steal items
+	ld a, [wBattleMode]
+	dec a
+	jr z, .cant
+
 	ld a, [wEffectFailed]
 	and a
 	ret nz
@@ -107,4 +112,8 @@ BattleCommand_Thief:
 	ld d, h
 	ld e, l
 	ld hl, wEnemyMonItem
+	ret
+
+.cant
+	or 1
 	ret

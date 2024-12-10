@@ -276,7 +276,10 @@ wGlobalAnimXOffset:: db
 wSpriteAnimDataEnd::
 
 wCurIconForm:: db
-	ds 10
+
+wPartyBackupItems:: ds 6
+
+	ds 4
 
 ; mobile data
 UNION

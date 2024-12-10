@@ -2,7 +2,7 @@ Mobile_PrintOpponentBattleMessage:
 	ld a, c
 	push af
 	call SpeechTextbox
-	call MobileTextBorder
+	newfarcall MobileTextBorder
 	pop af
 	dec a
 	ld bc, $c

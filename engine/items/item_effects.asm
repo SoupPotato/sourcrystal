@@ -216,7 +216,7 @@ PokeBallEffect:
 
 	ld a, [wBattleType]
 	cp BATTLETYPE_TUTORIAL
-	jr z, .room_in_party
+	jr z, .backup_item_done
 
 	ld a, [wPartyCount]
 	cp PARTY_LENGTH
@@ -224,8 +224,26 @@ PokeBallEffect:
 
 	newfarcall NewStorageBoxPointer
 	jp c, Ball_BoxIsFullMessage
+	jr .backup_item_done
 
 .room_in_party
+	; a == wPartyCount, used to insert backup item
+	ld c, a
+
+	; Don't mess with item backup struct if we are in a bug contest
+	ld a, [wBattleType]
+	cp BATTLETYPE_CONTEST
+	jr z, .backup_item_done
+
+	; Copy wildmon's item to item backup struct in case we catch
+	ld hl, wPartyBackupItems
+	ld b, 0
+	add hl, bc
+	ld a, [wEnemyMonItem]
+	ld [hl], a
+	jr .room_in_party
+
+.backup_item_done
 	xor a
 	ld [wWildMon], a
 	ld a, [wBattleType]

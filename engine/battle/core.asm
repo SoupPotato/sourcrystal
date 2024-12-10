@@ -1,6 +1,7 @@
 ; Core components of the battle engine.
 
 DoBattle:
+	call BackupBattleItems
 	xor a
 	ld [wBattleParticipantsNotFainted], a
 	ld [wBattleParticipantsIncludingFainted], a
@@ -152,7 +153,7 @@ SafariBattleTurn:
 	ret c
 	ld a, [wBattleEnded]
 	and a
-	ret nz	
+	ret nz
 	jr .loop
 
 CheckSafariBattleOver:
@@ -415,37 +416,21 @@ HandleBerserkGene:
 
 .player
 	call SetPlayerTurn
-	ld de, wPartyMon1Item
-	ld a, [wCurBattleMon]
-	ld b, a
 	jr .go
 
 .enemy
 	call SetEnemyTurn
-	ld de, wOTPartyMon1Item
-	ld a, [wCurOTMon]
-	ld b, a
 	; fallthrough
 
 .go
-	push de
-	push bc
 	callfar GetUserItem
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
-	sub BERSERK_GENE
-	pop bc
-	pop de
+	cp BERSERK_GENE
 	ret nz
 
-	ld [hl], a
+	call ConsumeUserItem
 
-	ld h, d
-	ld l, e
-	ld a, b
-	call GetPartyLocation
-	xor a
-	ld [hl], a
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
 	push af
@@ -1505,28 +1490,53 @@ HandleLeppaberry:
 	callfar GetUserItem
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
-	xor a
-	ld [hl], a
-	call GetPartymonItem
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .consume_item
-	ld a, [wBattleMode]
-	dec a
-	jr z, .skip_consumption
-	call GetOTPartymonItem
-
-.consume_item
-	xor a
-	ld [hl], a
-
-.skip_consumption
+	call ConsumeUserItem
 	call GetItemName
 	call SwitchTurnCore
 	call ItemRecoveryAnim
 	call SwitchTurnCore
 	ld hl, BattleText_UserRecoveredPPUsing
 	jp StdBattleTextbox
+
+ConsumeUserItem:
+; Consume (use up) the user's held item.
+	call GetPartymonItem
+	ldh a, [hBattleTurn]
+	and a
+	push af
+	call nz, GetOTPartymonItem
+
+	; Consume the battler's held item.
+	xor a
+	ld [bc], a
+	pop af
+
+	jr z, .check_backup_item
+
+	; Opponent wildmons do not have a party struct.
+	ld a, [wBattleMode]
+	sub TRAINER_BATTLE
+	ret nz
+	ld [hl], a
+	ret
+
+.check_backup_item
+	; We might also want to update the backup item struct.
+	call GetBackupItemAddr
+	ld a, [hl]
+	push hl
+	push af
+	call GetPartymonItem
+	pop af
+	sub [hl]
+	ld [hl], NO_ITEM
+	pop hl
+
+	; If the items don't match, do nothing. This can happen if the foe steals
+	; item X, player steals item Y, player uses item Y.
+	ret nz
+	ld [hl], a
+	ret
 
 HandleFutureSight:
 	ldh a, [hSerialConnectionStatus]
@@ -4616,24 +4626,9 @@ UseConfusionHealingItem:
 	call ItemRecoveryAnim
 	ld hl, BattleText_ItemHealedConfusion
 	call StdBattleTextbox
-	ldh a, [hBattleTurn]
-	and a
-	jr nz, .do_partymon
-	call GetOTPartymonItem
-	xor a
-	ld [bc], a
-	ld a, [wBattleMode]
-	dec a
-	ret z
-	ld [hl], $0
-	ret
-
-.do_partymon
-	call GetPartymonItem
-	xor a
-	ld [bc], a
-	ld [hl], a
-	ret
+	call SwitchTurnCore
+	call ConsumeUserItem
+	jp SwitchTurnCore
 
 HandleStatBoostingHeldItems:
 ; The effects handled here are not used in-game.
@@ -4689,9 +4684,7 @@ HandleStatBoostingHeldItems:
 	ld a, [wFailedMessage]
 	and a
 	ret nz
-	xor a
-	ld [bc], a
-	ld [de], a
+	call ConsumeUserItem
 	call GetItemName
 	ld hl, BattleText_UsersStringBuffer1Activated
 	call StdBattleTextbox
@@ -9313,6 +9306,20 @@ InitBattleDisplay:
 .InitBackPic:
 	call GetTrainerBackpic
 	jp CopyBackpic
+
+MobileTextBorder::
+	; For mobile link battles only.
+	ld a, [wLinkMode]
+	cp LINK_MOBILE
+	ret c
+
+	; Draw a cell phone icon at the
+	; top right corner of the border.
+	hlcoord 19, 12
+	ld [hl], $5e ; top
+	hlcoord 19, 13
+	ld [hl], $5f ; bottom
+	ret
 
 GetTrainerBackpic:
 ; Load the player character's backpic (6x6) into VRAM starting from vTiles2 tile $31.

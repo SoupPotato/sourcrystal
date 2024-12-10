@@ -19,24 +19,12 @@ UserPartyAttr::
 	push af
 	ldh a, [hBattleTurn]
 	and a
-	jr nz, .ot
-	pop af
-	jr BattlePartyAttr
-.ot
+	jr z, .player
 	pop af
 	jr OTPartyAttr
-
-OpponentPartyAttr::
-	push af
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ot
+.player
 	pop af
-	jr BattlePartyAttr
-.ot
-	pop af
-	jr OTPartyAttr
-
+	; fallthrough
 BattlePartyAttr::
 ; Get attribute a from the party struct of the active battle mon.
 	push bc
@@ -49,6 +37,16 @@ BattlePartyAttr::
 	pop bc
 	ret
 
+OpponentPartyAttr::
+	push af
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ot
+	pop af
+	jr BattlePartyAttr
+.ot
+	pop af
+	; fallthrough
 OTPartyAttr::
 ; Get attribute a from the party struct of the active enemy mon.
 	push bc
@@ -81,14 +79,7 @@ UpdateOpponentInParty::
 	ldh a, [hBattleTurn]
 	and a
 	jr z, UpdateEnemyMonInParty
-	jr UpdateBattleMonInParty
-
-UpdateUserInParty::
-	ldh a, [hBattleTurn]
-	and a
-	jr z, UpdateBattleMonInParty
-	jr UpdateEnemyMonInParty
-
+	; fallthrough
 UpdateBattleMonInParty::
 ; Update level, status, current HP
 
@@ -104,6 +95,11 @@ UpdateBattleMon::
 	ld bc, wBattleMonMaxHP - wBattleMonLevel
 	jp CopyBytes
 
+UpdateUserInParty::
+	ldh a, [hBattleTurn]
+	and a
+	jr z, UpdateBattleMonInParty
+	; fallthrough
 UpdateEnemyMonInParty::
 ; Update level, status, current HP
 
@@ -133,6 +129,54 @@ UpdateBattleHuds::
 	farcall UpdateEnemyHUD
 	ret
 
+GetBackupItemAddr::
+; Returns address of backup item for current mon in hl
+	push bc
+	ld a, [wCurBattleMon]
+	ld c, a
+	ld b, 0
+	ld hl, wPartyBackupItems
+	add hl, bc
+	pop bc
+	ret
+
+BackupBattleItems::
+; Copies items from party to a backup of items. Doesn't care if player has less than 6 mons
+; since messing with these item bytes in-battle is safe
+	ld c, 0
+	jr ToggleBattleItems
+RestoreBattleItems::
+; Restores items from wPartyBackupItems
+	ld c, 1
+	; fallthrough
+ToggleBattleItems:
+	ld b, 7
+	ld hl, wPartyMon1Item
+	ld de, wPartyBackupItems
+.loop
+	dec b
+	ret z
+	ld a, c
+	and a
+	jr nz, .restore
+
+	; Backup
+	ld a, [hl]
+	ld [de], a
+	jr .next
+
+.restore
+	ld a, [de]
+	ld [hl], a
+
+.next
+	inc de
+	push bc
+	ld bc, PARTYMON_STRUCT_LENGTH
+	add hl, bc
+	pop bc
+	jr .loop
+
 INCLUDE "home/battle_vars.asm"
 
 FarCopyRadioText::
@@ -158,25 +202,11 @@ FarCopyRadioText::
 	ld [MBC3RomBank], a
 	ret
 
-MobileTextBorder::
-	; For mobile link battles only.
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	ret c
-
-	; Draw a cell phone icon at the
-	; top right corner of the border.
-	hlcoord 19, 12
-	ld [hl], $5e ; top
-	hlcoord 19, 13
-	ld [hl], $5f ; bottom
-	ret
-
 BattleTextbox::
 ; Open a textbox and print text at hl.
 	push hl
 	call SpeechTextbox
-	call MobileTextBorder
+	newfarcall MobileTextBorder
 	call UpdateSprites
 	call ApplyTilemap
 	pop hl

@@ -423,6 +423,7 @@ INCLUDE "maps/PewterSnoozeSpeechHouse.asm"
 
 SECTION "Map Scripts 22", ROMX
 
+INCLUDE "maps/NewBarkTown.asm"
 INCLUDE "maps/EcruteakCity.asm"
 INCLUDE "maps/BlackthornCity.asm"
 INCLUDE "maps/Route26.asm"
@@ -525,7 +526,6 @@ SECTION "Map Scripts 27", ROMX
 INCLUDE "maps/RuinsOfAlphResearchCenter.asm"
 INCLUDE "maps/MountMoonB1F.asm"
 INCLUDE "maps/MountMoonB2F.asm"
-INCLUDE "maps/NewBarkTown.asm"
 INCLUDE "maps/GoldenrodDeptStore3F.asm"
 
 ENDSECTION

@@ -241,7 +241,6 @@ PokeBallEffect:
 	add hl, bc
 	ld a, [wEnemyMonItem]
 	ld [hl], a
-	jr .room_in_party
 
 .backup_item_done
 	xor a

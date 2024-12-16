@@ -722,7 +722,7 @@ BattleTowerMons:
 	bigdw 20000
 	bigdw 50000
 	dn 13, 13, 11, 13 ; DVs
-	db 8, 24, 16, 8 ; PP
+	db 8, 24, 16, 16 ; PP
 	db 100 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 20 ; Level
@@ -1086,7 +1086,7 @@ BattleTowerMons:
 	bigdw 10000
 	bigdw 30000
 	dn 13, 13, 11, 13 ; DVs
-	db 24, 16, 24, 8 ; PP
+	db 24, 16, 24, 16 ; PP
 	db 100 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 20 ; Level
@@ -2814,7 +2814,7 @@ BattleTowerMons:
 	bigdw 40000
 	bigdw 50000
 	dn 15, 14, 15, 11 ; DVs
-	db 32, 16, 8, 16 ; PP
+	db 32, 16, 16, 16 ; PP
 	db 255 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 60 ; Level
@@ -3535,7 +3535,7 @@ BattleTowerMons:
 
 	db MAGCARGO
 	db CHARCOAL
-	db FIRE_BLAST, ROCK_SLIDE, RECOVER, TOXIC
+	db FIRE_BLAST, ROCK_SLIDE, EXPLOSION, TOXIC
 	dw 0 ; OT ID
 	dt 343000 ; Exp
 	; Stat exp
@@ -4354,7 +4354,7 @@ BattleTowerMons:
 	bigdw 60000
 	bigdw 60000
 	dn 15, 15, 15, 15 ; DVs
-	db 16, 8, 8, 24 ; PP
+	db 16, 8, 16, 24 ; PP
 	db 100 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 80 ; Level
@@ -4539,7 +4539,7 @@ BattleTowerMons:
 	bigdw 60000
 	bigdw 60000
 	dn 15, 15, 15, 15 ; DVs
-	db 24, 16, 8, 16 ; PP
+	db 24, 16, 16, 16 ; PP
 	db 100 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 90 ; Level
@@ -4825,7 +4825,7 @@ BattleTowerMons:
 	bigdw 60000
 	bigdw 60000
 	dn 15, 15, 15, 15 ; DVs
-	db 16, 32, 16, 8 ; PP
+	db 16, 32, 16, 16 ; PP
 	db 255 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 90 ; Level
@@ -4851,7 +4851,7 @@ BattleTowerMons:
 	bigdw 60000
 	bigdw 60000
 	dn 15, 15, 15, 15 ; DVs
-	db 16, 32, 16, 8 ; PP
+	db 16, 32, 16, 16 ; PP
 	db 255 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 90 ; Level
@@ -5088,7 +5088,7 @@ BattleTowerMons:
 	bigdw 65535
 	bigdw 65535
 	dn 15, 15, 15, 15 ; DVs
-	db 8, 16, 16, 8 ; PP
+	db 8, 16, 16, 16 ; PP
 	db 100 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 100 ; Level
@@ -5114,7 +5114,7 @@ BattleTowerMons:
 	bigdw 65535
 	bigdw 65535
 	dn 15, 15, 15, 15 ; DVs
-	db 8, 16, 8, 32 ; PP
+	db 8, 16, 16, 32 ; PP
 	db 100 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 100 ; Level
@@ -5348,7 +5348,7 @@ BattleTowerMons:
 	bigdw 65535
 	bigdw 65535
 	dn 15, 15, 15, 15 ; DVs
-	db 16, 24, 16, 8 ; PP
+	db 16, 24, 16, 16 ; PP
 	db 100 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 100 ; Level

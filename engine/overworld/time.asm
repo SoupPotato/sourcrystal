@@ -106,7 +106,7 @@ CheckDailyResetTimer::
 	ret nc
 	xor a
 	ld hl, wDailyFlags1
-rept 8
+rept 11
 	ld [hli], a ; wDailyFlags1
 endr
 	ld [hli], a ; wDailyFlags2
@@ -114,7 +114,7 @@ endr
 	ld [hl], a  ; wSwarmFlags + 1
 	ld [wLuckyNumberShowFlag], a
 	ld hl, wDailyRematchFlags
-rept 4
+rept 6
 	ld [hli], a
 endr
 	ld hl, wDailyPhoneItemFlags

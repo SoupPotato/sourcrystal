@@ -499,10 +499,10 @@ BeautyOliviaAfterBattleText:
 	line "good for beauty"
 
 	para "and health, but"
-	line "inconveniently,"
+	line "I always end up,"
 
-	para "they only sell a"
-	line "bottle at a time."
+	para "buying too much"
+	line "of it."
 	done
 
 Route38SignText:

@@ -250,11 +250,11 @@ OaksAssistant1Text:
 	text "The PROF's #MON"
 	line "TALK radio program"
 
-	para "isn't aired here"
+	para "even airs here"
 	line "in KANTO."
 
-	para "It's a shame--I'd"
-	line "like to hear it."
+	para "It's one of my fa"
+	line "-vourite programs."
 	done
 
 OaksAssistant2Text:
@@ -268,10 +268,12 @@ OaksAssistant2Text:
 
 OaksAssistant3Text:
 	text "Don't tell anyone,"
-	line "but PROF.OAK'S"
+	line "but besides the"
+	cont "outbreak reports,"
 
-	para "#MON TALK isn't"
-	line "a live broadcast."
+	para "PROF.OAK'S #MON"
+	line "TALK isn't a live"
+	cont "broadcast."
 	done
 
 OaksLabPoster1Text:

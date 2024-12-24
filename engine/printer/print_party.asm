@@ -226,7 +226,8 @@ PrintPartyMonPage1:
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
 	call SetPalettes
-	ret
+	ld c, 2
+	jp DelayFrames
 
 PrintPartyMonPage2:
 	call ClearBGPalettes
@@ -277,7 +278,8 @@ PrintPartyMonPage2:
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
 	call SetPalettes
-	ret
+	ld c, 2
+	jp DelayFrames
 
 .PrintTempMonStats:
 	lb bc, 2, 3

@@ -64,7 +64,7 @@ PlateauRivalBattle1:
 	sjump PlateauRivalBattleCommon
 
 PlateauRivalBattle2:
-	checkevent EVENT_BEAT_RIVAL_IN_MT_MOON
+	checkevent EVENT_BEAT_RED
 	iffalse PlateauRivalScriptDone
 	checkflag ENGINE_INDIGO_PLATEAU_RIVAL_FIGHT
 	iftrue PlateauRivalScriptDone

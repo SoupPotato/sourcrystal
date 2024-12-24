@@ -447,7 +447,7 @@ _GrassWildmonLookup:
 .check_normal_flag
 	ld hl, wDailyFlags1
 	bit DAILYFLAGS1_SWARM_F, [hl]
-	jr z, .cont ; if not, then skip generating a swarm
+	jr z, .no_swarm ; if not, then skip generating a swarm
 	ld a, [wChallengeMode]
 	bit GAME_CHALLENGE_MODE_F, a
 	jp nz, .ChallengeModeSwarmGrass
@@ -459,6 +459,7 @@ _GrassWildmonLookup:
 	ld bc, GRASS_WILDDATA_LENGTH
 	call _SwarmWildmonCheck
 	ret c
+.no_swarm
 	ld a, [wChallengeMode]
 	bit GAME_CHALLENGE_MODE_F, a
 	ld hl, JohtoGrassWildMons
@@ -486,7 +487,7 @@ _WaterWildmonLookup:
 .check_normal_flag
 	ld hl, wDailyFlags1
 	bit DAILYFLAGS1_SWARM_F, [hl]
-	jr z, .cont ; if not, then skip generating a swarm
+	jr z, .no_swarm ; if not, then skip generating a swarm
 	ld a, [wChallengeMode]
 	bit GAME_CHALLENGE_MODE_F, a
 	jp nz, .ChallengeModeSwarmWater
@@ -498,6 +499,7 @@ _WaterWildmonLookup:
 	ld bc, WATER_WILDDATA_LENGTH
 	call _SwarmWildmonCheck
 	ret c
+.no_swarm
 	ld a, [wChallengeMode]
 	bit GAME_CHALLENGE_MODE_F, a
 	ld hl, JohtoWaterWildMons

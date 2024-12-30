@@ -1,5 +1,5 @@
 BillsPC_ThemeNames:
-	table_width 2, BillsPC_ThemeNames
+	table_width 2
 	dw .Pokedex
 	dw .PokegearM
 	dw .PokegearF

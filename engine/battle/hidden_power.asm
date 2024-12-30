@@ -104,7 +104,7 @@ HiddenPowerDamage:
 	ret
 
 .VanillaTypeRemapping:
-	table_width 1, HiddenPowerDamage.VanillaTypeRemapping
+	table_width 1
 ; physical/special split changed the order of the
 ; move enums, remap it back to vanilla format
 	db FIGHTING

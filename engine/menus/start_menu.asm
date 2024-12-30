@@ -37,7 +37,7 @@ StartMenu::
 	call .DrawBugContestStatusBox
 	call .DrawSafariZoneStatusBox
 	call SafeUpdateSprites
-	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
+	call HDMATransferTilemapAndAttrmap_Menu
 	farcall LoadFonts_NoOAMUpdate
 	call .DrawBugContestStatus
 	call .DrawSafariZoneStatus
@@ -596,9 +596,9 @@ StartMenu_Pokemon:
 
 .menunoreload
 	farcall WritePartyMenuTilemap
-	farcall PrintPartyMenuText
+	farcall PlacePartyMenuText
 	call WaitBGMap
-	call SetPalettes ; load regular palettes?
+	call SetDefaultBGPAndOBP
 	call DelayFrame
 	farcall PartyMenuSelect
 	jr c, .return ; if cancelled or pressed B

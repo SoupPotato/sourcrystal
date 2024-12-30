@@ -8,7 +8,7 @@ InitClock:
 	ld a, $1
 	ldh [hInMenu], a
 
-	ld a, $0
+	ld a, FALSE
 	ld [wSpriteUpdatesEnabled], a
 	ld a, $10
 	ld [wMusicFade], a
@@ -517,7 +517,7 @@ SetDayOfWeek:
 	ret
 
 .WeekdayStrings:
-; entries correspond to wCurDay constants (see constants/wram_constants.asm)
+; entries correspond to wCurDay constants (see constants/ram_constants.asm)
 	dw .Sunday
 	dw .Monday
 	dw .Tuesday
@@ -552,13 +552,13 @@ SetDayOfWeek:
 
 InitialSetDSTFlag:
 	ld a, [wDST]
-	set 7, a
+	set DST_F, a
 	ld [wDST], a
 	hlcoord 1, 14
 	lb bc, 3, 18
 	call ClearBox
 	ld hl, .Text
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	ret
 
 .Text:
@@ -579,13 +579,13 @@ InitialSetDSTFlag:
 
 InitialClearDSTFlag:
 	ld a, [wDST]
-	res 7, a
+	res DST_F, a
 	ld [wDST], a
 	hlcoord 1, 14
 	lb bc, 3, 18
 	call ClearBox
 	ld hl, .Text
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	ret
 
 .Text:
@@ -609,7 +609,7 @@ MrChrono: ; unreferenced
 	lb bc, 3, SCREEN_WIDTH - 2
 	call ClearBox
 	ld hl, .Text
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	ret
 
 .Text:
@@ -642,7 +642,7 @@ MrChrono: ; unreferenced
 	inc hl
 
 	ld a, [wDST]
-	bit 7, a
+	bit DST_F, a
 	jr z, .off
 
 	ld [hl], "O"

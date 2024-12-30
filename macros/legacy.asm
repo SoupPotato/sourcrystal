@@ -13,6 +13,14 @@ ENDM
 
 ; macros/data.asm
 
+MACRO dt
+	bigdt \1
+ENDM
+
+MACRO dd
+	bigdd \1
+ENDM
+
 MACRO dbbw
 	db \1, \2
 	dw \3
@@ -206,6 +214,8 @@ DEF battlecheck           EQUS "randomwildmon"
 DEF loadtrainerdata       EQUS "loadtemptrainer"
 DEF loadpokedata          EQUS "loadwildmon"
 DEF returnafterbattle     EQUS "reloadmapafterbattle"
+DEF refreshscreen         EQUS "reanchormap"
+DEF reloadmappart         EQUS "refreshmap"
 DEF trainerstatus         EQUS "trainerflagaction"
 DEF talkaftercancel       EQUS "endifjustbattled"
 DEF talkaftercheck        EQUS "checkjustbattled"
@@ -343,8 +353,11 @@ DEF anim_clearsprites  EQUS "anim_keepsprites"
 
 ; macros/scripts/oam_anims.asm
 DEF dorestart EQUS "oamrestart"
-DEF dowait EQUS "oamwait"
-DEF delanim EQUS "oamdel"
+DEF dowait    EQUS "oamwait"
+DEF delanim   EQUS "oamdel"
+
+; macros/scripts/battle_commands.asm
+DEF checkcurl EQUS "checkrollout"
 
 ; engine/events/std_scripts.asm
 DEF pokecenternurse       EQUS "PokecenterNurseScript"
@@ -399,6 +412,10 @@ DEF receivetogepiegg      EQUS "ReceiveTogepiEggScript"
 DEF pcscript              EQUS "PCScript"
 DEF gamecornercoinvendor  EQUS "GameCornerCoinVendorScript"
 DEF happinesschecknpc     EQUS "HappinessCheckScript"
+
+; constants/charmap.asm
+charmap "%", "<BSP>"
+charmap "¯", "<WBR>"
 
 ; constants/sprite_constants.asm
 DEF SPRITE_BUENA EQUS "SPRITE_BEAUTY"

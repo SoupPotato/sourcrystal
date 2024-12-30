@@ -58,7 +58,7 @@ Function117699:
 	call ClearBGPalettes
 	call ClearSprites
 	farcall Function171c87
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	farcall ClearSpriteAnims
 	ret
 
@@ -70,7 +70,7 @@ Function1176ee:
 	jr nz, .quit
 	call Function117719
 	farcall PlaySpriteAnimations
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	jr .loop
 
 .quit
@@ -325,7 +325,7 @@ Function1178aa:
 	call LoadMenuHeader
 	call MenuBox
 	call MenuBoxCoord2Tile
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	hlcoord 16, 8
 	ld de, YessNoString_1179c5
 	call PlaceString
@@ -427,7 +427,7 @@ Function117984:
 	call LoadMenuHeader
 	call MenuBox
 	call MenuBoxCoord2Tile
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	hlcoord 1, 14
 	ld de, NotAPokemonPasswordString
 	call PlaceString
@@ -461,7 +461,7 @@ YessNoString_1179c5:
 	next "いいえ@"
 
 AskSavePasswordString:
-	db   "こ<NO>パスワード¯ほぞんして"
+	db   "こ<NO>パスワード<WO>ほぞんして"
 	line "おきますか？@"
 
 NotAPokemonPasswordString:
@@ -469,7 +469,7 @@ NotAPokemonPasswordString:
 	line "されていません！@"
 
 SavedPasswordString:
-	db   "ログインパスワード¯ほぞん"
+	db   "ログインパスワード<WO>ほぞん"
 	line "しました@"
 
 MobilePassword_IncrementJumptable:
@@ -477,8 +477,7 @@ MobilePassword_IncrementJumptable:
 	inc [hl]
 	ret
 
-pushc
-setcharmap ascii
+pushc ascii
 
 Unknown_117a0f:
 	db "ABCDEFGHIJKLMNOPQRSTUVWXYZ  "
@@ -489,6 +488,7 @@ Unknown_117a47:
 	db "!\"#$%&'()*+   "
 	db ",-./:;<=>?@   "
 	db "[\\]^_`\{|}~    "
+
 popc
 
 ; everything from here to the end of the bank is related to the
@@ -526,13 +526,13 @@ Function117ab4:
 	call ClearSprites
 	farcall Function172e78
 	farcall Function172eb9
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	ret
 
 Function117acd:
 	call JoyTextDelay
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .asm_117ae2
 	call Function117ae9
 	farcall HDMATransferAttrmapAndTilemapToWRAMBank3
@@ -633,14 +633,14 @@ Function117b4f:
 	jr nz, .b_button
 	call ExitMenu
 	call ExitMenu
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	jp MobileStudium_JumptableIncrement
 
 .b_button
 	call ExitMenu
 	call ExitMenu
-	farcall ReloadMapPart
-	ld a, $80
+	farcall HDMATransferTilemapAndAttrmap_Overworld
+	ld a, JUMPTABLE_EXIT
 	ld [wJumptableIndex], a
 	ret
 
@@ -659,12 +659,12 @@ Function117bb6:
 	ld a, $2
 	ld [wc303], a
 	farcall DisplayMobileError
-	ld a, $80
+	ld a, JUMPTABLE_EXIT
 	ld [wJumptableIndex], a
 	ret
 
 .asm_117be1
-	ld a, $80
+	ld a, JUMPTABLE_EXIT
 	ld [wJumptableIndex], a
 	ret
 
@@ -726,7 +726,7 @@ Function117c4a:
 	call LoadMenuHeader
 	call MenuBox
 	call MenuBoxCoord2Tile
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	ld hl, MobileStadiumSuccessText
 	call PrintText
 	ldh a, [rSVBK]
@@ -749,7 +749,7 @@ Function117c4a:
 	call RotateThreePalettesRight
 	pop af
 	ldh [rSVBK], a
-	ld a, $80
+	ld a, JUMPTABLE_EXIT
 	ld [wJumptableIndex], a
 	ret
 

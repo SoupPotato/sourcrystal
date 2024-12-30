@@ -144,7 +144,7 @@ VermilionDiglettsCaveSpeechHouse_Blocks:
 BluesHouse_Blocks:
 PewterNidoranSpeechHouse_Blocks:
 PewterSnoozeSpeechHouse_Blocks:
-BillsBrothersHouse_Blocks:
+BillsOlderSistersHouse_Blocks:
 LavenderSpeechHouse_Blocks:
 LavenderNameRater_Blocks:
 Route12SuperRodHouse_Blocks:
@@ -1008,4 +1008,5 @@ MountMoonB1F_Blocks:
 
 MountMoonB2F_Blocks:
 	INCBIN "maps/MountMoonB2F.blk"
+
 ENDSECTION

@@ -169,10 +169,10 @@ Kurt1:
 	writetext KurtsHouseKurtIllStartRightAwayText
 	waitbutton
 	closetext
-	special FadeBlackQuickly
+	special FadeOutToBlack
 	special ReloadSpritesNoPalettes
 	pause 15
-	special FadeInQuickly
+	special FadeInFromBlack
 	opentext
 	sjump .GotLureBall
 	end

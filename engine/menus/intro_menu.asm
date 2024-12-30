@@ -410,7 +410,7 @@ ConfirmContinue:
 
 Continue_CheckRTC_RestartClock:
 	call CheckRTCStatus
-	and %10000000 ; Day count exceeded 16383
+	and RTC_RESET
 	jr z, .pass
 	farcall RestartClock
 	ld a, c
@@ -429,10 +429,10 @@ FinishContinueFunction:
 	ld [wDontPlayMapMusicOnReload], a
 	ld [wLinkMode], a
 	ld hl, wGameTimerPaused
-	set GAME_TIMER_PAUSED_F, [hl]
+	set GAME_TIMER_COUNTING_F, [hl]
 	res GAME_TIMER_MOBILE_F, [hl]
-	ld hl, wEnteredMapFromContinue
-	set 1, [hl]
+	ld hl, wMapNameSignFlags
+	set SHOWN_MAP_NAME_SIGN, [hl]
 	farcall OverworldLoop
 	ld a, [wSpawnAfterChampion]
 	cp SPAWN_RED
@@ -445,7 +445,7 @@ FinishContinueFunction:
 
 DisplaySaveInfoOnContinue:
 	call CheckRTCStatus
-	and %10000000
+	and RTC_RESET
 	jr z, .clock_ok
 	lb de, 4, 8
 	call DisplayContinueDataWithRTCError
@@ -1004,7 +1004,7 @@ StartTitleScreen:
 
 RunTitleScreen:
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .done_title
 	call TitleScreenScene
 	farcall SuicuneFrameIterator
@@ -1162,7 +1162,7 @@ TitleScreenMain:
 
 ; Return to the intro sequence.
 	ld hl, wJumptableIndex
-	set 7, [hl]
+	set JUMPTABLE_EXIT_F, [hl]
 	ret
 
 .end
@@ -1187,7 +1187,7 @@ TitleScreenMain:
 
 ; Return to the intro sequence.
 	ld hl, wJumptableIndex
-	set 7, [hl]
+	set JUMPTABLE_EXIT_F, [hl]
 	ret
 
 TitleScreenEnd:
@@ -1205,7 +1205,7 @@ TitleScreenEnd:
 
 ; Back to the intro.
 	ld hl, wJumptableIndex
-	set 7, [hl]
+	set JUMPTABLE_EXIT_F, [hl]
 	ret
 
 DeleteSaveData:

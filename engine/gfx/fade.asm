@@ -146,7 +146,7 @@ FadePalettesInit:
 .got_delay
 	and a
 	jr nz, .has_delay
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	scf
 	ret
 

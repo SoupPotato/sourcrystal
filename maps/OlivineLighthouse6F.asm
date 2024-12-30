@@ -49,17 +49,17 @@ OlivineLighthouseJasmine:
 	closetext ; extra command to smoothen the sprite swap by refreshing the screen
 	special RestartMapMusic
 	cry AMPHAROS
-	special FadeOutPalettes
+	special FadeOutToWhite
 	special LoadMapPalettes
 	special FadeInPalettes_EnableDynNoApply
 	opentext
 	writetext AmphyPaluPaluluText
 	waitbutton
 	closetext
-	special FadeOutPalettes
-	special FadeInPalettes
-	special FadeOutPalettes
-	special FadeInPalettes
+	special FadeOutToWhite
+	special FadeInFromWhite
+	special FadeOutToWhite
+	special FadeInFromWhite
 	pause 10
 	faceplayer
 	opentext
@@ -120,10 +120,10 @@ OlivineLighthouseAmphy:
 	cry AMPHAROS
 	waitbutton
 	closetext
-	special FadeOutPalettes
+	special FadeOutToWhite
 	special LoadMapPalettes
 	special FadeInPalettes_EnableDynNoApply
-	special FadeOutPalettes
+	special FadeOutToWhite
 	special LoadMapPalettes
 	special FadeInPalettes_EnableDynNoApply
 	end

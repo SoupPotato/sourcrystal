@@ -1,4 +1,4 @@
-; AI_SMART prefers these moves during harsh sunlight.
+; AI_SMART encourages Sunny Day if it also knows these moves.
 
 SunnyDayMoves:
 	db FIRE_PUNCH

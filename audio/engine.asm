@@ -223,7 +223,7 @@ UpdateChannels:
 	jp hl
 
 .ChannelFunctions:
-	table_width 2, UpdateChannels.ChannelFunctions
+	table_width 2
 ; music channels
 	dw .Channel1
 	dw .Channel2
@@ -736,7 +736,7 @@ LoadNote:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	; get direction of pitch slide
+	; subtract pitch slide from frequency
 	ld hl, CHANNEL_PITCH_SLIDE_TARGET
 	add hl, bc
 	ld a, e
@@ -758,7 +758,7 @@ LoadNote:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	; ????
+	; subtract frequency from pitch slide
 	ld hl, CHANNEL_PITCH_SLIDE_TARGET
 	add hl, bc
 	ld a, [hl]
@@ -767,7 +767,6 @@ LoadNote:
 	ld a, d
 	sbc 0
 	ld d, a
-	; ????
 	ld hl, CHANNEL_PITCH_SLIDE_TARGET + 1
 	add hl, bc
 	ld a, [hl]
@@ -909,7 +908,7 @@ HandleTrackVibrato:
 	swap [hl]
 	or [hl]
 	ld [hl], a
-	; ????
+	; get the frequency
 	ld a, [wCurTrackFrequency]
 	ld e, a
 	; toggle vibrato up/down
@@ -1193,7 +1192,7 @@ ParseMusic:
 	ld [hl], e
 	inc hl
 	ld [hl], d
-	; ????
+	; set noise sampling
 	ld hl, CHANNEL_NOTE_FLAGS
 	add hl, bc
 	set NOTE_NOISE_SAMPLING, [hl]
@@ -1212,10 +1211,10 @@ ParseMusic:
 	add hl, bc
 	bit SOUND_SUBROUTINE, [hl] ; in a subroutine?
 	jr nz, .readcommand ; execute
+	; are we in a sfx channel right now?
 	ld a, [wCurChannel]
-	cp CHAN5
+	cp NUM_MUSIC_CHANS
 	jr nc, .chan_5to8
-	; ????
 	ld hl, CHANNEL_STRUCT_LENGTH * NUM_MUSIC_CHANS + CHANNEL_FLAGS1
 	add hl, bc
 	bit SOUND_CHANNEL_ON, [hl]
@@ -1229,9 +1228,9 @@ ParseMusic:
 	ld a, [wCurChannel]
 	cp CHAN5
 	jr nz, .ok
-	; ????
+	; sweep = 0
 	xor a
-	ldh [rNR10], a ; sweep = 0
+	ldh [rNR10], a
 .ok
 ; stop playing
 	; turn channel off
@@ -1351,7 +1350,7 @@ GetNoiseSample:
 	ld [wNoiseSampleAddress], a
 	ld a, [hl]
 	ld [wNoiseSampleAddress + 1], a
-	; clear ????
+	; clear noise sample delay
 	xor a
 	ld [wNoiseSampleDelay], a
 	ret
@@ -1375,7 +1374,7 @@ ParseMusicCommand:
 
 MusicCommands:
 ; entries correspond to audio constants (see macros/scripts/audio.asm)
-	table_width 2, MusicCommands
+	table_width 2
 	dw Music_Octave8
 	dw Music_Octave7
 	dw Music_Octave6
@@ -1632,7 +1631,7 @@ MusicEE:
 ; params: 2
 ;		ll hh ; pointer
 
-; if ????, jump
+; if condition is set, jump
 	; get channel
 	ld a, [wCurChannel]
 	maskbits NUM_MUSIC_CHANS
@@ -2209,8 +2208,8 @@ SetNoteDuration:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	; add ???? to the next result
-	ld hl, CHANNEL_FIELD16
+	; add duration modifier to the next result
+	ld hl, CHANNEL_NOTE_DURATION_MODIFIER
 	add hl, bc
 	ld l, [hl]
 	; multiply Tempo by last result (NoteLength * LOW(delay))
@@ -2218,11 +2217,10 @@ SetNoteDuration:
 	; copy result to de
 	ld e, l
 	ld d, h
-	; store result in ????
-	ld hl, CHANNEL_FIELD16
+	; store result in NoteDuration and NoteDurationModifier
+	ld hl, CHANNEL_NOTE_DURATION_MODIFIER
 	add hl, bc
 	ld [hl], e
-	; store result in NoteDuration
 	ld hl, CHANNEL_NOTE_DURATION
 	add hl, bc
 	ld [hl], d
@@ -2253,7 +2251,7 @@ SetGlobalTempo:
 	push bc ; save current channel
 	; are we dealing with music or sfx?
 	ld a, [wCurChannel]
-	cp CHAN5
+	cp NUM_MUSIC_CHANS
 	jr nc, .sfxchannels
 	ld bc, wChannel1
 	call Tempo
@@ -2287,9 +2285,9 @@ Tempo:
 	ld [hl], e
 	inc hl
 	ld [hl], d
-	; clear ????
+	; clear duration modifier
 	xor a
-	ld hl, CHANNEL_FIELD16
+	ld hl, CHANNEL_NOTE_DURATION_MODIFIER
 	add hl, bc
 	ld [hl], a
 	ret
@@ -2787,7 +2785,7 @@ StereoTracks:
 	db $11, $22, $44, $88
 
 ChannelPointers:
-	table_width 2, ChannelPointers
+	table_width 2
 ; music channels
 	dw wChannel1
 	dw wChannel2

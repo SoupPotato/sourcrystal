@@ -10,7 +10,7 @@ PlayWhirlpoolSound:
 	ret
 
 BlindingFlash:
-	farcall FadeOutPalettes
+	farcall FadeOutToWhite
 	ld hl, wStatusFlags
 	set STATUSFLAGS_FLASH_F, [hl]
 	farcall ReplaceTimeOfDayPals
@@ -96,7 +96,7 @@ ShakeHeadbuttTree:
 	jr .loop
 
 .done
-	call OverworldTextModeSwitch
+	call LoadOverworldTilemapAndAttrmapPals
 	call WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
@@ -149,6 +149,8 @@ HeadbuttTreeKantoGFX:
 INCBIN "gfx/overworld/headbutt_tree_kanto.2bpp"
 
 HideHeadbuttTree:
+	; Replaces all four headbutted tree tiles with tile $05
+	; Assumes any tileset with headbutt trees has grass at tile $05
 	xor a
 	ldh [hBGMapMode], a
 	ld a, [wPlayerDirection]
@@ -164,10 +166,10 @@ HideHeadbuttTree:
 
 	ld a, [wMapTileset]
 	cp TILESET_KANTO
-	ld a, $74 ; grass block (custom for headbutt)
+	ld a, $74 ; grass tile (custom for headbutt)
 	jr z, .replacement_tile_determined
 
-	ld a, $05 ; grass block
+	ld a, $05 ; grass tile
 .replacement_tile_determined
 	ld [hli], a
 	ld [hld], a
@@ -224,7 +226,7 @@ OWCutAnimation:
 	res OW_WEATHER_DISABLED_F, [hl]
 .loop
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .finish
 
 	ld a, LOW(wShadowOAMSprite36)
@@ -354,7 +356,7 @@ Cut_WaitAnimSFX:
 
 .finished
 	ld hl, wJumptableIndex
-	set 7, [hl]
+	set JUMPTABLE_EXIT_F, [hl]
 	ret
 
 Cut_SpawnLeaf:
@@ -375,17 +377,21 @@ Cut_SpawnLeaf:
 	pop de
 	ret
 
+; cut leaf spawn coords table bits
+DEF CUT_LEAF_SPAWN_RIGHT_F  EQU 0
+DEF CUT_LEAF_SPAWN_BOTTOM_F EQU 1
+
 Cut_GetLeafSpawnCoords:
 	ld de, 0
 	ld a, [wPlayerMetatileX]
-	bit 0, a
+	bit 0, a ; even or odd?
 	jr z, .left_side
-	set 0, e
+	set CUT_LEAF_SPAWN_RIGHT_F, e
 .left_side
 	ld a, [wPlayerMetatileY]
-	bit 0, a
+	bit 0, a ; even or odd?
 	jr z, .top_side
-	set 1, e
+	set CUT_LEAF_SPAWN_BOTTOM_F, e
 .top_side
 	ld a, [wPlayerDirection]
 	and %00001100
@@ -451,10 +457,10 @@ FlyFromAnim:
 	call z, ClearSprites ; no more object palettes available, clear all sprites.
 	call HidePlayerSprite
 	call DelayFrame
-	ld a, [wVramState]
+	ld a, [wStateFlags]
 	push af
 	xor a
-	ld [wVramState], a
+	ld [wStateFlags], a
 	call FlyFunction_InitGFX
 	depixel 10, 10, 4, 0
 	ld a, SPRITE_ANIM_OBJ_FLY_MON
@@ -469,7 +475,7 @@ FlyFromAnim:
 	ld [wFrameCounter], a
 .loop
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .exit
 
 	ldh a, [hUsedOAMIndex]
@@ -496,7 +502,7 @@ FlyFromAnim:
 
 .exit
 	pop af
-	ld [wVramState], a
+	ld [wStateFlags], a
 	ret
 
 FlyToAnim:
@@ -505,10 +511,10 @@ FlyToAnim:
 	farcall LoadWeatherPal
 	farcall SpawnRandomWeatherFullScreen
 	call DelayFrame
-	ld a, [wVramState]
+	ld a, [wStateFlags]
 	push af
 	xor a
-	ld [wVramState], a
+	ld [wStateFlags], a
 	call FlyFunction_InitGFX
 	depixel 31, 10, 4, 0
 	ld a, SPRITE_ANIM_OBJ_FLY_MON
@@ -526,7 +532,7 @@ FlyToAnim:
 	ld [wFrameCounter], a
 .loop
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .exit
 
 	ldh a, [hUsedOAMIndex]
@@ -553,7 +559,7 @@ FlyToAnim:
 
 .exit
 	pop af
-	ld [wVramState], a
+	ld [wStateFlags], a
 	call .RestorePlayerSprite_DespawnLeaves
 	ret
 
@@ -628,7 +634,7 @@ FlyFunction_FrameTimer:
 
 .exit
 	ld hl, wJumptableIndex
-	set 7, [hl]
+	set JUMPTABLE_EXIT_F, [hl]
 	ret
 
 .SpawnLeaf:

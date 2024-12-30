@@ -1,5 +1,5 @@
 VWFWidths:
-	table_width 1, VWFWidths
+	table_width 1
 	db 4 ; $7f " "
 	db 5 ; $80 "A"
 	db 5 ; $81 "B"
@@ -132,7 +132,7 @@ VWFWidths:
 	assert_table_length LAST_VWF_CHAR - FIRST_VWF_CHAR + 1
 
 VWFCharacterGFX:
-	table_width LEN_1BPP_TILE, VWFCharacterGFX
+	table_width LEN_1BPP_TILE
 INCBIN "gfx/font/space.1bpp"
 INCBIN "gfx/font/vwf.1bpp"
 	assert_table_length LAST_VWF_CHAR - FIRST_VWF_CHAR + 1

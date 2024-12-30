@@ -4,7 +4,7 @@ SendScreenToPrinter:
 	call CheckCancelPrint
 	jr c, .cancel
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .finished
 	call PrinterJumptableIteration
 	call CheckPrinterStatus
@@ -71,9 +71,9 @@ PrintDexEntry:
 	ld hl, hVBlank
 	ld a, [hl]
 	push af
-	ld [hl], 4 ; vblank mode that calls AskSerial
+	ld [hl], VBLANK_SERIAL
 
-	ld a, 8 ; 16 rows
+	ld a, 16 / 2
 	ld [wPrinterQueueLength], a
 	call Printer_ResetJoypadRegisters
 	call SendScreenToPrinter
@@ -90,7 +90,7 @@ PrintDexEntry:
 	ld [wPrinterMargins], a
 	farcall PrintPage2
 	call Printer_ResetJoypadRegisters
-	ld a, 4
+	ld a, 8 / 2
 	ld [wPrinterQueueLength], a
 	call SendScreenToPrinter
 
@@ -139,7 +139,7 @@ PrintUnownStamp:
 	ld hl, hVBlank
 	ld a, [hl]
 	push af
-	ld [hl], 4 ; vblank mode that calls AskSerial
+	ld [hl], VBLANK_SERIAL
 
 	xor a
 	ldh [hBGMapMode], a
@@ -157,7 +157,7 @@ PrintUnownStamp:
 	call CheckCancelPrint
 	jr c, .done
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .done
 	call PrinterJumptableIteration
 	ld a, [wJumptableIndex]
@@ -214,7 +214,7 @@ PrintMail:
 	ld hl, hVBlank
 	ld a, [hl]
 	push af
-	ld [hl], 4 ; vblank mode that calls AskSerial
+	ld [hl], VBLANK_SERIAL
 
 	ld a, 18 / 2
 	ld [wPrinterQueueLength], a
@@ -257,7 +257,7 @@ PrintPartymon:
 	ld hl, hVBlank
 	ld a, [hl]
 	push af
-	ld [hl], 4 ; vblank mode that calls AskSerial
+	ld [hl], VBLANK_SERIAL
 
 	ld a, 16 / 2
 	ld [wPrinterQueueLength], a
@@ -315,7 +315,7 @@ _PrintDiploma:
 	ld hl, hVBlank
 	ld a, [hl]
 	push af
-	ld [hl], 4 ; vblank mode that calls AskSerial
+	ld [hl], VBLANK_SERIAL
 
 	ln a, 1, 0 ; to be loaded to wPrinterMargins
 	call Printer_PrepareTilemapForPrint
@@ -436,12 +436,12 @@ CheckPrinterStatus:
 	jr z, .error_2
 .printer_connected
 	ld a, [wPrinterStatusFlags]
-	and %11100000
+	and PRINTER_STATUS_ERROR_3 | PRINTER_STATUS_ERROR_4 | PRINTER_STATUS_ERROR_1
 	ret z ; no error
 
-	bit 7, a
+	bit PRINTER_STATUS_ERROR_1_F, a
 	jr nz, .error_1
-	bit 6, a
+	bit PRINTER_STATUS_ERROR_4_F, a
 	jr nz, .error_4
 	; paper error
 	ld a, PRINTER_ERROR_3

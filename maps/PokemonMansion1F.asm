@@ -30,7 +30,7 @@ WhirlWarp:
 	pause 3
 	turnobject PLAYER, DOWN
 	pause 3
-	special FadeOutPalettes
+	special FadeOutToWhite
 	warpfacing DOWN, CINNABAR_ISLAND, 5, 3
 	end
 

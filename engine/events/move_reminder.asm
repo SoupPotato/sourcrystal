@@ -195,7 +195,7 @@ CheckPokemonAlreadyKnowsMove:
 	ret
 
 ChooseMoveToLearn:
-	farcall FadeOutPalettes
+	farcall FadeOutToWhite
 	farcall BlankScreen
 	ld hl, .MenuHeader
 	call CopyMenuHeader

@@ -533,6 +533,7 @@ wAlreadyFailed:: db
 wBattleParticipantsIncludingFainted:: db
 wBattleLowHealthAlarm:: db
 wPlayerMinimized:: db
+
 wPlayerScreens::
 ; bit
 ; 0 spikes
@@ -1374,8 +1375,8 @@ SECTION "Video", WRAM0
 
 UNION
 ; bg map
-wBGMapBuffer::    ds 40
-wBGMapPalBuffer:: ds 40
+wBGMapBuffer::    ds 2 * SCREEN_WIDTH
+wBGMapPalBuffer:: ds 2 * SCREEN_WIDTH
 wBGMapBufferPointers:: ds 20 * 2
 wBGMapBufferEnd::
 
@@ -1834,10 +1835,7 @@ wJoypadDisable::
 
 	ds 1
 
-wInBattleTowerBattle::
-; 0 not in BattleTower-Battle
-; 1 BattleTower-Battle
-	db
+wInBattleTowerBattle:: db
 
 	ds 1
 
@@ -2306,7 +2304,7 @@ wWalkingDirection:: db
 wFacingDirection:: db
 wWalkingX:: db
 wWalkingY:: db
-wWalkingTile:: db
+wWalkingTileCollision:: db
 	ds 6
 wPlayerTurningDirection:: db
 
@@ -2404,12 +2402,11 @@ wBattlePlayerAction::
 wSolvedUnownPuzzle::
 	db
 
-wVramState::
+wStateFlags::
 ; bit 0: overworld sprite updating on/off
-; bit 1: something to do with sprite updates
-; bit 6: something to do with text
-; bit 7: on when surf initiates
-;        flickers when climbing waterfall
+; bit 1: last 12 sprite OAM structs reserved
+; bit 6: in text state
+; bit 7: in scripted movement
 	db
 
 wBattleResult::
@@ -2554,7 +2551,7 @@ wTilesetCollisionBank:: db
 wTilesetCollisionAddress:: dw
 wTilesetAnim:: dw ; bank 3f
 	ds 2 ; unused
-wTilesetPalettes:: dw ; bank 3f
+wTileSetDefaultBGPAndOBP:: dw ; bank 3f
 wTilesetEnd::
 	assert wTilesetEnd - wTileset == TILESET_LENGTH
 
@@ -2907,10 +2904,11 @@ wMapStatus:: db
 wMapEventStatus:: db
 
 wScriptFlags::
+; bit 2: running script
 ; bit 3: run deferred script
 	db
 	ds 1
-wScriptFlags2::
+wEnabledPlayerEvents::
 ; bit 0: count steps
 ; bit 1: coord events
 ; bit 2: warps and connections
@@ -3068,7 +3066,7 @@ wObjectMasks:: ds NUM_OBJECTS
 
 wVariableSprites:: ds $100 - SPRITE_VARS
 
-wEnteredMapFromContinue:: db
+wMapNameSignFlags:: db
 	ds 2
 wTimeOfDayPal:: db
 	ds 4
@@ -3302,8 +3300,8 @@ wBikeFlags::
 wCurMapSceneScriptPointer:: dw
 
 wCurCaller:: dw
-wCurMapWarpCount:: db
-wCurMapWarpsPointer:: dw
+wCurMapWarpEventCount:: db
+wCurMapWarpEventsPointer:: dw
 wCurMapCoordEventCount:: db
 wCurMapCoordEventsPointer:: dw
 wCurMapBGEventCount:: db
@@ -3335,7 +3333,6 @@ wDailyResetTimer:: dw
 wDailyFlags1:: ds 11
 wDailyFlags2:: db
 wSwarmFlags:: db
-
 wTimerEventStartDay:: db
 
 

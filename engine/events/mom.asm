@@ -7,7 +7,7 @@ BankOfMom:
 	ld [wJumptableIndex], a
 .loop
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .done
 	call .RunJumptable
 	jr .loop
@@ -278,13 +278,13 @@ BankOfMom:
 
 .AskDST:
 	ld hl, wJumptableIndex
-	set 7, [hl]
+	set JUMPTABLE_EXIT_F, [hl]
 	ret
 
 DSTChecks:
 ; check the time; avoid changing DST if doing so would change the current day
 	ld a, [wDST]
-	bit 7, a
+	bit DST_F, a
 	ldh a, [hHours]
 	jr z, .NotDST
 	and a ; within one hour of 00:00?
@@ -300,48 +300,48 @@ DSTChecks:
 	call .ClearBox
 	bccoord 1, 14
 	ld hl, .TimesetAskAdjustDSTText
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	call YesNoBox
 	ret c
 	call .ClearBox
 	bccoord 1, 14
 	ld hl, .MomLostGearBookletText
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	ret
 
 .loop
 	call .ClearBox
 	bccoord 1, 14
 	ld a, [wDST]
-	bit 7, a
+	bit DST_F, a
 	jr z, .SetDST
 	ld hl, .TimesetAskNotDSTText
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	call YesNoBox
 	ret c
 	ld a, [wDST]
-	res 7, a
+	res DST_F, a
 	ld [wDST], a
 	call .SetClockBack
 	call .ClearBox
 	bccoord 1, 14
 	ld hl, .TimesetNotDSTText
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	ret
 
 .SetDST:
 	ld hl, .TimesetAskDSTText
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	call YesNoBox
 	ret c
 	ld a, [wDST]
-	set 7, a
+	set DST_F, a
 	ld [wDST], a
 	call .SetClockForward
 	call .ClearBox
 	bccoord 1, 14
 	ld hl, .TimesetDSTText
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	ret
 
 .SetClockForward:
@@ -552,26 +552,15 @@ Mom_WithdrawDepositMenuJoypad:
 	ret
 
 .DigitQuantities:
-	dt 100000
-	dt 10000
-	dt 1000
-	dt 100
-	dt 10
-	dt 1
-
-	dt 100000
-	dt 10000
-	dt 1000
-	dt 100
-	dt 10
-	dt 1
-
-	dt 900000
-	dt 90000
-	dt 9000
-	dt 900
-	dt 90
-	dt 9
+	for x, 5, -1, -1
+		bigdt 10**x
+	endr
+	for x, 5, -1, -1
+		bigdt 10**x
+	endr
+	for x, 5, -1, -1
+		bigdt 9 * 10**x
+	endr
 
 MomLeavingText1:
 	text_far _MomLeavingText1

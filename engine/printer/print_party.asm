@@ -225,7 +225,7 @@ PrintPartyMonPage1:
 	call WaitBGMap
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ld c, 2
 	jp DelayFrames
 
@@ -277,7 +277,7 @@ PrintPartyMonPage2:
 	call WaitBGMap
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ld c, 2
 	jp DelayFrames
 

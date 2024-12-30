@@ -40,15 +40,15 @@ Function100022:
 	farcall Stubbed_Function106462
 	farcall Function106464 ; load broken gfx
 	farcall Function11615a ; init RAM
-	ld hl, wVramState
-	set 1, [hl]
+	ld hl, wStateFlags
+	set LAST_12_SPRITE_OAM_STRUCTS_RESERVED_F, [hl]
 	ret
 
 Function100057:
 	call DisableMobile
 	call ReturnToMapFromSubmenu
-	ld hl, wVramState
-	res 1, [hl]
+	ld hl, wStateFlags
+	res LAST_12_SPRITE_OAM_STRUCTS_RESERVED_F, [hl]
 	ret
 
 SetRAMStateForMobile:
@@ -98,6 +98,7 @@ DisableMobile:
 	xor a
 	ldh [hMobileReceive], a
 	ldh [hMobile], a
+	assert VBLANK_NORMAL == 0
 	xor a
 	ldh [hVBlank], a
 	call NormalSpeed
@@ -242,7 +243,7 @@ Function10016f:
 	jr z, .asm_1001af
 	cp $f8
 	ret z
-	ret   ; ????????????????????????????
+	ret ; ???
 
 .asm_1001af
 	ld a, $d7
@@ -308,7 +309,7 @@ Function10016f:
 Function10020b:
 	xor a
 	ld [wc303], a
-	farcall FadeOutPalettes
+	farcall FadeOutToWhite
 	farcall Function106464
 	call HideSprites
 	call DelayFrame
@@ -364,7 +365,7 @@ Function100276:
 	ret
 
 .asm_100296
-	farcall Script_reloadmappart
+	farcall Script_refreshmap
 	ld c, $04
 	ret
 
@@ -374,7 +375,7 @@ Function100276:
 	ret
 
 .asm_1002a5
-	farcall Script_reloadmappart
+	farcall Script_refreshmap
 	call Function1002ed
 	ld c, $03
 	ret
@@ -430,7 +431,7 @@ Function100301:
 	ret
 
 Function100320:
-	farcall Mobile_ReloadMapPart
+	farcall Mobile_HDMATransferTilemapAndAttrmap_Overworld
 	ret
 
 Function100327: ; unreferenced
@@ -1382,7 +1383,7 @@ Function1008e0:
 	push bc
 	xor a
 	ldh [hBGMapMode], a
-	ld a, $03
+	ld a, VBLANK_CUTSCENE_CGB
 	ldh [hVBlank], a
 	call Function100970
 	call Function100902
@@ -1415,7 +1416,7 @@ Function100902:
 	call PrintNum
 	ld de, SFX_TWO_PC_BEEPS
 	call PlaySFX
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	ld c, $3c
 	call DelayFrames
 	ret
@@ -1426,7 +1427,7 @@ Function100902:
 	call PlaceString
 	ld de, SFX_4_NOTE_DITTY
 	call PlaySFX
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	ld c, 120
 	call DelayFrames
 	ret
@@ -1452,7 +1453,7 @@ Function100989:
 	decoord 0, 0
 	call Function1009a5
 	call Function1009ae
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	ld hl, w3_dd68
 	decoord 0, 0, wAttrmap
 	call Function1009a5
@@ -1701,8 +1702,7 @@ Function100ae7:
 	ld [wcd2b], a
 	ret
 
-pushc
-setcharmap ascii
+pushc ascii
 
 Unknown_100b0a:
 	db "tetsuji", 0
@@ -2448,9 +2448,8 @@ Unknown_10102c:
 Function101050:
 	call Function10107d
 	ld a, [wOTPartyCount]
-rept 2 ; ???
 	ld hl, wc608
-endr
+	ld hl, wc608 ; redundant
 	ld bc, wc7bb - wc608
 	call Function1010de
 	ld hl, wc7bb
@@ -2741,7 +2740,7 @@ Jumptable_101247:
 
 Function101251:
 	call UpdateSprites
-	call RefreshScreen
+	call ReanchorMap
 	ld hl, ClosingLinkText
 	call Function1021e0
 	call Function1020ea
@@ -2756,7 +2755,7 @@ Function101265:
 
 Function10126c:
 	call UpdateSprites
-	farcall Script_reloadmappart
+	farcall Script_refreshmap
 	ld hl, ClosingLinkText
 	call Function1021e0
 	ret
@@ -3642,8 +3641,7 @@ Function101826:
 	ld [wcd2b], a
 	ret
 
-pushc
-setcharmap ascii
+pushc ascii
 
 Unknown_10186f:
 	db .end - @
@@ -4918,7 +4916,7 @@ Function10224b:
 .asm_10225e
 	res 1, [hl]
 	res 2, [hl]
-	farcall Mobile_ReloadMapPart
+	farcall Mobile_HDMATransferTilemapAndAttrmap_Overworld
 	scf
 	ret
 
@@ -6482,7 +6480,7 @@ Function102dec:
 	ld a, $05
 	call FarCopyWRAM
 	farcall Function49742
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	call DelayFrame
 	ret
 
@@ -7650,7 +7648,7 @@ Function10383c:
 	ld hl, PickThreeMonForMobileBattleText
 	call PrintText
 	call JoyWaitAorB
-	farcall Script_reloadmappart
+	farcall Script_refreshmap
 	farcall Function4a94e
 	jr c, .asm_103870
 	ld hl, wd002

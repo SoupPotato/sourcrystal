@@ -419,7 +419,7 @@ WrongNumber:
 	text_end
 
 Script_ReceivePhoneCall:
-	refreshscreen
+	reanchormap
 	callasm RingTwice_StartCall
 	memcall wCallerContact + PHONE_CONTACT_SCRIPT2_BANK
 	waitbutton

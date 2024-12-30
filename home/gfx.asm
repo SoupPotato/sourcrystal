@@ -76,11 +76,11 @@ SafeHDMATransfer::
 	push bc
 	lb bc, %11, LOW(rSTAT)
 .wait_hblank1
-	ld a, [c]
+	ldh a, [c]
 	and b
 	jr z, .wait_hblank1
 .wait_hblank2
-	ld a, [c]
+	ldh a, [c]
 	and b
 	jr nz, .wait_hblank2
 

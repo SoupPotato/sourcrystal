@@ -1,4 +1,4 @@
-INCLUDE "charmap.asm"
+INCLUDE "constants/charmap.asm"
 
 INCLUDE "macros/asserts.asm"
 INCLUDE "macros/const.asm"
@@ -24,7 +24,7 @@ INCLUDE "macros/legacy.asm"
 
 INCLUDE "constants/hardware_constants.asm"
 INCLUDE "constants/deco_constants.asm"
-INCLUDE "constants/wram_constants.asm"
+INCLUDE "constants/ram_constants.asm"
 INCLUDE "constants/misc_constants.asm"
 INCLUDE "constants/input_constants.asm"
 INCLUDE "constants/gfx_constants.asm"
@@ -71,3 +71,7 @@ INCLUDE "constants/trainer_data_constants.asm"
 INCLUDE "constants/type_constants.asm"
 INCLUDE "constants/battle_tower_constants.asm"
 INCLUDE "constants/weather_constants.asm"
+
+if DEF(_CRYSTAL11_VC)
+INCLUDE "vc/sourcrystal.constants.asm"
+endc

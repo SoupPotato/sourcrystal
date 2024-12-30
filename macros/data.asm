@@ -55,16 +55,25 @@ MACRO dc ; "crumbs"
 	endr
 ENDM
 
-MACRO dt ; three-byte (big-endian)
-	db LOW((\1) >> 16), HIGH(\1), LOW(\1)
-ENDM
-
-MACRO dd ; four-byte (big-endian)
-	db HIGH((\1) >> 16), LOW((\1) >> 16), HIGH(\1), LOW(\1)
-ENDM
-
 MACRO bigdw ; big-endian word
-	db HIGH(\1), LOW(\1)
+	rept _NARG
+		db HIGH(\1), LOW(\1)
+		shift
+	endr
+ENDM
+
+MACRO bigdt ; big-endian "tribyte"
+	rept _NARG
+		db LOW((\1) >> 16), HIGH(\1), LOW(\1)
+		shift
+	endr
+ENDM
+
+MACRO bigdd ; big-endian "double word"
+	rept _NARG
+		db HIGH((\1) >> 16), LOW((\1) >> 16), HIGH(\1), LOW(\1)
+		shift
+	endr
 ENDM
 
 MACRO dba ; dbw bank, address
@@ -84,6 +93,19 @@ ENDM
 MACRO dba_pic ; dbw bank, address
 	db BANK(\1) - PICS_FIX
 	dw \1
+ENDM
+
+MACRO dba_pics ; front, back
+	if _NARG == 2
+		dba_pic \1 ; front
+		dba_pic \2 ; back
+	elif _NARG == 1
+		dba_pic \1 ; front
+		dbw -1, -1 ; unused
+	else
+		dbw -1, -1 ; unused
+		dbw -1, -1 ; unused
+	endc
 ENDM
 
 MACRO bcd

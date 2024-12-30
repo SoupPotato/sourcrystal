@@ -13,7 +13,7 @@ DoBattleAnimFrame:
 
 .Jumptable:
 ; entries correspond to BATTLE_ANIM_FUNC_* constants
-	table_width 2, DoBattleAnimFrame.Jumptable
+	table_width 2
 	dw BattleAnimFunc_Null
 	dw BattleAnimFunc_MoveFromUserToTarget
 	dw BattleAnimFunc_MoveFromUserToTargetAndDisappear
@@ -792,6 +792,9 @@ BattleAnimFunc_FireBlast:
 	ret
 
 BattleAnimFunc_RazorLeaf:
+; Object moves at an arc
+; Obj Param: Bit 6 defines offset from base frameset BATTLE_ANIM_FRAMESET_RAZOR_LEAF_2
+;            Rest defines arc radius
 	call BattleAnim_AnonJumptable
 .anon_dw
 	dw .zero
@@ -920,7 +923,7 @@ BattleAnimFunc_RazorLeaf:
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_OAMFLAGS
 	add hl, bc
-	res 5, [hl]
+	res OAM_X_FLIP, [hl]
 .four
 .five
 .six
@@ -1234,7 +1237,9 @@ BattleAnimFunc_Sing:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, BATTLE_ANIM_FRAMESET_MUSIC_NOTE_1
-	add [hl] ; BATTLE_ANIM_FRAMESET_MUSIC_NOTE_2 BATTLE_ANIM_FRAMESET_MUSIC_NOTE_3
+	assert BATTLE_ANIM_FRAMESET_MUSIC_NOTE_1 + 1 == BATTLE_ANIM_FRAMESET_MUSIC_NOTE_2 \
+		&& BATTLE_ANIM_FRAMESET_MUSIC_NOTE_2 + 1 == BATTLE_ANIM_FRAMESET_MUSIC_NOTE_3
+	add [hl]
 	call ReinitBattleAnimFrameset
 
 .one
@@ -1302,7 +1307,7 @@ BattleAnimFunc_WaterGun:
 	ld hl, BATTLEANIMSTRUCT_OAMFLAGS
 	add hl, bc
 	ld a, [hl]
-	and $1
+	and 1 << BATTLEANIMSTRUCT_OAMFLAGS_FIX_COORDS_F
 	ld [hl], a
 .two
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
@@ -1500,15 +1505,15 @@ BattleAnimFunc_Clamp_Encore:
 	ld hl, BATTLEANIMSTRUCT_VAR2
 	add hl, bc
 	ld a, [hl]
-	inc a ; BATTLE_ANIM_FRAMESET_3B (Clamp Flipped)
-	      ; BATTLE_ANIM_FRAMESET_A1 (Hands Flipped)
+	assert BATTLE_ANIM_FRAMESET_CLAMP + 1 ==  BATTLE_ANIM_FRAMESET_CLAMP_FLIPPED
+	assert BATTLE_ANIM_FRAMESET_ENCORE_HAND + 1 == BATTLE_ANIM_FRAMESET_ENCORE_HAND_FLIPPED
+	inc a
 	jr .reinit
 
 .load_no_inc
 	ld hl, BATTLEANIMSTRUCT_VAR2
 	add hl, bc
-	ld a, [hl] ; BATTLE_ANIM_FRAMESET_3A (Clamp)
-	           ; BATTLE_ANIM_FRAMESET_A0 (Hands)
+	ld a, [hl] ; BATTLE_ANIM_FRAMESET_CLAMP or BATTLE_ANIM_FRAMESET_ENCORE_HAND
 .reinit
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_VAR1
@@ -1834,8 +1839,10 @@ BattleAnimFunc_Wrap:
 	ld hl, BATTLEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
 	ld a, [hl]
-	inc a ; BATTLE_ANIM_FRAMESET_BIND_2
-	      ; BATTLE_ANIM_FRAMESET_BIND_4
+	assert BATTLE_ANIM_FRAMESET_BIND_1 + 1 == BATTLE_ANIM_FRAMESET_BIND_2 \ 
+		&& BATTLE_ANIM_FRAMESET_BIND_2 + 1 == BATTLE_ANIM_FRAMESET_BIND_3 \
+		&& BATTLE_ANIM_FRAMESET_BIND_3 + 1 == BATTLE_ANIM_FRAMESET_BIND_4
+	inc a
 	call ReinitBattleAnimFrameset
 	call BattleAnim_IncAnonJumptableIndex
 	ld hl, BATTLEANIMSTRUCT_VAR1 ; Unused?
@@ -2018,7 +2025,7 @@ BattleAnimFunc_Kick:
 	inc [hl]
 	ld hl, BATTLEANIMSTRUCT_OAMFLAGS
 	add hl, bc
-	set 0, [hl]
+	set BATTLEANIMSTRUCT_OAMFLAGS_FIX_COORDS_F, [hl]
 	ld hl, BATTLEANIMSTRUCT_FIX_Y
 	add hl, bc
 	ld [hl], $90
@@ -2334,7 +2341,9 @@ BattleAnimFunc_Sound:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, BATTLE_ANIM_FRAMESET_SOUND_1
-	add [hl] ; BATTLE_ANIM_FRAMESET_SOUND_2 BATTLE_ANIM_FRAMESET_SOUND_3
+	assert BATTLE_ANIM_FRAMESET_SOUND_1 + 1 == BATTLE_ANIM_FRAMESET_SOUND_2 \
+		&& BATTLE_ANIM_FRAMESET_SOUND_2 + 1 == BATTLE_ANIM_FRAMESET_SOUND_3
+	add [hl]
 	call ReinitBattleAnimFrameset
 	ret
 
@@ -2410,7 +2419,8 @@ BattleAnimFunc_ConfuseRay:
 	and $80
 	rlca
 	ld [hl], a
-	add BATTLE_ANIM_FRAMESET_CONFUSE_RAY_1 ; BATTLE_ANIM_FRAMESET_CONFUSE_RAY_2
+	assert BATTLE_ANIM_FRAMESET_CONFUSE_RAY_1 + 1 == BATTLE_ANIM_FRAMESET_CONFUSE_RAY_2
+	add BATTLE_ANIM_FRAMESET_CONFUSE_RAY_1
 	call ReinitBattleAnimFrameset
 	ret
 
@@ -2480,8 +2490,9 @@ BattleAnimFunc_Dizzy:
 	rlca
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
-	add [hl] ; BATTLE_ANIM_FRAMESET_61 BATTLE_ANIM_FRAMESET_62
-	         ; BATTLE_ANIM_FRAMESET_9C BATTLE_ANIM_FRAMESET_9D
+	assert BATTLE_ANIM_FRAMESET_CHICK_1 + 1 ==  BATTLE_ANIM_FRAMESET_CHICK_2
+	assert BATTLE_ANIM_FRAMESET_IMP + 1 == BATTLE_ANIM_FRAMESET_IMP_FLIPPED
+	add [hl]
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
@@ -2518,15 +2529,15 @@ BattleAnimFunc_Dizzy:
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	ld a, [hl]
-	inc a ; BATTLE_ANIM_FRAMESET_62
-	      ; BATTLE_ANIM_FRAMESET_9D
+	assert BATTLE_ANIM_FRAMESET_CHICK_1 + 1 ==  BATTLE_ANIM_FRAMESET_CHICK_2
+	assert BATTLE_ANIM_FRAMESET_IMP + 1 == BATTLE_ANIM_FRAMESET_IMP_FLIPPED
+	inc a
 	jr .got_frameset
 
 .not_flipped
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
-	ld a, [hl] ; BATTLE_ANIM_FRAMESET_61
-	           ; BATTLE_ANIM_FRAMESET_9C
+	ld a, [hl] ; BATTLE_ANIM_FRAMESET_CHICK_1 or BATTLE_ANIM_FRAMESET_IMP
 .got_frameset
 	call ReinitBattleAnimFrameset
 	ret
@@ -2546,7 +2557,9 @@ BattleAnimFunc_Amnesia:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, [hl]
-	add BATTLE_ANIM_FRAMESET_AMNESIA_1 ; BATTLE_ANIM_FRAMESET_AMNESIA_2 BATTLE_ANIM_FRAMESET_AMNESIA_3_RECOVER
+	assert BATTLE_ANIM_FRAMESET_AMNESIA_1 + 1 == BATTLE_ANIM_FRAMESET_AMNESIA_2 \
+		&& BATTLE_ANIM_FRAMESET_AMNESIA_2 + 1 == BATTLE_ANIM_FRAMESET_AMNESIA_3_RECOVER
+	add BATTLE_ANIM_FRAMESET_AMNESIA_1
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
@@ -2634,7 +2647,9 @@ BattleAnimFunc_String:
 	add hl, bc
 	set OAM_Y_FLIP, [hl]
 .not_param_zero
-	add BATTLE_ANIM_FRAMESET_STRING_SHOT_1 ; BATTLE_ANIM_FRAMESET_STRING_SHOT_2 BATTLE_ANIM_FRAMESET_STRING_SHOT_3
+	assert BATTLE_ANIM_FRAMESET_STRING_SHOT_1 + 1 == BATTLE_ANIM_FRAMESET_STRING_SHOT_2 \
+		&& BATTLE_ANIM_FRAMESET_STRING_SHOT_2 + 1 == BATTLE_ANIM_FRAMESET_STRING_SHOT_3
+	add BATTLE_ANIM_FRAMESET_STRING_SHOT_1
 	call ReinitBattleAnimFrameset
 .one
 	ret
@@ -3532,7 +3547,9 @@ BattleAnimFunc_SpeedLine:
 	add hl, bc
 	ld a, [hl]
 	and $7f
-	add BATTLE_ANIM_FRAMESET_SPEED_LINE_1 ; BATTLE_ANIM_FRAMESET_SPEED_LINE_2 BATTLE_ANIM_FRAMESET_SPEED_LINE_3
+	assert BATTLE_ANIM_FRAMESET_SPEED_LINE_1 + 1 == BATTLE_ANIM_FRAMESET_SPEED_LINE_2 \
+		&& BATTLE_ANIM_FRAMESET_SPEED_LINE_2 + 1 == BATTLE_ANIM_FRAMESET_SPEED_LINE_3
+	add BATTLE_ANIM_FRAMESET_SPEED_LINE_1
 	call ReinitBattleAnimFrameset
 .one
 	ld hl, BATTLEANIMSTRUCT_PARAM
@@ -3704,8 +3721,13 @@ BattleAnimFunc_LockOnMindReader:
 	and $f
 	ld hl, BATTLEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
-	add [hl] ; BATTLE_ANIM_FRAMESET_8F BATTLE_ANIM_FRAMESET_90 BATTLE_ANIM_FRAMESET_91
-	         ; BATTLE_ANIM_FRAMESET_93 BATTLE_ANIM_FRAMESET_94 BATTLE_ANIM_FRAMESET_95
+	assert BATTLE_ANIM_FRAMESET_LOCK_ON_1 + 1 == BATTLE_ANIM_FRAMESET_LOCK_ON_2 \
+		&& BATTLE_ANIM_FRAMESET_LOCK_ON_2 + 1 == BATTLE_ANIM_FRAMESET_LOCK_ON_3 \
+		&& BATTLE_ANIM_FRAMESET_LOCK_ON_3 + 1 == BATTLE_ANIM_FRAMESET_LOCK_ON_4
+	assert BATTLE_ANIM_FRAMESET_MIND_READER_1 + 1 == BATTLE_ANIM_FRAMESET_MIND_READER_2 \
+		&& BATTLE_ANIM_FRAMESET_MIND_READER_2 + 1 == BATTLE_ANIM_FRAMESET_MIND_READER_3 \
+		&& BATTLE_ANIM_FRAMESET_MIND_READER_3 + 1 == BATTLE_ANIM_FRAMESET_MIND_READER_4
+	add [hl]
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
@@ -3765,7 +3787,9 @@ BattleAnimFunc_HealBellNotes:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld a, BATTLE_ANIM_FRAMESET_MUSIC_NOTE_1
-	add [hl] ; BATTLE_ANIM_FRAMESET_MUSIC_NOTE_2 BATTLE_ANIM_FRAMESET_MUSIC_NOTE_3
+	assert BATTLE_ANIM_FRAMESET_MUSIC_NOTE_1 + 1 == BATTLE_ANIM_FRAMESET_MUSIC_NOTE_2 \
+		&& BATTLE_ANIM_FRAMESET_MUSIC_NOTE_2 + 1 == BATTLE_ANIM_FRAMESET_MUSIC_NOTE_3
+	add [hl]
 	call ReinitBattleAnimFrameset
 .one
 	ld hl, BATTLEANIMSTRUCT_YOFFSET

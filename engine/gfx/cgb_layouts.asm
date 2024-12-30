@@ -29,7 +29,8 @@ LoadSGBLayoutCGB:
 	ret
 
 CGBLayoutJumptable:
-	table_width 2, CGBLayoutJumptable
+; entries correspond to SCGB_* constants (see constants/scgb_constants.asm)
+	table_width 2
 	dw _CGB_BattleGrayscale
 	dw _CGB_BattleColors
 	dw _CGB_PokegearPals

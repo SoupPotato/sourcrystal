@@ -9859,3 +9859,5 @@ CoolDuoGroup:
 	db 62, AZUMARILL
 	db 64, PORYGON2
 	db -1 ; end
+
+ENDSECTION

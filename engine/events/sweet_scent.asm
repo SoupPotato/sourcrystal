@@ -6,7 +6,7 @@ SweetScentFromMenu:
 	ret
 
 .SweetScent:
-	reloadmappart
+	refreshmap
 	special UpdateTimePals
 	callasm GetPartyNickname
 	writetext UseSweetScentText
@@ -30,13 +30,13 @@ SweetScentNothing:
 	end
 
 SweetScentEncounter:
-	farcall CanUseSweetScent
+	farcall CanEncounterWildMon
 	jr nc, .no_battle
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
-	jr nz, .not_in_bug_contest_or_safari_zone
+	jr nz, .in_bug_contest_or_safari_zone
 	bit STATUSFLAGS2_SAFARI_GAME_F, [hl]
-	jr nz, .not_in_bug_contest_or_safari_zone
+	jr nz, .in_bug_contest_or_safari_zone
 	farcall GetMapEncounterRate
 	ld a, b
 	and a
@@ -45,7 +45,7 @@ SweetScentEncounter:
 	jr nz, .no_battle
 	jr .start_battle
 
-.not_in_bug_contest_or_safari_zone
+.in_bug_contest_or_safari_zone
 	farcall ChooseWildEncounter_BugContestOrSafariZone
 
 .start_battle

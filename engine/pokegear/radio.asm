@@ -20,7 +20,7 @@ PlayRadioShow:
 
 RadioJumptable:
 ; entries correspond to constants/radio_constants.asm
-	table_width 2, RadioJumptable
+	table_width 2
 	dw OaksPKMNTalk1     ; $00
 	dw BenMonMusic1      ; $02
 	dw LuckyNumberShow1  ; $03
@@ -137,7 +137,7 @@ PrintRadioLine:
 	cp 2
 	jr nz, .print
 	bccoord 1, 16
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	jr .skip
 .print
 	call PrintTextboxText
@@ -658,7 +658,7 @@ OaksPKMNTalk8:
 	jp NextRadioLine
 
 .Adverbs:
-	table_width 2, OaksPKMNTalk8.Adverbs
+	table_width 2
 	dw .OPT_SweetAdorablyText
 	dw .OPT_WigglySlicklyText
 	dw .OPT_AptlyNamedText
@@ -767,7 +767,7 @@ OaksPKMNTalk9:
 	jp NextRadioLine
 
 .Adjectives:
-	table_width 2, OaksPKMNTalk9.Adjectives
+	table_width 2
 	dw .OPT_CuteText
 	dw .OPT_WeirdText
 	dw .OPT_PleasantText
@@ -1323,7 +1323,7 @@ PeoplePlaces5:
 	jp NextRadioLine
 
 .Adjectives:
-	table_width 2, PeoplePlaces5.Adjectives
+	table_width 2
 	dw PnP_CuteText
 	dw PnP_LazyText
 	dw PnP_HappyText
@@ -1459,7 +1459,7 @@ PeoplePlaces7:
 	jp PrintRadioLine
 
 .Adjectives:
-	table_width 2, PeoplePlaces7.Adjectives
+	table_width 2
 	dw PnP_CuteText
 	dw PnP_LazyText
 	dw PnP_HappyText
@@ -1698,7 +1698,7 @@ GetBuenasPassword:
 
 .StringFunctionJumptable:
 ; entries correspond to BUENA_* constants
-	table_width 2, GetBuenasPassword.StringFunctionJumptable
+	table_width 2
 	dw .Mon       ; BUENA_MON
 	dw .Item      ; BUENA_ITEM
 	dw .Move      ; BUENA_MOVE

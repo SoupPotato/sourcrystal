@@ -6,7 +6,7 @@ GetNextTrainerDataByte:
 
 ReadTrainerParty:
 	ld a, [wInBattleTowerBattle]
-	bit 0, a
+	bit IN_BATTLE_TOWER_BATTLE_F, a
 	ret nz
 
 	ld a, [wLinkMode]
@@ -315,7 +315,7 @@ ComputeTrainerReward:
 
 Battle_GetTrainerName::
 	ld a, [wInBattleTowerBattle]
-	bit 0, a
+	bit IN_BATTLE_TOWER_BATTLE_F, a
 	ld hl, wOTPlayerName
 	ld a, BANK(Battle_GetTrainerName)
 	ld [wTrainerGroupBank], a

@@ -446,7 +446,7 @@ ExplodingTrap22:
 	end
 
 VoltorbExplodingTrap:
-	special FadeOutPalettes
+	special FadeOutToWhite
 	special LoadMapPalettes
 	cry VOLTORB
 	special FadeInPalettes_EnableDynNoApply
@@ -464,7 +464,7 @@ VoltorbExplodingTrap:
 
 
 GeodudeExplodingTrap:
-	special FadeOutPalettes
+	special FadeOutToWhite
 	special LoadMapPalettes
 	cry GEODUDE
 	special FadeInPalettes_EnableDynNoApply
@@ -481,7 +481,7 @@ GeodudeExplodingTrap:
 	end
 
 KoffingExplodingTrap:
-	special FadeOutPalettes
+	special FadeOutToWhite
 	special LoadMapPalettes
 	cry KOFFING
 	special FadeInPalettes_EnableDynNoApply

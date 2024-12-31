@@ -31,7 +31,7 @@ DaisyScript:
 	writetext DaisyAlrightText
 	waitbutton
 	closetext
-	special FadeOutPalettes
+	special FadeOutToWhite
 	special LoadMapPalettes
 	playmusic MUSIC_HEAL
 	pause 60

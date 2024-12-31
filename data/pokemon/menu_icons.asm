@@ -1,6 +1,7 @@
 ; party menu icons
 
 MonMenuIcons:
+	table_width 1
 	db ICON_BULBASAUR   ; BULBASAUR
 	db ICON_IVYSAUR     ; IVYSAUR
 	db ICON_VENUSAUR    ; VENUSAUR
@@ -253,3 +254,4 @@ MonMenuIcons:
 	db ICON_HO_OH       ; HO_OH
 	db ICON_CELEBI      ; CELEBI
 	db ICON_EGG         ; EGG
+	assert_table_length NUM_POKEMON + 1 ; +1 for the egg

@@ -4,7 +4,7 @@ MACRO icon_pals
 ENDM
 
 MonMenuIconPals:
-	table_width 1, MonMenuIconPals
+	table_width 1
 	;         normal, shiny
 	icon_pals GREEN,  YELLOW   ; BULBASAUR
 	icon_pals GREEN,  YELLOW   ; IVYSAUR

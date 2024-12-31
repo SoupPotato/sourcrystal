@@ -36,17 +36,17 @@ PokeGear:
 	push af
 	ld a, $1
 	ldh [hInMenu], a
-	ld a, [wVramState]
+	ld a, [wStateFlags]
 	push af
 	xor a
-	ld [wVramState], a
+	ld [wStateFlags], a
 	call .InitTilemap
 	call DelayFrame
 .loop
 	call UpdateTime
 	call JoyTextDelay
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .done
 	call PokegearJumptable
 	farcall PlaySpriteAnimations
@@ -58,7 +58,7 @@ PokeGear:
 	call PlaySFX
 	call WaitSFX
 	pop af
-	ld [wVramState], a
+	ld [wStateFlags], a
 	pop af
 	ldh [hInMenu], a
 	pop af
@@ -106,7 +106,7 @@ PokeGear:
 	call InitPokegearTilemap
 	ld b, SCGB_POKEGEAR_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ldh a, [hCGB]
 	and a
 	ret z
@@ -655,7 +655,7 @@ FlyPagerRoutine:
 	call WaitBGMap
 	ld b, SCGB_POKEGEAR_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ld a, POKEGEARSTATE_PAGERJOYPAD
 	ld [wJumptableIndex], a
 	ret
@@ -993,7 +993,7 @@ PokegearClock_Joypad:
 	ret
 
 .quit
-	ld a, $80
+	ld a, JUMPTABLE_EXIT
 	ld [wJumptableIndex], a
 	ret
 
@@ -1017,7 +1017,7 @@ Pokegear_UpdateClock:
 	farcall PrintHoursMins
 	ld hl, .GearTodayText
 	bccoord 6, 6
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	ret
 
 	db "ごぜん@"
@@ -1109,7 +1109,7 @@ PokegearMap_ContinueMap:
 	lb bc, POKEGEARCARD_CLOCK, POKEGEARSTATE_CLOCKINIT
 	jr .done
 	;ld hl, wJumptableIndex
-	;set 7, [hl]
+	;set JUMPTABLE_EXIT_F, [hl]
 	;ret
 
 .DPad:
@@ -2341,10 +2341,10 @@ _TownMap:
 	ld a, $1
 	ldh [hInMenu], a
 
-	ld a, [wVramState]
+	ld a, [wStateFlags]
 	push af
 	xor a
-	ld [wVramState], a
+	ld [wStateFlags], a
 
 	call ClearBGPalettes
 	call ClearTilemap
@@ -2373,7 +2373,7 @@ _TownMap:
 	ld [wTownMapCursorObjectPointer + 1], a
 	ld b, SCGB_POKEGEAR_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ldh a, [hCGB]
 	and a
 	jr z, .dmg
@@ -2396,7 +2396,7 @@ _TownMap:
 
 .resume
 	pop af
-	ld [wVramState], a
+	ld [wStateFlags], a
 	pop af
 	ldh [hInMenu], a
 	pop af
@@ -2561,7 +2561,7 @@ PlayRadio:
 
 PlayRadioStationPointers:
 ; entries correspond to MAPRADIO_* constants
-	table_width 2, PlayRadioStationPointers
+	table_width 2
 	dw LoadStation_PokemonChannel
 	dw LoadStation_OaksPokemonTalk
 	dw LoadStation_PokemonMusic
@@ -2615,7 +2615,7 @@ _FlyMap:
 	call Pokegear_DummyFunction
 	ld b, SCGB_POKEGEAR_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 .loop
 	call JoyTextDelay
 	ld hl, hJoyPressed
@@ -2936,7 +2936,7 @@ Pokedex_GetArea:
 	call TownMapBGUpdate
 	ld b, SCGB_POKEGEAR_PALS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	xor a
 	ldh [hBGMapMode], a
 	xor a ; JOHTO_REGION
@@ -3112,7 +3112,8 @@ Pokedex_GetArea:
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .male
-	inc c ; PAL_OW_BLUE
+	assert PAL_OW_RED + 1 == PAL_OW_BLUE
+	inc c
 .male
 	ld a, c
 	ld [hli], a ; attributes

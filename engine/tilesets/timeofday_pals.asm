@@ -15,7 +15,7 @@ _TimeOfDayPals::
 
 ; forced pals?
 	ld hl, wTimeOfDayPalFlags
-	bit 7, [hl]
+	bit FORCED_PALSET_F, [hl]
 	jr nz, .dontchange
 
 ; do we need to bother updating?
@@ -116,14 +116,14 @@ _UpdateTimePals::
 FadeInPalettes_EnableDynNoApply::
 	farcall EnableDynPalUpdatesNoApply
 	; fallthrough
-FadeInPalettes::
+FadeInFromWhite::
 	ld c, $12
 	call GetTimePalFade
 	ld b, $4
 	call ConvertTimePalsDecHL
 	ret
 
-FadeOutPalettes::
+FadeOutToWhite::
 	call FillWhiteBGColor
 	ld c, $9
 	call GetTimePalFade
@@ -147,14 +147,14 @@ BattleTowerFade:
 	jr nz, .loop
 	ret
 
-FadeInQuickly:
+FadeInFromBlack:
 	ld c, $0
 	call GetTimePalFade
 	ld b, $4
 	call ConvertTimePalsIncHL
 	ret
 
-FadeBlackQuickly:
+FadeOutToBlack:
 	ld c, $9
 	call GetTimePalFade
 	ld b, $4
@@ -162,6 +162,7 @@ FadeBlackQuickly:
 	ret
 
 FillWhiteBGColor:
+; Copy white palette of wBGPals1 Pal0 into white palette of wBGPals1 Pal1-Pal6
 	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wBGPals1)
@@ -172,14 +173,14 @@ FillWhiteBGColor:
 	ld e, a
 	ld a, [hli]
 	ld d, a
-	ld hl, wBGPals1 + 1 palettes
+	ld hl, wBGPals1 palette 1 color 0
 	ld c, 6
 .loop
 	ld a, e
 	ld [hli], a
 	ld a, d
 	ld [hli], a
-rept 6
+rept 3 colors
 	inc hl
 endr
 	dec c

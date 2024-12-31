@@ -120,10 +120,10 @@ RunTradeAnimScript:
 	push af
 	xor a
 	ldh [hMapAnims], a
-	ld hl, wVramState
+	ld hl, wStateFlags
 	ld a, [hl]
 	push af
-	res 0, [hl]
+	res SPRITE_UPDATES_DISABLED_F, [hl]
 	ld hl, wOptions
 	ld a, [hl]
 	push af
@@ -140,7 +140,7 @@ RunTradeAnimScript:
 	pop af
 	ld [wOptions], a
 	pop af
-	ld [wVramState], a
+	ld [wStateFlags], a
 	pop af
 	ldh [hMapAnims], a
 	ret
@@ -213,7 +213,7 @@ RunTradeAnimScript:
 
 DoTradeAnimation:
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .finished
 	call .DoTradeAnimCommand
 	callfar PlaySpriteAnimations
@@ -301,7 +301,7 @@ TradeAnim_AdvanceScriptPointer:
 
 TradeAnim_End:
 	ld hl, wJumptableIndex
-	set 7, [hl]
+	set JUMPTABLE_EXIT_F, [hl]
 	ret
 
 TradeAnim_TubeToOT1:

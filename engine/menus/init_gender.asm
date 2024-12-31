@@ -25,7 +25,7 @@ InitGender:
 	call LoadGenderScreenPal
 	call LoadGenderScreenLightBlueTile
 	call WaitBGMap2
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ld hl, AreYouABoyOrAreYouAGirlText
 	call PrintText
 	ld hl, .MenuHeader
@@ -63,7 +63,7 @@ InitGender:
 	call LoadGenderScreenPal
 	call LoadGenderScreenLightBlueTile
 	call WaitBGMap2
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ld hl, TextJump_ThisCannotBeChanged
 	call PrintText
 	ld hl, MenuHeader_GameModeAreYouSure

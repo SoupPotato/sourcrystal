@@ -20,7 +20,7 @@ MomTriesToBuySomething::
 	ret nc
 	ld b, BANK(.Script)
 	ld de, .Script
-	farcall LoadScriptBDE
+	farcall LoadMemScript
 	scf
 	ret
 
@@ -227,7 +227,6 @@ MomFoundADollText:
 MomItsInYourRoomText:
 	text_far _MomItsInYourRoomText
 	text_end
-
 
 DummyPredef3A_DummyData: ; unreferenced
 	db 0

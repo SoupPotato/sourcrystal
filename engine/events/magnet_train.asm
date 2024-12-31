@@ -38,12 +38,12 @@ MagnetTrain:
 	ld hl, hVBlank
 	ld a, [hl]
 	push af
-	ld [hl], 1
+	ld [hl], VBLANK_CUTSCENE
 .loop
 	ld a, [wJumptableIndex]
 	and a
 	jr z, .initialize
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .done
 	callfar PlaySpriteAnimations
 	call MagnetTrain_Jumptable
@@ -374,7 +374,7 @@ MagnetTrain_Jumptable:
 .TrainArrived:
 	ld hl, wPalFlags
 	res USE_DAYTIME_PAL_F, [hl]
-	ld a, $80
+	ld a, JUMPTABLE_EXIT
 	ld [wJumptableIndex], a
 	ld de, SFX_TRAIN_ARRIVED
 	call PlaySFX

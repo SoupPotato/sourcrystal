@@ -248,13 +248,13 @@ EnterMapWarp:
 	ret
 
 LoadMapTimeOfDay:
-	ld hl, wVramState
-	res 6, [hl]
-	ld a, $1
+	ld hl, wStateFlags
+	res TEXT_STATE_F, [hl]
+	ld a, TRUE
 	ld [wSpriteUpdatesEnabled], a
 	farcall ReplaceTimeOfDayPals
 	farcall UpdateTimeOfDayPal
-	call OverworldTextModeSwitch
+	call LoadOverworldTilemapAndAttrmapPals
 	call .ClearBGMap
 	call .PushAttrmap
 	ret
@@ -343,8 +343,8 @@ RefreshMapSprites:
 	ld hl, wPlayerSpriteSetupFlags
 	bit PLAYERSPRITESETUP_SKIP_RELOAD_GFX_F, [hl]
 	jr nz, .skip
-	ld hl, wVramState
-	set 0, [hl]
+	ld hl, wStateFlags
+	set SPRITE_UPDATES_DISABLED_F, [hl]
 	call SafeUpdateSprites
 .skip
 	ld a, [wPlayerSpriteSetupFlags]
@@ -412,7 +412,7 @@ CheckMovingOffEdgeOfMap::
 GetMapScreenCoords::
 	ld hl, wOverworldMapBlocks
 	ld a, [wXCoord]
-	bit 0, a
+	bit 0, a ; even or odd?
 	jr nz, .odd_x
 ; even x
 	srl a
@@ -430,7 +430,7 @@ GetMapScreenCoords::
 	ld c, a
 	ld b, 0
 	ld a, [wYCoord]
-	bit 0, a
+	bit 0, a ; even or odd?
 	jr nz, .odd_y
 ; even y
 	srl a

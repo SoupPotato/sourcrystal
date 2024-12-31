@@ -372,7 +372,7 @@ DebugRoomMenu_TimerReset:
 	ld a, BANK(sRTCStatusFlags)
 	call OpenSRAM
 	ld hl, sRTCStatusFlags
-	set 7, [hl]
+	set RTC_RESET_F, [hl]
 	call CloseSRAM
 	ret
 
@@ -602,12 +602,12 @@ DebugRoom_EditPagedValues:
 	call WaitBGMap
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 .resume
 	call DelayFrame
 	call JoyTextDelay
 	ldh a, [hJoyLast]
-	bit 1, a
+	bit B_BUTTON_F, a
 	jr nz, .done
 	ld hl, .continue
 	push hl
@@ -1360,7 +1360,7 @@ DebugRoom_BoxStructStrings:
 .SendBox:   db "SEND BOX@"
 
 ;DebugRoom_BoxAddresses:
-;	table_width 3, DebugRoom_BoxAddresses
+;	table_width 3
 ;for n, 1, NUM_BOXES + 1
 ;	dba sBox{d:n}
 ;endr

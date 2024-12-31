@@ -37,7 +37,7 @@ ApplyTilemap::
 	jr z, .dmg
 
 	ld a, [wSpriteUpdatesEnabled]
-	cp 0
+	cp FALSE
 	jr z, .dmg
 
 	; if we're in doublespeed, use newbox applytilemap
@@ -152,12 +152,12 @@ endr
 	ld sp, hl
 	ret
 
-SetPalettes::
+SetDefaultBGPAndOBP::
 ; Inits the Palettes
 ; depending on the system the monochromes palettes or color palettes
 	ldh a, [hCGB]
 	and a
-	jr nz, .SetPalettesForGameBoyColor
+	jr nz, .SetDefaultBGPAndOBPForGameBoyColor
 	ld a, %11100100
 	ldh [rBGP], a
 	ld a, %11010000
@@ -165,7 +165,7 @@ SetPalettes::
 	ldh [rOBP1], a
 	ret
 
-.SetPalettesForGameBoyColor:
+.SetDefaultBGPAndOBPForGameBoyColor:
 	push de
 	ld a, %11100100
 	call DmgToCgbBGPals
@@ -238,8 +238,10 @@ GetHPPal::
 	ld a, e
 	cp (HP_BAR_LENGTH_PX * 50 / 100) ; 24
 	ret nc
-	inc d ; HP_YELLOW
+	assert HP_GREEN + 1 == HP_YELLOW
+	inc d
 	cp (HP_BAR_LENGTH_PX * 21 / 100) ; 10
 	ret nc
-	inc d ; HP_RED
+	assert HP_YELLOW + 1 == HP_RED
+	inc d
 	ret

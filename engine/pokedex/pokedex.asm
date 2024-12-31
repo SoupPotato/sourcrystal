@@ -15,8 +15,7 @@
 	const DEXSTATE_UPDATE_UNOWN_MODE
 	const DEXSTATE_EXIT
 
-DEF POKEDEX_SCX EQU 5
-EXPORT POKEDEX_SCX
+EXPORT DEF POKEDEX_SCX EQU 5
 
 Pokedex:
 	ldh a, [hWX]
@@ -30,10 +29,10 @@ Pokedex:
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
-	ld a, [wVramState]
+	ld a, [wStateFlags]
 	push af
 	xor a
-	ld [wVramState], a
+	ld [wStateFlags], a
 	ldh a, [hInMenu]
 	push af
 	ld a, $1
@@ -47,7 +46,7 @@ Pokedex:
 .main
 	call JoyTextDelay
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .exit
 	call Pokedex_RunJumptable
 	call DelayFrame
@@ -64,7 +63,7 @@ Pokedex:
 	pop af
 	ldh [hInMenu], a
 	pop af
-	ld [wVramState], a
+	ld [wStateFlags], a
 	pop af
 	ld [wOptions], a
 	pop af
@@ -211,7 +210,7 @@ Pokedex_IncrementDexPointer:
 
 Pokedex_Exit:
 	ld hl, wJumptableIndex
-	set 7, [hl]
+	set JUMPTABLE_EXIT_F, [hl]
 	ret
 
 Pokedex_InitMainScreen:

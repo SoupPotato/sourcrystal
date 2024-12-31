@@ -22,77 +22,77 @@ OverworldLoop::
 
 DisableEvents:
 	xor a
-	ld [wScriptFlags2], a
+	ld [wEnabledPlayerEvents], a
 	ret
 
 EnableEvents::
 	ld a, $ff
-	ld [wScriptFlags2], a
+	ld [wEnabledPlayerEvents], a
 	ret
 
-CheckBit5_ScriptFlags2:
-	ld hl, wScriptFlags2
-	bit 5, [hl]
+CheckEnabledMapEventsBit5:
+	ld hl, wEnabledPlayerEvents
+	bit PLAYEREVENTS_UNUSED, [hl]
 	ret
 
-DisableWarpsConnxns: ; unreferenced
-	ld hl, wScriptFlags2
-	res 2, [hl]
+DisableWarpsConnections: ; unreferenced
+	ld hl, wEnabledPlayerEvents
+	res PLAYEREVENTS_WARPS_AND_CONNECTIONS, [hl]
 	ret
 
 DisableCoordEvents: ; unreferenced
-	ld hl, wScriptFlags2
-	res 1, [hl]
+	ld hl, wEnabledPlayerEvents
+	res PLAYEREVENTS_COORD_EVENTS, [hl]
 	ret
 
 DisableStepCount: ; unreferenced
-	ld hl, wScriptFlags2
-	res 0, [hl]
+	ld hl, wEnabledPlayerEvents
+	res PLAYEREVENTS_COUNT_STEPS, [hl]
 	ret
 
 DisableWildEncounters: ; unreferenced
-	ld hl, wScriptFlags2
-	res 4, [hl]
+	ld hl, wEnabledPlayerEvents
+	res PLAYEREVENTS_WILD_ENCOUNTERS, [hl]
 	ret
 
-EnableWarpsConnxns: ; unreferenced
-	ld hl, wScriptFlags2
-	set 2, [hl]
+EnableWarpsConnections: ; unreferenced
+	ld hl, wEnabledPlayerEvents
+	set PLAYEREVENTS_WARPS_AND_CONNECTIONS, [hl]
 	ret
 
 EnableCoordEvents: ; unreferenced
-	ld hl, wScriptFlags2
-	set 1, [hl]
+	ld hl, wEnabledPlayerEvents
+	set PLAYEREVENTS_COORD_EVENTS, [hl]
 	ret
 
 EnableStepCount: ; unreferenced
-	ld hl, wScriptFlags2
-	set 0, [hl]
+	ld hl, wEnabledPlayerEvents
+	set PLAYEREVENTS_COUNT_STEPS, [hl]
 	ret
 
 EnableWildEncounters:
-	ld hl, wScriptFlags2
-	set 4, [hl]
+	ld hl, wEnabledPlayerEvents
+	set PLAYEREVENTS_WILD_ENCOUNTERS, [hl]
 	ret
 
-CheckWarpConnxnScriptFlag:
-	ld hl, wScriptFlags2
-	bit 2, [hl]
+CheckWarpConnectionsEnabled:
+	ld hl, wEnabledPlayerEvents
+	bit PLAYEREVENTS_WARPS_AND_CONNECTIONS, [hl]
 	ret
 
-CheckCoordEventScriptFlag:
-	ld hl, wScriptFlags2
-	bit 1, [hl]
+CheckCoordEventsEnabled:
+	ld hl, wEnabledPlayerEvents
+	bit PLAYEREVENTS_COORD_EVENTS, [hl]
 	ret
 
-CheckStepCountScriptFlag:
-	ld hl, wScriptFlags2
-	bit 0, [hl]
+CheckStepCountEnabled:
+	ld hl, wEnabledPlayerEvents
+	bit PLAYEREVENTS_COUNT_STEPS, [hl]
 	ret
 
-CheckWildEncountersScriptFlag:
-	ld hl, wScriptFlags2
-	bit 4, [hl]
+CheckWildEncountersEnabled:
+	ld hl, wEnabledPlayerEvents
+	bit PLAYEREVENTS_WILD_ENCOUNTERS, [hl]
 	ret
 
 StartMap:
@@ -247,9 +247,9 @@ PlayerEvents:
 	and a
 	ret nz
 
-	call Dummy_CheckScriptFlags2Bit5 ; This is a waste of time
+	call Dummy_CheckEnabledMapEventsBit5 ; This is a waste of time
 
-	call CheckTrainerBattle_GetPlayerEvent
+	call CheckTrainerEvent
 	jr c, .ok
 
 	call CheckTileEvent
@@ -290,7 +290,7 @@ PlayerEvents:
 	scf
 	ret
 
-CheckTrainerBattle_GetPlayerEvent:
+CheckTrainerEvent:
 	call CheckTrainerBattle
 	jr nc, .nope
 
@@ -305,7 +305,7 @@ CheckTrainerBattle_GetPlayerEvent:
 CheckTileEvent:
 ; Check for warps, coord events, or wild battles.
 
-	call CheckWarpConnxnScriptFlag
+	call CheckWarpConnectionsEnabled
 	jr z, .connections_disabled
 
 	farcall CheckMovingOffEdgeOfMap
@@ -315,21 +315,21 @@ CheckTileEvent:
 	jr c, .warp_tile
 
 .connections_disabled
-	call CheckCoordEventScriptFlag
+	call CheckCoordEventsEnabled
 	jr z, .coord_events_disabled
 
 	call CheckCurrentMapCoordEvents
 	jr c, .coord_event
 
 .coord_events_disabled
-	call CheckStepCountScriptFlag
+	call CheckStepCountEnabled
 	jr z, .step_count_disabled
 
 	call CountStep
 	ret c
 
 .step_count_disabled
-	call CheckWildEncountersScriptFlag
+	call CheckWildEncountersEnabled
 	jr z, .ok
 
 	call RandomEncounter
@@ -346,7 +346,7 @@ CheckTileEvent:
 	ret
 
 .warp_tile
-	ld a, [wPlayerTile]
+	ld a, [wPlayerTileCollision]
 	call CheckPitTile
 	jr nz, .not_pit
 	ld a, PLAYEREVENT_FALL
@@ -392,8 +392,8 @@ SetMinTwoStepWildEncounterCooldown:
 	ld [wWildEncounterCooldown], a
 	ret
 
-Dummy_CheckScriptFlags2Bit5:
-	call CheckBit5_ScriptFlags2
+Dummy_CheckEnabledMapEventsBit5:
+	call CheckEnabledMapEventsBit5
 	ret z
 	call SetXYCompareFlags
 	ret
@@ -424,13 +424,13 @@ endr
 	call CallScript
 
 	ld hl, wScriptFlags
-	res 3, [hl]
+	res RUN_DEFERRED_SCRIPT, [hl]
 
 	farcall EnableScriptMode
 	farcall ScriptEvents
 
 	ld hl, wScriptFlags
-	bit 3, [hl]
+	bit RUN_DEFERRED_SCRIPT, [hl]
 	jr z, .nope
 
 	ld hl, wDeferredScriptAddr
@@ -477,8 +477,8 @@ CheckTimeEvents:
 	scf
 	ret
 
-.unused ; unreferenced
-	ld a, $8 ; ???
+.hatch ; unreferenced
+	ld a, PLAYEREVENT_HATCH
 	scf
 	ret
 
@@ -568,7 +568,7 @@ TryObjectEvent:
 	ret
 
 ObjectEventTypeArray:
-	table_width 3, ObjectEventTypeArray
+	table_width 3
 	dbw OBJECTTYPE_SCRIPT, .script
 	dbw OBJECTTYPE_ITEMBALL, .itemball
 	dbw OBJECTTYPE_TRAINER, .trainer
@@ -639,7 +639,7 @@ TryBGEvent:
 	ret
 
 BGEventJumptable:
-	table_width 2, BGEventJumptable
+	table_width 2
 	dw .read
 	dw .up
 	dw .down
@@ -758,7 +758,7 @@ PlayerMovement:
 
 PlayerMovementPointers:
 ; entries correspond to PLAYERMOVEMENT_* constants
-	table_width 2, PlayerMovementPointers
+	table_width 2
 	dw .normal
 	dw .warp
 	dw .turn
@@ -1021,7 +1021,7 @@ DoPlayerEvent:
 
 PlayerEventScriptPointers:
 ; entries correspond to PLAYEREVENT_* constants
-	table_width 3, PlayerEventScriptPointers
+	table_width 3
 	dba InvalidEventScript      ; PLAYEREVENT_NONE
 	dba SeenByTrainerScript     ; PLAYEREVENT_SEENBYTRAINER
 	dba TalkToTrainerScript     ; PLAYEREVENT_TALKTOTRAINER
@@ -1104,7 +1104,7 @@ RunMemScript::
 	pop af
 	ret
 
-LoadScriptBDE::
+LoadMemScript::
 ; If there's already a script here, don't overwrite.
 	ld hl, wMapReentryScriptQueueFlag
 	ld a, [hl]
@@ -1171,16 +1171,14 @@ TryTileCollisionEvent::
 
 .done
 	call PlayClickSFX
-	ld a, $ff
+	ld a, PLAYEREVENT_MAPSCRIPT
 	scf
 	ret
 
 RandomEncounter::
-; Random encounter
-
 	call CheckWildEncounterCooldown
 	jr c, .nope
-	call CanUseSweetScent
+	call CanEncounterWildMon
 	jr nc, .nope
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
@@ -1287,8 +1285,7 @@ RoamingEnteiBattleScript:
 .nocatch
 	end
 
-
-CanUseSweetScent::
+CanEncounterWildMon::
 	ld hl, wStatusFlags
 	bit STATUSFLAGS_NO_WILD_ENCOUNTERS_F, [hl]
 	jr nz, .no
@@ -1301,7 +1298,7 @@ CanUseSweetScent::
 	jr nc, .no
 
 .ice_check
-	ld a, [wPlayerTile]
+	ld a, [wPlayerTileCollision]
 	call CheckIceTile
 	jr z, .no
 	scf
@@ -1439,7 +1436,7 @@ ChooseWildEncounter_BugContestOrSafariZone::
 	ret
 
 TryWildEncounter_BugContestOrSafariZone:
-	ld a, [wPlayerTile]
+	ld a, [wPlayerTileCollision]
 	call CheckSuperTallGrassTile
 	ld b, 40 percent
 	jr z, .ok

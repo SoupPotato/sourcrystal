@@ -1,6 +1,6 @@
 BattleTowerMons:
 ; 10 groups (one per floor level) of 21 mons (BATTLETOWER_NUM_UNIQUE_MON).
-	table_width NICKNAMED_MON_STRUCT_LENGTH, BattleTowerMons
+	table_width NICKNAMED_MON_STRUCT_LENGTH
 
 ; Group 1
 
@@ -9,7 +9,7 @@ BattleTowerMons:
 	db SCOPE_LENS
 	db DOUBLE_EDGE, PSYCHIC_M, GUST, SWORDS_DANCE
 	dw 0 ; OT ID
-	dt 1000 ; Exp
+	bigdt 1000 ; Exp
 	; Stat exp
 	bigdw 20000 ; Health
 	bigdw 40000 ; Attack
@@ -35,7 +35,7 @@ BattleTowerMons:
 	db NEVERMELTICE
 	db DESTINY_BOND, ICE_PUNCH, BODY_SLAM, PRESENT 
 	dw 0 ; OT ID
-	dt 800 ; Exp
+	bigdt 800 ; Exp
 	; Stat exp
 	bigdw 20000
 	bigdw 25000
@@ -61,7 +61,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db ICY_WIND, CURSE, REST, STEEL_WING
 	dw 0 ; OT ID
-	dt 1250 ; Exp
+	bigdt 1250 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 40000
@@ -87,7 +87,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db RETURN, MOONLIGHT, ICY_WIND, SING 
 	dw 0 ; OT ID
-	dt 800 ; Exp
+	bigdt 800 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 25000
@@ -113,7 +113,7 @@ BattleTowerMons:
 	db CHARCOAL
 	db SING, FLAMETHROWER, RETURN, SELFDESTRUCT
 	dw 0 ; OT ID
-	dt 800 ; Exp
+	bigdt 800 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 25000
@@ -139,7 +139,7 @@ BattleTowerMons:
 	db STICK
 	db BODY_SLAM, SWORDS_DANCE, MUD_SLAP, DOUBLE_TEAM 
 	dw 0 ; OT ID
-	dt 1000 ; Exp
+	bigdt 1000 ; Exp
 	; Stat exp
 	bigdw 20000
 	bigdw 30000
@@ -165,7 +165,7 @@ BattleTowerMons:
 	db SILK_SCARF
 	db GROWL, RETURN, REST, SLEEP_TALK 
 	dw 0 ; OT ID
-	dt 1000 ; Exp
+	bigdt 1000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -191,7 +191,7 @@ BattleTowerMons:
 	db NO_ITEM
 	db RETURN, SURF, THIEF, HYPER_BEAM
 	dw 0 ; OT ID
-	dt 1250 ; Exp
+	bigdt 1250 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -217,7 +217,7 @@ BattleTowerMons:
 	db MAGNET
 	db THUNDERBOLT, DYNAMICPUNCH, ENCORE, THUNDER_WAVE 
 	dw 0 ; OT ID
-	dt 1000 ; Exp
+	bigdt 1000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 20000
@@ -243,7 +243,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db FRUSTRATION, LOW_KICK, PURSUIT, SWORDS_DANCE
 	dw 0 ; OT ID
-	dt 560 ; Exp
+	bigdt 560 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -269,7 +269,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db SURF, THUNDER_WAVE, RECOVER, PSYCHIC_M
 	dw 0 ; OT ID
-	dt 1250 ; Exp
+	bigdt 1250 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -295,7 +295,7 @@ BattleTowerMons:
 	db BRIGHTPOWDER
 	db SUBSTITUTE, FLAMETHROWER, DOUBLE_EDGE, MUD_SLAP
 	dw 0 ; OT ID
-	dt 1000 ; Exp
+	bigdt 1000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -321,7 +321,7 @@ BattleTowerMons:
 	db MAGNET
 	db THUNDERBOLT, SHADOW_BALL, THUNDER_WAVE, MIMIC 
 	dw 0 ; OT ID
-	dt 1000 ; Exp
+	bigdt 1000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -347,7 +347,7 @@ BattleTowerMons:
 	db SILK_SCARF
 	db MEGA_PUNCH, IRON_TAIL, FLAMETHROWER, HYPER_BEAM
 	dw 0 ; OT ID
-	dt 1000 ; Exp
+	bigdt 1000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 30000
@@ -373,7 +373,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db SURF, THUNDERPUNCH, THUNDER_WAVE, FLASH 
 	dw 0 ; OT ID
-	dt 1000 ; Exp
+	bigdt 1000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 10000
@@ -399,7 +399,7 @@ BattleTowerMons:
 	db TWISTEDSPOON
 	db PSYCHIC_M, RETURN, LOW_KICK, SHADOW_BALL
 	dw 0 ; OT ID
-	dt 1000 ; Exp
+	bigdt 1000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -425,7 +425,7 @@ BattleTowerMons:
 	db HARD_STONE
 	db LOW_KICK, FLAIL, HARDEN, ROCK_SLIDE
 	dw 0 ; OT ID
-	dt 1000 ; Exp
+	bigdt 1000 ; Exp
 	; Stat exp
 	bigdw 20000
 	bigdw 40000
@@ -451,7 +451,7 @@ BattleTowerMons:
 	db SILK_SCARF
 	db RETURN, BATON_PASS, DOUBLE_TEAM, PURSUIT
 	dw 0 ; OT ID
-	dt 800 ; Exp
+	bigdt 800 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -477,7 +477,7 @@ BattleTowerMons:
 	db MIRACLE_SEED
 	db MEGA_DRAIN, PSYCHIC_M, GROWTH, HIDDEN_POWER ; HP = FIRE
 	dw 0 ; OT ID
-	dt 560 ; Exp
+	bigdt 560 ; Exp
 	; Stat exp
 	bigdw 20000
 	bigdw 20000
@@ -503,7 +503,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db COUNTER, MIRROR_COAT, SAFEGUARD, DESTINY_BOND
 	dw 0 ; OT ID
-	dt 1000 ; Exp
+	bigdt 1000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 20000
@@ -529,7 +529,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db SURF, SHADOW_BALL, MUD_SLAP, TOXIC 
 	dw 0 ; OT ID
-	dt 1000 ; Exp
+	bigdt 1000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 20000
@@ -558,7 +558,7 @@ BattleTowerMons:
 	db FOCUS_BAND
 	db FOCUS_ENERGY, RETURN, REVERSAL, BITE 
 	dw 0 ; OT ID
-	dt 8000 ; Exp
+	bigdt 8000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -584,7 +584,7 @@ BattleTowerMons:
 	db BRIGHTPOWDER
 	db PURSUIT, TRI_ATTACK, MUD_SLAP, DOUBLE_TEAM
 	dw 0 ; OT ID
-	dt 8000 ; Exp
+	bigdt 8000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 40000
@@ -610,7 +610,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db REST, SLEEP_TALK, RETURN, MUD_SLAP
 	dw 0 ; OT ID
-	dt 8000 ; Exp
+	bigdt 8000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 40000
@@ -636,7 +636,7 @@ BattleTowerMons:
 	db SILK_SCARF
 	db FIRE_BLAST, EARTHQUAKE, AGILITY, RETURN
 	dw 0 ; OT ID
-	dt 8000 ; Exp
+	bigdt 8000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 30000
@@ -662,7 +662,7 @@ BattleTowerMons:
 	db SOFT_SAND
 	db ROCK_SLIDE, WING_ATTACK, EARTHQUAKE, SWORDS_DANCE
 	dw 0 ; OT ID
-	dt 5460 ; Exp
+	bigdt 5460 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 40000
@@ -688,7 +688,7 @@ BattleTowerMons:
 	db POISON_BARB
 	db SURF, EXPLOSION, THUNDER_WAVE, SLUDGE_BOMB
 	dw 0 ; OT ID
-	dt 8000 ; Exp
+	bigdt 8000 ; Exp
 	; Stat exp
 	bigdw 20000
 	bigdw 30000
@@ -714,7 +714,7 @@ BattleTowerMons:
 	db MYSTIC_WATER
 	db EXPLOSION, SURF, EARTHQUAKE, RECOVER
 	dw 0 ; OT ID
-	dt 6400 ; Exp
+	bigdt 6400 ; Exp
 	; Stat exp
 	bigdw 20000
 	bigdw 40000
@@ -740,7 +740,7 @@ BattleTowerMons:
 	db NO_ITEM
 	db PRESENT, ICE_BEAM, THIEF, DESTINY_BOND
 	dw 0 ; OT ID
-	dt 6400 ; Exp
+	bigdt 6400 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -766,7 +766,7 @@ BattleTowerMons:
 	db SILK_SCARF
 	db HYPNOSIS, DOUBLE_EDGE, MEGAHORN, SHADOW_BALL 
 	dw 0 ; OT ID
-	dt 10000 ; Exp
+	bigdt 10000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -792,7 +792,7 @@ BattleTowerMons:
 	db BLACKBELT_I
 	db HI_JUMP_KICK, ROCK_SLIDE, EARTHQUAKE, SWORDS_DANCE 
 	dw 0 ; OT ID
-	dt 8000 ; Exp
+	bigdt 8000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -818,7 +818,7 @@ BattleTowerMons:
 	db BLACKBELT_I
 	db MACH_PUNCH, COUNTER, EARTHQUAKE, ICE_PUNCH
 	dw 0 ; OT ID
-	dt 8000 ; Exp
+	bigdt 8000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -844,7 +844,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db FIRE_BLAST, SEISMIC_TOSS, REST, SLEEP_TALK 
 	dw 0 ; OT ID
-	dt 8000 ; Exp
+	bigdt 8000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 30000
@@ -870,7 +870,7 @@ BattleTowerMons:
 	db TWISTEDSPOON
 	db PSYCHIC_M, CONFUSE_RAY, MIMIC, SHADOW_BALL 
 	dw 0 ; OT ID
-	dt 8000 ; Exp
+	bigdt 8000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 20000
@@ -896,7 +896,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db CHARM, ENCORE, RETURN, METRONOME 
 	dw 0 ; OT ID
-	dt 6400 ; Exp
+	bigdt 6400 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -922,7 +922,7 @@ BattleTowerMons:
 	db MYSTIC_WATER
 	db DOUBLE_EDGE, ICE_BEAM, EARTHQUAKE, SURF
 	dw 0 ; OT ID
-	dt 10000 ; Exp
+	bigdt 10000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -948,7 +948,7 @@ BattleTowerMons:
 	db KINGS_ROCK
 	db SUBSTITUTE, RETURN, THUNDER_WAVE, WATERFALL 
 	dw 0 ; OT ID
-	dt 10000 ; Exp
+	bigdt 10000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -974,7 +974,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db SURF, SING, BODY_SLAM, ICE_BEAM 
 	dw 0 ; OT ID
-	dt 10000 ; Exp
+	bigdt 10000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 30000
@@ -1000,7 +1000,7 @@ BattleTowerMons:
 	db SILK_SCARF
 	db RETURN, THUNDER, BLIZZARD, QUICK_ATTACK
 	dw 0 ; OT ID
-	dt 8000 ; Exp
+	bigdt 8000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -1026,7 +1026,7 @@ BattleTowerMons:
 	db SPELL_TAG
 	db RETURN, SHADOW_BALL, REST, SLEEP_TALK 
 	dw 0 ; OT ID
-	dt 8000 ; Exp
+	bigdt 8000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 30000
@@ -1052,7 +1052,7 @@ BattleTowerMons:
 	db LIGHT_BALL
 	db THUNDER, IRON_TAIL, DOUBLE_TEAM, HIDDEN_POWER ; HP = ICE
 	dw 0 ; OT ID
-	dt 8000 ; Exp
+	bigdt 8000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -1078,7 +1078,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db SURF, EARTHQUAKE, ICY_WIND, RECOVER
 	dw 0 ; OT ID
-	dt 8000 ; Exp
+	bigdt 8000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 30000
@@ -1107,7 +1107,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db MOONLIGHT, BELLY_DRUM, RETURN, FLAMETHROWER 
 	dw 0 ; OT ID
-	dt 21600 ; Exp
+	bigdt 21600 ; Exp
 	; Stat exp
 	bigdw 45000
 	bigdw 30000
@@ -1133,7 +1133,7 @@ BattleTowerMons:
 	db MIRACLE_SEED
 	db SLEEP_POWDER, SYNTHESIS, GIGA_DRAIN, SLUDGE_BOMB
 	dw 0 ; OT ID
-	dt 21760 ; Exp
+	bigdt 21760 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -1159,7 +1159,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db SUBSTITUTE, LEECH_SEED, SLEEP_POWDER, DOUBLE_TEAM
 	dw 0 ; OT ID
-	dt 21760 ; Exp
+	bigdt 21760 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -1185,7 +1185,7 @@ BattleTowerMons:
 	db TWISTEDSPOON
 	db SURF, FUTURE_SIGHT, THUNDER_WAVE, FIRE_BLAST
 	dw 0 ; OT ID
-	dt 27000 ; Exp
+	bigdt 27000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 30000
@@ -1211,7 +1211,7 @@ BattleTowerMons:
 	db MAGNET
 	db THUNDER, SUPERSONIC, TRI_ATTACK, EXPLOSION
 	dw 0 ; OT ID
-	dt 27000 ; Exp
+	bigdt 27000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 20000
@@ -1237,7 +1237,7 @@ BattleTowerMons:
 	db MAGNET
 	db THUNDER, RAIN_DANCE, HIDDEN_POWER, EXPLOSION ; HP = WATER
 	dw 0 ; OT ID
-	dt 27000 ; Exp
+	bigdt 27000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 20000
@@ -1263,7 +1263,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db SWORDS_DANCE, METAL_CLAW, DOUBLE_EDGE, ROCK_SLIDE 
 	dw 0 ; OT ID
-	dt 27000 ; Exp
+	bigdt 27000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -1289,7 +1289,7 @@ BattleTowerMons:
 	db NO_ITEM
 	db ZAP_CANNON, EXPLOSION, THIEF, TOXIC 
 	dw 0 ; OT ID
-	dt 27000 ; Exp
+	bigdt 27000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -1315,7 +1315,7 @@ BattleTowerMons:
 	db THICK_CLUB
 	db SWORDS_DANCE, BONE_RUSH, ROCK_SLIDE, LOW_KICK 
 	dw 0 ; OT ID
-	dt 27000 ; Exp
+	bigdt 27000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -1341,7 +1341,7 @@ BattleTowerMons:
 	db BLACKBELT_I
 	db HI_JUMP_KICK, PURSUIT, EARTHQUAKE, DOUBLE_TEAM
 	dw 0 ; OT ID
-	dt 27000 ; Exp
+	bigdt 27000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -1367,7 +1367,7 @@ BattleTowerMons:
 	db TWISTEDSPOON
 	db PSYCHIC_M, ENCORE, SHADOW_BALL, FIRE_PUNCH 
 	dw 0 ; OT ID
-	dt 27000 ; Exp
+	bigdt 27000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -1393,7 +1393,7 @@ BattleTowerMons:
 	db SILK_SCARF
 	db WING_ATTACK, AGILITY, BATON_PASS, QUICK_ATTACK 
 	dw 0 ; OT ID
-	dt 27000 ; Exp
+	bigdt 27000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -1419,7 +1419,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db NIGHT_SHADE, TOXIC, GIGA_DRAIN, PSYCHIC_M 
 	dw 0 ; OT ID
-	dt 21600 ; Exp
+	bigdt 21600 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -1445,7 +1445,7 @@ BattleTowerMons:
 	db BLACKGLASSES
 	db SWORDS_DANCE, MEGAHORN, RETURN, PURSUIT  
 	dw 0 ; OT ID
-	dt 27000 ; Exp
+	bigdt 27000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -1471,7 +1471,7 @@ BattleTowerMons:
 	db BRIGHTPOWDER
 	db CRUNCH, PURSUIT, IRON_TAIL, SLUDGE_BOMB 
 	dw 0 ; OT ID
-	dt 27000 ; Exp
+	bigdt 27000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -1497,7 +1497,7 @@ BattleTowerMons:
 	db MIRACLE_SEED
 	db SWORDS_DANCE, SLUDGE_BOMB, GIGA_DRAIN, SWAGGER
 	dw 0 ; OT ID
-	dt 21760 ; Exp
+	bigdt 21760 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 30000
@@ -1523,7 +1523,7 @@ BattleTowerMons:
 	db MIRACLE_SEED
 	db SPORE, LEECH_SEED, GIGA_DRAIN, SLUDGE_BOMB
 	dw 0 ; OT ID
-	dt 27000 ; Exp
+	bigdt 27000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 30000
@@ -1549,7 +1549,7 @@ BattleTowerMons:
 	db BLACKBELT_I
 	db DYNAMICPUNCH, SURF, ICY_WIND, HYPNOSIS 
 	dw 0 ; OT ID
-	dt 21760 ; Exp
+	bigdt 21760 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -1575,7 +1575,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db SLEEP_POWDER, SLUDGE_BOMB, GIGA_DRAIN, REFLECT
 	dw 0 ; OT ID
-	dt 21760 ; Exp
+	bigdt 21760 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -1601,7 +1601,7 @@ BattleTowerMons:
 	db STICK
 	db RETURN, FEINT_ATTACK, QUICK_ATTACK, SWORDS_DANCE 
 	dw 0 ; OT ID
-	dt 27000 ; Exp
+	bigdt 27000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 40000
@@ -1627,7 +1627,7 @@ BattleTowerMons:
 	db POISON_BARB
 	db EARTHQUAKE, ROCK_SLIDE, BEAT_UP, SLUDGE_BOMB
 	dw 0 ; OT ID
-	dt 27000 ; Exp
+	bigdt 27000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -1656,7 +1656,7 @@ BattleTowerMons:
 	db SCOPE_LENS
 	db FLAMETHROWER, CROSS_CHOP, CONFUSE_RAY, THUNDERPUNCH 
 	dw 0 ; OT ID
-	dt 64000 ; Exp
+	bigdt 64000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -1682,7 +1682,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db ENCORE, ICE_BEAM, SURF, PERISH_SONG
 	dw 0 ; OT ID
-	dt 64000 ; Exp
+	bigdt 64000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 20000
@@ -1708,7 +1708,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db SEISMIC_TOSS, PSYCHIC_M, SLEEP_TALK, REST 
 	dw 0 ; OT ID
-	dt 64000 ; Exp
+	bigdt 64000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 30000
@@ -1734,7 +1734,7 @@ BattleTowerMons:
 	db TWISTEDSPOON
 	db GIGA_DRAIN, PSYCHIC_M, SLEEP_POWDER, LOW_KICK
 	dw 0 ; OT ID
-	dt 80000 ; Exp
+	bigdt 80000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -1760,7 +1760,7 @@ BattleTowerMons:
 	db POISON_BARB
 	db SLUDGE_BOMB, FIRE_BLAST, SHADOW_BALL, EXPLOSION 
 	dw 0 ; OT ID
-	dt 64000 ; Exp
+	bigdt 64000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 30000
@@ -1786,7 +1786,7 @@ BattleTowerMons:
 	db NO_ITEM
 	db PSYCHIC_M, SLEEP_POWDER, CHARM, THIEF
 	dw 0 ; OT ID
-	dt 64000 ; Exp
+	bigdt 64000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -1812,7 +1812,7 @@ BattleTowerMons:
 	db MAGNET
 	db FIRE_BLAST, SHADOW_BALL, LOW_KICK, THUNDERPUNCH
 	dw 0 ; OT ID
-	dt 56660 ; Exp
+	bigdt 56660 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -1838,7 +1838,7 @@ BattleTowerMons:
 	db KINGS_ROCK
 	db HYDRO_PUMP, CRUNCH, EARTHQUAKE, AGILITY 
 	dw 0 ; OT ID
-	dt 56660 ; Exp
+	bigdt 56660 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -1864,7 +1864,7 @@ BattleTowerMons:
 	db MYSTIC_WATER
 	db HYDRO_PUMP, ROCK_SLIDE, EARTHQUAKE, SWORDS_DANCE
 	dw 0 ; OT ID
-	dt 56660 ; Exp
+	bigdt 56660 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -1890,7 +1890,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db SWORDS_DANCE, RETURN, EARTHQUAKE, SYNTHESIS 
 	dw 0 ; OT ID
-	dt 56660 ; Exp
+	bigdt 56660 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 40000
@@ -1916,7 +1916,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db PETAL_DANCE, SYNTHESIS, BODY_SLAM, REFLECT 
 	dw 0 ; OT ID
-	dt 56660 ; Exp
+	bigdt 56660 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 40000
@@ -1942,7 +1942,7 @@ BattleTowerMons:
 	db SPELL_TAG
 	db HYPNOSIS, DOUBLE_EDGE, ANCIENTPOWER, SHADOW_BALL
 	dw 0 ; OT ID
-	dt 64000 ; Exp
+	bigdt 64000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -1968,7 +1968,7 @@ BattleTowerMons:
 	db BRIGHTPOWDER
 	db MINIMIZE, EXPLOSION, SLUDGE_BOMB, FIRE_BLAST 
 	dw 0 ; OT ID
-	dt 64000 ; Exp
+	bigdt 64000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 30000
@@ -1994,7 +1994,7 @@ BattleTowerMons:
 	db MAGNET
 	db THUNDER, SURF, ICE_BEAM, AGILITY 
 	dw 0 ; OT ID
-	dt 80000 ; Exp
+	bigdt 80000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 30000
@@ -2020,7 +2020,7 @@ BattleTowerMons:
 	db BRIGHTPOWDER
 	db RETURN, MUD_SLAP, DOUBLE_TEAM, SUBSTITUTE 
 	dw 0 ; OT ID
-	dt 56660 ; Exp
+	bigdt 56660 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -2046,7 +2046,7 @@ BattleTowerMons:
 	db BLACKGLASSES
 	db DOUBLE_EDGE, STEEL_WING, PURSUIT, FLY 
 	dw 0 ; OT ID
-	dt 56660 ; Exp
+	bigdt 56660 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -2072,7 +2072,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db GLARE, SUBSTITUTE, SLUDGE_BOMB, EARTHQUAKE 
 	dw 0 ; OT ID
-	dt 64000 ; Exp
+	bigdt 64000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 40000
@@ -2098,7 +2098,7 @@ BattleTowerMons:
 	db SOFT_SAND
 	db EARTHQUAKE, ROCK_SLIDE, SWORDS_DANCE, RAPID_SPIN
 	dw 0 ; OT ID
-	dt 64000 ; Exp
+	bigdt 64000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -2124,7 +2124,7 @@ BattleTowerMons:
 	db SILVERPOWDER
 	db SWORDS_DANCE, FEINT_ATTACK, SLUDGE_BOMB, PIN_MISSILE 
 	dw 0 ; OT ID
-	dt 64000 ; Exp
+	bigdt 64000 ; Exp
 	; Stat exp
 	bigdw 20000
 	bigdw 50000
@@ -2150,7 +2150,7 @@ BattleTowerMons:
 	db BLACKBELT_I
 	db CROSS_CHOP, THUNDER, EARTHQUAKE, ICE_PUNCH 
 	dw 0 ; OT ID
-	dt 64000 ; Exp
+	bigdt 64000 ; Exp
 	; Stat exp
 	bigdw 20000
 	bigdw 50000
@@ -2176,7 +2176,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db RETURN, BELLY_DRUM, SING, SURF 
 	dw 0 ; OT ID
-	dt 51200 ; Exp
+	bigdt 51200 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -2205,7 +2205,7 @@ BattleTowerMons:
 	db MYSTIC_WATER
 	db SLUDGE_BOMB, SURF, BARRIER, GIGA_DRAIN
 	dw 0 ; OT ID
-	dt 156250 ; Exp
+	bigdt 156250 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 40000
@@ -2231,7 +2231,7 @@ BattleTowerMons:
 	db CHARCOAL
 	db LOW_KICK, FIRE_BLAST, SUNNY_DAY, SOLARBEAM 
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -2257,7 +2257,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db SURF, PSYCHIC_M, REST, THUNDER_WAVE
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 30000
@@ -2283,7 +2283,7 @@ BattleTowerMons:
 	db MAGNET
 	db THUNDER, LIGHT_SCREEN, SCREECH, EXPLOSION 
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -2309,7 +2309,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db SKY_ATTACK, ROCK_SLIDE, SWORDS_DANCE, STEEL_WING 
 	dw 0 ; OT ID
-	dt 156250 ; Exp
+	bigdt 156250 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -2335,7 +2335,7 @@ BattleTowerMons:
 	db SILK_SCARF
 	db DOUBLE_EDGE, JUMP_KICK, DRILL_PECK, SWORDS_DANCE 
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 60000
@@ -2361,7 +2361,7 @@ BattleTowerMons:
 	db CHARCOAL
 	db SLUDGE_BOMB, FIRE_BLAST, SHADOW_BALL, EXPLOSION 
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -2387,7 +2387,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db TOXIC, FLAMETHROWER, MINIMIZE, REST
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -2413,7 +2413,7 @@ BattleTowerMons:
 	db NEVERMELTICE
 	db SURF, ICE_BEAM, TOXIC, EXPLOSION 
 	dw 0 ; OT ID
-	dt 156250 ; Exp
+	bigdt 156250 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 40000
@@ -2439,7 +2439,7 @@ BattleTowerMons:
 	db BRIGHTPOWDER
 	db SLEEP_POWDER, PSYCHIC_M, SLUDGE_BOMB, FLASH 
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 20000
@@ -2465,7 +2465,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db PSYCHIC_M, LIGHT_SCREEN, FUTURE_SIGHT, SHADOW_BALL 
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 30000
@@ -2491,7 +2491,7 @@ BattleTowerMons:
 	db SCOPE_LENS
 	db FLAIL, CRABHAMMER, RETURN, TOXIC 
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -2517,7 +2517,7 @@ BattleTowerMons:
 	db THICK_CLUB
 	db ROCK_SLIDE, EARTHQUAKE, FIRE_BLAST, SWORDS_DANCE 
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 60000
@@ -2543,7 +2543,7 @@ BattleTowerMons:
 	db BLACKBELT_I
 	db MACH_PUNCH, HI_JUMP_KICK, ROCK_SLIDE, SWORDS_DANCE 
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -2569,7 +2569,7 @@ BattleTowerMons:
 	db CHESTO_BERRY
 	db SLUDGE_BOMB, FLAMETHROWER, EXPLOSION, REST 
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 30000
@@ -2595,7 +2595,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db SURF, TOXIC, REST, HAZE
 	dw 0 ; OT ID
-	dt 156250 ; Exp
+	bigdt 156250 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 30000
@@ -2621,7 +2621,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db FLAMETHROWER, DEFENSE_CURL, SOFTBOILED, THUNDER_WAVE
 	dw 0 ; OT ID
-	dt 100000 ; Exp
+	bigdt 100000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 20000
@@ -2647,7 +2647,7 @@ BattleTowerMons:
 	db KINGS_ROCK
 	db CRUNCH, RETURN, CURSE, REST 
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -2673,7 +2673,7 @@ BattleTowerMons:
 	db CHESTO_BERRY
 	db SURF, PSYCHIC_M, THUNDER_WAVE, REST 
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 20000
@@ -2699,7 +2699,7 @@ BattleTowerMons:
 	db SILVERPOWDER
 	db SLASH, WING_ATTACK, STEEL_WING, SWORDS_DANCE 
 	dw 0 ; OT ID
-	dt 125000 ; Exp
+	bigdt 125000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -2725,7 +2725,7 @@ BattleTowerMons:
 	db BLACKGLASSES
 	db FEINT_ATTACK, DRILL_PECK, CONFUSE_RAY, THUNDER_WAVE
 	dw 0 ; OT ID
-	dt 117360 ; Exp
+	bigdt 117360 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -2754,7 +2754,7 @@ BattleTowerMons:
 	db MYSTIC_WATER
 	db SURF, ICE_BEAM, CONFUSE_RAY, PERISH_SONG  
 	dw 0 ; OT ID
-	dt 270000 ; Exp
+	bigdt 270000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 30000
@@ -2780,7 +2780,7 @@ BattleTowerMons:
 	db CHARCOAL
 	db FIRE_BLAST, SHADOW_BALL, DOUBLE_EDGE, MUD_SLAP  
 	dw 0 ; OT ID
-	dt 216000 ; Exp
+	bigdt 216000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -2806,7 +2806,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db RETURN, ICE_BEAM, RECOVER, CURSE 
 	dw 0 ; OT ID
-	dt 216000 ; Exp
+	bigdt 216000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -2832,7 +2832,7 @@ BattleTowerMons:
 	db KINGS_ROCK
 	db WATERFALL, ROCK_SLIDE, LOW_KICK, SWORDS_DANCE
 	dw 0 ; OT ID
-	dt 216000 ; Exp
+	bigdt 216000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -2858,7 +2858,7 @@ BattleTowerMons:
 	db CHESTO_BERRY
 	db HYDRO_PUMP, RAIN_DANCE, REST, ROCK_SLIDE 
 	dw 0 ; OT ID
-	dt 216000 ; Exp
+	bigdt 216000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -2884,7 +2884,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db ROCK_SLIDE, EARTHQUAKE, WING_ATTACK, CRUNCH  
 	dw 0 ; OT ID
-	dt 216000 ; Exp
+	bigdt 216000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -2910,7 +2910,7 @@ BattleTowerMons:
 	db CHARCOAL
 	db FIRE_BLAST, THUNDERPUNCH, SUNNY_DAY, SOLARBEAM 
 	dw 0 ; OT ID
-	dt 211060 ; Exp
+	bigdt 211060 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -2936,7 +2936,7 @@ BattleTowerMons:
 	db FOCUS_BAND
 	db FIRE_BLAST, EARTHQUAKE, ROCK_SLIDE, BELLY_DRUM 
 	dw 0 ; OT ID
-	dt 211060 ; Exp
+	bigdt 211060 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -2962,7 +2962,7 @@ BattleTowerMons:
 	db FOCUS_BAND
 	db GIGA_DRAIN, SLUDGE_BOMB, HIDDEN_POWER, SLEEP_POWDER ; HP = FIRE
 	dw 0 ; OT ID
-	dt 211060 ; Exp
+	bigdt 211060 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -2988,7 +2988,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db SWORDS_DANCE, SLUDGE_BOMB, EARTHQUAKE, SLEEP_POWDER
 	dw 0 ; OT ID
-	dt 211060 ; Exp
+	bigdt 211060 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -3014,7 +3014,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db SURF, SEISMIC_TOSS, REST, SLEEP_TALK
 	dw 0 ; OT ID
-	dt 211060 ; Exp
+	bigdt 211060 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 30000
@@ -3040,7 +3040,7 @@ BattleTowerMons:
 	db BLACKGLASSES
 	db FEINT_ATTACK, DRILL_PECK, THUNDER_WAVE, PERISH_SONG 
 	dw 0 ; OT ID
-	dt 211060 ; Exp
+	bigdt 211060 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -3066,7 +3066,7 @@ BattleTowerMons:
 	db TWISTEDSPOON
 	db PSYCHIC_M, DRILL_PECK, GIGA_DRAIN, SHADOW_BALL
 	dw 0 ; OT ID
-	dt 216000 ; Exp
+	bigdt 216000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 30000
@@ -3092,7 +3092,7 @@ BattleTowerMons:
 	db MAGNET
 	db THUNDER, CONFUSE_RAY, ICE_PUNCH, SEISMIC_TOSS 
 	dw 0 ; OT ID
-	dt 211060 ; Exp
+	bigdt 211060 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -3118,7 +3118,7 @@ BattleTowerMons:
 	db MAGNET
 	db THUNDER, DYNAMICPUNCH, ICE_PUNCH, AGILITY 
 	dw 0 ; OT ID
-	dt 211060 ; Exp
+	bigdt 211060 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -3144,7 +3144,7 @@ BattleTowerMons:
 	db SILK_SCARF
 	db THUNDER, LIGHT_SCREEN, EXPLOSION, MIRROR_COAT 
 	dw 0 ; OT ID
-	dt 216000 ; Exp
+	bigdt 216000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -3170,7 +3170,7 @@ BattleTowerMons:
 	db HARD_STONE
 	db ROCK_SLIDE, CURSE, EXPLOSION, EARTHQUAKE
 	dw 0 ; OT ID
-	dt 216000 ; Exp
+	bigdt 216000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -3196,7 +3196,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db SURF, ICE_BEAM, PERISH_SONG, HYPNOSIS 
 	dw 0 ; OT ID
-	dt 211060 ; Exp
+	bigdt 211060 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -3222,7 +3222,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db PSYCHIC_M, SHADOW_BALL, MORNING_SUN, THUNDER_WAVE 
 	dw 0 ; OT ID
-	dt 216000 ; Exp
+	bigdt 216000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 30000
@@ -3248,7 +3248,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db CRUNCH, CURSE, REST, SLEEP_TALK 
 	dw 0 ; OT ID
-	dt 216000 ; Exp
+	bigdt 216000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -3274,7 +3274,7 @@ BattleTowerMons:
 	db BLACKBELT_I
 	db SWORDS_DANCE, EARTHQUAKE, SUBMISSION, FEINT_ATTACK 
 	dw 0 ; OT ID
-	dt 270000 ; Exp
+	bigdt 270000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -3303,7 +3303,7 @@ BattleTowerMons:
 	db NEVERMELTICE
 	db EARTHQUAKE, ICE_PUNCH, THUNDERBOLT, CHARM
 	dw 0 ; OT ID
-	dt 344960 ; Exp
+	bigdt 344960 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -3329,7 +3329,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db FEINT_ATTACK, DOUBLE_EDGE, LOW_KICK, SWORDS_DANCE
 	dw 0 ; OT ID
-	dt 344960 ; Exp
+	bigdt 344960 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -3355,7 +3355,7 @@ BattleTowerMons:
 	db SCOPE_LENS
 	db OUTRAGE, FRUSTRATION, CRUNCH, FIRE_BLAST
 	dw 0 ; OT ID
-	dt 274400 ; Exp
+	bigdt 274400 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -3381,7 +3381,7 @@ BattleTowerMons:
 	db METAL_COAT
 	db STEEL_WING, FURY_CUTTER, SWORDS_DANCE, DOUBLE_EDGE
 	dw 0 ; OT ID
-	dt 343000 ; Exp
+	bigdt 343000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -3407,7 +3407,7 @@ BattleTowerMons:
 	db SILK_SCARF
 	db DOUBLE_EDGE, EARTHQUAKE, CROSS_CHOP, SWORDS_DANCE
 	dw 0 ; OT ID
-	dt 343000 ; Exp
+	bigdt 343000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 60000
@@ -3433,7 +3433,7 @@ BattleTowerMons:
 	db CHESTO_BERRY
 	db REST, EARTHQUAKE, TOXIC, ROAR 
 	dw 0 ; OT ID
-	dt 343000 ; Exp
+	bigdt 343000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -3459,7 +3459,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db MILK_DRINK, BODY_SLAM, SURF, CHARM 
 	dw 0 ; OT ID
-	dt 428750 ; Exp
+	bigdt 428750 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 30000
@@ -3485,7 +3485,7 @@ BattleTowerMons:
 	db MYSTIC_WATER
 	db OCTAZOOKA, ICE_BEAM, THUNDER_WAVE, FIRE_BLAST 
 	dw 0 ; OT ID
-	dt 343000 ; Exp
+	bigdt 343000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 30000
@@ -3511,7 +3511,7 @@ BattleTowerMons:
 	db NEVERMELTICE
 	db ICY_WIND, ROCK_SLIDE, EARTHQUAKE, ROAR 
 	dw 0 ; OT ID
-	dt 428750 ; Exp
+	bigdt 428750 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -3537,7 +3537,7 @@ BattleTowerMons:
 	db FOCUS_BAND
 	db FIRE_BLAST, ROCK_SLIDE, EXPLOSION, TOXIC
 	dw 0 ; OT ID
-	dt 343000 ; Exp
+	bigdt 343000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 40000
@@ -3563,7 +3563,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db DEFENSE_CURL, TOXIC, FLASH, REST
 	dw 0 ; OT ID
-	dt 344960 ; Exp
+	bigdt 344960 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 20000
@@ -3589,7 +3589,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db EARTHQUAKE, IRON_TAIL, CURSE, REST 
 	dw 0 ; OT ID
-	dt 343000 ; Exp
+	bigdt 343000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 40000
@@ -3615,7 +3615,7 @@ BattleTowerMons:
 	db SPELL_TAG
 	db SHADOW_BALL, PAIN_SPLIT, ICY_WIND, THUNDER 
 	dw 0 ; OT ID
-	dt 274400 ; Exp
+	bigdt 274400 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 40000
@@ -3641,7 +3641,7 @@ BattleTowerMons:
 	db SHARP_BEAK
 	db PSYCHIC_M, DRILL_PECK, SHADOW_BALL, THUNDER_WAVE 
 	dw 0 ; OT ID
-	dt 343000 ; Exp
+	bigdt 343000 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 40000
@@ -3667,7 +3667,7 @@ BattleTowerMons:
 	db CHARCOAL
 	db FIRE_BLAST, THUNDERPUNCH, MUD_SLAP, SLEEP_TALK 
 	dw 0 ; OT ID
-	dt 344960 ; Exp
+	bigdt 344960 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 40000
@@ -3693,7 +3693,7 @@ BattleTowerMons:
 	db KINGS_ROCK
 	db WATERFALL, ROCK_SLIDE, EARTHQUAKE, SWORDS_DANCE 
 	dw 0 ; OT ID
-	dt 344960 ; Exp
+	bigdt 344960 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 50000
@@ -3719,7 +3719,7 @@ BattleTowerMons:
 	db MIRACLE_SEED
 	db PETAL_DANCE, EARTHQUAKE, SYNTHESIS, TOXIC 
 	dw 0 ; OT ID
-	dt 344960 ; Exp
+	bigdt 344960 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 40000
@@ -3745,7 +3745,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db SURF, ICE_BEAM, HYPNOSIS, TOXIC 
 	dw 0 ; OT ID
-	dt 344960 ; Exp
+	bigdt 344960 ; Exp
 	; Stat exp
 	bigdw 40000
 	bigdw 40000
@@ -3771,7 +3771,7 @@ BattleTowerMons:
 	db MAGNET
 	db SURF, THUNDERBOLT, THUNDER_WAVE, ICE_BEAM 
 	dw 0 ; OT ID
-	dt 428750 ; Exp
+	bigdt 428750 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 30000
@@ -3797,7 +3797,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db SLUDGE_BOMB, CRUNCH, TOXIC, DOUBLE_TEAM 
 	dw 0 ; OT ID
-	dt 343000 ; Exp
+	bigdt 343000 ; Exp
 	; Stat exp
 	bigdw 30000
 	bigdw 50000
@@ -3823,7 +3823,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db ROCK_SLIDE, EARTHQUAKE, ZAP_CANNON, MEGAHORN 
 	dw 0 ; OT ID
-	dt 428750 ; Exp
+	bigdt 428750 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -3852,7 +3852,7 @@ BattleTowerMons:
 	db MAGNET
 	db THUNDERBOLT, DRILL_PECK, THUNDER_WAVE, AGILITY
 	dw 0 ; OT ID
-	dt 640000 ; Exp
+	bigdt 640000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -3878,7 +3878,7 @@ BattleTowerMons:
 	db CHARCOAL
 	db FIRE_BLAST, SUNNY_DAY, SOLARBEAM, ANCIENTPOWER 
 	dw 0 ; OT ID
-	dt 640000 ; Exp
+	bigdt 640000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -3904,7 +3904,7 @@ BattleTowerMons:
 	db NEVERMELTICE
 	db BLIZZARD, SKY_ATTACK, TOXIC, REST 
 	dw 0 ; OT ID
-	dt 640000 ; Exp
+	bigdt 640000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -3930,7 +3930,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db DOUBLE_EDGE, CRUNCH, FIRE_BLAST, SELFDESTRUCT
 	dw 0 ; OT ID
-	dt 640000 ; Exp
+	bigdt 640000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -3956,7 +3956,7 @@ BattleTowerMons:
 	db CHARCOAL
 	db TOXIC, FIRE_BLAST, EXTREMESPEED, CRUNCH
 	dw 0 ; OT ID
-	dt 640000 ; Exp
+	bigdt 640000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -3982,7 +3982,7 @@ BattleTowerMons:
 	db TWISTEDSPOON
 	db GIGA_DRAIN, SLEEP_POWDER, PSYCHIC_M, EXPLOSION 
 	dw 0 ; OT ID
-	dt 640000 ; Exp
+	bigdt 640000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4008,7 +4008,7 @@ BattleTowerMons:
 	db FOCUS_BAND
 	db HYDRO_PUMP, THUNDER, EARTHQUAKE, ICY_WIND 
 	dw 0 ; OT ID
-	dt 640 ; Exp
+	bigdt 640 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4034,7 +4034,7 @@ BattleTowerMons:
 	db CHESTO_BERRY
 	db SURF, ICE_BEAM, TOXIC, REST 
 	dw 0 ; OT ID
-	dt 512000 ; Exp
+	bigdt 512000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4060,7 +4060,7 @@ BattleTowerMons:
 	db MAGNET
 	db THUNDERBOLT, THUNDER_WAVE, SHADOW_BALL, HIDDEN_POWER ; ICE 
 	dw 0 ; OT ID
-	dt 512000 ; Exp
+	bigdt 512000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4086,7 +4086,7 @@ BattleTowerMons:
 	db HARD_STONE
 	db ROCK_SLIDE, EARTHQUAKE, MEGAHORN, SWORDS_DANCE 
 	dw 0 ; OT ID
-	dt 640000 ; Exp
+	bigdt 640000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4112,7 +4112,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db ROCK_SLIDE, EARTHQUAKE, FIRE_BLAST, CRUNCH
 	dw 0 ; OT ID
-	dt 640000 ; Exp
+	bigdt 640000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4138,7 +4138,7 @@ BattleTowerMons:
 	db SILK_SCARF
 	db DOUBLE_EDGE, EARTHQUAKE, FIRE_BLAST, THUNDER
 	dw 0 ; OT ID
-	dt 640000 ; Exp
+	bigdt 640000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4164,7 +4164,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db SLUDGE_BOMB, EARTHQUAKE, THUNDER, ICE_BEAM 
 	dw 0 ; OT ID
-	dt 526260 ; Exp
+	bigdt 526260 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4190,7 +4190,7 @@ BattleTowerMons:
 	db FOCUS_BAND
 	db PSYCHIC_M, ICE_BEAM, LOVELY_KISS, NIGHTMARE 
 	dw 0 ; OT ID
-	dt 512000 ; Exp
+	bigdt 512000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4216,7 +4216,7 @@ BattleTowerMons:
 	db CHERI_BERRY
 	db PSYCHIC_M, SURF, ICE_BEAM, THUNDERBOLT 
 	dw 0 ; OT ID
-	dt 640000 ; Exp
+	bigdt 640000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4242,7 +4242,7 @@ BattleTowerMons:
 	db PERSIM_BERRY
 	db SURF, ICY_WIND, TOXIC, EXPLOSION
 	dw 0 ; OT ID
-	dt 640000 ; Exp
+	bigdt 640000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4268,7 +4268,7 @@ BattleTowerMons:
 	db SOFT_SAND
 	db ROCK_SLIDE, EARTHQUAKE, EXPLOSION, FIRE_BLAST 
 	dw 0 ; OT ID
-	dt 526260 ; Exp
+	bigdt 526260 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4294,7 +4294,7 @@ BattleTowerMons:
 	db SPELL_TAG
 	db SHADOW_BALL, THUNDERBOLT, ICE_PUNCH, EXPLOSION 
 	dw 0 ; OT ID
-	dt 526260 ; Exp
+	bigdt 526260 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4320,7 +4320,7 @@ BattleTowerMons:
 	db BLACKBELT_I
 	db CROSS_CHOP, ROCK_SLIDE, EARTHQUAKE, FIRE_BLAST 
 	dw 0 ; OT ID
-	dt 526260 ; Exp
+	bigdt 526260 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4346,7 +4346,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db PSYCHIC_M, DYNAMICPUNCH, RECOVER, FIRE_PUNCH 
 	dw 0 ; OT ID
-	dt 526260 ; Exp
+	bigdt 526260 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4372,7 +4372,7 @@ BattleTowerMons:
 	db DRAGON_FANG
 	db OUTRAGE, LOW_KICK, EXTREMESPEED, FIRE_BLAST 
 	dw 0 ; OT ID
-	dt 640000 ; Exp
+	bigdt 640000 ; Exp
 	; Stat exp
 	bigdw 50000
 	bigdw 50000
@@ -4401,7 +4401,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db SURF, TOXIC, REST, SLEEP_TALK 
 	dw 0 ; OT ID
-	dt 911250 ; Exp
+	bigdt 911250 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4427,7 +4427,7 @@ BattleTowerMons:
 	db CHARCOAL
 	db FIRE_BLAST, SUNNY_DAY, SOLARBEAM, PSYCHIC_M 
 	dw 0 ; OT ID
-	dt 911250 ; Exp
+	bigdt 911250 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4453,7 +4453,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db THUNDER, CRUNCH, REST, SLEEP_TALK
 	dw 0 ; OT ID
-	dt 911250 ; Exp
+	bigdt 911250 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4479,7 +4479,7 @@ BattleTowerMons:
 	db SILK_SCARF
 	db DOUBLE_EDGE, CROSS_CHOP, ROCK_SLIDE, SWORDS_DANCE 
 	dw 0 ; OT ID
-	dt 729000 ; Exp
+	bigdt 729000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4505,7 +4505,7 @@ BattleTowerMons:
 	db SILVERPOWDER
 	db PIN_MISSILE, ZAP_CANNON, EXPLOSION, TOXIC 
 	dw 0 ; OT ID
-	dt 729000 ; Exp
+	bigdt 729000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4531,7 +4531,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db SURF, EARTHQUAKE, RECOVER, TOXIC 
 	dw 0 ; OT ID
-	dt 729000 ; Exp
+	bigdt 729000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4557,7 +4557,7 @@ BattleTowerMons:
 	db FOCUS_BAND
 	db PSYCHIC_M, SHADOW_BALL, MORNING_SUN, FUTURE_SIGHT 
 	dw 0 ; OT ID
-	dt 729000 ; Exp
+	bigdt 729000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4583,7 +4583,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db CONFUSE_RAY, TOXIC, CRUNCH, MOONLIGHT 
 	dw 0 ; OT ID
-	dt 729000 ; Exp
+	bigdt 729000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4609,7 +4609,7 @@ BattleTowerMons:
 	db NEVERMELTICE
 	db ICY_WIND, ROCK_SLIDE, EARTHQUAKE, REFLECT
 	dw 0 ; OT ID
-	dt 911250 ; Exp
+	bigdt 911250 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4635,7 +4635,7 @@ BattleTowerMons:
 	db BLACKGLASSES
 	db CRUNCH, SUNNY_DAY, FIRE_BLAST, SOLARBEAM
 	dw 0 ; OT ID
-	dt 911250 ; Exp
+	bigdt 911250 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4661,7 +4661,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db SEISMIC_TOSS, FLAMETHROWER, TOXIC, SOFTBOILED 
 	dw 0 ; OT ID
-	dt 583200 ; Exp
+	bigdt 583200 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4687,7 +4687,7 @@ BattleTowerMons:
 	db METAL_COAT
 	db IRON_TAIL, EXPLOSION, REST, CURSE 
 	dw 0 ; OT ID
-	dt 729000 ; Exp
+	bigdt 729000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4713,7 +4713,7 @@ BattleTowerMons:
 	db SILVERPOWDER
 	db PIN_MISSILE, ROCK_SLIDE, LOW_KICK, SWORDS_DANCE 
 	dw 0 ; OT ID
-	dt 911250 ; Exp
+	bigdt 911250 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4739,7 +4739,7 @@ BattleTowerMons:
 	db BRIGHTPOWDER
 	db AGILITY, SWORDS_DANCE, METAL_CLAW, BATON_PASS 
 	dw 0 ; OT ID
-	dt 729000 ; Exp
+	bigdt 729000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4765,7 +4765,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db DRILL_PECK, REST, CURSE, TOXIC 
 	dw 0 ; OT ID
-	dt 911250 ; Exp
+	bigdt 911250 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4791,7 +4791,7 @@ BattleTowerMons:
 	db CHESTO_BERRY
 	db HYDRO_PUMP, OUTRAGE, ICE_BEAM, REST 
 	dw 0 ; OT ID
-	dt 729000 ; Exp
+	bigdt 729000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4817,7 +4817,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db CURSE, RETURN, ICE_BEAM, RECOVER 
 	dw 0 ; OT ID
-	dt 729000 ; Exp
+	bigdt 729000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4843,7 +4843,7 @@ BattleTowerMons:
 	db SILK_SCARF
 	db CURSE, RETURN, PSYCHIC_M, RECOVER 
 	dw 0 ; OT ID
-	dt 729000 ; Exp
+	bigdt 729000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4869,7 +4869,7 @@ BattleTowerMons:
 	db PECHA_BERRY
 	db ROCK_SLIDE, EARTHQUAKE, DOUBLE_EDGE, SCARY_FACE 
 	dw 0 ; OT ID
-	dt 729000 ; Exp
+	bigdt 729000 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4895,7 +4895,7 @@ BattleTowerMons:
 	db BLACKGLASSES
 	db PURSUIT, CRUNCH, ICE_BEAM, EARTHQUAKE 
 	dw 0 ; OT ID
-	dt 911250 ; Exp
+	bigdt 911250 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4921,7 +4921,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db ROCK_SLIDE, CRUNCH, THUNDER, EARTHQUAKE 
 	dw 0 ; OT ID
-	dt 911250 ; Exp
+	bigdt 911250 ; Exp
 	; Stat exp
 	bigdw 60000
 	bigdw 60000
@@ -4950,7 +4950,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db THUNDER, HIDDEN_POWER, REST, SLEEP_TALK ; HP = ICE 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -4976,7 +4976,7 @@ BattleTowerMons:
 	db TWISTEDSPOON
 	db PSYCHIC_M, DYNAMICPUNCH, SHADOW_BALL, EXPLOSION 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5002,7 +5002,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db PSYCHIC_M, FIRE_BLAST, DYNAMICPUNCH, SHADOW_BALL 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5028,7 +5028,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db THUNDER, CRUNCH, REST, REFLECT 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5054,7 +5054,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db CURSE, AEROBLAST, RECOVER, SURF 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5080,7 +5080,7 @@ BattleTowerMons:
 	db CHARCOAL
 	db SACRED_FIRE, THUNDER, EARTHQUAKE, RECOVER
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5106,7 +5106,7 @@ BattleTowerMons:
 	db BRIGHTPOWDER
 	db GIGA_DRAIN, PSYCHIC_M, RECOVER, THUNDER_WAVE 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5132,7 +5132,7 @@ BattleTowerMons:
 	db CHESTO_BERRY
 	db ROCK_SLIDE, EARTHQUAKE, CURSE, REST 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5158,7 +5158,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db CRUNCH, PURSUIT, FIRE_BLAST, THUNDER_WAVE  
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5184,7 +5184,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db OUTRAGE, FIRE_BLAST, EARTHQUAKE, EXTREMESPEED 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5210,7 +5210,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db REST, SLEEP_TALK, CURSE, RETURN 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5236,7 +5236,7 @@ BattleTowerMons:
 	db SILK_SCARF
 	db CURSE, EARTHQUAKE, ROCK_SLIDE, EXPLOSION 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5262,7 +5262,7 @@ BattleTowerMons:
 	db FOCUS_BAND
 	db MEGAHORN, ROCK_SLIDE, EARTHQUAKE, SWORDS_DANCE  
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5288,7 +5288,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db SHADOW_BALL, GIGA_DRAIN, THUNDER, EXPLOSION 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5314,7 +5314,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db SURF, TOXIC, REST, SLEEP_TALK 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5340,7 +5340,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db TOXIC, SURF, EARTHQUAKE, RECOVER 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5366,7 +5366,7 @@ BattleTowerMons:
 	db LUM_BERRY
 	db THUNDER, SHADOW_BALL, SUBSTITUTE, HIDDEN_POWER ; HP = ICE 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5392,7 +5392,7 @@ BattleTowerMons:
 	db BLACKBELT_I
 	db ICE_BEAM, THUNDERBOLT, DYNAMICPUNCH, SELFDESTRUCT 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5418,7 +5418,7 @@ BattleTowerMons:
 	db LEFTOVERS
 	db SEISMIC_TOSS, FLAMETHROWER, TOXIC, SOFTBOILED 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5444,7 +5444,7 @@ BattleTowerMons:
 	db RAWST_BERRY
 	db SELFDESTRUCT, EARTHQUAKE, THUNDER, DOUBLE_EDGE 
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535
@@ -5470,7 +5470,7 @@ BattleTowerMons:
 	db SITRUS_BERRY
 	db FIRE_BLAST, SUNNY_DAY, SOLARBEAM, DOUBLE_EDGE
 	dw 0 ; OT ID
-	dt 1250000 ; Exp
+	bigdt 1250000 ; Exp
 	; Stat exp
 	bigdw 65535
 	bigdw 65535

@@ -71,7 +71,7 @@ BattleCommand_Teleport:
 	call ClearBox
 	ld b, SCGB_BATTLE_COLORS
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	call Teleport_LinkPlayerSwitch
 	ld hl, TeleportBattleMonEntrance
 	call CallBattleCore

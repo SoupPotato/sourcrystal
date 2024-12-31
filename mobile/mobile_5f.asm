@@ -77,7 +77,7 @@ Function17c000:
 	ldh [rVBK], a
 
 	call EnableLCD
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	ret
 
 HaveWantGFX:
@@ -476,8 +476,8 @@ MenuHeader_17d26a:
 MenuData_17d272:
 	db STATICMENU_CURSOR | STATICMENU_WRAP ; flags
 	db 4
-	db "ニュース¯よみこむ@"
-	db "ニュース¯みる@"
+	db "ニュース<WO>よみこむ@"
+	db "ニュース<WO>みる@"
 	db "せつめい@"
 	db "やめる@"
 
@@ -604,7 +604,7 @@ Function17d370:
 	call ClearBGPalettes
 	call ClearSprites
 	call ClearScreen
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	call DisableLCD
 	ld hl, vTiles0 tile $ee
 	ld de, wc608
@@ -649,7 +649,7 @@ Function17d3f6:
 	call ClearBGPalettes
 	call ClearSprites
 	call ClearScreen
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 
 Function17d405:
 	call DisableLCD
@@ -682,7 +682,7 @@ Function17d405:
 	ld de, wBGPals1
 	ld bc, 8 palettes
 	call CopyBytes
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	pop af
 	ldh [rSVBK], a
 	ret
@@ -694,7 +694,7 @@ Function17d45a:
 	bit 7, a
 	jr nz, .asm_17d46f
 	call Function17d474
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	jr .asm_17d45a
 
 .asm_17d46f
@@ -893,11 +893,11 @@ Function17d48d:
 	call Function17e451
 	call Function17e55b
 	call Function17e5af
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	jp Function17e438
 
 Function17d5be:
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	call Function17e438
 
 Function17d5c4:
@@ -1443,7 +1443,7 @@ Function17d93a:
 	ld a, [wc70c]
 	ld e, a
 	farcall LoadMonPaletteAsNthBGPal
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ld a, [wc708]
 	ld l, a
 	ld a, [wc709]
@@ -1478,7 +1478,7 @@ Function17d98b:
 	ld a, [wc70b]
 	ld e, a
 	farcall LoadTrainerClassPaletteAsNthBGPal
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ld a, [wc708]
 	ld e, a
 	ld a, [wc709]
@@ -1979,7 +1979,7 @@ Function17dd13:
 	push hl
 	pop bc
 	pop hl
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	ret
 
 Function17dd30:
@@ -4299,7 +4299,7 @@ DisplayMobileError:
 	call JoyTextDelay
 	call .RunJumptable
 	ld a, [wc303]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .quit
 	farcall HDMATransferAttrmapAndTilemapToWRAMBank3
 	jr .loop
@@ -4367,7 +4367,7 @@ Function17f5c3:
 Function17f5d2:
 	call Function17f5e4
 	farcall HDMATransferAttrmapAndTilemapToWRAMBank3
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ld a, $1
 	ld [wc303], a
 	ret
@@ -4998,7 +4998,7 @@ Function17ff23:
 	xor a
 	ld [wMusicFadeID + 1], a
 	ld hl, wc303
-	set 7, [hl]
+	set JUMPTABLE_EXIT_F, [hl]
 	ret
 
 Function17ff3c:

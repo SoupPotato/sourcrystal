@@ -1,6 +1,6 @@
 MapSetupScripts:
 ; entries correspond to MAPSETUP_* constants (see constants/map_setup_constants.asm)
-	table_width 2, MapSetupScripts
+	table_width 2
 	dw MapSetupScript_Warp
 	dw MapSetupScript_Continue
 	dw MapSetupScript_ReloadMap
@@ -18,12 +18,16 @@ MapSetupScripts:
 ; valid commands are listed in MapSetupCommands (see data/maps/setup_script_pointers.asm)
 MACRO mapsetup
 	db (\1_MapSetupCmd - MapSetupCommands) / 3
+	; `mapsetup` takes a parameter if `add_mapsetup` indicates taking one.
+	if _NARG == 2
+		db \2 ; param
+	endc
 ENDM
 
 MapSetupScript_Teleport:
 	mapsetup ResetPlayerObjectAction
 MapSetupScript_Fly:
-	mapsetup FadeOutPalettes
+	mapsetup FadeOutToWhite
 	mapsetup JumpRoamMons
 MapSetupScript_Warp:
 	mapsetup DisableLCD
@@ -49,7 +53,7 @@ MapSetupScript_Warp:
 	mapsetup RefreshMapSprites
 	mapsetup PlayMapMusicBike
 	mapsetup FadeInToMusic
-	mapsetup FadeInPalettes
+	mapsetup FadeInFromWhite
 	mapsetup ActivateMapAnims
 	mapsetup LoadWildMonData
 	db -1 ; end
@@ -77,7 +81,7 @@ MapSetupScript_BadWarp:
 	mapsetup EnableDynPalUpdatesNoApply
 	mapsetup RefreshMapSprites
 	mapsetup FadeToMapMusic
-	mapsetup FadeInPalettes
+	mapsetup FadeInFromWhite
 	mapsetup ActivateMapAnims
 	mapsetup LoadWildMonData
 	db -1 ; end
@@ -106,7 +110,7 @@ MapSetupScript_Connection:
 MapSetupScript_Fall:
 	mapsetup ResetPlayerObjectAction
 MapSetupScript_Door:
-	mapsetup FadeOutPalettes
+	mapsetup FadeOutToWhite
 MapSetupScript_Train:
 	mapsetup EnterMapWarp
 	mapsetup LoadMapAttributes
@@ -128,7 +132,7 @@ MapSetupScript_Train:
 	mapsetup EnableDynPalUpdatesNoApply
 	mapsetup RefreshMapSprites
 	mapsetup FadeToMapMusic
-	mapsetup FadeInPalettes
+	mapsetup FadeInFromWhite
 	mapsetup ActivateMapAnims
 	mapsetup LoadWildMonData
 	mapsetup UpdateRoamMons
@@ -150,7 +154,7 @@ MapSetupScript_ReloadMap:
 	mapsetup EnableDynPalUpdatesNoApply
 	mapsetup RefreshMapSprites
 	mapsetup ForceMapMusic
-	mapsetup FadeInPalettes
+	mapsetup FadeInFromWhite
 	mapsetup ActivateMapAnims
 	mapsetup LoadWildMonData
 	db -1 ; end
@@ -170,7 +174,7 @@ MapSetupScript_LinkReturn:
 	mapsetup EnableDynPalUpdatesNoApply
 	mapsetup RefreshMapSprites
 	mapsetup PlayMapMusicBike
-	mapsetup FadeInPalettes
+	mapsetup FadeInFromWhite
 	mapsetup ActivateMapAnims
 	mapsetup LoadWildMonData
 	mapsetup EnableTextAcceleration
@@ -193,7 +197,7 @@ MapSetupScript_Continue:
 	mapsetup EnableDynPalUpdatesNoApply
 	mapsetup RefreshMapSprites
 	mapsetup PlayMapMusicBike
-	mapsetup FadeInPalettes
+	mapsetup FadeInFromWhite
 	mapsetup ClearWeather
 	mapsetup SetCurrentWeather
 	mapsetup ActivateMapAnims

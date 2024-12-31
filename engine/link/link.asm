@@ -537,6 +537,7 @@ LinkTimeout:
 	xor a
 	ld [hld], a
 	ld [hl], a
+	assert VBLANK_NORMAL == 0
 	ldh [hVBlank], a
 	push de
 	hlcoord 0, 12
@@ -549,7 +550,7 @@ LinkTimeout:
 	pop de
 	pop hl
 	bccoord 1, 14
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	call RotateThreePalettesRight
 	call ClearScreen
 	ld b, SCGB_DIPLOMA
@@ -646,7 +647,7 @@ endr
 
 ; Loop through all the patchable link data
 	ld hl, wLinkData + SERIAL_PREAMBLE_LENGTH + NAME_LENGTH + (1 + PARTY_LENGTH + 1) - 1
-	ld de, wPlayerPatchLists + SERIAL_RNS_LENGTH ; ???
+	ld de, wPlayerPatchLists + SERIAL_RNS_LENGTH
 	lb bc, 0, 0
 .patch_loop
 ; Check if we've gone over the entire area
@@ -1280,7 +1281,7 @@ LinkTrade_OTPartyMenu:
 	ld [wMenuCursorX], a
 	ln a, 1, 0
 	ld [w2DMenuCursorOffsets], a
-	ld a, MENU_UNUSED_3
+	ld a, MENU_UNUSED
 	ld [w2DMenuFlags1], a
 	xor a
 	ld [w2DMenuFlags2], a
@@ -1344,7 +1345,7 @@ LinkTrade_PlayerPartyMenu:
 	ld [wMenuCursorX], a
 	ln a, 1, 0
 	ld [w2DMenuCursorOffsets], a
-	ld a, MENU_UNUSED_3
+	ld a, MENU_UNUSED
 	ld [w2DMenuFlags1], a
 	xor a
 	ld [w2DMenuFlags2], a
@@ -1504,7 +1505,7 @@ LinkTrade_TradeStatsMenu:
 	dec a
 	ld [wCurTradePartyMon], a
 	ld [wPlayerLinkAction], a
-	farcall PrintWaitingTextAndSyncAndExchangeNybble
+	farcall PlaceWaitingTextAndSyncAndExchangeNybble
 	ld a, [wOtherPlayerLinkMode]
 	cp $f
 	jp z, InitTradeMenuDisplay
@@ -1526,7 +1527,7 @@ LinkTrade_TradeStatsMenu:
 	farcall Link_WaitBGMap
 	ld hl, .LinkTradeCantBattleText
 	bccoord 1, 14
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	jr .cancel_trade
 
 .abnormal
@@ -1548,7 +1549,7 @@ LinkTrade_TradeStatsMenu:
 	farcall Link_WaitBGMap
 	ld hl, .LinkAbnormalMonText
 	bccoord 1, 14
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 
 .cancel_trade
 	hlcoord 0, 12
@@ -1560,7 +1561,7 @@ LinkTrade_TradeStatsMenu:
 	call PlaceString
 	ld a, $1
 	ld [wPlayerLinkAction], a
-	farcall PrintWaitingTextAndSyncAndExchangeNybble
+	farcall PlaceWaitingTextAndSyncAndExchangeNybble
 	ld c, 100
 	call DelayFrames
 	jp InitTradeMenuDisplay
@@ -1622,7 +1623,7 @@ LinkTradePartymonMenuCheckCancel:
 	ldcoord_a 9, 17
 	ld a, $f
 	ld [wPlayerLinkAction], a
-	farcall PrintWaitingTextAndSyncAndExchangeNybble
+	farcall PlaceWaitingTextAndSyncAndExchangeNybble
 	ld a, [wOtherPlayerLinkMode]
 	cp $f
 	jr nz, .loop1
@@ -1721,7 +1722,7 @@ LinkTrade:
 	call GetPokemonName
 	ld hl, LinkAskTradeForText
 	bccoord 1, 14
-	call PlaceHLTextAtBC
+	call PrintTextboxTextAt
 	call LoadStandardMenuHeader
 	hlcoord 10, 7
 	ld b, 3
@@ -1754,7 +1755,7 @@ LinkTrade:
 	call Call_ExitMenu
 	call WaitBGMap2
 	pop af
-	bit 1, a
+	bit B_BUTTON_F, a
 	jr nz, .canceled
 	ld a, [wMenuCursorY]
 	dec a
@@ -1770,13 +1771,13 @@ LinkTrade:
 	hlcoord 1, 14
 	ld de, String_TooBadTheTradeWasCanceled
 	call PlaceString
-	farcall PrintWaitingTextAndSyncAndExchangeNybble
+	farcall PlaceWaitingTextAndSyncAndExchangeNybble
 	jp InitTradeMenuDisplay_Delay
 
 .try_trade
 	ld a, $2
 	ld [wPlayerLinkAction], a
-	farcall PrintWaitingTextAndSyncAndExchangeNybble
+	farcall PlaceWaitingTextAndSyncAndExchangeNybble
 	ld a, [wOtherPlayerLinkMode]
 	dec a
 	jr nz, .do_trade
@@ -2019,7 +2020,7 @@ LinkTrade:
 	ld a, b
 	ld [wPlayerLinkAction], a
 	push bc
-	call Serial_PrintWaitingTextAndSyncAndExchangeNybble
+	call Serial_PlaceWaitingTextAndSyncAndExchangeNybble
 	pop bc
 	ld a, [wLinkMode]
 	cp LINK_TIMECAPSULE
@@ -2085,7 +2086,7 @@ LoadTradeScreenBorderGFX:
 
 SetTradeRoomBGPals:
 	farcall LoadTradeRoomBGPals ; just a nested farcall; so wasteful
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ret
 
 PlaceTradeScreenTextbox: ; unreferenced
@@ -2212,7 +2213,8 @@ endc
 	call DelayFrames
 	xor a
 	ldh [hVBlank], a
-	inc a ; LINK_TIMECAPSULE
+	assert LINK_TIMECAPSULE == 1
+	inc a
 	ld [wLinkMode], a
 	ret
 
@@ -2285,7 +2287,7 @@ SetBitsForTimeCapsuleRequest:
 	ldh [rSC], a
 	ld a, (1 << rSC_ON) | (0 << rSC_CLOCK)
 	ldh [rSC], a
-	xor a ; LINK_TIMECAPSULE - 1
+	xor a ; LINK_NULL
 	ld [wPlayerLinkAction], a
 	ld [wChosenCableClubRoom], a
 	ret
@@ -2379,7 +2381,7 @@ CheckLinkTimeout_Receptionist:
 	xor a
 	ld [hl], a
 	call WaitBGMap
-	ld a, $2
+	ld a, VBLANK_SOUND_ONLY
 	ldh [hVBlank], a
 	call DelayFrame
 	call DelayFrame
@@ -2401,7 +2403,7 @@ CheckLinkTimeout_Gen2:
 	xor a
 	ld [hl], a
 	call WaitBGMap
-	ld a, $2
+	ld a, VBLANK_SOUND_ONLY
 	ldh [hVBlank], a
 	call DelayFrame
 	call DelayFrame
@@ -2627,7 +2629,7 @@ Link_EnsureSync:
 	add $d0
 	ld [wLinkPlayerSyncBuffer], a
 	ld [wLinkPlayerSyncBuffer + 1], a
-	ld a, $2
+	ld a, VBLANK_SOUND_ONLY
 	ldh [hVBlank], a
 	call DelayFrame
 	call DelayFrame

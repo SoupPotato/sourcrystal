@@ -52,7 +52,7 @@ LeaveSafariEarly:
 	closetext
 	applymovement PLAYER, MovementData_PlayerReEntersSafari
 	playsound SFX_ENTER_DOOR
-	special FadeOutPalettes
+	special FadeOutToWhite
 	waitsfx
 	warpfacing UP, SAFARI_ZONE_AREA_1, 18, 25
 	end
@@ -82,7 +82,7 @@ SafariZoneEntranceMainOfficerScript:
 	special GiveSafariBalls
 	scall .SafariZoneEntrance_EnterSafari
 	playsound SFX_ENTER_DOOR
-	special FadeOutPalettes
+	special FadeOutToWhite
 	waitsfx
 	warpfacing UP, SAFARI_ZONE_AREA_1, 18, 25
 	setevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE

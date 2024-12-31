@@ -95,10 +95,10 @@ RunMobileTradeAnim_Frontpics:
 	push af
 	xor a
 	ldh [hMapAnims], a
-	ld hl, wVramState
+	ld hl, wStateFlags
 	ld a, [hl]
 	push af
-	res 0, [hl]
+	res SPRITE_UPDATES_DISABLED_F, [hl]
 	ld hl, wOptions
 	ld a, [hl]
 	push af
@@ -110,7 +110,7 @@ RunMobileTradeAnim_Frontpics:
 	pop af
 	ld [wOptions], a
 	pop af
-	ld [wVramState], a
+	ld [wStateFlags], a
 	pop af
 	ldh [hMapAnims], a
 	ret
@@ -124,7 +124,7 @@ RunMobileTradeAnim_NoFrontpics:
 	push af
 	xor a
 	ldh [hMapAnims], a
-	ld hl, wVramState
+	ld hl, wStateFlags
 	ld a, [hl]
 	push af
 	res 0, [hl]
@@ -139,7 +139,7 @@ RunMobileTradeAnim_NoFrontpics:
 	pop af
 	ld [wOptions], a
 	pop af
-	ld [wVramState], a
+	ld [wStateFlags], a
 	pop af
 	ldh [hMapAnims], a
 	ret
@@ -337,7 +337,7 @@ MobileTradeAnim_InitSpeciesName:
 
 MobileTradeAnim_JumptableLoop:
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .StopAnim
 	call .ExecuteMobileTradeAnimCommand
 	call DelayFrame
@@ -404,7 +404,7 @@ GetMobileTradeAnimByte:
 
 EndMobileTradeAnim:
 	ld hl, wJumptableIndex
-	set 7, [hl]
+	set JUMPTABLE_EXIT_F, [hl]
 	ret
 
 WaitMobileTradeSpriteAnims:
@@ -975,7 +975,7 @@ MobileTradeAnim_GiveTrademon1:
 
 MobileTradeAnim_GiveTrademon2:
 	ld c, 40
-	ld hl, wBGPals2 + 1 palettes
+	ld hl, wBGPals2 palette 1
 	call Function1082f0
 	call Function108af4
 	call Function108b5a
@@ -1069,12 +1069,12 @@ MobileTradeAnim_GetTrademon1:
 
 MobileTradeAnim_GetTrademon2:
 	ld c, 20
-	ld hl, wBGPals2 + 1 palettes
+	ld hl, wBGPals2 palette 1
 	call Function1082fa
 	ld de, SFX_GIVE_TRADEMON
 	call PlaySFX
 	ld c, 20
-	ld hl, wBGPals2 + 1 palettes
+	ld hl, wBGPals2 palette 1
 	call Function1082fa
 	call Function108af4
 .asm_1088ad
@@ -1439,8 +1439,8 @@ Function108b5a:
 	ld a, $5
 	ldh [rSVBK], a
 	ld de, palred 18 + palgreen 31 + palblue 15
-	ld hl, wBGPals2 + 4 palettes
-	ld c, $10
+	ld hl, wBGPals2 palette 4
+	ld c, 2 palettes
 .loop
 	ld a, e
 	ld [hli], a
@@ -1491,13 +1491,13 @@ Function108b98:
 	and $1
 	xor d
 	jr z, .asm_108bad
-	ld hl, Palette_108b98 + 1 palettes
+	ld hl, Palette_108b98 palette 1
 	jr .asm_108bb0
 
 .asm_108bad
 	ld hl, Palette_108b98
 .asm_108bb0
-	ld de, wBGPals1 + 7 palettes
+	ld de, wBGPals1 palette 7
 	ld bc, 8 palettes
 	call CopyBytes
 	pop af
@@ -1724,7 +1724,7 @@ LoadMobileAdapterPalette:
 	ld hl, MobileAdapterPalettes
 	call AddNTimes
 	ld a, BANK(wBGPals1)
-	ld de, wBGPals1 + 4 palettes
+	ld de, wBGPals1 palette 4
 	ld bc, 1 palettes
 	call FarCopyWRAM
 	ret

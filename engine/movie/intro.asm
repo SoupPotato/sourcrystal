@@ -14,7 +14,7 @@ CrystalIntro:
 	and BUTTONS
 	jr nz, .ShutOffMusic
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .done
 	call IntroSceneJumper
 	farcall PlaySpriteAnimations
@@ -45,9 +45,10 @@ CrystalIntro:
 	ret
 
 .InitRAMAddrs:
+	assert VBLANK_NORMAL == 0
 	xor a
 	ldh [hVBlank], a
-	ld a, $1
+	ld a, TRUE
 	ldh [hInMenu], a
 	xor a
 	ldh [hMapAnims], a
@@ -1154,7 +1155,7 @@ IntroScene28:
 
 .done
 	ld hl, wJumptableIndex
-	set 7, [hl]
+	set JUMPTABLE_EXIT_F, [hl]
 	ret
 
 Intro_Scene24_ApplyPaletteFade:

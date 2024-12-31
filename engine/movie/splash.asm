@@ -19,7 +19,7 @@ SplashScreen:
 	call WaitBGMap
 	ld b, SCGB_GAMEFREAK_LOGO
 	call GetSGBLayout
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	ld c, 10
 	call DelayFrames
 
@@ -41,7 +41,7 @@ SplashScreen:
 	and BUTTONS
 	jr nz, .pressed_button
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .finish
 	call GameFreakPresentsScene
 	farcall PlaySpriteAnimations
@@ -93,7 +93,7 @@ GameFreakPresentsInit:
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
-	ld [hl], 160
+	ld [hl], OAM_YCOORD_HIDDEN
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
 	ld [hl], 96
@@ -195,7 +195,7 @@ GameFreakPresents_WaitForTimer:
 
 .finish
 	ld hl, wJumptableIndex
-	set 7, [hl]
+	set JUMPTABLE_EXIT_F, [hl]
 	ret
 
 GameFreakLogoSpriteAnim:

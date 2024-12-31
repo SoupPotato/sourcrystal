@@ -3,7 +3,7 @@ ContestSafariMonsNormal:
 
 	map_id NATIONAL_PARK_BUG_CONTEST
 .NationalPark
-	table_width 4, .NationalPark
+	table_width 4
 ; morning
 	db 20, CATERPIE,    7, 18
 	db 20, WEEDLE,      7, 18
@@ -41,7 +41,7 @@ ContestSafariMonsNormal:
 	
 	map_id SAFARI_ZONE_AREA_1
 .Safari1
-	table_width 4, .Safari1
+	table_width 4
 ; morning
 	db 20, SENTRET,       19, 19
 	db 20, JIGGLYPUFF,    21, 21
@@ -79,7 +79,7 @@ ContestSafariMonsNormal:
 	
 	map_id SAFARI_ZONE_AREA_2
 .Safari2
-	table_width 4, .Safari2
+	table_width 4
 ; morning
 	db 20, NIDORAN_M,      19, 19
 	db 20, NIDORAN_F,      19, 19
@@ -117,7 +117,7 @@ ContestSafariMonsNormal:
 	
 	map_id SAFARI_ZONE_AREA_3
 .Safari3
-	table_width 4, .Safari3
+	table_width 4
 ; morning
 	db 20, EKANS,         18, 18
 	db 20, BELLSPROUT,    21, 21
@@ -155,7 +155,7 @@ ContestSafariMonsNormal:
 	
 	map_id SAFARI_ZONE_AREA_4
 .Safari4
-	table_width 4, .Safari4
+	table_width 4
 ; morning
 	db 20, MACHOP,      19, 19
 	db 20, PARAS,       18, 18

@@ -219,7 +219,7 @@ RunBattleTowerTrainer:
 
 	ld a, [wInBattleTowerBattle]
 	push af
-	or 1
+	or 1 << IN_BATTLE_TOWER_BATTLE_F
 	ld [wInBattleTowerBattle], a
 
 	xor a
@@ -605,10 +605,10 @@ Function1704e1:
 .loop
 	call JoyTextDelay
 	ld a, [wJumptableIndex]
-	bit 7, a
+	bit JUMPTABLE_EXIT_F, a
 	jr nz, .done
 	call .DoJumptable
-	farcall ReloadMapPart
+	farcall HDMATransferTilemapAndAttrmap_Overworld
 	jr .loop
 
 .done
@@ -654,7 +654,7 @@ Function1704e1:
 	jr .NextJumptableFunction
 
 .Jumptable_1:
-	call SetPalettes
+	call SetDefaultBGPAndOBP
 	call .NextJumptableFunction
 
 .Jumptable_2:
@@ -693,7 +693,7 @@ Function1704e1:
 
 .pressed_a_or_b
 	ld hl, wJumptableIndex
-	set 7, [hl]
+	set JUMPTABLE_EXIT_F, [hl]
 	ret
 
 .NextJumptableFunction:

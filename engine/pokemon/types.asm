@@ -135,7 +135,7 @@ HiddenPowerType:
 	ret
 
 .VanillaTypeRemapping:
-	table_width 1, HiddenPowerType.VanillaTypeRemapping
+	table_width 1
 	db FIGHTING
 	db FLYING
 	db POISON

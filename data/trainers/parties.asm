@@ -2913,9 +2913,9 @@ CooltrainerMGroup:
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
-	db 48, RHYHORN
-	db 46, CHARMELEON
-	db 46, WARTORTLE
+	db 60, RHYHORN
+	db 58, CHARMELEON
+	db 58, WARTORTLE
 	db -1 ; end
 
 	; COOLTRAINERM (15)

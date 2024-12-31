@@ -2100,7 +2100,6 @@ BattleAnim_Headbutt:
 	anim_ret
 
 BattleAnim_Tackle:
-; BUG: Tackle is missing part of its hit animation (see docs/bugs_and_glitches.md)
 	anim_1gfx BATTLE_ANIM_GFX_HIT
 	anim_call BattleAnim_TargetObj_1Row
 	anim_bgeffect BATTLE_BG_EFFECT_TACKLE, $0, BG_EFFECT_USER, $0

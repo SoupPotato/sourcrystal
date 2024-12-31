@@ -1327,7 +1327,7 @@ RuinsOfAlphResearchCenterIAlmostForgotText:
 	line "I almost forgot…"
 	
 	para "I found these in"
-	line "in the RUINS,"
+	line "the RUINS,"
 	
 	para "Maybe you can make"
 	line "use of them?"

@@ -680,13 +680,15 @@ GoldenrodDeptStore3FElevatorButton:
 	jumpstd ElevatorButtonScript
 
 GoldenrodDeptStore3FTeacherText:
-	text "I cant decide!"
+	text "I can't decide!"
 
 	para "Posters, plants,"
 	line "and even beds!"
 
-	para "They're are all so"
-	line "cute! I want them!"
+	para "They're all so"
+	line "cute!"
+
+	para "I want them all!"
 	done
 
 GoldenrodDeptStore3FBeautyText:

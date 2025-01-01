@@ -23,8 +23,8 @@ IanNumberAcceptedText:
 	text "Cool."
 	line "I'll call you when"
 
-	para "I'm ready to for"
-	line "another battle!"
+	para "I'm ready for an-"
+	line "other battle!"
 	done
 
 IanNumberDeclinedText:

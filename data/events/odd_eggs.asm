@@ -61,7 +61,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 9, 10, 10, 10 ; DVs
+	dn 9, 10, 10, 10 ; DVs - normal male
 	db 30, 20, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -87,7 +87,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 5, 10, 10, 10 ; DVs
+	dn 5, 10, 10, 10 ; DVs - normal female
 	db 30, 20, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -113,7 +113,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 10, 10, 10, 10 ; DVs
+	dn 10, 10, 10, 10 ; DVs - shiny male
 	db 30, 20, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -139,7 +139,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 7, 10, 10, 10 ; DVs
+	dn 7, 10, 10, 10 ; DVs - shiny female
 	db 30, 20, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -165,7 +165,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 9, 10, 10, 10 ; DVs
+	dn 12, 10, 10, 10 ; DVs - normal male
 	db 35, 20, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -191,7 +191,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 5, 10, 10, 10 ; DVs
+	dn 9, 10, 10, 10 ; DVs - normal female
 	db 35, 20, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -217,7 +217,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 10, 10, 10, 10 ; DVs
+	dn 14, 10, 10, 10 ; DVs - shiny male
 	db 35, 20, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -243,7 +243,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 7, 10, 10, 10 ; DVs
+	dn 10, 10, 10, 10 ; DVs - shiny female
 	db 35, 20, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -269,7 +269,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 9, 10, 10, 10 ; DVs
+	dn 12, 10, 10, 10 ; DVs - normal male
 	db 15, 20, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -295,7 +295,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 5, 10, 10, 10 ; DVs
+	dn 9, 10, 10, 10 ; DVs - normal female
 	db 15, 20, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -321,7 +321,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 10, 10, 10, 10 ; DVs
+	dn 14, 10, 10, 10 ; DVs - shiny male
 	db 15, 20, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -347,7 +347,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 7, 10, 10, 10 ; DVs
+	dn 10, 10, 10, 10 ; DVs - shiny female
 	db 15, 20, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -373,7 +373,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 5, 10, 10, 10 ; DVs
+	dn 9, 10, 10, 10 ; DVs - normal female (can't be male)
 	db 35, 30, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -399,7 +399,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 7, 10, 10, 10 ; DVs
+	dn 11, 10, 10, 10 ; DVs - shiny female (can't be male)
 	db 35, 30, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -425,7 +425,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 9, 10, 10, 10 ; DVs
+	dn 9, 10, 10, 10 ; DVs - normal male
 	db 20, 30, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -451,7 +451,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 5, 10, 10, 10 ; DVs
+	dn 1, 10, 10, 10 ; DVs - normal female
 	db 20, 30, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -477,7 +477,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 10, 10, 10, 10 ; DVs
+	dn 10, 10, 10, 10 ; DVs - shiny male
 	db 20, 30, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -503,7 +503,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 7, 10, 10, 10 ; DVs
+	dn 3, 10, 10, 10 ; DVs - shiny female
 	db 20, 30, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -529,7 +529,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 9, 10, 10, 10 ; DVs
+	dn 9, 10, 10, 10 ; DVs - normal male
 	db 30, 30, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -555,7 +555,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 5, 10, 10, 10 ; DVs
+	dn 1, 10, 10, 10 ; DVs - normal female
 	db 30, 30, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -581,7 +581,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 10, 10, 10, 10 ; DVs
+	dn 10, 10, 10, 10 ; DVs - shiny male
 	db 30, 30, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -607,7 +607,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 7, 10, 10, 10 ; DVs
+	dn 3, 10, 10, 10 ; DVs - shiny female
 	db 30, 30, 10, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -633,7 +633,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 9, 10, 10, 10 ; DVs
+	dn 9, 10, 10, 10 ; DVs - normal male (can't be female)
 	db 20, 30, 40, 10 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -659,7 +659,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 10, 10, 10, 10 ; DVs
+	dn 11, 10, 10, 10 ; DVs - shiny male (can't be female)
 	db 20, 30, 40, 10 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data

@@ -1,6 +1,6 @@
 DEF CELADONGAMECORNERPRIZEROOM_TM32_COINS     EQU 1500
 DEF CELADONGAMECORNERPRIZEROOM_TM15_COINS     EQU 7500
-DEF CELADONGAMECORNERPRIZEROOM_PIKACHU_COINS  EQU 2222
+DEF CELADONGAMECORNERPRIZEROOM_EEVEE_COINS    EQU 2222
 DEF CELADONGAMECORNERPRIZEROOM_PORYGON_COINS  EQU 5555
 DEF CELADONGAMECORNERPRIZEROOM_LARVITAR_COINS EQU 8888
 
@@ -129,27 +129,27 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 	loadmenu .MenuHeader
 	verticalmenu
 	closewindow
-	ifequal 1, .Pikachu
+	ifequal 1, .Eevee
 	ifequal 2, .Porygon
 	ifequal 3, .Larvitar
 	sjump CeladonPrizeRoom_CancelPurchaseScript
 
-.Pikachu:
-	checkcoins CELADONGAMECORNERPRIZEROOM_PIKACHU_COINS
+.Eevee:
+	checkcoins CELADONGAMECORNERPRIZEROOM_EEVEE_COINS
 	ifequal HAVE_LESS, CeladonPrizeRoom_notenoughcoins
 	readvar VAR_PARTYCOUNT
 	ifequal PARTY_LENGTH, CeladonPrizeRoom_notenoughroom
-	getmonname STRING_BUFFER_3, PIKACHU
+	getmonname STRING_BUFFER_3, EEVEE
 	scall CeladonPrizeRoom_askbuy
 	iffalse CeladonPrizeRoom_CancelPurchaseScript
 	waitsfx
 	playsound SFX_TRANSACTION
 	writetext CeladonPrizeRoom_HereYouGoText
 	waitbutton
-	setval PIKACHU
+	setval EEVEE
 	special GameCornerPrizeMonCheckDex
-	givepoke PIKACHU, 25
-	takecoins CELADONGAMECORNERPRIZEROOM_PIKACHU_COINS
+	givepoke EEVEE, 20
+	takecoins CELADONGAMECORNERPRIZEROOM_EEVEE_COINS
 	sjump .loop
 
 .Porygon:
@@ -197,7 +197,7 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
-	db "PIKACHU    {d:CELADONGAMECORNERPRIZEROOM_PIKACHU_COINS}@"
+	db "EEVEE      {d:CELADONGAMECORNERPRIZEROOM_EEVEE_COINS}@"
 	db "PORYGON    {d:CELADONGAMECORNERPRIZEROOM_PORYGON_COINS}@"
 	db "LARVITAR   {d:CELADONGAMECORNERPRIZEROOM_LARVITAR_COINS}@"
 	db "CANCEL@"

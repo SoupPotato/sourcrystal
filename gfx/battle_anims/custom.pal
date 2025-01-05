@@ -123,9 +123,9 @@ INCLUDE "gfx/battle_anims/battle_anims.pal"
 	RGB 31, 16, 01
 ; lime
 	RGB 31, 31, 31
-	RGB 31, 31, 05
-	RGB 19, 31, 01
-	RGB 04, 21, 00
+	RGB 31, 31, 07
+	RGB 12, 25, 01
+	RGB 05, 14, 00
 ; pink
 	RGB 31, 31, 31
 	RGB 31, 19, 24

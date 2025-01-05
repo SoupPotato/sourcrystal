@@ -3667,52 +3667,55 @@ BlisseyEvosAttacks:
 
 RaikouEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, BITE
+	db 1, EXTREMESPEED
+	db 1, THUNDERSHOCK
 	db 1, LEER
-	db 8, THUNDERSHOCK
-	db 15, ROAR
-	db 22, QUICK_ATTACK
-	db 29, SPARK
-	db 36, REFLECT
+	db 1, QUICK_ATTACK
+	db 1, BITE
+	db 22, SPARK
+	db 29, ROAR
+	db 36, SWIFT
 	db 43, CRUNCH
 	db 50, THUNDERBOLT
 	db 57, PSYCHIC_M
-	db 64, RAIN_DANCE
-	db 71, AMNESIA
+	db 64, REFLECT
+	db 71, RAIN_DANCE
 	db 78, THUNDER
 	db 0 ; no more level-up moves
 
 EnteiEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, BITE
+	db 1, EXTREMESPEED
+	db 1, EMBER
 	db 1, LEER
-	db 8, EMBER
-	db 15, ROAR
-	db 22, FIRE_SPIN
-	db 29, STOMP
-	db 36, FLAME_WHEEL
-	db 43, SWAGGER
+	db 1, FIRE_SPIN
+	db 1, BITE
+	db 22, FLAME_WHEEL
+	db 29, ROAR
+	db 36, STOMP
+	db 43, CRUNCH
 	db 50, FLAMETHROWER
 	db 57, PSYCHIC_M
-	db 64, SUNNY_DAY
-	db 71, AMNESIA
+	db 64, SWAGGER
+	db 71, SUNNY_DAY
 	db 78, FIRE_BLAST
 	db 0 ; no more level-up moves
 
 SuicuneEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, BITE
+	db 1, EXTREMESPEED
+	db 1, WATER_GUN
 	db 1, LEER
-	db 8, WATER_GUN
-	db 15, RAIN_DANCE
+	db 1, BITE
+	db 1, RAIN_DANCE
 	db 22, GUST
-	db 29, AURORA_BEAM
-	db 36, BUBBLEBEAM
+	db 29, BUBBLEBEAM
+	db 36, AURORA_BEAM
 	db 43, MIST
-	db 50, MIRROR_COAT
+	db 50, AGILITY
 	db 57, PSYCHIC_M
-	db 64, HYDRO_PUMP
-	db 71, AMNESIA
+	db 64, MIRROR_COAT
+	db 71, HYDRO_PUMP
 	db 78, BLIZZARD
 	db 0 ; no more level-up moves
 

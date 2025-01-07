@@ -285,7 +285,7 @@ SafariZoneEntranceMainOfficer_Text7:
 	done
 
 SafariZoneEntranceMainOfficer_Text8:
-	text "We look foward to"
+	text "We look forward to"
 	line "your next visit!"
 	done
 

@@ -39,6 +39,9 @@ InitMapNameSign::
 	call .CheckSpecialMap
 	jr z, .dont_do_map_sign
 
+	ld hl, wWeatherFlags
+	set OW_WEATHER_LIGHTNING_DISABLED_F, [hl]
+
 ; Load Sign palettes
 	ld hl, SignPals
 	ld de, wBGPals1 palette PAL_BG_TEXT
@@ -137,6 +140,8 @@ PlaceMapNameSign::
 	ld [hFunctionInstruction], a
 	xor a
 	ldh [hLCDCPointer], a
+	ld hl, wWeatherFlags
+	res OW_WEATHER_LIGHTNING_DISABLED_F, [hl]
 	ret
 
 InitMapNameFrame:

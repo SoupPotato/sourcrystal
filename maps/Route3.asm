@@ -16,6 +16,9 @@ Route3_MapScripts:
 
 	def_callbacks
 
+Route3Sign:
+	jumptext Route3SignText
+
 TrainerHikerBruce:
 	trainer HIKER, BRUCE, EVENT_BEAT_HIKER_BRUCE, HikerBruceSeenText, HikerBruceBeatenText, 0, .Script
 
@@ -332,6 +335,11 @@ FirebreatherOtisAfterBattleText:
 	cont "ignition…"
 	done
 
+Route3SignText:
+	text "ROUTE 3"
+	line "MT.MOON AHEAD"
+	done
+
 Route3_MapEvents:
 	db 0, 0 ; filler
 
@@ -340,6 +348,7 @@ Route3_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 55,  9, BGEVENT_READ, Route3Sign
 
 	def_object_events
 	object_event 11,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerYoungsterRegis, -1

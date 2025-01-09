@@ -70,6 +70,9 @@ TrainerFirebreatherBurt:
 MtMoonSquareSign:
 	jumptext MtMoonSquareSignText
 
+Route4Sign:
+	jumptext Route4SignText
+
 Route4HPUp:
 	itemball HP_UP
 
@@ -171,6 +174,11 @@ MtMoonSquareSignText:
 	line "stairs."
 	done
 
+Route4SignText:
+	text "ROUTE 4"
+	line "MT.MOON -"
+	cont "CERULEAN CITY"
+	done
 
 Route4_MapEvents:
 	db 0, 0 ; filler
@@ -183,7 +191,7 @@ Route4_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 25,  7, BGEVENT_READ, MtMoonSquareSign
+	bg_event 25,  7, BGEVENT_READ, Route4Sign
 	bg_event 38,  3, BGEVENT_ITEM, Route4HiddenUltraBall
 	bg_event 82,  4, BGEVENT_ITEM, Route4HiddenBigMushroom
 	bg_event 15,  7, BGEVENT_READ, MtMoonSquareSign

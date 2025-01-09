@@ -1904,11 +1904,6 @@ wWeatherFlags:: db
 wPrevWeather:: db
 wCurWeather:: db
 wPrevOvercastIndex:: db
-wWeatherRandomDay:: db
-wWeatherRandomMapGroupJohto:: ds NUM_WEATHER_MAPS_PER_DAY
-wWeatherRandomMapNumberJohto:: ds NUM_WEATHER_MAPS_PER_DAY
-wWeatherRandomMapGroupKanto:: ds NUM_WEATHER_MAPS_PER_DAY
-wWeatherRandomMapNumberKanto:: ds NUM_WEATHER_MAPS_PER_DAY
 
 
 SECTION "Fade System Ram", WRAM0
@@ -3390,7 +3385,15 @@ wSafariTimeRemaining:: dw
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1
 
-	ds 22
+wWeatherRandomDay:: db
+wWeatherRandomMapGroupJohto:: ds NUM_WEATHER_MAPS_PER_DAY
+wWeatherRandomMapNumberJohto:: ds NUM_WEATHER_MAPS_PER_DAY
+wWeatherRandomMapGroupKanto:: ds NUM_WEATHER_MAPS_PER_DAY
+wWeatherRandomMapNumberKanto:: ds NUM_WEATHER_MAPS_PER_DAY
+assert NUM_WEATHER_MAPS_PER_DAY == 2, \
+	"If you change NUM_WEATHER_MAPS_PER_DAY, you must ensure you don't break save compatibility."
+
+	ds 13
 
 wLuckyNumberShowFlag:: db
 wRepelType:: db

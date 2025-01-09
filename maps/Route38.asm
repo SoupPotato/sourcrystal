@@ -499,7 +499,7 @@ BeautyOliviaAfterBattleText:
 	line "good for beauty"
 
 	para "and health, but"
-	line "I always end up,"
+	line "I always end up"
 
 	para "buying too much"
 	line "of it."

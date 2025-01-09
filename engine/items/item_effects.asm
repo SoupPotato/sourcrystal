@@ -625,9 +625,18 @@ PokeBallEffect:
 	ld b, NAME_MON
 	farcall NamingScreen
 
-	call RotateThreePalettesRight
+	ld a, [wBattleType]
+	cp BATTLETYPE_SAFARI
+	jr z, .skip_fade1
+	cp BATTLETYPE_SAFARI_FISH
+	jr z, .skip_fade1
+	cp BATTLETYPE_SAFARI_TREE
+	jr z, .skip_fade1
 
+	call RotateThreePalettesRight
 	call LoadStandardFont
+
+.skip_fade1
 
 	pop hl
 	ld de, wStringBuffer1

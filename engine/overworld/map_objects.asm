@@ -935,7 +935,7 @@ MovementFunction_BoulderDust:
 	add hl, de
 	ld a, [hl]
 	inc a
-;	add a                   ; commented out to reduce dust particles
+	add a
 	ld hl, OBJECT_STEP_DURATION
 	add hl, bc
 	ld [hl], a

@@ -71,42 +71,14 @@ AnthonyHangUpText:
 	line "Be good!"
 	done
 
-AnthonySwarmText:
-	text "<PLAYER>! It's"
-	line "mind-blowing!"
-
-	para "I took a hike in"
-	line "@"
-	text_ram wStringBuffer5
-	text_start
-	cont "yesterday, see?"
-
-	para "Well, there were"
-	line "tons of @"
-	text_ram wStringBuffer4
-	text_start
-	para "around! You have"
-	line "to see it!"
-
-	para "I get this feeling"
-	line "that @"
-	text_ram wStringBuffer4
-	text_start
-	para "may be timid."
-	line "I didn't see any"
-
-	para "where there are"
-	line "strong #MON."
-	done
-
 AnthonyWasntPayingAttentionText:
-	text "Rare #MON?"
+	text "A rematch?"
 
 	para "Hey, sorry! I was"
 	line "too focused on my"
 
-	para "hike, so I wasn't"
-	line "paying attention."
+	para "hike, so I'm not"
+	line "ready just yet."
 	done
 
 AnthonyReminderText:
@@ -120,20 +92,4 @@ AnthonyReminderText:
 	text_ram wStringBuffer5
 	text "!"
 	line "I'm waiting!"
-	done
-
-AnthonyHurryText:
-	text "Hello? What? Where"
-	line "is DUNSPARCE?"
-
-	para "DARK CAVE! Hurry!"
-
-	para "I know I've said"
-	line "it before, but"
-
-	para "DUNSPARCE don't"
-	line "appear when there"
-
-	para "are strong #MON"
-	line "around."
 	done

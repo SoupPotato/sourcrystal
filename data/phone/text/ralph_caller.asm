@@ -96,17 +96,6 @@ RalphItemText:
 	line "to fish!"
 	done
 
-RalphNoItemText:
-	text "Yeah, I know."
-
-	para "You're looking for"
-	line "rare #MON."
-
-	para "Recently, all I've"
-	line "been catching are"
-	cont "MAGIKARP, though…"
-	done
-
 RalphReminderText:
 	text "So where are you?"
 	line "I'm waiting for"

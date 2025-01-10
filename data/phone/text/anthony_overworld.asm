@@ -5,12 +5,12 @@ AnthonyAskNumber1Text:
 	para "go to mountains"
 	line "and caves."
 
-	para "I occasionally see"
-	line "rare #MON."
+	para "Occasionally I do"
+	line "like to battle."
 
 	para "I could call you"
-	line "the next time I"
-	cont "see one."
+	line "the next time I'm"
+	cont "itching for one."
 
 	para "Feel like swapping"
 	line "phone numbers?"
@@ -18,17 +18,19 @@ AnthonyAskNumber1Text:
 
 AnthonyAskNumber2Text:
 	text "I could call you"
-	line "when I see some"
-	cont "rare #MON."
+	line "the next time I'm"
+
+	para "itching for a"
+	line "rematch."
 
 	para "Feel like swapping"
 	line "phone numbers?"
 	done
 
 AnthonyNumberAcceptedText:
-	text "Be patient. I'll"
-	line "find some rare"
-	cont "#MON for you!"
+	text "Great. I'll give"
+	line "you a call when"
+	cont "I'm ready!"
 	done
 
 AnthonyNumberDeclinedText:

@@ -3,9 +3,13 @@ RalphPhoneCalleeScript:
 	checkflag ENGINE_RALPH_READY_FOR_REMATCH
 	iftrue .Rematch
 	farscall PhoneScript_AnswerPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal WEDNESDAY, .NotWednesday
 	checktime MORN
 	iftrue Ralph_FightMe
-	farsjump RalphNoItemScript
+
+.NotWednesday:
+	farsjump Phone_GenericCall_Male
 
 .Rematch:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_32

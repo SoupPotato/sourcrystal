@@ -3,8 +3,12 @@ ArniePhoneCalleeScript:
 	checkflag ENGINE_ARNIE_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal TUESDAY, .NotTuesday
 	checktime MORN
 	iftrue ArnieWantsBattle
+
+.NotTuesday:
 	farsjump ArnieHangUpScript
 
 .WantsBattle:

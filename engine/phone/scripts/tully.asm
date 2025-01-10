@@ -32,16 +32,10 @@ TullyPhoneCallerScript:
 	iftrue .Generic
 	checkflag ENGINE_TULLY_HAS_WATER_STONE
 	iftrue .Generic
-	farscall PhoneScript_Random3
-	ifequal 0, TullyWantsBattle
-;	checkevent EVENT_TULLY_GAVE_WATER_STONE
-;	iftrue .WaterStone
-	farscall PhoneScript_Random2
-	ifequal 0, TullyFoundWaterStone
-
-.WaterStone:
 	farscall PhoneScript_Random11
 	ifequal 0, TullyFoundWaterStone
+	farscall PhoneScript_Random2
+	ifequal 0, TullyWantsBattle
 
 .Generic:
 	farsjump Phone_GenericCall_Male

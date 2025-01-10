@@ -18,10 +18,8 @@ KrisePhoneCalleeScript:
 KrisePhoneCallerScript:
 	gettrainername STRING_BUFFER_3, LASS, KRISE1
 	farscall PhoneScript_GreetPhone_Female
-	checkcode VAR_WEEKDAY
-	ifnotequal SUNDAY, .GenericKriseCall
-	checktime MORN
-	iftrue KriseWantsToBattle
+	farscall PhoneScript_Random2
+	ifequal 0, KriseWantsToBattle
 
 .GenericKriseCall:
 	farscall PhoneScript_Random3

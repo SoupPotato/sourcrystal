@@ -23,12 +23,8 @@ WaltPhoneCalleeScript: ; You call Walt
 WaltPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, FIREBREATHER, WALT1
 	farscall PhoneScript_GreetPhone_Male
-	checkcode VAR_WEEKDAY
-	ifnotequal MONDAY, .NotMonday
-	checktime DAY
-	iftrue WaltWantsToBattle
-	checktime EVE
-	iftrue WaltWantsToBattle
+	farscall PhoneScript_Random2
+	ifequal 0, WaltWantsToBattle
 
 .NotMonday:
 	ifequal TUESDAY, WaltContestToday

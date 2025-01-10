@@ -3,9 +3,12 @@ AnthonyPhoneCalleeScript:
 	checkflag ENGINE_ANTHONY_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
+	checkcode VAR_WEEKDAY
+	ifnotequal FRIDAY, .NotFriday
 	checktime NITE
 	iftrue AnthonyWantsBattle
 
+.NotFriday:
 	farsjump AnthonyHangUpScript
 
 .WantsBattle:

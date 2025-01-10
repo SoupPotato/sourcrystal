@@ -18,10 +18,8 @@ IanPhoneCalleeScript:
 IanPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, YOUNGSTER, IAN1
 	farscall PhoneScript_GreetPhone_Male
-	checkcode VAR_WEEKDAY
-	ifnotequal SATURDAY, .GenericIanCall
-	checktime MORN
-	iftrue IanWantsBattle
+	farscall PhoneScript_Random2
+	ifequal 0, IanWantsBattle
 
 .GenericIanCall:
 	farjump Phone_GenericCall_Male

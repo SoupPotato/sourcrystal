@@ -18,10 +18,8 @@ JackPhoneCalleeScript:
 JackPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, SCHOOLBOY, JACK1
 	farscall PhoneScript_GreetPhone_Male
-	readvar VAR_WEEKDAY
-	ifnotequal MONDAY, .GenericJackCall
-	checktime MORN
-	iftrue JackWantsToBattle
+	farscall PhoneScript_Random2
+	ifequal 0, JackWantsToBattle
 
 .GenericJackCall:
 	farscall PhoneScript_Random4

@@ -33,11 +33,11 @@ WiltonPhoneCallerScript:
 	checkflag ENGINE_WILTON_HAS_BALL_ITEM
 	iftrue .GenericCall
 	farscall PhoneScript_Random2
-	ifequal 0, WiltonWantsBattle
-	farscall PhoneScript_Random2
 	ifequal 0, WiltonHasItem
 
 .GenericCall:
+	farscall PhoneScript_Random2
+	ifequal 0, WiltonWantsBattle
 	farsjump Phone_GenericCall_Male
 
 WiltonWantsBattle:

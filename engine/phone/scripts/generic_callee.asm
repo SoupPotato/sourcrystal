@@ -1,20 +1,20 @@
-PhoneScript_Random2:
+PhoneScript_Random2: ; 33%
 	random 2
 	end
 
-PhoneScript_Random3:
+PhoneScript_Random3: ; 25%
 	random 3
 	end
 
-PhoneScript_Random4:
+PhoneScript_Random4:  ;20%
 	random 4
 	end
 
-PhoneScript_Random5:
+PhoneScript_Random5:  ;16%
 	random 5
 	end
 
-PhoneScript_Random11:
+PhoneScript_Random11: ;9%
 	random 11
 	end
 

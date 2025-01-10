@@ -20,12 +20,8 @@ AlfredPhoneCalleeScript: ; You call Alfred
 AlfredPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, GENTLEMAN, ALFRED1
 	farscall PhoneScript_GreetPhone_Male
-	checkcode VAR_WEEKDAY
-	ifnotequal TUESDAY, .Generic
-	checktime DAY
-	iftrue AlfredWantsBattle
-	checktime EVE
-	iftrue AlfredWantsBattle
+	farscall PhoneScript_Random2
+	ifequal 0, AlfredWantsBattle
 
 .Generic:
 	farjump AlfredNoctowlTrade

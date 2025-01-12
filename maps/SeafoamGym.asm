@@ -549,8 +549,8 @@ SuperNerdMerleAfterBattleText:
 	done
 
 BlaineRematchIntroText:
-	text "BLAINE: Your back"
-	line "for a rematch?"
+	text "BLAINE: Back for"
+	line "a rematch?"
 
 	para "Great stuff kiddo!"
 

@@ -3771,16 +3771,17 @@ LugiaEvosAttacks:
 	db 1, SWIFT
 	db 1, WHIRLWIND
 	db 9, GUST
-	db 15, DOUBLE_EDGE
-	db 23, PSYCHIC_M
-	db 29, RAIN_DANCE
-	db 37, HYDRO_PUMP
-	db 43, AEROBLAST
-	db 50, ANCIENTPOWER
-	db 57, SAFEGUARD
-	db 65, RECOVER
-	db 71, FUTURE_SIGHT
-	db 79, SKY_ATTACK
+	db 15, WHIRLPOOL
+	db 23, DOUBLE_EDGE
+	db 29, ANCIENTPOWER
+	db 37, PSYCHIC_M
+	db 43, RECOVER
+	db 50, AEROBLAST
+	db 57, RAIN_DANCE
+	db 65, SAFEGUARD
+	db 71, HYDRO_PUMP
+	db 79, FUTURE_SIGHT
+	db 85, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 HoOhEvosAttacks:
@@ -3788,16 +3789,17 @@ HoOhEvosAttacks:
 	db 1, SWIFT
 	db 1, WHIRLWIND
 	db 9, GUST
-	db 15, DOUBLE_EDGE
-	db 23, PSYCHIC_M
-	db 29, SUNNY_DAY
-	db 37, FIRE_BLAST
-	db 43, SACRED_FIRE
-	db 50, ANCIENTPOWER
-	db 57, SAFEGUARD
-	db 65, RECOVER
-	db 71, FUTURE_SIGHT
-	db 79, SKY_ATTACK
+	db 15, FIRE_SPIN
+	db 23, DOUBLE_EDGE
+	db 29, ANCIENTPOWER
+	db 37, PSYCHIC_M
+	db 43, RECOVER
+	db 50, SACRED_FIRE
+	db 57, SUNNY_DAY
+	db 65, SAFEGUARD
+	db 71, FIRE_BLAST
+	db 79, FUTURE_SIGHT
+	db 85, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 CelebiEvosAttacks:

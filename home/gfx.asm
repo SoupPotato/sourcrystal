@@ -192,6 +192,8 @@ CheckGDMA:
 	ldh a, [hCGB]
 	and a
 	ret z
+	xor a
+	ret
 
 	; The 4 least significant bits must be zero.
 	ld a, e

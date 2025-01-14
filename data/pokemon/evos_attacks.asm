@@ -1785,14 +1785,15 @@ GoldeenEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PECK
 	db 1, TAIL_WHIP
-	db 8, SUPERSONIC
-	db 15, FURY_ATTACK
-	db 22, FLAIL
-	db 29, HORN_ATTACK
-	db 36, WATERFALL
-	db 43, AGILITY
-	db 50, MEGAHORN
-	db 57, HORN_DRILL
+	db 7, SUPERSONIC
+	db 11, WATER_GUN
+	db 17, FURY_ATTACK
+	db 21, FLAIL
+	db 27, HORN_ATTACK
+	db 31, WATERFALL
+	db 37, AGILITY
+	db 41, MEGAHORN
+	db 47, HORN_DRILL
 	db 0 ; no more level-up moves
 
 SeakingEvosAttacks:
@@ -1800,13 +1801,14 @@ SeakingEvosAttacks:
 	db 1, PECK
 	db 1, TAIL_WHIP
 	db 1, SUPERSONIC
-	db 15, FURY_ATTACK
-	db 22, FLAIL
-	db 29, HORN_ATTACK
-	db 37, WATERFALL
-	db 45, AGILITY
-	db 53, MEGAHORN
-	db 61, HORN_DRILL
+	db 11, WATER_GUN
+	db 17, FURY_ATTACK
+	db 21, FLAIL
+	db 27, HORN_ATTACK
+	db 31, WATERFALL
+	db 40, AGILITY
+	db 47, MEGAHORN
+	db 56, HORN_DRILL
 	db 0 ; no more level-up moves
 
 StaryuEvosAttacks:

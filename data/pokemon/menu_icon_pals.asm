@@ -142,7 +142,7 @@ MonMenuIconPals:
 	icon_pals BLUE,   PURPLE   ; VAPOREON
 	icon_pals YELLOW, GREEN    ; JOLTEON
 	icon_pals RED,    BROWN    ; FLAREON
-	icon_pals PURPLE, BLUE     ; PORYGON
+	icon_pals PINK,   BLUE     ; PORYGON
 	icon_pals BLUE,   PURPLE   ; OMANYTE
 	icon_pals BLUE,   PURPLE   ; OMASTAR
 	icon_pals BROWN,  GREEN    ; KABUTO
@@ -238,7 +238,7 @@ MonMenuIconPals:
 	icon_pals BLUE,   PURPLE   ; KINGDRA
 	icon_pals BLUE,   GRAY     ; PHANPY
 	icon_pals GRAY,   BROWN    ; DONPHAN
-	icon_pals PURPLE, BLUE     ; PORYGON2
+	icon_pals PINK,   BLUE     ; PORYGON2
 	icon_pals BROWN,  GREEN    ; STANTLER
 	icon_pals BROWN,  GREEN    ; SMEARGLE
 	icon_pals BROWN,  BLUE     ; TYROGUE

@@ -614,15 +614,15 @@ JohtoGrassWildMons:
 	db 5, SANDSHREW
 	db 5, NIDORAN_M
 	db 5, NIDORAN_F
-	db 5, CUBONE
 	db 5, PONYTA
+	db 5, CUBONE
 	end_grass_wildmons
 
 	def_grass_wildmons SAFARI_ZONE_AREA_2 ; DUMMY
 	db 0 percent, 0 percent, 0 percent ; encounter rates: morn/day/nite
 	; morn
+	db 5, SLUGMA
 	db 5, SANDSLASH
-	db 5, GLIGAR
 	db 5, NATU
 	db 5, MAROWAK
 	db 5, RAPIDASH
@@ -634,10 +634,10 @@ JohtoGrassWildMons:
 	db 5, BELLSPROUT
 	db 5, MARILL
 	db 5, GRIMER
-	db 5, TANGELA
-	db 5, ARBOK
-	; nite
 	db 5, YANMA
+	db 5, TANGELA
+	; nite
+	db 5, ARBOK
 	db 5, WEEPINBELL
 	db 5, FARFETCH_D
 	db 5, ODDISH
@@ -651,24 +651,24 @@ JohtoGrassWildMons:
 	; morn
 	db 5, QUAGSIRE
 	db 5, HAUNTER
+	db 5, MUK
 	db 5, MACHOP
-	db 5, GEODUDE
+	db 5, PARAS
 	db 5, VOLTORB
-	db 5, ONIX
-	db 5, RHYHORN
+	db 5, GLIGAR
 	; day
+	db 5, RHYHORN
 	db 5, MACHOKE
-	db 5, GRAVELER
+	db 5, PARASECT
 	db 5, LICKITUNG
 	db 5, KANGASKHAN
 	db 5, LARVITAR
-	db 5, ZUBAT
-	db 5, GOLBAT
-	; nite
-	db 5, MUK
 	db 5, WOBBUFFET
+	; nite
 	db 5, NIDORINO
 	db 5, NIDORINA
+	db 5, MAGNEMITE
+	db 5, MAGNETON
 	db 5, MAGNEMITE
 	db 5, MAGNETON
 	db 5, MAGNEMITE

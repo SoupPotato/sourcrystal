@@ -84,10 +84,10 @@ ContestSafariMonsChallenge:
 	db 20, NIDORAN_M,      22, 22
 	db 20, NIDORAN_F,      22, 22
 	db 15, SANDSHREW,      23, 23
-	db 10, CUBONE,         21, 21
 	db 10, PONYTA,         23, 23
-	db 10, SANDSLASH,      26, 26
-	db  5, TAUROS,         24, 24
+	db 10, CUBONE,         21, 21
+	db 10, SLUGMA,         24, 24
+	db  5, SANDSLASH,      26, 26
 	db  5, NATU,           23, 23
 	db  4, MAROWAK,        26, 26
 	db  1, RAPIDASH,       27, 27
@@ -95,10 +95,10 @@ ContestSafariMonsChallenge:
 	db 20, NIDORAN_M,      22, 22
 	db 20, NIDORAN_F,      22, 22
 	db 15, SANDSHREW,      23, 23
-	db 10, CUBONE,         21, 21
 	db 10, PONYTA,         23, 23
-	db 10, SANDSLASH,      26, 26
-	db  5, TAUROS,         24, 24
+	db 10, CUBONE,         21, 21
+	db 10, SLUGMA,         24, 24
+	db  5, SANDSLASH,      26, 26
 	db  5, NATU,           23, 23
 	db  4, MAROWAK,        26, 26
 	db  1, RAPIDASH,       27, 27
@@ -106,10 +106,10 @@ ContestSafariMonsChallenge:
 	db 20, NIDORINO,       22, 22
 	db 20, NIDORINA,       22, 22
 	db 15, SANDSHREW,      23, 23
-	db 10, NOCTOWL,        23, 23
 	db 10, HOUNDOUR,       23, 23
-	db 10, SANDSLASH,      26, 26
-	db  5, TAUROS,         24, 24
+	db 10, NOCTOWL,        23, 23
+	db 10, SLUGMA,         24, 24
+	db  5, SANDSLASH,      26, 26
 	db  5, NATU,           23, 23
 	db  4, CUBONE,         26, 26
 	db  1, HOUNDOOM,       27, 27

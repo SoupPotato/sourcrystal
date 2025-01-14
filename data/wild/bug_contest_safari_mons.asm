@@ -84,32 +84,32 @@ ContestSafariMonsNormal:
 	db 20, NIDORAN_M,      19, 19
 	db 20, NIDORAN_F,      19, 19
 	db 15, SANDSHREW,      20, 20
-	db 10, CUBONE,         18, 18
-	db 10, PONYTA,         20, 20
-	db 10, SANDSLASH,      23, 23
-	db  5, TAUROS,         21, 21
+	db 10, PONYTA,         18, 18
+	db 10, CUBONE,         20, 20
+	db 10, SLUGMA,         23, 23
+	db  5, SANDSLASH,      21, 21
 	db  5, NATU,           20, 20
 	db  4, MAROWAK,        23, 23
 	db  1, RAPIDASH,       24, 24
-; day/eve
+; day/eve  
 	db 20, NIDORAN_M,      19, 19
 	db 20, NIDORAN_F,      19, 19
 	db 15, SANDSHREW,      20, 20
-	db 10, CUBONE,         18, 18
-	db 10, PONYTA,         20, 20
-	db 10, SANDSLASH,      23, 23
-	db  5, TAUROS,         21, 21
+	db 10, PONYTA,         18, 18
+	db 10, CUBONE,         20, 20
+	db 10, SLUGMA,         23, 23
+	db  5, SANDSLASH,      21, 21
 	db  5, NATU,           20, 20
 	db  4, MAROWAK,        23, 23
 	db  1, RAPIDASH,       24, 24
-; nite
+; nite     
 	db 20, NIDORINO,       19, 19
 	db 20, NIDORINA,       19, 19
 	db 15, SANDSHREW,      20, 20
-	db 10, NOCTOWL,        20, 20
 	db 10, HOUNDOUR,       20, 20
-	db 10, SANDSLASH,      23, 23
-	db  5, TAUROS,         21, 21
+	db 10, NOCTOWL,        20, 20
+	db 10, SLUGMA,         23, 23
+	db  5, SANDSLASH,      21, 21
 	db  5, NATU,           20, 20
 	db  4, CUBONE,         23, 23
 	db  1, HOUNDOOM,       24, 24

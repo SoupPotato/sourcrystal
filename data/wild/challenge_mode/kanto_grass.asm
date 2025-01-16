@@ -426,27 +426,27 @@ KantoGrassWildMonsChallenge:
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 45, GRAVELER
-	db 43, GOLBAT
+	db 46, RHYHORN
 	db 44, DONPHAN
 	db 45, ONIX
 	db 46, URSARING
-	db 46, RHYHORN
+	db 43, GOLBAT
 	db 47, RHYDON
 	; day
 	db 45, GRAVELER
-	db 43, GOLBAT
+	db 46, RHYHORN
 	db 44, DONPHAN
 	db 45, ONIX
 	db 46, URSARING
-	db 46, RHYHORN
+	db 43, GOLBAT
 	db 47, RHYDON
 	; nite
 	db 45, GRAVELER
-	db 43, GOLBAT
+	db 46, RHYHORN
 	db 44, DONPHAN
 	db 45, ONIX
 	db 46, URSARING
-	db 46, RHYHORN
+	db 43, GOLBAT
 	db 47, RHYDON
 	end_grass_wildmons
 

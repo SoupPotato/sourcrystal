@@ -111,14 +111,12 @@
 	const POKEMON_ICONS
 	const BATTLE_ANIMATION
 	const BATTLE_SYSTEMS
-	const POKEGEAR_SYSTEMS
-	const SAFARI_ZONE_SYSTEM
-	const OW_WEATHER_SYSTEM
+	const INTERNAL_SYSTEMS
 	const SOURAPPLE
 	const VULCANDTH
 	const ZUMI
 	const PFERO
-	const RANGI
+	const RANGI42
 	const FIQ
 	const GMERC
 	const TAJ

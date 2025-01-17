@@ -34,14 +34,14 @@ CreditsScript:
 	db         KEITA_KAGAYA, 3
 	db    YOSHINORI_MATSUDA, 4
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 	db          PROGRAMMERS, 0
 	db     SHIGEKI_MORIMOTO, 1
 	db     TETSUYA_WATANABE, 2
 	db        TAKENORI_OOTA, 3
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 	db    GRAPHICS_DIRECTOR, 1
 	db         KEN_SUGIMORI, 2
@@ -55,14 +55,14 @@ CreditsScript:
 	db     HIRONOBU_YOSHIDA, 4
 	db         SATOSHI_OOTA, 5
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 	db       MONSTER_DESIGN, 0
 	db       ATSUKO_NISHIDA, 1
 	db          MUNEO_SAITO, 2
 	db       RENA_YOSHIKAWA, 3
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 	db    POKEMON_ANIMATION, 1
 	db     HIRONOBU_YOSHIDA, 2
@@ -84,7 +84,7 @@ CreditsScript:
 	db       ASUKA_IWASHITA, 3
 	db     TETSUYA_WATANABE, 4
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 	db         CREDIT_MUSIC, 0
 	db       JUNICHI_MASUDA, 1
@@ -120,7 +120,7 @@ CreditsScript:
 	db  TOSHINOBU_MATSUMIYA, 3
 	db     KENJI_MATSUSHIMA, 4
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 	db         POKEDEX_TEXT, 1
 	db  TOSHINOBU_MATSUMIYA, 2
@@ -206,7 +206,7 @@ CreditsScript:
 	db     HIROTO_ALEXANDER, 2
 	db     TERESA_LILLYGREN, 3
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 	db     TEXT_TRANSLATION, 1
 	db        NOB_OGASAWARA, 2
@@ -236,7 +236,7 @@ CreditsScript:
 	db       HIROAKI_TAMURA, 3
 	db    NORIAKI_SAKAGUCHI, 4
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 	db      PRODUCT_TESTING, 0
 	db NCL_SUPER_MARIO_CLUB, 1
@@ -244,7 +244,7 @@ CreditsScript:
 	db         ATSUSHI_TADA, 3
 	db          MIYUKI_SATO, 4
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 	db       SPECIAL_THANKS, 0
 	db     KIMIKO_NAKAMICHI, 1
@@ -252,14 +252,14 @@ CreditsScript:
 	db        GAKUZI_NOMOTO, 3
 	db           AI_MASHIMA, 4
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 	db       SPECIAL_THANKS, 0
 	db      KUNIMI_KAWAMURA, 1
 	db    MIKIHIRO_ISHIKAWA, 2
 	db   HIDEYUKI_HASHIMOTO, 3
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 	db   EXECUTIVE_PRODUCER, 1
 	db     HIROSHI_YAMAUCHI, 2
@@ -287,16 +287,10 @@ CreditsScript:
 	db            VULCANDTH, 1
 	db                 ZUMI, 2
 	db                PFERO, 3
-	db                RANGI, 4
+	db               RANGI42, 4
 	db                  AX6, 5
 
 	db CREDITS_WAIT, 10
-
-	db    OW_WEATHER_SYSTEM, 1
-	db            VULCANDTH, 2
-	db            SOURAPPLE, 3
-	
-	db CREDITS_WAIT, 7
 
 	db    POKEMON_ANIMATION, 1
 	db            SOURAPPLE, 2
@@ -321,22 +315,15 @@ CreditsScript:
 	db            _8BITZETA, 2
 	db                  FIQ, 3
 
-	db CREDITS_WAIT, 7
-
-	db     POKEGEAR_SYSTEMS, 0
-	db                RANGI, 1
-	db            VULCANDTH, 2
-	db                 ZUMI, 3
-	db            SOURAPPLE, 4
-
 	db CREDITS_WAIT, 8
 
-	db   SAFARI_ZONE_SYSTEM, 0
-	db      JUSTREGULARLUNA, 1
+	db     INTERNAL_SYSTEMS, 0
+	db               RANGI42, 1
 	db            VULCANDTH, 2
-	db            SOURAPPLE, 3
+	db      JUSTREGULARLUNA, 3
+	db                 ZUMI, 4
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 	db        POKEMON_ICONS, 0
 	db            SOURAPPLE, 1
@@ -344,20 +331,20 @@ CreditsScript:
 	db     BENNIBEEFAGHETTI, 3
 	db             GUI_ALBE, 4
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 	db        POKEMON_ICONS, 0
 	db         CESARE_CBASS, 1
 	db         DAMIEN_DOURY, 2
 	db            LUIGI_TKO, 3
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 	db           MAP_DESIGN, 1
 	db            SOURAPPLE, 2
-	db                RANGI, 3
+	db               RANGI42, 3
 
-	db CREDITS_WAIT, 7
+	db CREDITS_WAIT, 8
 
 	db      QA_CONSULTATION, 1
 	db                GMERC, 2
@@ -400,7 +387,7 @@ CreditsScript:
 
 	db            COPYRIGHT, 1
 
-	db CREDITS_WAIT, 8
+	db CREDITS_WAIT, 9
 
 ; Display "The End" graphic.
 	db CREDITS_THEEND

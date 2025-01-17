@@ -111,14 +111,12 @@ CreditsStringsPointers:
 	dw .PokemonIcons
 	dw .BattleAnimation
 	dw .BattleSystems
-	dw .PokegearSystems
-	dw .SafariZoneSystem
-	dw .OWWeatherSystem
+	dw .InternalSystems
 	dw .SourApple
 	dw .Vulcandth
 	dw .Zumi
 	dw .Pfero
-	dw .Rangi
+	dw .Rangi42
 	dw .Fiq
 	dw .Gmerc
 	dw .Taj
@@ -264,13 +262,11 @@ CreditsStringsPointers:
 .PokemonIcons:        db "   #MON ICONS@"
 .BattleAnimation:     db "  BATTLE ANIMATION@"
 .BattleSystems:       db "   BATTLE SYSTEMS@"
-.PokegearSystems:     db "  #GEAR SYSTEMS@"
-.SafariZoneSystem:    db " SAFARI ZONE SYSTEM@"
-.OWWeatherSystem:     db " OW WEATHER SYSTEM@"
+.InternalSystems:     db "  INTERNAL SYSTEMS@"
 .Vulcandth:           db "     VULCANDTH@"
 .Zumi:                db "        ZUMI@"
 .Pfero:               db "       PFERO@"
-.Rangi:               db "       RANGI@"
+.Rangi42:             db "      RANGI42@"
 .Fiq:                 db "        FIQ@"
 .Gmerc:               db "       GMERC@"
 .Taj:                 db "        TAJ@"

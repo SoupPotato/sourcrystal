@@ -105,8 +105,47 @@ CreditsStringsPointers:
 	dw .TextTranslation
 	dw .PaadTesting
 	dw .SourCrystalStaff
+	dw .GameTesting
+	dw .QaConsultation
+	dw .MiscellaneousWork
+	dw .PokemonIcons
+	dw .BattleAnimation
+	dw .BattleSystems
+	dw .PokegearSystems
+	dw .SafariZoneSystem
+	dw .OWWeatherSystem
 	dw .SourApple
-	dw .BetaTesting
+	dw .Vulcandth
+	dw .Zumi
+	dw .Pfero
+	dw .Rangi
+	dw .Fiq
+	dw .Gmerc
+	dw .Taj
+	dw .Manardo
+	dw .Zaxarone
+	dw .That_Nerd_Lady
+	dw .Mattew
+	dw .CesareCbass
+	dw .BenniBeefaghetti
+	dw .Chilly
+	dw .Whooping
+	dw .Tabletpillow
+	dw .Justregularluna
+	dw .DamienDoury
+	dw .DanZC
+	dw .Ahab
+	dw .FrenchOrange
+	dw .LuigiTKO
+	dw .GUIAlbe
+	dw .SonicRay
+	dw .Hallan
+	dw .Ax6
+	dw .ShanaMoe
+	dw .TastySnax12
+	dw ._8BitZeta
+	dw .Monstaah
+	dw .PokecrystalPret
 	assert_table_length NUM_CREDITS_STRINGS
 
 .SatoshiTajiri:       db "   SATOSHI TAJIRI@"         ; "たじり　さとし@"
@@ -216,10 +255,49 @@ CreditsStringsPointers:
 .TextTranslation:     db "  TEXT TRANSLATION@"
 .PaadTesting:         db "    PAAD TESTING@"
 .SourCrystalStaff:    db "      #MON"                 ; "ポケットモンスター"
-                    next "    SOUR CRYSTAL"          ; "　　クりスタル　バージョン"
-                    next "    CONTRIBUTORS@"              ; "　　　　スタッフ@"
+                    next "    SOUR CRYSTAL"           ; "　　クりスタル　バージョン"
+                    next "    CONTRIBUTORS@"          ; "　　　　スタッフ@"
 .SourApple:           db "     SOURAPPLE@"
-.BetaTesting:         db "    BETA TESTING@"
+.GameTesting:         db "    GAME TESTING@"
+.QaConsultation:      db "   QA CONSULTATION@"
+.MiscellaneousWork:   db " MISCELLANEOUS WORK@"
+.PokemonIcons:        db "    #MON ICONS@"
+.BattleAnimation:     db "  BATTLE ANIMATION@"
+.BattleSystems:       db "   BATTLE SYSTEMS@"
+.PokegearSystems:     db "  #GEAR SYSTEMS@"
+.SafariZoneSystem:    db " SAFARI ZONE SYSTEM@"
+.OWWeatherSystem:     db " OW WEATHER SYSTEM@"
+.Vulcandth:           db "     VULCANDTH@"
+.Zumi:                db "        ZUMI@"
+.Pfero:               db "       PFERO@"
+.Rangi:               db "       RANGI@"
+.Fiq:                 db "        FIQ@"
+.Gmerc:               db "       GMERC@"
+.Taj:                 db "        TAJ@"
+.Manardo:             db "      MANARDO@"
+.Zaxarone:            db "      ZAXARONE@"
+.That_Nerd_Lady:      db "   THAT NERD LADY@"
+.Mattew:              db "       MATTEW@"
+.CesareCbass:         db "    CESARE CBASS@"
+.BenniBeefaghetti:    db "  BENNI BEEFAGHETTI@"
+.Chilly:              db "       CHILLY@"
+.Whooping:            db "      WHOOPING@"
+.Tabletpillow:        db "    TABLETPILLOW@"
+.Justregularluna:     db "   JUSTREGULARLUNA@"
+.DamienDoury:         db "    DAMIEN DOURY@"
+.DanZC:               db "       DANZC@"
+.Ahab:                db "        AHAB@"
+.FrenchOrange:        db "    FRENCH ORANGE@"
+.LuigiTKO:            db "     LUIGI TKO@"
+.GUIAlbe:             db "      GUI ALBE@"
+.SonicRay:            db "      SONICRAY@"
+.Hallan:              db "       HALLAN@"
+.Ax6:                 db "        AX6@"
+.ShanaMoe:            db "      SHANAMOE@"
+.TastySnax12:         db "     TASTYSNAX12@"
+._8BitZeta:           db "      8BITZETA@"
+.Monstaah:            db "      MONSTAAH@"
+.PokecrystalPret:     db "  POKECRYSTAL PRET@"
 
 .Copyright:
 	;    (C) 1  9  9  5 - 2  0  0  1     N  i  n  t  e  n  d  o

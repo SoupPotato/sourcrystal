@@ -103,9 +103,49 @@
 	const US_COORDINATION
 	const TEXT_TRANSLATION
 	const PAAD_TESTING
+; SourCrystal Credits
 	const SOURCRYSTAL_STAFF
+	const GAME_TESTING
+	const QA_CONSULTATION
+	const MISCELLANEOUS_WORK
+	const POKEMON_ICONS
+	const BATTLE_ANIMATION
+	const BATTLE_SYSTEMS
+	const POKEGEAR_SYSTEMS
+	const SAFARI_ZONE_SYSTEM
+	const OW_WEATHER_SYSTEM
 	const SOURAPPLE
-	const BETA_TESTING
+	const VULCANDTH
+	const ZUMI
+	const PFERO
+	const RANGI
+	const FIQ
+	const GMERC
+	const TAJ
+	const MANARDO
+	const ZAXARONE
+	const THAT_NERD_LADY
+	const MATTEW
+	const CESARE_CBASS
+	const BENNIBEEFAGHETTI
+	const CHILLY
+	const WHOOPING
+	const TABLETPILLOW
+	const JUSTREGULARLUNA
+	const DAMIEN_DOURY
+	const DANZC
+	const AHAB
+	const FRENCH_ORANGE
+	const LUIGI_TKO
+	const GUI_ALBE
+	const SONICRAY
+	const HALLAN
+	const AX6
+	const SHANAMOE
+	const TASTYSNAX12
+	const _8BITZETA
+	const MONSTAAH
+	const POKECRYSTAL_PRET
 DEF NUM_CREDITS_STRINGS EQU const_value
 
 ; CreditsScript indexes (see data/credits_script.asm)

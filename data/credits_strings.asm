@@ -104,6 +104,9 @@ CreditsStringsPointers:
 	dw .UsCoordination
 	dw .TextTranslation
 	dw .PaadTesting
+	dw .SourCrystalStaff
+	dw .SourApple
+	dw .BetaTesting
 	assert_table_length NUM_CREDITS_STRINGS
 
 .SatoshiTajiri:       db "   SATOSHI TAJIRI@"         ; "たじり　さとし@"
@@ -212,6 +215,11 @@ CreditsStringsPointers:
 .UsCoordination:      db "  US COORDINATION@"
 .TextTranslation:     db "  TEXT TRANSLATION@"
 .PaadTesting:         db "    PAAD TESTING@"
+.SourCrystalStaff:    db "      #MON"                 ; "ポケットモンスター"
+                    next "    SOUR CRYSTAL"          ; "　　クりスタル　バージョン"
+                    next "    CONTRIBUTORS@"              ; "　　　　スタッフ@"
+.SourApple:           db "     SOURAPPLE@"
+.BetaTesting:         db "    BETA TESTING@"
 
 .Copyright:
 	;    (C) 1  9  9  5 - 2  0  0  1     N  i  n  t  e  n  d  o

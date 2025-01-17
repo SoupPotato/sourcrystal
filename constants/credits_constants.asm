@@ -103,6 +103,9 @@
 	const US_COORDINATION
 	const TEXT_TRANSLATION
 	const PAAD_TESTING
+	const SOURCRYSTAL_STAFF
+	const SOURAPPLE
+	const BETA_TESTING
 DEF NUM_CREDITS_STRINGS EQU const_value
 
 ; CreditsScript indexes (see data/credits_script.asm)

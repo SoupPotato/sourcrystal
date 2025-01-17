@@ -297,20 +297,11 @@ ParseCredits:
 	cp COPYRIGHT
 	jr z, .copyright
 
-	cp STAFF
-	jr c, .staff
-
-; The rest start from line 6.
-
 	hlcoord 0, 6
 	jr .print
 
 .copyright
 	hlcoord 2, 6
-	jr .print
-
-.staff
-	hlcoord 0, 6
 
 .print
 ; Print strings spaced every two lines.
@@ -363,9 +354,9 @@ ParseCredits:
 	call .get
 	ld [wCreditsTimer], a
 
-	xor a
-	ldh [hBGMapThird], a
+; SC: credits start from the 2nd third of the screen so use that
 	ld a, 1
+	ldh [hBGMapThird], a
 	ldh [hBGMapMode], a
 
 .done
@@ -508,7 +499,6 @@ GetCreditsPalette:
 .GetPalAddress:
 ; Each set of palette data is 24 bytes long.
 	ld a, [wCreditsBorderMon] ; scene
-	and %11
 	add a
 	add a ; * 8
 	add a
@@ -551,14 +541,23 @@ Credits_LoadBorderGFX:
 	ld a, [hl]
 	cp $ff
 	jr z, .init
-
-	and %11
+; SC: magby has 8 frames instead of 4
 	ld e, a
+	ld a, [wCreditsBorderMon]
+	cp 4 ; magby
+	ld a, e
+	jr nz, .normal
+; magby
+	inc a
+	and %111
+	ld [hl], a
+	jr .load_mon
+.normal
 	inc a
 	and %11
 	ld [hl], a
+.load_mon
 	ld a, [wCreditsBorderMon]
-	and %11
 	add a
 	add a
 	add e
@@ -597,6 +596,16 @@ Credits_LoadBorderGFX:
 	dw CreditsIgglybuffGFX + 32 tiles
 	dw CreditsIgglybuffGFX + 48 tiles
 
+; SC: special case for magby to slow down the anim
+	dw CreditsMagbyGFX
+	dw CreditsMagbyGFX
+	dw CreditsMagbyGFX     + 16 tiles
+	dw CreditsMagbyGFX     + 16 tiles
+	dw CreditsMagbyGFX     + 32 tiles
+	dw CreditsMagbyGFX     + 32 tiles
+	dw CreditsMagbyGFX     + 48 tiles
+	dw CreditsMagbyGFX     + 48 tiles
+
 Credits_TheEnd:
 	ld a, $40
 	hlcoord 6, 9
@@ -618,6 +627,7 @@ CreditsPichuGFX:     INCBIN "gfx/credits/pichu.2bpp"
 CreditsSmoochumGFX:  INCBIN "gfx/credits/smoochum.2bpp"
 CreditsDittoGFX:     INCBIN "gfx/credits/ditto.2bpp"
 CreditsIgglybuffGFX: INCBIN "gfx/credits/igglybuff.2bpp"
+CreditsMagbyGFX:     INCBIN "gfx/credits/magby.2bpp"
 
 INCLUDE "data/credits_script.asm"
 INCLUDE "data/credits_strings.asm"

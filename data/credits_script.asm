@@ -274,6 +274,42 @@ CreditsScript:
 
 	db CREDITS_WAIT, 12
 
+; Clear the banner.
+	db CREDITS_CLEAR
+
+	db CREDITS_WAIT, 1
+
+; Update the banner.
+	db CREDITS_SCENE, 4 ; Magby
+
+	db SOURCRYSTAL_STAFF, 1
+
+	db CREDITS_WAIT, 9
+
+	db PROGRAMMERS, 1
+	db SOURAPPLE, 2
+	db SOURAPPLE, 3
+	
+	db CREDITS_WAIT, 12
+
+	db GRAPHICS_DESIGN, 1
+	db SOURAPPLE, 2
+	db SOURAPPLE, 3
+	
+	db CREDITS_WAIT, 12
+
+	db MONSTER_DESIGN, 1
+	db SOURAPPLE, 2
+	db SOURAPPLE, 3
+
+	db CREDITS_WAIT, 12
+
+	db BETA_TESTING, 1
+	db SOURAPPLE, 2
+	db SOURAPPLE, 3
+
+	db CREDITS_WAIT, 12
+
 	db            COPYRIGHT, 1
 
 	db CREDITS_WAIT, 9

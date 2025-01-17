@@ -144,7 +144,7 @@ CreditsStringsPointers:
 	dw .ShanaMoe
 	dw .TastySnax12
 	dw ._8BitZeta
-	dw .Monstaah
+	dw .MonstaahRules
 	dw .PokecrystalPret
 	assert_table_length NUM_CREDITS_STRINGS
 
@@ -296,7 +296,7 @@ CreditsStringsPointers:
 .ShanaMoe:            db "      SHANAMOE@"
 .TastySnax12:         db "     TASTYSNAX12@"
 ._8BitZeta:           db "      8BITZETA@"
-.Monstaah:            db "      MONSTAAH@"
+.MonstaahRules:       db "   MONSTAAHRULES@"
 .PokecrystalPret:     db "  POKECRYSTAL PRET@"
 
 .Copyright:

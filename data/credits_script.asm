@@ -304,7 +304,7 @@ CreditsScript:
 	db CREDITS_WAIT, 7
 
 	db   MISCELLANEOUS_WORK, 0
-	db      JUSTREGULARLUNA, 1
+	db        MONSTAAHRULES, 1
 	db         DAMIEN_DOURY, 2
 	db                DANZC, 3
 	db             SONICRAY, 4

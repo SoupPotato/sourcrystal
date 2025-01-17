@@ -133,11 +133,6 @@ CreditsScript:
 
 	db CREDITS_WAIT, 8
 
-	db    PARAMETRIC_DESIGN, 1
-	db        KOHJI_NISHINO, 2
-
-	db CREDITS_WAIT, 8
-
 ; Clear the banner.
 	db CREDITS_CLEAR
 
@@ -145,6 +140,11 @@ CreditsScript:
 
 ; Update the banner.
 	db CREDITS_SCENE, 2 ; Ditto
+
+	db    PARAMETRIC_DESIGN, 1
+	db        KOHJI_NISHINO, 2
+
+	db CREDITS_WAIT, 8
 
 	db        SCRIPT_DESIGN, 1
 	db         TETSUJI_OOTA, 2

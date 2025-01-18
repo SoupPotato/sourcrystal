@@ -309,21 +309,25 @@ CreditsScript:
 	db     BATTLE_ANIMATION, 1
 	db            SOURAPPLE, 2
 
+	db CREDITS_WAIT, 7
+
+	db     ADDITIONAL_MUSIC, 0
+	db             CORALDEV, 1
+	db                 ZUMI, 2
+	db       FROGGESTSPIRIT, 3
+	db               MMMMMM, 4
+	db                 PIGU, 5
+
 	db CREDITS_WAIT, 10
 
-	db       BATTLE_SYSTEMS, 1
-	db            _8BITZETA, 2
-	db                  FIQ, 3
-
-	db CREDITS_WAIT, 8
-
 	db     INTERNAL_SYSTEMS, 0
-	db               RANGI42, 1
+	db              RANGI42, 1
 	db            VULCANDTH, 2
 	db      JUSTREGULARLUNA, 3
 	db                 ZUMI, 4
+	db            _8BITZETA, 5
 
-	db CREDITS_WAIT, 9
+	db CREDITS_WAIT, 10
 
 	db        POKEMON_ICONS, 0
 	db            SOURAPPLE, 1
@@ -342,7 +346,7 @@ CreditsScript:
 
 	db           MAP_DESIGN, 1
 	db            SOURAPPLE, 2
-	db               RANGI42, 3
+	db              RANGI42, 3
 
 	db CREDITS_WAIT, 8
 

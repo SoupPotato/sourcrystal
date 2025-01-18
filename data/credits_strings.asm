@@ -110,7 +110,7 @@ CreditsStringsPointers:
 	dw .MiscellaneousWork
 	dw .PokemonIcons
 	dw .BattleAnimation
-	dw .BattleSystems
+	dw .AdditionalMusic
 	dw .InternalSystems
 	dw .SourApple
 	dw .Vulcandth
@@ -143,6 +143,10 @@ CreditsStringsPointers:
 	dw .TastySnax12
 	dw ._8BitZeta
 	dw .MonstaahRules
+	dw .Coraldev
+	dw .Mmmmmmm
+	dw .Froggestspirit
+	dw .Pigu
 	dw .PokecrystalPret
 	assert_table_length NUM_CREDITS_STRINGS
 
@@ -261,7 +265,7 @@ CreditsStringsPointers:
 .MiscellaneousWork:   db " MISCELLANEOUS WORK@"
 .PokemonIcons:        db "   #MON ICONS@"
 .BattleAnimation:     db "  BATTLE ANIMATION@"
-.BattleSystems:       db "   BATTLE SYSTEMS@"
+.AdditionalMusic:     db "  ADDITIONAL MUSIC@"
 .InternalSystems:     db "  INTERNAL SYSTEMS@"
 .Vulcandth:           db "     VULCANDTH@"
 .Zumi:                db "        ZUMI@"
@@ -293,6 +297,10 @@ CreditsStringsPointers:
 .TastySnax12:         db "    TASTYSNAX12@"
 ._8BitZeta:           db "      8BITZETA@"
 .MonstaahRules:       db "   MONSTAAHRULES@"
+.Coraldev:            db "      CORALDEV@"
+.Mmmmmmm:             db "       MMMMMM@"
+.Froggestspirit:      db "   FROGGESTSPIRIT@"
+.Pigu:                db "        PIGU@"
 .PokecrystalPret:     db "  POKECRYSTAL PRET@"
 
 .Copyright:

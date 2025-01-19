@@ -177,7 +177,6 @@ ROMX $40
 ROMX $41
 	"bank41"
 ROMX $42
-	"mobile42"
 	"Intro Logo"
 	"Credits"
 ROMX $43

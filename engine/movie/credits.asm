@@ -598,13 +598,13 @@ Credits_LoadBorderGFX:
 
 ; SC: special case for magby to slow down the anim
 	dw CreditsMagbyGFX
-	dw CreditsMagbyGFX
-	dw CreditsMagbyGFX     + 16 tiles
 	dw CreditsMagbyGFX     + 16 tiles
 	dw CreditsMagbyGFX     + 32 tiles
-	dw CreditsMagbyGFX     + 32 tiles
 	dw CreditsMagbyGFX     + 48 tiles
-	dw CreditsMagbyGFX     + 48 tiles
+	dw CreditsMagbyGFX     + 64 tiles
+	dw CreditsMagbyGFX     + 80 tiles
+	dw CreditsMagbyGFX     + 96 tiles
+	dw CreditsMagbyGFX     + 112 tiles
 
 Credits_TheEnd:
 	ld a, $40

@@ -139,6 +139,7 @@
 	const SONICRAY
 	const HALLAN
 	const AX6
+	const IDAIN
 	const SHANAMOE
 	const TASTYSNAX12
 	const _8BITZETA

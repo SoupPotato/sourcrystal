@@ -377,7 +377,7 @@ CreditsScript:
 	db         GAME_TESTING, 0
 	db               HALLAN, 1
 	db         TABLETPILLOW, 2
-	db                DANZC, 3
+	db                IDAIN, 3
 	db             WHOOPING, 4
 	db          TASTYSNAX12, 5
 

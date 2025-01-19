@@ -139,6 +139,7 @@ CreditsStringsPointers:
 	dw .SonicRay
 	dw .Hallan
 	dw .Ax6
+	dw .Idain
 	dw .ShanaMoe
 	dw .TastySnax12
 	dw ._8BitZeta
@@ -294,6 +295,7 @@ CreditsStringsPointers:
 .Hallan:              db "       HALLAN@"
 .Ax6:                 db "        AX6@"
 .ShanaMoe:            db "      SHANAMOE@"
+.Idain:               db "       IDAIN@"
 .TastySnax12:         db "    TASTYSNAX12@"
 ._8BitZeta:           db "      8BITZETA@"
 .MonstaahRules:       db "   MONSTAAHRULES@"

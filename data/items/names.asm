@@ -103,7 +103,7 @@ ItemNames::
 	li "PNK APRICORN"
 	li "BLACKGLASSES"
 	li "SLOWPOKETAIL"
-	li "PINK BOW"
+	li "SILK SCARF"
 	li "STICK"
 	li "SMOKE BALL"
 	li "NEVERMELTICE"

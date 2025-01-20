@@ -274,12 +274,12 @@ EngineFlags:
 	engine_flag wDailyPhoneItemFlags, 5 ; dana has thunderstone
 	engine_flag wDailyPhoneItemFlags, 6 ; derek has nugget
 	engine_flag wDailyPhoneItemFlags, 7 ; tully has water stone
-	engine_flag wDailyPhoneItemFlags, 8 ; tiffany has pink bow
+	engine_flag wDailyPhoneItemFlags, 8 ; tiffany has poke doll
 	engine_flag wDailyPhoneItemFlags, 9 ; gina gave a leaf stone today
 	engine_flag wDailyPhoneItemFlags, 10 ; alan gave a fire stone today
 	engine_flag wDailyPhoneItemFlags, 11 ; dana gave a thunderstone today
 	engine_flag wDailyPhoneItemFlags, 12 ; tully gave a water stone today
-	engine_flag wDailyPhoneItemFlags, 13 ; tiffany gave a pink bow today
+	engine_flag wDailyPhoneItemFlags, 13 ; tiffany gave a poke doll today
 	engine_flag wDailyPhoneItemFlags, 14 ; beverly gave a nugget today
 	engine_flag wDailyPhoneItemFlags, 15 ; jose gave a star piece today
 	engine_flag wDailyPhoneItemFlags, 16 ; derek gave a nugget today

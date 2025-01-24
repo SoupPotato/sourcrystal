@@ -8607,6 +8607,7 @@ FillEnemyMovesFromMoveIndicesBuffer: ; unreferenced
 	ret
 
 ExitBattle:
+	call RestoreBattleItems
 	call .HandleEndOfBattle
 	jp CleanUpBattleRAM
 

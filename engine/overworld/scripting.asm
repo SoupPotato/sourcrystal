@@ -1196,7 +1196,6 @@ Script_catchtutorial:
 	jp Script_reloadmap
 
 Script_reloadmapafterbattle:
-	call RestoreBattleItems
 	ld hl, wBattleScriptFlags
 	ld d, [hl]
 	ld [hl], 0

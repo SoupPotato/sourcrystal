@@ -550,7 +550,6 @@ NinetalesEvosAttacks:
 	db 1, QUICK_ATTACK
 	db 1, CONFUSE_RAY
 	db 1, SAFEGUARD
-	db 41, FLAMETHROWER
 	db 0 ; no more level-up moves
 
 JigglypuffEvosAttacks:
@@ -903,7 +902,7 @@ PoliwrathEvosAttacks:
 	db 1, HYPNOSIS
 	db 1, DOUBLESLAP
 	db 1, SUBMISSION
-	db 42, SUBMISSION
+	db 42, DYNAMICPUNCH
 	db 48, MIND_READER
 	db 0 ; no more level-up moves
 
@@ -955,9 +954,9 @@ MachopEvosAttacks:
 	db 19, SEISMIC_TOSS
 	db 25, FORESIGHT
 	db 31, VITAL_THROW
-	db 37, CROSS_CHOP
+	db 37, SUBMISSION
 	db 43, SCARY_FACE
-	db 49, SUBMISSION
+	db 49, CROSS_CHOP
 	db 0 ; no more level-up moves
 
 MachokeEvosAttacks:
@@ -970,10 +969,10 @@ MachokeEvosAttacks:
 	db 13, KARATE_CHOP
 	db 19, SEISMIC_TOSS
 	db 25, FORESIGHT
-	db 34, VITAL_THROW
-	db 43, CROSS_CHOP
-	db 52, SCARY_FACE
-	db 61, SUBMISSION
+	db 32, VITAL_THROW
+	db 39, SUBMISSION
+	db 46, CROSS_CHOP
+	db 53, SCARY_FACE
 	db 0 ; no more level-up moves
 
 MachampEvosAttacks:
@@ -984,10 +983,10 @@ MachampEvosAttacks:
 	db 13, KARATE_CHOP
 	db 19, SEISMIC_TOSS
 	db 25, FORESIGHT
-	db 34, VITAL_THROW
-	db 43, CROSS_CHOP
-	db 52, SCARY_FACE
-	db 61, SUBMISSION
+	db 32, VITAL_THROW
+	db 39, SUBMISSION
+	db 46, CROSS_CHOP
+	db 53, SCARY_FACE
 	db 0 ; no more level-up moves
 
 BellsproutEvosAttacks:
@@ -1924,15 +1923,16 @@ MagmarEvosAttacks:
 PinsirEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, VICEGRIP
-	db 7, FOCUS_ENERGY
-	db 13, BIND
-	db 19, SEISMIC_TOSS
-	db 25, HARDEN
-	db 30, FURY_CUTTER
-	db 35, THRASH
-	db 38, SWORDS_DANCE
-	db 42, SUBMISSION
-	db 47, GUILLOTINE
+	db 1, FOCUS_ENERGY
+	db 7, BIND
+	db 12, SEISMIC_TOSS
+	db 18, HARDEN
+	db 23, REVERSAL
+	db 29, VITAL_THROW
+	db 34, THRASH
+	db 40, SWORDS_DANCE
+	db 45, SUBMISSION
+	db 51, GUILLOTINE
 	db 0 ; no more level-up moves
 
 TaurosEvosAttacks:
@@ -2390,8 +2390,8 @@ TotodileEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
-	db 7, RAGE
-	db 12, WATER_GUN
+	db 7, WATER_GUN
+	db 12, RAGE
 	db 17, BITE
 	db 22, SCARY_FACE
 	db 28, CRUNCH
@@ -2406,8 +2406,8 @@ CroconawEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
-	db 1, RAGE
-	db 12, WATER_GUN
+	db 7, WATER_GUN
+	db 12, RAGE
 	db 17, BITE
 	db 23, SCARY_FACE
 	db 30, CRUNCH
@@ -2421,8 +2421,8 @@ FeraligatrEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
-	db 1, RAGE
 	db 1, WATER_GUN
+	db 1, RAGE
 	db 17, BITE
 	db 23, SCARY_FACE
 	db 30, AGILITY
@@ -2441,9 +2441,9 @@ SentretEvosAttacks:
 	db 5, DEFENSE_CURL
 	db 11, QUICK_ATTACK
 	db 16, FURY_SWIPES
-	db 22, SLAM
-	db 27, REST
-	db 33, PURSUIT
+	db 22, PURSUIT
+	db 27, SLAM
+	db 33, REST
 	db 37, AMNESIA
 	db 42, BATON_PASS
 	db 46, DOUBLE_EDGE
@@ -2456,9 +2456,9 @@ FurretEvosAttacks:
 	db 1, DEFENSE_CURL
 	db 1, QUICK_ATTACK
 	db 17, FURY_SWIPES
-	db 24, SLAM
-	db 29, REST
-	db 35, PURSUIT
+	db 24, PURSUIT
+	db 29, SLAM
+	db 35, REST
 	db 39, AMNESIA
 	db 45, BATON_PASS
 	db 50, DOUBLE_EDGE
@@ -2500,13 +2500,13 @@ LedybaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 5, SUPERSONIC
-	db 8, SWIFT
+	db 8, COMET_PUNCH
 	db 12, LIGHT_SCREEN
 	db 12, REFLECT
 	db 12, SAFEGUARD
 	db 16, MACH_PUNCH
 	db 19, PSYBEAM
-	db 23, COMET_PUNCH
+	db 23, SWIFT
 	db 27, BATON_PASS
 	db 30, AGILITY
 	db 34, DOUBLE_EDGE
@@ -2516,13 +2516,13 @@ LedianEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, SUPERSONIC
-	db 1, SWIFT
+	db 1, COMET_PUNCH
 	db 12, LIGHT_SCREEN
 	db 12, REFLECT
 	db 12, SAFEGUARD
 	db 16, MACH_PUNCH
 	db 21, PSYBEAM
-	db 25, COMET_PUNCH
+	db 25, SWIFT
 	db 30, BATON_PASS
 	db 34, AGILITY
 	db 39, DOUBLE_EDGE
@@ -3186,18 +3186,19 @@ GranbullEvosAttacks:
 
 QwilfishEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, SPIKES
+	db 1, BUBBLE
+	db 1, HARDEN
 	db 1, TACKLE
 	db 1, POISON_STING
-	db 1, BUBBLE
-	db 9, HARDEN
-	db 9, MINIMIZE
-	db 13, WATER_GUN
-	db 21, ROLLOUT
-	db 25, PIN_MISSILE
-	db 33, TAKE_DOWN
-	db 37, DESTINY_BOND
+	db 8, WATER_GUN
+	db 12, MINIMIZE
+	db 19, SPIKES
+	db 23, ROLLOUT
+	db 30, REVERSAL
+	db 34, PIN_MISSILE
+	db 41, TAKE_DOWN
 	db 45, HYDRO_PUMP
+	db 52, DESTINY_BOND
 	db 0 ; no more level-up moves
 
 ScizorEvosAttacks:

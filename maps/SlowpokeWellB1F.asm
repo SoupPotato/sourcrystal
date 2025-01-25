@@ -95,7 +95,9 @@ TrainerGruntF1:
 SlowpokeWellB1FSlowpokeWithMailScript:
 	faceplayer
 	opentext
+	writetext SlowpokeWellB1FTaillessSlowpokeText
 	cry SLOWPOKE
+	waitbutton
 	writetext SlowpokeWellB1FSlowpokeWithMailText
 	yesorno
 	iftrue .ReadMail
@@ -292,10 +294,7 @@ GruntF1AfterBattleText:
 	done
 
 SlowpokeWellB1FSlowpokeWithMailText:
-	text "A SLOWPOKE with"
-	line "its TAIL cut off…"
-
-	para "Huh? It has MAIL."
+	text "Huh? It has MAIL."
 	line "Read it?"
 	done
 

@@ -1050,6 +1050,7 @@ PokegearMap_Init:
 	ld a, [wPokegearMapPlayerIconLandmark]
 	call PokegearMap_InitPlayerIcon
 	call PokegearMap_InitSwarmIcon
+	call PokegearMap_InitRoamingIcon
 	ld a, [wPokegearMapCursorLandmark]
 	call PokegearMap_InitCursor
 	ld a, c
@@ -1180,6 +1181,89 @@ PokegearMap_InitPlayerIcon:
 	ld hl, SPRITEANIMSTRUCT_YCOORD
 	add hl, bc
 	ld [hl], d
+	ret
+
+PokegearMap_InitRoamingIcon:
+; Assume that roaming is only in Johto
+	farcall RegionCheck
+	ld a, e
+	and a
+	ret nz ; Exit if in Kanto
+
+; .roammon1
+	ld a, [wRoamMon1Species]
+	and a
+	jr z, .roammon2
+; first roam mon's sprites loaded into $60
+	ld [wTempSpecies], a
+	ld e, $60
+	farcall GetSwarmIcon
+; instantiate and set the ID
+	call .instantiate_sprite
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld [hl], $60
+; set its landmark position
+	ld hl, wRoamMon1MapGroup
+	assert wRoamMon1MapNumber == wRoamMon1MapGroup + 1
+	call .translate_and_apply_coords
+.roammon2
+	ld a, [wRoamMon2Species]
+	and a
+	jr z, .roammon3
+; second roam mon's sprites loaded into $68
+	ld [wTempSpecies], a
+	ld e, $68
+	farcall GetSwarmIcon
+	call .instantiate_sprite
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld [hl], $68
+	ld hl, wRoamMon2MapGroup
+	assert wRoamMon2MapNumber == wRoamMon2MapGroup + 1
+	call .translate_and_apply_coords
+.roammon3
+	ld a, [wRoamMon3Species]
+	and a
+	ret z ; no more roaming mons
+; third roam mon's sprites loaded into $70
+	ld [wTempSpecies], a
+	ld e, $70
+	farcall GetSwarmIcon
+	call .instantiate_sprite
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld [hl], $70
+	ld hl, wRoamMon3MapGroup
+	assert wRoamMon3MapNumber == wRoamMon3MapGroup + 1
+	call .translate_and_apply_coords
+	ret
+
+.translate_and_apply_coords ; uses `hl`
+	push bc
+		ld a, [hli] ; wRoamMon#MapGroup
+		ld b, a
+		ld a, [hl] ; wRoamMon#MapNumber
+		ld c, a
+		call GetWorldMapLocation
+		ld e, a
+		farcall GetLandmarkCoords
+	pop bc
+	ld hl, SPRITEANIMSTRUCT_XCOORD
+	add hl, bc
+	ld [hl], e
+	ld hl, SPRITEANIMSTRUCT_YCOORD
+	add hl, bc
+	ld [hl], d
+	ret
+
+.instantiate_sprite
+	depixel 0, 0
+	ld a, SPRITE_ANIM_OBJ_PARTY_MON
+	call InitSpriteAnimStruct
+	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
+	add hl, bc
+	ld [hl], SPRITE_ANIM_FUNC_NULL
 	ret
 
 PokegearMap_InitSwarmIcon:

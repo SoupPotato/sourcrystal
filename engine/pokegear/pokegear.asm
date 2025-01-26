@@ -1050,6 +1050,7 @@ PokegearMap_Init:
 	ld a, [wPokegearMapPlayerIconLandmark]
 	call PokegearMap_InitPlayerIcon
 	call PokegearMap_InitSwarmIcon
+	call PokegearMap_InitRoamingIcon
 	ld a, [wPokegearMapCursorLandmark]
 	call PokegearMap_InitCursor
 	ld a, c
@@ -1180,6 +1181,170 @@ PokegearMap_InitPlayerIcon:
 	ld hl, SPRITEANIMSTRUCT_YCOORD
 	add hl, bc
 	ld [hl], d
+	ret
+
+PokegearMap_InitRoamingIcon:
+; Assume that roaming is only in Johto
+	farcall RegionCheck
+	ld a, e
+	and a
+	ret nz ; Exit if in Kanto
+
+; clear palette temp stuff so we don't
+; copy weird shit later down the line
+	ld hl, wRoamMon1PaletteTemp
+	assert wRoamMon2PaletteTemp == wRoamMon1PaletteTemp + 1
+	assert wRoamMon3PaletteTemp == wRoamMon2PaletteTemp + 1
+	xor a
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+
+; Instantiate the graphics and the sprite objects
+; .roammon_1
+	ld a, [wRoamMon1Species]
+	and a
+	jr z, .roammon_2
+; first roam mon's sprites loaded into $60
+	ld [wTempSpecies], a
+	ld e, $60
+	farcall GetSwarmIcon
+; instantiate and set the ID
+	call .InstantiateSprite
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld [hl], $60
+; set its landmark position
+	ld hl, wRoamMon1MapGroup
+	assert wRoamMon1MapNumber == wRoamMon1MapGroup + 1
+	call .TranslateAndApplyCoord
+
+.roammon_2
+	ld a, [wRoamMon2Species]
+	and a
+	jr z, .roammon_3
+; second roam mon's sprites loaded into $68
+	ld [wTempSpecies], a
+	ld e, $68
+	farcall GetSwarmIcon
+	call .InstantiateSprite
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld [hl], $68
+	ld hl, wRoamMon2MapGroup
+	assert wRoamMon2MapNumber == wRoamMon2MapGroup + 1
+	call .TranslateAndApplyCoord
+
+.roammon_3
+	ld a, [wRoamMon3Species]
+	and a
+	jr z, .apply_roam_palettes ; no more roaming mons
+; third roam mon's sprites loaded into $70
+	ld [wTempSpecies], a
+	ld e, $70
+	farcall GetSwarmIcon
+	call .InstantiateSprite
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld [hl], $70
+	ld hl, wRoamMon3MapGroup
+	assert wRoamMon3MapNumber == wRoamMon3MapGroup + 1
+	call .TranslateAndApplyCoord
+
+.apply_roam_palettes
+; Translate species to its corresponding menu mon
+; palette index
+	ld a, [wRoamMon1Species]
+	call .ConvertToMenuMonPal
+	ld [wRoamMon1PaletteTemp], a
+
+	ld a, [wRoamMon2Species]
+	call .ConvertToMenuMonPal
+	ld [wRoamMon2PaletteTemp], a
+
+	ld a, [wRoamMon3Species]
+	call .ConvertToMenuMonPal
+	ld [wRoamMon3PaletteTemp], a
+
+; Load those palettes in
+	farcall InitPokegearRoamOBPal
+
+; Apply palettes to the instantiated sprites
+; initial case, swarm sprite isn't loaded so
+; the roam mons start at index 08
+	ld hl, wShadowOAMSprite08Attributes
+	ld a, [wSwarmFlags]
+	bit SWARMFLAGS_SWARM_ACTIVE, a
+	jr z, .got_v_oam_addr ; no swarms
+; because the one swarm sprite got loaded,
+; offset the sprite index by +4
+	ld hl, wShadowOAMSprite12Attributes
+.got_v_oam_addr
+	ld a, 5
+	call .SetPaletteAttrs
+	inc a ; a = 6
+	call .SetPaletteAttrs
+	inc a ; a = 7
+	jr .SetPaletteAttrs
+
+.TranslateAndApplyCoord: ; uses `hl`
+	push bc
+		ld a, [hli] ; wRoamMon#MapGroup
+		ld b, a
+		ld a, [hl] ; wRoamMon#MapNumber
+		ld c, a
+		call GetWorldMapLocation
+		ld e, a
+		farcall GetLandmarkCoords
+	pop bc
+	ld hl, SPRITEANIMSTRUCT_XCOORD
+	add hl, bc
+	ld [hl], e
+	ld hl, SPRITEANIMSTRUCT_YCOORD
+	add hl, bc
+	ld [hl], d
+	ret
+
+.InstantiateSprite:
+	depixel 0, 0
+	ld a, SPRITE_ANIM_OBJ_PARTY_MON
+	call InitSpriteAnimStruct
+	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
+	add hl, bc
+	ld [hl], SPRITE_ANIM_FUNC_NULL
+	ret
+
+.SetPaletteAttrs:
+	ld [hli], a
+	inc hl
+	inc hl
+	inc hl
+	ld [hli], a
+	inc hl
+	inc hl
+	inc hl
+	ld [hli], a
+	inc hl
+	inc hl
+	inc hl
+	ld [hli], a
+	inc hl
+	inc hl
+	inc hl
+	ret
+
+.ConvertToMenuMonPal:
+	and a
+	ret z ; don't convert if 0
+	dec a
+	ld b, 0
+	ld c, a
+	ld hl, MonMenuIconPals
+	add hl, bc
+	ld a, BANK(MonMenuIconPals)
+	call GetFarByte
+	and $f0
+	swap a
 	ret
 
 PokegearMap_InitSwarmIcon:

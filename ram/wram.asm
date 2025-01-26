@@ -2336,7 +2336,10 @@ ENDU
 
 wTempOWMonSpecies:: db
 
-	ds 22
+wRoamMon1PaletteTemp:: db
+wRoamMon2PaletteTemp:: db
+wRoamMon3PaletteTemp:: db
+	ds 19
 
 
 SECTION "More WRAM 1", WRAMX

@@ -1209,16 +1209,16 @@ PokegearMap_InitRoamingIcon:
 	ld a, [wRoamMon1Species]
 	and a
 	jr z, .roammon_2
-; first roam mon's sprites loaded into $60
+; first roam mon's sprites loaded into $68
 	ld [wTempSpecies], a
-	ld e, $60
+	ld e, $68
 	push bc
 		farcall GetSwarmIcon
 	pop bc
 ; instantiate and set the ID
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
-	ld [hl], $60
+	ld [hl], $68
 ; set its landmark position
 	ld hl, wRoamMon1MapGroup
 	assert wRoamMon1MapNumber == wRoamMon1MapGroup + 1
@@ -1229,15 +1229,15 @@ PokegearMap_InitRoamingIcon:
 	ld a, [wRoamMon2Species]
 	and a
 	jr z, .roammon_3
-; second roam mon's sprites loaded into $68
+; second roam mon's sprites loaded into $70
 	ld [wTempSpecies], a
-	ld e, $68
+	ld e, $70
 	push bc
 		farcall GetSwarmIcon
 	pop bc
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
-	ld [hl], $68
+	ld [hl], $70
 	ld hl, wRoamMon2MapGroup
 	assert wRoamMon2MapNumber == wRoamMon2MapGroup + 1
 	call .TranslateAndApplyCoord
@@ -1247,15 +1247,15 @@ PokegearMap_InitRoamingIcon:
 	ld a, [wRoamMon3Species]
 	and a
 	jr z, .apply_roam_palettes ; no more roaming mons
-; third roam mon's sprites loaded into $70
+; third roam mon's sprites loaded into $78
 	ld [wTempSpecies], a
-	ld e, $70
+	ld e, $78
 	push bc
 		farcall GetSwarmIcon
 	pop bc
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
-	ld [hl], $70
+	ld [hl], $78
 	ld hl, wRoamMon3MapGroup
 	assert wRoamMon3MapNumber == wRoamMon3MapGroup + 1
 	call .TranslateAndApplyCoord

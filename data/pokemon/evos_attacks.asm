@@ -592,6 +592,7 @@ ZubatEvosAttacks:
 
 GolbatEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, CROBAT
+CrobatEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCREECH
 	db 1, LEECH_LIFE
@@ -1698,6 +1699,7 @@ RhydonEvosAttacks:
 
 ChanseyEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, BLISSEY
+BlisseyEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POUND
 	db 4, GROWL
@@ -2506,10 +2508,11 @@ LedybaEvosAttacks:
 	db 12, SAFEGUARD
 	db 16, MACH_PUNCH
 	db 19, PSYBEAM
-	db 23, SWIFT
-	db 27, BATON_PASS
-	db 30, AGILITY
-	db 34, DOUBLE_EDGE
+	db 23, MORNING_SUN
+	db 27, SWIFT
+	db 30, BATON_PASS
+	db 34, AGILITY
+	db 37, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 LedianEvosAttacks:
@@ -2522,10 +2525,11 @@ LedianEvosAttacks:
 	db 12, SAFEGUARD
 	db 16, MACH_PUNCH
 	db 21, PSYBEAM
-	db 25, SWIFT
-	db 30, BATON_PASS
-	db 34, AGILITY
-	db 39, DOUBLE_EDGE
+	db 25, MORNING_SUN
+	db 30, SWIFT
+	db 34, BATON_PASS
+	db 39, AGILITY
+	db 43, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 SpinarakEvosAttacks:
@@ -2562,20 +2566,7 @@ AriadosEvosAttacks:
 	db 44, PSYCHIC_M
 	db 0 ; no more level-up moves
 
-CrobatEvosAttacks:
-	db 0 ; no more evolutions
-	db 1, SCREECH
-	db 1, LEECH_LIFE
-	db 1, SUPERSONIC
-	db 9, BITE
-	db 13, SWIFT
-	db 17, CONFUSE_RAY
-	db 21, HAZE
-	db 27, WING_ATTACK
-	db 33, CRUNCH
-	db 39, MEAN_LOOK
-	db 45, TOXIC
-	db 0 ; no more level-up moves
+;CrobatEvosAttacks: moved to golbat's to save space
 
 ChinchouEvosAttacks:
 	db EVOLVE_LEVEL, 27, LANTURN
@@ -2803,8 +2794,8 @@ PolitoedEvosAttacks:
 	db 1, HYPNOSIS
 	db 1, DOUBLESLAP
 	db 1, PERISH_SONG
-	db 41, PERISH_SONG
-	db 47, SWAGGER
+	db 42, SWAGGER
+	db 54, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 HoppipEvosAttacks:
@@ -3653,20 +3644,7 @@ MiltankEvosAttacks:
 	db 51, CHARM
 	db 0 ; no more level-up moves
 
-BlisseyEvosAttacks:
-	db 0 ; no more evolutions
-	db 1, POUND
-	db 4, GROWL
-	db 7, TAIL_WHIP
-	db 10, DEFENSE_CURL
-	db 13, DOUBLESLAP
-	db 18, SING
-	db 23, MINIMIZE
-	db 28, EGG_BOMB
-	db 33, SOFTBOILED
-	db 40, LIGHT_SCREEN
-	db 47, DOUBLE_EDGE
-	db 0 ; no more level-up moves
+;BlisseyEvosAttacks: moved to chansey's to save space
 
 RaikouEvosAttacks:
 	db 0 ; no more evolutions

@@ -1202,15 +1202,20 @@ PokegearMap_InitRoamingIcon:
 
 ; Instantiate the graphics and the sprite objects
 ; .roammon_1
+; pre-allocate sprite even when unused, so that
+; the palette indices to be applied can be correct
+; even when any one of them is missing
+	call .InstantiateSprite
 	ld a, [wRoamMon1Species]
 	and a
 	jr z, .roammon_2
 ; first roam mon's sprites loaded into $60
 	ld [wTempSpecies], a
 	ld e, $60
-	farcall GetSwarmIcon
+	push bc
+		farcall GetSwarmIcon
+	pop bc
 ; instantiate and set the ID
-	call .InstantiateSprite
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
 	ld [hl], $60
@@ -1220,14 +1225,16 @@ PokegearMap_InitRoamingIcon:
 	call .TranslateAndApplyCoord
 
 .roammon_2
+	call .InstantiateSprite
 	ld a, [wRoamMon2Species]
 	and a
 	jr z, .roammon_3
 ; second roam mon's sprites loaded into $68
 	ld [wTempSpecies], a
 	ld e, $68
-	farcall GetSwarmIcon
-	call .InstantiateSprite
+	push bc
+		farcall GetSwarmIcon
+	pop bc
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
 	ld [hl], $68
@@ -1236,14 +1243,16 @@ PokegearMap_InitRoamingIcon:
 	call .TranslateAndApplyCoord
 
 .roammon_3
+	call .InstantiateSprite
 	ld a, [wRoamMon3Species]
 	and a
 	jr z, .apply_roam_palettes ; no more roaming mons
 ; third roam mon's sprites loaded into $70
 	ld [wTempSpecies], a
 	ld e, $70
-	farcall GetSwarmIcon
-	call .InstantiateSprite
+	push bc
+		farcall GetSwarmIcon
+	pop bc
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
 	ld [hl], $70

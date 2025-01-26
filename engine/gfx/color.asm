@@ -723,6 +723,44 @@ InitPokegearSwarmOBPal:
 	ldh [hCGBPalUpdate], a
 	ret
 
+InitPokegearRoamOBPal:
+	ld a, [wRoamMon1PaletteTemp]
+	ld hl, PartyMenuOBPals
+	ld bc, 1 palettes
+	call AddNTimes
+	ld de, wOBPals1 palette 5
+	ld bc, 1 palettes
+	ld a, BANK(wOBPals1)
+	call FarCopyWRAM
+
+	ld a, [wRoamMon2PaletteTemp]
+	ld hl, PartyMenuOBPals
+	ld bc, 1 palettes
+	call AddNTimes
+	ld de, wOBPals1 palette 6
+	ld bc, 1 palettes
+	ld a, BANK(wOBPals1)
+	call FarCopyWRAM
+
+	ld a, [wRoamMon3PaletteTemp]
+	ld hl, PartyMenuOBPals
+	ld bc, 1 palettes
+	call AddNTimes
+	ld de, wOBPals1 palette 7
+	ld bc, 1 palettes
+	ld a, BANK(wOBPals1)
+	call FarCopyWRAM
+
+	ld hl, wOBPals1 palette 5
+	ld de, wOBPals2 palette 5
+	ld bc, 3 palettes
+	ld a, BANK(wOBPals1)
+	call FarCopyWRAM
+
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	ret
+
 GetBattlemonBackpicPalettePointer:
 	push de
 	farcall GetPartyMonDVs

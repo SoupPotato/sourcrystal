@@ -3,8 +3,8 @@ JackPhoneTipsScript:
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 
-IanBattleAgainScript:
-	farwritetext IanBattleAgainText
+IanInShortsScript:
+	farwritetext IanInShortsText
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 

@@ -9,7 +9,7 @@ IanPhoneCalleeScript:
 	iftrue IanWantsBattle
 
 .NotSaturday:
-	farjump IanBattleAgainScript
+	farjump IanInShortsScript
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_34

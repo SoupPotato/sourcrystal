@@ -679,7 +679,6 @@ INCLUDE "data/phone/text/erin_callee.asm"
 INCLUDE "data/phone/text/gaven_callee.asm"
 INCLUDE "data/phone/text/gina_callee.asm"
 INCLUDE "data/phone/text/huey_callee.asm"
-INCLUDE "data/phone/text/ian_callee.asm" ; new
 INCLUDE "data/phone/text/irwin_callee.asm"
 INCLUDE "data/phone/text/jack_callee.asm"
 INCLUDE "data/phone/text/joey_callee.asm"

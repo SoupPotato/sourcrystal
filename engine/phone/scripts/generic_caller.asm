@@ -549,6 +549,7 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 
 .Jack:
 	farwritetext JackBattleRematchText
@@ -632,6 +633,11 @@ PhoneScript_RematchText_Male:
 
 .Parry:
 	farwritetext ParryBattleRematchText
+	promptbutton
+	end
+
+.Ian:
+	farwritetext IanBattleRematchText
 	promptbutton
 	end
 

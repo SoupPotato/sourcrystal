@@ -136,6 +136,7 @@ VenonatEggMoves:
 	db BATON_PASS
 	db GIGA_DRAIN
 	db SCREECH
+	db MORNING_SUN
 	db -1 ; end
 
 DiglettEggMoves:
@@ -234,6 +235,7 @@ PonytaEggMoves:
 	db LOW_KICK
 	db THRASH
 	db CHARM
+	db MORNING_SUN
 	db -1 ; end
 
 SlowpokeEggMoves:

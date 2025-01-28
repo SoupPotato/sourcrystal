@@ -129,6 +129,7 @@ ParasEggMoves:
 	db PSYBEAM
 	db PURSUIT
 	db SCREECH
+	db LIGHT_SCREEN
 	db -1 ; end
 
 VenonatEggMoves:
@@ -162,6 +163,7 @@ PsyduckEggMoves:
 	db FORESIGHT
 	db FUTURE_SIGHT
 	db HYPNOSIS
+	db LIGHT_SCREEN
 	db -1 ; end
 
 MankeyEggMoves:
@@ -215,7 +217,6 @@ BellsproutEggMoves:
 
 TentacoolEggMoves:
 	db AURORA_BEAM
-	db BUBBLE
 	db HAZE
 	db MIRROR_COAT
 	db RAPID_SPIN
@@ -251,6 +252,7 @@ FarfetchDEggMoves:
 	db GUST
 	db MIRROR_MOVE
 	db QUICK_ATTACK
+	db STEEL_WING
 	db -1 ; end
 
 DoduoEggMoves:
@@ -402,6 +404,7 @@ PinsirEggMoves:
 	db FLAIL
 	db FURY_ATTACK
 	db QUICK_ATTACK
+	db FALSE_SWIPE
 	db -1 ; end
 
 LaprasEggMoves:
@@ -414,6 +417,7 @@ LaprasEggMoves:
 
 EeveeEggMoves:
 	db FLAIL
+	db DOUBLE_KICK
 	db -1 ; end
 
 OmanyteEggMoves:
@@ -422,6 +426,7 @@ OmanyteEggMoves:
 	db HAZE
 	db SLAM
 	db SUPERSONIC
+	db SPIKES
 	db -1 ; end
 
 KabutoEggMoves:
@@ -450,6 +455,7 @@ DratiniEggMoves:
 	db LIGHT_SCREEN
 	db MIST
 	db SUPERSONIC
+	db EXTREMESPEED
 	db -1 ; end
 
 ChikoritaEggMoves:
@@ -487,6 +493,7 @@ HoothootEggMoves:
 	db MIRROR_MOVE
 	db SUPERSONIC
 	db WHIRLWIND
+	db NIGHT_SHADE
 	db -1 ; end
 
 LedybaEggMoves:

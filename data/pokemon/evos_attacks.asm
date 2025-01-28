@@ -1121,7 +1121,7 @@ PonytaEvosAttacks:
 
 RapidashEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, TACKLE
+	db 1, QUICK_ATTACK
 	db 1, GROWL
 	db 1, TAIL_WHIP
 	db 1, EMBER

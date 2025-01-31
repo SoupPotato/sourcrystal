@@ -2441,13 +2441,14 @@ SentretEvosAttacks:
 	db 1, SCRATCH
 	db 1, FORESIGHT
 	db 5, DEFENSE_CURL
-	db 11, QUICK_ATTACK
-	db 16, FURY_SWIPES
-	db 22, PURSUIT
-	db 27, SLAM
-	db 33, REST
-	db 37, AMNESIA
-	db 42, BATON_PASS
+	db 10, QUICK_ATTACK
+	db 14, FURY_SWIPES
+	db 19, CHARM
+	db 23, SLAM
+	db 28, AMNESIA
+	db 32, FEINT_ATTACK
+	db 37, REST
+	db 41, BATON_PASS
 	db 46, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
@@ -2457,13 +2458,15 @@ FurretEvosAttacks:
 	db 1, FORESIGHT
 	db 1, DEFENSE_CURL
 	db 1, QUICK_ATTACK
-	db 17, FURY_SWIPES
-	db 24, PURSUIT
-	db 29, SLAM
-	db 35, REST
-	db 39, AMNESIA
-	db 45, BATON_PASS
-	db 50, DOUBLE_EDGE
+	db 14, FURY_SWIPES
+	db 15, AGILITY
+	db 20, CHARM
+	db 25, SLAM
+	db 31, AMNESIA
+	db 36, FEINT_ATTACK
+	db 42, REST
+	db 47, BATON_PASS
+	db 53, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 HoothootEvosAttacks:
@@ -2542,7 +2545,7 @@ SpinarakEvosAttacks:
 	db 12, SCARY_FACE
 	db 16, NIGHT_SHADE
 	db 20, FURY_SWIPES
-	db 23, PURSUIT
+	db 23, FEINT_ATTACK
 	db 27, SPIDER_WEB
 	db 31, AGILITY
 	db 34, PIN_MISSILE
@@ -2559,7 +2562,7 @@ AriadosEvosAttacks:
 	db 16, NIGHT_SHADE
 	db 20, FURY_SWIPES
 	db 22, SWORDS_DANCE
-	db 25, PURSUIT
+	db 25, FEINT_ATTACK
 	db 30, SPIDER_WEB
 	db 34, AGILITY
 	db 39, PIN_MISSILE
@@ -2898,7 +2901,7 @@ SunfloraEvosAttacks:
 	db 17, SING
 	db 21, LEECH_SEED
 	db 25, GIGA_DRAIN
-	db 29, SYNTHESIS
+	db 29, PETAL_DANCE
 	db 33, SOLARBEAM
 	db 37, DOUBLE_EDGE
 	db 41, SUNNY_DAY

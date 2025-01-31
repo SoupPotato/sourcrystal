@@ -486,6 +486,7 @@ SentretEggMoves:
 	db FOCUS_ENERGY
 	db REVERSAL
 	db SLASH
+	db PURSUIT
 	db -1 ; end
 
 HoothootEggMoves:
@@ -510,6 +511,7 @@ SpinarakEggMoves:
 	db PSYBEAM
 	db SONICBOOM
 	db TWINEEDLE
+	db PURSUIT
 	db -1 ; end
 
 ChinchouEggMoves:

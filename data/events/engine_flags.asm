@@ -294,6 +294,8 @@ EngineFlags:
 	engine_flag wDailyPhoneItemFlags, 25 ; tanner gave a sun stone today
 	engine_flag wDailyPhoneItemFlags, 26 ; jamie has moon stone
 	engine_flag wDailyPhoneItemFlags, 27 ; jamie gave a moon stone today
+	engine_flag wDailyPhoneItemFlags, 28 ; ian has berry
+	engine_flag wDailyPhoneItemFlags, 29 ; ian gave a berry today
 
 	engine_flag wDailyPhoneTimeOfDayFlags,  0 ; jack
 	engine_flag wDailyPhoneTimeOfDayFlags,  1 ; huey

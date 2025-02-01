@@ -376,7 +376,7 @@ TrainerYoungsterIan:
 .Script:
 	loadvar VAR_CALLERID, PHONE_YOUNGSTER_IAN
 	opentext
-	checkevent EVENT_GOT_BERRY_FROM_YOUNGSTER_IAN
+	checkflag ENGINE_IAN_HAS_BERRY
 	iftrue .TryBerry
 	checkflag ENGINE_IAN_READY_FOR_REMATCH
 	iftrue .WantsBattle
@@ -422,27 +422,21 @@ TrainerYoungsterIan:
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_IAN_READY_FOR_REMATCH
-	opentext
-	sjump .TryBerry
-	end
+	sjump .AfterRemtach
 
 .LoadFight2:
 	loadtrainer YOUNGSTER, IAN3
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_IAN_READY_FOR_REMATCH
-	opentext
-	sjump .TryBerry
-	end
+	sjump .AfterRemtach
 
 .LoadFight3:
 	loadtrainer YOUNGSTER, IAN4
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_IAN_READY_FOR_REMATCH
-	opentext
-	sjump .TryBerry
-	end
+	sjump .AfterRemtach
 
 .LoadFight4:
 	loadtrainer YOUNGSTER, IAN5
@@ -450,11 +444,14 @@ TrainerYoungsterIan:
 	reloadmapafterbattle
 	clearflag ENGINE_IAN_READY_FOR_REMATCH
 	opentext
-	sjump .TryBerry
-	end
+	sjump .AfterRemtach
 
+
+.AfterRemtach
+	opentext
+	checkflag ENGINE_IAN_GAVE_BERRY
+	iftrue .Done
 .TryBerry:
-	setevent EVENT_GOT_BERRY_FROM_YOUNGSTER_IAN
 	writetext YoungsterIanRematchGiftText
 	waitbutton
 	random 3
@@ -463,25 +460,27 @@ TrainerYoungsterIan:
 	ifequal 2, .chestoberry
 
 .pechaberry:
+	setflag ENGINE_IAN_HAS_BERRY
 	verbosegiveitem PECHA_BERRY
 	iffalse .PackFull
-	clearevent EVENT_GOT_BERRY_FROM_YOUNGSTER_IAN
-	closetext
-	end
+	sjump .Done
 
 .cheriberry:
+	setflag ENGINE_IAN_HAS_BERRY
 	verbosegiveitem CHERI_BERRY
 	iffalse .PackFull
-	clearevent EVENT_GOT_BERRY_FROM_YOUNGSTER_IAN
-	closetext
-	end
+	sjump .Done
 
 .chestoberry:
+	setflag ENGINE_IAN_HAS_BERRY
 	verbosegiveitem CHESTO_BERRY
 	iffalse .PackFull
-	clearevent EVENT_GOT_BERRY_FROM_YOUNGSTER_IAN
-	closetext
-	end
+	sjump .Done
+
+.Done:
+	clearflag ENGINE_IAN_HAS_BERRY
+	setflag ENGINE_IAN_GAVE_BERRY
+	sjump .NumberAccepted
 
 .AskNumber1:
 	jumpstd AskNumber1MScript

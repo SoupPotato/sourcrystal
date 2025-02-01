@@ -45,10 +45,10 @@ TrainerBugCatcherWade1:
 .Script:
 	loadvar VAR_CALLERID, PHONE_BUG_CATCHER_WADE
 	opentext
+	checkflag ENGINE_WADE_HAS_BERRY
+	iftrue .TryBerry
 	checkflag ENGINE_WADE_READY_FOR_REMATCH
 	iftrue .WadeRematch
-	checkflag ENGINE_WADE_HAS_BERRY
-	iftrue .WadeItem
 	checkcellnum PHONE_BUG_CATCHER_WADE
 	iftrue .WadeDefeated
 	checkevent EVENT_WADE_ASKED_FOR_PHONE_NUMBER
@@ -89,31 +89,36 @@ TrainerBugCatcherWade1:
 .LoadFight1:
 	loadtrainer BUG_CATCHER, WADE2
 	startbattle
+	reloadmapafterbattle
 	clearflag ENGINE_WADE_READY_FOR_REMATCH
-	end
+	sjump .AfterRemtach
 
 .LoadFight2:
 	loadtrainer BUG_CATCHER, WADE3
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_WADE_READY_FOR_REMATCH
-	end
+	sjump .AfterRemtach
 
 .LoadFight3:
 	loadtrainer BUG_CATCHER, WADE4
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_WADE_READY_FOR_REMATCH
-	end
+	sjump .AfterRemtach
 
 .LoadFight4:
 	loadtrainer BUG_CATCHER, WADE5
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_WADE_READY_FOR_REMATCH
-	end
+	sjump .AfterRemtach
 
-.WadeItem:
+.AfterRemtach
+	opentext
+	checkflag ENGINE_WADE_GAVE_BERRY
+	iftrue .Done
+.TryBerry:
 	scall .ItemSTD
 	random 4
 	ifequal 0, .oranberry
@@ -122,21 +127,25 @@ TrainerBugCatcherWade1:
 	ifequal 3, .persimberry
 
 .oranberry:
+	setflag ENGINE_WADE_HAS_BERRY
 	verbosegiveitem ORAN_BERRY
 	iffalse .PackFull
 	sjump .Done
 
 .pechaberry:
+	setflag ENGINE_WADE_HAS_BERRY
 	verbosegiveitem PECHA_BERRY
 	iffalse .PackFull
 	sjump .Done
 
 .cheriberry:
+	setflag ENGINE_WADE_HAS_BERRY
 	verbosegiveitem CHERI_BERRY
 	iffalse .PackFull
 	sjump .Done
 
 .persimberry:
+	setflag ENGINE_WADE_HAS_BERRY
 	verbosegiveitem PERSIM_BERRY
 	iffalse .PackFull
 

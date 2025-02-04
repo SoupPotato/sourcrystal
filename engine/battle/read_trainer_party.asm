@@ -135,14 +135,14 @@ ReadTrainerPartyPieces:
 	pop hl
 
 ; When reading DVs, treat PERFECT_DV as $ff
-	ld a, [hli]
+	call GetNextTrainerDataByte
 	cp PERFECT_DV
 	jr nz, .atk_def_dv_nonzero
 	ld a, $ff
 .atk_def_dv_nonzero
 	ld [de], a
 	inc de
-	ld a, [hli]
+	call GetNextTrainerDataByte
 	cp PERFECT_DV
 	jr nz, .spd_spc_dv_nonzero
 	ld a, $ff

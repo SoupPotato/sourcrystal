@@ -2760,7 +2760,7 @@ BattleAnimFunc_SpiralDescent:
 	ret
 
 BattleAnimFunc_PetalDance:
-; Object moves downwards in a spiral around the user. Object disappears at y coord $28
+; Object moves downwards in a spiral around the user. Object disappears at y coord $30
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	ld a, [hl]

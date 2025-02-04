@@ -194,7 +194,7 @@ BattleAnimFrameData:
 	dw .Frameset_BouncingMushroom        ; BATTLE_ANIM_FRAMESET_BOUNCING_MUSHROOM
 	dw .Frameset_SwirlShort              ; BATTLE_ANIM_FRAMESET_SWIRL_SHORT
 	dw .Frameset_Vortex                  ; BATTLE_ANIM_FRAMESET_VORTEX
-	dw .Frameset_SmallGlow               ; BATTLE_ANIM_FRAMESET_SMALL_GLOW
+	dw .Frameset_TinyGlow                ; BATTLE_ANIM_FRAMESET_TINY_GLOW
 	dw .Frameset_GrowingBall             ; BATTLE_ANIM_FRAMESET_GROWING_BALL
 	dw .Frameset_WaterBall               ; BATTLE_ANIM_FRAMESET_WATER_BALL
 	assert_table_length NUM_BATTLE_ANIM_FRAMESETS
@@ -1305,7 +1305,7 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_E3,  1
 	oamrestart
 
-.Frameset_SmallGlow:
+.Frameset_TinyGlow:
 	oamframe BATTLE_ANIM_OAMSET_54,  1
 	oamframe BATTLE_ANIM_OAMSET_55,  1
 	oamrestart

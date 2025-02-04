@@ -521,7 +521,7 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_BOUNCING_MUSHROOM          ; be
 	const BATTLE_ANIM_FRAMESET_SWIRL_SHORT                ; bf
 	const BATTLE_ANIM_FRAMESET_VORTEX                     ; c0
-	const BATTLE_ANIM_FRAMESET_SMALL_GLOW                 ; c1
+	const BATTLE_ANIM_FRAMESET_TINY_GLOW                 ; c1
 	const BATTLE_ANIM_FRAMESET_GROWING_BALL               ; c2
 	const BATTLE_ANIM_FRAMESET_WATER_BALL                 ; c3
 DEF NUM_BATTLE_ANIM_FRAMESETS EQU const_value

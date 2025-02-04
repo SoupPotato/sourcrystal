@@ -117,4 +117,5 @@ Music:
 	dba Music_LugiaBattleHGSS
 	dba Music_KantoLegendBattleXY
 	dba Music_CinnabarMansionRBY
+	dba Music_WCSBattleBW
 	assert_table_length NUM_MUSIC_SONGS

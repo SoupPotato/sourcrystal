@@ -115,6 +115,7 @@
 	const MUSIC_LUGIA_BATTLE_HGSS            ; 73
 	const MUSIC_KANTO_LEGEND_BATTLE          ; 74
 	const MUSIC_CINNABAR_MANSION             ; 75
+	const MUSIC_WCS_BATTLE_BW                ; 76
 DEF NUM_MUSIC_SONGS EQU const_value
 
 ; GetMapMusic picks music for these values (see home/map.asm)

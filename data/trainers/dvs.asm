@@ -71,4 +71,5 @@ TrainerClassDVs:
 	dn  9,  8,  8,  8 ; MYSTICALMAN
 	dn  9,  8,  8,  8 ; COUPLE
 	dn 10, 10, 10,  8 ; COOL_DUO
+	dn 15, 15, 15, 15 ; RED2
 	assert_table_length NUM_TRAINER_CLASSES - 2 ; exclude AERODACTYLE_FOSSIL, KABUTOPS_FOSSIL

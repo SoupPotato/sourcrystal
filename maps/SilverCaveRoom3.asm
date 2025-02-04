@@ -16,7 +16,7 @@ Red:
 	winlosstext RedWinLossText, RedWinLossText
 	checkevent EVENT_BEAT_RED
 	iffalse .not_defeated
-	loadtrainer RED, RED2
+	loadtrainer RED2, RED2_1
 	sjump .go
 .not_defeated:
 	loadtrainer RED, RED1

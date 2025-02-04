@@ -85,6 +85,10 @@ PlayBattleMusic:
 	cp RED
 	jr z, .done
 
+	ld de, MUSIC_WCS_BATTLE_BW
+	cp RED2
+	jr z, .done
+
 	ld de, MUSIC_ROCKET_BATTLE
 	cp GRUNTM
 	jr z, .done

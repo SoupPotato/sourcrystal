@@ -160,6 +160,7 @@ INCLUDE "audio/music/lugiabattle.asm"
 INCLUDE "audio/music/kantolegendbattle.asm"
 INCLUDE "audio/music/cinnabarmansion.asm"
 INCLUDE "audio/music/kantotrainerbattle.asm"
+INCLUDE "audio/music/wcsbattle.asm"
 
 
 SECTION "Sound Effects", ROMX

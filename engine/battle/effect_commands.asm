@@ -6566,7 +6566,7 @@ GetItemHeldEffect:
 	rr c
 ; I would include this extra check from
 ; the original routine, but I am *really*
-; strapped for space...
+; strapped for space... - Zumi
 IF 0
 	ld a, c
 	and a

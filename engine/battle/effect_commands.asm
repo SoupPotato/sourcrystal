@@ -6527,10 +6527,10 @@ GetItemHeldEffect:
 	and a
 	ret z
 
+	push hl
 	cp SITRUS_BERRY
 	jr z, .SitrusBerry
 
-	push hl
 	ld hl, ItemAttributes + ITEMATTR_EFFECT
 	dec a
 	ld c, a
@@ -6545,8 +6545,6 @@ GetItemHeldEffect:
 	ret
 
 .SitrusBerry:
-; copy of GetMaxHP then GetQuarterMaxHP
-	push hl
 ; get which max HP is to be used
 ; at the point of healing, the battle turn
 ; has already switched, so use the opposite
@@ -6557,13 +6555,26 @@ GetItemHeldEffect:
 		jr z, .got_max_hp
 		ld hl, wBattleMonMaxHP
 .got_max_hp
-		inc hl
-		ld a, [hl]
+		ld a, [hli]
+		ld b, a
+		ld c, [hl]
 	pop hl
-	ld c, a
 ; quarter result
-	srl c
-	srl c
+	srl b
+	rr c
+	srl b
+	rr c
+; I would include this extra check from
+; the original routine, but I am *really*
+; strapped for space...
+IF 0
+	ld a, c
+	and a
+	jr nz, .finish_effect
+; restore at least 1 hp
+	inc c
+.finish_effect
+ENDC
 ; fixed effect
 	ld b, HELD_BERRY
 	ret

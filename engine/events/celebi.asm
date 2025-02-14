@@ -59,7 +59,6 @@ CelebiShrineEvent:
 .done
 	pop af
 	ld [wStateFlags], a
-	call .RestorePlayerSprite_DespawnLeaves
 	call CelebiEvent_SetBattleType
 	ret
 

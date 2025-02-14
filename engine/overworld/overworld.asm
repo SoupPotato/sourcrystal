@@ -217,11 +217,19 @@ GetMonSprite:
 	jr .Mon
 
 .BreedMon1
+	ld hl, wBreedMon1DVs
+	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	ld [wCurIconForm], a
 	ld a, [wBreedMon1Species]
 	ld d, 1
 	jr .Mon
 
 .BreedMon2
+	ld hl, wBreedMon2DVs
+	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	ld [wCurIconForm], a
 	ld a, [wBreedMon2Species]
 	ld d, 2
 

@@ -13,7 +13,7 @@ CelebiShrineEvent:
 	xor a
 	ld [wStateFlags], a
 
-	ld a, PAL_OW_GREEN
+	ld c, PAL_OW_GREEN
 	farcall CopySpritePalToOBPal7
 
 	call LoadCelebiGFX

@@ -985,13 +985,15 @@ ScientistGroup:
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
-	db 22, KOFFING
+	db 20, KOFFING
+	db 22, GRIMER
 	db 22, KOFFING
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
-	db 32, KOFFING
+	db 30, KOFFING
+	db 32, GRIMER
 	db 32, KOFFING
 	db -1 ; end
 
@@ -1014,14 +1016,14 @@ ScientistGroup:
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
 	db 20, MAGNEMITE
-	db 20, MAGNEMITE
+	db 20, VOLTORB
 	db 20, MAGNEMITE
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 30, MAGNEMITE
-	db 30, MAGNEMITE
+	db 30, VOLTORB
 	db 30, MAGNETON
 	db -1 ; end
 
@@ -1030,16 +1032,16 @@ ScientistGroup:
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
+	db 27, VOLTORB
 	db 27, MAGNEMITE
-	db 27, MAGNEMITE
-	db 27, MAGNEMITE
+	db 27, ELECTRODE
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
-	db 37, MAGNEMITE
-	db 37, MAGNEMITE
+	db 37, VOLTORB
 	db 37, MAGNETON
+	db 37, ELECTRODE
 	db -1 ; end
 
 	; SCIENTIST (5)
@@ -3640,13 +3642,13 @@ PokemaniacGroup:
 
 
 GruntMGroup:
-	; GRUNTM (1)
+	; GRUNTM (1) ; Slowpoke Well - Commander
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
-	db 8, ZUBAT
-	db 12, KOFFING
+	db 10, ZUBAT
+	db 14, KOFFING
 	db $fe ; delimiter
 	
 	;Challenge Mode
@@ -3655,39 +3657,41 @@ GruntMGroup:
 	db 17, KOFFING
 	db -1 ; end
 
-	; GRUNTM (2)
+	; GRUNTM (2) ; Slowpoke Well
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
-	db  7, RATTATA
+	db  7, SANDSHREW
 	db  9, ZUBAT
-	db  9, ZUBAT
+	db  9, RATTATA
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
-	db 11, RATTATA
+	db 11, SANDSHREW
 	db 13, ZUBAT
-	db 13, ZUBAT
+	db 13, RATTATA
 	db -1 ; end
 
-	; GRUNTM (3)
+	; GRUNTM (3) ; Radio Tower 1F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
-	db TRAINERTYPE_NORMAL
-	db 24, RATICATE
-	db 24, RATICATE
+	db TRAINERTYPE_MOVES
+	db 24, RATICATE,     BITE, HYPER_FANG, SCARY_FACE, PURSUIT
+	db 22, PINECO,       RAPID_SPIN, CURSE, SELFDESTRUCT, ROLLOUT
+	db 24, RATICATE,     BITE, HYPER_FANG, SCARY_FACE, PURSUIT
 	db $fe ; delimiter
 	
 	;Challenge Mode
-	db TRAINERTYPE_NORMAL
-	db 34, RATICATE
-	db 34, RATICATE
+	db TRAINERTYPE_MOVES
+	db 34, RATICATE,     BITE, HYPER_FANG, SCARY_FACE, PURSUIT
+	db 32, PINECO,       RAPID_SPIN, CURSE, SELFDESTRUCT, ROLLOUT
+	db 34, RATICATE,     BITE, HYPER_FANG, SCARY_FACE, PURSUIT
 	db -1 ; end
 
-	; GRUNTM (4)
+	; GRUNTM (4) ; Radio Tower 2F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -3704,62 +3708,62 @@ GruntMGroup:
 	db 35, MUK
 	db -1 ; end
 
-	; GRUNTM (5)
+	; GRUNTM (5) ; Radio Tower 2F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
-	db 21, RATTATA
-	db 21, RATTATA
-	db 23, RATTATA
-	db 23, RATTATA
-	db 23, RATTATA
+	db 21, GRIMER
+	db 21, ZUBAT
+	db 23, MACHOP
+	db 23, ZUBAT
+	db 23, DROWZEE
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
-	db 31, RATTATA
-	db 31, RATTATA
-	db 33, RATTATA
-	db 33, RATICATE
-	db 33, RATICATE
+	db 31, GRIMER
+	db 31, ZUBAT
+	db 33, MACHOP
+	db 33, GOLBAT
+	db 33, DROWZEE
 	db -1 ; end
 
-	; GRUNTM (6)
+	; GRUNTM (6) ; Radio Tower 2F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
-	db 26, ZUBAT
-	db 26, ZUBAT
+	db 26, GOLBAT
+	db 26, MACHOKE
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
-	db 36, ZUBAT
 	db 36, GOLBAT
+	db 36, MACHOKE
 	db -1 ; end
 
-	; GRUNTM (7)
+	; GRUNTM (7) ; Radio Tower 3F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
 	db 23, KOFFING
-	db 23, GRIMER
-	db 23, ZUBAT
 	db 23, RATTATA
+	db 23, RATICATE
+	db 23, SANDSHREW
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 33, KOFFING
-	db 33, GRIMER
-	db 33, GOLBAT
+	db 33, RATTATA
 	db 33, RATICATE
+	db 33, SANDSHREW
 	db -1 ; end
 
-	; GRUNTM (8)
+	; GRUNTM (8) ; Radio Tower 3F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -3772,39 +3776,37 @@ GruntMGroup:
 	db 36, WEEZING
 	db -1 ; end
 
-	; GRUNTM (9)
+	; GRUNTM (9) ; Radio Tower 3F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
 	db 24, RATICATE
-	db 26, KOFFING
+	db 26, SANDSLASH
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 34, RATICATE
-	db 36, KOFFING
+	db 36, SANDSLASH
 	db -1 ; end
 
-	; GRUNTM (10)
+	; GRUNTM (10) ; Radio Tower 4F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
-	db 22, ZUBAT
-	db 24, GOLBAT
-	db 22, GRIMER
+	db 23, GOLBAT
+	db 25, HYPNO
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
-	db 32, ZUBAT
 	db 34, GOLBAT
-	db 32, GRIMER
+	db 36, HYPNO
 	db -1 ; end
 
-	; GRUNTM (11)
+	; GRUNTM (11) ; Goldenrod Tunnel
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -3821,35 +3823,37 @@ GruntMGroup:
 	db 33, RATICATE
 	db -1 ; end
 
-	; GRUNTM (13)
+	; GRUNTM (13) ; Goldenrod Tunnel
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
-	db 27, RATTATA
+	db 27, MAROWAK
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
-	db 35, RATICATE
+	db 35, MAROWAK
 	db -1 ; end
 
-	; GRUNTM (14)
+	; GRUNTM (14) ; Goldenrod Tunnel
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
 	db 24, RATICATE
+	db 22, CUBONE
 	db 24, GOLBAT
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 32, RATICATE
+	db 30, CUBONE
 	db 32, GOLBAT
 	db -1 ; end
 
-	; GRUNTM (15)
+	; GRUNTM (15) ; Radio Tower
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -3864,56 +3868,58 @@ GruntMGroup:
 	db 31, WEEZING
 	db -1 ; end
 
-	; GRUNTM (16)
+	; GRUNTM (16) ; Team Rocket HQ B1F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
 	db 16, RATTATA
-	db 16, RATTATA
-	db 16, RATTATA
-	db 16, RATTATA
+	db 18, MACHOP
+	db 16, KOFFING
+	db 18, RATTATA
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
-	db 22, RATTATA
-	db 22, RATTATA
-	db 22, RATTATA
-	db 22, RATICATE
+	db 24, RATTATA
+	db 26, MACHOP
+	db 24, KOFFING
+	db 26, RATICATE
 	db -1 ; end
 
-	; GRUNTM (17)
+	; GRUNTM (17) ; Team Rocket HQ B2F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
 	db 18, GOLBAT
+	db 18, CUBONE
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 28, GOLBAT
+	db 28, CUBONE
 	db -1 ; end
 
-	; GRUNTM (18)
+	; GRUNTM (18) ; Team Rocket HQ B2F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
-	db 17, RATTATA
-	db 17, ZUBAT
-	db 17, RATTATA
+	db 17, MACHOP
+	db 17, RATICATE
+	db 17, ARIADOS
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
-	db 27, RATTATA
-	db 27, ZUBAT
+	db 27, MACHOP
 	db 27, RATICATE
+	db 27, ARIADOS
 	db -1 ; end
 
-	; GRUNTM (19)
+	; GRUNTM (19) ; Team Rocket HQ B2F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -3928,7 +3934,7 @@ GruntMGroup:
 	db 28, VENONAT
 	db -1 ; end
 
-	; GRUNTM (20)
+	; GRUNTM (20) ; Team Rocket HQ B1F - Guard
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -3943,7 +3949,7 @@ GruntMGroup:
 	db 29, GOLBAT
 	db -1 ; end
 
-	; GRUNTM (21)
+	; GRUNTM (21) ; Team Rocket HQ B1F - Guard
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -3960,7 +3966,7 @@ GruntMGroup:
 	db 28, RATICATE
 	db -1 ; end
 
-	; GRUNTM (24)
+	; GRUNTM (24) ; Radio Tower
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -3975,7 +3981,7 @@ GruntMGroup:
 	db 33, KOFFING
 	db -1 ; end
 
-	; GRUNTM (25)
+	; GRUNTM (25) ; Goldenrod Tunnel
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -3990,7 +3996,7 @@ GruntMGroup:
 	db 32, MUK
 	db -1 ; end
 
-	; GRUNTM (28)
+	; GRUNTM (28) ; Team Rocket HQ B3F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -4003,22 +4009,22 @@ GruntMGroup:
 	db 29, RATICATE
 	db -1 ; end
 
-	; GRUNTM (29)
+	; GRUNTM (29) ; Slowpoke Well
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
 	db  9, RATTATA
-	db  9, RATTATA
+	db  9, SANDSHREW
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 11, RATTATA
-	db 11, RATTATA
+	db 11, SANDSHREW
 	db -1 ; end
 
-	; GRUNTM (31)
+	; GRUNTM (31) ; Route 24
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -7572,16 +7578,16 @@ ExecutiveMGroup:
 	
 	;Normal Mode
 	db TRAINERTYPE_NORMAL
-	db 22, ZUBAT
+	db 22, GOLBAT
+	db 24, KOFFING
 	db 24, RATICATE
-	db 22, KOFFING
 	db $fe ; delimiter
 	
 	;Challenge Mode
 	db TRAINERTYPE_NORMAL
 	db 34, GOLBAT
 	db 36, RATICATE
-	db 34, WEEZING
+	db 36, WEEZING
 	db -1 ; end
 
 
@@ -9603,7 +9609,7 @@ OfficerGroup:
 
 
 GruntFGroup:
-	; GRUNTF (1)
+	; GRUNTF (1) ; Slowpoke Well
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -9618,7 +9624,7 @@ GruntFGroup:
 	db 13, EKANS
 	db -1 ; end
 
-	; GRUNTF (2)
+	; GRUNTF (2) ; Radio Tower 2F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -9646,7 +9652,7 @@ GruntFGroup:
 	db 33, GLOOM
 	db -1 ; end
 
-	; GRUNTF (4)
+	; GRUNTF (4) ; Radio Tower 4F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -9665,7 +9671,7 @@ GruntFGroup:
 	db 35, GLOOM
 	db -1 ; end
 
-	; GRUNTF (5)
+	; GRUNTF (5) ; Team Rocket HQ B3F
 	db "GRUNT@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -9674,7 +9680,7 @@ GruntFGroup:
 	db 18, GLOOM,      ABSORB, SWEET_SCENT, STUN_SPORE, SLEEP_POWDER
 	db $fe ; delimiter
 	
-	;Challenge Mode
+	;Challenge Mode ; Team Rocket HQ
 	db TRAINERTYPE_MOVES
 	db 28, EKANS,      SCREECH, GLARE, ACID, BITE
 	db 28, GLOOM,      MEGA_DRAIN, POISONPOWDER, ACID, SLEEP_POWDER

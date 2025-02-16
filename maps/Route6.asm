@@ -1,7 +1,9 @@
 	object_const_def
-	const ROUTE6_POKEFAN_M1
-	const ROUTE6_POKEFAN_M2
-	const ROUTE6_POKEFAN_M3
+	const ROUTE6_POKEFAN
+	const ROUTE6_TWIN_1
+	const ROUTE6_TWIN_2
+	const ROUTE6_LASS
+	const ROUTE6_YOUNGSTER
 
 Route6_MapScripts:
 	def_scene_scripts
@@ -88,7 +90,7 @@ TwinsDayandDaniBeatenText:
 	done
 
 TwinsDayandDani1AfterBattleText:
-	text "DANI: You beat"
+	text "DAY: You beat"
 	line "us…"
 	done
 

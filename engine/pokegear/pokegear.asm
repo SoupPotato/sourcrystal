@@ -1185,7 +1185,9 @@ PokegearMap_InitPlayerIcon:
 
 PokegearMap_InitRoamingIcon:
 ; Assume that roaming is only in Johto
+	or a ; reset flags
 	farcall RegionCheck
+	ret c ; Exit if in Victory Road
 	ld a, e
 	and a
 	ret nz ; Exit if in Kanto

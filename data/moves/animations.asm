@@ -486,6 +486,7 @@ BattleAnim_Confused:
 	anim_ret
 
 BattleAnim_Slp:
+BattleAnim_Rest:
 	anim_1gfx BATTLE_ANIM_GFX_STATUS
 	anim_sound 0, 0, SFX_TAIL_WHIP
 .loop
@@ -998,15 +999,20 @@ BattleAnim_Bubble:
 	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BUBBLE
 	anim_1gfx BATTLE_ANIM_GFX_BUBBLE
 	anim_sound 32, 2, SFX_WATER_GUN
-	anim_obj BATTLE_ANIM_OBJ_BUBBLE, 64, 92, $c1
+	anim_obj BATTLE_ANIM_OBJ_BUBBLE, 64, 92, $b1
 	anim_wait 6
 	anim_sound 32, 2, SFX_WATER_GUN
-	anim_obj BATTLE_ANIM_OBJ_BUBBLE, 64, 92, $e1
+	anim_obj BATTLE_ANIM_OBJ_BUBBLE, 64, 92, $91
 	anim_wait 6
 	anim_sound 32, 2, SFX_WATER_GUN
 	anim_obj BATTLE_ANIM_OBJ_BUBBLE, 64, 92, $d1
-	anim_wait 128
-	anim_wait 32
+	anim_wait 6
+	anim_sound 32, 2, SFX_WATER_GUN
+	anim_obj BATTLE_ANIM_OBJ_BUBBLE, 64, 92, $81
+	anim_wait 6
+	anim_sound 32, 2, SFX_WATER_GUN
+	anim_obj BATTLE_ANIM_OBJ_BUBBLE, 64, 92, $a1
+	anim_wait 106
 	anim_ret
 
 BattleAnim_Bubblebeam:
@@ -2003,16 +2009,6 @@ BattleAnim_DizzyPunch:
 	anim_obj BATTLE_ANIM_OBJ_CHICK, 136, 24, $aa
 	anim_obj BATTLE_ANIM_OBJ_CHICK, 136, 24, $bf
 	anim_wait 96
-	anim_ret
-
-BattleAnim_Rest:
-	anim_1gfx BATTLE_ANIM_GFX_STATUS
-	anim_sound 0, 0, SFX_TAIL_WHIP
-.loop
-	anim_obj BATTLE_ANIM_OBJ_ASLEEP, 64, 80, $0
-	anim_wait 40
-	anim_loop 3, .loop
-	anim_wait 32
 	anim_ret
 
 BattleAnim_AcidArmor:

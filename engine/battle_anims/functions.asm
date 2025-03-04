@@ -1097,7 +1097,7 @@ BattleAnimFunc_Bubble:
 	add hl, bc
 	ld h, [hl]
 	ld l, a
-	ld de, $60
+	ld de, $88
 	add hl, de
 	ld e, l
 	ld d, h

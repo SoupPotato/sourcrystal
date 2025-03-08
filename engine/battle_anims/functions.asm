@@ -1090,6 +1090,18 @@ BattleAnimFunc_Bubble:
 	ld a, [hl]
 	cp $98
 	jr nc, .okay
+	ld de, $88 ; Assume Fast Value for Bubblebeam
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	push bc
+	ld a, [hl]
+	ld c, $10
+	call SimpleDivide
+	pop bc
+	dec a
+	jr z, .fast
+	ld de, $60 ; Set Slow Value if PARAM ends with 1
+.fast
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	ld a, [hl]
@@ -1097,7 +1109,6 @@ BattleAnimFunc_Bubble:
 	add hl, bc
 	ld h, [hl]
 	ld l, a
-	ld de, $88
 	add hl, de
 	ld e, l
 	ld d, h
@@ -1111,7 +1122,7 @@ BattleAnimFunc_Bubble:
 	ld hl, BATTLEANIMSTRUCT_YCOORD
 	add hl, bc
 	ld a, [hl]
-	cp $20
+	cp $10
 	ret c
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc

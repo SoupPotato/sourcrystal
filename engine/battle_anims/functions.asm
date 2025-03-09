@@ -1119,7 +1119,7 @@ BattleAnimFunc_Bubble:
 	ld hl, BATTLEANIMSTRUCT_YCOORD
 	add hl, bc
 	ld a, [hl]
-	cp $10
+	cp $20
 	ret c
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc

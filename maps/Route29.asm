@@ -438,7 +438,7 @@ TuscanyGivesGiftText:
 	line "duction, please"
 
 	para "accept this gift,"
-	line "a SILK SCARF."
+	line "a TWISTEDSPOON."
 	done
 
 TuscanyGaveGiftText:

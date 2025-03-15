@@ -95,6 +95,7 @@ DoBattleAnimFrame:
 	dw BattleAnimFunc_BubbleSplash
 	dw BattleAnimFunction_RadialMoveOut
 	dw BattleAnimFunction_RadialMoveOut_Slow
+	dw BattleAnimFunc_FallAndStop
 	assert_table_length NUM_BATTLE_ANIM_FUNCS
 
 BattleAnimFunc_Null:
@@ -2005,22 +2006,7 @@ BattleAnimFunc_Kick:
 	dw .four  ; Rolling Kick (continued)
 
 .zero
-	ret
-
-.one ; Unused?
-	ld hl, BATTLEANIMSTRUCT_YCOORD
-	add hl, bc
-	ld a, [hl]
-	cp $30
-	jr c, .move_down
-	ld hl, BATTLEANIMSTRUCT_JUMPTABLE_INDEX
-	add hl, bc
-	ld [hl], $0
-	ret
-
-.move_down
-	add $4
-	ld [hl], a
+.one
 	ret
 
 .two
@@ -4165,11 +4151,44 @@ BattleAnimFunc_AncientPower:
 	call DeinitBattleAnimation
 	ret
 
+BattleAnimFunc_FallAndStop:
+	call BattleAnim_AnonJumptable
+
+	dw .zero
+	dw .one
+	dw DoNothing ; .two
+
+.zero
+	call BattleAnim_IncAnonJumptableIndex
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, $30
+	ld [hli], a
+	ld [hl], $48
+.one
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	ld a, [hli]
+	ld d, [hl]
+	call BattleAnim_Sine
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_VAR1
+	add hl, bc
+	inc [hl]
+	ld a, [hl]
+	and $3f
+	ret nz
+	jmp BattleAnim_IncAnonJumptableIndex
+
 BattleAnimFunction_RadialMoveOut:
 	call BattleAnim_AnonJumptable
 
 	dw InitRadial
 	dw Step
+	dw Step_VerySlow ; for Cross Chop
+	dw Step_Short ; for Cross Chop
 
 BattleAnimFunction_RadialMoveOut_Slow:
 	call BattleAnim_AnonJumptable
@@ -4198,6 +4217,22 @@ Step_Slow:
 	ld hl, 1.5 ; speed
 	call Set_Rad_Pos
 	cp 40 ; final position
+	jmp nc, DeinitBattleAnimation
+	jr Rad_Move
+
+Step_VerySlow:
+	call Get_Rad_Pos
+	ld hl, 0.5 ; speed
+	call Set_Rad_Pos
+	cp 40 ; final position
+	jmp nc, DeinitBattleAnimation
+	jr Rad_Move
+
+Step_Short:
+	call Get_Rad_Pos
+	ld hl, 6.0 ; speed
+	call Set_Rad_Pos
+	cp 60 ; final position
 	jmp nc, DeinitBattleAnimation
 	jr Rad_Move
 

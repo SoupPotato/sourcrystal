@@ -239,6 +239,7 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const BATTLE_ANIM_OBJ_RADIAL_FLAME        ; cc
 	const BATTLE_ANIM_OBJ_GROWING_BALL        ; cd
 	const BATTLE_ANIM_OBJ_HYDRO_PUMP_SHOT     ; ce
+	const BATTLE_ANIM_OBJ_KARATE_CHOP         ; cf
 DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -324,6 +325,7 @@ DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 	const BATTLE_ANIM_FUNC_BUBBLE_SPLASH             ; 4e
 	const BATTLE_ANIM_FUNC_RADIAL_MOVE_OUT           ; 4f
 	const BATTLE_ANIM_FUNC_RADIAL_MOVE_OUT_SLOW      ; 50
+	const BATTLE_ANIM_FUNC_FALL_AND_STOP             ; 51
 DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 
 ; BattleAnimFrameData indexes (see data/battle_anims/framesets.asm)
@@ -521,7 +523,7 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_BOUNCING_MUSHROOM          ; be
 	const BATTLE_ANIM_FRAMESET_SWIRL_SHORT                ; bf
 	const BATTLE_ANIM_FRAMESET_VORTEX                     ; c0
-	const BATTLE_ANIM_FRAMESET_TINY_GLOW                 ; c1
+	const BATTLE_ANIM_FRAMESET_TINY_GLOW                  ; c1
 	const BATTLE_ANIM_FRAMESET_GROWING_BALL               ; c2
 	const BATTLE_ANIM_FRAMESET_WATER_BALL                 ; c3
 DEF NUM_BATTLE_ANIM_FRAMESETS EQU const_value
@@ -871,8 +873,9 @@ DEF NUM_BATTLE_BG_EFFECTS EQU const_value - 1
 	const BATTLE_ANIM_GFX_VORTEX         ; 2f
 	const BATTLE_ANIM_GFX_GLOW           ; 30
 	const BATTLE_ANIM_GFX_WATER_BALL     ; 31
-	const BATTLE_ANIM_GFX_PLAYERHEAD     ; 32
-	const BATTLE_ANIM_GFX_ENEMYFEET      ; 33
+	const BATTLE_ANIM_GFX_CHOP           ; 32
+	const BATTLE_ANIM_GFX_PLAYERHEAD     ; 33
+	const BATTLE_ANIM_GFX_ENEMYFEET      ; 34
 DEF NUM_BATTLE_ANIM_GFX EQU const_value - 1
 
 ; battle_bg_effect struct members (see macros/ram.asm)

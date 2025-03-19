@@ -2653,36 +2653,22 @@ TruncateHL_BC:
 	ld a, h
 	or b
 	jr z, .finish
-
 	srl b
 	rr c
-	srl b
-	rr c
-
-	ld a, c
-	or b
-	jr nz, .done_bc
-	inc c
-
-.done_bc
 	srl h
 	rr l
-	srl h
-	rr l
-
-	ld a, l
-	or h
-	jr nz, .finish
-	inc l
+	jr .loop
 
 .finish
-; If we go back to the loop point,
-; it's the same as doing this exact
-; same check twice.
-	ld a, h
-	or b
-	jr nz, .loop
-
+	or l
+	jr nz, .l_not_zero
+	inc l
+.l_not_zero
+	xor a
+	or c
+	jr nz, .c_not_zero
+	inc c
+.c_not_zero
 	ld b, l
 	ret
 
@@ -2739,8 +2725,7 @@ ThickClubBoost:
 ; it's holding a Thick Club, double it.
 	push bc
 	push de
-	ld b, CUBONE
-	ld c, MAROWAK
+	lb bc, CUBONE, MAROWAK
 	ld d, THICK_CLUB
 	call SpeciesItemBoost
 	pop de
@@ -2754,8 +2739,7 @@ LightBallBoost:
 ; holding a Light Ball, double it.
 	push bc
 	push de
-	ld b, PIKACHU
-	ld c, PIKACHU
+	lb bc, PIKACHU, PIKACHU
 	ld d, LIGHT_BALL
 	call SpeciesItemBoost
 	pop de
@@ -3412,6 +3396,24 @@ PlayFXAnimID:
 	ret
 
 DoEnemyDamage:
+	ldh a, [hBattleTurn]
+	push af
+	call SetEnemyTurn
+	call DealDamage
+	jr FinishDealDamage
+
+DoPlayerDamage:
+	ldh a, [hBattleTurn]
+	push af
+	call SetPlayerTurn
+	call DealDamage
+	; fallthrough
+FinishDealDamage:
+	pop af
+	ldh [hBattleTurn], a
+	ret
+
+DealDamage:
 	ld hl, wCurDamage
 	ld a, [hli]
 	ld b, a
@@ -3421,135 +3423,37 @@ DoEnemyDamage:
 
 	ld a, c
 	and a
+	ld c, [hl]
 	jr nz, .ignore_substitute
-	ld a, [wEnemySubStatus4]
+
+	ld a, BATTLE_VARS_SUBSTATUS4
+	call GetBattleVar
 	bit SUBSTATUS_SUBSTITUTE, a
 	jp nz, DoSubstituteDamage
 
 .ignore_substitute
-	; Subtract wCurDamage from wEnemyMonHP.
-	;  store original HP in little endian wHPBuffer2
-	ld a, [hld]
-	ld b, a
-	ld a, [wEnemyMonHP + 1]
-	ld [wHPBuffer2], a
-	sub b
-	ld [wEnemyMonHP + 1], a
-	ld a, [hl]
-	ld b, a
-	ld a, [wEnemyMonHP]
-	ld [wHPBuffer2 + 1], a
-	sbc b
-	ld [wEnemyMonHP], a
 ; debug tool to allow quick KO of all opponents. Uncomment to activate for debug rom
 ;if DEF(_DEBUG)
-;	push af
 ;	ld a, BANK(sSkipBattle)
 ;	call OpenSRAM
 ;	ld a, [sSkipBattle]
 ;	call CloseSRAM
 ;	or a
-;	; If [sSkipBattle] is nonzero, skip the "jr nc, .no_underflow" check,
-;	; so any attack deals maximum damage to the enemy.
-;	jr nz, .debug_skip
-;	pop af
-;	jr nc, .no_underflow
-;	push af
-;.debug_skip
-;	pop af
-;else
-	jr nc, .no_underflow
+;	jr z, .no_debug_skip
+;	ld bc, 999
+;.no_debug_skip
 ;endc
-
-	ld a, [wHPBuffer2 + 1]
-	ld [hli], a
-	ld a, [wHPBuffer2]
-	ld [hl], a
-	xor a
-	ld hl, wEnemyMonHP
-	ld [hli], a
-	ld [hl], a
-
-.no_underflow
-	ld hl, wEnemyMonMaxHP
-	ld a, [hli]
-	ld [wHPBuffer1 + 1], a
-	ld a, [hl]
-	ld [wHPBuffer1], a
-	ld hl, wEnemyMonHP
-	ld a, [hli]
-	ld [wHPBuffer3 + 1], a
-	ld a, [hl]
-	ld [wHPBuffer3], a
-
-	hlcoord 2, 2
-	xor a
-	ld [wWhichHPBar], a
-	predef AnimateHPBar
-.did_no_damage
-	jp RefreshBattleHuds
-
-DoPlayerDamage:
-	ld hl, wCurDamage
-	ld a, [hli]
-	ld b, a
-	ld a, [hl]
-	or b
-	jr z, .did_no_damage
-
-	ld a, c
-	and a
-	jr nz, .ignore_substitute
-	ld a, [wPlayerSubStatus4]
-	bit SUBSTATUS_SUBSTITUTE, a
-	jp nz, DoSubstituteDamage
-
-.ignore_substitute
-	; Subtract wCurDamage from wBattleMonHP.
-	;  store original HP in little endian wHPBuffer2
-	;  store new HP in little endian wHPBuffer3
-	ld a, [hld]
-	ld b, a
-	ld a, [wBattleMonHP + 1]
-	ld [wHPBuffer2], a
-	sub b
-	ld [wBattleMonHP + 1], a
-	ld [wHPBuffer3], a
-	ld b, [hl]
-	ld a, [wBattleMonHP]
-	ld [wHPBuffer2 + 1], a
-	sbc b
-	ld [wBattleMonHP], a
-	ld [wHPBuffer3 + 1], a
-	jr nc, .no_underflow
-
-	ld a, [wHPBuffer2 + 1]
-	ld [hli], a
-	ld a, [wHPBuffer2]
-	ld [hl], a
-	xor a
-	ld hl, wBattleMonHP
-	ld [hli], a
-	ld [hl], a
-	ld hl, wHPBuffer3
-	ld [hli], a
-	ld [hl], a
-
-.no_underflow
-	ld hl, wBattleMonMaxHP
-	ld a, [hli]
-	ld [wHPBuffer1 + 1], a
-	ld a, [hl]
-	ld [wHPBuffer1], a
-
-	hlcoord 10, 9
-	ld a, 1
-	ld [wWhichHPBar], a
-	predef AnimateHPBar
+	; This sets up HP buffers.
+	push bc
+	farcall GetMaxHP
+	pop bc
+	farcall SubtractHPFromUser
 .did_no_damage
 	jp RefreshBattleHuds
 
 DoSubstituteDamage:
+	call BattleCommand_SwitchTurn
+
 	ld hl, SubTookDamageText
 	call StdBattleTextbox
 

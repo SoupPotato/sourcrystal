@@ -98,6 +98,14 @@ BattleCommand_BatonPass:
 	pop af
 	ret z
 	set SUBSTATUS_SUBSTITUTE, [hl]
+
+	; Make the Substitute doll reappear.
+	call _CheckBattleScene
+	jr nc, .skip_fast_anims
+	call BattleCommand_MoveDelay
+	call BattleCommand_RaiseSubNoAnim
+	; Why not return early? Compare with transform.asm
+.skip_fast_anims
 	xor a
 	ld [wNumHits], a
 	ld [wFXAnimID + 1], a

@@ -1053,8 +1053,7 @@ BattleCommand_DoTurn:
 
 .mimic
 	ld hl, wWildMonPP
-	call .consume_pp
-	ret
+	jp .consume_pp
 
 .out_of_pp
 	call BattleCommand_MoveDelay
@@ -1604,14 +1603,11 @@ BattleCommand_CheckHit:
 .skip_brightpowder
 	ld a, b
 	cp -1
-	jr z, .Hit
+	ret z ; Hit
 
 	call BattleRandom
 	cp b
-	jr nc, .Miss
-
-.Hit:
-	ret
+	ret c
 
 .Miss:
 	call ResetDamage
@@ -5445,28 +5441,26 @@ BattleCommand_Charge:
 	call GetBattleVar
 	cp RAZOR_WIND
 	ld hl, .BattleMadeWhirlwindText
-	jr z, .done
+	ret z ; done
 
 	cp SOLARBEAM
 	ld hl, .BattleTookSunlightText
-	jr z, .done
+	ret z ; done
 
 	cp SKULL_BASH
 	ld hl, .BattleLoweredHeadText
-	jr z, .done
+	ret z ; done
 
 	cp SKY_ATTACK
 	ld hl, .BattleGlowingText
-	jr z, .done
+	ret z ; done
 
 	cp FLY
 	ld hl, .BattleFlewText
-	jr z, .done
+	ret z ; done
 
 	cp DIG
 	ld hl, .BattleDugText
-
-.done
 	ret
 
 .BattleMadeWhirlwindText:
@@ -5831,12 +5825,11 @@ DoubleDamage:
 	sla [hl]
 	dec hl
 	rl [hl]
-	jr nc, .quit
+	ret nc ; quit
 
 	ld a, $ff
 	ld [hli], a
 	ld [hl], a
-.quit
 	ret
 
 INCLUDE "engine/battle/move_effects/mimic.asm"

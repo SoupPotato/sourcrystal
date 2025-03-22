@@ -215,7 +215,7 @@ WildFled_EnemyFled_LinkBattleCanceled:
 BattleTurn:
 .loop
 	call CheckContestBattleOver
-	jp c, .quit
+	ret c ; quit
 
 	xor a
 	ld [wPlayerIsSwitching], a
@@ -235,20 +235,20 @@ BattleTurn:
 	farcall Function100da5
 	farcall StartMobileInactivityTimer
 	farcall Function100dd8
-	jp c, .quit
+	ret c ; quit
 .not_disconnected
 
 	call CheckPlayerLockedIn
 	jr c, .skip_iteration
 .loop1
 	call BattleMenu
-	jr c, .quit
+	ret c ; quit
 	ld a, [wBattleEnded]
 	and a
-	jr nz, .quit
+	ret nz ; quit
 	ld a, [wForcedSwitch] ; roared/whirlwinded/teleported
 	and a
-	jr nz, .quit
+	ret nz ; quit
 .skip_iteration
 	call ParsePlayerAction
 	push af
@@ -257,7 +257,7 @@ BattleTurn:
 	jr nz, .loop1
 
 	call EnemyTriesToFlee
-	jr c, .quit
+	ret c ; quit
 
 	call DetermineMoveOrder
 	jr c, .false
@@ -267,24 +267,21 @@ BattleTurn:
 	call Battle_PlayerFirst
 .proceed
 	call CheckMobileBattleError
-	jr c, .quit
+	ret c ; quit
 
 	ld a, [wForcedSwitch]
 	and a
-	jr nz, .quit
+	ret nz ; quit
 
 	ld a, [wBattleEnded]
 	and a
-	jr nz, .quit
+	ret nz ; quit
 
 	call HandleBetweenTurnEffects
 	ld a, [wBattleEnded]
 	and a
-	jr nz, .quit
+	ret nz ; quit
 	jp .loop
-
-.quit
-	ret
 
 HandleBetweenTurnEffects:
 	ldh a, [hSerialConnectionStatus]
@@ -3079,10 +3076,8 @@ LostBattle:
 
 	ld a, [wDebugFlags]
 	bit DEBUG_BATTLE_F, a
-	jr nz, .skip_win_loss_text
-	call PrintWinLossText
-.skip_win_loss_text
-	ret
+	ret nz
+	jp PrintWinLossText
 
 .battle_tower
 ; Remove the enemy from the screen.
@@ -3424,10 +3419,10 @@ LookUpTheEffectivenessOfEveryMove:
 	ld e, NUM_MOVES + 1
 .loop
 	dec e
-	jr z, .done
+	ret z
 	ld a, [hli]
 	and a
-	jr z, .done
+	ret z
 	push hl
 	push de
 	push bc
@@ -3448,8 +3443,6 @@ LookUpTheEffectivenessOfEveryMove:
 	jr c, .loop
 	ld hl, wEnemyEffectivenessVsPlayerMons
 	set 0, [hl]
-	ret
-.done
 	ret
 
 IsThePlayerMonTypesEffectiveAgainstOTMon:
@@ -3527,7 +3520,7 @@ ScoreMonTypeMatchups:
 	inc b
 	sla c
 	jr nc, .loop3
-	jr .quit
+	ret ; quit
 
 .okay2
 	ld b, -1
@@ -3537,7 +3530,7 @@ ScoreMonTypeMatchups:
 	inc b
 	sla c
 	jr c, .loop4
-	jr .quit
+	ret ; quit
 
 .loop5
 	ld a, [wOTPartyCount]
@@ -3560,9 +3553,7 @@ ScoreMonTypeMatchups:
 	ld a, [hl]
 	or c
 	jr z, .loop5
-
-.quit
-	ret
+	ret ; quit
 
 LoadEnemyMonToSwitchTo:
 	; 'b' contains the PartyNr of the mon the AI will switch to
@@ -4791,7 +4782,7 @@ CheckDanger:
 	jr z, .no_danger
 	ld a, [wBattleLowHealthAlarm]
 	and a
-	jr nz, .done
+	ret nz ; done
 	ld a, [wPlayerHPPal]
 	cp HP_RED
 	jr z, .danger
@@ -4799,14 +4790,12 @@ CheckDanger:
 .no_danger
 	ld hl, wLowHealthAlarm
 	ld [hl], 0
-	jr .done
+	ret ; done
 
 .danger
 	ld hl, wLowHealthAlarm
 	set DANGER_ON_F, [hl]
-
-.done
-	ret
+	ret ; done
 
 PrintPlayerHUD:
 	ld de, wBattleMonNickname
@@ -5984,8 +5973,7 @@ MoveInfoBox:
 
 	hlcoord 1, 10
 	ld de, .Disabled
-	call PlaceString
-	jr .done
+	jp PlaceString
 
 .not_disabled
 	ld hl, wMenuCursorY
@@ -6028,8 +6016,6 @@ MoveInfoBox:
 	ld b, a
 	hlcoord 2, 10
 	predef PrintBattleMoveType
-
-.done
 	ret
 
 .Disabled:
@@ -7150,7 +7136,7 @@ BadgeStatBoosts:
 	ld a, b
 	srl b
 	push af
-	call c, BoostStat
+	call c, .BoostStat
 	pop af
 	inc hl
 	inc hl
@@ -7159,10 +7145,9 @@ BadgeStatBoosts:
 	dec c
 	jr nz, .CheckBadge
 	srl a
-	call c, BoostStat
-	ret
+	ret nc
 
-BoostStat:
+.BoostStat:
 ; Raise stat at hl by 1/8.
 
 	ld a, [hli]
@@ -8268,7 +8253,7 @@ PlaceExpBar:
 	ld a, $6a ; full bar
 	ld [hld], a
 	dec c
-	jr z, .finish
+	ret z ; finish
 	jr .loop1
 
 .next
@@ -8285,8 +8270,6 @@ PlaceExpBar:
 	ld a, $62 ; empty bar
 	dec c
 	jr nz, .loop2
-
-.finish
 	ret
 
 GetBattleMonBackpic:
@@ -8497,7 +8480,7 @@ InitEnemyTrainer:
 	ld [wBattleMode], a
 
 	call IsGymLeader
-	jr nc, .done
+	ret nc ; done
 	xor a
 	ld [wCurPartyMon], a
 	ld a, [wPartyCount]
@@ -8514,11 +8497,10 @@ InitEnemyTrainer:
 .skipfaintedmon
 	pop bc
 	dec b
-	jr z, .done
+	ret z ;done
 	ld hl, wCurPartyMon
 	inc [hl]
 	jr .partyloop
-.done
 	ret
 
 InitEnemyWildmon:
@@ -8895,7 +8877,7 @@ ReadAndPrintLinkBattleRecord:
 	hlcoord 6, 4
 	ld de, sLinkBattleWins
 	call .PrintZerosIfNoSaveFileExists
-	jr c, .quit
+	ret c ; quit
 
 	lb bc, 2, 4
 	call PrintNum
@@ -8912,10 +8894,7 @@ ReadAndPrintLinkBattleRecord:
 	call .PrintZerosIfNoSaveFileExists
 
 	lb bc, 2, 4
-	call PrintNum
-
-.quit
-	ret
+	jp PrintNum
 
 .PrintZerosIfNoSaveFileExists:
 	ld a, [wSavedAtLeastOnce]

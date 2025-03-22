@@ -22,7 +22,7 @@ BattleCommand_BatonPass:
 	res SUBSTATUS_SUBSTITUTE, [hl]
 	push hl
 
-	ld c, 50
+	ld c, 32
 	call DelayFrames
 
 ; Transition into switchmon menu

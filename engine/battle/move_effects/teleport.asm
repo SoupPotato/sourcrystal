@@ -74,6 +74,7 @@ BattleCommand_Teleport:
 	call SetDefaultBGPAndOBP
 	call Teleport_LinkPlayerSwitch
 	ld hl, TeleportBattleMonEntrance
+.end_return
 	call CallBattleCore
 
 	ld hl, SpikesDamage
@@ -93,6 +94,8 @@ BattleCommand_Teleport:
 	call AnimateCurrentMove
 	call Teleport_LinkEnemySwitch
 
+	farcall NewEnemyMonStatus
+
 	; teleport enemy PartyMon entrance
 	xor a
 	ld [wEnemySwitchMonIndex], a
@@ -103,16 +106,7 @@ BattleCommand_Teleport:
 	ld a, 1
 	ld [wTypeMatchup], a
 	ld hl, ResetEnemyStatLevels
-	call CallBattleCore
-
-	ld hl, SpikesDamage
-	call CallBattleCore
-
-	; New mon hasn't used a move yet.
-	ld a, BATTLE_VARS_LAST_MOVE
-	call GetBattleVarAddr
-	ld [hl], 0
-	ret
+	jr .end_return
 
 Teleport_LinkPlayerSwitch:
 	ld a, [wLinkMode]

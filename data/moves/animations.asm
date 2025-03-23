@@ -4532,8 +4532,6 @@ BattleAnim_HiddenPower:
 	anim_ret
 
 BattleAnim_CrossChop:
-	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_GRAY
-	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_FIRE
 	anim_3gfx BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_CHOP, BATTLE_ANIM_GFX_HIT
 	anim_sound 0, 1, SFX_MEGA_PUNCH
 	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $58, $1, $0

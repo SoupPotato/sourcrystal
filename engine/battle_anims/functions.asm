@@ -4202,14 +4202,13 @@ InitRadial:
 	xor a
 	ld [hld], a
 	ld [hl], a ; initial position = 0
-	call BattleAnim_IncAnonJumptableIndex
+	jmp BattleAnim_IncAnonJumptableIndex
 
 Step:
 	call Get_Rad_Pos
 	ld hl, 6.0 ; speed
 	call Set_Rad_Pos
 	cp 80 ; final position
-	jmp nc, DeinitBattleAnimation
 	jr Rad_Move
 
 Step_Slow:
@@ -4217,7 +4216,6 @@ Step_Slow:
 	ld hl, 1.5 ; speed
 	call Set_Rad_Pos
 	cp 40 ; final position
-	jmp nc, DeinitBattleAnimation
 	jr Rad_Move
 
 Step_VerySlow:
@@ -4225,7 +4223,6 @@ Step_VerySlow:
 	ld hl, 0.5 ; speed
 	call Set_Rad_Pos
 	cp 40 ; final position
-	jmp nc, DeinitBattleAnimation
 	jr Rad_Move
 
 Step_Short:
@@ -4233,7 +4230,6 @@ Step_Short:
 	ld hl, 6.0 ; speed
 	call Set_Rad_Pos
 	cp 60 ; final position
-	jmp nc, DeinitBattleAnimation
 	jr Rad_Move
 
 Get_Rad_Pos:
@@ -4255,6 +4251,7 @@ Set_Rad_Pos:
 	ret
 
 Rad_Move:
+	jmp nc, DeinitBattleAnimation
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	ld e, [hl]

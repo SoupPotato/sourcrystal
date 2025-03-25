@@ -26,9 +26,6 @@ BattleCommand_BeatUp:
 	ld a, [wCurBattleMon]
 	cp c
 	jr nz, .mon_not_in_battle
-	ld a, [wBattleMonStatus]
-	and a
-	jr nz, .beatup_fail
 	jr .finish_beatup
 
 
@@ -60,16 +57,10 @@ BattleCommand_BeatUp:
 	ld a, [wCurOTMon]
 	cp b
 	jr nz, .mon_not_in_battle
-	ld a, [wEnemyMonStatus]
-	and a
-	jr nz, .beatup_fail
 	jr .finish_beatup
 
 
 .wild
-	ld a, [wEnemyMonStatus]
-	and a
-	jr nz, .beatup_fail
 	ld a, [wEnemyMonSpecies]
 	jr .finish_beatup_wild
 
@@ -84,6 +75,11 @@ BattleCommand_BeatUp:
 	add hl, bc
 
 	ld a, [hl]
+	and a
+	jr nz, .beatup_fail
+
+	; Check status if Mon exists, but not in battle
+	ld a, [wBattleMonStatus]
 	and a
 	jr nz, .beatup_fail
 

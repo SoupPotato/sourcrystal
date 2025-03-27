@@ -10,7 +10,7 @@ BattleCommand_BeatUp:
 
 	xor a
 	ld [wPlayerRolloutCount], a
-	ld [wd002], a
+	ld [wCurBeatUpPartyMon], a
 	ld [wBeatUpHitAtLeastOnce], a
 	jr .got_mon
 
@@ -19,7 +19,7 @@ BattleCommand_BeatUp:
 	ld b, a
 	ld a, [wPartyCount]
 	sub b
-	ld [wd002], a
+	ld [wCurBeatUpPartyMon], a
 
 .got_mon
 	ld c, a
@@ -36,7 +36,7 @@ BattleCommand_BeatUp:
 
 	xor a
 	ld [wEnemyRolloutCount], a
-	ld [wd002], a
+	ld [wCurBeatUpPartyMon], a
 	ld [wBeatUpHitAtLeastOnce], a
 	jr .enemy_got_mon
 
@@ -45,14 +45,14 @@ BattleCommand_BeatUp:
 	ld b, a
 	ld a, [wOTPartyCount]
 	sub b
-	ld [wd002], a
+	ld [wCurBeatUpPartyMon], a
 
 .enemy_got_mon
 	ld a, [wBattleMode]
 	dec a
 	jr z, .wild
 
-	ld a, [wd002]
+	ld a, [wCurBeatUpPartyMon]
 	ld b, a
 	ld a, [wCurOTMon]
 	cp b
@@ -66,20 +66,17 @@ BattleCommand_BeatUp:
 
 
 .mon_not_in_battle
+	; Check if mon outside of battle has fainted
 	ld a, MON_HP
 	call GetBeatupMonLocation
 	ld a, [hli]
 	or [hl]
 	jr z, .beatup_fail
+
+	; Check if mon outside of battle has fainted
 	ld bc, MON_STATUS - (MON_HP + 1)
 	add hl, bc
-
 	ld a, [hl]
-	and a
-	jr nz, .beatup_fail
-
-	; Check status if Mon exists, but not in battle
-	ld a, [wBattleMonStatus]
 	and a
 	jr nz, .beatup_fail
 
@@ -138,7 +135,7 @@ GetBeatupMonLocation:
 	ld hl, wOTPartyMon1Species
 
 .got_species
-	ld a, [wd002]
+	ld a, [wCurBeatUpPartyMon]
 	add hl, bc
 	call GetPartyLocation
 	pop bc

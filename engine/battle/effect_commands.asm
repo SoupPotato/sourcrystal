@@ -1981,6 +1981,8 @@ BattleCommand_MoveAnimNoSub:
 	jr z, .alternate_anim
 	cp EFFECT_POISON_MULTI_HIT
 	jr z, .alternate_anim
+	cp EFFECT_BEAT_UP
+	jr z, .alternate_anim
 	cp EFFECT_TRIPLE_KICK
 	jr z, .triplekick
 	cp EFFECT_HIDDEN_POWER

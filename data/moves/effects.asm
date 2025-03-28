@@ -1442,13 +1442,12 @@ TripleKick:
 	doturn
 	startloop
 	lowersub
-	checkhit
 	critical
-	damagestats
-	damagecalc
 	triplekick
+	damagecalc
 	stab
 	damagevariation
+	checkhit
 	clearmissdamage
 	moveanimnosub
 	failuretext
@@ -1458,10 +1457,10 @@ TripleKick:
 	supereffectivelooptext
 	checkfaint
 	buildopponentrage
+	kingsrock
 	kickcounter
 	endloop
 	raisesub
-	kingsrock
 	endmove
 
 Thief:

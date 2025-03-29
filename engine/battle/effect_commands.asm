@@ -1989,6 +1989,7 @@ BattleCommand_MoveAnimNoSub:
 	jr z, .hidden_power
 	xor a
 	ld [wBattleAnimParam], a
+	jr .triplekick
 
 .beat_up
 	ld a, [wBattleAnimParam]

@@ -1253,12 +1253,12 @@ BattleAnim_Thunderbolt:
 	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
 	anim_obj BATTLE_ANIM_OBJ_THUNDERBOLT_CORE, 132, 52, $2
 	anim_wait 16
-	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $2
-	anim_sound 0, 1, SFX_THUNDERSHOCK
 	anim_obj BATTLE_ANIM_OBJ_THUNDERBOLT_SPARKS, 132, 52, $0
+	anim_sound 0, 1, SFX_THUNDERBOLT
+.loop
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $7, $6
 	anim_wait 64
-	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $2
-	anim_wait 64
+	anim_loop 2, .loop
 	anim_ret
 
 BattleAnim_ThunderWave:

@@ -1982,12 +1982,18 @@ BattleCommand_MoveAnimNoSub:
 	cp EFFECT_POISON_MULTI_HIT
 	jr z, .alternate_anim
 	cp EFFECT_BEAT_UP
-	jr z, .alternate_anim
+	jr z, .beat_up
 	cp EFFECT_TRIPLE_KICK
 	jr z, .triplekick
 	cp EFFECT_HIDDEN_POWER
 	jr z, .hidden_power
 	xor a
+	ld [wBattleAnimParam], a
+
+.beat_up
+	ld a, [wBattleAnimParam]
+	and 1
+	xor 1
 	ld [wBattleAnimParam], a
 
 .triplekick
@@ -5184,6 +5190,7 @@ BattleCommand_EndLoop:
 
 .twineedle
 	ld a, 1
+	ld [wEnemyRolloutCount], a
 	jr .double_hit
 
 .in_loop

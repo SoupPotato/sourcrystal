@@ -283,32 +283,3 @@ Sfx_Twinkle_Ch5:
 	octave 5
 	note G_, 6
 	sound_ret
-
-Sfx_Thunderbolt:
-	channel_count 3
-	channel 5, Sfx_Thunderbolt_Ch5
-	channel 6, Sfx_Thunderbolt_Ch6
-	channel 8, Sfx_Thunderbolt_Ch8
-
-Sfx_Thunderbolt_Ch5:
-	pitch_offset 32
-	duty_cycle_pattern 0, 2, 2, 3
-	square_note 3, 15, 1, 2032
-	square_note 4, 15, 2, 512
-	sound_loop 16, Sfx_Thunderbolt_Ch5
-	sound_ret
-
-Sfx_Thunderbolt_Ch6:
-	pitch_offset 32
-	duty_cycle_pattern 2, 3, 0, 3
-	square_note 4, 14, 2, 514
-	square_note 4, 14, 1, 2018
-	sound_loop 18, Sfx_Thunderbolt_Ch6
-	sound_ret
-
-Sfx_Thunderbolt_Ch8:
-	pitch_offset 32
-	noise_note 4, 15, -7, 67
-	noise_note 4, 15, 2, 68
-	sound_loop 16, Sfx_Thunderbolt_Ch8
-	sound_ret

@@ -1254,8 +1254,8 @@ BattleAnim_Thunderbolt:
 	anim_obj BATTLE_ANIM_OBJ_THUNDERBOLT_CORE, 132, 52, $2
 	anim_wait 16
 	anim_obj BATTLE_ANIM_OBJ_THUNDERBOLT_SPARKS, 132, 52, $0
-	anim_sound 0, 1, SFX_THUNDERBOLT
 .loop
+	anim_sound 0, 1, SFX_THUNDERBOLT
 	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $7, $6
 	anim_wait 64
 	anim_loop 2, .loop
@@ -1774,7 +1774,10 @@ BattleAnim_FocusEnergy:
 	anim_call BattleAnim_TargetObj_1Row
 	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT, $0, BG_EFFECT_USER, $40
 	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
+.loop
 	anim_call BattleAnimSub_Focus
+	anim_loop 3, .loop
+	anim_wait 8
 	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
@@ -3367,7 +3370,10 @@ BattleAnim_Curse:
 	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_BLACK_REPEATING
 	anim_wait 1
 	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT, $0, BG_EFFECT_USER, $40
+.loop
 	anim_call BattleAnimSub_Focus
+	anim_loop 3, .loop
+	anim_wait 8
 	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
@@ -3645,17 +3651,19 @@ BattleAnim_Spikes:
 
 BattleAnim_ZapCannon:
 	anim_2gfx BATTLE_ANIM_GFX_LIGHTNING, BATTLE_ANIM_GFX_EXPLOSION
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_LIGHT_SCREEN
+	anim_setobjpal PAL_BATTLE_OB_YELLOW, PAL_BTLCUSTOM_ZAP_CANNON
 	anim_bgp $1b
-	anim_obp0 $30
 	anim_sound 6, 2, SFX_ZAP_CANNON
 	anim_obj BATTLE_ANIM_OBJ_ZAP_CANNON, 64, 92, $2
 	anim_wait 40
-	anim_obp0 $0
-	anim_sound 0, 1, SFX_THUNDERSHOCK
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $60, $2, $0
+	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
+	anim_sound 0, 1, SFX_THUNDERBOLT
 	anim_obj BATTLE_ANIM_OBJ_THUNDERBOLT_CORE, 132, 52, $2
 	anim_wait 16
 	anim_obj BATTLE_ANIM_OBJ_THUNDERBOLT_SPARKS, 132, 52, $0
-	anim_wait 128
+	anim_wait 80
 	anim_ret
 
 BattleAnim_Foresight:
@@ -3879,21 +3887,7 @@ BattleAnim_Endure:
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING, $0, BG_EFFECT_USER, $20
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 .loop
-	anim_sound 0, 0, SFX_SWORDS_DANCE
-	anim_obj BATTLE_ANIM_OBJ_FOCUS, 44, 108, $6
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FOCUS, 36, 108, $6
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FOCUS, 52, 108, $8
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FOCUS, 28, 108, $8
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FOCUS, 60, 108, $6
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FOCUS, 20, 108, $8
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FOCUS, 68, 108, $8
-	anim_wait 2
+	anim_call BattleAnimSub_Focus
 	anim_loop 5, .loop
 	anim_wait 8
 	anim_incbgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING
@@ -4531,6 +4525,8 @@ BattleAnim_HiddenPower:
 	anim_ret
 
 BattleAnim_CrossChop:
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_GRAY
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_FIRE
 	anim_3gfx BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_CHOP, BATTLE_ANIM_GFX_HIT
 	anim_sound 0, 1, SFX_MEGA_PUNCH
 	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $58, $1, $0
@@ -5002,8 +4998,6 @@ BattleAnimSub_Focus:
 	anim_wait 2
 	anim_obj BATTLE_ANIM_OBJ_FOCUS, 68, 108, $8
 	anim_wait 2
-	anim_loop 3, .loop
-	anim_wait 8
 	anim_ret
 
 BattleAnimSub_QuickAttack:

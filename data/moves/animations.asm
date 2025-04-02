@@ -1116,8 +1116,8 @@ BattleAnim_Surf:
 	anim_obj BATTLE_ANIM_OBJ_SURF, 88, 104, $8
 .loop
 	anim_sound 0, 1, SFX_SURF
-	anim_wait 32
-	anim_loop 4, .loop
+	anim_wait 40
+	anim_loop 3, .loop
 	anim_incobj 1
 	anim_wait 56
 	anim_ret
@@ -2847,7 +2847,7 @@ BattleAnim_Psywave:
 	anim_wait 8
 	anim_sound 6, 2, SFX_PSYCHIC
 	anim_obj BATTLE_ANIM_OBJ_WAVE, 64, 96, $4
-	anim_wait 8
+	anim_wait 10
 	anim_loop 3, .loop
 	anim_wait 32
 	anim_incbgeffect BATTLE_BG_EFFECT_PSYCHIC
@@ -3118,7 +3118,7 @@ BattleAnim_PsychicM:
 .loop
 	anim_sound 6, 2, SFX_PSYCHIC
 	anim_obj BATTLE_ANIM_OBJ_WAVE, 64, 88, $2
-	anim_wait 8
+	anim_wait 10
 	anim_loop 8, .loop
 	anim_wait 96
 	anim_incbgeffect BATTLE_BG_EFFECT_PSYCHIC
@@ -3702,15 +3702,15 @@ BattleAnim_PerishSong:
 	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
 	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
 	anim_sound 0, 2, SFX_PERISH_SONG
-	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 0, $0
-	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 0, $8
-	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 0, $10
-	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 0, $18
-	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 0, $20
-	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 0, $28
-	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 0, $30
-	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 0, $38
-	anim_wait 112
+	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 248, $0
+	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 248, $8
+	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 248, $10
+	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 248, $18
+	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 248, $20
+	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 248, $28
+	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 248, $30
+	anim_obj BATTLE_ANIM_OBJ_PERISH_SONG, 88, 248, $38
+	anim_wait 124
 	anim_ret
 
 BattleAnim_IcyWind:
@@ -4730,7 +4730,7 @@ BattleAnim_FutureSight:
 	anim_call BattleAnimSub_Agility
 .loop
 	anim_sound 0, 0, SFX_THROW_BALL
-	anim_wait 16
+	anim_wait 24
 	anim_loop 4, .loop
 	anim_incbgeffect BATTLE_BG_EFFECT_PSYCHIC
 	anim_ret

@@ -2841,10 +2841,10 @@ BattleAnim_Psywave:
 .loop
 	anim_sound 6, 2, SFX_PSYCHIC
 	anim_obj BATTLE_ANIM_OBJ_WAVE, 64, 80, $2
-	anim_wait 8
+	anim_wait 10
 	anim_sound 6, 2, SFX_PSYCHIC
 	anim_obj BATTLE_ANIM_OBJ_WAVE, 64, 88, $3
-	anim_wait 8
+	anim_wait 10
 	anim_sound 6, 2, SFX_PSYCHIC
 	anim_obj BATTLE_ANIM_OBJ_WAVE, 64, 96, $4
 	anim_wait 10

@@ -3479,6 +3479,12 @@ DealDamage:
 	farcall GetMaxHP
 	pop bc
 	farcall SubtractHPFromUser
+
+; Set wCurDamage to the damage we actually did.
+	ld a, b
+	ld [wCurDamage], a
+	ld a, c
+	ld [wCurDamage + 1], a
 .did_no_damage
 	jp RefreshBattleHuds
 

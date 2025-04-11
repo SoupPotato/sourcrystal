@@ -103,7 +103,6 @@ GolbatFrontpic:      INCBIN "gfx/pokemon/golbat/front.animated.2bpp.lz"
 KinglerFrontpic:     INCBIN "gfx/pokemon/kingler/front.animated.2bpp.lz"
 ExeggcuteFrontpic:   INCBIN "gfx/pokemon/exeggcute/front.animated.2bpp.lz"
 MagcargoFrontpic:    INCBIN "gfx/pokemon/magcargo/front.animated.2bpp.lz"
-PersianFrontpic:     INCBIN "gfx/pokemon/persian/front.animated.2bpp.lz"
 StantlerFrontpic:    INCBIN "gfx/pokemon/stantler/front.animated.2bpp.lz"
 RaticateFrontpic:    INCBIN "gfx/pokemon/raticate/front.animated.2bpp.lz"
 VenomothFrontpic:    INCBIN "gfx/pokemon/venomoth/front.animated.2bpp.lz"
@@ -727,6 +726,7 @@ JynxFrontpic:        INCBIN "gfx/pokemon/jynx/front.animated.2bpp.lz"
 
 SECTION "Pics 21", ROMX
 CoolduoPic:          INCBIN "gfx/trainers/cool_duo.2bpp.lz"
+PersianFrontpic:     INCBIN "gfx/pokemon/persian/front.animated.2bpp.lz"
 
 
 SECTION "Pics 22", ROMX

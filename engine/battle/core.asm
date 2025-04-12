@@ -8386,8 +8386,13 @@ BattleIntro:
 	call GetSGBLayout
 	ld hl, rLCDC
 	res rLCDC_WINDOW_TILEMAP, [hl] ; select vBGMap0/vBGMap2
-;	ld c, 25
-;	call DelayFrames        :artifical delay for GMDA use
+
+IF DEF(_GBTOWER)
+ELSE
+	ld c, 28
+	call DelayFrames        ;artifical delay for GMDA use
+ENDC
+
 	call InitBattleDisplay
 	call BattleStartMessage
 	ld hl, rLCDC

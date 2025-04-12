@@ -192,8 +192,11 @@ CheckGDMA:
 	ldh a, [hCGB]
 	and a
 	ret z
-	xor a
+IF DEF(_GBTOWER)
+	xor a 
 	ret
+ELSE
+ENDC
 
 	; The 4 least significant bits must be zero.
 	ld a, e

@@ -1,5 +1,6 @@
 roms := \
 	sourcrystal.gbc \
+	sourcrystal_GBTower.gbc \
 	sourcrystal_debug.gbc
 patches := sourcrystal.patch
 
@@ -23,9 +24,10 @@ rom_obj := \
 	lib/mobile/main.o \
 	lib/mobile/mail.o
 
-sourcrystal_obj       := $(rom_obj:.o=.o)
-sourcrystal_debug_obj := $(rom_obj:.o=_debug.o)
-sourcrystal_vc_obj    := $(rom_obj:.o=_vc.o)
+sourcrystal_obj          := $(rom_obj:.o=.o)
+sourcrystal_GBTower_obj  := $(rom_obj:.o=_GBTower.o)
+sourcrystal_debug_obj    := $(rom_obj:.o=_debug.o)
+sourcrystal_vc_obj       := $(rom_obj:.o=_vc.o)
 
 
 ### Build tools
@@ -46,15 +48,16 @@ RGBLINK ?= $(RGBDS)rgblink
 ### Build targets
 
 .SUFFIXES:
-.PHONY: all sour sour_debug clean tidy compare tools
+.PHONY: all sour sour_GBTower sour_debug clean tidy compare tools
 .SECONDEXPANSION:
 .PRECIOUS:
 .SECONDARY:
 
-all: sour sour_debug sour_vc
-sour:       sourcrystal.gbc
-sour_debug: sourcrystal_debug.gbc
-sour_vc:    sourcrystal.patch
+all: sour sour_GBTower sour_debug sour_vc
+sour:         sourcrystal.gbc
+sour_GBTower: sourcrystal_GBTower.gbc
+sour_debug:   sourcrystal_debug.gbc
+sour_vc:      sourcrystal.patch
 
 clean: tidy
 	find gfx \
@@ -81,6 +84,7 @@ tidy:
 	      $(patches:.patch=_vc.map) \
 	      $(patches:%.patch=vc/%.constants.sym) \
 	      $(sourcrystal_obj) \
+	      $(sourcrystal_GBTower_obj) \
 	      $(sourcrystal_vc_obj) \
 	      $(sourcrystal_debug_obj) \
 	      rgbdscheck.o
@@ -99,9 +103,10 @@ ifeq ($(DEBUG),1)
 RGBASMFLAGS += -E
 endif
 
-$(sourcrystal_obj):       RGBASMFLAGS += -D _CRYSTAL11
-$(sourcrystal_debug_obj): RGBASMFLAGS += -D _CRYSTAL11 -D _DEBUG
-$(sourcrystal_vc_obj):    RGBASMFLAGS += -D _CRYSTAL11 -D _CRYSTAL11_VC
+$(sourcrystal_obj):               RGBASMFLAGS += -D _CRYSTAL11
+$(sourcrystal_GBTower_obj):       RGBASMFLAGS += -D _CRYSTAL11 -D _GBTOWER
+$(sourcrystal_debug_obj):         RGBASMFLAGS += -D _CRYSTAL11 -D _DEBUG
+$(sourcrystal_vc_obj):            RGBASMFLAGS += -D _CRYSTAL11 -D _CRYSTAL11_VC
 
 %.patch: %_vc.gbc %.gbc vc/%.patch.template
 	tools/make_patch $*_vc.sym $^ $@
@@ -126,15 +131,17 @@ endef
 
 # Dependencies for shared objects objects
 $(foreach obj, $(sourcrystal_obj), $(eval $(call DEP,$(obj),$(obj:.o=.asm))))
+$(foreach obj, $(sourcrystal_GBTower_obj), $(eval $(call DEP,$(obj),$(obj:_GBTower.o=.asm))))
 $(foreach obj, $(sourcrystal_debug_obj), $(eval $(call DEP,$(obj),$(obj:_debug.o=.asm))))
 $(foreach obj, $(sourcrystal_vc_obj), $(eval $(call DEP,$(obj),$(obj:_vc.o=.asm))))
 
 endif
 
 
-sourcrystal_opt       = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
-sourcrystal_debug_opt = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
-sourcrystal_vc_opt    = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
+sourcrystal_opt         = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
+sourcrystal_GBTower_opt = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
+sourcrystal_debug_opt   = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
+sourcrystal_vc_opt      = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
 
 %.gbc: $$(%_obj) layout.link
 	$(RGBLINK) -n $*.sym -m $*.map -l layout.link -o $@ $(filter %.o,$^)

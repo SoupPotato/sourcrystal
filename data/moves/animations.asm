@@ -4841,19 +4841,19 @@ BattleAnimSub_Beam:
 BattleAnimSub_Explosion1:
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
 	anim_sound 0, 0, SFX_EGG_BOMB
-	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 24, 64, $0
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 32, 64, $0
 	anim_wait 5
 	anim_sound 0, 0, SFX_EGG_BOMB
-	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 56, 104, $0
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 64, 104, $0
 	anim_wait 5
 	anim_sound 0, 0, SFX_EGG_BOMB
-	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 24, 104, $0
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 32, 104, $0
 	anim_wait 5
 	anim_sound 0, 0, SFX_EGG_BOMB
-	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 56, 64, $0
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 64, 64, $0
 	anim_wait 5
 	anim_sound 0, 0, SFX_EGG_BOMB
-	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 40, 84, $0
+	anim_obj BATTLE_ANIM_OBJ_EXPLOSION1, 48, 84, $0
 	anim_ret
 
 BattleAnimSub_Explosion2:

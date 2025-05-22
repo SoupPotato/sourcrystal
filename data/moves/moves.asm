@@ -99,7 +99,7 @@ Moves:
 	move FIRE_SPIN,    EFFECT_TRAP_TARGET,        35, FIRE,          85, 15, 100 ; OLD POWER: 15, OLD ACCURACY: 70
 	move THUNDERSHOCK, EFFECT_PARALYZE_HIT,       40, ELECTRIC,     100, 30,  10
 	move THUNDERBOLT,  EFFECT_PARALYZE_HIT,       90, ELECTRIC,     100, 15,  10 ; OLD POWER: 95
-	move THUNDER_WAVE, EFFECT_PARALYZE,            0, ELECTRIC,      90, 20,   0 ; OLD ACCURACY: 100
+	move THUNDER_WAVE, EFFECT_PARALYZE,            0, ELECTRIC,     100, 20,   0
 	move THUNDER,      EFFECT_THUNDER,           110, ELECTRIC,      70, 10,  30 ; OLD POWER: 120
 	move ROCK_THROW,   EFFECT_NORMAL_HIT,         50, ROCK,          90, 15,   0
 	move EARTHQUAKE,   EFFECT_EARTHQUAKE,        100, GROUND,       100, 10,   0
@@ -220,7 +220,7 @@ Moves:
 	move CHARM,        EFFECT_ATTACK_DOWN_2,       0, NORMAL,       100, 20,   0
 	move ROLLOUT,      EFFECT_ROLLOUT,            30, ROCK,          90, 20,   0
 	move FALSE_SWIPE,  EFFECT_FALSE_SWIPE,        40, NORMAL,       100, 40,   0
-	move SWAGGER,      EFFECT_SWAGGER,             0, NORMAL,        85, 15, 100 ; OLD ACCURACY: 90
+	move SWAGGER,      EFFECT_SWAGGER,             0, NORMAL,        90, 15, 100
 	move MILK_DRINK,   EFFECT_HEAL,                0, NORMAL,       100, 10,   0
 	move SPARK,        EFFECT_PARALYZE_HIT,       65, ELECTRIC,     100, 20,  30
 	move FURY_CUTTER,  EFFECT_FURY_CUTTER,        20, BUG,           95, 20,   0 ; OLD POWER: 10

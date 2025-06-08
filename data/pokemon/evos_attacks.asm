@@ -3329,14 +3329,15 @@ SwinubEvosAttacks:
 	db 19, ICY_WIND
 	db 24, TAKE_DOWN
 	db 30, MIST
-	db 34, EARTHQUAKE
-	db 39, FLAIL
+	db 34, AMNESIA
+	db 39, EARTHQUAKE
 	db 45, BLIZZARD
-	db 49, AMNESIA
+	db 49, FLAIL
 	db 0 ; no more level-up moves
 
 PiloswineEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, ANCIENTPOWER
 	db 1, HORN_ATTACK
 	db 1, POWDER_SNOW
 	db 1, ENDURE
@@ -3346,10 +3347,10 @@ PiloswineEvosAttacks:
 	db 24, TAKE_DOWN
 	db 30, MIST
 	db 33, FURY_ATTACK
-	db 36, EARTHQUAKE
-	db 43, THRASH
+	db 36, AMNESIA
+	db 43, EARTHQUAKE
 	db 51, BLIZZARD
-	db 57, AMNESIA
+	db 57, THRASH
 	db 0 ; no more level-up moves
 
 CorsolaEvosAttacks:

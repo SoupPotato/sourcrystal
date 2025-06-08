@@ -956,6 +956,7 @@ DEF NUM_BG_EFFECTS EQU 5 ; see wActiveBGEffects
 	const PAL_BTLCUSTOM_OUTRAGE         ; 1f
 	const PAL_BTLCUSTOM_SHADOW_BALL     ; 20
 	const PAL_BTLCUSTOM_ZAP_CANNON      ; 21
+	const PAL_BTLCUSTOM_SNOW            ; 22
 
 DEF NUM_CUSTOM_BATTLE_PALETTES EQU const_value
 

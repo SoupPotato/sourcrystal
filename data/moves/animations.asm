@@ -3471,6 +3471,7 @@ BattleAnim_Spite:
 	anim_ret
 
 BattleAnim_PowderSnow:
+	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_SNOW
 	anim_1gfx BATTLE_ANIM_GFX_ICE
 .loop
 	anim_sound 6, 2, SFX_SHINE
@@ -4127,8 +4128,7 @@ BattleAnim_Frustration:
 	anim_wait 8
 	anim_incbgeffect BATTLE_BG_EFFECT_WOBBLE_MON
 	anim_wait 1
-	anim_call BattleAnim_ShowMon_0
-	anim_ret
+	anim_jump BattleAnim_ShowMon_0
 
 BattleAnim_Safeguard:
 	anim_1gfx BATTLE_ANIM_GFX_MISC
@@ -4284,6 +4284,7 @@ BattleAnim_RapidSpin:
 	anim_ret
 
 BattleAnim_SweetScent:
+	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_PINK
 	anim_2gfx BATTLE_ANIM_GFX_FLOWER, BATTLE_ANIM_GFX_MISC
 	anim_sound 0, 0, SFX_SWEET_SCENT
 	anim_obj BATTLE_ANIM_OBJ_FLOWER, 64, 96, $2

@@ -1971,10 +1971,11 @@ GyaradosEvosAttacks:
 	db 30, DRAGON_RAGE
 	db 34, SCARY_FACE
 	db 37, CRUNCH
-	db 41, RAIN_DANCE
+	db 41, THRASH
 	db 44, HYDRO_PUMP
-	db 48, THRASH
-	db 51, HYPER_BEAM
+	db 48, RAIN_DANCE
+	db 51, OUTRAGE
+	db 55, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 LaprasEvosAttacks:
@@ -3021,13 +3022,13 @@ MisdreavusEvosAttacks:
 	db 1, PSYWAVE
 	db 6, SPITE
 	db 11, CONFUSE_RAY
-	db 15, MEAN_LOOK
-	db 20, NIGHT_SHADE
-	db 25, PSYBEAM
-	db 29, PAIN_SPLIT
-	db 34, CURSE
-	db 39, SHADOW_BALL
-	db 43, PERISH_SONG
+	db 17, MEAN_LOOK
+	db 22, NIGHT_SHADE
+	db 27, PSYBEAM
+	db 33, PAIN_SPLIT
+	db 38, CURSE
+	db 43, SHADOW_BALL
+	db 49, PERISH_SONG
 	db 0 ; no more level-up moves
 
 UnownEvosAttacks:

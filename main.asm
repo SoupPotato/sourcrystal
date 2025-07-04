@@ -20,7 +20,6 @@ SECTION "bank2", ROMX
 INCLUDE "engine/overworld/player_object.asm"
 INCLUDE "engine/math/sine.asm"
 INCLUDE "engine/predef.asm"
-INCLUDE "engine/gfx/color.asm"
 
 
 SECTION "bank3", ROMX
@@ -830,6 +829,9 @@ INCLUDE "engine/events/weather.asm"
 SECTION "Polished Fade System", ROMX
 
 INCLUDE "engine/gfx/fade.asm"
+
+SECTION "Color", ROMX
+INCLUDE "engine/gfx/color.asm"
 
 
 SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$7F]

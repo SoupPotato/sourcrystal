@@ -43,6 +43,7 @@ RGBASM  ?= $(RGBDS)rgbasm
 RGBFIX  ?= $(RGBDS)rgbfix
 RGBGFX  ?= $(RGBDS)rgbgfx
 RGBLINK ?= $(RGBDS)rgblink
+SFCONV ?= tools/superfamiconv
 
 
 ### Build targets
@@ -138,10 +139,10 @@ $(foreach obj, $(sourcrystal_vc_obj), $(eval $(call DEP,$(obj),$(obj:_vc.o=.asm)
 endif
 
 
-sourcrystal_opt         = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
-sourcrystal_GBTower_opt = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
-sourcrystal_debug_opt   = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
-sourcrystal_vc_opt      = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
+sourcrystal_opt         = -Csjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
+sourcrystal_GBTower_opt = -Csjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
+sourcrystal_debug_opt   = -Csjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
+sourcrystal_vc_opt      = -Csjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m MBC3+TIMER+RAM+BATTERY -r 3 -p 0
 
 %.gbc: $$(%_obj) layout.link
 	$(RGBLINK) -n $*.sym -m $*.map -l layout.link -o $@ $(filter %.o,$^)
@@ -317,6 +318,9 @@ gfx/mobile/stadium2_n64.2bpp: tools/gfx += --trim-whitespace
 
 
 ### Catch-all graphics rules
+
+%.4bpp: %.png
+	$(SFCONV) -v -D -F -M snes -B 4 -i $< -t $@ -R
 
 %.2bpp: %.png
 	$(RGBGFX) $(rgbgfx) -o $@ $<

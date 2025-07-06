@@ -133,6 +133,14 @@ If your distro is not listed here, try to find the required software in its repo
 
 If `rgbds` is not available, you'll need to follow the [**rgbds** instructions](https://rgbds.gbdev.io/install#building-from-source) to build **rgbds 0.9.0** from source.
 
+## (Sour Crystal) Additional dependencies
+
+Sour Crystal comes with an SGB border for the so-called "SGB+GBC" mode. Unlike the vanilla games, this is a full-color, 4bpp border. RGBGFX alone could not support this option. Therefore, you'll also need [**SuperFamiconv**](https://github.com/Optiroc/SuperFamiconv).
+
+If you are on Cygwin or Mac, you can download the [official binaries](https://github.com/Optiroc/SuperFamiconv/releases). Otherwise, you'll have to compile from source. You will need `cmake` for this.
+
+Either way, copy `superfamiconv`(.exe) to the `tools/` folder of this repository.
+
 Now you're ready to [build **pokecrystal**](#build-pokecrystal).
 
 

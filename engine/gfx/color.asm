@@ -987,10 +987,10 @@ SGBBorder_YetMorePalPushing:
 	ld b, $80
 .loop
 	push bc
-	ld bc, 1 tiles
-	call CopyData
-	ld bc, 1 tiles
-	call ClearBytes
+    ld bc, 1 tiles
+    call CopyData
+    ld bc, 1 tiles
+    call CopyData
 	pop bc
 	dec b
 	jr nz, .loop
@@ -1074,7 +1074,7 @@ INCBIN "gfx/sgb/sgb_border.sgb.tilemap"
 INCLUDE "gfx/sgb/sgb_border.pal"
 
 SGBBorderGFX:
-INCBIN "gfx/sgb/sgb_border.2bpp"
+INCBIN "gfx/sgb/sgb_border.4bpp"
 
 HPBarPals:
 INCLUDE "gfx/battle/hp_bar.pal"

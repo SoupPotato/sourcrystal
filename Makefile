@@ -320,10 +320,10 @@ gfx/mobile/stadium2_n64.2bpp: tools/gfx += --trim-whitespace
 ### Catch-all graphics rules
 
 %.4bpp: %.png
-	$(SFCONV) -v -D -F -M snes -B 4 -i $< -t $@ -R
+	$(SFCONV) -v -D -F -M snes -B 4 -i $< -t $@
 
 %.pal.bin: %.png
-	$(SFCONV) -v -D -F -M snes -B 4 -i $< -p $@ -R
+	$(SFCONV) palette -v snes -i $< -d $@ -P 1 -C 16
 
 %.2bpp: %.png
 	$(RGBGFX) $(rgbgfx) -o $@ $<

@@ -10,6 +10,7 @@
 *.dimensions
 *.animated.tilemap
 *.sgb.tilemap
+*.pal.bin
 gfx/pokemon/*/bitmask.asm
 gfx/pokemon/*/frames.asm
 !gfx/pokemon/unown/bitmask.asm

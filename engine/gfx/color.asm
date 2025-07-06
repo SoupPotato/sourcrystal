@@ -1071,7 +1071,7 @@ SGBBorderMapAndPalettes:
 ; interleaved tile ids and palette ids, without the center 20x18 screen area
 INCBIN "gfx/sgb/sgb_border.sgb.tilemap"
 ; four SGB palettes of 16 colors each; only the first 4 colors are used
-INCLUDE "gfx/sgb/sgb_border.pal"
+INCBIN "gfx/sgb/sgb_border.pal.bin"
 
 SGBBorderGFX:
 INCBIN "gfx/sgb/sgb_border.4bpp"

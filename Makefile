@@ -322,6 +322,9 @@ gfx/mobile/stadium2_n64.2bpp: tools/gfx += --trim-whitespace
 %.4bpp: %.png
 	$(SFCONV) -v -D -F -M snes -B 4 -i $< -t $@ -R
 
+%.pal.bin: %.png
+	$(SFCONV) -v -D -F -M snes -B 4 -i $< -p $@ -R
+
 %.2bpp: %.png
 	$(RGBGFX) $(rgbgfx) -o $@ $<
 	$(if $(tools/gfx),\

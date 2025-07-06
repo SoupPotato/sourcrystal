@@ -25,9 +25,6 @@ gfx/pokemon/*/frames.asm
 *.map
 *.sym
 
-# tool binaries
-*.exe
-
 # extras
 *.lnk
 

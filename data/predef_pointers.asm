@@ -58,7 +58,6 @@ PredefPointers::
 	add_predef InitSGBBorder
 	add_predef LoadSGBLayout
 	add_predef Pokedex_GetArea
-	add_predef Unused_CheckShininess
 	add_predef DoBattleTransition
 	add_predef DummyPredef35
 	add_predef DummyPredef36

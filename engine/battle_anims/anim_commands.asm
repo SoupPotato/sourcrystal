@@ -644,7 +644,7 @@ BattleAnimCmd_OBP1:
 	ret
 
 BattleAnimCmd_ResetObp0:
-	ld a, $f0
+	ld a, $e0
 	ld [wOBP0], a
 	ret
 

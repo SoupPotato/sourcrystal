@@ -951,13 +951,13 @@ SGBBorder_YetMorePalPushing:
 	ld a, %11100100
 	ldh [rBGP], a
 	ld de, vTiles1
-	ld b, $80
+	ld b, $72
 .loop
 	push bc
-    ld bc, 1 tiles
-    call CopyData
-    ld bc, 1 tiles
-    call CopyData
+	ld bc, 1 tiles
+	call CopyData
+	ld bc, 1 tiles
+	call CopyData
 	pop bc
 	dec b
 	jr nz, .loop

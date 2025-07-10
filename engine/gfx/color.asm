@@ -954,9 +954,7 @@ SGBBorder_YetMorePalPushing:
 	ld b, $72
 .loop
 	push bc
-	ld bc, 1 tiles
-	call CopyData
-	ld bc, 1 tiles
+	ld bc, 2 tiles
 	call CopyData
 	pop bc
 	dec b

@@ -1037,11 +1037,8 @@ RuinsOfAlphResearchCenterFossilScientistDoYouHaveFossilText:
 	para "But I am not hav-"
 	line "ing the luck!"
 
-	para "I must do the"
-	line "fossil-studying"
-
-	para "so that I can be"
-	line "bringing the"
+	para "With fossil, I can"
+	line "be bringing the"
 
 	para "ancient #MON"
 	line "back to life with"

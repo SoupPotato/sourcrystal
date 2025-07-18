@@ -927,14 +927,14 @@ BattleAnimOAMData:
 	dbsprite   0,   1, 0, 0, $03, $0
 
 .OAMData_8a:
-	dbsprite  -1,  -1, 4, 4, $00, $0
-	dbsprite   0,  -1, 4, 0, $00, $0
-	dbsprite   1,  -2, 4, 4, $00, $0
-	dbsprite   2,  -2, 4, 0, $00, $0
-	dbsprite   3,  -3, 4, 4, $00, $0
-	dbsprite   4,  -3, 4, 0, $00, $0
-	dbsprite   5,  -4, 4, 0, $00, $0
-	dbsprite   6,  -5, 4, 4, $00, $0
+	dbsprite  -1,   0, 4, 4, $00, $0
+	dbsprite   0,   0, 4, 0, $00, $0
+	dbsprite   1,  -1, 4, 4, $00, $0
+	dbsprite   2,  -1, 4, 0, $00, $0
+	dbsprite   3,  -2, 4, 4, $00, $0
+	dbsprite   4,  -2, 4, 0, $00, $0
+	dbsprite   5,  -3, 4, 0, $00, $0
+	dbsprite   6,  -4, 4, 4, $00, $0
 
 .OAMData_8e:
 	dbsprite  -1,  -3, 4, 4, $00, $0

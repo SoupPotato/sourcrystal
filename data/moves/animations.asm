@@ -546,8 +546,8 @@ BattleAnim_Par:
 	anim_1gfx BATTLE_ANIM_GFX_STATUS
 	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
 	anim_sound 0, 0, SFX_THUNDERSHOCK
-	anim_obj BATTLE_ANIM_OBJ_PARALYZED, 20, 88, $42
-	anim_obj BATTLE_ANIM_OBJ_PARALYZED, 76, 88, $c2
+	anim_obj BATTLE_ANIM_OBJ_PARALYZED, 20, 90, $42
+	anim_obj BATTLE_ANIM_OBJ_PARALYZED, 76, 90, $c2
 	anim_wait 128
 	anim_ret
 
@@ -1230,7 +1230,7 @@ BattleAnim_Thunderpunch:
 	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $8, $2
 	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
 	anim_sound 0, 1, SFX_THUNDER
-	anim_obj BATTLE_ANIM_OBJ_THUNDER_RIGHT, 152, 68, $0
+	anim_obj BATTLE_ANIM_OBJ_THUNDER_CENTER, 136, 68, $0
 	anim_wait 64
 	anim_ret
 
@@ -1262,7 +1262,7 @@ BattleAnim_ThunderWave:
 	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
 	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $3
 	anim_sound 0, 1, SFX_THUNDERSHOCK
-	anim_obj BATTLE_ANIM_OBJ_THUNDER_WAVE, 136, 50, $0
+	anim_obj BATTLE_ANIM_OBJ_THUNDER_WAVE, 136, 52, $0
 	anim_wait 20
 	anim_bgp $1b
 	anim_incobj 1
@@ -1744,12 +1744,11 @@ BattleAnim_Softboiled:
 	anim_sound 0, 0, SFX_SWITCH_POKEMON
 	anim_obj BATTLE_ANIM_OBJ_EGG, 44, 104, $6
 	anim_wait 128
-	anim_incobj 2
+	anim_incobj 1
 	anim_obj BATTLE_ANIM_OBJ_EGG, 76, 104, $b
 	anim_wait 16
 	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $40
 	anim_sound 0, 0, SFX_METRONOME
-	anim_jump BattleAnimSub_SoftboiledHeal
 ;fallthrough
 BattleAnimSub_SoftboiledHeal:
 .loop
@@ -2737,7 +2736,7 @@ BattleAnim_TriAttack:
 	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
 	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $4
 	anim_sound 0, 1, SFX_THUNDER
-	anim_obj BATTLE_ANIM_OBJ_THUNDER_RIGHT, 152, 68, $0
+	anim_obj BATTLE_ANIM_OBJ_THUNDER_CENTER, 136, 68, $0
 	anim_wait 16
 	anim_ret
 
@@ -2976,7 +2975,6 @@ BattleAnim_Rage:
 	anim_sound 0, 0, SFX_RAGE
 	anim_wait 72
 	anim_incbgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING
-	anim_ret
 .hit
 	anim_sound 0, 1, SFX_MOVE_PUZZLE_PIECE
 	anim_obj BATTLE_ANIM_OBJ_HIT_BIG_YFIX, 120, 72, $0
@@ -3012,7 +3010,6 @@ BattleAnim_BoneClub:
 
 BattleAnim_Barrier:
 	anim_1gfx BATTLE_ANIM_GFX_REFLECT
-	anim_battlergfx_2row
 	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
 	anim_wait 8
 	anim_sound 0, 0, SFX_SHINE
@@ -3178,11 +3175,11 @@ BattleAnim_Slam:
 BattleAnim_Disable:
 	anim_2gfx BATTLE_ANIM_GFX_LIGHTNING, BATTLE_ANIM_GFX_STATUS
 	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
-	anim_obj BATTLE_ANIM_OBJ_DISABLE, 132, 56, $0
+	anim_obj BATTLE_ANIM_OBJ_DISABLE, 132, 52, $0
 	anim_wait 16
 	anim_sound 0, 1, SFX_BIND
-	anim_obj BATTLE_ANIM_OBJ_PARALYZED, 104, 56, $42
-	anim_obj BATTLE_ANIM_OBJ_PARALYZED, 160, 56, $c2
+	anim_obj BATTLE_ANIM_OBJ_PARALYZED, 104, 52, $42
+	anim_obj BATTLE_ANIM_OBJ_PARALYZED, 160, 52, $c2
 	anim_wait 96
 	anim_ret
 
@@ -3900,7 +3897,7 @@ BattleAnim_Spark:
 	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
 	anim_sound 0, 0, SFX_ZAP_CANNON
 	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $3
-	anim_obj BATTLE_ANIM_OBJ_THUNDER_WAVE, 48, 92, $0
+	anim_obj BATTLE_ANIM_OBJ_THUNDER_WAVE, 48, 90, $0
 	anim_wait 24
 	anim_setobj $1, $3
 	anim_wait 1
@@ -4259,7 +4256,7 @@ BattleAnim_MetalClaw:
 	anim_1gfx BATTLE_ANIM_GFX_REFLECT
 	anim_obp0 $0
 	anim_sound 0, 0, SFX_RAGE
-	anim_wait 17
+	anim_wait 18
 	anim_call BattleAnimSub_Metallic
 	anim_1gfx BATTLE_ANIM_GFX_CUT
 	anim_resetobp0
@@ -4436,8 +4433,10 @@ BattleAnim_HiddenPower:
 	anim_sound 0, 0, SFX_SWORDS_DANCE
 	anim_wait 8
 	anim_loop 12, .loop
+	anim_wait 17
 	anim_incbgeffect BATTLE_BG_EFFECT_CYCLE_MON_LIGHT_DARK_REPEATING
 	anim_wait 1
+	anim_incobj 1
 	anim_incobj 2
 	anim_incobj 3
 	anim_incobj 4
@@ -4445,7 +4444,6 @@ BattleAnim_HiddenPower:
 	anim_incobj 6
 	anim_incobj 7
 	anim_incobj 8
-	anim_incobj 9
 	anim_wait 16
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_1gfx BATTLE_ANIM_GFX_HIT

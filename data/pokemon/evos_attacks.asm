@@ -1033,8 +1033,8 @@ TentacoolEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_STING
 	db 1, WATER_GUN
-	db 6, SUPERSONIC
-	db 12, CONSTRICT
+	db 6, CONSTRICT
+	db 12, SUPERSONIC
 	db 17, ACID
 	db 23, BUBBLEBEAM
 	db 28, WRAP
@@ -1048,8 +1048,8 @@ TentacruelEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_STING
 	db 1, WATER_GUN
-	db 1, SUPERSONIC
 	db 1, CONSTRICT
+	db 1, SUPERSONIC
 	db 17, ACID
 	db 23, BUBBLEBEAM
 	db 28, WRAP
@@ -1317,15 +1317,15 @@ ShellderEvosAttacks:
 	db EVOLVE_ITEM, WATER_STONE, CLOYSTER
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, WATER_GUN
-	db 4, WITHDRAW
-	db 9, SUPERSONIC
-	db 13, PROTECT
-	db 17, AURORA_BEAM
-	db 21, LEER
-	db 25, CLAMP
-	db 33, WHIRLPOOL
-	db 41, ICE_BEAM
+	db 1, WITHDRAW
+	db 6, WATER_GUN
+	db 12, LEER
+	db 17, SUPERSONIC
+	db 22, AURORA_BEAM
+	db 28, CLAMP
+	db 33, PROTECT
+	db 38, SCREECH
+	db 44, ICE_BEAM
 	db 49, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -1335,8 +1335,8 @@ CloysterEvosAttacks:
 	db 1, SUPERSONIC
 	db 1, AURORA_BEAM
 	db 1, PROTECT
-	db 33, SPIKES
-	db 41, SPIKE_CANNON
+	db 38, SPIKES
+	db 44, SPIKE_CANNON
 	db 49, HYDRO_PUMP
 	db 0 ; no more level-up moves
 

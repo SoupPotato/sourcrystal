@@ -282,7 +282,6 @@ ShellderEggMoves:
 	db BARRIER
 	db BUBBLEBEAM
 	db RAPID_SPIN
-	db SCREECH
 	db TAKE_DOWN
 	db -1 ; end
 

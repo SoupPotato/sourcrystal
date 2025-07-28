@@ -24,23 +24,28 @@ jobs:
         run: |
           sudo apt-get install -yq libpng-dev
           sudo make install
-
-      - name: Remove rgbds
+      
+      - name: Checkout superfamiconv
+        uses: actions/checkout@master
+        with:
+          path: superfamiconv
+          ref: 68e3477
+          repository: Optiroc/SuperFamiconv
+      
+      - name: Build superfamiconv
+        working-directory: SuperFamiconv
         run: |
-          rm -rf rgbds
-
-      - name: Compare
-        if: ${{ github.repository_owner == 'pret' }}
+          make
+      
+      - name: Move superfamiconv to tools/
         run: |
-          make DEBUG=1 -j$(nproc) compare
-          if ! git diff-index --quiet HEAD --; then
-            echo 'Uncommitted changes detected:'
-            git diff-index HEAD --
-            return 1
-          fi
+          mv SuperFamiconv/build/release/superfamiconv tools/superfamiconv
+
+      - name: Remove rgbds and superfamiconv
+        run: |
+          rm -rf rgbds superfamiconv
 
       - name: Make
-        if: ${{ github.repository_owner != 'pret' }}
         run: |
           make -j$(nproc)
           if ! git diff-index --quiet HEAD --; then
@@ -55,24 +60,3 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: |
           .github/webhook.sh
-
-      - name: Checkout symbols
-        if: ${{ github.event_name == 'push' && github.repository_owner == 'pret' }}
-        uses: actions/checkout@master
-        with:
-          path: symbols
-          ref: symbols
-
-      - name: Move symbols
-        if: ${{ github.event_name == 'push' && github.repository_owner == 'pret' }}
-        run: |
-          cp -v *.sym symbols/
-          cp -v *.map symbols/
-
-      - name: Update symbols
-        if: ${{ github.event_name == 'push' && github.repository_owner == 'pret' }}
-        uses: EndBug/add-and-commit@v9
-        with:
-          cwd: "./symbols"
-          add: "*.sym *.map"
-          message: ${{ github.event.commits[0].message }}

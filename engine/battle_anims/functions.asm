@@ -1514,7 +1514,7 @@ BattleAnimFunc_Clamp_Encore:
 	ld hl, BATTLEANIMSTRUCT_VAR2
 	add hl, bc
 	ld a, [hl]
-	assert BATTLE_ANIM_FRAMESET_CLAMP + 1 ==  BATTLE_ANIM_FRAMESET_CLAMP_FLIPPED
+	assert BATTLE_ANIM_FRAMESET_CLAMP_1 + 1 ==  BATTLE_ANIM_FRAMESET_CLAMP_2
 	assert BATTLE_ANIM_FRAMESET_ENCORE_HAND + 1 == BATTLE_ANIM_FRAMESET_ENCORE_HAND_FLIPPED
 	inc a
 	jr .reinit
@@ -1522,7 +1522,7 @@ BattleAnimFunc_Clamp_Encore:
 .load_no_inc
 	ld hl, BATTLEANIMSTRUCT_VAR2
 	add hl, bc
-	ld a, [hl] ; BATTLE_ANIM_FRAMESET_CLAMP or BATTLE_ANIM_FRAMESET_ENCORE_HAND
+	ld a, [hl] ; BATTLE_ANIM_FRAMESET_CLAMP_1 or BATTLE_ANIM_FRAMESET_ENCORE_HAND
 .reinit
 	call ReinitBattleAnimFrameset
 	ld hl, BATTLEANIMSTRUCT_VAR1
@@ -4185,6 +4185,7 @@ BattleAnimFunction_RadialMoveOut_Slow:
 
 	dw InitRadial
 	dw Step_Slow
+	dw DoNothing
 
 InitRadial:
 	ld hl, BATTLEANIMSTRUCT_VAR2

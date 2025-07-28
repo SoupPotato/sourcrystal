@@ -1584,16 +1584,20 @@ BattleAnim_Slash:
 	anim_ret
 
 BattleAnim_Clamp:
-	anim_2gfx BATTLE_ANIM_GFX_CUT, BATTLE_ANIM_GFX_HIT
-	anim_obj BATTLE_ANIM_OBJ_CLAMP, 136, 56, $a0
-	anim_obj BATTLE_ANIM_OBJ_CLAMP, 136, 56, $20
-	anim_wait 16
+	anim_2gfx BATTLE_ANIM_GFX_REFLECT, BATTLE_ANIM_GFX_HIT
+	anim_sound 0, 0, SFX_VICEGRIP
+	anim_obj BATTLE_ANIM_OBJ_CLAMP, 109, 52, $0
+	anim_obj BATTLE_ANIM_OBJ_CLAMP_2, 172, 52, $20
+	anim_wait 20
+	anim_incobj 1
+	anim_incobj 2
+	anim_wait 4
 	anim_sound 0, 1, SFX_BITE
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 144, 48, $18
-	anim_wait 32
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 132, 44, $18
+	anim_wait 10
 	anim_sound 0, 1, SFX_BITE
-	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 128, 64, $18
-	anim_wait 16
+	anim_obj BATTLE_ANIM_OBJ_HIT_YFIX, 132, 64, $18
+	anim_wait 24
 	anim_ret
 
 BattleAnim_Bite:
@@ -4684,16 +4688,22 @@ BattleAnim_RockSmash:
 	anim_ret
 
 BattleAnim_Whirlpool:
-	anim_setobjpal PAL_BATTLE_OB_GRAY, PAL_BTLCUSTOM_WATER
-	anim_1gfx BATTLE_ANIM_GFX_WIND
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_BUBBLE
+	anim_1gfx BATTLE_ANIM_GFX_BUBBLE
 	anim_bgeffect BATTLE_BG_EFFECT_WHIRLPOOL, $0, $0, $0
 	anim_sound 0, 1, SFX_SURF
 	anim_wait 16
 .loop
-	anim_obj BATTLE_ANIM_OBJ_GUST, 132, 72, $0
-	anim_wait 6
-	anim_loop 9, .loop
-	anim_wait 64
+	anim_obj BATTLE_ANIM_OBJ_WHIRLPOOL, 132, 66, $30
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_WHIRLPOOL, 132, 66, $20
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_WHIRLPOOL, 136, 70, $10
+	anim_wait 4
+	anim_obj BATTLE_ANIM_OBJ_WHIRLPOOL, 128, 70, $0
+	anim_wait 4
+	anim_loop 3, .loop
+	anim_wait 48
 	anim_incbgeffect BATTLE_BG_EFFECT_WHIRLPOOL
 	anim_wait 1
 	anim_ret

@@ -31,7 +31,7 @@ AnimObjGFX:
 	anim_obj_gfx 12, AnimObjEggGFX
 	anim_obj_gfx 18, AnimObjRopeGFX
 	anim_obj_gfx 13, AnimObjPsychicGFX
-	anim_obj_gfx 10, AnimObjReflectGFX
+	anim_obj_gfx 26, AnimObjReflectGFX
 	anim_obj_gfx 27, AnimObjStatusGFX
 	anim_obj_gfx 12, AnimObjSandGFX
 	anim_obj_gfx 14, AnimObjWebGFX

@@ -59,8 +59,8 @@ BattleAnimFrameData:
 	dw .Frameset_ThunderBoltCore         ; BATTLE_ANIM_FRAMESET_THUNDERBOLT_CORE
 	dw .Frameset_ThunderShockSparks      ; BATTLE_ANIM_FRAMESET_THUNDERSHOCK_SPARKS
 	dw .Frameset_ThunderShockCore        ; BATTLE_ANIM_FRAMESET_THUNDERSHOCK_CORE
-	dw .Frameset_Clamp                   ; BATTLE_ANIM_FRAMESET_CLAMP
-	dw .Frameset_ClampFlipped            ; BATTLE_ANIM_FRAMESET_CLAMP_FLIPPED
+	dw .Frameset_Clamp1                  ; BATTLE_ANIM_FRAMESET_CLAMP_1
+	dw .Frameset_Clamp2                  ; BATTLE_ANIM_FRAMESET_CLAMP_2
 	dw .Frameset_Bite1                   ; BATTLE_ANIM_FRAMESET_BITE_1
 	dw .Frameset_Bite2                   ; BATTLE_ANIM_FRAMESET_BITE_2
 	dw .Frameset_CutDownLeft             ; BATTLE_ANIM_FRAMESET_CUT_DOWN_LEFT
@@ -197,6 +197,7 @@ BattleAnimFrameData:
 	dw .Frameset_TinyGlow                ; BATTLE_ANIM_FRAMESET_TINY_GLOW
 	dw .Frameset_GrowingBall             ; BATTLE_ANIM_FRAMESET_GROWING_BALL
 	dw .Frameset_WaterBall               ; BATTLE_ANIM_FRAMESET_WATER_BALL
+	dw .Frameset_GrowingBubble           ; BATTLE_ANIM_FRAMESET_GROWING_BUBBLE
 	assert_table_length NUM_BATTLE_ANIM_FRAMESETS
 
 .Frameset_HitBig:
@@ -487,6 +488,12 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_21,  8
 	oamrestart
 
+.Frameset_GrowingBubble
+	oamframe BATTLE_ANIM_OAMSET_20, 16
+	oamframe BATTLE_ANIM_OAMSET_21, 16
+	oamframe BATTLE_ANIM_OAMSET_1B, 16
+	oamend
+
 .Frameset_Surf:
 	oamframe BATTLE_ANIM_OAMSET_22,  8
 	oamend
@@ -621,12 +628,12 @@ BattleAnimFrameData:
 	oamwait 2
 	oamrestart
 
-.Frameset_Clamp:
+.Frameset_Clamp1:
 	oamframe BATTLE_ANIM_OAMSET_48,  8
 	oamend
 
-.Frameset_ClampFlipped:
-	oamframe BATTLE_ANIM_OAMSET_48,  8, OAM_X_FLIP
+.Frameset_Clamp2:
+	oamframe BATTLE_ANIM_OAMSET_E4,  8
 	oamend
 
 .Frameset_Bite1:

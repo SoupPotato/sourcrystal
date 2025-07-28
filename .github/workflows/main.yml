@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@master
         with:
           path: superfamiconv
-          ref: 68e3477
+          ref: v0.11.0
           repository: Optiroc/SuperFamiconv
       
       - name: Build superfamiconv

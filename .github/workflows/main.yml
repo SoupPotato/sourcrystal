@@ -33,13 +33,13 @@ jobs:
           repository: Optiroc/SuperFamiconv
       
       - name: Build superfamiconv
-        working-directory: SuperFamiconv
+        working-directory: superfamiconv
         run: |
           make
       
       - name: Move superfamiconv to tools/
         run: |
-          mv SuperFamiconv/build/release/superfamiconv tools/superfamiconv
+          mv superfamiconv/build/release/superfamiconv tools/superfamiconv
 
       - name: Remove rgbds and superfamiconv
         run: |

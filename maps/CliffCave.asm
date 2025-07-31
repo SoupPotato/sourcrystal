@@ -14,21 +14,21 @@ CliffCaveHiddenUltraBall:
 
 CliffCaveManText:
 	text "If you see a fork"
-	line "in the road"
-	cont "inside a cave,"
+	line "in the road inside"
 
-	para "most likely one"
-	line "way is right and"
-	cont "the other leads"
-	cont "to a dead end."
+	para "a cave, then most"
+	line "likely one way is"
+
+	para "correct and the"
+	line "other way leads to"
+	cont "a dead end."
 
 	para "But people can't"
 	line "help trying both."
 
-	para "Do you want to"
-	line "go up the ladder"
-	cont "or go down the"
-	cont "ladder?"
+	para "Do you want to go"
+	line "up the ladder or"
+	cont "down the ladder?"
 	done
 
 CliffCave_MapEvents:

@@ -130,19 +130,11 @@ PokemonActionSubmenu:
 	ret
 
 .Actions:
-	dbw MONMENUITEM_CUT,        MonMenu_Cut
-;	dbw MONMENUITEM_FLY,        MonMenu_Fly
-	dbw MONMENUITEM_SURF,       MonMenu_Surf
-	dbw MONMENUITEM_STRENGTH,   MonMenu_Strength
-	dbw MONMENUITEM_FLASH,      MonMenu_Flash
-	dbw MONMENUITEM_WHIRLPOOL,  MonMenu_Whirlpool
 	dbw MONMENUITEM_DIG,        MonMenu_Dig
 	dbw MONMENUITEM_TELEPORT,   MonMenu_Teleport
 	dbw MONMENUITEM_SOFTBOILED, MonMenu_Softboiled_MilkDrink
 	dbw MONMENUITEM_MILKDRINK,  MonMenu_Softboiled_MilkDrink
 	dbw MONMENUITEM_HEADBUTT,   MonMenu_Headbutt
-;	dbw MONMENUITEM_WATERFALL,  MonMenu_Waterfall
-;	dbw MONMENUITEM_ROCKSMASH,  MonMenu_RockSmash
 	dbw MONMENUITEM_SWEETSCENT, MonMenu_SweetScent
 	dbw MONMENUITEM_STATS,      OpenPartyStats
 	dbw MONMENUITEM_SWITCH,     SwitchPartyMons

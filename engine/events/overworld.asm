@@ -162,10 +162,6 @@ UseCutText:
 	text_far _UseCutText
 	text_end
 
-UsePagerCutText:
-	text_far _UsePagerCutText
-	text_end
-
 CutNothingText:
 	text_far _CutNothingText
 	text_end
@@ -210,13 +206,6 @@ Script_CutFromMenu:
 Script_Cut:
 	callasm GetPartyNickname
 	writetext UseCutText
-	refreshmap
-	callasm CutDownTreeOrGrass
-	closetext
-	end
-
-Script_PagerCut:
-	writetext UsePagerCutText
 	cry SCYTHER
 	waitbutton
 	refreshmap
@@ -295,7 +284,6 @@ FlashFunction:
 	ld de, ENGINE_ZEPHYRBADGE
 	farcall CheckBadge
 	jr c, .nozephyrbadge
-
 	push hl
 	farcall SpecialAerodactylChamber
 	pop hl
@@ -304,14 +292,6 @@ FlashFunction:
 	cp DARKNESS_PALSET
 	jr nz, .notadarkcave
 .useflash
-	ld d, FLASH
-	call CheckPartyMove
-	jr nc, .got_party_move
-	call UseFlashPager
-	ld a, JUMPTABLE_EXIT | $1
-	ret
-
-.got_party_move
 	call UseFlash
 	ld a, JUMPTABLE_EXIT | $1
 	ret
@@ -329,14 +309,11 @@ UseFlash:
 	ld hl, Script_UseFlash
 	jp QueueScript
 
-UseFlashPager:
-	ld hl, Script_UseFlashPager
-	jp QueueScript
-
 Script_UseFlash:
 	refreshmap
 	special UpdateTimePals
 	writetext UseFlashTextScript
+	cry MAREEP
 	waitbutton
 	closetext
 	playsound SFX_FLASH
@@ -348,20 +325,7 @@ UseFlashTextScript:
 	text_far _BlindingFlashText
 	text_end
 
-Script_UseFlashPager:
-	refreshmap
-	special UpdateTimePals
-	writetext UseFlashPagerTextScript
-	cry MAREEP
-	waitbutton
-	closetext
-	playsound SFX_FLASH
-	waitsfx
-	callasm BlindingFlash
-	end
-
-UseFlashPagerTextScript:
-	text_far _BlindingFlashPagerText
+.BlankText:
 	text_end
 
 SurfFunction:
@@ -438,25 +402,6 @@ SurfFromMenuScript:
 
 UsedSurfScript:
 	writetext UsedSurfText ; "used SURF!"
-	waitbutton
-	closetext
-
-	callasm .stubbed_fn
-
-	readmem wSurfingPlayerState
-	writevar VAR_MOVEMENT
-
-	special UpdatePlayerSprite
-	special PlayMapMusic
-	special SurfStartStep
-	end
-
-.stubbed_fn
-	farcall StubbedTrainerRankings_Surf
-	ret
-
-UsedSurfPagerScript:
-	writetext UsedSurfPagerText ; "used SURF!"
 	cry LAPRAS
 	waitbutton
 	closetext
@@ -477,10 +422,6 @@ UsedSurfPagerScript:
 
 UsedSurfText:
 	text_far _UsedSurfText
-	text_end
-
-UsedSurfPagerText:
-	text_far _UsedSurfPagerText
 	text_end
 
 CantSurfText:
@@ -563,30 +504,11 @@ TrySurfOW::
 	ld de, ENGINE_FOGBADGE
 	call CheckEngineFlag
 	jr c, .quit
-
-	ld d, SURF
-	call CheckPartyMove
-	jr nc, .got_party_move
 	
 	ld de, ENGINE_PAGER_SURF
 	call CheckEngineFlag
 	jr c, .quit
 
-	ld hl, wBikeFlags
-	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
-	jr nz, .quit
-
-	call GetSurfType
-	ld [wSurfingPlayerState], a
-
-	ld a, BANK(AskSurfPagerScript)
-	ld hl, AskSurfPagerScript
-	call CallScript
-
-	scf
-	ret
-
-.got_party_move
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
 	jr nz, .quit
@@ -614,20 +536,8 @@ AskSurfScript:
 	closetext
 	end
 
-AskSurfPagerScript:
-	opentext
-	writetext AskSurfPagerText
-	yesorno
-	iftrue UsedSurfPagerScript
-	closetext
-	end
-
 AskSurfText:
 	text_far _AskSurfText
-	text_end
-
-AskSurfPagerText:
-	text_far _AskSurfPagerText
 	text_end
 
 UsedFlyText:
@@ -1091,26 +1001,26 @@ StrengthFunction:
 	ld de, ENGINE_PLAINBADGE
 	call CheckBadge
 	jr c, .Failed
+	jr .UseStrength
 
-	ld d, STRENGTH
-	call CheckPartyMove
-	jr c, .UseStrengthPager
-
-
-	ld hl, Script_StrengthFromMenu
-	call QueueScript
-	ld a, JUMPTABLE_EXIT | $1
+.AlreadyUsingStrength: ; unreferenced
+	ld hl, .AlreadyUsingStrengthText
+	call MenuTextboxBackup
+	ld a, JUMPTABLE_EXIT
 	ret
 
-
-.UseStrengthPager:
-	ld hl, Script_StrengthPagerFromMenu
-	call QueueScript
-	ld a, JUMPTABLE_EXIT | $1
-	ret
+.AlreadyUsingStrengthText:
+	text_far _AlreadyUsingStrengthText
+	text_end
 
 .Failed:
 	ld a, JUMPTABLE_EXIT
+	ret
+
+.UseStrength:
+	ld hl, Script_StrengthFromMenu
+	call QueueScript
+	ld a, JUMPTABLE_EXIT | $1
 	ret
 
 SetStrengthFlag:
@@ -1133,8 +1043,7 @@ Script_StrengthFromMenu:
 Script_UsedStrength:
 	callasm SetStrengthFlag
 	writetext .UseStrengthText
-	readmem wStrengthSpecies
-	cry 0 ; plays [wStrengthSpecies] cry
+	cry MACHOKE
 	waitbutton
 	writetext .MoveBoulderText
 	closetext
@@ -1148,32 +1057,10 @@ Script_UsedStrength:
 	text_far _MoveBoulderText
 	text_end
 
-Script_StrengthPagerFromMenu:
-	refreshmap
-	special UpdateTimePals
-
-Script_UsedStrengthPager:
-	callasm SetStrengthFlag
-	writetext .UseStrengthPagerText
-	cry MACHOKE
-	waitbutton
-	writetext .MoveBoulderPagerText
-	closetext
-	end
-
-.UseStrengthPagerText:
-	text_far _UseStrengthPagerText
-	text_end
-
-.MoveBoulderPagerText:
-	text_far _MoveBoulderPagerText
-	text_end
-
 AskStrengthScript:
 	callasm TryStrengthOW
-	iffalse .AskStrengthPager
+	iffalse .AskStrength
 	ifequal $1, .DontMeetRequirements
-	ifequal $3, .AskStrength
 	sjump .AlreadyUsedStrength
 
 .DontMeetRequirements:
@@ -1190,20 +1077,8 @@ AskStrengthScript:
 	closetext
 	end
 
-.AskStrengthPager:
-	opentext
-	writetext AskStrengthPagerText
-	yesorno
-	iftrue Script_UsedStrengthPager
-	closetext
-	end
-
 AskStrengthText:
 	text_far _AskStrengthText
-	text_end
-
-AskStrengthPagerText:
-	text_far _AskStrengthPagerText
 	text_end
 
 BouldersMoveText:
@@ -1219,10 +1094,6 @@ TryStrengthOW:
 	call CheckEngineFlag
 	jr c, .nope
 
-	ld d, STRENGTH
-	call CheckPartyMove
-	jr nc, .got_party_move
-
 	ld de, ENGINE_PAGER_STRENGTH
 	call CheckEngineFlag
 	jr c, .nope
@@ -1236,10 +1107,6 @@ TryStrengthOW:
 
 .nope
 	ld a, 1
-	jr .done
-
-.got_party_move
-	ld a, 3
 	jr .done
 
 .already_using
@@ -1264,17 +1131,11 @@ WhirlpoolFunction:
 	dw .TryWhirlpool
 	dw .DoWhirlpool
 	dw .FailWhirlpool
-	dw .DoWhirlpoolPager
 
 .TryWhirlpool:
 	ld de, ENGINE_GLACIERBADGE
 	call CheckBadge
 	jr c, .noglacierbadge
-
-	ld d, WHIRLPOOL
-	call CheckPartyMove
-	jr c, .no_party_move
-
 	call TryWhirlpoolMenu
 	jr c, .failed
 	ld a, $1
@@ -1288,18 +1149,8 @@ WhirlpoolFunction:
 	ld a, JUMPTABLE_EXIT
 	ret
 
-.no_party_move
-	ld a, $3
-	ret
-
 .DoWhirlpool:
 	ld hl, Script_WhirlpoolFromMenu
-	call QueueScript
-	ld a, JUMPTABLE_EXIT | $1
-	ret
-
-.DoWhirlpoolPager:
-	ld hl, Script_WhirlpoolPagerFromMenu
 	call QueueScript
 	ld a, JUMPTABLE_EXIT | $1
 	ret
@@ -1311,10 +1162,6 @@ WhirlpoolFunction:
 
 UseWhirlpoolText:
 	text_far _UseWhirlpoolText
-	text_end
-
-UseWhirlpoolPagerText:
-	text_far _UseWhirlpoolPagerText
 	text_end
 
 TryWhirlpoolMenu:
@@ -1352,19 +1199,7 @@ Script_WhirlpoolFromMenu:
 	special UpdateTimePals
 
 Script_UsedWhirlpool:
-	callasm GetPartyNickname
 	writetext UseWhirlpoolText
-	refreshmap
-	callasm DisappearWhirlpool
-	closetext
-	end
-
-Script_WhirlpoolPagerFromMenu:
-	refreshmap
-	special UpdateTimePals
-
-Script_UsedWhirlpoolPager:
-	writetext UseWhirlpoolPagerText
 	cry REMORAID
 	waitbutton
 	refreshmap
@@ -1394,10 +1229,6 @@ TryWhirlpoolOW::
 	call CheckEngineFlag
 	jr c, .failed
 
-	ld d, WHIRLPOOL
-	call CheckPartyMove
-	jr c, .no_party_move
-
 	ld de, ENGINE_PAGER_WHIRLPOOL
 	call CheckEngineFlag
 	jr c, .failed
@@ -1417,16 +1248,6 @@ TryWhirlpoolOW::
 	scf
 	ret
 
-.no_party_move
-	call TryWhirlpoolMenu
-	jr c, .failed
-	ld a, BANK(Script_AskWhirlpoolPagerOW)
-	ld hl, Script_AskWhirlpoolPagerOW
-	call CallScript
-	scf
-	ret
-
-
 Script_MightyWhirlpool:
 	jumptext .MayPassWhirlpoolText
 
@@ -1442,20 +1263,8 @@ Script_AskWhirlpoolOW:
 	closetext
 	end
 
-Script_AskWhirlpoolPagerOW:
-	opentext
-	writetext AskWhirlpoolPagerText
-	yesorno
-	iftrue Script_UsedWhirlpoolPager
-	closetext
-	end
-
 AskWhirlpoolText:
 	text_far _AskWhirlpoolText
-	text_end
-
-AskWhirlpoolPagerText:
-	text_far _AskWhirlpoolPagerText
 	text_end
 
 HeadbuttFunction:
@@ -2036,21 +1845,12 @@ TryCutOW::
 	call CheckEngineFlag
 	jr c, .cant_cut
 
-	ld d, CUT
-	call CheckPartyMove
-	jr nc, .got_party_move
-
 	ld de, ENGINE_PAGER_CUT
 	call CheckEngineFlag
 	jr c, .cant_cut
-
-	ld a, BANK(AskCutPagerScript)
-	ld hl, AskCutPagerScript
-	jr .go
-.got_party_move
+	
 	ld a, BANK(AskCutScript)
 	ld hl, AskCutScript
-.go
 	call CallScript
 	scf
 	ret
@@ -2067,24 +1867,13 @@ AskCutScript:
 	writetext AskCutText
 	yesorno
 	iffalse .declined
-	callasm CheckCutMap
+	callasm .CheckMap
 	iftrue Script_Cut
 .declined
 	closetext
 	end
 
-AskCutPagerScript:
-	opentext
-	writetext AskCutPagerText
-	yesorno
-	iffalse .declined
-	callasm CheckCutMap
-	iftrue Script_PagerCut
-.declined
-	closetext
-	end
-
-CheckCutMap:
+.CheckMap:
 	xor a
 	ld [wScriptVar], a
 	call CheckMapForSomethingToCut
@@ -2095,10 +1884,6 @@ CheckCutMap:
 
 AskCutText:
 	text_far _AskCutText
-	text_end
-
-AskCutPagerText:
-	text_far _AskCutPagerText
 	text_end
 
 CantCutScript:

@@ -301,12 +301,6 @@ _CantUseItemText::
 	prompt
 
 _UseCutText::
-	text_ram wStringBuffer2
-	text " used"
-	line "CUT!"
-	prompt
-
-_UsePagerCutText::
 	text "<PLAYER> summoned a"
 	line "SCYTHER to use"
 	cont "CUT!"
@@ -318,23 +312,12 @@ _CutNothingText::
 	prompt
 
 _BlindingFlashText::
-	text "A blinding FLASH"
-	line "lights the area!"
-	done
-
-_BlindingFlashPagerText::
 	text "<PLAYER> summoned a"
-	line "MAREEP to use"
+	line "MAREEP to use "
 	cont "FLASH!"
 	done
 
 _UsedSurfText::
-	text_ram wStringBuffer2
-	text " used"
-	line "SURF!"
-	done
-
-_UsedSurfPagerText::
 	text "<PLAYER> summoned a"
 	line "LAPRAS to use"
 	cont "SURF!"
@@ -351,11 +334,6 @@ _AlreadySurfingText::
 	prompt
 
 _AskSurfText::
-	text "The water is calm."
-	line "Want to SURF?"
-	done
-
-_AskSurfPagerText::
 	text "The water is calm."
 	line "Want to use"
 	cont "LAPRAS SURF?"
@@ -416,37 +394,17 @@ _AlreadyUsingStrengthText::
 	prompt
 
 _UseStrengthText::
-	text_ram wStringBuffer2
-	text " used"
-	line "STRENGTH!"
-	done
-
-_MoveBoulderText::
-	text_ram wStringBuffer1
-	text " can"
-	line "move boulders."
-	prompt
-
-_AskStrengthText::
-	text "A #MON may be"
-	line "able to move this."
-
-	para "Want to use"
-	line "STRENGTH?"
-	done
-
-_UseStrengthPagerText::
 	text "<PLAYER> summoned a"
 	line "MACHOKE to use"
 	cont "STRENGTH!"
 	done
 
-_MoveBoulderPagerText::
+_MoveBoulderText::
 	text "MACHOKE can"
 	line "move boulders."
 	prompt
 
-_AskStrengthPagerText::
+_AskStrengthText::
 	text "A #MON may be"
 	line "able to move this."
 
@@ -465,12 +423,6 @@ _BouldersMayMoveText::
 	done
 
 _UseWhirlpoolText::
-	text_ram wStringBuffer2
-	text " used"
-	line "WHIRLPOOL!"
-	prompt
-
-_UseWhirlpoolPagerText::
 	text "<PLAYER> summoned a"
 	line "REMORAID to use"
 	cont "WHIRLPOOL!"
@@ -485,14 +437,6 @@ _MayPassWhirlpoolText::
 	done
 
 _AskWhirlpoolText::
-	text "A whirlpool is in"
-	line "the way."
-
-	para "Want to use"
-	line "WHIRLPOOL?"
-	done
-
-_AskWhirlpoolPagerText::
 	text "A whirlpool is in"
 	line "the way."
 
@@ -571,13 +515,6 @@ _GotOffBikeText::
 	done
 
 _AskCutText::
-	text "This tree can be"
-	line "CUT!"
-
-	para "Want to use CUT?"
-	done
-
-_AskCutPagerText::
 	text "This tree can be"
 	line "CUT!"
 

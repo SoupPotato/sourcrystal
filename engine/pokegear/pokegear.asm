@@ -662,17 +662,17 @@ FlyPagerRoutine:
 
 ; all other pager functions had to be mvoed below FlyPagerRoutine due to its code setup
 CutPagerRoutine:
-	farcall MonMenu_Cut
+	farcall MonMenu_CutPager
 	ret nz
 	jr FinishPagerRoutine
 
 SurfPagerRoutine:
-	farcall MonMenu_Surf
+	farcall MonMenu_SurfPager
 	ret z
 	jr FinishPagerRoutine
 
 StrengthPagerRoutine:
-	farcall MonMenu_Strength
+	farcall MonMenu_StrengthPager
 	ret nz
 	jr FinishPagerRoutine
 
@@ -682,12 +682,12 @@ FlashPagerRoutine:
 	jr FinishPagerRoutine
 
 WhirlpoolPagerRoutine:
-	farcall MonMenu_Whirlpool
+	farcall MonMenu_WhirlpoolPager
 	ret nz
 	jr FinishPagerRoutine
 
 RockSmashPagerRoutine:
-	farcall MonMenu_RockSmash
+	farcall MonMenu_RockSmashPager
 	ret nz
 	jr FinishPagerRoutine
 

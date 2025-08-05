@@ -114,6 +114,27 @@ FieldMoveFailed:
 	text_far _CantUseItemText
 	text_end
 
+PagerCutFunction:
+	call FieldMoveJumptableReset
+.loop
+	ld hl, .Jumptable
+	call FieldMoveJumptable
+	jr nc, .loop
+	and JUMPTABLE_INDEX_MASK
+	ld [wFieldMoveSucceeded], a
+	ret
+
+.Jumptable:
+	dw CutFunction.CheckAble
+	dw .DoCutPager
+	dw CutFunction.FailCut
+
+.DoCutPager:
+	ld hl, Script_CutFromPager
+	call QueueScript
+	ld a, JUMPTABLE_EXIT | $1
+	ret
+
 CutFunction:
 	call FieldMoveJumptableReset
 .loop
@@ -214,6 +235,10 @@ Script_Cut:
 	callasm CutDownTreeOrGrass
 	closetext
 	end
+
+Script_CutFromPager:
+	refreshmap
+	special UpdateTimePals
 
 Script_PagerCut:
 	writetext UsePagerCutText
@@ -364,6 +389,31 @@ UseFlashPagerTextScript:
 	text_far _BlindingFlashPagerText
 	text_end
 
+PagerSurfFunction:
+	call FieldMoveJumptableReset
+.loop
+	ld hl, .Jumptable
+	call FieldMoveJumptable
+	jr nc, .loop
+	and JUMPTABLE_INDEX_MASK
+	ld [wFieldMoveSucceeded], a
+	ret
+
+.Jumptable:
+	dw SurfFunction.TrySurf
+	dw .DoSurfPager
+	dw SurfFunction.FailSurf
+	dw SurfFunction.AlreadySurfing
+
+.DoSurfPager:
+	call GetSurfType
+	ld [wSurfingPlayerState], a
+	call GetPartyNickname
+	ld hl, SurfPagerFromMenuScript
+	call QueueScript
+	ld a, JUMPTABLE_EXIT | $1
+	ret
+
 SurfFunction:
 	call FieldMoveJumptableReset
 .loop
@@ -454,6 +504,9 @@ UsedSurfScript:
 .stubbed_fn
 	farcall StubbedTrainerRankings_Surf
 	ret
+
+SurfPagerFromMenuScript:
+	special UpdateTimePals
 
 UsedSurfPagerScript:
 	writetext UsedSurfPagerText ; "used SURF!"
@@ -830,12 +883,40 @@ Script_UsedWaterfall:
 	text_far _UseWaterfallText
 	text_end
 
+Script_UsedWaterfallPager:
+	writetext .UseWaterfallPagerText
+	cry LAPRAS
+	waitbutton
+	closetext
+	playsound SFX_BUBBLEBEAM
+.loop
+	applymovement PLAYER, Script_UsedWaterfall.WaterfallStep
+	callasm Script_UsedWaterfall.CheckContinueWaterfall
+	iffalse .loop
+	end
+
+.UseWaterfallPagerText:
+	text_far _UseWaterfallPagerText
+	text_end
+
 TryWaterfallOW::
 	ld de, ENGINE_RISINGBADGE
 	call CheckEngineFlag
 	jr c, .failed
 	call CheckMapCanWaterfall
 	jr c, .failed
+
+	ld d, WATERFALL
+	call CheckPartyMove
+	jr nc, .got_party_move
+
+	ld a, BANK(Script_AskWaterfallPager)
+	ld hl, Script_AskWaterfallPager
+	call CallScript
+	scf
+	ret
+
+.got_party_move
 	ld a, BANK(Script_AskWaterfall)
 	ld hl, Script_AskWaterfall
 	call CallScript
@@ -867,6 +948,14 @@ Script_AskWaterfall:
 .AskWaterfallText:
 	text_far _AskWaterfallText
 	text_end
+
+Script_AskWaterfallPager:
+	opentext
+	writetext Script_AskWaterfall.AskWaterfallText
+	yesorno
+	iftrue Script_UsedWaterfallPager
+	closetext
+	end
 
 EscapeRopeFunction:
 	call FieldMoveJumptableReset
@@ -1081,6 +1170,26 @@ TeleportFunction:
 	teleport_to
 	step_end
 
+PagerStrengthFunction:
+	call .TryStrength
+	and JUMPTABLE_INDEX_MASK
+	ld [wFieldMoveSucceeded], a
+	ret
+
+.TryStrength:
+	ld de, ENGINE_PLAINBADGE
+	call CheckBadge
+	jr c, .Failed
+
+	ld hl, Script_StrengthPagerFromMenu
+	call QueueScript
+	ld a, JUMPTABLE_EXIT | $1
+	ret
+
+.Failed:
+	ld a, JUMPTABLE_EXIT
+	ret
+
 StrengthFunction:
 	call .TryStrength
 	and JUMPTABLE_INDEX_MASK
@@ -1092,19 +1201,7 @@ StrengthFunction:
 	call CheckBadge
 	jr c, .Failed
 
-	ld d, STRENGTH
-	call CheckPartyMove
-	jr c, .UseStrengthPager
-
-
 	ld hl, Script_StrengthFromMenu
-	call QueueScript
-	ld a, JUMPTABLE_EXIT | $1
-	ret
-
-
-.UseStrengthPager:
-	ld hl, Script_StrengthPagerFromMenu
 	call QueueScript
 	ld a, JUMPTABLE_EXIT | $1
 	ret
@@ -1250,6 +1347,27 @@ TryStrengthOW:
 	ld [wScriptVar], a
 	ret
 
+PagerWhirlpoolFunction:
+	call FieldMoveJumptableReset
+.loop
+	ld hl, .Jumptable
+	call FieldMoveJumptable
+	jr nc, .loop
+	and JUMPTABLE_INDEX_MASK
+	ld [wFieldMoveSucceeded], a
+	ret
+
+.Jumptable:
+	dw WhirlpoolFunction.TryWhirlpool
+	dw .DoWhirlpoolPager
+	dw WhirlpoolFunction.FailWhirlpool
+
+.DoWhirlpoolPager:
+	ld hl, Script_WhirlpoolPagerFromMenu
+	call QueueScript
+	ld a, JUMPTABLE_EXIT | $1
+	ret
+
 WhirlpoolFunction:
 	call FieldMoveJumptableReset
 .loop
@@ -1264,16 +1382,11 @@ WhirlpoolFunction:
 	dw .TryWhirlpool
 	dw .DoWhirlpool
 	dw .FailWhirlpool
-	dw .DoWhirlpoolPager
 
 .TryWhirlpool:
 	ld de, ENGINE_GLACIERBADGE
 	call CheckBadge
 	jr c, .noglacierbadge
-
-	ld d, WHIRLPOOL
-	call CheckPartyMove
-	jr c, .no_party_move
 
 	call TryWhirlpoolMenu
 	jr c, .failed
@@ -1288,18 +1401,8 @@ WhirlpoolFunction:
 	ld a, JUMPTABLE_EXIT
 	ret
 
-.no_party_move
-	ld a, $3
-	ret
-
 .DoWhirlpool:
 	ld hl, Script_WhirlpoolFromMenu
-	call QueueScript
-	ld a, JUMPTABLE_EXIT | $1
-	ret
-
-.DoWhirlpoolPager:
-	ld hl, Script_WhirlpoolPagerFromMenu
 	call QueueScript
 	ld a, JUMPTABLE_EXIT | $1
 	ret
@@ -1546,11 +1649,30 @@ AskHeadbuttScript:
 AskHeadbuttText:
 	text_far _AskHeadbuttText
 	text_end
+	
 
 RockSmashFunction:
 	call TryRockSmashFromMenu
 	and JUMPTABLE_INDEX_MASK
 	ld [wFieldMoveSucceeded], a
+	ret
+
+PagerRockSmashFunction:
+	call TryRockSmashFromPager
+	and JUMPTABLE_INDEX_MASK
+	ld [wFieldMoveSucceeded], a
+	ret
+
+TryRockSmashFromPager:
+	call GetFacingObject
+	jr c, TryRockSmashFromMenu.no_rock
+	ld a, d
+	cp SPRITEMOVEDATA_SMASHABLE_ROCK
+	jr nz, TryRockSmashFromMenu.no_rock
+
+	ld hl, RockSmashFromPagerScript
+	call QueueScript
+	ld a, JUMPTABLE_EXIT | $1
 	ret
 
 TryRockSmashFromMenu:
@@ -1599,6 +1721,36 @@ RockSmashFromMenuScript:
 RockSmashScript:
 	callasm GetPartyNickname
 	writetext UseRockSmashText
+	closetext
+	special WaitSFX
+	playsound SFX_STRENGTH
+	earthquake 84
+	applymovementlasttalked MovementData_RockSmash
+	disappear LAST_TALKED
+
+	callasm RockMonEncounter
+	readmem wTempWildMonSpecies
+	iffalse .no_battle
+	randomwildmon
+	startbattle
+	reloadmapafterbattle
+
+.no_battle
+	callasm RockItemEncounter
+	iffalse .no_item
+	opentext
+	verbosegiveitem ITEM_FROM_MEM
+	closetext
+.no_item
+	end
+
+RockSmashFromPagerScript:
+	refreshmap
+	special UpdateTimePals
+
+RockSmashPagerScript:
+	callasm GetPartyNickname
+	writetext UseRockSmashPagerText
 	cry CUBONE
 	waitbutton
 	closetext
@@ -1632,10 +1784,15 @@ UseRockSmashText:
 	text_far _UseRockSmashText
 	text_end
 
+UseRockSmashPagerText:
+	text_far _UseRockSmashPagerText
+	text_end
+
 AskRockSmashScript:
 	callasm TryRockSmashOW
-	iffalse .AskRockSmash
 	ifequal $1, .no
+	ifequal $2, .AskRockSmash
+	ifequal $3, .AskRockSmashPager
 
 .AskRockSmash:
 	opentext
@@ -1647,11 +1804,27 @@ AskRockSmashScript:
 .no
 	jumptext MaySmashText
 
+.AskRockSmashPager:
+	opentext
+	writetext AskRockSmashPagerText
+	yesorno
+	iftrue RockSmashPagerScript
+	closetext
+	end
+
 TryRockSmashOW:
+	ld d, ROCK_SMASH
+	call CheckPartyMove
+	jr nc, .got_party_move
+
 	ld de, ENGINE_PAGER_ROCK_SMASH
 	call CheckEngineFlag
 	jr c, .nope
 
+	ld a, 3
+	jr .done
+
+.got_party_move
 	ld a, 2
 	jr .done
 
@@ -1668,6 +1841,10 @@ MaySmashText:
 
 AskRockSmashText:
 	text_far _AskRockSmashText
+	text_end
+
+AskRockSmashPagerText:
+	text_far _AskRockSmashPagerText
 	text_end
 
 HasRockSmash: ; always return true

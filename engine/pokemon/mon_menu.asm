@@ -141,8 +141,8 @@ PokemonActionSubmenu:
 	dbw MONMENUITEM_SOFTBOILED, MonMenu_Softboiled_MilkDrink
 	dbw MONMENUITEM_MILKDRINK,  MonMenu_Softboiled_MilkDrink
 	dbw MONMENUITEM_HEADBUTT,   MonMenu_Headbutt
-;	dbw MONMENUITEM_WATERFALL,  MonMenu_Waterfall
-;	dbw MONMENUITEM_ROCKSMASH,  MonMenu_RockSmash
+	dbw MONMENUITEM_WATERFALL,  MonMenu_Waterfall
+	dbw MONMENUITEM_ROCKSMASH,  MonMenu_RockSmash
 	dbw MONMENUITEM_SWEETSCENT, MonMenu_SweetScent
 	dbw MONMENUITEM_STATS,      OpenPartyStats
 	dbw MONMENUITEM_SWITCH,     SwitchPartyMons
@@ -668,16 +668,11 @@ _OpenPartyStats:
 
 MonMenu_Cut:
 	farcall CutFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
+	jp MonMenu_FieldMoveSuccess
 
-.Fail:
-	ld a, $3
-	ret
+MonMenu_CutPager:
+	farcall PagerCutFunction
+	jp MonMenu_FieldMoveSuccess
 
 MonMenu_Fly:
 	farcall FlyFunction
@@ -705,94 +700,43 @@ MonMenu_Fly:
 
 MonMenu_Flash:
 	farcall FlashFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
+	jp MonMenu_FieldMoveSuccess
 
 MonMenu_Strength:
 	farcall StrengthFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
+	jp MonMenu_FieldMoveSuccess
 
-.Fail:
-	ld a, $3
-	ret
+MonMenu_StrengthPager:
+	farcall PagerStrengthFunction
+	jp MonMenu_FieldMoveSuccess
 
 MonMenu_Whirlpool:
 	farcall WhirlpoolFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
+	jp MonMenu_FieldMoveSuccess
 
-.Fail:
-	ld a, $3
-	ret
+MonMenu_WhirlpoolPager:
+	farcall PagerWhirlpoolFunction
+	jp MonMenu_FieldMoveSuccess
 
 MonMenu_Waterfall:
 	farcall WaterfallFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
+	jp MonMenu_FieldMoveSuccess
 
 MonMenu_Teleport:
 	farcall TeleportFunction
-	ld a, [wFieldMoveSucceeded]
-	and a
-	jr z, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
+	jp MonMenu_FieldMoveSuccess_TeleportSurf
 
 MonMenu_Surf:
 	farcall SurfFunction
-	ld a, [wFieldMoveSucceeded]
-	and a
-	jr z, .Fail
-	ld b, $4
-	ld a, $2
-	ret
+	jp MonMenu_FieldMoveSuccess_TeleportSurf
 
-.Fail:
-	ld a, $3
-	ret
+MonMenu_SurfPager:
+	farcall PagerSurfFunction
+	jp MonMenu_FieldMoveSuccess_TeleportSurf
 
 MonMenu_Dig:
 	farcall DigFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
+	jr MonMenu_FieldMoveSuccess
 
 MonMenu_Softboiled_MilkDrink:
 	call .CheckMonHasEnoughHP
@@ -837,34 +781,44 @@ MonMenu_Softboiled_MilkDrink:
 
 MonMenu_Headbutt:
 	farcall HeadbuttFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
+	jr MonMenu_FieldMoveSuccess
 
 MonMenu_RockSmash:
 	farcall RockSmashFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
+	jr MonMenu_FieldMoveSuccess
 
-.Fail:
-	ld a, $3
-	ret
+MonMenu_RockSmashPager:
+	farcall PagerRockSmashFunction
+	jr MonMenu_FieldMoveSuccess
 
 MonMenu_SweetScent:
 	farcall SweetScentFromMenu
 	ld b, $4
 	ld a, $2
+	ret
+
+MonMenu_FieldMoveSuccess:
+	ld a, [wFieldMoveSucceeded]
+	cp $1
+	jr nz, .Fail
+	ld b, $4
+	ld a, $2
+	ret
+
+.Fail:
+	ld a, $3
+	ret
+
+MonMenu_FieldMoveSuccess_TeleportSurf:
+	ld a, [wFieldMoveSucceeded]
+	and a
+	jr z, .Fail
+	ld b, $4
+	ld a, $2
+	ret
+
+.Fail:
+	ld a, $3
 	ret
 
 ChooseMoveToDelete:

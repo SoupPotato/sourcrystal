@@ -368,8 +368,15 @@ _UsedFlyText::
 	done
 
 _UseWaterfallText::
-	text "LAPRAS used"
+	text_ram wStringBuffer2
+	text " used"
 	line "WATERFALL!"
+	done
+
+_UseWaterfallPagerText::
+	text "<PLAYER> summoned a"
+	line "LAPRAS to use"
+	cont "WATERFALL!"
 	done
 
 _HugeWaterfallText::
@@ -519,6 +526,13 @@ _AskHeadbuttText::
 	done
 
 _UseRockSmashText::
+	text_ram wStringBuffer2
+	text " used"
+	line "ROCK SMASH!"
+	prompt
+
+
+_UseRockSmashPagerText::
 	text "<PLAYER> summoned a"
 	line "CUBONE to use"
 	cont "ROCK SMASH!"
@@ -530,6 +544,14 @@ _MaySmashText::
 	done
 
 _AskRockSmashText::
+	text "This rock looks"
+	line "breakable."
+
+	para "Want to use ROCK"
+	line "SMASH?"
+	done
+
+_AskRockSmashPagerText::
 	text "This rock looks"
 	line "breakable."
 

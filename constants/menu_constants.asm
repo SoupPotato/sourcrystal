@@ -57,7 +57,7 @@
 	const_def 1
 	; moves
 	const MONMENUITEM_CUT        ; 1
-;	const MONMENUITEM_FLY        ; 2
+	const MONMENUITEM_FLY        ; 2
 	const MONMENUITEM_SURF       ; 3
 	const MONMENUITEM_STRENGTH   ; 4
 	const MONMENUITEM_WATERFALL  ; 5

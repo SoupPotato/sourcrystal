@@ -683,11 +683,79 @@ AskSurfPagerText:
 	text_far _AskSurfPagerText
 	text_end
 
-UsedFlyText:
-	text_jump _UsedFlyText
+UsedFlyPagerText:
+	text_jump _UsedFlyPagerText
 	db "@"
 
 FlyFunction:
+	call FieldMoveJumptableReset
+.loop
+	ld hl, .Jumptable
+	call FieldMoveJumptable
+	jr nc, .loop
+	and JUMPTABLE_INDEX_MASK
+	ld [wFieldMoveSucceeded], a
+	ret
+
+.Jumptable:
+	dw .TryFly
+	dw .DoFly
+	dw FlyPagerFunction.FailFly
+
+.TryFly:
+	ld de, ENGINE_STORMBADGE
+	call CheckBadge
+	jp c, FlyPagerFunction.nostormbadge
+	call GetMapEnvironment
+	call CheckOutdoorMap
+	jp z, .outdoors
+	jp FlyPagerFunction.indoors
+
+.outdoors
+	xor a
+	ldh [hMapAnims], a
+	call LoadStandardMenuHeader
+	call ClearSprites
+	farcall _FlyMap
+	ld a, e
+	cp -1
+	jp z, FlyPagerFunction.illegal
+	cp NUM_SPAWNS
+	jp nc, FlyPagerFunction.illegal
+
+	ld [wDefaultSpawnpoint], a
+	call CloseWindow
+	ld a, $1
+	ret
+
+.DoFly:
+	ld hl, .FlyScript
+	call QueueScript
+	ld a, JUMPTABLE_EXIT | $1
+	ret
+
+.FlyScript:
+	refreshmap
+	callasm FlyPagerFunction.StopPalFading
+	callasm ClearSavedObjPals
+	callasm CopyBGGreenToOBPal7
+	callasm LoadWeatherPal
+	special UpdateTimePals
+	callasm FlyPagerFunction.SetWeatherFlyFlag
+	callasm FlyFromAnim
+	farscall Script_AbortBugContest
+	special WarpToSpawnPoint
+	callasm SkipUpdateMapSprites
+	loadvar VAR_MOVEMENT, PLAYER_NORMAL
+	newloadmap MAPSETUP_FLY
+	callasm CopyBGGreenToOBPal7
+	callasm FlyToAnim
+	callasm FlyPagerFunction.ClearWeatherFlyFlag
+	special WaitSFX
+	callasm FlyPagerFunction.ReturnFromFly
+	end
+
+FlyPagerFunction:
 	call FieldMoveJumptableReset
 .loop
 	ld hl, .Jumptable
@@ -743,7 +811,7 @@ FlyFunction:
 	ret
 
 .DoFly:
-	ld hl, .FlyScript
+	ld hl, .FlyPagerScript
 	call QueueScript
 	ld a, JUMPTABLE_EXIT | $1
 	ret
@@ -753,9 +821,9 @@ FlyFunction:
 	ld a, JUMPTABLE_EXIT | $2
 	ret
 
-.FlyScript:
+.FlyPagerScript:
 	refreshmap
-	writetext UsedFlyText ; "used FLY!"
+	writetext UsedFlyPagerText ; "used FLY!"
 	cry PIDGEOT
 	waitbutton
 	closetext

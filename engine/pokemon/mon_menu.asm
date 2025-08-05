@@ -131,7 +131,7 @@ PokemonActionSubmenu:
 
 .Actions:
 	dbw MONMENUITEM_CUT,        MonMenu_Cut
-;	dbw MONMENUITEM_FLY,        MonMenu_Fly
+	dbw MONMENUITEM_FLY,        MonMenu_Fly
 	dbw MONMENUITEM_SURF,       MonMenu_Surf
 	dbw MONMENUITEM_STRENGTH,   MonMenu_Strength
 	dbw MONMENUITEM_FLASH,      MonMenu_Flash
@@ -674,8 +674,12 @@ MonMenu_CutPager:
 	farcall PagerCutFunction
 	jp MonMenu_FieldMoveSuccess
 
+MonMenu_FlyPager:
+	farcall FlyPagerFunction
+	jp MonMenu_Fly.continue
 MonMenu_Fly:
 	farcall FlyFunction
+.continue
 	ld a, [wFieldMoveSucceeded]
 	cp $2
 	jr z, .Fail
@@ -692,10 +696,6 @@ MonMenu_Fly:
 
 .Error:
 	ld a, $0
-	ret
-
-.NoReload: ; unreferenced
-	ld a, $1
 	ret
 
 MonMenu_Flash:

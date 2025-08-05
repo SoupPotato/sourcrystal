@@ -634,7 +634,7 @@ FlyPagerRoutine:
 	ld [hWY], a
 
 .FlyStartUp
-	farcall MonMenu_Fly   ;Regardless this code must trigger if the player is outside or not.
+	farcall MonMenu_FlyPager   ;Regardless this code must trigger if the player is outside or not.
 	jr nz, FinishPagerRoutine
 	call GetMapEnvironment
 	call CheckOutdoorMap

@@ -361,7 +361,7 @@ _AskSurfPagerText::
 	cont "LAPRAS SURF?"
 	done
 
-_UsedFlyText::
+_UsedFlyPagerText::
 	text "<PLAYER> summoned a"
 	line "PIDGEOT to use"
 	cont "FLY!"

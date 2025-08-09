@@ -591,17 +591,11 @@ endr
 
 FlyFunction_InitGFX:
 	callfar ClearSpriteAnims
-	call SetOWFlyMonColor
 	ld de, CutGrassGFX
 	ld hl, vTiles0 tile FIELDMOVE_GRASS
 	lb bc, BANK(CutGrassGFX), 4
 	call Request2bpp
-	ld a, [wCurPartyMon]
-	ld hl, wPartySpecies
-	ld e, a
-	ld d, 0
-	add hl, de
-	ld a, [hl]
+	ld a, [wCurPartySpecies]
 	ld [wTempIconSpecies], a
 	ld a, MON_DVS
 	call GetPartyParamLocation
@@ -613,6 +607,7 @@ FlyFunction_InitGFX:
 	ld [de], a
 	ld e, FIELDMOVE_FLY
 	farcall FlyFunction_GetMonIcon
+	farcall SetOWFlyMonColor
 	xor a
 	ld [wJumptableIndex], a
 	ret

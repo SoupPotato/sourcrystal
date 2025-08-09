@@ -3457,7 +3457,7 @@ TownMapMon:
 ; Draw the FlyMon icon at town map location
 
 ; Get FlyMon species
-	ld a, PIDGEOT
+	ld a, [wCurPartySpecies]
 	ld [wTempIconSpecies], a
 ; Get FlyMon icon
 	ld e, $08 ; starting tile in VRAM

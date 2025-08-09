@@ -459,6 +459,7 @@ Trade_LoadMonIconGFX:
 	call GetMemIconGFX
 	ret
 
+FlyFunction_GetMonIcon:
 GetSpeciesIcon:
 ; Load species icon into VRAM at tile a
 	push de
@@ -486,21 +487,12 @@ GetSwarmIcon:
 	call GetIcon_a
 	ret
 
-FlyFunction_GetMonIcon: ; hardcoded to pidgeot
-	push de
-	ld a, ICON_PIDGEOT
-	ld [wCurIcon], a
-	pop de
-	ld a, e
-	call GetIcon_a
-	ret
-
 SetOWFlyMonColor:
 	push hl
 	push de
 	push bc
 	push af
-	ld a, PAL_OW_RED
+	call GetMenuMonIconPalette
 	ld [wNeededPalIndex], a
 	ld b, a
 	push bc

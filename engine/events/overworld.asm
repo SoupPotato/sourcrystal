@@ -784,6 +784,8 @@ FlyPagerFunction:
 	ldh [hMapAnims], a
 	call LoadStandardMenuHeader
 	call ClearSprites
+	ld a, PIDGEOT
+	ld [wCurPartySpecies], a
 	farcall _FlyMap
 	ld a, e
 	cp -1

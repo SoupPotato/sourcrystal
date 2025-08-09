@@ -233,11 +233,11 @@ ENDM
 	connection north, Route48, ROUTE_48, 0
 
 	map_attributes Route48, ROUTE_48, $35, NORTH | SOUTH
-	connection north, SafariZoneGate, SAFARI_ZONE_GATE, -1
+	connection north, SafariZoneGate, SAFARI_ZONE_GATE, 0
 	connection south, Route47, ROUTE_47, 0
 
 	map_attributes SafariZoneGate, SAFARI_ZONE_GATE, $05, SOUTH
-	connection south, Route48, ROUTE_48, 1
+	connection south, Route48, ROUTE_48, 0
 
 	map_attributes PewterCity, PEWTER_CITY, $0f, SOUTH | EAST
 	connection south, Route2North, ROUTE_2_NORTH, 4

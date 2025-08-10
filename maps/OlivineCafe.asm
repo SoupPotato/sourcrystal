@@ -20,7 +20,7 @@ OlivineCafeStrengthSailorScript:
 	setflag ENGINE_PAGER_STRENGTH
 	writetext GotStrengthPagerText
 	promptbutton
-	writetext UnknownText_STR
+	writetext OlivineCafeStrengthSailorTeachStrengthText
 	promptbutton
 	verbosegiveitem HM_STRENGTH
 	setevent EVENT_GOT_HM04_STRENGTH
@@ -35,7 +35,7 @@ OlivineCafeStrengthSailorScript:
 	end
 
 .pagercardname
-	db "STRNGTHPAGER@"
+	db "STRENGTH PAGER@"
 
 GotStrengthPagerText:
 	text "MACHOKE PUSH was"
@@ -57,16 +57,22 @@ OlivineCafeStrengthSailorText:
 	line "the power to move"
 	cont "boulders aside."
 
-	para "Here, use this"
-	line "and gain some"
-	cont "muscle!"
+	para "Here, use this and"
+	line "gain some muscle!"
 	done
 
-UnknownText_STR:
-	text "You can use this"
-	line "to teach your"
-	cont "#MON STRENGTH"
-	cont "too!"
+OlivineCafeStrengthSailorTeachStrengthText:
+	text "That's a STRENGTH"
+	line "PAGER."
+
+	para "With that you can"
+	line "move boulders!"
+
+	para "You can also use"
+	line "this to teach"
+
+	para "your #MON"
+	line "STRENGTH too!"
 	done
 
 OlivineCafeStrengthSailorText_GotStrength:

@@ -993,14 +993,9 @@ Text_CharcoalMasterMid:
 
 	para "It lets you"
 	line "summon a #MON"
-	cont "to cut small "
-	cont "trees."
 
-	para "Of course, you"
-	line "have to have the"
-
-	para "GYM BADGE from"
-	line "AZALEA to use it."
+	para "to use CUT out of"
+	line "battle."
 
 	para "Oh here take this"
 	line "too!"
@@ -1012,6 +1007,15 @@ Text_CharcoalMasterOutro:
 
 	para "#MON to use"
 	line "CUT in battle."
+
+	para "Of course, you"
+	line "have to have the"
+
+	para "GYM BADGE from"
+	line "AZALEA to use it,"
+
+	para "or the PAGER to"
+	line "cut small trees."
 	done
 
 Text_CharcoalMasterTalkAfter:

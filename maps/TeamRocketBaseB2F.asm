@@ -343,7 +343,7 @@ RocketBaseElectrodeScript:
 	end
 
 .pagercardname
-	db "WRLPOOLPAGER@"
+	db "WHIRLPOOL PAGER@"
 
 GotWhirlpoolPagerText:
 	text "REMORAID WHIRL was"
@@ -775,13 +775,14 @@ RocketBaseLanceTeachesWhirlpoolText:
 
 	para "It's a move that"
 	line "traps the foe"
+
 	para "in a raging"
 	line "WHIRLPOOL."
 	done
 
 RocketBaseLanceWhirlpoolPagerText:
-	text "That's a"
-	line "WRLPOOLPAGER."
+	text "That's a WHIRLPOOL"
+	line "PAGER."
 
 	para "It summons a"
 	line "#MON to get"

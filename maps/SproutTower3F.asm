@@ -265,13 +265,12 @@ SageLiTakeThisFlashText:
 	para "A PAGER lets you"
 	line "summon a #MON"
 
-	para "that will use a "
+	para "that will use a"
 	line "certain move out"
 	cont "of battle."
 
-	para "But to use it, you"
-	line "need the BADGE"
-	cont "from VIOLET's GYM."
+	para "In this case, it"
+	line "would use FLASH."
 
 	para "Please take this"
 	line "FLASH HM too."
@@ -281,6 +280,15 @@ SageLiFlashExplanationText:
 	text "FLASH illuminates"
 	line "even the darkest"
 	cont "of all places."
+
+	para "But to use it out"
+	line "of battle, or to"
+
+	para "even used the"
+	line "PAGER, you will"
+
+	para "need the BADGE"
+	line "from VIOLET's GYM."
 	done
 
 SageLiAfterBattleText:

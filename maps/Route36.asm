@@ -178,7 +178,7 @@ Route36RockSmashGuyScript:
 	end
 
 .pagercardname
-	db "RCKSMSHPAGER@"
+	db "ROCK SMASH PAGER@"
 
 GotRockSmashPagerText:
 	text "CUBONE SMASH was"
@@ -573,32 +573,24 @@ RockSmashGuyText2:
 	cont "have this."
 	done
 
-UnknownText_0x19451a:
-	text "<PLAYER> received"
-	line "TM08."
-	done
-
 RockSmashGuyText3:
 	text "That happens to be"
 	line "ROCK SMASH."
-
-	para "It lowers the"
-	line "target's DEFENSE"
-	cont "with each hit."
 
 	para "You can have this"
 	line "too!"
 	done
 
 RockSmashGuyText4:
-	text "That's a"
-	line "RCKSMSHPAGER."
+	text "That's a PAGER for"
+	line "using ROCK SMASH."
 
-	para "With that you can"
-	line "shatter rocks with"
+	para "With ROCK SMASH"
+	line "you can shatter"
 
-	para "just a single"
-	line "well-aimed smack."
+	para "rocks with just a"
+	line "single well-aimed"
+	cont "smack."
 
 	para "If any rocks are"
 	line "in your way, just"

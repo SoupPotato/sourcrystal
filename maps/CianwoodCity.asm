@@ -235,7 +235,7 @@ ChucksWifeGiveHMText:
 	done
 
 ChucksWifeFlyPagerSpeechText:
-	text "With the"
+	text "When using the"
 	line "FLY PAGER,"
 
 	para "You will be able"
@@ -253,8 +253,11 @@ ChucksWifeFlySpeechText:
 	line "teach FLY to your"
 	cont "#MON."
 
-	para "It is a graceful"
-	line "yet powerful move."
+	para "Either way, you"
+	line "should be able to"
+
+	para "travel much easier"
+	line "by flying!"
 	done
 
 ChucksWifeChubbyText:

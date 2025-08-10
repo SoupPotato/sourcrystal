@@ -300,7 +300,7 @@ SurfGuyPagerExplanationText:
 	text "That's a "
 	line "SURF PAGER."
 
-	para "It summons a"
+	para "It will summon a"
 	line "#MON to ferry"
 	cont "you across water."
 
@@ -312,8 +312,12 @@ SurfGuySurfExplanationText:
 	text "That's SURF."
 
 	para "It's a move that"
-	line "sends a giant wave"
-	cont "crashing down."
+	line "creates a giant"
+	cont "wave to attack."
+	
+	para "It will also let"
+	line "your #MON swim"
+	cont "across water."
 	done
 
 SurfGuyElegantKimonoGirlsText:

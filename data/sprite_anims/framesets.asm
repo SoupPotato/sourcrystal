@@ -551,6 +551,6 @@ SpriteAnimFrameData:
 .Frameset_FlyMon:
 	oamframe SPRITE_ANIM_OAMSET_FLY_MON_1,  8
 	oamframe SPRITE_ANIM_OAMSET_FLY_MON_2,  8
-	oamframe SPRITE_ANIM_OAMSET_FLY_MON_1,  8
-	oamframe SPRITE_ANIM_OAMSET_FLY_MON_3,  8, OAM_X_FLIP
+	;oamframe SPRITE_ANIM_OAMSET_FLY_MON_1,  8
+	;oamframe SPRITE_ANIM_OAMSET_FLY_MON_3,  8, OAM_X_FLIP
 	oamrestart

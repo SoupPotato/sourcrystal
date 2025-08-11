@@ -460,6 +460,14 @@ Trade_LoadMonIconGFX:
 	ret
 
 FlyFunction_GetMonIcon:
+	push de
+	ld a, [wTempIconSpecies]
+	ld [wCurIcon], a
+	pop de
+	ld a, e
+	call GetIcon_a
+	ret
+
 GetSpeciesIcon:
 ; Load species icon into VRAM at tile a
 	push de

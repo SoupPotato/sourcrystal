@@ -1798,56 +1798,56 @@ JohtoGrassWildMonsChallenge:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 27, DITTO
-	db 22, MILTANK
-	db 22, FARFETCH_D
-	db 23, RATICATE
-	db 22, FEAROW
-	db 23, SPEAROW
+	db 26, MILTANK
+	db 25, FARFETCH_D
+	db 26, RATICATE
+	db 23, FEAROW
+	db 24, SPEAROW
 	db 26, GLOOM
 	; day
 	db 27, DITTO
-	db 22, MILTANK
-	db 22, FARFETCH_D
-	db 23, FEAROW
-	db 22, RATICATE
-	db 23, SPEAROW
+	db 26, MILTANK
+	db 25, FARFETCH_D
+	db 25, FEAROW
+	db 26, RATICATE
+	db 24, SPEAROW
 	db 26, GLOOM
 	; nite
-	db 28, DITTO
-	db 23, MILTANK
-	db 23, FARFETCH_D
-	db 24, RATICATE
-	db 23, SPEAROW
-	db 24, NOCTOWL
-	db 28, GLOOM
+	db 27, DITTO
+	db 26, MILTANK
+	db 25, NOCTOWL
+	db 26, RATICATE
+	db 23, FEAROW
+	db 24, SPEAROW
+	db 26, GLOOM
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_48
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 27, TAUROS
-	db 27, GLOOM
+	db 26, TAUROS
+	db 26, GLOOM
 	db 24, FEAROW
-	db 26, HOPPIP
-	db 24, FARFETCH_D
 	db 23, DIGLETT
-	db 23, GIRAFARIG
+	db 27, FARFETCH_D
+	db 23, HOPPIP
+	db 25, GIRAFARIG
 	; day
-	db 27, TAUROS
-	db 27, GLOOM
+	db 26, TAUROS
+	db 26, GLOOM
 	db 24, FEAROW
-	db 26, HOPPIP
-	db 24, FARFETCH_D
 	db 23, DIGLETT
-	db 23, GIRAFARIG
+	db 27, FARFETCH_D
+	db 23, HOPPIP
+	db 25, GIRAFARIG
 	; nite
-	db 27, TAUROS
-	db 27, GLOOM
+	db 26, TAUROS
+	db 26, GLOOM
 	db 24, FEAROW
-	db 23, HOUNDOUR
-	db 24, NOCTOWL
 	db 23, DIGLETT
-	db 23, GIRAFARIG
+	db 27, HOUNDOUR
+	db 23, NOCTOWL
+	db 25, GIRAFARIG
 	end_grass_wildmons
 
 	def_grass_wildmons SILVER_CAVE_OUTSIDE

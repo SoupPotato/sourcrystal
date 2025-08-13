@@ -1815,10 +1815,10 @@ JohtoGrassWildMons:
 	; nite
 	db 25, DITTO
 	db 25, MILTANK
-	db 24, FARFETCH_D
+	db 24, NOCTOWL
 	db 21, RATICATE
 	db 20, SPEAROW
-	db 24, NOCTOWL
+	db 24, FEAROW
 	db 22, GLOOM
 	end_grass_wildmons
 
@@ -1828,25 +1828,25 @@ JohtoGrassWildMons:
 	db 24, TAUROS
 	db 24, GLOOM
 	db 21, FEAROW
-	db 22, HOPPIP
-	db 21, FARFETCH_D
 	db 20, DIGLETT
+	db 21, FARFETCH_D
+	db 22, HOPPIP
 	db 20, GIRAFARIG
 	; day
 	db 24, TAUROS
 	db 24, GLOOM
 	db 21, FEAROW
-	db 22, HOPPIP
-	db 21, FARFETCH_D
 	db 20, DIGLETT
+	db 21, FARFETCH_D
+	db 22, HOPPIP
 	db 20, GIRAFARIG
 	; nite
 	db 24, TAUROS
 	db 24, GLOOM
 	db 21, FEAROW
-	db 22, HOUNDOUR
-	db 21, NOCTOWL
-	db 20, DIGLETT
+	db 22, DIGLETT
+	db 21, HOUNDOUR
+	db 22, NOCTOWL
 	db 20, GIRAFARIG
 	end_grass_wildmons
 

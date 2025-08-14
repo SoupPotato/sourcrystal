@@ -9,7 +9,7 @@ Route16_MapScripts:
 
 Route16AlwaysOnBikeCallback:
 	readvar VAR_YCOORD
-	ifless 10, .CanWalk
+	ifless 12, .CanWalk
 	readvar VAR_XCOORD
 	ifgreater 17, .CanWalk
 	setflag ENGINE_ALWAYS_ON_BIKE
@@ -48,4 +48,4 @@ Route16_MapEvents:
 	bg_event 13, 11, BGEVENT_READ, CyclingRoadSign
 
 	def_object_events
-	object_event 31,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route16OpalShard, EVENT_ROUTE_16_OPAL_SHARD
+	object_event 33,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route16OpalShard, EVENT_ROUTE_16_OPAL_SHARD

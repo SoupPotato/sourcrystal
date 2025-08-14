@@ -194,9 +194,9 @@ ENDM
 	map_const SEAFOAM_ISLANDS_B2F,                         20, 13 ;  7
 	map_const SEAFOAM_ISLANDS_B3F,                         21, 13 ;  8
 	map_const SEAFOAM_ISLANDS_B4F,                         21, 13 ;  9
-	map_const ROUTE_19,                                    10, 25 ; 10
-	map_const ROUTE_20,                                    42,  9 ; 11
-	map_const ROUTE_21,                                    10, 30 ; 12
+	map_const ROUTE_19,                                    10, 27 ; 10
+	map_const ROUTE_20,                                    48,  9 ; 11
+	map_const ROUTE_21,                                    10, 43 ; 12
 	map_const CINNABAR_ISLAND,                             12, 11 ; 13
 	map_const POKEMON_MANSION_1F,                          15, 14 ; 14
 	map_const POKEMON_MANSION_B1F,                         15, 14 ; 15
@@ -216,9 +216,9 @@ ENDM
 	map_const BILLS_HOUSE,                                  4,  4 ; 11
 	map_const ROUTE_4,                                     44,  9 ; 12
 	map_const ROUTE_9,                                     30,  9 ; 13
-	map_const ROUTE_10_NORTH,                              10, 16 ; 14
+	map_const ROUTE_10_NORTH,                              10, 15 ; 14
 	map_const ROUTE_24,                                    11,  9 ; 15
-	map_const ROUTE_25,                                    38,  9 ; 16
+	map_const ROUTE_25,                                    40,  9 ; 16
 	map_const CERULEAN_CITY,                               20, 18 ; 17
 	endgroup
 
@@ -315,7 +315,7 @@ ENDM
 	endgroup
 
 	newgroup PEWTER                                               ; 14
-	map_const ROUTE_3,                                     34,  9 ;  1
+	map_const ROUTE_3,                                     36,  9 ;  1
 	map_const PEWTER_CITY,                                 20, 18 ;  2
 	map_const PEWTER_NIDORAN_SPEECH_HOUSE,                  4,  4 ;  3
 	map_const PEWTER_GYM,                                   5,  7 ;  4
@@ -375,7 +375,7 @@ ENDM
 
 	newgroup LAVENDER                                             ; 18
 	map_const ROUTE_8,                                     28, 10 ;  1
-	map_const ROUTE_12,                                    12, 53 ;  2
+	map_const ROUTE_12,                                    12, 54 ;  2
 	map_const ROUTE_10_SOUTH,                              10, 21 ;  3
 	map_const LAVENDER_TOWN,                               10,  9 ;  4
 	map_const LAVENDER_POKECENTER_1F,                       5,  4 ;  5
@@ -408,8 +408,8 @@ ENDM
 
 	newgroup CELADON                                              ; 21
 	map_const ROUTE_7,                                     10,  9 ;  1
-	map_const ROUTE_16,                                    19, 10 ;  2
-	map_const ROUTE_17,                                    10, 71 ;  3
+	map_const ROUTE_16,                                    20, 10 ;  2
+	map_const ROUTE_17,                                    10, 72 ;  3
 	map_const CELADON_CITY,                                24, 18 ;  4
 	map_const CELADON_DEPT_STORE_1F,                        8,  4 ;  5
 	map_const CELADON_DEPT_STORE_2F,                        8,  4 ;  6
@@ -491,7 +491,7 @@ ENDM
 
 	newgroup SAFFRON                                              ; 25
 	map_const ROUTE_5,                                     10, 16 ;  1
-	map_const SAFFRON_CITY,                                20, 18 ;  2
+	map_const SAFFRON_CITY,                                20, 21 ;  2
 	map_const FIGHTING_DOJO,                                5,  6 ;  3
 	map_const SAFFRON_GYM,                                 10,  9 ;  4
 	map_const SAFFRON_MART,                                 6,  4 ;  5

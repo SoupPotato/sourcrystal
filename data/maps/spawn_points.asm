@@ -19,7 +19,7 @@ SpawnPoints:
 	spawn ROUTE_10_NORTH,             11, 22
 	spawn VERMILION_CITY,             11,  6
 	spawn LAVENDER_TOWN,               5,  6
-	spawn SAFFRON_CITY,                9, 30
+	spawn SAFFRON_CITY,                9, 32
 	spawn CELADON_CITY,               39, 10
 	spawn FUCHSIA_CITY,               19, 28
 	spawn CINNABAR_ISLAND,            11, 16

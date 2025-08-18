@@ -492,7 +492,7 @@ RespawnOneOffs:
 	ld de, ENGINE_PLAYER_CAUGHT_MEWTWO
 	farcall EngineFlagAction
 	jr nz, .CaughtMewtwo
-	eventflagreset EVENT_MEWTWO_APPEAR
+	eventflagreset EVENT_CERULEAN_CAVE_B1F_MEWTWO ; No special event flag needed. Mewtwo is always there when you first enter the cave.
 .CaughtMewtwo
 
 	ld de, ENGINE_PLAYER_CAUGHT_MEW

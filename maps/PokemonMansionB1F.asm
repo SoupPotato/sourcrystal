@@ -97,10 +97,10 @@ PokemonMansionB1FLabDocument:
 	waitbutton
 	closetext
 	checkevent EVENT_FOUGHT_MEW
-	iftrue .notinparty
+	iftrue .do_nothing
 	setval MEWTWO
 	special FindPartyMonThatSpecies
-	iffalse .notinparty
+	iffalse .do_nothing
 	cry MEWTWO
 	showemote EMOTE_SHOCK, PLAYER, 15
 	playsound SFX_BALL_WOBBLE
@@ -127,12 +127,9 @@ PokemonMansionB1FLabDocument:
 	setevent EVENT_FOUGHT_MEW
 	reloadmapafterbattle
 	special CheckBattleCaughtResult
-	iffalse .nocatch
+	iffalse .do_nothing
 	setflag ENGINE_PLAYER_CAUGHT_MEW
-.nocatch
-	end
-	
-.notinparty
+.do_nothing
 	end
 
 DocumentText:

@@ -2393,8 +2393,8 @@ TotodileEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
-	db 7, WATER_GUN
-	db 12, RAGE
+	db 7, RAGE
+	db 12, WATER_GUN
 	db 17, BITE
 	db 22, SCARY_FACE
 	db 28, CRUNCH
@@ -2409,8 +2409,8 @@ CroconawEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
-	db 7, WATER_GUN
-	db 12, RAGE
+	db 7, RAGE
+	db 12, WATER_GUN
 	db 17, BITE
 	db 23, SCARY_FACE
 	db 30, CRUNCH
@@ -2424,8 +2424,8 @@ FeraligatrEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
-	db 1, WATER_GUN
 	db 1, RAGE
+	db 1, WATER_GUN
 	db 17, BITE
 	db 23, SCARY_FACE
 	db 30, AGILITY

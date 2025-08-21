@@ -100,7 +100,7 @@ WateredWeirdTreeScript:: ; export (for when you use Squirtbottle from pack)
 	iffalse .nocatch
 	setflag ENGINE_PLAYER_CAUGHT_SUDOWOODO
 .nocatch
-	end
+	sjump Route36FloriaFinishScript
 
 DidntUseSquirtbottleScript:
 	closetext
@@ -112,34 +112,52 @@ DidntCatchSudowoodo:
 	disappear ROUTE_36_SUDOWOODO
 	special LoadUsedSpritesGFX
 	special RefreshSprites
-	end
+	sjump Route36FloriaFinishScript
 
 Route36FloriaScript:
 	faceplayer
 	opentext
-	checkevent EVENT_TALKED_TO_FLORIA_AT_FLOWER_SHOP
+	checkevent EVENT_MET_FLORIA
 	iftrue .SecondTimeTalking
 	setevent EVENT_MET_FLORIA
 	writetext FloriaText1
 	waitbutton
+	checkevent EVENT_GOT_SQUIRTBOTTLE
+	iftrue .GotSquirtbottle
 	closetext
-	clearevent EVENT_FLORIA_AT_FLOWER_SHOP
-	readvar VAR_FACING
-	ifequal UP, .Up
-	applymovement ROUTE_36_FLORIA, FloriaMovement1
-	disappear ROUTE_36_FLORIA
-	end
-
-.Up:
-	applymovement ROUTE_36_FLORIA, FloriaMovement2
-	disappear ROUTE_36_FLORIA
+	turnobject ROUTE_36_FLORIA, UP
 	end
 
 .SecondTimeTalking:
 	writetext FloriaText2
 	waitbutton
+	checkevent EVENT_GOT_SQUIRTBOTTLE
+	iftrue .GotSquirtbottle
+	closetext
+	turnobject ROUTE_36_FLORIA, UP
+	end
+
+.GotSquirtbottle
+	writetext FloriaText3
+	waitbutton
+	closetext
+	turnobject ROUTE_36_FLORIA, UP
+	end
+
+Route36FloriaFinishScript:
+	applymovement ROUTE_36_FLORIA, FloriaMovement1
+	turnobject PLAYER, DOWN
+	opentext
+	writetext FloriaText4
+	waitbutton
+	closetext
+	setevent EVENT_FLORIA_AT_SUDOWOODO
+	clearevent EVENT_FLORIA_AT_FLOWER_SHOP
+	applymovement ROUTE_36_FLORIA, FloriaMovement2
+	disappear ROUTE_36_FLORIA
 	closetext
 	end
+
 
 Route36RockSmashGuyScript:
 	faceplayer
@@ -458,25 +476,18 @@ WeirdTreeMovement_Flee:
 	step_end
 
 FloriaMovement1:
-	step DOWN
-	step DOWN
-	step DOWN
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
+	step UP
+	step UP
 	step_end
 
 FloriaMovement2:
-	step LEFT
-	step DOWN
-	step DOWN
 	step DOWN
 	step LEFT
 	step LEFT
 	step LEFT
+	step DOWN
+	step DOWN
+	step DOWN
 	step LEFT
 	step LEFT
 	step_end
@@ -531,10 +542,6 @@ FloriaText1:
 
 	para "disguise if you"
 	line "soaked it!"
-
-	para "I know! I'll tell"
-	line "my sis and borrow"
-	cont "her water bottle!"
 	done
 
 FloriaText2:
@@ -549,6 +556,32 @@ FloriaText2:
 
 	para "lend me her water"
 	line "bottle…"
+	done
+
+FloriaText3:
+	text "Oh, that's a"
+	line "SQUIRTBOTTLE!"
+
+	para "Soak the tree for"
+	line "me!"
+
+	para "I want to see what"
+	line "happens!"
+	done
+
+FloriaText4:
+	text "That was fun!"
+
+	para "I have to go back"
+	line "to GOLDENROD."
+
+	para "If you're heading"
+	line "for ECRUTEAK CITY,"
+
+	para "then just take the"
+	line "left path."
+
+	para "See you around!"
 	done
 
 RockSmashGuyText1:
@@ -805,5 +838,5 @@ Route36_MapEvents:
 	object_event 21,  5, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route36BerryTree, EVENT_ROUTE_36_BERRY
 	object_event 21,  4, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36ApricornTree, EVENT_ROUTE_36_APRICORN
 	object_event 46,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArthurScript, EVENT_ROUTE_36_ARTHUR_OF_THURSDAY
-	object_event 33, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36FloriaScript, EVENT_FLORIA_AT_SUDOWOODO
+	object_event 35, 13, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36FloriaScript, EVENT_FLORIA_AT_SUDOWOODO
 	object_event 21,  6, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_ON_ROUTE_36

@@ -10,23 +10,20 @@ GoldenrodFlowerShop_MapScripts:
 FlowerShopTeacherScript:
 	checkevent EVENT_FOUGHT_SUDOWOODO
 	iftrue .Lalala
+	faceplayer
+	opentext
 	checkevent EVENT_GOT_SQUIRTBOTTLE
 	iftrue .GotSquirtbottle
 	checkevent EVENT_MET_FLORIA
 	iffalse .HaventMetFloria
-	checkevent EVENT_TALKED_TO_FLORIA_AT_FLOWER_SHOP
-	iffalse .Lalala
 	checkflag ENGINE_PLAINBADGE
 	iffalse .NoPlainBadge
-	faceplayer
-	opentext
+.GotPlainBadge
 	writetext GoldenrodFlowerShopTeacherHeresTheSquirtbottleText
 	promptbutton
 	verbosegiveitem SQUIRTBOTTLE
 	setevent EVENT_GOT_SQUIRTBOTTLE
 	closetext
-	setevent EVENT_FLORIA_AT_SUDOWOODO
-	clearevent EVENT_FLORIA_AT_FLOWER_SHOP
 	end
 
 .Lalala:
@@ -38,36 +35,28 @@ FlowerShopTeacherScript:
 	end
 
 .GotSquirtbottle:
-	jumptextfaceplayer GoldenrodFlowerShopTeacherDontDoAnythingDangerousText
+	writetext GoldenrodFlowerShopTeacherDontDoAnythingDangerousText
+	waitbutton
+	closetext
+	end
 
 .NoPlainBadge:
-	jumptextfaceplayer GoldenrodFlowerShopTeacherAskWantToBorrowWaterBottleText
+	writetext GoldenrodFlowerShopTeacherAskWantToBorrowWaterBottleText
+	waitbutton
+	closetext
+	end
 
 .HaventMetFloria:
-	jumptextfaceplayer GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text
+	writetext GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text
+	waitbutton
+	checkflag ENGINE_PLAINBADGE
+	iftrue .GotPlainBadge
+	closetext
+	end
 
 FlowerShopFloriaScript:
 	faceplayer
 	opentext
-	checkevent EVENT_FOUGHT_SUDOWOODO
-	iftrue .FoughtSudowoodo
-	checkevent EVENT_GOT_SQUIRTBOTTLE
-	iftrue .GotSquirtbottle
-	writetext GoldenrodFlowerShopFloriaWonderIfSisWillLendWaterBottleText
-	waitbutton
-	closetext
-	setevent EVENT_TALKED_TO_FLORIA_AT_FLOWER_SHOP
-	setevent EVENT_FLORIA_AT_FLOWER_SHOP
-	clearevent EVENT_FLORIA_AT_SUDOWOODO
-	end
-
-.GotSquirtbottle:
-	writetext GoldenrodFlowerShopFloriaYouBeatWhitneyText
-	waitbutton
-	closetext
-	end
-
-.FoughtSudowoodo:
 	writetext GoldenrodFlowerShopFloriaItReallyWasAMonText
 	waitbutton
 	closetext
@@ -128,25 +117,6 @@ GoldenrodFlowerShopTeacherLalalaHavePlentyOfWaterText:
 	text "Lalala lalalala."
 	line "Have plenty of"
 	cont "water, my lovely!"
-	done
-
-GoldenrodFlowerShopFloriaWonderIfSisWillLendWaterBottleText:
-	text "When I told my sis"
-	line "about the jiggly"
-
-	para "tree, she told me"
-	line "it's dangerous."
-
-	para "If I beat WHITNEY,"
-	line "I wonder if she'll"
-
-	para "lend me her water"
-	line "bottle…"
-	done
-
-GoldenrodFlowerShopFloriaYouBeatWhitneyText:
-	text "Wow, you beat"
-	line "WHITNEY? Cool!"
 	done
 
 GoldenrodFlowerShopFloriaItReallyWasAMonText:

@@ -425,29 +425,29 @@ KantoGrassWildMonsChallenge:
 	def_grass_wildmons VICTORY_ROAD
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 45, GRAVELER
-	db 46, RHYHORN
-	db 44, DONPHAN
-	db 45, ONIX
-	db 46, URSARING
+	db 43, GRAVELER
+	db 44, RHYHORN
+	db 42, DONPHAN
+	db 44, ONIX
+	db 43, URSARING
 	db 43, GOLBAT
-	db 47, RHYDON
+	db 45, RHYDON
 	; day
-	db 45, GRAVELER
-	db 46, RHYHORN
-	db 44, DONPHAN
-	db 45, ONIX
-	db 46, URSARING
+	db 43, GRAVELER
+	db 44, RHYHORN
+	db 42, DONPHAN
+	db 44, ONIX
+	db 43, URSARING
 	db 43, GOLBAT
-	db 47, RHYDON
+	db 45, RHYDON
 	; nite
-	db 45, GRAVELER
-	db 46, RHYHORN
-	db 44, DONPHAN
-	db 45, ONIX
-	db 46, URSARING
+	db 43, GRAVELER
+	db 44, RHYHORN
+	db 42, DONPHAN
+	db 44, ONIX
+	db 43, URSARING
 	db 43, GOLBAT
-	db 47, RHYDON
+	db 45, RHYDON
 	end_grass_wildmons
 
 	def_grass_wildmons TOHJO_FALLS
@@ -1153,57 +1153,57 @@ KantoGrassWildMonsChallenge:
 	def_grass_wildmons ROUTE_26
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
+	db 40, DODUO
+	db 40, SANDSLASH
+	db 44, PONYTA
+	db 42, RATICATE
 	db 42, DODUO
-	db 42, SANDSLASH
-	db 46, PONYTA
-	db 44, RATICATE
-	db 44, DODUO
-	db 44, ARBOK
-	db 44, ARBOK
+	db 42, ARBOK
+	db 42, ARBOK
 	; day
+	db 40, DODUO
+	db 40, SANDSLASH
+	db 44, PONYTA
+	db 42, RATICATE
 	db 42, DODUO
-	db 42, SANDSLASH
-	db 46, PONYTA
-	db 44, RATICATE
-	db 44, DODUO
-	db 44, ARBOK
-	db 44, ARBOK
+	db 42, ARBOK
+	db 42, ARBOK
 	; nite
-	db 42, NOCTOWL
-	db 42, SANDSLASH
-	db 46, PONYTA
-	db 44, RATICATE
-	db 44, QUAGSIRE
-	db 44, ARBOK
-	db 44, ARBOK
+	db 40, NOCTOWL
+	db 40, SANDSLASH
+	db 44, PONYTA
+	db 42, RATICATE
+	db 42, QUAGSIRE
+	db 42, ARBOK
+	db 42, ARBOK
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_27
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
+	db 40, DODUO
+	db 40, ARBOK
+	db 42, RATICATE
 	db 42, DODUO
-	db 42, ARBOK
-	db 44, RATICATE
-	db 44, DODUO
-	db 46, PONYTA
+	db 44, PONYTA
+	db 42, DODRIO
 	db 44, DODRIO
-	db 46, DODRIO
 	; day
+	db 40, DODUO
+	db 40, ARBOK
+	db 42, RATICATE
 	db 42, DODUO
-	db 42, ARBOK
-	db 44, RATICATE
-	db 44, DODUO
-	db 46, PONYTA
+	db 44, PONYTA
+	db 42, DODRIO
 	db 44, DODRIO
-	db 46, DODRIO
 	; nite
+	db 40, QUAGSIRE
+	db 40, ARBOK
+	db 42, RATICATE
+	db 42, NOCTOWL
+	db 44, PONYTA
 	db 42, QUAGSIRE
-	db 42, ARBOK
-	db 44, RATICATE
-	db 44, NOCTOWL
-	db 46, PONYTA
 	db 44, QUAGSIRE
-	db 46, QUAGSIRE
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_28

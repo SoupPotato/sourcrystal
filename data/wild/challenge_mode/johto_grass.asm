@@ -1293,29 +1293,29 @@ JohtoGrassWildMonsChallenge:
 	def_grass_wildmons DARK_CAVE_BLACKTHORN_ENTRANCE
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	db 39, GRAVELER
-	db 39, GOLBAT
-	db 40, GRAVELER
-	db 40, URSARING
-	db 38, TEDDIURSA
-	db 39, ZUBAT
-	db 38, WOBBUFFET
-	; day
-	db 39, GRAVELER
-	db 39, GOLBAT
-	db 40, GRAVELER
-	db 40, URSARING
+	db 37, GRAVELER
+	db 37, GOLBAT
+	db 38, GRAVELER
 	db 38, URSARING
-	db 39, ZUBAT
-	db 38, WOBBUFFET
+	db 36, TEDDIURSA
+	db 37, ZUBAT
+	db 36, WOBBUFFET
+	; day
+	db 37, GRAVELER
+	db 37, GOLBAT
+	db 38, GRAVELER
+	db 38, URSARING
+	db 36, URSARING
+	db 37, ZUBAT
+	db 36, WOBBUFFET
 	; nite
-	db 39, GRAVELER
-	db 39, GOLBAT
-	db 40, GRAVELER
-	db 40, WOBBUFFET
+	db 37, GRAVELER
+	db 37, GOLBAT
+	db 38, GRAVELER
 	db 38, WOBBUFFET
-	db 39, ZUBAT
-	db 38, GOLBAT
+	db 36, WOBBUFFET
+	db 37, ZUBAT
+	db 36, GOLBAT
 	end_grass_wildmons
 
 	def_grass_wildmons CLIFF_CAVE

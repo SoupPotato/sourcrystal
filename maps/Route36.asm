@@ -572,8 +572,8 @@ FloriaText3:
 FloriaText4:
 	text "That was fun!"
 
-	para "I have to go back"
-	line "to GOLDENROD."
+	para "Well, I have to go"
+	line "back to GOLDENROD."
 
 	para "If you're heading"
 	line "for ECRUTEAK CITY,"

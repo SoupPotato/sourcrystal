@@ -667,31 +667,31 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	; the way this works requires this condition to hold
 	; i don't feel like doing a full 16-bit add
 	assert HIGH(wRuinsMoveTutorScratch) \
-		== HIGH(wRuinsMoveTutorScratch + 20)
+		== HIGH(wRuinsMoveTutorScratch + 25)
 ;--
 	ld hl, wRuinsMoveTutorScratch
 	cp NUM_UNOWN
 	jr nc, .got_menu
 	cp 21
 	jr c, .lessthan21
-; cut menu to 16 items
-	ld a, 16
+; cut menu to 20 items
+	ld a, 20
 	jr .cut_menu
 .lessthan21
 	cp 14
 	jr c, .lessthan14
-; cut menu to 12 items
-	ld a, 12
+; cut menu to 15 items
+	ld a, 15
 	jr .cut_menu
 .lessthan14
 	cp 7
 	jr c, .lessthan7
-; cut menu to 8 items
-	ld a, 8
+; cut menu to 10 items
+	ld a, 10
 	jr .cut_menu
 .lessthan7
-; cut menu to 4 items
-	ld a, 4
+; cut menu to 5 items
+	ld a, 5
 	; fallthrough
 .cut_menu
 	ld [hli], a ; cut length
@@ -728,27 +728,36 @@ RuinsOfAlphResearchCenterTutotScientistScript:
 	ret
 
 .FullMoveList:
-	db 20 ; list length
+	db 25 ; list length
 ; list items
-	db PAY_DAY, 4
-	db TELEPORT, 2
-	db MEGA_PUNCH, 6
 	db PSYWAVE, 2
-	db SEISMIC_TOSS, 8
-	db BUBBLEBEAM, 6
+	db TELEPORT, 2
+	db RAGE, 4
+	db PAY_DAY, 4
+	db MEGA_PUNCH, 6
+
 	db REFLECT, 6
-	db MEGA_KICK, 10
-	db MEGA_DRAIN, 10
+	db BUBBLEBEAM, 6
 	db MIMIC, 8
-	db SELFDESTRUCT, 12
+	db DRAGON_RAGE, 8
+	db MEGA_KICK, 10
+
+	db METRONOME, 8
+	db MEGA_DRAIN, 10
+	db SEISMIC_TOSS, 10
 	db THUNDER_WAVE, 10
-	db TRI_ATTACK, 16
+	db SELFDESTRUCT, 12
+
 	db BODY_SLAM, 14
+	db SUBMISSION, 16
+	db TRI_ATTACK, 16
+	db FISSURE, 16
 	db SUBSTITUTE, 18
-	db METRONOME, 16
-	db ROCK_SLIDE, 22
+
 	db SWORDS_DANCE, 20
+	db ROCK_SLIDE, 22
 	db DOUBLE_EDGE, 22
+	db SKY_ATTACK, 22
 	db EXPLOSION, 24
 	db -1 ; terminator
 .FullMoveListEnd:

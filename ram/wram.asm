@@ -307,11 +307,10 @@ NEXTU
 ; needed since I don't want to have multiple copies
 ; of the same thing :skull:
 wRuinsMoveTutorScratch:: ds \
-	(20 * 2) + \ ; total items
+	(25 * 2) + \ ; total items
 	1 + \ ; cancel button
 	1 ; number of items
 ENDU
-	ds 3
 wMobileWRAMEnd::
 
 

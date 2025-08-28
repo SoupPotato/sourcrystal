@@ -79,7 +79,7 @@ GavenReminderText:
 	line "aren't you here?"
 
 	para "I'll take you down"
-	line "with @"
+	line "on @"
 	text_ram wStringBuffer5
 	text "!"
 	done

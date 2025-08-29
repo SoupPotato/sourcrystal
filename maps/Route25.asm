@@ -439,7 +439,7 @@ Route25_MapEvents:
 
 	def_bg_events
 	bg_event 63,  5, BGEVENT_READ, BillsHouseSign
-	bg_event 10,  5, BGEVENT_ITEM, Route25HiddenPotion
+	bg_event  6,  5, BGEVENT_ITEM, Route25HiddenPotion
 
 	def_object_events
 	object_event 64,  9, SPRITE_MISTY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_25_MISTY_BOYFRIEND

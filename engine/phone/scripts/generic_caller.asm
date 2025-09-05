@@ -650,6 +650,18 @@ PhoneScript_RematchText_Female:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
+	ifequal PHONE_TWINS_KAY_AND_TIA, .KayAndTia
+
+.TimAndSue:
+	farwritetext TimAndSueBattleRematchText
+	promptbutton
+	end
+
+.KayAndTia:
+	farwritetext KayAndTiaBattleRematchText
+	promptbutton
+	end
 
 .Beth:
 	farwritetext BethBattleRematchText
@@ -907,11 +919,15 @@ PhoneScript_FoundItem_Male:
 	ifequal PHONE_POKEFANM_DEREK, .Derek
 	ifequal PHONE_FISHER_TULLY, .Tully
 	ifequal PHONE_FISHER_WILTON, .Wilton
+	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
+	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 
 .Jose:
 	farwritetext JoseFoundItemText
 	end
 
+.Doug:
+.Rob:
 .Wade:
 	farwritetext WadeFoundItemText
 	end

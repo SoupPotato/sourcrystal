@@ -40,3 +40,16 @@ KayAndTiaReminderText:
 	para "so don't forget,"
 	line "OK?"
 	done
+
+KayAndTiaBattleRematchText:
+	text "We should have"
+	line "another battle!"
+
+	para "We're on"
+	line "@"
+	text_from_ram wStringBuffer5
+	text ","
+
+	para "so come on over"
+	line "when you can."
+	done

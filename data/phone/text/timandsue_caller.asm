@@ -55,3 +55,17 @@ TimAndSueReminderText:
 	text ","
 	cont "so please hurry."
 	done
+
+TimAndSueBattleRematchText:
+	text "Hey, you want to"
+	line "battle us again?"
+
+	para "Sounds good?"
+
+	para "We're waiting on"
+	line "@"
+	text_from_ram wStringBuffer5
+	text ","
+
+	para "See you there!"
+	done

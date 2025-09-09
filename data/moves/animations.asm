@@ -1933,7 +1933,7 @@ BattleAnim_Leer:
 	anim_1gfx BATTLE_ANIM_GFX_BEAM
 	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
 	anim_call BattleAnimSub_EyeBeams
-	anim_wait 20
+	anim_wait 22
 	anim_ret
 
 BattleAnim_Reflect:
@@ -2829,7 +2829,7 @@ BattleAnim_Glare:
 	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $8, $20
 	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
 	anim_call BattleAnimSub_EyeBeams
-	anim_wait 20
+	anim_wait 22
 	anim_ret
 
 BattleAnim_Thrash:
@@ -3476,7 +3476,7 @@ BattleAnim_ScaryFace:
 	anim_bgeffect BATTLE_BG_EFFECT_ALTERNATE_HUES, $0, $2, $0
 	anim_call BattleAnimSub_BGCycleOBPalsGrayAndYellow_$2
 	anim_call BattleAnimSub_EyeBeams
-	anim_wait 68
+	anim_wait 70
 	anim_ret
 
 BattleAnim_FeintAttack:

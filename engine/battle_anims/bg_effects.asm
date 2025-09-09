@@ -1003,7 +1003,6 @@ BattleBGEffect_Water:
 	cp $20
 	jr nc, .done
 	inc [hl]
-	inc [hl]
 	jp DeformWater
 
 .done
@@ -1718,6 +1717,7 @@ BattleBGEffect_WaveDeformMon:
 	inc [hl]
 	ld d, a
 	ld e, 4
+	call DelayFrame
 	jp DeformScreen
 
 .two
@@ -1729,6 +1729,7 @@ BattleBGEffect_WaveDeformMon:
 	dec [hl]
 	ld d, a
 	ld e, 4
+	call DelayFrame
 	jp DeformScreen
 
 .reset

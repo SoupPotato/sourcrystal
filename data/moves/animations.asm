@@ -2993,6 +2993,7 @@ BattleAnim_Rage:
 
 BattleAnim_Agility:
 	anim_1gfx BATTLE_ANIM_GFX_WIND
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_DEEP_BLUE
 	anim_obp0 $fc
 	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $40
 	anim_call BattleAnimSub_Agility
@@ -3948,6 +3949,7 @@ BattleAnim_SteelWing:
 
 BattleAnim_MeanLook:
 	anim_1gfx BATTLE_ANIM_GFX_PSYCHIC
+	anim_setobjpal PAL_BATTLE_OB_BLUE, PAL_BTLCUSTOM_DEEP_BLUE
 	anim_obp0 $e0
 	anim_sound 0, 1, SFX_MEAN_LOOK
 	anim_obj BATTLE_ANIM_OBJ_MEAN_LOOK, 148, 32, $0

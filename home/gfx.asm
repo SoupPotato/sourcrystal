@@ -32,6 +32,9 @@ FarCopyBytesDouble_DoubleBankSwitch::
 	rst Bankswitch
 	ret
 
+; Unreferenced in pret/pokecrystal, however still being used here by `BillsPC_Get2bpp`.
+; Causes VRAM corruption issues on carts that use original MBC3 chips such 
+; as InsideGadgets' MBC3-RTC-FRAM cartridge.
 SafeHDMATransfer::
 ; Copy c 2bpp tiles from b:de to hl using GDMA. Assumes $00 < c <= $80.
 	dec c
@@ -225,7 +228,6 @@ ENDC
 Request2bpp::
 ; Load 2bpp at b:de to occupy c tiles of hl.
 	call CheckGDMA
-	jp c, SafeHDMATransfer
 
 	ldh a, [hBGMapMode]
 	push af
@@ -382,7 +384,6 @@ Get2bpp::
 
 Copy2bpp:
 	call CheckGDMA
-	jp c, SafeHDMATransfer
 
 	push hl
 	ld h, d

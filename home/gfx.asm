@@ -78,7 +78,8 @@ SafeHDMATransfer::
 .wait_hblank1
 	ldh a, [c]
 	and b
-	jr z, .wait_hblank1
+	cp b
+	jr nz, .wait_hblank1
 .wait_hblank2
 	ldh a, [c]
 	and b

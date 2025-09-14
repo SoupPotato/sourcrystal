@@ -555,6 +555,10 @@ StartTrainerBattle_SetUpForRandomScatterOutro:
 	ret
 
 StartTrainerBattle_SpeckleToBlack:
+; Added to reduce speed when Doublepeed is active
+	call DelayFrame
+	call DelayFrame
+;------------------------------------------------
 	ld hl, wBattleTransitionCounter
 	ld a, [hl]
 	and a

@@ -357,8 +357,8 @@ StartTrainerBattle_SetUpForWavyOutro:
 
 StartTrainerBattle_SineWave:
 ; Added to reduce speed when Doublepeed is active
-	call DelayFrame
-	call DelayFrame
+	ld c, 2
+	call DelayFrames
 ;------------------------------------------------
 	ld a, [wBattleTransitionCounter]
 	cp $60
@@ -556,8 +556,8 @@ StartTrainerBattle_SetUpForRandomScatterOutro:
 
 StartTrainerBattle_SpeckleToBlack:
 ; Added to reduce speed when Doublepeed is active
-	call DelayFrame
-	call DelayFrame
+	ld c, 2
+	call DelayFrames
 ;------------------------------------------------
 	ld hl, wBattleTransitionCounter
 	ld a, [hl]

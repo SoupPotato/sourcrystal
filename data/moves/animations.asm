@@ -4704,8 +4704,8 @@ BattleAnim_Whirlpool:
 	anim_wait 4
 	anim_obj BATTLE_ANIM_OBJ_WHIRLPOOL, 128, 70, $0
 	anim_wait 4
-	anim_loop 3, .loop
-	anim_wait 48
+	anim_loop 4, .loop
+	anim_wait 56
 	anim_incbgeffect BATTLE_BG_EFFECT_WHIRLPOOL
 	anim_wait 1
 	anim_ret

@@ -842,9 +842,9 @@ BattleAnim_Ember:
 	anim_incobj 2
 	anim_incobj 3
 	anim_sound 0, 1, SFX_EMBER
-	anim_obj BATTLE_ANIM_OBJ_EMBER, 120, 68, $30
-	anim_obj BATTLE_ANIM_OBJ_EMBER, 132, 68, $30
-	anim_obj BATTLE_ANIM_OBJ_EMBER, 144, 68, $30
+	anim_obj BATTLE_ANIM_OBJ_EMBER, 120, 64, $30
+	anim_obj BATTLE_ANIM_OBJ_EMBER, 132, 64, $30
+	anim_obj BATTLE_ANIM_OBJ_EMBER, 144, 64, $30
 	anim_wait 32
 	anim_ret
 

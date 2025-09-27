@@ -1,5 +1,5 @@
-IF DEF(_DEBUG)
-MoveTable:
+;IF DEF(_DEBUG) ; for testing animations
+;MoveTable:
 ;	db POUND
 ;	db KARATE_CHOP
 ;	db DOUBLESLAP
@@ -42,7 +42,7 @@ MoveTable:
 ;	db POISON_STING
 ;	db TWINEEDLE
 ;	db PIN_MISSILE
-	db LEER
+;	db LEER
 ;	db BITE
 ;	db GROWL
 ;	db ROAR
@@ -136,7 +136,7 @@ MoveTable:
 ;	db KINESIS
 ;	db SOFTBOILED
 ;	db HI_JUMP_KICK
-	db GLARE
+;	db GLARE
 ;	db DREAM_EATER
 ;	db POISON_GAS
 ;	db BARRAGE
@@ -183,100 +183,100 @@ MoveTable:
 ;	db POWDER_SNOW
 ;	db PROTECT
 ;	db MACH_PUNCH
-	db SCARY_FACE
-	db FEINT_ATTACK
-	db SWEET_KISS
-	db BELLY_DRUM
-	db SLUDGE_BOMB
-	db MUD_SLAP
-	db OCTAZOOKA
-	db SPIKES
-	db ZAP_CANNON
-	db FORESIGHT
-	db DESTINY_BOND
-	db PERISH_SONG
-	db ICY_WIND
-	db DETECT
-	db BONE_RUSH
-	db LOCK_ON
-	db OUTRAGE
-	db SANDSTORM
-	db GIGA_DRAIN
-	db ENDURE
-	db CHARM
-	db ROLLOUT
-	db FALSE_SWIPE
-	db SWAGGER
-	db MILK_DRINK
-	db SPARK
-	db FURY_CUTTER
-	db STEEL_WING
-	db MEAN_LOOK
-	db ATTRACT
-	db SLEEP_TALK
-	db HEAL_BELL
-	db RETURN
-	db PRESENT
-	db FRUSTRATION
-	db SAFEGUARD
-	db PAIN_SPLIT
-	db SACRED_FIRE
-	db MAGNITUDE
-	db DYNAMICPUNCH
-	db MEGAHORN
-	db DRAGONBREATH
-	db BATON_PASS
-	db ENCORE
-	db PURSUIT
-	db RAPID_SPIN
-	db SWEET_SCENT
-	db IRON_TAIL
-	db METAL_CLAW
-	db VITAL_THROW
-	db MORNING_SUN
-	db SYNTHESIS
-	db MOONLIGHT
-	db HIDDEN_POWER
-	db CROSS_CHOP
-	db TWISTER
-	db RAIN_DANCE
-	db SUNNY_DAY
-	db CRUNCH
-	db MIRROR_COAT
-	db PSYCH_UP
-	db EXTREMESPEED
-	db ANCIENTPOWER
-	db SHADOW_BALL
-	db FUTURE_SIGHT
-	db ROCK_SMASH
-	db WHIRLPOOL
-	db BEAT_UP
-	db 0
-
+;	db SCARY_FACE
+;	db FEINT_ATTACK
+;	db SWEET_KISS
+;	db BELLY_DRUM
+;	db SLUDGE_BOMB
+;	db MUD_SLAP
+;	db OCTAZOOKA
+;	db SPIKES
+;	db ZAP_CANNON
+;	db FORESIGHT
+;	db DESTINY_BOND
+;	db PERISH_SONG
+;	db ICY_WIND
+;	db DETECT
+;	db BONE_RUSH
+;	db LOCK_ON
+;	db OUTRAGE
+;	db SANDSTORM
+;	db GIGA_DRAIN
+;	db ENDURE
+;	db CHARM
+;	db ROLLOUT
+;	db FALSE_SWIPE
+;	db SWAGGER
+;	db MILK_DRINK
+;	db SPARK
+;	db FURY_CUTTER
+;	db STEEL_WING
+;	db MEAN_LOOK
+;	db ATTRACT
+;	db SLEEP_TALK
+;	db HEAL_BELL
+;	db RETURN
+;	db PRESENT
+;	db FRUSTRATION
+;	db SAFEGUARD
+;	db PAIN_SPLIT
+;	db SACRED_FIRE
+;	db MAGNITUDE
+;	db DYNAMICPUNCH
+;	db MEGAHORN
+;	db DRAGONBREATH
+;	db BATON_PASS
+;	db ENCORE
+;	db PURSUIT
+;	db RAPID_SPIN
+;	db SWEET_SCENT
+;	db IRON_TAIL
+;	db METAL_CLAW
+;	db VITAL_THROW
+;	db MORNING_SUN
+;	db SYNTHESIS
+;	db MOONLIGHT
+;	db HIDDEN_POWER
+;	db CROSS_CHOP
+;	db TWISTER
+;	db RAIN_DANCE
+;	db SUNNY_DAY
+;	db CRUNCH
+;	db MIRROR_COAT
+;	db PSYCH_UP
+;	db EXTREMESPEED
+;	db ANCIENTPOWER
+;	db SHADOW_BALL
+;	db FUTURE_SIGHT
+;	db ROCK_SMASH
+;	db WHIRLPOOL
+;	db BEAT_UP
+;	db 0
+;
+;DisplayUsedMoveText:
+;	;jr .do_it ; comment this out for testing all move animations
+;	ld a, BATTLE_VARS_MOVE
+;	call GetBattleVarAddr
+;	ld de, MoveTable
+;.loop
+;	ld a, [de]
+;	inc de
+;	and a
+;	ret z
+;	ld [hl], a
+;	push hl
+;	push de
+;	farcall UpdateMoveData
+;	call .do_it
+;	farcall AnimateCurrentMove
+;	pop de
+;	pop hl
+;	jr .loop
+;
+;.do_it
+;ELSE
 DisplayUsedMoveText:
-	;jr .do_it ; comment this out for testing all move animations
-	ld a, BATTLE_VARS_MOVE
-	call GetBattleVarAddr
-	ld de, MoveTable
-.loop
-	ld a, [de]
-	inc de
-	and a
-	ret z
-	ld [hl], a
-	push hl
-	push de
-	farcall UpdateMoveData
-	call .do_it
-	farcall AnimateCurrentMove
-	pop de
-	pop hl
-	jr .loop
-
-.do_it
-ELSE
-DisplayUsedMoveText:
-ENDC
+;ENDC
 	ld hl, UsedMoveText
 	call BattleTextbox
 	jp WaitBGMap

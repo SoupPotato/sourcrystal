@@ -3590,13 +3590,13 @@ BattleAnim_Octazooka:
 BattleAnim_Spikes:
 	anim_1gfx BATTLE_ANIM_GFX_MISC
 	anim_sound 6, 2, SFX_MENU
-	anim_obj BATTLE_ANIM_OBJ_SPIKES, 48, 88, $20
+	anim_obj BATTLE_ANIM_OBJ_SPIKES, 48, 86, $20
 	anim_wait 8
 	anim_sound 6, 2, SFX_MENU
-	anim_obj BATTLE_ANIM_OBJ_SPIKES, 48, 88, $30
+	anim_obj BATTLE_ANIM_OBJ_SPIKES, 48, 86, $30
 	anim_wait 8
 	anim_sound 6, 2, SFX_MENU
-	anim_obj BATTLE_ANIM_OBJ_SPIKES, 48, 88, $28
+	anim_obj BATTLE_ANIM_OBJ_SPIKES, 48, 86, $28
 	anim_wait 64
 	anim_ret
 

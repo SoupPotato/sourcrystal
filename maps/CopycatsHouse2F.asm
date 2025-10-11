@@ -69,7 +69,7 @@ Copycat:
 	applymovement COPYCATSHOUSE2F_COPYCAT2, CopycatSpinAroundMovementData
 .Default_Merge_3a:
 	faceplayer
-	loadmem wObject1Palette, 1
+	loadmem wObject1Palette, 0
 	variablesprite SPRITE_COPYCAT, SPRITE_LASS
 	special LoadUsedSpritesGFX
 	opentext

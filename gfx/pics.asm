@@ -33,6 +33,7 @@ TyphlosionFrontpic:  INCBIN "gfx/pokemon/typhlosion/front.animated.2bpp.lz"
 ChinchouFrontpic:    INCBIN "gfx/pokemon/chinchou/front.animated.2bpp.lz"
 PoliwrathFrontpic:   INCBIN "gfx/pokemon/poliwrath/front.animated.2bpp.lz"
 UnownDBackpic:       INCBIN "gfx/pokemon/unown_d/back.2bpp.lz"
+PiloswineBackpic:    INCBIN "gfx/pokemon/piloswine/back.2bpp.lz"
 
 
 SECTION "Pics 2", ROMX
@@ -637,7 +638,6 @@ VoltorbBackpic:      INCBIN "gfx/pokemon/voltorb/back.2bpp.lz"
 UnownJFrontpic:      INCBIN "gfx/pokemon/unown_j/front.animated.2bpp.lz"
 MantineBackpic:      INCBIN "gfx/pokemon/mantine/back.2bpp.lz"
 UnownLFrontpic:      INCBIN "gfx/pokemon/unown_l/front.animated.2bpp.lz"
-PiloswineBackpic:    INCBIN "gfx/pokemon/piloswine/back.2bpp.lz"
 UnownMFrontpic:      INCBIN "gfx/pokemon/unown_m/front.animated.2bpp.lz"
 UnownFFrontpic:      INCBIN "gfx/pokemon/unown_f/front.animated.2bpp.lz"
 NatuBackpic:         INCBIN "gfx/pokemon/natu/back.2bpp.lz"

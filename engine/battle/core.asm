@@ -8337,11 +8337,6 @@ StartBattle:
 ; This check prevents you from entering a battle without any Pokemon.
 ; Those using walk-through-walls to bypass getting a Pokemon experience
 ; the effects of this check.
-	ldh a, [rIE]
-	push af
-	call NormalSpeed
-	pop af
-	ldh [rIE], a
 	ld a, [wPartyCount]
 	and a
 	ret z

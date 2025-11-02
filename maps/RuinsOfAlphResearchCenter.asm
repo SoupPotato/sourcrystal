@@ -1319,9 +1319,6 @@ RuinsOfAlphResearchCenterTutorCaughtAllUnownText:
 	para "Now I can teach"
 	line "more moves to your"
 	cont "#MON!"
-
-	para "Our research has"
-	line "your help so far."
 	done
 
 RuinsOfAlphResearchCenterTutorMoveText:

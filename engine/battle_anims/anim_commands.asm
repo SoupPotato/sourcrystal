@@ -128,6 +128,18 @@ RunBattleAnimScript:
 	jr nz, .find
 
 .not_rollout
+; Slow down Surf's animation for DoubleSpeed
+	ld a, [wFXAnimID]
+	cp SURF
+	jr nz, .not_surf
+	ld a, [wUnusedScriptByte]
+	and 1
+	xor 1
+	ld [wUnusedScriptByte], a
+	jr z, .not_surf
+	call BattleAnimDelayFrame
+	
+.not_surf
 	call BattleAnimDelayFrame
 
 .done
@@ -222,22 +234,22 @@ ClearActorHud:
 	ret
 
 PlaceWindowOverBattleTextbox: ; unreferenced
-	xor a
-	ldh [hBGMapMode], a
-	; bgcoord hBGMapAddress, 0, 20
-	ld a, LOW(vBGMap0 + 20 * BG_MAP_WIDTH)
-	ldh [hBGMapAddress], a
-	ld a, HIGH(vBGMap0 + 20 * BG_MAP_WIDTH)
-	ldh [hBGMapAddress + 1], a
-	call WaitBGMap2
-	ld a, (SCREEN_HEIGHT - TEXTBOX_HEIGHT) * TILE_WIDTH
-	ldh [hWY], a
-	; bgcoord hBGMapAddress, 0, 0
-	xor a ; LOW(vBGMap0)
-	ldh [hBGMapAddress], a
-	ld a, HIGH(vBGMap0)
-	ldh [hBGMapAddress + 1], a
-	call BattleAnimDelayFrame
+;	xor a
+;	ldh [hBGMapMode], a
+;	; bgcoord hBGMapAddress, 0, 20
+;	ld a, LOW(vBGMap0 + 20 * BG_MAP_WIDTH)
+;	ldh [hBGMapAddress], a
+;	ld a, HIGH(vBGMap0 + 20 * BG_MAP_WIDTH)
+;	ldh [hBGMapAddress + 1], a
+;	call WaitBGMap2
+;	ld a, (SCREEN_HEIGHT - TEXTBOX_HEIGHT) * TILE_WIDTH
+;	ldh [hWY], a
+;	; bgcoord hBGMapAddress, 0, 0
+;	xor a ; LOW(vBGMap0)
+;	ldh [hBGMapAddress], a
+;	ld a, HIGH(vBGMap0)
+;	ldh [hBGMapAddress + 1], a
+;	call BattleAnimDelayFrame
 	ret
 
 BattleAnim_ClearOAM:

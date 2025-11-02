@@ -1716,17 +1716,17 @@ BlisseyEvosAttacks:
 
 TangelaEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, ABSORB
 	db 1, CONSTRICT
-	db 5, STUN_SPORE
-	db 10, GROWTH
-	db 14, MEGA_DRAIN
-	db 19, BIND
-	db 23, VINE_WHIP
-	db 28, POISONPOWDER
-	db 32, GIGA_DRAIN
-	db 37, SLEEP_POWDER
-	db 41, ANCIENTPOWER
+	db 1, ABSORB
+	db 5, SLEEP_POWDER
+	db 10, VINE_WHIP
+	db 14, POISONPOWDER
+	db 19, GROWTH
+	db 23, MEGA_DRAIN
+	db 28, BIND
+	db 32, STUN_SPORE
+	db 37, ANCIENTPOWER
+	db 41, GIGA_DRAIN
 	db 46, SLAM
 	db 0 ; no more level-up moves
 

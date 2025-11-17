@@ -7414,7 +7414,7 @@ GiveExperiencePoints:
 
 .no_boost
 ; Boost experience for a Trainer Battle
-	ld [wStringBuffer2 + 2], a
+	ld [wStringBuffer2], a
 	ld a, [wBattleMode]
 	dec a
 	call nz, BoostExp
@@ -7453,24 +7453,25 @@ GiveExperiencePoints:
 	ld e, a
 	call .ScaleMod
 
+	; make sure to give at least 1 exp
+	ld hl, hQuotient + 1
+	ld a, [hli]
+	or [hl]
+	inc hl
+	or [hl]
+	jr nz, .exp_ok
+	inc [hl]
+.exp_ok
+
 	pop bc
 	pop de
 	pop hl
 
-	; Level
-	ldh a, [hQuotient + 3]
-	ld [wStringBuffer2 + 1], a
-	ldh a, [hQuotient + 2]
-	ld [wStringBuffer2], a
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonNicknames
 	call GetNickname
 	ld hl, Text_MonGainedExpPoint
 	call BattleTextbox
-	ld a, [wStringBuffer2 + 1]
-	ldh [hQuotient + 3], a
-	ld a, [wStringBuffer2]
-	ldh [hQuotient + 2], a
 	pop bc
 	call AnimateExpBar
 	push bc
@@ -7794,7 +7795,7 @@ Text_MonGainedExpPoint:
 	text_far Text_Gained
 	text_asm
 	ld hl, ExpPointsText
-	ld a, [wStringBuffer2 + 2] ; IsTradedMon
+	ld a, [wStringBuffer2] ; IsTradedMon
 	and a
 	ret z
 
@@ -7827,8 +7828,9 @@ AnimateExpBar:
 	ldh a, [hProduct + 2]
 	ld [wExperienceGained + 1], a
 	push af
-	xor a
+	ldh a, [hProduct + 1]
 	ld [wExperienceGained], a
+	push af
 	xor a ; PARTYMON
 	ld [wMonType], a
 	predef CopyMonToTempMon
@@ -7931,6 +7933,8 @@ AnimateExpBar:
 	call .PlayExpBarSound
 	call .LoopBarAnimation
 	call TerminateExpBarSound
+	pop af
+	ldh [hProduct + 1], a
 	pop af
 	ldh [hProduct + 2], a
 	pop af

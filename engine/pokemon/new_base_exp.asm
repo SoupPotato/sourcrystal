@@ -3,6 +3,8 @@ GetNewBaseExp:
 ; stage 1 or non-evolver: BST*0.35
 ; stage 2 or legendaries: BST*0.5
 ; exceptions: Chansey, Blissey
+	xor a
+	ldh [hMultiplicand], a
 	ld a, [wBattleMode]
 	dec a
 	ld a, [wEnemyMonSpecies]

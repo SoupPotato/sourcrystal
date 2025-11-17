@@ -3,9 +3,14 @@ GetNewBaseExp:
 ; stage 1 or non-evolver: BST*0.35
 ; stage 2 or legendaries: BST*0.5
 ; exceptions: Chansey, Blissey
+	ld a, [wBattleMode]
+	dec a
+	ld a, [wEnemyMonSpecies]
+	jr z, .got_species
 	ld hl, wOTPartyMon1Species
 	ld a, [wCurOTMon]
 	call GetPartyLocation
+.got_species
 	ld [wCurSpecies], a
 	ld de, 3
 	ld hl, NewBaseExpExceptions

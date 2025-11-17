@@ -103,14 +103,14 @@ _BoostedExpPointsText::
 	text_start
 	line "a boosted"
 	cont "@"
-	text_decimal hQuotient + 1, 3, 6
+	text_decimal wStringBuffer2, 3, 6
 	text " EXP. Points!"
 	prompt
 
 _ExpPointsText::
 	text_start
 	line "@"
-	text_decimal hQuotient + 1, 3, 6
+	text_decimal wStringBuffer2, 3, 6
 	text " EXP. Points!"
 	prompt
 

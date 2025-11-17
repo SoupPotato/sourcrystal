@@ -7414,7 +7414,7 @@ GiveExperiencePoints:
 
 .no_boost
 ; Boost experience for a Trainer Battle
-	ld [wStringBuffer2], a
+	ld [wStringBuffer2 + 3], a
 	ld a, [wBattleMode]
 	dec a
 	call nz, BoostExp
@@ -7427,9 +7427,7 @@ GiveExperiencePoints:
 	call z, BoostExp
 
 	; Scale exp
-	push hl
 	push de
-	push bc
 	ld a, [wEnemyMonLevel]
 	ld c, a
 	add a
@@ -7455,23 +7453,36 @@ GiveExperiencePoints:
 
 	; make sure to give at least 1 exp
 	ld hl, hQuotient + 1
+	push hl
 	ld a, [hli]
 	or [hl]
 	inc hl
 	or [hl]
 	jr nz, .exp_ok
 	inc [hl]
-.exp_ok
 
-	pop bc
-	pop de
+.exp_ok
+	; Copy from hQuotient+1 -> wStringBuffer2
 	pop hl
+	ld de, wStringBuffer2
+	push de
+	push hl
+	ld bc, 3
+	push bc
+	call CopyBytes
 
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonNicknames
 	call GetNickname
 	ld hl, Text_MonGainedExpPoint
 	call BattleTextbox
+
+	; Copy from wStringBuffer2 -> hQuotient+1
+	pop bc
+	pop de
+	pop hl
+	call CopyBytes
+	pop de
 	pop bc
 	call AnimateExpBar
 	push bc
@@ -7479,18 +7490,16 @@ GiveExperiencePoints:
 	pop bc
 	ld hl, MON_EXP + 2
 	add hl, bc
-	ld d, [hl]
 	ldh a, [hQuotient + 3]
-	add d
+	add [hl]
 	ld [hld], a
-	ld d, [hl]
 	ldh a, [hQuotient + 2]
-	adc d
+	adc [hl]
+	ld [hld], a
+	ldh a, [hQuotient + 1]
+	adc [hl]
 	ld [hl], a
 	jr nc, .no_exp_overflow
-	dec hl
-	inc [hl]
-	jr nz, .no_exp_overflow
 	ld a, $ff
 	ld [hli], a
 	ld [hli], a
@@ -7795,7 +7804,7 @@ Text_MonGainedExpPoint:
 	text_far Text_Gained
 	text_asm
 	ld hl, ExpPointsText
-	ld a, [wStringBuffer2] ; IsTradedMon
+	ld a, [wStringBuffer2 + 3] ; IsTradedMon
 	and a
 	ret z
 
@@ -7848,9 +7857,10 @@ AnimateExpBar:
 	ld a, [wExperienceGained + 1]
 	adc [hl]
 	ld [hld], a
+	ld a, [wExperienceGained]
+	adc [hl]
+	ld [hl], a
 	jr nc, .NoOverflow
-	inc [hl]
-	jr nz, .NoOverflow
 	ld a, $ff
 	ld [hli], a
 	ld [hli], a

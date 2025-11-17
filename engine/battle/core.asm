@@ -7379,15 +7379,19 @@ GiveExperiencePoints:
 	inc de
 	dec c
 	jr nz, .stat_exp_loop
-	xor a
-	ldh [hMultiplicand + 0], a
-	ldh [hMultiplicand + 1], a
-	ld a, [wEnemyMonBaseExp]
-	ldh [hMultiplicand + 2], a
+
+	push hl
+	push de
+	push bc
+	farcall GetNewBaseExp
+	pop bc
+	pop de
+	pop hl
+
 	ld a, [wEnemyMonLevel]
 	ldh [hMultiplier], a
 	call Multiply
-	ld a, 7
+	ld a, 5
 	ldh [hDivisor], a
 	ld b, 4
 	call Divide
@@ -7421,6 +7425,39 @@ GiveExperiencePoints:
 	ld a, [hl]
 	cp LUCKY_EGG
 	call z, BoostExp
+
+	; Scale exp
+	push hl
+	push de
+	push bc
+	ld a, [wEnemyMonLevel]
+	ld c, a
+	add a
+	add 10
+	ld d, a
+
+	ld a, MON_LEVEL
+	call GetPartyParamLocation
+	ld a, [hl]
+	add c
+	add 10
+	ld e, a
+
+	call .ScaleMod
+	call .ScaleMod
+	ld a, d
+	call .GetSqrt
+	ld d, a
+	ld a, e
+	call .GetSqrt
+	ld e, a
+	call .ScaleMod
+
+	pop bc
+	pop de
+	pop hl
+
+	; Level
 	ldh a, [hQuotient + 3]
 	ld [wStringBuffer2 + 1], a
 	ldh a, [hQuotient + 2]
@@ -7702,6 +7739,35 @@ GiveExperiencePoints:
 	ld [hli], a
 	dec c
 	jr nz, .base_stat_division_loop
+	ret
+
+.ScaleMod:
+	ld a, d
+	ldh [hMultiplier], a
+	call Multiply
+	ld a, e
+	ldh [hDivisor], a
+	ld b, 4
+	jmp Divide
+
+.GetSqrt:
+	push bc
+	cp 225
+	ld c, 15
+	jr nc, .got_result
+	ld b, a
+	ld c, 0
+.squareloop
+	inc c
+	ld a, c
+	call SimpleMultiply
+	cp b
+	jr c, .squareloop
+	jr z, .got_result
+	dec c
+.got_result
+	ld a, c
+	pop bc
 	ret
 
 BoostExp:
@@ -8028,76 +8094,7 @@ WithdrawMonText:
 	jp BattleTextbox
 
 .WithdrawMonText:
-	text_far _BattleMonNickCommaText
-	text_asm
-; Depending on the HP lost since the enemy mon was sent out, the game prints a different text
-	push de
-	push bc
-	; compute enemy health lost as a percentage
-	ld hl, wEnemyMonHP + 1
-	ld de, wEnemyHPAtTimeOfPlayerSwitch + 1
-	ld b, [hl]
-	dec hl
-	ld a, [de]
-	sub b
-	ldh [hMultiplicand + 2], a
-	dec de
-	ld b, [hl]
-	ld a, [de]
-	sbc b
-	ldh [hMultiplicand + 1], a
-	ld hl, wEnemyMonMaxHP
-	ld a, [hli]
-	ld b, [hl]
-	ld c, 100
-	and a
-	jr z, .shift_done
-.shift
-	rra
-	rr b
-	srl c
-	and a
-	jr nz, .shift
-.shift_done
-	ld a, c
-	ldh [hMultiplier], a
-	call Multiply
-	ld a, b
-	ld b, 4
-	ldh [hDivisor], a
-	call Divide
-	pop bc
-	pop de
-	ldh a, [hQuotient + 3]
-	ld hl, ThatsEnoughComeBackText
-	and a
-	ret z
-
-	ld hl, ComeBackText
-	cp 30
-	ret c
-
-	ld hl, OKComeBackText
-	cp 70
-	ret c
-
-	ld hl, GoodComeBackText
-	ret
-
-ThatsEnoughComeBackText:
-	text_far _ThatsEnoughComeBackText
-	text_end
-
-OKComeBackText:
-	text_far _OKComeBackText
-	text_end
-
-GoodComeBackText:
-	text_far _GoodComeBackText
-	text_end
-
-ComeBackText:
-	text_far _ComeBackText
+	text_far _WithdrawMonText
 	text_end
 
 HandleSafariAngerEatingStatus:

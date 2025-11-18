@@ -3,6 +3,7 @@ GetNewBaseExp:
 ; stage 1 or non-evolver: BST*0.35
 ; stage 2 or legendaries: BST*0.5
 ; exceptions: Chansey, Blissey
+; NOTE: Reads from wEnemyMonBaseStats
 	xor a
 	ldh [hMultiplicand], a
 	ld a, [wBattleMode]
@@ -27,7 +28,7 @@ GetNewBaseExp:
 
 .calc_base_exp
 	ld hl, 0
-	ld de, wBaseHP
+	ld de, wEnemyMonBaseStats
 	ld b, 6
 .bst_loop
 	ld a, [de]

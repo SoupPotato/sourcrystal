@@ -7451,6 +7451,18 @@ GiveExperiencePoints:
 	ld e, a
 	call .ScaleMod
 
+	; Count participants for exp dividing.
+	lb de, 1, 1
+	ld a, [wBattleParticipantsNotFainted]
+.countbits_loop
+	add a
+	jr z, .countbits_done
+	jr nc, .countbits_loop
+	inc e
+	jr .countbits_loop
+.countbits_done
+	call .ScaleMod
+
 	; make sure to give at least 1 exp
 	ld hl, hQuotient + 1
 	push hl

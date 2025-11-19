@@ -28,8 +28,8 @@ GetNewBaseExp:
 
 .calc_base_exp
 	ld hl, 0
-	ld de, wEnemyMonBaseStats
-	ld b, 6
+	ld de, wBaseStats
+	ld b, NUM_STATS
 .bst_loop
 	ld a, [de]
 	ld c, a

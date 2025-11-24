@@ -103,10 +103,10 @@ RockItemEncounter:
 	
 .RockItems:
 	db  2, NUGGET     ;  1%
-	db  8, STAR_PIECE ;  3%
-	db 13, BIG_PEARL  ;  5%
+	db  7, STAR_PIECE ;  3%
+	db 12, BIG_PEARL  ;  5%
 	db 20, STARDUST   ;  8%
 	db 24, REVIVE     ; 10%
-	db 40, PEARL      ; 15%
-	db 56, OPAL_SHARD ; 25%
+	db 38, PEARL      ; 15%
+	db 63, OPAL_SHARD ; 25%
 	db -1

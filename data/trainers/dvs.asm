@@ -7,7 +7,7 @@ TrainerClassDVs:
 	dn  9,  8,  8,  8 ; BUGSY
 	dn  9,  8,  8,  8 ; MORTY
 	dn  9,  8,  8,  8 ; PRYCE
-	dn  9,  8,  8,  8 ; JASMINE
+	dn  8,  8,  8,  8 ; JASMINE
 	dn  9,  8,  8,  8 ; CHUCK
 	dn  7, 12, 13, 13 ; CLAIR
 	dn 13, 13, 13, 13 ; RIVAL1

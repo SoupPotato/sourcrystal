@@ -475,45 +475,16 @@ _CGB_SlotMachine:
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
 	call WipeAttrmap
-	hlcoord 0, 2, wAttrmap
-	lb bc, 10, 3
-	ld a, $2 ; "3" palette
+	; first row
+	hlcoord 0, 0, wAttrmap
+	lb bc, 1, 20
+	ld a, 1
 	call FillBoxCGB
-	hlcoord 17, 2, wAttrmap
-	lb bc, 10, 3
-	ld a, $2 ; "3" palette
-	call FillBoxCGB
-	hlcoord 0, 4, wAttrmap
-	lb bc, 6, 3
-	ld a, $3 ; "2" palette
-	call FillBoxCGB
-	hlcoord 17, 4, wAttrmap
-	lb bc, 6, 3
-	ld a, $3 ; "2" palette
-	call FillBoxCGB
-	hlcoord 0, 6, wAttrmap
-	lb bc, 2, 3
-	ld a, $4 ; "1" palette
-	call FillBoxCGB
-	hlcoord 17, 6, wAttrmap
-	lb bc, 2, 3
-	ld a, $4 ; "1" palette
-	call FillBoxCGB
-	hlcoord 4, 2, wAttrmap
-	lb bc, 2, 12
-	ld a, $1 ; Vileplume palette
-	call FillBoxCGB
-	hlcoord 3, 2, wAttrmap
-	lb bc, 10, 1
-	ld a, $1 ; lights palette
-	call FillBoxCGB
-	hlcoord 16, 2, wAttrmap
-	lb bc, 10, 1
-	ld a, $1 ; lights palette
-	call FillBoxCGB
+	; TODO...
+	; textbox
 	hlcoord 0, 12, wAttrmap
 	ld bc, 6 * SCREEN_WIDTH
-	ld a, $7 ; text palette
+	ld a, 7
 	call ByteFill
 	call ApplyAttrmap
 	call ApplyPals

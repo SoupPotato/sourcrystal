@@ -128,12 +128,22 @@ _SlotMachine:
 	ld de, vTiles0 tile $40
 	call Decompress
 
+	; slots BG gfx
 	ld hl, Slots1LZ
 	ld de, vTiles2 tile $00
 	call Decompress
 
+	ld hl, vTiles2 tile $2B
+	ld c, $10
+	xor a
+.blank_tile
+	ld [hli], a
+	dec c
+	jr nz, .blank_tile
+
+	; payout gfx?
 	ld hl, Slots2LZ
-	ld de, vTiles2 tile $25
+	ld de, vTiles2 tile $2C
 	call Decompress
 
 	ld hl, SlotsTilemap
@@ -278,6 +288,7 @@ SlotsJumptable:
 
 .Jumptable:
 	dw SlotsAction_Init              ; 00
+	dw SlotsAction_DoNothing
 	dw SlotsAction_BetAndStart       ; 01
 	dw SlotsAction_WaitStart         ; 02
 	dw SlotsAction_WaitReel1         ; 03
@@ -309,6 +320,9 @@ SlotsAction_Init:
 	ld [wFirstTwoReelsMatchingSevens], a
 	ld a, SLOTS_NO_MATCH
 	ld [wSlotMatched], a
+	ret
+
+SlotsAction_DoNothing:
 	ret
 
 SlotsAction_BetAndStart:
@@ -1904,7 +1918,7 @@ Slots_PayoutText:
 .Text_PrintPayout:
 	text_asm
 	ld a, [wSlotMatched]
-	add $25
+	add $2C ; TODO
 	ldcoord_a 2, 13
 	inc a
 	ldcoord_a 2, 14

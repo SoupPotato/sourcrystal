@@ -468,6 +468,30 @@ _CGB_PokedexUnownMode:
 	ldh [hCGBPalUpdate], a
 	ret
 
+_Load_SlotMachine_Pal:
+; RBY town map format
+; couldn't do it the same way because
+; running into space issues
+.run
+	ld a, [de]
+	and a
+	ret z
+	ld b, a
+	and $f
+	ld c, a
+	ld a, b
+	swap a
+	and $f
+.run_loop
+	ld [hli], a
+	dec c
+	jr nz, .run_loop
+	inc de
+	jr .run
+
+SlotMachine_Pal:
+	INCBIN "gfx/slots/slots_pal.rle"
+
 _CGB_SlotMachine:
 	ld hl, SlotMachinePals
 	ld de, wBGPals1
@@ -475,13 +499,9 @@ _CGB_SlotMachine:
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
 	call WipeAttrmap
-	; first row
 	hlcoord 0, 0, wAttrmap
-	lb bc, 1, 20
-	ld a, 1
-	call FillBoxCGB
-	; TODO...
-	; textbox
+	ld de, SlotMachine_Pal
+	call _Load_SlotMachine_Pal
 	hlcoord 0, 12, wAttrmap
 	ld bc, 6 * SCREEN_WIDTH
 	ld a, 7

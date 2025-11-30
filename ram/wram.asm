@@ -310,6 +310,9 @@ wRuinsMoveTutorScratch:: ds \
 	(25 * 2) + \ ; total items
 	1 + \ ; cancel button
 	1 ; number of items
+NEXTU
+; i don't feel like getting the actual length :(
+SlotMachine_LCDCallback:: ds 1
 ENDU
 wMobileWRAMEnd::
 

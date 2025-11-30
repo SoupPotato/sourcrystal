@@ -83,6 +83,15 @@ DEF SLOTS_END_LOOP_F EQU 7
 _SlotMachine:
 	ld hl, wOptions
 	set NO_TEXT_SCROLL, [hl]
+; set up LCD callback
+	ld hl, .LCDCallbackPoint
+	ld de, SlotMachine_LCDCallback
+	ld bc, .LCDCallbackPoint_End - .LCDCallbackPoint
+	call CopyBytes
+; "jp .LCDCallbackPoint"
+	ld a, JP_INSTRUCTION                :: ldh [hFunctionInstruction], a
+	ld a, LOW(SlotMachine_LCDCallback)  :: ldh [hFunctionTargetLo], a
+	ld a, HIGH(SlotMachine_LCDCallback) :: ldh [hFunctionTargetHi], a
 	call .InitGFX
 	call DelayFrame
 .loop
@@ -99,6 +108,65 @@ _SlotMachine:
 	ld hl, rLCDC
 	res rLCDC_SPRITE_SIZE, [hl] ; 8x8
 	ret
+
+; no, the LOAD section directive does not work here
+.LCDCallbackPoint:
+; just does a unaccounted bankswitch to the payload
+	push af
+	ld a, BANK(.LCDCallbackPayload)
+	ld [MBC3RomBank], a
+	jp .LCDCallbackPayload
+.LCDCallbackPoint_JumpBack:
+	ld a, [hROMBank]
+	ld [MBC3RomBank], a
+	pop af
+	reti
+.LCDCallbackPoint_End:
+
+.LCDCallbackPayload:
+; payload generates mid-frame palette writes
+; for the gradient thingy
+	push hl
+	ld hl, .a_table_i_guess
+	ldh a, [rLY]
+	cp a, $48
+	jr nc, .done
+	and a, %11111000
+	sra a
+	sra a
+	add l
+	ld l, a
+	jr nc, .skip
+	inc h
+.skip
+; access the GBC pal regs directly, unrolled loop
+MACRO _write_to_pals
+	ld a, \1 | 1 << rBGPI_AUTO_INCREMENT
+	ldh [rBGPI], a
+	ld a, [hli]
+	ldh [rBGPD], a
+	ld a, [hld]
+	ldh [rBGPD], a
+ENDM
+	_write_to_pals 6
+	_write_to_pals 10
+	_write_to_pals 58
+.done
+	pop hl
+; needs to be relative to RAM
+	jp SlotMachine_LCDCallback+(.LCDCallbackPoint_JumpBack-.LCDCallbackPoint)
+.a_table_i_guess
+; switch to a new color each 8 scanlines
+	RGB 03, 03, 10 ; 0
+	RGB 06, 08, 21 ; 1
+	RGB 04, 09, 26 ; 2
+	RGB 05, 14, 27 ; 3
+	RGB 05, 17, 27 ; 4
+	RGB 08, 20, 29 ; 5
+	RGB 16, 26, 31 ; 6
+	RGB 15, 28, 31 ; 7
+	RGB 15, 28, 31 ; 8
+
 
 .InitGFX:
 	call ClearBGPalettes

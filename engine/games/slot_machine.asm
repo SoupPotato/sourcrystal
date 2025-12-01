@@ -129,8 +129,17 @@ _SlotMachine:
 	push hl
 	ld hl, .a_table_i_guess
 	ldh a, [rLY]
-	cp a, $48
+; sound engine on vblank spills over here, can't do
+; anything while that's going on
+	cp a, 24
+	jr c, .done
+; reset the gradient color after scanline 98
+	cp a, 98
+	jr nc, .initial_color
+; hold the color after scanline 72
+	cp a, 72
 	jr nc, .done
+; calculate color index based on scanline position
 	and a, %11111000
 	sra a
 	sra a
@@ -148,17 +157,24 @@ MACRO _write_to_pals
 	ld a, [hld]
 	ldh [rBGPD], a
 ENDM
-	_write_to_pals 6
-	_write_to_pals 10
-	_write_to_pals 58
+	_write_to_pals 10 ; BGP1 2nd
+	_write_to_pals 58 ; BGP7 2nd
+	jr .done
+.initial_color
+	ld a, 58 | 1 << rBGPI_AUTO_INCREMENT
+	ldh [rBGPI], a
+	ld a, $c5
+	ldh [rBGPD], a
+	ld a, $6d
+	ldh [rBGPD], a
 .done
 	pop hl
 ; needs to be relative to RAM
 	jp SlotMachine_LCDCallback+(.LCDCallbackPoint_JumpBack-.LCDCallbackPoint)
 .a_table_i_guess
 ; switch to a new color each 8 scanlines
-	RGB 03, 03, 10 ; 0
-	RGB 06, 08, 21 ; 1
+	RGB 03, 03, 10 ; 0 not used :(
+	RGB 06, 08, 21 ; 1 not used :(
 	RGB 04, 09, 26 ; 2
 	RGB 05, 14, 27 ; 3
 	RGB 05, 17, 27 ; 4

@@ -227,7 +227,7 @@ RocketElectrode1:
 	loadwildmon ELECTRODE, 25
 	jump .Electrode1_finish
 .Electrode1_challenge_mode
-	loadwildmon ELECTRODE, 36
+	loadwildmon ELECTRODE, 34
 .Electrode1_finish
 	startbattle
 	iftrue TeamRocketBaseB2FReloadMap
@@ -251,7 +251,7 @@ RocketElectrode2:
 	loadwildmon ELECTRODE, 23
 	jump .Electrode2_finish
 .Electrode2_challenge_mode
-	loadwildmon ELECTRODE, 36
+	loadwildmon ELECTRODE, 34
 .Electrode2_finish
 	startbattle
 	iftrue TeamRocketBaseB2FReloadMap
@@ -275,7 +275,7 @@ RocketElectrode3:
 	loadwildmon ELECTRODE, 23
 	jump .Electrode3_finish
 .Electrode3_challenge_mode
-	loadwildmon ELECTRODE, 36
+	loadwildmon ELECTRODE, 34
 .Electrode3_finish
 	startbattle
 	iftrue TeamRocketBaseB2FReloadMap

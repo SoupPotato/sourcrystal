@@ -372,7 +372,6 @@ SlotsJumptable:
 
 .Jumptable:
 	dw SlotsAction_Init              ; 00
-	dw SlotsAction_DoNothing
 	dw SlotsAction_BetAndStart       ; 01
 	dw SlotsAction_WaitStart         ; 02
 	dw SlotsAction_WaitReel1         ; 03

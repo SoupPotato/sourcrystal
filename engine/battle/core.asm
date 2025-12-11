@@ -2228,97 +2228,6 @@ DoubleSwitch:
 	ld [wBattlePlayerAction], a
 	ret
 
-UpdateBattleStateAndExperienceAfterEnemyFaint:
-	call UpdateBattleMonInParty
-	ld a, [wBattleMode]
-	dec a
-	jr z, .wild
-	ld a, [wCurOTMon]
-	ld hl, wOTPartyMon1HP
-	call GetPartyLocation
-	xor a
-	ld [hli], a
-	ld [hl], a
-
-.wild
-	ld hl, wPlayerSubStatus3
-	res SUBSTATUS_IN_LOOP, [hl]
-	xor a
-	ld hl, wEnemyDamageTaken
-	ld [hli], a
-	ld [hl], a
-	call NewEnemyMonStatus
-	call BreakAttraction
-	ld a, [wBattleMode]
-	dec a
-	jr z, .wild2
-	jr .trainer
-
-.wild2
-	call StopDangerSound
-	ld a, $1
-	ld [wBattleLowHealthAlarm], a
-
-.trainer
-	ld hl, wBattleMonHP
-	ld a, [hli]
-	or [hl]
-	jr nz, .player_mon_did_not_faint
-	ld a, [wWhichMonFaintedFirst]
-	and a
-	jr nz, .player_mon_did_not_faint
-	call UpdateFaintedPlayerMon
-
-.player_mon_did_not_faint
-	call CheckPlayerPartyForFitMon
-	ld a, d
-	and a
-	ret z
-	ld a, [wBattleMode]
-	dec a
-	call z, PlayVictoryMusic
-	call EmptyBattleTextbox
-	call LoadTilemapToTempTilemap
-	ld a, [wBattleResult]
-	and BATTLERESULT_BITMASK
-	ld [wBattleResult], a ; WIN
-	; fallthrough
-ApplyExperienceAfterEnemyCaught:
-	call IsAnyMonHoldingExpShare
-	jr z, .skip_exp
-	ld hl, wEnemyMonBaseStats
-	ld b, wEnemyMonEnd - wEnemyMonBaseStats
-.loop
-	srl [hl]
-	inc hl
-	dec b
-	jr nz, .loop
-
-.skip_exp
-	ld hl, wEnemyMonBaseStats
-	ld de, wBackupEnemyMonBaseStats
-	ld bc, wEnemyMonEnd - wEnemyMonBaseStats
-	call CopyBytes
-	xor a
-	ld [wGivingExperienceToExpShareHolders], a
-	call GiveExperiencePoints
-	call IsAnyMonHoldingExpShare
-	ret z
-
-	ld a, [wBattleParticipantsNotFainted]
-	push af
-	ld a, d
-	ld [wBattleParticipantsNotFainted], a
-	ld hl, wBackupEnemyMonBaseStats
-	ld de, wEnemyMonBaseStats
-	ld bc, wEnemyMonEnd - wEnemyMonBaseStats
-	call CopyBytes
-	ld a, $1
-	ld [wGivingExperienceToExpShareHolders], a
-	call GiveExperiencePoints
-	pop af
-	ld [wBattleParticipantsNotFainted], a
-	ret
 
 IsAnyMonHoldingExpShare:
 	ld a, [wPartyCount]
@@ -2361,18 +2270,23 @@ IsAnyMonHoldingExpShare:
 	jr nz, .loop
 
 	ld a, d
-	ld e, 0
-	ld b, PARTY_LENGTH
-.loop2
-	srl a
-	jr nc, .okay
-	inc e
-
-.okay
-	dec b
-	jr nz, .loop2
-	ld a, e
+	call CountBits
+	ld e, a
 	and a
+	ret
+
+CountBits:
+; Returns amount of bits in a in a.
+	push bc
+	ld b, 0
+.loop
+	add a
+	jr nc, .okay
+	inc b
+.okay
+	jr nz, .loop
+	ld a, b
+	pop bc
 	ret
 
 StopDangerSound:
@@ -7290,6 +7204,66 @@ FinishBattleAnim:
 	pop af
 	ret
 
+UpdateBattleStateAndExperienceAfterEnemyFaint:
+	call UpdateBattleMonInParty
+	ld a, [wBattleMode]
+	dec a
+	jr z, .wild
+	ld a, [wCurOTMon]
+	ld hl, wOTPartyMon1HP
+	call GetPartyLocation
+	xor a
+	ld [hli], a
+	ld [hl], a
+
+.wild
+	ld hl, wPlayerSubStatus3
+	res SUBSTATUS_IN_LOOP, [hl]
+	xor a
+	ld hl, wEnemyDamageTaken
+	ld [hli], a
+	ld [hl], a
+	call NewEnemyMonStatus
+	call BreakAttraction
+	ld a, [wBattleMode]
+	dec a
+	jr z, .wild2
+	jr .trainer
+
+.wild2
+	call StopDangerSound
+	ld a, $1
+	ld [wBattleLowHealthAlarm], a
+
+.trainer
+	ld hl, wBattleMonHP
+	ld a, [hli]
+	or [hl]
+	jr nz, .player_mon_did_not_faint
+	ld a, [wWhichMonFaintedFirst]
+	and a
+	jr nz, .player_mon_did_not_faint
+	call UpdateFaintedPlayerMon
+
+.player_mon_did_not_faint
+	call CheckPlayerPartyForFitMon
+	ld a, d
+	and a
+	ret z
+	ld a, [wBattleMode]
+	dec a
+	call z, PlayVictoryMusic
+	call EmptyBattleTextbox
+	call LoadTilemapToTempTilemap
+	ld a, [wBattleResult]
+	and BATTLERESULT_BITMASK
+	ld [wBattleResult], a ; WIN
+	; fallthrough
+ApplyExperienceAfterEnemyCaught:
+	call IsAnyMonHoldingExpShare
+	ld a, d
+	ld [wGivingExperienceToExpShareHolders], a
+	; fallthrough
 GiveExperiencePoints:
 ; Give experience.
 ; Don't give experience if linked or in the Battle Tower.
@@ -7301,92 +7275,57 @@ GiveExperiencePoints:
 	bit IN_BATTLE_TOWER_BATTLE_F, a
 	ret nz
 
-	call .EvenlyDivideExpAmongParticipants
 	xor a
 	ld [wCurPartyMon], a
-	ld bc, wPartyMon1Species
 
 .loop
-	ld hl, MON_HP
-	add hl, bc
+	ld a, MON_HP
+	call GetPartyParamLocation
 	ld a, [hli]
 	or [hl]
 	jp z, .next_mon ; fainted
 
-	push bc
+	ld hl, wGivingExperienceToExpShareHolders
+	call .CheckParticipation
+	jr nz, .participating
 	ld hl, wBattleParticipantsNotFainted
-	ld a, [wCurPartyMon]
-	ld c, a
-	ld b, CHECK_FLAG
-	ld d, 0
-	predef SmallFarFlagAction
-	ld a, c
-	and a
-	pop bc
-	jp z, .next_mon
+	call .CheckParticipation
+	jp z, .next_mon ; not a participant
 
-; give stat exp
-	ld hl, MON_STAT_EXP + 1
-	add hl, bc
+	xor a
+	ldh [hMultiplicand], a
+	ldh [hMultiplicand + 1], a
+
+.participating
+	; give stat exp
+	ld a, MON_STAT_EXP + 1
+	call GetPartyParamLocation
 	ld d, h
 	ld e, l
-	ld hl, wEnemyMonBaseStats - 1
-	push bc
+	ld hl, wEnemyMonBaseStats
 	ld c, NUM_EXP_STATS
 .stat_exp_loop
-	inc hl
-	ld a, [de]
-	add [hl]
-	ld [de], a
-	jr nc, .no_carry_stat_exp
-	dec de
-	ld a, [de]
-	inc a
-	jr z, .stat_exp_maxed_out
-	ld [de], a
-	inc de
-
-.no_carry_stat_exp
+	ld a, [hli]
+	ldh [hMultiplicand + 2], a
 	push hl
+	push de
 	push bc
+	call .GetExpDistribution
 	ld a, MON_POKERUS
 	call GetPartyParamLocation
 	ld a, [hl]
 	and a
 	pop bc
+	pop de
 	pop hl
-	jr z, .stat_exp_awarded
-	ld a, [de]
-	add [hl]
-	ld [de], a
-	jr nc, .stat_exp_awarded
-	dec de
-	ld a, [de]
-	inc a
-	jr z, .stat_exp_maxed_out
-	ld [de], a
-	inc de
-	jr .stat_exp_awarded
-
-.stat_exp_maxed_out
-	ld a, $ff
-	ld [de], a
-	inc de
-	ld [de], a
-
-.stat_exp_awarded
+	call nz, .GiveStatExp
+	call .GiveStatExp
 	inc de
 	inc de
 	dec c
 	jr nz, .stat_exp_loop
 
-	push hl
-	push de
-	push bc
 	farcall GetNewBaseExp
-	pop bc
-	pop de
-	pop hl
 
 	ld a, [wEnemyMonLevel]
 	ldh [hMultiplier], a
@@ -7395,10 +7334,10 @@ GiveExperiencePoints:
 	ldh [hDivisor], a
 	ld b, 4
 	call Divide
-; Boost Experience for traded Pokemon
-	pop bc
-	ld hl, MON_OT_ID
-	add hl, bc
+
+	; Boost Experience for traded Pokemon
+	ld a, MON_OT_ID
+	call GetPartyParamLocation
 	ld a, [wPlayerID]
 	cp [hl]
 	jr nz, .boosted
@@ -7409,22 +7348,28 @@ GiveExperiencePoints:
 	jr z, .no_boost
 
 .boosted
-	call BoostExp
+	call .BoostExp
 	ld a, 1
 
 .no_boost
-; Boost experience for a Trainer Battle
+	; Boost experience for a Trainer Battle
 	ld [wStringBuffer2 + 3], a
 	ld a, [wBattleMode]
 	dec a
-	call nz, BoostExp
-; Boost experience for Lucky Egg
+	call nz, .BoostExp
+
+	xor a
+	call GetPartyParamLocation
+	ld b, h
+	ld c, l
+
+	; Boost experience for Lucky Egg
 	push bc
 	ld a, MON_ITEM
 	call GetPartyParamLocation
 	ld a, [hl]
 	cp LUCKY_EGG
-	call z, BoostExp
+	call z, .BoostExp
 
 	; Scale exp
 	push de
@@ -7450,20 +7395,9 @@ GiveExperiencePoints:
 	call .GetSqrt
 	ld e, a
 	call .ScaleMod
+	call .GetExpDistribution
 
-	; Count participants for exp dividing.
-	lb de, 1, 1
-	ld a, [wBattleParticipantsNotFainted]
-.countbits_loop
-	add a
-	jr z, .countbits_done
-	jr nc, .countbits_loop
-	inc e
-	jr .countbits_loop
-.countbits_done
-	call .ScaleMod
-
-	; make sure to give at least 1 exp
+	; Make sure to give at least 1 exp.
 	ld hl, hQuotient + 1
 	push hl
 	ld a, [hli]
@@ -7720,49 +7654,122 @@ GiveExperiencePoints:
 	cp b
 	jr z, .done
 	ld [wCurPartyMon], a
-	ld a, MON_SPECIES
-	call GetPartyParamLocation
-	ld b, h
-	ld c, l
 	jp .loop
 
 .done
 	jp ResetBattleParticipants
 
-.EvenlyDivideExpAmongParticipants:
-; count number of battle participants
-	ld a, [wBattleParticipantsNotFainted]
-	ld b, a
-	ld c, PARTY_LENGTH
+.CheckParticipation:
+	ld a, [wCurPartyMon]
+	ld c, a
+	ld b, CHECK_FLAG
 	ld d, 0
-.count_loop
-	xor a
-	srl b
-	adc d
-	ld d, a
-	dec c
-	jr nz, .count_loop
-	cp 2
-	ret c
-
-	ld [wTempByteValue], a
-	ld hl, wEnemyMonBaseStats
-	ld c, wEnemyMonEnd - wEnemyMonBaseStats
-.base_stat_division_loop
-	xor a
-	ldh [hDividend + 0], a
-	ld a, [hl]
-	ldh [hDividend + 1], a
-	ld a, [wTempByteValue]
-	ldh [hDivisor], a
-	ld b, 2
-	call Divide
-	ldh a, [hQuotient + 3]
-	ld [hli], a
-	dec c
-	jr nz, .base_stat_division_loop
+	predef SmallFarFlagAction
+	ld a, c
+	and a
 	ret
 
+.GetExpDistribution:
+; Distribute among participants as follows:
+; p=participats e=exp share holders
+; If p or e is zero, just do 1/p or 1/e.
+; Otherwise; P=e if participant, otherwise 0, E=p if holder, otherwise 0
+; exp = current(E+P)/(2ep)
+	ld a, [wGivingExperienceToExpShareHolders]
+	ld d, a
+	ld a, [wBattleParticipantsNotFainted]
+	ld e, a
+	and a
+	ld a, d
+	jr z, .single_factor
+	and a
+	ld a, e
+	jr z, .single_factor
+
+	; We are dealing with both participants and exp share holders.
+	; First, verify that we are a participant.
+	push de
+	ld b, 0
+	ld hl, wGivingExperienceToExpShareHolders
+	push bc
+	call .CheckParticipation
+	pop bc
+	pop de
+	push af
+	ld a, d
+	call CountBits
+	ld d, a
+	pop af
+	jr z, .done_exp_share_pe
+	inc b
+
+.done_exp_share_pe
+	push de
+	push bc
+	ld hl, wBattleParticipantsNotFainted
+	call .CheckParticipation
+	pop bc
+	pop de
+	push af
+	ld a, e
+	call CountBits
+	ld e, a
+	pop af
+	jr z, .done_participants_pe
+	set 1, b
+
+.done_participants_pe
+	push de
+	xor a
+	bit 0, b
+	jr z, .not_a_participant
+	add e
+.not_a_participant
+	bit 1, b
+	jr z, .not_a_holder
+	add d
+.not_a_holder
+	ldh [hMultiplier], a
+	call Multiply
+	pop de
+	ld a, d
+	ld c, e
+	call SimpleMultiply
+	add a
+	ldh [hDivisor], a
+	ld b, 4
+	jp Divide
+
+.single_factor
+	call CountBits
+	ldh [hDivisor], a
+	ld b, 4
+	jp Divide
+
+.GiveStatExp:
+	ldh a, [hProduct + 3]
+	ld b, a
+	ld a, [de]
+	add b
+	ld [de], a
+	ret nc
+	dec de
+
+	; Overflowing the lowest byte if stat exp is capped is fine, because
+	; we still exceed 63504 (any stat experience beyond that is pointless).
+	ld a, [de]
+	inc a
+	jr nz, .no_overflow
+	dec a
+.no_overflow
+	ld [de], a
+	inc a
+	ret
+
+.BoostExp:
+; Multiply experience by 1.5x
+	lb de, 3, 2
+	; fallthrough
 .ScaleMod:
 	ld a, d
 	ldh [hMultiplier], a
@@ -7789,26 +7796,6 @@ GiveExperiencePoints:
 	dec c
 .got_result
 	ld a, c
-	pop bc
-	ret
-
-BoostExp:
-; Multiply experience by 1.5x
-	push bc
-; load experience value
-	ldh a, [hProduct + 2]
-	ld b, a
-	ldh a, [hProduct + 3]
-	ld c, a
-; halve it
-	srl b
-	rr c
-; add it back to the whole exp value
-	add c
-	ldh [hProduct + 3], a
-	ldh a, [hProduct + 2]
-	adc b
-	ldh [hProduct + 2], a
 	pop bc
 	ret
 

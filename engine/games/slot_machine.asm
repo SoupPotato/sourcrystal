@@ -1778,7 +1778,7 @@ Slots_InitBias:
 	db 100 percent,     SLOTS_NO_BIAS
 
 Slots_IlluminateBetLights:
-	ld b, $14 ; turned on
+	ld b, $18 ; turned on
 	ld a, [wSlotBet]
 	dec a
 	jr z, Slots_Lights1OnOff
@@ -1787,7 +1787,7 @@ Slots_IlluminateBetLights:
 	jr Slots_Lights3OnOff
 
 Slots_DeilluminateBetLights:
-	ld b, $23 ; turned off
+	ld b, $16 ; turned off
 Slots_Lights3OnOff:
 	hlcoord 3, 2
 	call Slots_TurnLightsOnOrOff

@@ -43,7 +43,7 @@ RGBASM  ?= $(RGBDS)rgbasm
 RGBFIX  ?= $(RGBDS)rgbfix
 RGBGFX  ?= $(RGBDS)rgbgfx
 RGBLINK ?= $(RGBDS)rgblink
-SFCONV ?= tools/superfamiconv.exe
+SFCONV ?= tools/superfamiconv
 
 
 ### Build targets

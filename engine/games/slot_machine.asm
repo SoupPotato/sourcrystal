@@ -101,6 +101,9 @@ _SlotMachine:
 	ld de, SFX_QUIT_SLOTS
 	call PlaySFX
 	call WaitSFX
+; clear callback
+	ld a, RETI_INSTRUCTION
+	ld [hFunctionInstruction], a
 	call ClearBGPalettes
 	farcall StubbedTrainerRankings_EndSlotsWinStreak
 	ld hl, wOptions

@@ -252,6 +252,7 @@ ENDM
 	ld [wJumptableIndex], a
 	ld a, SLOTS_NO_BIAS
 	ld [wSlotBias], a
+	call Slots_AddWhiteSprites
 	ld de, MUSIC_GAME_CORNER
 	call PlayMusic
 	xor a
@@ -262,6 +263,34 @@ ENDM
 	ld a, TRUE
 	ld [wKeepSevenBiasChance], a ; 12.5% chance
 	ret
+
+Slots_AddWhiteSprites:
+	ld c, .dataEnd - .data
+	ld hl, wShadowOAM
+	ld de, .data
+.copy
+	ld a, [de]
+	ld [hli], a
+	inc de
+	dec c
+	jr nz, .copy
+	ret
+.data
+; top
+	dbsprite 6, 4, 0, 0, $7c, PRIORITY | 2
+	dbsprite 7, 4, 0, 0, $7c, PRIORITY | 2
+	dbsprite 10, 4, 0, 0, $7c, PRIORITY | 2
+	dbsprite 11, 4, 0, 0, $7c, PRIORITY | 2
+	dbsprite 14, 4, 0, 0, $7c, PRIORITY | 2
+	dbsprite 15, 4, 0, 0, $7c, PRIORITY | 2
+; bottom
+	dbsprite 6, 12, 0, 0, $7c, PRIORITY | 7
+	dbsprite 7, 12, 0, 0, $7c, PRIORITY | 7
+	dbsprite 10, 12, 0, 0, $7c, PRIORITY | 7
+	dbsprite 11, 12, 0, 0, $7c, PRIORITY | 7
+	dbsprite 14, 12, 0, 0, $7c, PRIORITY | 7
+	dbsprite 15, 12, 0, 0, $7c, PRIORITY | 7
+.dataEnd
 
 Slots_GetPals:
 	ld a, %11100100
@@ -283,7 +312,7 @@ SlotsLoop:
 	call Slots_SpinReels
 	xor a
 	ld [wCurSpriteOAMAddr], a
-	callfar DoNextFrameForFirst16Sprites
+	;callfar DoNextFrameForFirst16Sprites
 	call .PrintCoinsAndPayout
 	call .Stubbed_AlternateMatchingSevensPalette
 	call DelayFrame

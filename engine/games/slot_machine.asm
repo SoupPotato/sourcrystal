@@ -83,6 +83,7 @@ DEF SLOTS_END_LOOP_F EQU 7
 _SlotMachine:
 	ld hl, wOptions
 	set NO_TEXT_SCROLL, [hl]
+	call .InitGFX
 ; set up LCD callback
 	ld hl, .LCDCallbackPoint
 	ld de, SlotMachine_LCDCallback
@@ -92,7 +93,6 @@ _SlotMachine:
 	ld a, JP_INSTRUCTION                :: ldh [hFunctionInstruction], a
 	ld a, LOW(SlotMachine_LCDCallback)  :: ldh [hFunctionTargetLo], a
 	ld a, HIGH(SlotMachine_LCDCallback) :: ldh [hFunctionTargetHi], a
-	call .InitGFX
 	call DelayFrame
 .loop
 	call SlotsLoop

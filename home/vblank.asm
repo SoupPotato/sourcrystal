@@ -65,6 +65,10 @@ VBlank_Normal::
 	ld hl, hVBlankCounter
 	inc [hl]
 
+	ldh a, [hVBlankHookFunction]
+	and a
+	call nz, hVBlankHookFunction
+
 	; advance random variables
 	ldh a, [rDIV]
 	ld b, a

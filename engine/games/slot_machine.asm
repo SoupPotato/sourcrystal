@@ -80,6 +80,13 @@ DEF SLOTS_END_LOOP_F EQU 7
 	const REEL_ACTION_WAIT_EGG
 	const REEL_ACTION_DROP_REEL
 
+; wSlotsWhichSpecialAnim values
+	const_def
+	const SLOTS_SPECIAL_ANIM_NONE
+	const SLOTS_SPECIAL_ANIM_JACKPOT
+	const SLOTS_SPECIAL_ANIM_MATCH
+	const SLOTS_SPECIAL_ANIM_RESET_COLORS
+
 _SlotMachine:
 	ld hl, wOptions
 	set NO_TEXT_SCROLL, [hl]
@@ -93,6 +100,9 @@ _SlotMachine:
 	ld a, JP_INSTRUCTION                :: ldh [hFunctionInstruction], a
 	ld a, LOW(SlotMachine_LCDCallback)  :: ldh [hFunctionTargetLo], a
 	ld a, HIGH(SlotMachine_LCDCallback) :: ldh [hFunctionTargetHi], a
+	ld a, JP_INSTRUCTION                :: ldh [hVBlankHookFunction + 0], a
+	ld a, LOW(SlotMachine_VBlankCallback)  :: ldh [hVBlankHookFunction + 1], a
+	ld a, HIGH(SlotMachine_VBlankCallback) :: ldh [hVBlankHookFunction + 2], a
 	call DelayFrame
 .loop
 	call SlotsLoop
@@ -104,6 +114,8 @@ _SlotMachine:
 ; clear callback
 	ld a, RETI_INSTRUCTION
 	ld [hFunctionInstruction], a
+	xor a
+	ld [hVBlankHookFunction], a
 	call ClearBGPalettes
 	farcall StubbedTrainerRankings_EndSlotsWinStreak
 	ld hl, wOptions
@@ -120,10 +132,21 @@ _SlotMachine:
 	ld [MBC3RomBank], a
 	jp .LCDCallbackPayload
 .LCDCallbackPoint_JumpBack:
-	ld a, [hROMBank]
+	ldh a, [hROMBank]
 	ld [MBC3RomBank], a
 	pop af
 	reti
+; vblank hook does not need to save registers
+; since it runs INSIDE vblank
+.LCDCallbackPoint_VblankHook:
+	ld a, BANK(.VBlankHookPayload)
+	ld [MBC3RomBank], a
+	jp .VBlankHookPayload
+.LCDCallbackPoint_VblankHook_JumpBack:
+	ldh a, [hROMBank]
+	ld [MBC3RomBank], a
+	rst Bankswitch
+	ret
 .LCDCallbackPoint_End:
 
 .LCDCallbackPayload:
@@ -181,15 +204,190 @@ _SlotMachine:
 ; bgp1 second color
 	ld a, 10 | 1 << rBGPI_AUTO_INCREMENT
 	ldh [rBGPI], a
-	ld a, $24
+	ld a, $88
 	ldh [rBGPD], a
-	ld a, $6a
+	ld a, $76
 	ldh [rBGPD], a
+	jr .done
 
 .done
 ; needs to be relative to RAM
 	jp SlotMachine_LCDCallback+(.LCDCallbackPoint_JumpBack-.LCDCallbackPoint)
 
+.VBlankHookPayload:
+	ld a, [wSlotsWhichSpecialAnim]
+	and a
+	jp z, .vbdone
+
+	cp SLOTS_SPECIAL_ANIM_RESET_COLORS
+	jp z, .reset
+
+	cp SLOTS_SPECIAL_ANIM_MATCH
+	jp z, .non_jackpot
+
+; .jackpot
+	ld a, [wSlotMatched]
+	ld d, a
+	call AnimateSlotReelIcon
+	ld a, [hVBlankCounter]
+	and a, 0b1000
+	srl a
+	srl a
+	srl a
+	and a
+	jr nz, .jackpot_gfx_frameB
+	call .jackpot_hoppip_frameA
+	jr .jackpot_do_pal
+.jackpot_gfx_frameB
+	call .jackpot_hoppip_frameB
+.jackpot_do_pal
+	ld a, [hVBlankCounter]
+; cycle through 4 colors
+	and a, 0b110000
+	srl a
+	srl a
+	ld hl, .jackpot_lut
+	add a, l
+	ld l, a
+	ld a, h
+	adc 0
+	ld h, a
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld d, a
+	ld a, [hl]
+	ld e, a
+MACRO applybcpal
+	ld a, (\1*8) + (\2*2) | 1 << rBGPI_AUTO_INCREMENT
+	ldh [rBGPI], a
+	ld a, b
+	ldh [rBGPD], a
+	ld a, c
+	ldh [rBGPD], a
+ENDM
+; unroll: apply palette to every white BGP except 7
+	applybcpal 0, 0
+	applybcpal 1, 0
+	applybcpal 2, 0
+	applybcpal 3, 0
+	applybcpal 4, 0
+	ld b, d
+	ld c, e
+	applybcpal 6, 1
+	;ld b, b
+	jp .vbdone
+
+.jackpot_lut
+; BG white palette, then BG star palette
+	RGB 15, 31, 19
+	RGB 31, 23, 01
+	
+	RGB 14, 24, 31
+	RGB 31, 30, 22
+	
+	RGB 31, 14, 26
+	RGB 31, 23, 01
+	
+	RGB 31, 27, 16
+	RGB 31, 15, 00
+
+.non_jackpot
+	ld a, [wSlotMatched]
+	ld d, a
+	call AnimateSlotReelIcon
+	ld a, [hVBlankCounter]
+	and a, 0b1000
+	srl a
+	srl a
+	srl a
+	and a
+	jr nz, .non_jackpot_gfx_frameB
+	call .jackpot_hoppip_frameA
+	jr .non_jackpot_do_pal
+.non_jackpot_gfx_frameB
+	call .jackpot_hoppip_frameB
+.non_jackpot_do_pal
+	ld a, [hVBlankCounter]
+; cycle through 4 colors
+	and a, 0b110000
+	srl a
+	srl a
+	srl a
+	ld hl, .non_jackpot_lut
+	add a, l
+	ld l, a
+	ld a, h
+	adc 0
+	ld h, a
+	ld a, [hli]
+	ld b, a
+	ld a, [hl]
+	ld c, a
+	applybcpal 6, 1
+	jr .vbdone
+
+.non_jackpot_lut
+; BG star palette
+	RGB 31, 23, 01
+	RGB 31, 30, 22
+	RGB 31, 23, 01
+	RGB 31, 15, 00
+
+.reset
+	ld bc, $ff7f
+	applybcpal 0, 0
+	applybcpal 1, 0
+	applybcpal 2, 0
+	applybcpal 3, 0
+	applybcpal 4, 0
+	ld bc, $ff06
+	applybcpal 6, 1
+	ld a, [wSlotMatched]
+	ld d, a
+	call ResetSlotReelIcon
+	call .jackpot_hoppip_frameA
+	xor a ; NONE
+	ld [wSlotsWhichSpecialAnim], a
+
+.vbdone
+	jp SlotMachine_LCDCallback+(.LCDCallbackPoint_VblankHook_JumpBack-.LCDCallbackPoint)
+
+.jackpot_hoppip_frameA
+MACRO hoppipbgfx
+	ld a, \1
+	ld [hli], a
+	ld a, \1 + 1
+	ld [hli], a
+ENDM
+MACRO position_hoppipbgfx_both_maps
+	hlbgcoord \1, \2
+	hoppipbgfx \3
+	hlcoord \1, \2
+	hoppipbgfx \3
+ENDM
+; upper half
+	position_hoppipbgfx_both_maps 5, 2, $1c
+	position_hoppipbgfx_both_maps 9, 2, $1c
+	position_hoppipbgfx_both_maps 13, 2, $1c
+; lower half
+	position_hoppipbgfx_both_maps 5, 3, $1e
+	position_hoppipbgfx_both_maps 9, 3, $1e
+	position_hoppipbgfx_both_maps 13, 3, $1e
+	ret
+
+.jackpot_hoppip_frameB
+; upper half
+	position_hoppipbgfx_both_maps 5, 2, $20
+	position_hoppipbgfx_both_maps 9, 2, $20
+	position_hoppipbgfx_both_maps 13, 2, $20
+; lower half
+	position_hoppipbgfx_both_maps 5, 3, $22
+	position_hoppipbgfx_both_maps 9, 3, $22
+	position_hoppipbgfx_both_maps 13, 3, $22
+	ret
 
 .InitGFX:
 	call ClearBGPalettes
@@ -264,6 +462,7 @@ _SlotMachine:
 	call PlayMusic
 	xor a
 	ld [wKeepSevenBiasChance], a ; 87.5% chance
+	ld [wSlotsWhichSpecialAnim], a
 	call Random
 	and %00101010
 	ret nz
@@ -362,9 +561,13 @@ DebugPrintSlotBias: ; unreferenced
 	ld [hl], a
 	ret
 
-AnimateSlotReelIcons: ; unreferenced
+AnimateSlotReelIcon:
 ; This animation was present in pokegold-spaceworld.
-	ld hl, wUnusedSlotReelIconDelay
+
+; d = which slot reel icon to animate,
+;     refer to wSlotMatched values
+
+	ld hl, wSlotReelIconDelay
 	ld a, [hl]
 	inc [hl]
 	and $7
@@ -373,8 +576,41 @@ AnimateSlotReelIcons: ; unreferenced
 	ld c, NUM_SPRITE_OAM_STRUCTS - 16
 .loop
 	ld a, [hl]
+	ld b, a
+	and %11100
+	cp d
+	jr nz, .next
+	ld a, b
 	xor $20 ; alternate between $00-$1f and $20-$3f
-	ld [hli], a ; tile id
+	ld [hl], a ; tile id
+.next
+	inc hl
+rept SPRITEOAMSTRUCT_LENGTH - 1
+	inc hl
+endr
+	dec c
+	jr nz, .loop
+	ret
+
+ResetSlotReelIcon:
+; d = which slot reel icon to reset,
+;     refer to wSlotMatched values
+	ld hl, wShadowOAMSprite16TileID
+	ld c, NUM_SPRITE_OAM_STRUCTS - 16
+.loop
+	ld a, [hl]
+	ld b, a
+	and %11000
+	srl a
+	srl a
+	srl a
+	cp d
+	jr nz, .next
+	ld a, b
+	and $1f
+	ld [hl], a ; tile id
+.next
+	inc hl
 rept SPRITEOAMSTRUCT_LENGTH - 1
 	inc hl
 endr
@@ -552,8 +788,16 @@ SlotsAction_FlashScreen:
 
 .done
 	call Slots_GetPals
-	call SlotsAction_Next
-	ret
+	ld a, [wSlotMatched]
+	and a ; cp SLOTS_SEVEN
+	jr nz, .not_jackpot
+	ld a, SLOTS_SPECIAL_ANIM_JACKPOT
+	ld [wSlotsWhichSpecialAnim], a
+	jp SlotsAction_Next
+.not_jackpot
+	ld a, SLOTS_SPECIAL_ANIM_MATCH
+	ld [wSlotsWhichSpecialAnim], a
+	jp SlotsAction_Next
 
 SlotsAction_GiveEarnedCoins:
 	xor a
@@ -1917,10 +2161,14 @@ Slots_AskPlayAgain:
 	call CloseWindow
 	and a
 	jr nz, .exit_slots
+	ld a, SLOTS_SPECIAL_ANIM_RESET_COLORS
+	ld [wSlotsWhichSpecialAnim], a
 	and a
 	ret
 
 .exit_slots
+	ld a, SLOTS_SPECIAL_ANIM_RESET_COLORS
+	ld [wSlotsWhichSpecialAnim], a
 	scf
 	ret
 

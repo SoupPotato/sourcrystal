@@ -311,8 +311,10 @@ wRuinsMoveTutorScratch:: ds \
 	1 + \ ; cancel button
 	1 ; number of items
 NEXTU
+wSlotsWhichSpecialAnim:: ds 1
 ; i don't feel like getting the actual length :(
-SlotMachine_LCDCallback:: ds 1
+SlotMachine_LCDCallback:: ds 16
+SlotMachine_VBlankCallback:: ds 1
 ENDU
 wMobileWRAMEnd::
 
@@ -1637,7 +1639,7 @@ NEXTU
 ; slot machine
 wSlotsDelay:: db
 	ds 1
-wUnusedSlotReelIconDelay:: db
+wSlotReelIconDelay:: db
 
 NEXTU
 ; card flip

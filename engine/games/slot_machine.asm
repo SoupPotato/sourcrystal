@@ -269,35 +269,14 @@ _SlotMachine:
 	ret nz
 	ld a, TRUE
 	ld [wKeepSevenBiasChance], a ; 12.5% chance
+	callfar DoNextFrameForFirst16Sprites
 	ret
 
 Slots_AddWhiteSprites:
-	ld c, .dataEnd - .data
-	ld hl, wShadowOAM
-	ld de, .data
-.copy
-	ld a, [de]
-	ld [hli], a
-	inc de
-	dec c
-	jr nz, .copy
+	depixel 10, 5
+	ld a, SPRITE_ANIM_OBJ_SLOTS_COVER
+	call InitSpriteAnimStruct
 	ret
-.data
-; top
-	dbsprite 6, 4, 0, 0, $7c, PRIORITY | 2
-	dbsprite 7, 4, 0, 0, $7c, PRIORITY | 2
-	dbsprite 10, 4, 0, 0, $7c, PRIORITY | 2
-	dbsprite 11, 4, 0, 0, $7c, PRIORITY | 2
-	dbsprite 14, 4, 0, 0, $7c, PRIORITY | 2
-	dbsprite 15, 4, 0, 0, $7c, PRIORITY | 2
-; bottom
-	dbsprite 6, 12, 0, 0, $7c, PRIORITY | 7
-	dbsprite 7, 12, 0, 0, $7c, PRIORITY | 7
-	dbsprite 10, 12, 0, 0, $7c, PRIORITY | 7
-	dbsprite 11, 12, 0, 0, $7c, PRIORITY | 7
-	dbsprite 14, 12, 0, 0, $7c, PRIORITY | 7
-	dbsprite 15, 12, 0, 0, $7c, PRIORITY | 7
-.dataEnd
 
 Slots_GetPals:
 	ld a, %11100100

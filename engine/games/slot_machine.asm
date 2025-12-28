@@ -319,7 +319,7 @@ SlotsLoop:
 	call Slots_SpinReels
 	xor a
 	ld [wCurSpriteOAMAddr], a
-	;callfar DoNextFrameForFirst16Sprites
+	callfar DoNextFrameForFirst16Sprites
 	call .PrintCoinsAndPayout
 	call .Stubbed_AlternateMatchingSevensPalette
 	call DelayFrame
@@ -439,9 +439,6 @@ SlotsAction_Init:
 	ld [wFirstTwoReelsMatchingSevens], a
 	ld a, SLOTS_NO_MATCH
 	ld [wSlotMatched], a
-	ret
-
-SlotsAction_DoNothing:
 	ret
 
 SlotsAction_BetAndStart:

@@ -132,59 +132,66 @@ _SlotMachine:
 	push hl
 	ld hl, .a_table_i_guess
 	ldh a, [rLY]
+
 ; sound engine on vblank spills over here, can't do
 ; anything while that's going on
 	cp a, 24
 	jr c, .done
-; reset the gradient color after scanline 98
+
+; reset color on BGP 2 and BGP 1
 	cp a, 98
 	jr nc, .initial_color
-; hold the color after scanline 72
-	cp a, 72
-	jr nc, .done
-; calculate color index based on scanline position
-	and a, %11111000
-	sra a
-	sra a
-	add l
-	ld l, a
-	jr nc, .skip
-	inc h
-.skip
-; access the GBC pal regs directly, unrolled loop
-MACRO _write_to_pals
-	ld a, \1 | 1 << rBGPI_AUTO_INCREMENT
-	ldh [rBGPI], a
-	ld a, [hli]
-	ldh [rBGPD], a
-	ld a, [hld]
-	ldh [rBGPD], a
-ENDM
-	_write_to_pals 10 ; BGP1 2nd
-	_write_to_pals 58 ; BGP7 2nd
+
+; brighten color on BGP 2
+	cp a, 80 - 1
+	jr nc, .bgp2light
+
+; brighten color on BGP 1
+	cp a, 64 - 1
+	jr nc, .bgp1light
+
 	jr .done
+
+.bgp2light
+; bgp2 second color
+	ld a, 18 | 1 << rBGPI_AUTO_INCREMENT
+	ldh [rBGPI], a
+	ld a, $8e
+	ldh [rBGPD], a
+	ld a, $7f
+	ldh [rBGPD], a
+	jr .done
+
+.bgp1light
+; bgp1 second color
+	ld a, 10 | 1 << rBGPI_AUTO_INCREMENT
+	ldh [rBGPI], a
+	ld a, $8e
+	ldh [rBGPD], a
+	ld a, $7f
+	ldh [rBGPD], a
+	jr .done
+
 .initial_color
-	ld a, 58 | 1 << rBGPI_AUTO_INCREMENT
+; bgp2 second color
+	ld a, 18 | 1 << rBGPI_AUTO_INCREMENT
 	ldh [rBGPI], a
 	ld a, $c5
 	ldh [rBGPD], a
 	ld a, $6d
 	ldh [rBGPD], a
+; bgp1 second color
+	ld a, 10 | 1 << rBGPI_AUTO_INCREMENT
+	ldh [rBGPI], a
+	ld a, $24
+	ldh [rBGPD], a
+	ld a, $6a
+	ldh [rBGPD], a
+
 .done
 	pop hl
 ; needs to be relative to RAM
 	jp SlotMachine_LCDCallback+(.LCDCallbackPoint_JumpBack-.LCDCallbackPoint)
-.a_table_i_guess
-; switch to a new color each 8 scanlines
-	RGB 03, 03, 10 ; 0 not used :(
-	RGB 06, 08, 21 ; 1 not used :(
-	RGB 04, 09, 26 ; 2
-	RGB 05, 14, 27 ; 3
-	RGB 05, 17, 27 ; 4
-	RGB 08, 20, 29 ; 5
-	RGB 16, 26, 31 ; 6
-	RGB 15, 28, 31 ; 7
-	RGB 15, 28, 31 ; 8
 
 
 .InitGFX:
@@ -1859,7 +1866,7 @@ Slots_AskBet:
 	ret c
 	ld a, [wMenuCursorY]
 	ld b, a
-	ld a, 4
+	ld a, 1
 	sub b
 	ld [wSlotBet], a
 	ld hl, wCoins

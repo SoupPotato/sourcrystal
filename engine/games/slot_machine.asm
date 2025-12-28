@@ -129,8 +129,6 @@ _SlotMachine:
 .LCDCallbackPayload:
 ; payload generates mid-frame palette writes
 ; for the gradient thingy
-	push hl
-	ld hl, .a_table_i_guess
 	ldh a, [rLY]
 
 ; sound engine on vblank spills over here, can't do
@@ -189,7 +187,6 @@ _SlotMachine:
 	ldh [rBGPD], a
 
 .done
-	pop hl
 ; needs to be relative to RAM
 	jp SlotMachine_LCDCallback+(.LCDCallbackPoint_JumpBack-.LCDCallbackPoint)
 

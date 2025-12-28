@@ -1863,7 +1863,7 @@ Slots_AskBet:
 	ret c
 	ld a, [wMenuCursorY]
 	ld b, a
-	ld a, 1
+	ld a, 4
 	sub b
 	ld [wSlotBet], a
 	ld hl, wCoins

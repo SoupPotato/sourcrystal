@@ -602,9 +602,7 @@ wEnemyFutureSightCount:: db
 
 wGivingExperienceToExpShareHolders:: db
 
-wBackupEnemyMonBaseStats:: ds NUM_EXP_STATS
-wBackupEnemyMonCatchRate:: db
-wBackupEnemyMonBaseExp:: db
+	ds 7 ; unused
 
 wPlayerFutureSightDamage:: dw
 wEnemyFutureSightDamage:: dw

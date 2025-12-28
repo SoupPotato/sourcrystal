@@ -182,6 +182,11 @@ SECTION "Battle Core", ROMX
 INCLUDE "engine/battle/core.asm"
 
 
+SECTION "New Base EXP", ROMX
+
+INCLUDE "engine/pokemon/new_base_exp.asm"
+
+
 SECTION "bank10", ROMX
 
 INCLUDE "engine/pokedex/pokedex.asm"

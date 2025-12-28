@@ -84,6 +84,7 @@ _SlotMachine:
 	ld hl, wOptions
 	set NO_TEXT_SCROLL, [hl]
 	call .InitGFX
+IF 0
 ; set up LCD callback
 	ld hl, .LCDCallbackPoint
 	ld de, SlotMachine_LCDCallback
@@ -94,6 +95,7 @@ _SlotMachine:
 	ld a, LOW(SlotMachine_LCDCallback)  :: ldh [hFunctionTargetLo], a
 	ld a, HIGH(SlotMachine_LCDCallback) :: ldh [hFunctionTargetHi], a
 	call DelayFrame
+ENDC
 .loop
 	call SlotsLoop
 	jr nc, .loop
@@ -259,7 +261,7 @@ _SlotMachine:
 	ld [wJumptableIndex], a
 	ld a, SLOTS_NO_BIAS
 	ld [wSlotBias], a
-	call Slots_AddWhiteSprites
+	;call Slots_AddWhiteSprites
 	ld de, MUSIC_GAME_CORNER
 	call PlayMusic
 	xor a

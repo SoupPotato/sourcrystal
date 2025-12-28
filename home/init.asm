@@ -50,7 +50,6 @@ Init::
 	ldh [rOBP1], a
 	ldh [rTMA], a
 	ldh [rTAC], a
-	ld [wBetaTitleSequenceOpeningType], a
 
 	ld a, %100 ; Start timer at 4096Hz
 	ldh [rTAC], a

@@ -1,13 +1,11 @@
 ; Original Mobile Code is dummied out.
 
-MobileAPI::
-ReturnMobileAPI::
-MobileReceive::
-	ret
-
 MobileTimer::
 	reti
 
+MobileAPI::
+ReturnMobileAPI::
+MobileReceive::
 Function3eea::
 Function3f20::
 Function3f35::

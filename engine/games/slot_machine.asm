@@ -298,6 +298,7 @@ ENDM
 	ld a, [wSlotMatched]
 	ld d, a
 	call AnimateSlotReelIcon
+	call .AnimateMatchingSlotLights
 	ld a, [hVBlankCounter]
 	and a, 0b1000
 	srl a
@@ -387,6 +388,90 @@ ENDM
 	position_hoppipbgfx_both_maps 5, 3, $22
 	position_hoppipbgfx_both_maps 9, 3, $22
 	position_hoppipbgfx_both_maps 13, 3, $22
+	ret
+
+.AnimateMatchingSlotLights:
+; light up the slot lights
+MACRO position_lightbg_on_fx
+	hlbgcoord \1, \2
+	ld [hl], $18
+	hlcoord \1, \2
+	ld [hl], $18
+	hlbgcoord \1, \2 + 1
+	ld [hl], $19
+	hlcoord \1, \2 + 1
+	ld [hl], $19
+ENDM
+MACRO position_lightbg_off_fx
+	hlbgcoord \1, \2
+	ld [hl], $16
+	hlcoord \1, \2
+	ld [hl], $16
+	hlbgcoord \1, \2 + 1
+	ld [hl], $17
+	hlcoord \1, \2 + 1
+	ld [hl], $17
+ENDM
+	ld a, [hVBlankCounter]
+	and a, 0b1000
+	srl a
+	srl a
+	srl a
+	and a
+	jp nz, .all_lights_off
+; assume that the slots already have a value here
+; and that value is what we want
+; check left slots first
+; slot order: bottom, middle, top
+; value of `d` should be preserved here
+	ld a, [wReel1Stopped]
+	cp d
+	jr z, .left_bottom_matched
+	ld a, [wReel1Stopped + 2]
+	cp d
+	jp z, .left_up_matched
+; only one possibility if left middle matched
+	position_lightbg_on_fx 3, 6
+	position_lightbg_on_fx 16, 6
+	ret
+
+.left_bottom_matched
+	ld a, [wReel3Stopped]
+	cp d
+	jr z, .left_bottom_right_bottom_matched
+; .left_bottom_right_up_matched
+	position_lightbg_on_fx 3, 10
+	position_lightbg_on_fx 16, 2
+	ret
+.left_bottom_right_bottom_matched
+	position_lightbg_on_fx 3, 8
+	position_lightbg_on_fx 16, 8
+	ret
+
+.left_up_matched
+	ld a, [wReel3Stopped]
+	cp d
+	jr z, .left_up_right_bottom_matched
+; .left_up_right_up_matched
+	position_lightbg_on_fx 3, 4
+	position_lightbg_on_fx 16, 4
+	ret
+.left_up_right_bottom_matched
+	position_lightbg_on_fx 3, 2
+	position_lightbg_on_fx 16, 10
+	ret
+
+.all_lights_off
+	position_lightbg_off_fx 3, 2
+	position_lightbg_off_fx 3, 4
+	position_lightbg_off_fx 3, 6
+	position_lightbg_off_fx 3, 8
+	position_lightbg_off_fx 3, 10
+	position_lightbg_off_fx 16, 2
+	position_lightbg_off_fx 16, 4
+	position_lightbg_off_fx 16, 6
+	position_lightbg_off_fx 16, 8
+	position_lightbg_off_fx 16, 10
 	ret
 
 .InitGFX:

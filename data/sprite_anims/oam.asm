@@ -162,17 +162,19 @@ SpriteAnimOAMData:
 	spriteanimoam $00, .OAMData_FlyMon                   ; SPRITE_ANIM_OAMSET_FLY_MON_1
 	spriteanimoam $04, .OAMData_FlyMon                   ; SPRITE_ANIM_OAMSET_FLY_MON_2
 	spriteanimoam $04, .OAMData_FlyMon2                  ; SPRITE_ANIM_OAMSET_FLY_MON_3
-	spriteanimoam $00, .OAMData_SlotsCover               ; SPRITE_ANIM_OAMSET_SLOTS_COVER
+	spriteanimoam $00, .OAMData_SlotsCoverWhite          ; SPRITE_ANIM_OAMSET_SLOTS_COVER_WHITE
+	spriteanimoam $00, .OAMData_SlotsCoverGreen          ; SPRITE_ANIM_OAMSET_SLOTS_COVER_GREEN
 	assert_table_length NUM_SPRITE_ANIM_OAMSETS
 
-.OAMData_SlotsCover:
-	db 6
+.OAMData_SlotsCoverWhite:
+	db 2
 	dbsprite 1, 2, 0, 0, $3c, 7 | PRIORITY
 	dbsprite 2, 2, 0, 0, $3c, 7 | PRIORITY
-	dbsprite 5, 2, 0, 0, $3c, 7 | PRIORITY
-	dbsprite 6, 2, 0, 0, $3c, 7 | PRIORITY
-	dbsprite 9, 2, 0, 0, $3c, 7 | PRIORITY
-	dbsprite 10, 2, 0, 0, $3c, 7 | PRIORITY
+
+.OAMData_SlotsCoverGreen:
+	db 2
+	dbsprite 1, 2, 0, 0, $3c, 2 | PRIORITY
+	dbsprite 2, 2, 0, 0, $3c, 2 | PRIORITY
 
 .OAMData_1x1_Palette0:
 	db 1

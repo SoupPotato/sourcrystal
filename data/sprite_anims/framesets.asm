@@ -78,11 +78,16 @@ SpriteAnimFrameData:
 	dw .Frameset_PagerMonBrown
 	dw .Frameset_PagerMonGrey
 	dw .Frameset_FlyMon
-	dw .Frameset_SlotsCover
+	dw .Frameset_SlotsCoverWhite
+	dw .Frameset_SlotsCoverGreen
 	assert_table_length NUM_SPRITE_ANIM_FRAMESETS
 
-.Frameset_SlotsCover:
-	oamframe SPRITE_ANIM_OAMSET_SLOTS_COVER, 32
+.Frameset_SlotsCoverWhite:
+	oamframe SPRITE_ANIM_OAMSET_SLOTS_COVER_WHITE, 1
+	oamend
+
+.Frameset_SlotsCoverGreen:
+	oamframe SPRITE_ANIM_OAMSET_SLOTS_COVER_GREEN, 1
 	oamend
 
 .Frameset_00:

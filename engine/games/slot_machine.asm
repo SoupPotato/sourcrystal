@@ -457,7 +457,7 @@ ENDM
 	ld [wJumptableIndex], a
 	ld a, SLOTS_NO_BIAS
 	ld [wSlotBias], a
-	call Slots_AddWhiteSprites
+	call Slots_AddCoverSprites
 	ld de, MUSIC_GAME_CORNER
 	call PlayMusic
 	xor a
@@ -471,10 +471,25 @@ ENDM
 	callfar DoNextFrameForFirst16Sprites
 	ret
 
-Slots_AddWhiteSprites:
-	depixel 10, 5
+Slots_AddCoverSprites:
+	depixel 2, 5
 	ld a, SPRITE_ANIM_OBJ_SLOTS_COVER
 	call InitSpriteAnimStruct
+	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
+	add hl, bc
+	ld [hl], SPRITE_ANIM_FRAMESET_SLOTS_COVER_GREEN
+	depixel 2, 9
+	ld a, SPRITE_ANIM_OBJ_SLOTS_COVER
+	call InitSpriteAnimStruct
+	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
+	add hl, bc
+	ld [hl], SPRITE_ANIM_FRAMESET_SLOTS_COVER_GREEN
+	depixel 2, 13
+	ld a, SPRITE_ANIM_OBJ_SLOTS_COVER
+	call InitSpriteAnimStruct
+	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
+	add hl, bc
+	ld [hl], SPRITE_ANIM_FRAMESET_SLOTS_COVER_GREEN
 	ret
 
 Slots_GetPals:

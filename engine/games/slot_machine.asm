@@ -1388,31 +1388,6 @@ Slots_UpdateReelPositionAndOAM:
 	jr nz, .loop
 	ret
 
-GetUnknownSlotReelData: ; unreferenced
-; Used to get OAM attribute values for slot reels?
-; (final Slots_UpdateReelPositionAndOAM above reuses tile IDs as OAM palettes)
-	push hl
-	srl a
-	srl a
-	add LOW(.data)
-	ld l, a
-	ld a, 0
-	adc HIGH(.data)
-	ld h, a
-	ld a, [hl]
-	pop hl
-	ret
-
-.data:
-	table_width 1
-	db 0 ; SLOTS_SEVEN
-	db 1 ; SLOTS_BAR
-	db 2 ; SLOTS_CHERRY
-	db 3 ; SLOTS_LEDYBA
-	db 4 ; SLOTS_WOOPER
-	db 5 ; SLOTS_MAGNEMITE
-	assert_table_length NUM_SLOT_REELS
-
 ReelActionJumptable:
 	ld hl, REEL_ACTION
 	add hl, bc
@@ -2770,7 +2745,7 @@ Reel3Tilemap:
 	db SLOTS_MAGNEMITE  ; 13
 	db SLOTS_LEDYBA     ; 14
 	db SLOTS_SEVEN      ;  0
-	db SLOTS_LEDYBA     ;  1
+	db SLOTS_WOOPER     ;  1
 	db SLOTS_CHERRY     ;  2
 
 SlotsTilemap:

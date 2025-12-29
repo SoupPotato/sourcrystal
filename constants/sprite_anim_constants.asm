@@ -135,6 +135,7 @@ DEF NUM_SPRITE_ANIM_OBJS EQU const_value
 	const SPRITE_ANIM_FUNC_PC_MODE                   ; 25
 	const SPRITE_ANIM_FUNC_PC_PACK                   ; 26
 	const SPRITE_ANIM_FUNC_PAGER_MON                  ; 27
+	const SPRITE_ANIM_FUNC_COVER                     ; 28
 DEF NUM_SPRITE_ANIM_FUNCS EQU const_value
 
 ; SpriteAnimFrameData indexes (see data/sprite_anims/framesets.asm)

@@ -54,10 +54,19 @@ DoSpriteAnimFrame:
 	dw SpriteAnimFunc_PcMode
 	dw SpriteAnimFunc_PcPack
 	dw SpriteAnimFunc_PagerMon
+	dw SpriteAnimFunc_Cover
 	assert_table_length NUM_SPRITE_ANIM_FUNCS
 
 SpriteAnimFunc_Null:
 	ret
+
+SpriteAnimFunc_Cover:
+	ld a, 69
+	ld hl, SPRITEANIMSTRUCT_VAR1
+	add hl, bc
+	cp [hl]
+	ret nz
+	jp DeinitializeSprite
 
 SpriteAnimFunc_PartyMon:
 	ld a, [wMenuCursorY]

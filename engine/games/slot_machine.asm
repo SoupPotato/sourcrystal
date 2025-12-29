@@ -542,7 +542,7 @@ ENDM
 	ld [wJumptableIndex], a
 	ld a, SLOTS_NO_BIAS
 	ld [wSlotBias], a
-	call Slots_AddCoverSprites
+	call Slots_AddTopCoverSprites
 	ld de, MUSIC_GAME_CORNER
 	call PlayMusic
 	xor a
@@ -556,26 +556,87 @@ ENDM
 	callfar DoNextFrameForFirst16Sprites
 	ret
 
-Slots_AddCoverSprites:
+Slots_AddTopCoverSprites:
 	depixel 2, 5
 	ld a, SPRITE_ANIM_OBJ_SLOTS_COVER
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
 	ld [hl], SPRITE_ANIM_FRAMESET_SLOTS_COVER_GREEN
+	ld hl, SPRITEANIMSTRUCT_VAR1
+	add hl, bc
+	ld [hl], 42 ; mark sprite for later deletion
 	depixel 2, 9
 	ld a, SPRITE_ANIM_OBJ_SLOTS_COVER
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
 	ld [hl], SPRITE_ANIM_FRAMESET_SLOTS_COVER_GREEN
+	ld hl, SPRITEANIMSTRUCT_VAR1
+	add hl, bc
+	ld [hl], 42
 	depixel 2, 13
 	ld a, SPRITE_ANIM_OBJ_SLOTS_COVER
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
 	ld [hl], SPRITE_ANIM_FRAMESET_SLOTS_COVER_GREEN
+	ld hl, SPRITEANIMSTRUCT_VAR1
+	add hl, bc
+	ld [hl], 42
 	ret
+
+Slots_AddBottomCoverSprites:
+	depixel 10, 5
+	ld a, SPRITE_ANIM_OBJ_SLOTS_COVER
+	call InitSpriteAnimStruct
+	ld hl, SPRITEANIMSTRUCT_VAR1
+	add hl, bc
+	ld [hl], 67 ; mark sprite for later deletion
+	depixel 10, 9
+	ld a, SPRITE_ANIM_OBJ_SLOTS_COVER
+	call InitSpriteAnimStruct
+	ld hl, SPRITEANIMSTRUCT_VAR1
+	add hl, bc
+	ld [hl], 67
+	depixel 10, 13
+	ld a, SPRITE_ANIM_OBJ_SLOTS_COVER
+	call InitSpriteAnimStruct
+	ld hl, SPRITEANIMSTRUCT_VAR1
+	add hl, bc
+	ld [hl], 67
+	ret
+
+Slots_RemoveBottomCoverSprites:
+	ld a, 67
+	ld hl, wSpriteAnimationStructs + SPRITEANIMSTRUCT_VAR1
+	ld e, NUM_SPRITE_ANIM_STRUCTS
+.loop
+	cp [hl]
+	jr nz, .next
+	ld [hl], 69 ; mark sprite for *immediate* deletion
+.next
+	ld bc, SPRITEANIMSTRUCT_LENGTH
+	add hl, bc
+	dec e
+	jr nz, .loop
+	ret
+
+Slots_RemoveTopCoverSprites:
+	ld a, 42
+	ld hl, wSpriteAnimationStructs + SPRITEANIMSTRUCT_VAR1
+	ld e, NUM_SPRITE_ANIM_STRUCTS
+.loop
+	cp [hl]
+	jr nz, .next
+	ld [hl], 69 ; mark sprite for *immediate* deletion
+.next
+	ld bc, SPRITEANIMSTRUCT_LENGTH
+	add hl, bc
+	dec e
+	jr nz, .loop
+	ret
+
 
 Slots_GetPals:
 	ld a, %11100100
@@ -764,6 +825,7 @@ SlotsAction_BetAndStart:
 	ret
 
 .proceed
+	call Slots_AddBottomCoverSprites
 	call SlotsAction_Next
 	call Slots_IlluminateBetLights
 	call Slots_InitBias
@@ -848,6 +910,7 @@ SlotsAction_WaitStopReel3:
 	ld a, [wReel3ReelAction]
 	cp REEL_ACTION_DO_NOTHING
 	ret nz
+	call Slots_RemoveBottomCoverSprites
 	ld a, SFX_STOP_SLOT
 	call Slots_PlaySFX
 	ld bc, wReel3
@@ -1604,6 +1667,12 @@ ReelAction_InitGolem:
 	call Slots_GetNumberOfGolems
 	push bc
 	push af
+	call Slots_RemoveBottomCoverSprites
+; force update sprites from the beginning
+	xor a
+	ld [wCurSpriteOAMAddr], a
+; execute deletion
+	callfar DoNextFrameForFirst16Sprites
 	depixel 12, 13
 	ld a, SPRITE_ANIM_OBJ_SLOTS_GOLEM
 	call InitSpriteAnimStruct
@@ -1665,6 +1734,12 @@ ReelAction_InitChansey:
 	add hl, bc
 	ld [hl], 0
 	push bc
+	call Slots_RemoveBottomCoverSprites
+; force update sprites from the beginning
+	xor a
+	ld [wCurSpriteOAMAddr], a
+; execute deletion
+	callfar DoNextFrameForFirst16Sprites
 	depixel 12, 0
 	ld a, SPRITE_ANIM_OBJ_SLOTS_CHANSEY
 	call InitSpriteAnimStruct

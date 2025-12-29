@@ -229,6 +229,7 @@ _SlotMachine:
 	ld a, [wSlotMatched]
 	ld d, a
 	call AnimateSlotReelIcon
+	call .AnimateJackpotLights
 	ld a, [hVBlankCounter]
 	and a, 0b1000
 	srl a
@@ -473,6 +474,27 @@ ENDM
 	position_lightbg_off_fx 16, 8
 	position_lightbg_off_fx 16, 10
 	ret
+
+.AnimateJackpotLights:
+	ld a, [hVBlankCounter]
+	and a, 0b1000
+	srl a
+	srl a
+	srl a
+	and a
+	jp nz, .all_lights_off
+	position_lightbg_on_fx 3, 2
+	position_lightbg_on_fx 3, 4
+	position_lightbg_on_fx 3, 6
+	position_lightbg_on_fx 3, 8
+	position_lightbg_on_fx 3, 10
+	position_lightbg_on_fx 16, 2
+	position_lightbg_on_fx 16, 4
+	position_lightbg_on_fx 16, 6
+	position_lightbg_on_fx 16, 8
+	position_lightbg_on_fx 16, 10
+	ret
+
 
 .InitGFX:
 	call ClearBGPalettes

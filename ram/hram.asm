@@ -192,6 +192,12 @@ hCodeBuffer:: ds 3
 hUsedWeatherSpriteIndex:: db
 hUsedOAMIndex:: db
 
-	ds 8
+hVBlankHookFunction::
+	ds 1	; $00 [nop] (nothing)
+			; $c3 [jp]
+			; $c9 [ret]
+	dw
+
+	ds 5
 
 ENDSECTION

@@ -53,7 +53,7 @@ SpriteAnimOAMData:
 	spriteanimoam $10, .OAMData_SlotsChansey3            ; SPRITE_ANIM_OAMSET_SLOTS_CHANSEY_3
 	spriteanimoam $10, .OAMData_SlotsChansey4            ; SPRITE_ANIM_OAMSET_SLOTS_CHANSEY_4
 	spriteanimoam $10, .OAMData_SlotsChansey5            ; SPRITE_ANIM_OAMSET_SLOTS_CHANSEY_5
-	spriteanimoam $3a, .OAMData_1x1_Palette0             ; SPRITE_ANIM_OAMSET_SLOTS_EGG
+	spriteanimoam $3a, .OAMData_1x1_Palette1             ; SPRITE_ANIM_OAMSET_SLOTS_EGG
 	spriteanimoam $00, .OAMData_RedWalk                  ; SPRITE_ANIM_OAMSET_STILL_CURSOR
 	spriteanimoam $00, .OAMData_TradePokeBall1           ; SPRITE_ANIM_OAMSET_TRADE_POKE_BALL_1
 	spriteanimoam $02, .OAMData_MagnetTrain              ; SPRITE_ANIM_OAMSET_TRADE_POKE_BALL_2
@@ -162,11 +162,27 @@ SpriteAnimOAMData:
 	spriteanimoam $00, .OAMData_FlyMon                   ; SPRITE_ANIM_OAMSET_FLY_MON_1
 	spriteanimoam $04, .OAMData_FlyMon                   ; SPRITE_ANIM_OAMSET_FLY_MON_2
 	spriteanimoam $04, .OAMData_FlyMon2                  ; SPRITE_ANIM_OAMSET_FLY_MON_3
+	spriteanimoam $00, .OAMData_SlotsCoverWhite          ; SPRITE_ANIM_OAMSET_SLOTS_COVER_WHITE
+	spriteanimoam $00, .OAMData_SlotsCoverGreen          ; SPRITE_ANIM_OAMSET_SLOTS_COVER_GREEN
 	assert_table_length NUM_SPRITE_ANIM_OAMSETS
+
+.OAMData_SlotsCoverWhite:
+	db 2
+	dbsprite 1, 2, 0, 0, $3c, 7 | PRIORITY
+	dbsprite 2, 2, 0, 0, $3c, 7 | PRIORITY
+
+.OAMData_SlotsCoverGreen:
+	db 2
+	dbsprite 1, 2, 0, 0, $3c, 2 | PRIORITY
+	dbsprite 2, 2, 0, 0, $3c, 2 | PRIORITY
 
 .OAMData_1x1_Palette0:
 	db 1
 	dbsprite -1, -1,  4,  4, $00, 0
+
+.OAMData_1x1_Palette1:
+	db 1
+	dbsprite -1, -1,  4,  4, $00, 1
 
 .OAMData_GSIntroShellder:
 	db 4
@@ -527,12 +543,12 @@ SpriteAnimOAMData:
 
 .OAMData_SlotsGolem:
 	db 6
-	dbsprite -2, -2,  4,  4, $00, 5 | OBP_NUM
-	dbsprite -1, -2,  4,  4, $02, 5 | OBP_NUM
-	dbsprite  0, -2,  4,  4, $00, 5 | OBP_NUM | X_FLIP
-	dbsprite -2,  0,  4,  4, $04, 5 | OBP_NUM
-	dbsprite -1,  0,  4,  4, $06, 5 | OBP_NUM
-	dbsprite  0,  0,  4,  4, $04, 5 | OBP_NUM | X_FLIP
+	dbsprite -2, -2,  4,  4, $00, 0 | OBP_NUM
+	dbsprite -1, -2,  4,  4, $02, 0 | OBP_NUM
+	dbsprite  0, -2,  4,  4, $00, 0 | OBP_NUM | X_FLIP
+	dbsprite -2,  0,  4,  4, $04, 0 | OBP_NUM
+	dbsprite -1,  0,  4,  4, $06, 0 | OBP_NUM
+	dbsprite  0,  0,  4,  4, $04, 0 | OBP_NUM | X_FLIP
 
 .OAMData_SlotsChansey1:
 	db 6

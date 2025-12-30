@@ -1362,8 +1362,7 @@ Slots_UpdateReelPositionAndOAM:
 	ld [hli], a ; x
 	ld a, [de]
 	ld [hli], a ; tile id
-	srl a
-	srl a
+	call GetSlotIconPalette
 	set OAM_PRIORITY, a
 	ld [hli], a ; attributes
 
@@ -1376,8 +1375,7 @@ Slots_UpdateReelPositionAndOAM:
 	inc a
 	inc a
 	ld [hli], a ; tile id
-	srl a
-	srl a
+	call GetSlotIconPalette
 	set OAM_PRIORITY, a
 	ld [hli], a ; attributes
 	inc de
@@ -1387,6 +1385,31 @@ Slots_UpdateReelPositionAndOAM:
 	cp 2 * TILE_WIDTH
 	jr nz, .loop
 	ret
+
+GetSlotIconPalette:
+; Used to get OAM attribute values for slot reels?
+; (final Slots_UpdateReelPositionAndOAM above reuses tile IDs as OAM palettes)
+	push hl
+	srl a
+	srl a
+	add LOW(.data)
+	ld l, a
+	ld a, 0
+	adc HIGH(.data)
+	ld h, a
+	ld a, [hl]
+	pop hl
+	ret
+
+.data:
+	table_width 1
+	db 3 ; SLOTS_SEVEN
+	db 3 ; SLOTS_BAR
+	db 2 ; SLOTS_CHERRY
+	db 3 ; SLOTS_LEDYBA
+	db 4 ; SLOTS_WOOPER
+	db 5 ; SLOTS_MAGNEMITE
+	assert_table_length NUM_SLOT_REELS
 
 ReelActionJumptable:
 	ld hl, REEL_ACTION

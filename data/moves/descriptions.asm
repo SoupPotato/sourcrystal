@@ -1164,8 +1164,8 @@ MegahornDescription:
 	next "attack.@"
 
 DragonbreathDescription:
-	db   "A strong breath"
-	next "attack.@"
+	db   "A blast of breath"
+	next "that may paralyze.@"
 
 BatonPassDescription:
 	db   "Switches while"

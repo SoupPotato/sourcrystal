@@ -112,8 +112,9 @@ _SlotMachine:
 	call PlaySFX
 	call WaitSFX
 ; clear callback
-	ld a, RETI_INSTRUCTION
-	ld [hFunctionInstruction], a
+	ld a, RETI_INSTRUCTION :: ldh [hFunctionInstruction], a
+	ld a, LOW(LCDGeneric)  :: ldh [hFunctionTargetLo], a
+	ld a, HIGH(LCDGeneric)  :: ldh [hFunctionTargetHi], a
 	xor a
 	ld [hVBlankHookFunction], a
 	call ClearBGPalettes

@@ -2730,9 +2730,9 @@ Reel2Tilemap:
 
 Reel3Tilemap:
 	db SLOTS_SEVEN      ;  0
-	db SLOTS_LEDYBA     ;  1
+	db SLOTS_WOOPER     ;  1
 	db SLOTS_CHERRY     ;  2
-	db SLOTS_WOOPER     ;  3
+	db SLOTS_BAR        ;  3
 	db SLOTS_MAGNEMITE  ;  4
 	db SLOTS_LEDYBA     ;  5
 	db SLOTS_CHERRY     ;  6

@@ -40,13 +40,13 @@
 
 ; golem
 	RGB 31, 31, 31
-	RGB 17, 16, 08
-	RGB 08, 10, 06
+	RGB 24, 21, 16
+	RGB 09, 11, 06
 	RGB 00, 00, 00
 
 ; chansey egg
-    RGB 31, 31, 31
-    RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 31, 31, 31
 	RGB 28, 27, 16
 	RGB 00, 00, 00
 
@@ -62,13 +62,13 @@
 	RGB 28, 03, 04
 	RGB 00, 00, 00
 
-;whooper
+; whooper
 	RGB 31, 31, 31
 	RGB 08, 20, 29
 	RGB 16, 10, 25
 	RGB 00, 00, 00
 
-;magnemite
+; magnemite
 	RGB 31, 31, 31
 	RGB 17, 17, 22
 	RGB 28, 03, 04
@@ -76,12 +76,12 @@
 
 ; chansey
 	RGB 31, 31, 31
-	RGB 31, 24, 21
-	RGB 31, 13, 31
+	RGB 31, 24, 25
+	RGB 28, 10, 15
 	RGB 00, 00, 00
 
 ; cover
-    RGB 31, 31, 31
-    RGB 31, 31, 31
-    RGB 00, 00, 00
-    RGB 00, 00, 00
+	RGB 31, 31, 31
+	RGB 31, 31, 31
+	RGB 00, 00, 00
+	RGB 00, 00, 00

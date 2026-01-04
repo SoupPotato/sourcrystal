@@ -7763,7 +7763,7 @@ GiveExperiencePoints:
 	dec a
 .no_overflow
 	ld [de], a
-	inc a
+	inc de
 	ret
 
 .BoostExp:

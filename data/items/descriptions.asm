@@ -25,7 +25,7 @@ ItemDescriptions:
 	dw FireStoneDesc
 	dw ThunderStoneDesc
 	dw WaterStoneDesc
-	dw LinkingCordDesc
+	dw TeruSama2Desc
 	dw HPUpDesc
 	dw ProteinDesc
 	dw IronDesc
@@ -136,7 +136,7 @@ ItemDescriptions:
 	dw BasementKeyDesc
 	dw PassDesc
 	dw SafariBallDesc
-	dw TeruSama10Desc
+	dw LinkingCordDesc
 	dw TeruSama11Desc
 	dw CharcoalDesc
 	dw BerryJuiceDesc
@@ -354,9 +354,8 @@ WaterStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
 
-LinkingCordDesc:
-	db   "Evolves certain"
-	next "kinds of #MON.@"
+TeruSama2Desc:
+	db   "?@"
 
 HPUpDesc:
 	db   "Raises the HP of"
@@ -786,8 +785,9 @@ SafariBallDesc:
 	db   "The BALL used in"
 	next "the SAFARI ZONE.@"
 
-TeruSama10Desc:
-	db   "?@"
+LinkingCordDesc:
+	db   "Evolves certain"
+	next "kinds of #MON.@"
 
 TeruSama11Desc:
 	db   "?@"

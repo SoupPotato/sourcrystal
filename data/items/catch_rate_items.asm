@@ -3,7 +3,7 @@
 ; item associated with the table entry is used instead.
 
 TimeCapsule_CatchRateItems:
-	db LINKING_CORD, LEFTOVERS
+	db ITEM_19,      LEFTOVERS
 	db ITEM_2D,      PERSIM_BERRY
 	db ITEM_32,      SITRUS_BERRY
 	db HELIX_FOSSIL, ORAN_BERRY

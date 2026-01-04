@@ -38,7 +38,7 @@ ItemEffects:
 	dw EvoStoneEffect      ; FIRE_STONE
 	dw EvoStoneEffect      ; THUNDERSTONE
 	dw EvoStoneEffect      ; WATER_STONE
-	dw EvoStoneEffect      ; LINKING_CORD
+	dw NoEffect            ; ITEM_19
 	dw VitaminEffect       ; HP_UP
 	dw VitaminEffect       ; PROTEIN
 	dw VitaminEffect       ; IRON
@@ -149,7 +149,7 @@ ItemEffects:
 	dw BasementKeyEffect   ; BASEMENT_KEY
 	dw NoEffect            ; PASS
 	dw PokeBallEffect      ; SAFARI_BALL
-	dw NoEffect            ; ITEM_88
+	dw EvoStoneEffect      ; LINKING_CORD
 	dw NoEffect            ; ITEM_89
 	dw NoEffect            ; CHARCOAL
 	dw RestoreHPEffect     ; BERRY_JUICE

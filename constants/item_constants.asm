@@ -30,7 +30,7 @@
 	const FIRE_STONE   ; 16
 	const THUNDERSTONE ; 17
 	const WATER_STONE  ; 18
-	const LINKING_CORD ; 19
+	const ITEM_19      ; 19
 	const HP_UP        ; 1a
 	const PROTEIN      ; 1b
 	const IRON         ; 1c
@@ -141,7 +141,7 @@
 	const BASEMENT_KEY ; 85
 	const PASS         ; 86
 	const SAFARI_BALL  ; 87
-	const ITEM_88      ; 88
+	const LINKING_CORD ; 88
 	const ITEM_89      ; 89
 	const CHARCOAL     ; 8a
 	const BERRY_JUICE  ; 8b

@@ -55,6 +55,7 @@ GetNewBaseExp:
 	; let's see if we have an evolution
 	ld hl, EvosAttacksPointers
 	ld a, [wCurPartySpecies]
+	dec a
 	ld c, a
 	ld b, 0
 	add hl, bc

@@ -390,7 +390,7 @@ BattleAnimFrameData:
 	oamdelete
 
 .Frameset_IceBeam:
-	oamframe BATTLE_ANIM_OAMSET_13, 20
+	oamframe BATTLE_ANIM_OAMSET_13, 15
 	oamdelete
 
 .Frameset_PowderSnow:

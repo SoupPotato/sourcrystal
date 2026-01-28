@@ -283,7 +283,7 @@ else
 	text "Hmmm… The odds are"
 	line "surely better for"
 
-	para "PIKACHU's line,"
+	para "WOOPER's line,"
 	line "but… What to do?"
 	done
 endc

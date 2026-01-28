@@ -1459,11 +1459,11 @@ KrabbyEvosAttacks:
 	db 21, METAL_CLAW
 	db 25, STOMP
 	db 29, PROTECT
-	db 33, SLAM
-	db 36, SWORDS_DANCE
-	db 40, CRABHAMMER
-	db 44, FLAIL
-	db 48, GUILLOTINE
+	db 33, GUILLOTINE
+	db 36, SLAM
+	db 40, SWORDS_DANCE
+	db 44, CRABHAMMER
+	db 48, FLAIL
 	db 0 ; no more level-up moves
 
 KinglerEvosAttacks:
@@ -1476,11 +1476,11 @@ KinglerEvosAttacks:
 	db 21, METAL_CLAW
 	db 25, STOMP
 	db 30, PROTECT
-	db 36, SLAM
-	db 41, SWORDS_DANCE
-	db 47, CRABHAMMER
-	db 52, FLAIL
-	db 58, GUILLOTINE
+	db 36, GUILLOTINE
+	db 41, SLAM
+	db 47, SWORDS_DANCE
+	db 52, CRABHAMMER
+	db 58, FLAIL
 	db 0 ; no more level-up moves
 
 VoltorbEvosAttacks:
@@ -1933,9 +1933,9 @@ PinsirEvosAttacks:
 	db 23, REVERSAL
 	db 29, VITAL_THROW
 	db 34, THRASH
-	db 40, SWORDS_DANCE
+	db 40, GUILLOTINE
 	db 45, SUBMISSION
-	db 51, GUILLOTINE
+	db 51, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
 TaurosEvosAttacks:

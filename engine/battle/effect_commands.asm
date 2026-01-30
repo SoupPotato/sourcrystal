@@ -201,6 +201,9 @@ BattleCommand_CheckTurn:
 	cp SACRED_FIRE
 	jr z, .not_frozen
 
+	ld de, ANIM_FRZ
+	call FarPlayBattleAnimation
+
 	ld hl, FrozenSolidText
 	call StdBattleTextbox
 
@@ -325,6 +328,9 @@ BattleCommand_CheckTurn:
 	cp 25 percent
 	ret nc
 
+	ld de, ANIM_PAR
+	call FarPlayBattleAnimation
+
 	ld hl, FullyParalyzedText
 	call StdBattleTextbox
 	call CantMove
@@ -427,6 +433,9 @@ CheckEnemyTurn:
 	jr z, .not_frozen
 	cp SACRED_FIRE
 	jr z, .not_frozen
+
+	ld de, ANIM_FRZ
+	call FarPlayBattleAnimation
 
 	ld hl, FrozenSolidText
 	call StdBattleTextbox
@@ -573,6 +582,9 @@ CheckEnemyTurn:
 	call BattleRandom
 	cp 25 percent
 	ret nc
+
+	ld de, ANIM_PAR
+	call FarPlayBattleAnimation
 
 	ld hl, FullyParalyzedText
 	call StdBattleTextbox

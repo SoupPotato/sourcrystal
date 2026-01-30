@@ -260,25 +260,25 @@ MainMenuJoypadLoop:
 	ret
 
 MainMenu_PrintCurrentVersion:
-	lb bc, 1, 5 ;Box - Width
+	lb bc, 1, 4 ;Box - Width
 	ld a, [wSaveFileExists]
 	and a
 	jr nz, .has_save_file
 ; no save file
-	hlcoord 13, 15 ;Box - Position
+	hlcoord 14, 15 ;Box - Position
 	call Textbox
-	hlcoord 14, 16 ;Text - Width
+	hlcoord 15, 16 ;Text - Width
 	jr .no_save_file
 .has_save_file
-	hlcoord 13, 11 ;Box - Position
+	hlcoord 14, 11 ;Box - Position
 	call Textbox
-	hlcoord 14, 12 ;Text - Width
+	hlcoord 15, 12 ;Text - Width
 .no_save_file
 	ld de, .VersionString
 	jp PlaceString
 
 .VersionString
-	db "v6.0b"
+	db "v6.1"
 	db "@"
 
 MainMenu_PrintCurrentTimeAndDay:

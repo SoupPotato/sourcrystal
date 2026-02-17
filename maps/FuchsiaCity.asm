@@ -223,7 +223,7 @@ FuchsiaCityTeacherText:
 	line "FUCHSIA's main"
 	cont "attraction."
 
-	text "Many exotic"
+	para "Many exotic"
 	line "#MON can be"
 	cont "found there!"
 	done
@@ -357,9 +357,9 @@ FuchsiaCity_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 21, 15, BGEVENT_READ, FuchsiaCitySign
+	bg_event 25, 15, BGEVENT_READ, FuchsiaCitySign
 	bg_event  5, 29, BGEVENT_READ, FuchsiaGymSign
-	bg_event 25, 15, BGEVENT_READ, SafariZoneOfficeSign
+	bg_event 21, 15, BGEVENT_READ, SafariZoneOfficeSign
 	bg_event 27, 29, BGEVENT_READ, WardensHomeSign
 	bg_event 17,  5, BGEVENT_READ, SafariZoneKantoSign
 	bg_event 13, 15, BGEVENT_READ, FuchsiaCityLaprasSign
@@ -384,5 +384,5 @@ FuchsiaCity_MapEvents:
 	object_event 31,  5, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
 	object_event 25,  6, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
 	object_event 12,  6, SPRITE_KANGASKHAN, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
-	object_event  6,  5, SPRITE_KABUTO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
+	object_event  6,  5, SPRITE_KABUTO, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
 	object_event  8, 17, SPRITE_LAPRAS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0

@@ -90,4 +90,5 @@ MapScenes::
 	scene_var PEWTER_MUSEUM_1F,                            wPewterMuseumSceneID
 	scene_var ROUTE_42_ECRUTEAK_GATE,                      wRoute42EcruteakGateSceneID
 	scene_var ROUTE_39,                                    wRoute39SceneID
+	scene_var SAFARI_ZONE_KANTO_ENTRANCE,                  wSafariZoneKantoEntranceSceneID
 	db -1 ; end

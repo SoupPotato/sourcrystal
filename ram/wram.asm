@@ -3240,8 +3240,9 @@ wSafariZoneEntranceSceneID::                      db
 wPewterMuseumSceneID::                            db
 wRoute42EcruteakGateSceneID::                     db
 wRoute39SceneID::                                 db
+wSafariZoneKantoEntranceSceneID::                 db
 
-	ds 43
+	ds 42
 
 ; fight counts
 wJackFightCount::    db

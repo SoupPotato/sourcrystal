@@ -1290,4 +1290,116 @@ KantoGrassWildMons:
 	db 40, MAGMAR
 	end_grass_wildmons
 
+	def_grass_wildmons SAFARI_ZONE_KANTO_AREA_1
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 36, NIDORAN_F
+	db 35, NIDORAN_M
+	db 36, EXEGGCUTE
+	db 37, PARAS
+	db 42, RHYHORN
+	db 32, SCYTHER
+	db 40, CHANSEY
+	; day
+	db 36, NIDORAN_F
+	db 35, NIDORAN_M
+	db 36, EXEGGCUTE
+	db 37, PARAS
+	db 42, RHYHORN
+	db 32, SCYTHER
+	db 40, CHANSEY
+	; nite
+	db 36, NIDORAN_F
+	db 35, NIDORAN_M
+	db 36, EXEGGCUTE
+	db 37, PARAS
+	db 42, RHYHORN
+	db 32, SCYTHER
+	db 40, CHANSEY
+	end_grass_wildmons
+
+	def_grass_wildmons SAFARI_ZONE_KANTO_AREA_2
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 36, NIDORAN_F
+	db 35, NIDORAN_M
+	db 36, EXEGGCUTE
+	db 37, PARAS
+	db 42, PARASECT
+	db 32, PINSIR
+	db 40, KANGASKHAN
+	; day
+	db 36, NIDORAN_F
+	db 35, NIDORAN_M
+	db 36, EXEGGCUTE
+	db 37, PARAS
+	db 42, PARASECT
+	db 32, PINSIR
+	db 40, KANGASKHAN
+	; nite
+	db 36, NIDORAN_F
+	db 35, NIDORAN_M
+	db 36, EXEGGCUTE
+	db 37, PARAS
+	db 42, PARASECT
+	db 32, PINSIR
+	db 40, KANGASKHAN
+	end_grass_wildmons
+
+	def_grass_wildmons SAFARI_ZONE_KANTO_AREA_3
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 36, NIDORAN_F
+	db 35, NIDORAN_M
+	db 36, EXEGGCUTE
+	db 37, DODUO
+	db 42, CHANSEY
+	db 32, SCYTHER
+	db 40, TAUROS
+	; day
+	db 36, NIDORAN_F
+	db 35, NIDORAN_M
+	db 36, EXEGGCUTE
+	db 37, DODUO
+	db 42, CHANSEY
+	db 32, SCYTHER
+	db 40, TAUROS
+	; nite
+	db 36, NIDORAN_F
+	db 35, NIDORAN_M
+	db 36, EXEGGCUTE
+	db 37, DODUO
+	db 42, CHANSEY
+	db 32, SCYTHER
+	db 40, TAUROS
+	end_grass_wildmons
+
+	def_grass_wildmons SAFARI_ZONE_KANTO_AREA_4
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 36, NIDORAN_F
+	db 35, NIDORAN_M
+	db 36, EXEGGCUTE
+	db 37, DODUO
+	db 42, CHANSEY
+	db 32, PINSIR
+	db 40, TAUROS
+	; day
+	db 36, NIDORAN_F
+	db 35, NIDORAN_M
+	db 36, EXEGGCUTE
+	db 37, DODUO
+	db 42, CHANSEY
+	db 32, PINSIR
+	db 40, TAUROS
+	; nite
+	db 36, NIDORAN_F
+	db 35, NIDORAN_M
+	db 36, EXEGGCUTE
+	db 37, DODUO
+	db 42, CHANSEY
+	db 32, PINSIR
+	db 40, TAUROS
+	end_grass_wildmons
+
 	db -1 ; end

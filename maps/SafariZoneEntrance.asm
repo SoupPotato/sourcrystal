@@ -6,8 +6,8 @@
 
 SafariZoneEntrance_MapScripts:
 	def_scene_scripts
-	scene_script SafariZoneEntranceNoop1Scene, SCENE_SAFARIZONEENTRANCE_NOTHING
-	scene_script LeaveSafariEarly, SCENE_SAFARIZONEENTRANCE_LEAVE_SAFARI_EARLY
+	scene_script SafariZoneEntranceNoop1Scene, SCENE_SAFARI_ZONE_ENTRANCE_NOTHING
+	scene_script LeaveSafariEarly, SCENE_SAFARI_ZONE_ENTRANCE_LEAVE_SAFARI_EARLY
 
 	def_callbacks
 
@@ -18,7 +18,7 @@ LeaveSafariEarly:
 	sdefer .LeavingSafariEarly
 
 .SafariIsRunning: ; unreferenced
-	setscene SCENE_SAFARIZONEENTRANCE_LEAVE_SAFARI_EARLY
+	setscene SCENE_SAFARI_ZONE_ENTRANCE_LEAVE_SAFARI_EARLY
 	endcallback
 
 .LeavingSafariEarly
@@ -40,7 +40,7 @@ LeaveSafariEarly:
 	closetext
 	setevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_ACTIVE
 	clearevent EVENT_SAFARI_ZONE_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE
-	setscene SCENE_SAFARIZONEENTRANCE_NOTHING
+	setscene SCENE_SAFARI_ZONE_ENTRANCE_NOTHING
 	appear SAFARIZONEENTRANCE_OFFICER2
 	pause 1
 	disappear SAFARIZONEENTRANCE_OFFICER3
@@ -78,7 +78,7 @@ SafariZoneEntranceMainOfficerScript:
 	writetext SafariZoneEntranceMainOfficer_Text4
 	waitbutton
 	closetext
-	setscene SCENE_SAFARIZONEENTRANCE_LEAVE_SAFARI_EARLY
+	setscene SCENE_SAFARI_ZONE_ENTRANCE_LEAVE_SAFARI_EARLY
 	special GiveSafariBalls
 	scall .SafariZoneEntrance_EnterSafari
 	playsound SFX_ENTER_DOOR

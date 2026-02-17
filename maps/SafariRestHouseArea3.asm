@@ -54,6 +54,9 @@ SafariRestHouseArea3CooltrainerFScript_Text:
 	line "choice."
 	done
 
+SafariRestHouseArea3Bookshelf:
+	jumpstd DifficultBookshelfScript
+
 SafariRestHouseArea3_MapEvents:
 	db 0, 0 ; filler
 
@@ -64,6 +67,10 @@ SafariRestHouseArea3_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  4,  1, BGEVENT_READ, SafariRestHouseArea3Bookshelf
+	bg_event  5,  1, BGEVENT_READ, SafariRestHouseArea3Bookshelf
+	bg_event  6,  1, BGEVENT_READ, SafariRestHouseArea3Bookshelf
+	bg_event  7,  1, BGEVENT_READ, SafariRestHouseArea3Bookshelf
 
 	def_object_events
 	object_event  7,  2, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SafariRestHouseArea3FisherScript, 0

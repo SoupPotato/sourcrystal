@@ -150,14 +150,13 @@ ENDM
 	map_const UNDERGROUND_PATH,                             3, 14 ; 86
 	map_const ROCK_TUNNEL_1F,                              15, 18 ; 87
 	map_const ROCK_TUNNEL_B1F,                             15, 18 ; 88
-	map_const SAFARI_ZONE_FUCHSIA_GATE_BETA,                5,  4 ; 89
-	map_const SAFARI_ZONE_BETA,                            10, 18 ; 90
-	map_const VICTORY_ROAD,                                10, 36 ; 91
-	map_const CLIFF_EDGE_GATE,                             10, 11 ; 92
-	map_const CLIFF_CAVE,                                   7, 20 ; 93
-	map_const CERULEAN_CAVE_1F,                            20, 14 ; 94
-	map_const CERULEAN_CAVE_2F,                            20, 14 ; 95
-	map_const CERULEAN_CAVE_B1F,                           20, 14 ; 96
+	map_const SAFARI_ZONE_KANTO_ENTRANCE,                   5,  5 ; 89
+	map_const VICTORY_ROAD,                                10, 36 ; 90
+	map_const CLIFF_EDGE_GATE,                             10, 11 ; 91
+	map_const CLIFF_CAVE,                                   7, 20 ; 92
+	map_const CERULEAN_CAVE_1F,                            20, 14 ; 93
+	map_const CERULEAN_CAVE_2F,                            20, 14 ; 94
+	map_const CERULEAN_CAVE_B1F,                           20, 14 ; 95
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4
@@ -542,6 +541,15 @@ ENDM
 	map_const SILVER_CAVE_UPPER_MOUNTAINSIDE,              17, 18 ;  3
 	map_const MOUNT_MOON_B1F,                              14, 13 ;  4
 	map_const MOUNT_MOON_B2F,                              14, 12 ;  5
+	map_const SAFARI_ZONE_KANTO_AREA_1,                    15, 15 ;  6
+	map_const SAFARI_ZONE_KANTO_AREA_2,                    15, 13 ;  7
+	map_const SAFARI_ZONE_KANTO_AREA_3,                    20, 18 ;  8
+	map_const SAFARI_ZONE_KANTO_AREA_4,                    15, 13 ;  9
+	map_const SAFARI_KANTO_REST_HOUSE_AREA_1,               4,  4 ; 10
+	map_const SAFARI_KANTO_REST_HOUSE_AREA_2,               4,  4 ; 12
+	map_const SAFARI_KANTO_REST_HOUSE_AREA_3,               4,  4 ; 13
+	map_const SAFARI_KANTO_REST_HOUSE_AREA_4,               4,  4 ; 14
+	map_const SAFARI_KANTO_SECRET_HOUSE,                    4,  4 ; 15
 	endgroup
 
 DEF NUM_MAP_GROUPS EQU const_value ; 26

@@ -59,4 +59,6 @@ SpriteMons:
 	db DODRIO
 	db BLISSEY
 	db MEW
+	db CHANSEY
+	db KABUTO
 	assert_table_length NUM_POKEMON_SPRITES

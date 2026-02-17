@@ -126,7 +126,7 @@ PewterMuseum1F_SuperNerd_Script:
 	end
 
 PewterMuseum1FKabutopsFossilDisplay:
-	refreshscreen
+	reanchormap
 	trainerpic KABUTOPS_FOSSIL
 	waitbutton
 	closepokepic
@@ -137,7 +137,7 @@ PewterMuseum1FKabutopsFossilDisplay:
 	end
 
 PewterMuseum1FAerodactylFossilDisplay:
-	refreshscreen
+	reanchormap
 	trainerpic AERODACTYL_FOSSIL
 	waitbutton
 	closepokepic

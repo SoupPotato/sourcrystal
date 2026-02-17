@@ -43,6 +43,9 @@ SafariRestHouseArea1SuperNerdScript_Text:
 	cont "game is over!"
 	done
 
+SafariRestHouseArea1Bookshelf:
+	jumpstd DifficultBookshelfScript
+
 SafariRestHouseArea1_MapEvents:
 	db 0, 0 ; filler
 
@@ -53,6 +56,10 @@ SafariRestHouseArea1_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  4,  1, BGEVENT_READ, SafariRestHouseArea1Bookshelf
+	bg_event  5,  1, BGEVENT_READ, SafariRestHouseArea1Bookshelf
+	bg_event  6,  1, BGEVENT_READ, SafariRestHouseArea1Bookshelf
+	bg_event  7,  1, BGEVENT_READ, SafariRestHouseArea1Bookshelf
 
 	def_object_events
 	object_event  5,  2, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SafariRestHouseArea1LassScript, 0

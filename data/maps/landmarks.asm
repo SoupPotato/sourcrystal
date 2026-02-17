@@ -98,6 +98,7 @@ Landmarks:
 	landmark  68,  92, Route17Name
 	landmark  80, 116, Route18Name
 	landmark  92, 116, FuchsiaCityName
+	landmark  92, 108, SafariZoneKantoName
 	landmark  92, 128, Route19Name
 	landmark  76, 132, Route20Name
 	landmark  68, 132, SeafoamIslandsName
@@ -159,7 +160,6 @@ MtMoonName:          db "MT.MOON@"
 RockTunnelName:      db "ROCK TUNNEL@"
 LavRadioTowerName:   db "LAV<BSP>RADIO TOWER@"
 SilphCoName:         db "SILPH CO.@"
-KantoSafariZoneName: db "SAFARI ZONE@"
 SeafoamIslandsName:  db "SEAFOAM<BSP>ISLANDS@"
 Route1Name:          db "ROUTE 1@"
 Route2Name:          db "ROUTE 2@"
@@ -223,3 +223,4 @@ CliffCaveName:       db "CLIFF CAVE@"
 SafariZoneName:      db "SAFARI ZONE@"
 SpecialMapName:      db "SPECIAL@"
 SafariZoneGateName:  db "SAFARI ZONE<BSP>GATE@"
+SafariZoneKantoName: db "SAFARI ZONE@"

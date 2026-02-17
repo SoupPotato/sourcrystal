@@ -4,6 +4,13 @@
 	const FUCHSIACITY_TEACHER
 	const FUCHSIACITY_BERRY
 	const FUCHSIACITY_APRICORN
+	const FUCHSIACITY_FISHER
+	const FUCHSIACITY_SLOWPOKE
+	const FUCHSIACITY_CHANSEY
+	const FUCHSIACITY_VOLTORB
+	const FUCHSIACITY_KANGASKHAN
+	const FUCHSIACITY_KABUTO
+	const FUCHSIACITY_LAPRAS
 
 FuchsiaCity_MapScripts:
 	def_scene_scripts
@@ -34,6 +41,9 @@ FuchsiaCityFruittrees:
 FuchsiaCityYoungster:
 	jumptextfaceplayer FuchsiaCityYoungsterText
 
+FuchsiaCityFisher:
+	jumptextfaceplayer FuchsiaCityFisherText
+
 FuchsiaCityPokefanM:
 	jumptextfaceplayer FuchsiaCityPokefanMText
 
@@ -52,11 +62,80 @@ SafariZoneOfficeSign:
 WardensHomeSign:
 	jumptext WardensHomeSignText
 
-SafariZoneClosedSign:
-	jumptext SafariZoneClosedSignText
+SafariZoneKantoSign:
+	jumptext SafariZoneKantoSignText
 
-NoLitteringSign:
-	jumptext NoLitteringSignText
+FuchsiaCityLaprasSign:
+	reanchormap
+	pokepic LAPRAS
+	cry LAPRAS
+	waitbutton
+	closepokepic
+	opentext
+	writetext FuchsiaCityLaprasSignText
+	waitbutton
+	closetext
+	end
+
+FuchsiaCitySlowpokeSign:
+	reanchormap
+	pokepic SLOWPOKE
+	cry SLOWPOKE
+	waitbutton
+	closepokepic
+	opentext
+	writetext FuchsiaCitySlowpokeSignText
+	waitbutton
+	closetext
+	end
+
+FuchsiaCityChanseySign:
+	reanchormap
+	pokepic CHANSEY
+	cry CHANSEY
+	waitbutton
+	closepokepic
+	opentext
+	writetext FuchsiaCityChanseySignText
+	waitbutton
+	closetext
+	end
+
+FuchsiaCityVoltorbSign:
+	reanchormap
+	pokepic VOLTORB
+	cry VOLTORB
+	waitbutton
+	closepokepic
+	opentext
+	writetext FuchsiaCityVoltorbSignText
+	waitbutton
+	closetext
+	end
+
+FuchsiaCityKangaskhanSign:
+	reanchormap
+	pokepic KANGASKHAN
+	cry KANGASKHAN
+	waitbutton
+	closepokepic
+	opentext
+	writetext FuchsiaCityKangaskhanSignText
+	waitbutton
+	closetext
+	end
+
+FuchsiaCityKabutoSign:
+	reanchormap
+	pokepic KABUTO
+	cry KABUTO
+	waitbutton
+	closepokepic
+	opentext
+	writetext FuchsiaCityKabutoSignText
+	waitbutton
+	closetext
+	end
 
 FuchsiaCityPokecenterSign:
 	jumpstd PokecenterSignScript
@@ -125,11 +204,9 @@ FuchsiaCityNoRoomInBag:
 	end
 
 FuchsiaCityYoungsterText:
-	text "One of the ELITE"
-	line "FOUR used to be"
-
-	para "the LEADER of"
-	line "FUCHSIA's GYM."
+	text "That item ball in"
+	line "there is really a"
+	cont "#MON."
 	done
 
 FuchsiaCityPokefanMText:
@@ -143,11 +220,18 @@ FuchsiaCityPokefanMText:
 
 FuchsiaCityTeacherText:
 	text "The SAFARI ZONE is"
-	line "closed… It's sad,"
-
-	para "considering it's"
 	line "FUCHSIA's main"
 	cont "attraction."
+
+	text "Many exotic"
+	line "#MON can be"
+	cont "found there!"
+	done
+
+FuchsiaCityFisherText:
+	text "ERIK: Where's"
+	line "SARA? I said I'd"
+	cont "meet her here."
 	done
 
 FuchsiaCitySignText:
@@ -167,12 +251,8 @@ FuchsiaGymSignText:
 	done
 
 SafariZoneOfficeSignText:
-	text "There's a notice"
-	line "here…"
-
-	para "SAFARI ZONE OFFICE"
-	line "is closed until"
-	cont "further notice."
+	text "#MON PARADISE"
+	line "SAFARI ZONE"
 	done
 
 WardensHomeSignText:
@@ -180,20 +260,54 @@ WardensHomeSignText:
 	line "WARDEN'S HOME"
 	done
 
-SafariZoneClosedSignText:
-	text "The WARDEN is"
-	line "traveling abroad."
-
-	para "Therefore, the"
-	line "SAFARI ZONE is"
-	cont "closed."
+SafariZoneKantoSignText:
+	text "SAFARI ZONE"
+	line "#MON-U-CATCH!"
 	done
 
-NoLitteringSignText:
-	text "No littering."
+FuchsiaCityKabutoSignText:
+	text "Name: KABUTO"
 
-	para "Please take your"
-	line "waste with you."
+	para "A #MON that"
+	line "was resurrected"
+	cont "from a fossil."
+	done
+
+FuchsiaCityKangaskhanSignText:
+	text "Name: KANGASKHAN"
+
+	para "A maternal #MON"
+	line "that raises it's"
+	cont "young in a pouch"
+	cont "on it's belly."
+	done
+
+FuchsiaCityChanseySignText:
+	text "Name: CHANSEY"
+
+	para "Catching one is"
+	line "all up to chance."
+	done
+
+FuchsiaCitySlowpokeSignText:
+	text "Name: SLOWPOKE"
+
+	para "Friendly and very"
+	line "slow moving."
+	done
+
+FuchsiaCityVoltorbSignText:
+	text "Name: VOLTORB"
+
+	para "The very image of"
+	line "a #BALL."
+	done
+
+FuchsiaCityLaprasSignText:
+	text "Name: LAPRAS"
+
+	para "A.K.A. the king"
+	line "of the seas."
 	done
 
 FuchsiaCityBerryTreeText:
@@ -236,7 +350,7 @@ FuchsiaCity_MapEvents:
 	warp_event 11, 27, BILLS_OLDER_SISTERS_HOUSE, 1
 	warp_event 19, 27, FUCHSIA_POKECENTER_1F, 1
 	warp_event 27, 27, SAFARI_ZONE_WARDENS_HOME, 1
-	warp_event 18,  3, SAFARI_ZONE_FUCHSIA_GATE_BETA, 3 ; inaccessible
+	warp_event 18,  3, SAFARI_ZONE_KANTO_ENTRANCE, 2
 	warp_event 17, 35, ROUTE_19_FUCHSIA_GATE, 1
 	warp_event 18, 35, ROUTE_19_FUCHSIA_GATE, 2
 
@@ -247,16 +361,28 @@ FuchsiaCity_MapEvents:
 	bg_event  5, 29, BGEVENT_READ, FuchsiaGymSign
 	bg_event 25, 15, BGEVENT_READ, SafariZoneOfficeSign
 	bg_event 27, 29, BGEVENT_READ, WardensHomeSign
-	bg_event 17,  5, BGEVENT_READ, SafariZoneClosedSign
-	bg_event 13, 15, BGEVENT_READ, NoLitteringSign
+	bg_event 17,  5, BGEVENT_READ, SafariZoneKantoSign
+	bg_event 13, 15, BGEVENT_READ, FuchsiaCityLaprasSign
 	bg_event 20, 27, BGEVENT_READ, FuchsiaCityPokecenterSign
 	bg_event  6, 13, BGEVENT_READ, FuchsiaCityMartSign
 	bg_event 17, 17, BGEVENT_READ, FuchsiaCityNoBerry
 	bg_event 15, 17, BGEVENT_READ, FuchsiaCityNoApricorn
+	bg_event  7,  7, BGEVENT_READ, FuchsiaCityKabutoSign
+	bg_event 13,  7, BGEVENT_READ, FuchsiaCityKangaskhanSign
+	bg_event 27,  7, BGEVENT_READ, FuchsiaCityVoltorbSign
+	bg_event 33,  7, BGEVENT_READ, FuchsiaCityChanseySign
+	bg_event 31, 13, BGEVENT_READ, FuchsiaCitySlowpokeSign
 
 	def_object_events
-	object_event 23, 18, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityYoungster, -1
-	object_event 13,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityPokefanM, -1
+	object_event 24,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityYoungster, -1
+	object_event 23, 18, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityPokefanM, -1
 	object_event 16, 14, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FuchsiaCityTeacher, -1
 	object_event 17, 17, SPRITE_BERRY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBerryTree, EVENT_FUCHSIA_BERRY
 	object_event 15, 17, SPRITE_APRICORN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FuchsiaCityApricornTree, EVENT_FUCHSIA_APRICORN
+	object_event 30, 14, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFisher, -1
+	object_event 30, 12, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
+	object_event 31,  5, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
+	object_event 25,  6, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
+	object_event 12,  6, SPRITE_KANGASKHAN, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
+	object_event  6,  5, SPRITE_KABUTO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
+	object_event  8, 17, SPRITE_LAPRAS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0

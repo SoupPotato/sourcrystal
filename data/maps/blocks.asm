@@ -170,7 +170,9 @@ CherrygroveEvolutionSpeechHouse_Blocks:
 Route30BerryHouse_Blocks:
 	INCBIN "maps/House1.blk"
 
-SafariZoneFuchsiaGateBeta_Blocks:
+SafariZoneKantoEntrance_Blocks:
+	INCBIN "maps/SafariZoneKantoEntrance.blk"
+
 Route19FuchsiaGate_Blocks:
 Route43MahoganyGate_Blocks:
 Route43Gate_Blocks:
@@ -829,8 +831,17 @@ VermilionPortPassage_Blocks:
 FuchsiaGym_Blocks:
 	INCBIN "maps/FuchsiaGym.blk"
 
-SafariZoneBeta_Blocks:
-	INCBIN "maps/SafariZoneBeta.blk"
+SafariZoneKantoArea1_Blocks:
+	INCBIN "maps/SafariZoneKantoArea1.blk"
+
+SafariZoneKantoArea2_Blocks:
+	INCBIN "maps/SafariZoneKantoArea2.blk"
+
+SafariZoneKantoArea3_Blocks:
+	INCBIN "maps/SafariZoneKantoArea3.blk"
+
+SafariZoneKantoArea4_Blocks:
+	INCBIN "maps/SafariZoneKantoArea4.blk"
 
 UndergroundPath_Blocks:
 	INCBIN "maps/UndergroundPath.blk"
@@ -992,7 +1003,14 @@ SafariRestHouseArea1_Blocks:
 SafariRestHouseArea2_Blocks:
 SafariRestHouseArea3_Blocks:
 SafariRestHouseArea4_Blocks:
+SafariKantoRestHouseArea1_Blocks:
+SafariKantoRestHouseArea2_Blocks:
+SafariKantoRestHouseArea3_Blocks:
+SafariKantoRestHouseArea4_Blocks:
 	INCBIN "maps/SafariRestHouse.blk"
+
+SafariKantoSecretHouse_Blocks:
+	INCBIN "maps/SafariKantoSecretHouse.blk"
 
 SafariZoneEntrance_Blocks:
 	INCBIN "maps/SafariZoneEntrance.blk"

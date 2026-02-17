@@ -62,6 +62,9 @@ SafariRestHouseArea2TwinScript_Text:
 	line "me taste it."
 	done
 
+SafariRestHouseArea2Bookshelf:
+	jumpstd DifficultBookshelfScript
+
 SafariRestHouseArea2_MapEvents:
 	db 0, 0 ; filler
 
@@ -72,6 +75,10 @@ SafariRestHouseArea2_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  4,  1, BGEVENT_READ, SafariRestHouseArea2Bookshelf
+	bg_event  5,  1, BGEVENT_READ, SafariRestHouseArea2Bookshelf
+	bg_event  6,  1, BGEVENT_READ, SafariRestHouseArea2Bookshelf
+	bg_event  7,  1, BGEVENT_READ, SafariRestHouseArea2Bookshelf
 
 	def_object_events
 	object_event  1,  3, SPRITE_SCIENTIST, SPRITEMOVEDATA_WALK_UP_DOWN, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SafariRestHouseArea2ScientistScript, 0

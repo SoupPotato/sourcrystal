@@ -41,6 +41,9 @@ SafariRestHouseArea4CooltrainerMScript_Text:
 	cont "it was worth it."
 	done
 
+SafariRestHouseArea4Bookshelf:
+	jumpstd DifficultBookshelfScript
+
 SafariRestHouseArea4_MapEvents:
 	db 0, 0 ; filler
 
@@ -51,6 +54,10 @@ SafariRestHouseArea4_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  4,  1, BGEVENT_READ, SafariRestHouseArea4Bookshelf
+	bg_event  5,  1, BGEVENT_READ, SafariRestHouseArea4Bookshelf
+	bg_event  6,  1, BGEVENT_READ, SafariRestHouseArea4Bookshelf
+	bg_event  7,  1, BGEVENT_READ, SafariRestHouseArea4Bookshelf
 
 	def_object_events
 	object_event  7,  2, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SafariRestHouseArea4HikerScript, 0

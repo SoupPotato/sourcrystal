@@ -92,21 +92,22 @@ DEF KANTO_LANDMARK EQU const_value
 	const LANDMARK_ROUTE_17          ; 57
 	const LANDMARK_ROUTE_18          ; 58
 	const LANDMARK_FUCHSIA_CITY      ; 59
-	const LANDMARK_ROUTE_19          ; 5a
-	const LANDMARK_ROUTE_20          ; 5b
-	const LANDMARK_SEAFOAM_ISLANDS   ; 5c
-	const LANDMARK_CINNABAR_ISLAND   ; 5d
-	const LANDMARK_POKEMON_MANSION   ; 5e
-	const LANDMARK_ROUTE_21          ; 5f
-	const LANDMARK_ROUTE_22          ; 60
-	const LANDMARK_VICTORY_ROAD      ; 61
-	const LANDMARK_ROUTE_23          ; 62
-	const LANDMARK_INDIGO_PLATEAU    ; 63
-	const LANDMARK_ROUTE_26          ; 64
-	const LANDMARK_ROUTE_27          ; 65
-	const LANDMARK_TOHJO_FALLS       ; 66
-	const LANDMARK_ROUTE_28          ; 67
-	const LANDMARK_FAST_SHIP         ; 68
+	const LANDMARK_SAFARI_ZONE_KANTO ; 5a
+	const LANDMARK_ROUTE_19          ; 5b
+	const LANDMARK_ROUTE_20          ; 5c
+	const LANDMARK_SEAFOAM_ISLANDS   ; 5d
+	const LANDMARK_CINNABAR_ISLAND   ; 5e
+	const LANDMARK_POKEMON_MANSION   ; 5f
+	const LANDMARK_ROUTE_21          ; 60
+	const LANDMARK_ROUTE_22          ; 61
+	const LANDMARK_VICTORY_ROAD      ; 62
+	const LANDMARK_ROUTE_23          ; 63
+	const LANDMARK_INDIGO_PLATEAU    ; 64
+	const LANDMARK_ROUTE_26          ; 65
+	const LANDMARK_ROUTE_27          ; 66
+	const LANDMARK_TOHJO_FALLS       ; 67
+	const LANDMARK_ROUTE_28          ; 68
+	const LANDMARK_FAST_SHIP         ; 69
 DEF NUM_LANDMARKS EQU const_value
 
 ; used in CaughtData

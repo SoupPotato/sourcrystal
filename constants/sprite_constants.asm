@@ -116,6 +116,7 @@
 	const SPRITE_BIG_MUSHROOM           ; 72
 	const SPRITE_UNOWN_DOLL             ; 73
 	const SPRITE_PACKAGE                ; 74
+	const SPRITE_SAFARI_WORKER          ; 75
 DEF NUM_OVERWORLD_SPRITES EQU const_value - 1
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
@@ -181,6 +182,7 @@ DEF SPRITE_POKEMON EQU const_value
 	const SPRITE_MEW                    ; ad
 	const SPRITE_CHANSEY                ; ae
 	const SPRITE_KABUTO                 ; af
+	const SPRITE_AIPOM                  ; b0
 DEF NUM_POKEMON_SPRITES EQU const_value - SPRITE_POKEMON
 
 ; special GetMonSprite values (see engine/overworld/overworld.asm)

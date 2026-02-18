@@ -363,7 +363,7 @@ ENDM
 	map_const ROUTE_18,                                    25,  9 ;  4
 	map_const FUCHSIA_CITY,                                20, 18 ;  5
 	map_const FUCHSIA_MART,                                 6,  4 ;  6
-	map_const SAFARI_ZONE_MAIN_OFFICE,                      4,  4 ;  7
+	map_const SAFARI_ZONE_MAIN_OFFICE,                      6,  5 ;  7
 	map_const FUCHSIA_GYM,                                  5,  9 ;  8
 	map_const BILLS_OLDER_SISTERS_HOUSE,                    4,  4 ;  9
 	map_const FUCHSIA_POKECENTER_1F,                        5,  4 ; 10

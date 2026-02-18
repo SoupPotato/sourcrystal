@@ -11,7 +11,7 @@ SafariKantoRestHouseArea3_MapScripts:
 SafariKantoRestHouseArea3GentlemanScript:
 	faceplayer
 	opentext
-	writetext SafariKantoRestHouseArea3GentlemanScript_Text
+	writetext SafariKantoRestHouseArea3Gentleman_Text
 	waitbutton
 	closetext
 	end
@@ -19,20 +19,20 @@ SafariKantoRestHouseArea3GentlemanScript:
 SafariKantoRestHouseArea3ScientistScript:
 	faceplayer
 	opentext
-	writetext SafariKantoRestHouseArea3ScientistScript_Text
+	writetext SafariKantoRestHouseArea3Scientist_Text
 	waitbutton
 	closetext
 	end
 
-SafariKantoRestHouseArea3OfficerScript:
+SafariKantoRestHouseArea3WorkerScript:
 	faceplayer
 	opentext
-	writetext SafariKantoRestHouseArea3OfficerScript_Text
+	writetext SafariKantoRestHouseArea3Worker_Text
 	waitbutton
 	closetext
 	end
 
-SafariKantoRestHouseArea3GentlemanScript_Text:
+SafariKantoRestHouseArea3Gentleman_Text:
 	text "My EEVEE evolved"
 	line "into FLAREON!"
 
@@ -42,7 +42,7 @@ SafariKantoRestHouseArea3GentlemanScript_Text:
 	cont "I wonder why?"
 	done
 
-SafariKantoRestHouseArea3ScientistScript_Text:
+SafariKantoRestHouseArea3Scientist_Text:
 	text "You can keep any"
 	line "item you find on"
 	cont "the ground here."
@@ -53,11 +53,13 @@ SafariKantoRestHouseArea3ScientistScript_Text:
 	cont "of them at once!"
 	done
 
-SafariKantoRestHouseArea3OfficerScript_Text:
+SafariKantoRestHouseArea3Worker_Text:
 	text "Go to the deepest"
 	line "part of the"
-	cont "SAFARI ZONE. You"
-	cont "will win a prize!"
+	cont "SAFARI ZONE."
+
+	para "You will win a"
+	cont "prize!"
 	done
 
 SafariKantoRestHouseArea3Bookshelf:
@@ -81,4 +83,4 @@ SafariKantoRestHouseArea3_MapEvents:
 	def_object_events
 	object_event  1,  4, SPRITE_GENTLEMAN, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0,  SafariKantoRestHouseArea3GentlemanScript, 0
 	object_event  3,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SafariKantoRestHouseArea3ScientistScript, 0
-	object_event  5,  5, SPRITE_OFFICER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SafariKantoRestHouseArea3OfficerScript, 0
+	object_event  5,  5, SPRITE_SAFARI_WORKER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SafariKantoRestHouseArea3WorkerScript, 0

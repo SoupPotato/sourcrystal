@@ -730,8 +730,10 @@ VermilionPort_Blocks:
 	INCBIN "maps/VermilionPort.blk"
 
 OlivineCafe_Blocks:
-SafariZoneMainOffice_Blocks:
 	INCBIN "maps/OlivineCafe.blk"
+
+SafariZoneMainOffice_Blocks:
+	INCBIN "maps/SafariZoneMainOffice.blk"
 
 PlayersHouse2F_Blocks:
 	INCBIN "maps/PlayersHouse2F.blk"

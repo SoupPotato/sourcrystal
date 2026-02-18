@@ -1,5 +1,8 @@
 	object_const_def
 	const SAFARIZONEWARDENSHOME_LASS
+	const SAFARIZONEWARDENSHOME_AIPOM_1
+	const SAFARIZONEWARDENSHOME_AIPOM_2
+	const SAFARIZONEWARDENSHOME_AIPOM_3
 
 SafariZoneWardensHome_MapScripts:
 	def_scene_scripts
@@ -31,6 +34,14 @@ SafariZonePhoto:
 WardensHomeBookshelf:
 	jumpstd PictureBookshelfScript
 
+WardensGranddaughterAipom:
+	opentext
+	writetext WardensGranddaughterAipomText
+	cry AIPOM
+	waitbutton
+	closetext
+	end
+
 WardensGranddaughterText1:
 	text "My grandpa is the"
 	line "SAFARI ZONE WAR-"
@@ -39,9 +50,9 @@ WardensGranddaughterText1:
 	para "At least he was…"
 
 	para "He decided to go"
-	line "on a vacation and"
+	line "and expand the"
 
-	para "took off overseas"
+	para "business overseas"
 	line "all by himself."
 
 	para "He quit running"
@@ -53,9 +64,15 @@ WardensGranddaughterText2:
 	text "Many people were"
 	line "disappointed that"
 
-	para "SAFARI ZONE closed"
-	line "down, but Grandpa"
-	cont "is so stubborn…"
+	para "the SAFARI ZONE"
+	line "closed down, but"
+
+	para "my dad took over"
+	line "running it!"
+
+	para "I guess running"
+	line "a SAFARI ZONE runs"
+	cont "in my family."
 	done
 
 WardenPhotoText:
@@ -72,6 +89,10 @@ SafariZonePhotoText:
 
 	para "with rare #MON"
 	line "frolicking in it."
+	done
+
+WardensGranddaughterAipomText:
+	text "AIPOM: Pom Pom!"
 	done
 
 SafariZoneWardensHome_MapEvents:
@@ -91,3 +112,6 @@ SafariZoneWardensHome_MapEvents:
 
 	def_object_events
 	object_event  2,  4, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, WardensGranddaughter, -1
+	object_event  0,  3, SPRITE_AIPOM, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, WardensGranddaughterAipom, -1
+	object_event  5,  6, SPRITE_AIPOM, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, WardensGranddaughterAipom, -1
+	object_event  8,  2, SPRITE_AIPOM, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, WardensGranddaughterAipom, -1

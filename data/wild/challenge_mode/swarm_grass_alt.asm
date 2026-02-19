@@ -1367,82 +1367,82 @@ SwarmGrassWildMonsAltChallenge:
 	map_id ROUTE_15
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 38, EXEGGCUTE
-	db 38, NIDORINO
-	db 42, NIDORINA
-	db 38, EXEGGCUTE
-	db 38, HOPPIP
-	db 40, HOPPIP
-	db 40, CHANSEY
-	; day
 	db 36, EXEGGCUTE
-	db 38, NIDORINO
-	db 42, NIDORINA
 	db 38, EXEGGCUTE
+	db 42, PIDGEOTTO
 	db 38, HOPPIP
-	db 40, HOPPIP
-	db 40, CHANSEY
-	; nite
+	db 38, DITTO
+	db 40, SKIPLOOM
+	db 40, DITTO
+	; day  
 	db 36, EXEGGCUTE
-	db 38, VENONAT
+	db 38, EXEGGCUTE
+	db 42, PIDGEOTTO
+	db 38, HOPPIP
+	db 38, DITTO
+	db 40, SKIPLOOM
+	db 40, DITTO
+	; nite 
+	db 36, EXEGGCUTE
+	db 38, EXEGGCUTE
 	db 42, NOCTOWL
-	db 38, EXEGGCUTE
-	db 38, VENOMOTH
+	db 38, VENONAT
+	db 38, DITTO
 	db 40, QUAGSIRE
-	db 40, CHANSEY
+	db 40, DITTO
 
 ; Nidorina swarm
 	map_id ROUTE_14
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 38, NIDORINA
-	db 38, NIDORINO
+	db 36, NIDORINA
 	db 40, PIDGEOTTO
-	db 38, NIDORINA
+	db 38, HOPPIP
 	db 40, NIDORINA
 	db 40, SKIPLOOM
-	db 40, CHANSEY
-	; day
+	db 40, DITTO
+	; day  
 	db 38, NIDORINA
-	db 38, NIDORINO
+	db 36, NIDORINA
 	db 40, PIDGEOTTO
-	db 38, NIDORINA
-	db 40, NIDORINA
+	db 38, HOPPIP
+	db 40, NIDORINO
 	db 40, SKIPLOOM
-	db 40, CHANSEY
-	; nite
+	db 40, DITTO
+	; nite 
 	db 38, NIDORINA
-	db 38, QUAGSIRE
+	db 36, NIDORINA
 	db 40, NOCTOWL
-	db 38, NIDORINA
-	db 40, NIDORINA
+	db 38, VENONAT
+	db 40, DITTO
 	db 40, QUAGSIRE
-	db 40, CHANSEY
+	db 40, DITTO
 
 ; Chansey swarm
 	map_id ROUTE_13
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 35, NIDORINO
-	db 35, NIDORINA
 	db 38, CHANSEY
 	db 35, CHANSEY
+	db 38, PIDGEOTTO
+	db 35, HOPPIP
 	db 37, FARFETCH_D
-	db 39, HOPPIP
+	db 39, SKIPLOOM
 	db 41, CHANSEY
-	; day
-	db 35, NIDORINO
-	db 35, NIDORINA
+	; day  
 	db 38, CHANSEY
 	db 35, CHANSEY
+	db 38, PIDGEOTTO
+	db 35, HOPPIP
 	db 37, FARFETCH_D
-	db 39, HOPPIP
+	db 39, SKIPLOOM
 	db 41, CHANSEY
-	; nite
+	; nite 
+	db 38, CHANSEY
+	db 35, CHANSEY
+	db 38, NOCTOWL
 	db 35, VENONAT
-	db 35, QUAGSIRE
-	db 38, CHANSEY
-	db 35, CHANSEY
 	db 37, FARFETCH_D
 	db 39, QUAGSIRE
 	db 41, CHANSEY

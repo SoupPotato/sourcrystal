@@ -453,8 +453,8 @@ SGBLayoutJumptable:
 	jr z, .cave
 	cp DUNGEON
 	jr z, .cave
-	cp ENVIRONMENT_5
-	jr z, .env5
+	cp SAFARI_ZONE_ENV
+	jr z, .route
 	cp GATE
 	jr z, .gate
 	ld a, [wMapGroup]
@@ -471,10 +471,6 @@ SGBLayoutJumptable:
 
 .cave
 	ld a, PREDEFPAL_DUNGEONS
-	ret
-
-.env5
-	ld a, PREDEFPAL_VERMILION
 	ret
 
 .gate

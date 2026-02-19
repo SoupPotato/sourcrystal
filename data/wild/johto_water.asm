@@ -69,7 +69,7 @@ JohtoWaterWildMons:
 	db 10 percent ; encounter rate
 	db 18, TENTACOOL
 	db 18, KRABBY
-	db 18, LAPRAS
+	db 18, HORSEA
 	end_water_wildmons
 
 	def_water_wildmons MOUNT_MORTAR_1F_OUTSIDE

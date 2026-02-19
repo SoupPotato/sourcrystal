@@ -198,4 +198,32 @@ KantoWaterWildMonsChallenge:
 	db 55, GYARADOS
 	end_water_wildmons
 
+	def_water_wildmons SAFARI_ZONE_KANTO_AREA_1
+	db 4 percent ; encounter rate
+	db 40, PSYDUCK
+	db 40, SLOWPOKE
+	db 40, AZUMARILL
+	end_water_wildmons
+
+	def_water_wildmons SAFARI_ZONE_KANTO_AREA_2
+	db 4 percent ; encounter rate
+	db 40, SLOWPOKE
+	db 40, PSYDUCK
+	db 40, REMORAID
+	end_water_wildmons
+
+	def_water_wildmons SAFARI_ZONE_KANTO_AREA_3
+	db 4 percent ; encounter rate
+	db 40, PSYDUCK
+	db 40, SLOWPOKE
+	db 40, MANTINE
+	end_water_wildmons
+
+	def_water_wildmons SAFARI_ZONE_KANTO_AREA_4
+	db 4 percent ; encounter rate
+	db 40, SLOWPOKE
+	db 40, PSYDUCK
+	db 40, QUAGSIRE
+	end_water_wildmons
+
 	db -1 ; end

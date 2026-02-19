@@ -135,7 +135,7 @@
 	const AHAB
 	const FRENCH_ORANGE
 	const LUIGI_TKO
-	const GUI_ALBE
+	const GUI_ABEL
 	const SONICRAY
 	const HALLAN
 	const AX6

@@ -352,6 +352,8 @@ CopyWarpData::
 CheckOutdoorMap::
 	cp ROUTE
 	ret z
+	cp SAFARI_ZONE_ENV
+	ret z
 	cp TOWN
 	ret
 
@@ -1117,20 +1119,6 @@ ObjectEvent::
 
 ObjectEventText::
 	text_far _ObjectEventText
-	text_end
-
-BGEvent:: ; unreferenced
-	jumptext BGEventText
-
-BGEventText::
-	text_far _BGEventText
-	text_end
-
-CoordinatesEvent:: ; unreferenced
-	jumptext CoordinatesEventText
-
-CoordinatesEventText::
-	text_far _CoordinatesEventText
 	text_end
 
 CheckObjectMask::

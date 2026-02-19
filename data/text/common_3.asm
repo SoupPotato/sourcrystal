@@ -225,14 +225,6 @@ _ObjectEventText::
 	text "Object event"
 	done
 
-_BGEventText::
-	text "BG event"
-	done
-
-_CoordinatesEventText::
-	text "Coordinates event"
-	done
-
 _ReceivedItemText::
 	text "<PLAYER> received"
 	line "@"

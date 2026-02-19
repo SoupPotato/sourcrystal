@@ -333,7 +333,7 @@ CreditsScript:
 	db            SOURAPPLE, 1
 	db        FRENCH_ORANGE, 2
 	db     BENNIBEEFAGHETTI, 3
-	db             GUI_ALBE, 4
+	db             GUI_ABEL, 4
 
 	db CREDITS_WAIT, 9
 

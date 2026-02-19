@@ -845,113 +845,113 @@ KantoGrassWildMonsChallenge:
 	def_grass_wildmons ROUTE_12
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 35, NIDORINO
-	db 35, NIDORINA
+	db 35, WEEPINBELL
+	db 35, BELLSPROUT
 	db 38, PIDGEOTTO
 	db 35, HOPPIP
 	db 37, FARFETCH_D
-	db 39, HOPPIP
-	db 41, CHANSEY
-	; day
-	db 35, NIDORINO
-	db 35, NIDORINA
+	db 39, SKIPLOOM
+	db 41, FARFETCH_D
+	; day  
+	db 35, WEEPINBELL
+	db 35, BELLSPROUT
 	db 38, PIDGEOTTO
 	db 35, HOPPIP
 	db 37, FARFETCH_D
-	db 39, HOPPIP
-	db 41, CHANSEY
-	; nite
-	db 35, VENONAT
-	db 35, QUAGSIRE
+	db 39, SKIPLOOM
+	db 41, FARFETCH_D
+	; nite 
+	db 35, GLOOM
+	db 35, ODDISH
 	db 38, NOCTOWL
-	db 35, VENOMOTH
+	db 35, VENONAT
 	db 37, FARFETCH_D
 	db 39, QUAGSIRE
-	db 41, CHANSEY
+	db 41, FARFETCH_D
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_13
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 35, NIDORINO
-	db 35, NIDORINA
+	db 35, WEEPINBELL
+	db 35, BELLSPROUT
 	db 38, PIDGEOTTO
 	db 35, HOPPIP
 	db 37, FARFETCH_D
-	db 39, HOPPIP
-	db 41, CHANSEY
-	; day
-	db 35, NIDORINO
-	db 35, NIDORINA
+	db 39, SKIPLOOM
+	db 41, FARFETCH_D
+	; day  
+	db 35, WEEPINBELL
+	db 35, BELLSPROUT
 	db 38, PIDGEOTTO
 	db 35, HOPPIP
 	db 37, FARFETCH_D
-	db 39, HOPPIP
-	db 41, CHANSEY
-	; nite
-	db 35, VENONAT
-	db 35, QUAGSIRE
+	db 39, SKIPLOOM
+	db 41, FARFETCH_D
+	; nite 
+	db 35, GLOOM
+	db 35, ODDISH
 	db 38, NOCTOWL
-	db 35, VENOMOTH
+	db 35, VENONAT
 	db 37, FARFETCH_D
 	db 39, QUAGSIRE
-	db 41, CHANSEY
+	db 41, FARFETCH_D
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_14
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 38, NIDORINO
-	db 38, NIDORINA
+	db 38, WEEPINBELL
+	db 38, BELLSPROUT
 	db 40, PIDGEOTTO
 	db 38, HOPPIP
+	db 40, DITTO
 	db 40, SKIPLOOM
-	db 40, SKIPLOOM
-	db 40, CHANSEY
-	; day
-	db 38, NIDORINO
-	db 38, NIDORINA
+	db 40, DITTO
+	; day  
+	db 38, WEEPINBELL
+	db 38, BELLSPROUT
 	db 40, PIDGEOTTO
 	db 38, HOPPIP
+	db 40, DITTO
 	db 40, SKIPLOOM
-	db 40, SKIPLOOM
-	db 40, CHANSEY
-	; nite
-	db 38, VENONAT
-	db 38, QUAGSIRE
+	db 40, DITTO
+	; nite 
+	db 38, GLOOM
+	db 38, ODDISH
 	db 40, NOCTOWL
-	db 38, VENOMOTH
+	db 38, VENONAT
+	db 40, DITTO
 	db 40, QUAGSIRE
-	db 40, QUAGSIRE
-	db 40, CHANSEY
+	db 40, DITTO
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_15
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 38, NIDORINO
-	db 38, NIDORINA
+	db 38, WEEPINBELL
+	db 38, BELLSPROUT
 	db 42, PIDGEOTTO
 	db 38, HOPPIP
-	db 38, HOPPIP
-	db 40, HOPPIP
-	db 40, CHANSEY
-	; day
-	db 38, NIDORINO
-	db 38, NIDORINA
+	db 38, DITTO
+	db 40, SKIPLOOM
+	db 40, DITTO
+	; day  
+	db 38, WEEPINBELL
+	db 38, BELLSPROUT
 	db 42, PIDGEOTTO
 	db 38, HOPPIP
-	db 38, HOPPIP
-	db 40, HOPPIP
-	db 40, CHANSEY
-	; nite
-	db 38, VENONAT
-	db 38, QUAGSIRE
+	db 38, DITTO
+	db 40, SKIPLOOM
+	db 40, DITTO
+	; nite 
+	db 38, GLOOM
+	db 38, ODDISH
 	db 42, NOCTOWL
-	db 38, VENOMOTH
-	db 38, QUAGSIRE
+	db 38, VENONAT
+	db 38, DITTO
 	db 40, QUAGSIRE
-	db 40, CHANSEY
+	db 40, DITTO
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_16
@@ -1290,116 +1290,60 @@ KantoGrassWildMonsChallenge:
 	db 50, MAGMAR
 	end_grass_wildmons
 
-	def_grass_wildmons SAFARI_ZONE_KANTO_AREA_1
+	def_grass_wildmons SAFARI_ZONE_KANTO_AREA_1 ; DUMMY
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 36, NIDORAN_F
-	db 35, NIDORAN_M
-	db 36, EXEGGCUTE
-	db 37, PARAS
-	db 42, RHYHORN
-	db 32, SCYTHER
-	db 40, CHANSEY
+	db 5, NIDORAN_F
+	db 5, NIDORAN_M
+	db 5, NIDORINA
+	db 5, NIDORINO
+	db 5, PARAS
+	db 5, PARASECT
+	db 5, PSYDUCK
 	; day
-	db 36, NIDORAN_F
-	db 35, NIDORAN_M
-	db 36, EXEGGCUTE
-	db 37, PARAS
-	db 42, RHYHORN
-	db 32, SCYTHER
-	db 40, CHANSEY
+	db 5, VENONAT
+	db 5, VENOMOTH
+	db 5, SLOWPOKE
+	db 5, DODUO
+	db 5, EXEGGCUTE
+	db 5, RHYHORN
+	db 5, KANGASKHAN
 	; nite
-	db 36, NIDORAN_F
-	db 35, NIDORAN_M
-	db 36, EXEGGCUTE
-	db 37, PARAS
-	db 42, RHYHORN
-	db 32, SCYTHER
-	db 40, CHANSEY
+	db 5, SCYTHER
+	db 5, PINSIR
+	db 5, TAUROS
+	db 5, QUAGSIRE
+	db 5, MANTINE
+	db 5, REMORAID
+	db 5, AZUMARILL
 	end_grass_wildmons
 
-	def_grass_wildmons SAFARI_ZONE_KANTO_AREA_2
+	def_grass_wildmons SAFARI_ZONE_KANTO_AREA_2 ; DUMMY
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 36, NIDORAN_F
-	db 35, NIDORAN_M
-	db 36, EXEGGCUTE
-	db 37, PARAS
-	db 42, PARASECT
-	db 32, PINSIR
-	db 40, KANGASKHAN
+	db 5, MURKROW
+	db 5, GIRAFARIG
+	db 5, STANTLER
+	db 5, SKARMORY
+	db 5, HERACROSS
+	db 5, NATU
+	db 5, NATU
 	; day
-	db 36, NIDORAN_F
-	db 35, NIDORAN_M
-	db 36, EXEGGCUTE
-	db 37, PARAS
-	db 42, PARASECT
-	db 32, PINSIR
-	db 40, KANGASKHAN
+	db 5, NATU
+	db 5, NATU
+	db 5, NATU
+	db 5, NATU
+	db 5, NATU
+	db 5, NATU
+	db 5, NATU
 	; nite
-	db 36, NIDORAN_F
-	db 35, NIDORAN_M
-	db 36, EXEGGCUTE
-	db 37, PARAS
-	db 42, PARASECT
-	db 32, PINSIR
-	db 40, KANGASKHAN
-	end_grass_wildmons
-
-	def_grass_wildmons SAFARI_ZONE_KANTO_AREA_3
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
-	; morn
-	db 36, NIDORAN_F
-	db 35, NIDORAN_M
-	db 36, EXEGGCUTE
-	db 37, DODUO
-	db 42, CHANSEY
-	db 32, SCYTHER
-	db 40, TAUROS
-	; day
-	db 36, NIDORAN_F
-	db 35, NIDORAN_M
-	db 36, EXEGGCUTE
-	db 37, DODUO
-	db 42, CHANSEY
-	db 32, SCYTHER
-	db 40, TAUROS
-	; nite
-	db 36, NIDORAN_F
-	db 35, NIDORAN_M
-	db 36, EXEGGCUTE
-	db 37, DODUO
-	db 42, CHANSEY
-	db 32, SCYTHER
-	db 40, TAUROS
-	end_grass_wildmons
-
-	def_grass_wildmons SAFARI_ZONE_KANTO_AREA_4
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
-	; morn
-	db 36, NIDORAN_F
-	db 35, NIDORAN_M
-	db 36, EXEGGCUTE
-	db 37, DODUO
-	db 42, CHANSEY
-	db 32, PINSIR
-	db 40, TAUROS
-	; day
-	db 36, NIDORAN_F
-	db 35, NIDORAN_M
-	db 36, EXEGGCUTE
-	db 37, DODUO
-	db 42, CHANSEY
-	db 32, PINSIR
-	db 40, TAUROS
-	; nite
-	db 36, NIDORAN_F
-	db 35, NIDORAN_M
-	db 36, EXEGGCUTE
-	db 37, DODUO
-	db 42, CHANSEY
-	db 32, PINSIR
-	db 40, TAUROS
+	db 5, NATU
+	db 5, NATU
+	db 5, NATU
+	db 5, NATU
+	db 5, NATU
+	db 5, NATU
+	db 5, NATU
 	end_grass_wildmons
 
 	db -1 ; end

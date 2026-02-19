@@ -2,7 +2,7 @@ ContestSafariMonsNormal:
 	;   %, species,   min, max
 
 	map_id NATIONAL_PARK_BUG_CONTEST
-.NationalPark
+; NationalPark
 	table_width 4
 ; morning
 	db 20, CATERPIE,    7, 18
@@ -40,7 +40,7 @@ ContestSafariMonsNormal:
 	assert_table_length 30
 	
 	map_id SAFARI_ZONE_AREA_1
-.Safari1
+; Safari1
 	table_width 4
 ; morning
 	db 20, SENTRET,       19, 19
@@ -78,7 +78,7 @@ ContestSafariMonsNormal:
 	assert_table_length 30
 	
 	map_id SAFARI_ZONE_AREA_2
-.Safari2
+; Safari2
 	table_width 4
 ; morning
 	db 20, NIDORAN_M,      19, 19
@@ -116,7 +116,7 @@ ContestSafariMonsNormal:
 	assert_table_length 30
 	
 	map_id SAFARI_ZONE_AREA_3
-.Safari3
+; Safari3
 	table_width 4
 ; morning
 	db 20, EKANS,         18, 18
@@ -154,7 +154,7 @@ ContestSafariMonsNormal:
 	assert_table_length 30
 	
 	map_id SAFARI_ZONE_AREA_4
-.Safari4
+; Safari4
 	table_width 4
 ; morning
 	db 20, MACHOP,      19, 19
@@ -189,6 +189,158 @@ ContestSafariMonsNormal:
 	db  5, WOBBUFFET,   20, 20
 	db  4, KANGASKHAN,  22, 22
 	db  1, LARVITAR,    17, 17
+	assert_table_length 30
+
+	map_id SAFARI_ZONE_KANTO_AREA_1
+; SafariKanto1
+	table_width 4
+; morning
+	db 20, NIDORAN_F,   22, 22
+	db 20, NIDORAN_M,   22, 22
+	db 15, EXEGGCUTE,   24, 24
+	db 10, NIDORINO,    31, 31
+	db 10, PARAS,       27, 27
+	db 10, RHYHORN,     25, 25
+	db  5, NATU,        27, 27
+	db  5, PARASECT,    32, 32
+	db  4, HERACROSS,   28, 28
+	db  1, CHANSEY,     27, 27
+; day/eve  
+	db 20, NIDORAN_F,   22, 22
+	db 20, NIDORAN_M,   22, 22
+	db 15, EXEGGCUTE,   24, 24
+	db 10, NIDORINO,    31, 31
+	db 10, PARAS,       27, 27
+	db 10, RHYHORN,     25, 25
+	db  5, NATU,        27, 27
+	db  5, PARASECT,    32, 32
+	db  4, HERACROSS,   28, 28
+	db  1, CHANSEY,     27, 27
+; nite     
+	db 20, NIDORAN_F,   22, 22
+	db 20, NIDORAN_M,   22, 22
+	db 15, EXEGGCUTE,   24, 24
+	db 10, VENONAT,     27, 27
+	db 10, PARAS,       27, 27
+	db 10, RHYHORN,     25, 25
+	db  5, NATU,        27, 27
+	db  5, PARASECT,    32, 32
+	db  4, HERACROSS,   28, 28
+	db  1, CHANSEY,     27, 27
+	assert_table_length 30
+
+	map_id SAFARI_ZONE_KANTO_AREA_2
+; SafariKanto1
+	table_width 4
+; morning
+	db 20, NIDORAN_F,   24, 24
+	db 20, NIDORAN_M,   24, 24
+	db 15, EXEGGCUTE,   26, 26
+	db 10, DODUO,       26, 26
+	db 10, NIDORINA,    32, 32
+	db 10, PARASECT,    28, 28
+	db  5, SKARMORY,    27, 27
+	db  5, TAUROS,      28, 28
+	db  4, SCYTHER,     28, 28
+	db  1, GIRAFARIG,   27, 27
+; day/eve  
+	db 20, NIDORAN_F,   24, 24
+	db 20, NIDORAN_M,   24, 24
+	db 15, EXEGGCUTE,   26, 26
+	db 10, DODUO,       26, 26
+	db 10, NIDORINA,    32, 32
+	db 10, PARASECT,    28, 28
+	db  5, SKARMORY,    27, 27
+	db  5, TAUROS,      28, 28
+	db  4, SCYTHER,     28, 28
+	db  1, GIRAFARIG,   27, 27
+; nite     
+	db 20, NIDORAN_F,   24, 24
+	db 20, NIDORAN_M,   24, 24
+	db 15, EXEGGCUTE,   26, 26
+	db 10, MURKROW,     26, 26
+	db 10, VENONAT,     27, 27
+	db 10, PARASECT,    28, 28
+	db  5, SKARMORY,    27, 27
+	db  5, TAUROS,      28, 28
+	db  4, SCYTHER,     28, 28
+	db  1, STANTLER,    27, 27
+	assert_table_length 30
+
+	map_id SAFARI_ZONE_KANTO_AREA_3
+; SafariKanto1
+	table_width 4
+; morning
+	db 20, NIDORAN_F,   22, 22
+	db 20, NIDORAN_M,   22, 22
+	db 15, EXEGGCUTE,   27, 27
+	db 10, NIDORINO,    34, 34
+	db 10, RHYHORN,     26, 26
+	db 10, KANGASKHAN,  28, 28
+	db  5, PINSIR,      26, 26
+	db  5, HERACROSS,   26, 26
+	db  4, CHANSEY,     26, 26
+	db  1, SCYTHER,     25, 25
+; day/eve  
+	db 20, NIDORAN_F,   22, 22
+	db 20, NIDORAN_M,   22, 22
+	db 15, EXEGGCUTE,   27, 27
+	db 10, NIDORINO,    34, 34
+	db 10, RHYHORN,     26, 26
+	db 10, KANGASKHAN,  28, 28
+	db  5, PINSIR,      26, 26
+	db  5, HERACROSS,   26, 26
+	db  4, CHANSEY,     26, 26
+	db  1, SCYTHER,     25, 25
+; nite     
+	db 20, NIDORAN_F,   22, 22
+	db 20, NIDORAN_M,   22, 22
+	db 15, EXEGGCUTE,   27, 27
+	db 10, VENOMOTH,    34, 34
+	db 10, RHYHORN,     26, 26
+	db 10, KANGASKHAN,  28, 28
+	db  5, PINSIR,      26, 26
+	db  5, HERACROSS,   26, 26
+	db  4, CHANSEY,     26, 26
+	db  1, SCYTHER,     25, 25
+	assert_table_length 30
+
+	map_id SAFARI_ZONE_KANTO_AREA_4
+; SafariKanto1
+	table_width 4
+; morning
+	db 20, NIDORAN_F,   25, 25
+	db 20, NIDORAN_M,   25, 25
+	db 15, EXEGGCUTE,   26, 26
+	db 10, NIDORINA,    33, 33
+	db 10, TAUROS,      26, 26
+	db 10, GIRAFARIG,   28, 28
+	db  5, DODUO,       26, 26
+	db  5, SKARMORY,    26, 26
+	db  4, PINSIR,      26, 26
+	db  1, KANGASKHAN,  25, 25
+; day/eve  
+	db 20, NIDORAN_F,   22, 22
+	db 20, NIDORAN_M,   22, 22
+	db 15, EXEGGCUTE,   27, 27
+	db 10, NIDORINA,    34, 34
+	db 10, TAUROS,      26, 26
+	db 10, GIRAFARIG,   28, 28
+	db  5, DODUO,       26, 26
+	db  5, SKARMORY,    26, 26
+	db  4, PINSIR,      26, 26
+	db  1, KANGASKHAN,  25, 25
+; nite     
+	db 20, NIDORAN_F,   22, 22
+	db 20, NIDORAN_M,   22, 22
+	db 15, EXEGGCUTE,   27, 27
+	db 10, VENONAT,     26, 26
+	db 10, TAUROS,      26, 26
+	db 10, STANTLER,    28, 28
+	db  5, VENOMOTH,    31, 31
+	db  5, SKARMORY,    26, 26
+	db  4, PINSIR,      26, 26
+	db  1, KANGASKHAN,  25, 25
 	assert_table_length 30
 	
 	db -1 ; terminator

@@ -1284,28 +1284,28 @@ SwarmGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 28, NIDORINO
-	db 28, NIDORINO
-	db 28, NIDORINA
+	db 26, NIDORINO
 	db 30, PIDGEOTTO
+	db 28, HOPPIP
 	db 30, NIDORINO
 	db 30, SKIPLOOM
-	db 30, CHANSEY
+	db 32, DITTO
 	; day
 	db 28, NIDORINO
-	db 28, NIDORINO
-	db 28, NIDORINA
+	db 26, NIDORINO
 	db 30, PIDGEOTTO
+	db 28, HOPPIP
 	db 30, NIDORINO
 	db 30, SKIPLOOM
-	db 30, CHANSEY
+	db 32, DITTO
 	; nite
 	db 28, NIDORINO
-	db 28, NIDORINO
-	db 28, QUAGSIRE
+	db 26, NIDORINO
 	db 30, NOCTOWL
-	db 28, NIDORINA
+	db 28, VENONAT
+	db 30, DITTO
 	db 30, QUAGSIRE
-	db 30, CHANSEY
+	db 32, DITTO
 
 ; Farfetch'd swarm
 	map_id ROUTE_13
@@ -1313,27 +1313,27 @@ SwarmGrassWildMons:
 	; morn
 	db 25, FARFETCH_D
 	db 28, FARFETCH_D
-	db 25, NIDORINO
-	db 25, NIDORINA
+	db 28, PIDGEOTTO
+	db 25, HOPPIP
 	db 27, FARFETCH_D
-	db 29, HOPPIP
-	db 31, CHANSEY
+	db 29, SKIPLOOM
+	db 31, DITTO
 	; day
 	db 25, FARFETCH_D
 	db 28, FARFETCH_D
-	db 25, NIDORINO
-	db 25, NIDORINA
+	db 28, PIDGEOTTO
+	db 25, HOPPIP
 	db 27, FARFETCH_D
-	db 29, HOPPIP
-	db 31, CHANSEY
+	db 29, SKIPLOOM
+	db 31, DITTO
 	; nite
 	db 25, FARFETCH_D
 	db 28, FARFETCH_D
+	db 28, NOCTOWL
 	db 25, VENONAT
-	db 25, QUAGSIRE
 	db 27, FARFETCH_D
 	db 29, QUAGSIRE
-	db 31, CHANSEY
+	db 31, DITTO
 
 ; Seel swarm
 	map_id SEAFOAM_ISLANDS_B1F

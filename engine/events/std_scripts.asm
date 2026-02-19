@@ -492,10 +492,16 @@ BugContestResults_CopyContestantsToResults:
 	end
 
 SafariZoneOverWarpScript:
+	special FadeOutToWhite
 	playsound SFX_ENTER_DOOR
-	special ClearBGPalettes
 	waitsfx
+	checkevent EVENT_SAFARI_ZONE_KANTO_ENTRANCE_OFFICER_SAFARI_GAME_NOT_ACTIVE
+	iffalse .not_kanto
+	warpfacing DOWN, SAFARI_ZONE_KANTO_ENTRANCE, 3, 0
+	sjump .continue
+.not_kanto
 	warpfacing DOWN, SAFARI_ZONE_ENTRANCE, 3, 0
+.continue
 	turnobject 4, RIGHT
 	applymovement PLAYER, Movement_SafariZoneOver_WalkAfterWarp
 	applymovement 4, MovementData_Officer2_Leave

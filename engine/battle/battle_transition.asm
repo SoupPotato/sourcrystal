@@ -251,8 +251,6 @@ StartTrainerBattle_DetermineWhichAnimation:
 	ld a, [wEnvironment]
 	cp CAVE
 	jr z, .cave
-	cp ENVIRONMENT_5
-	jr z, .cave
 	cp DUNGEON
 	jr z, .cave
 	set TRANS_NO_CAVE_F, e

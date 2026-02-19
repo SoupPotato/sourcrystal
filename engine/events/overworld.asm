@@ -2205,6 +2205,8 @@ BikeFunction:
 
 .CheckEnvironment:
 	call GetMapEnvironment
+	cp SAFARI_ZONE_ENV
+	jr z, .nope
 	call CheckOutdoorMap
 	jr z, .ok
 	cp CAVE

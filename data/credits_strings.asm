@@ -135,7 +135,7 @@ CreditsStringsPointers:
 	dw .Ahab
 	dw .FrenchOrange
 	dw .LuigiTKO
-	dw .GUIAlbe
+	dw .GUIAbel
 	dw .SonicRay
 	dw .Hallan
 	dw .Ax6
@@ -290,7 +290,7 @@ CreditsStringsPointers:
 .Ahab:                db "        AHAB@"
 .FrenchOrange:        db "    FRENCHORANGE@"
 .LuigiTKO:            db "     LUIGI TKO@"
-.GUIAlbe:             db "      GUI ALBE@"
+.GUIAbel:             db "      GUI_ABEL@"
 .SonicRay:            db "      SONICRAY@"
 .Hallan:              db "       HALLAN@"
 .Ax6:                 db "        AX6@"

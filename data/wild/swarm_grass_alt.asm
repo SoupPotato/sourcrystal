@@ -1369,55 +1369,55 @@ SwarmGrassWildMonsAlt:
 	; morn
 	db 26, EXEGGCUTE
 	db 28, EXEGGCUTE
-	db 32, PIDGEOTTO
+	db 28, NIDORINO
+	db 28, NIDORINA
 	db 28, HOPPIP
-	db 28, DITTO
 	db 30, SKIPLOOM
-	db 30, DITTO
+	db 30, CHANSEY
 	; day
 	db 26, EXEGGCUTE
 	db 28, EXEGGCUTE
-	db 32, PIDGEOTTO
+	db 28, NIDORINO
+	db 28, NIDORINA
 	db 28, HOPPIP
-	db 28, DITTO
 	db 30, SKIPLOOM
-	db 30, DITTO
+	db 30, CHANSEY
 	; nite
 	db 26, EXEGGCUTE
 	db 28, EXEGGCUTE
-	db 32, NOCTOWL
 	db 28, VENONAT
-	db 28, DITTO
+	db 32, NOCTOWL
+	db 28, VENOMOTH
 	db 30, QUAGSIRE
-	db 30, DITTO
+	db 30, CHANSEY
 
 ; Nidorina swarm
 	map_id ROUTE_14
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 28, NIDORINA
-	db 26, NIDORINA
-	db 28, PIDGEOTTO
-	db 30, HOPPIP
+	db 28, NIDORINA
+	db 28, NIDORINO
+	db 30, PIDGEOTTO
 	db 30, NIDORINA
 	db 30, SKIPLOOM
-	db 30, DITTO
-	; day  
+	db 30, CHANSEY
+	; day
 	db 28, NIDORINA
-	db 26, NIDORINA
-	db 28, PIDGEOTTO
-	db 30, HOPPIP
+	db 28, NIDORINA
+	db 28, NIDORINO
+	db 30, PIDGEOTTO
 	db 30, NIDORINA
 	db 30, SKIPLOOM
-	db 30, DITTO
-	; nite 
+	db 30, CHANSEY
+	; nite
 	db 28, NIDORINA
-	db 26, NIDORINA
-	db 28, NOCTOWL
-	db 30, VENONAT
-	db 28, DITTO
+	db 28, NIDORINA
+	db 28, QUAGSIRE
+	db 30, NOCTOWL
+	db 28, NIDORINO
 	db 30, QUAGSIRE
-	db 30, DITTO
+	db 30, CHANSEY
 
 ; Chansey swarm
 	map_id ROUTE_13
@@ -1425,24 +1425,24 @@ SwarmGrassWildMonsAlt:
 	; morn
 	db 28, CHANSEY
 	db 25, CHANSEY
-	db 28, PIDGEOTTO
-	db 25, HOPPIP
+	db 25, NIDORINO
+	db 25, NIDORINA
 	db 27, FARFETCH_D
 	db 29, SKIPLOOM
 	db 31, CHANSEY
 	; day
 	db 28, CHANSEY
 	db 25, CHANSEY
-	db 28, PIDGEOTTO
-	db 25, HOPPIP
+	db 25, NIDORINO
+	db 25, NIDORINA
 	db 27, FARFETCH_D
 	db 29, SKIPLOOM
 	db 31, CHANSEY
 	; nite
 	db 28, CHANSEY
 	db 25, CHANSEY
-	db 28, NOCTOWL
 	db 25, VENONAT
+	db 25, QUAGSIRE
 	db 27, FARFETCH_D
 	db 29, QUAGSIRE
 	db 31, CHANSEY

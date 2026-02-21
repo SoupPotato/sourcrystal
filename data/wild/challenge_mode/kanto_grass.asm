@@ -845,113 +845,113 @@ KantoGrassWildMonsChallenge:
 	def_grass_wildmons ROUTE_12
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 35, WEEPINBELL
-	db 35, BELLSPROUT
+	db 35, NIDORINO
+	db 35, NIDORINA
 	db 38, PIDGEOTTO
 	db 35, HOPPIP
 	db 37, FARFETCH_D
 	db 39, SKIPLOOM
-	db 41, FARFETCH_D
-	; day  
-	db 35, WEEPINBELL
-	db 35, BELLSPROUT
+	db 41, CHANSEY
+	; day
+	db 35, NIDORINO
+	db 35, NIDORINA
 	db 38, PIDGEOTTO
 	db 35, HOPPIP
 	db 37, FARFETCH_D
 	db 39, SKIPLOOM
-	db 41, FARFETCH_D
-	; nite 
-	db 35, GLOOM
-	db 35, ODDISH
-	db 38, NOCTOWL
+	db 41, CHANSEY
+	; nite
 	db 35, VENONAT
+	db 35, QUAGSIRE
+	db 38, NOCTOWL
+	db 35, VENOMOTH
 	db 37, FARFETCH_D
 	db 39, QUAGSIRE
-	db 41, FARFETCH_D
+	db 41, CHANSEY
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_13
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 35, WEEPINBELL
-	db 35, BELLSPROUT
+	db 35, NIDORINO
+	db 35, NIDORINA
 	db 38, PIDGEOTTO
 	db 35, HOPPIP
 	db 37, FARFETCH_D
 	db 39, SKIPLOOM
-	db 41, FARFETCH_D
-	; day  
-	db 35, WEEPINBELL
-	db 35, BELLSPROUT
+	db 41, CHANSEY
+	; day
+	db 35, NIDORINO
+	db 35, NIDORINA
 	db 38, PIDGEOTTO
 	db 35, HOPPIP
 	db 37, FARFETCH_D
 	db 39, SKIPLOOM
-	db 41, FARFETCH_D
-	; nite 
-	db 35, GLOOM
-	db 35, ODDISH
-	db 38, NOCTOWL
+	db 41, CHANSEY
+	; nite
 	db 35, VENONAT
+	db 35, QUAGSIRE
+	db 38, NOCTOWL
+	db 35, VENOMOTH
 	db 37, FARFETCH_D
 	db 39, QUAGSIRE
-	db 41, FARFETCH_D
+	db 41, CHANSEY
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_14
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 38, WEEPINBELL
-	db 38, BELLSPROUT
+	db 38, NIDORINO
+	db 38, NIDORINA
 	db 40, PIDGEOTTO
 	db 38, HOPPIP
-	db 40, DITTO
 	db 40, SKIPLOOM
-	db 40, DITTO
-	; day  
-	db 38, WEEPINBELL
-	db 38, BELLSPROUT
+	db 40, SKIPLOOM
+	db 40, CHANSEY
+	; day
+	db 38, NIDORINO
+	db 38, NIDORINA
 	db 40, PIDGEOTTO
 	db 38, HOPPIP
-	db 40, DITTO
 	db 40, SKIPLOOM
-	db 40, DITTO
-	; nite 
-	db 38, GLOOM
-	db 38, ODDISH
-	db 40, NOCTOWL
+	db 40, SKIPLOOM
+	db 40, CHANSEY
+	; nite
 	db 38, VENONAT
-	db 40, DITTO
+	db 38, QUAGSIRE
+	db 40, NOCTOWL
+	db 38, VENOMOTH
 	db 40, QUAGSIRE
-	db 40, DITTO
+	db 40, QUAGSIRE
+	db 40, CHANSEY
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_15
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 38, WEEPINBELL
-	db 38, BELLSPROUT
+	db 38, NIDORINO
+	db 38, NIDORINA
 	db 42, PIDGEOTTO
 	db 38, HOPPIP
-	db 38, DITTO
-	db 40, SKIPLOOM
-	db 40, DITTO
-	; day  
-	db 38, WEEPINBELL
-	db 38, BELLSPROUT
+	db 38, SKIPLOOM
+	db 40, HOPPIP
+	db 40, CHANSEY
+	; day
+	db 38, NIDORINO
+	db 38, NIDORINA
 	db 42, PIDGEOTTO
 	db 38, HOPPIP
-	db 38, DITTO
-	db 40, SKIPLOOM
-	db 40, DITTO
-	; nite 
-	db 38, GLOOM
-	db 38, ODDISH
-	db 42, NOCTOWL
+	db 38, SKIPLOOM
+	db 40, HOPPIP
+	db 40, CHANSEY
+	; nite
 	db 38, VENONAT
-	db 38, DITTO
+	db 38, QUAGSIRE
+	db 42, NOCTOWL
+	db 38, VENOMOTH
+	db 38, QUAGSIRE
 	db 40, QUAGSIRE
-	db 40, DITTO
+	db 40, CHANSEY
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_16

@@ -350,7 +350,7 @@ FuchsiaCity_MapEvents:
 	warp_event 11, 27, BILLS_OLDER_SISTERS_HOUSE, 1
 	warp_event 19, 27, FUCHSIA_POKECENTER_1F, 1
 	warp_event 27, 27, SAFARI_ZONE_WARDENS_HOME, 1
-	warp_event 18,  3, SAFARI_ZONE_KANTO_ENTRANCE, 2
+	warp_event 18,  3, SAFARI_ZONE_KANTO_ENTRANCE, 3
 	warp_event 17, 35, ROUTE_19_FUCHSIA_GATE, 1
 	warp_event 18, 35, ROUTE_19_FUCHSIA_GATE, 2
 

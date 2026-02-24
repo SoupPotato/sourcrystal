@@ -1233,7 +1233,7 @@ SunnyDayDescription:
 
 CrunchDescription:
 	db   "An attack that may"
-	next "lower SP.DEF.@"
+	next "lower DEFENSE.@"
 
 MirrorCoatDescription:
 	db   "Counters a SP."

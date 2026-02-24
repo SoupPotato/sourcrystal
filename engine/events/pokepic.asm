@@ -107,9 +107,9 @@ ClosePokepic::
 	ldh [hBGMapMode], a
 	call LoadOverworldTilemapAndAttrmapPals
 	call CopyTilemapAtOnce
+	farcall EnableDynPalUpdates
 	call RestoreSprites
 	call UpdateSprites
-	farcall EnableDynPalUpdates
 	call LoadStandardFont
 	ret
 

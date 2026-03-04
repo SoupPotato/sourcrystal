@@ -290,7 +290,7 @@ CreditsStringsPointers:
 .Ahab:                db "        AHAB@"
 .FrenchOrange:        db "    FRENCHORANGE@"
 .LuigiTKO:            db "     LUIGI TKO@"
-.GUIAbel:             db "      GUI_ABEL@"
+.GUIAbel:             db "      GUI ABEL@"
 .SonicRay:            db "      SONICRAY@"
 .Hallan:              db "       HALLAN@"
 .Ax6:                 db "        AX6@"

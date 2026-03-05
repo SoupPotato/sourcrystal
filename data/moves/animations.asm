@@ -451,9 +451,9 @@ BattleAnimSub_Return:
 BattleAnim_Confused:
 	anim_1gfx BATTLE_ANIM_GFX_STATUS
 	anim_sound 0, 0, SFX_KINESIS
-	anim_obj BATTLE_ANIM_OBJ_CHICK, 44, 56, $15
-	anim_obj BATTLE_ANIM_OBJ_CHICK, 44, 56, $aa
-	anim_obj BATTLE_ANIM_OBJ_CHICK, 44, 56, $bf
+	anim_obj BATTLE_ANIM_OBJ_CHICK, 44, 64, $15
+	anim_obj BATTLE_ANIM_OBJ_CHICK, 44, 64, $aa
+	anim_obj BATTLE_ANIM_OBJ_CHICK, 44, 64, $bf
 	anim_wait 96
 	anim_ret
 

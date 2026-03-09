@@ -232,12 +232,12 @@ PidgeyEvosAttacks:
 	db 9, GUST
 	db 13, QUICK_ATTACK
 	db 17, WHIRLWIND
-	db 22, TWISTER
-	db 27, WING_ATTACK
-	db 33, AGILITY
-	db 39, MIRROR_MOVE
-	db 45, RAZOR_WIND
-	db 49, SKY_ATTACK
+	db 21, TWISTER
+	db 25, WING_ATTACK
+	db 29, AGILITY
+	db 33, RAZOR_WIND
+	db 37, MIRROR_MOVE
+	db 41, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 PidgeottoEvosAttacks:
@@ -247,13 +247,13 @@ PidgeottoEvosAttacks:
 	db 1, SAND_ATTACK
 	db 1, GUST
 	db 13, QUICK_ATTACK
-	db 19, WHIRLWIND
-	db 24, TWISTER
-	db 29, WING_ATTACK
-	db 35, AGILITY
-	db 42, MIRROR_MOVE
-	db 48, RAZOR_WIND
-	db 54, SKY_ATTACK
+	db 17, WHIRLWIND
+	db 22, TWISTER
+	db 28, WING_ATTACK
+	db 33, AGILITY
+	db 39, RAZOR_WIND
+	db 44, MIRROR_MOVE
+	db 50, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 PidgeotEvosAttacks:
@@ -262,13 +262,13 @@ PidgeotEvosAttacks:
 	db 1, SAND_ATTACK
 	db 1, GUST
 	db 1, QUICK_ATTACK
-	db 19, WHIRLWIND
-	db 24, TWISTER
-	db 29, WING_ATTACK
-	db 37, AGILITY
-	db 45, MIRROR_MOVE
-	db 53, RAZOR_WIND
-	db 61, SKY_ATTACK
+	db 17, WHIRLWIND
+	db 22, TWISTER
+	db 28, WING_ATTACK
+	db 33, AGILITY
+	db 40, RAZOR_WIND
+	db 47, MIRROR_MOVE
+	db 54, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 RattataEvosAttacks:

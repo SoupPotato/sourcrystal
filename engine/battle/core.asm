@@ -7325,12 +7325,16 @@ GiveExperiencePoints:
 	dec c
 	jr nz, .stat_exp_loop
 
-	farcall GetNewBaseExp
+	xor a
+	ldh [hMultiplicand + 0], a
+	ldh [hMultiplicand + 1], a
+	ld a, [wEnemyMonBaseExp]
+	ldh [hMultiplicand + 2], a
 
 	ld a, [wEnemyMonLevel]
 	ldh [hMultiplier], a
 	call Multiply
-	ld a, 5
+	ld a, 7
 	ldh [hDivisor], a
 	ld b, 4
 	call Divide
@@ -7373,28 +7377,6 @@ GiveExperiencePoints:
 
 	; Scale exp
 	push de
-	ld a, [wEnemyMonLevel]
-	ld c, a
-	add a
-	add 10
-	ld d, a
-
-	ld a, MON_LEVEL
-	call GetPartyParamLocation
-	ld a, [hl]
-	add c
-	add 10
-	ld e, a
-
-	call .ScaleMod
-	call .ScaleMod
-	ld a, d
-	call .GetSqrt
-	ld d, a
-	ld a, e
-	call .GetSqrt
-	ld e, a
-	call .ScaleMod
 	call .GetExpDistribution
 
 	; Make sure to give at least 1 exp.

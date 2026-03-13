@@ -1257,7 +1257,7 @@ BattleAnim_Thunder:
 	anim_ret
 
 BattleAnim_RazorWind:
-	anim_if_param_equal $1, BattleAnim_FocusEnergy
+	anim_if_param_equal $1, .whirlwind
 	anim_1gfx BATTLE_ANIM_GFX_WHIP
 	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $1, $0
 .loop
@@ -1279,6 +1279,17 @@ BattleAnim_RazorWind:
 	anim_wait 4
 	anim_loop 3, .loop
 	anim_wait 24
+	anim_ret
+
+.whirlwind:
+	anim_1gfx BATTLE_ANIM_GFX_WIND
+	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $40
+.loop2
+	anim_sound 0, 0, SFX_RAZOR_WIND
+	anim_obj BATTLE_ANIM_OBJ_GUST, 64, 112, $0
+	anim_wait 6
+	anim_loop 9, .loop2
+	anim_wait 56
 	anim_ret
 
 BattleAnim_Sonicboom_JP:

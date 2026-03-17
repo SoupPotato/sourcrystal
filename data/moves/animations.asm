@@ -1768,34 +1768,31 @@ BattleAnim_Bide:
 
 BattleAnim_Bind:
 	anim_1gfx BATTLE_ANIM_GFX_ROPE
-	anim_sound 0, 1, SFX_BIND
+	anim_sound 6, 2, SFX_MENU
 	anim_obj BATTLE_ANIM_OBJ_BIND1, 132, 64, $0
 	anim_wait 8
+	anim_sound 6, 2, SFX_MENU
 	anim_obj BATTLE_ANIM_OBJ_BIND2, 132, 56, $0
-	anim_wait 8
-	anim_obj BATTLE_ANIM_OBJ_BIND1, 132, 48, $0
-	anim_wait 64
-	anim_sound 0, 1, SFX_BIND
-	anim_incobj 1
-	anim_incobj 2
-	anim_incobj 3
-	anim_wait 96
-	anim_ret
+	anim_jump BattleAnimSub_WrapBind
 
 BattleAnim_Wrap:
 	anim_1gfx BATTLE_ANIM_GFX_ROPE
-	anim_sound 0, 1, SFX_BIND
+	anim_sound 6, 2, SFX_MENU
 	anim_obj BATTLE_ANIM_OBJ_BIND1, 132, 64, $0
 	anim_wait 8
+	anim_sound 6, 2, SFX_MENU
 	anim_obj BATTLE_ANIM_OBJ_BIND1, 132, 56, $0
+; fallthrough
+BattleAnimSub_WrapBind:
 	anim_wait 8
+	anim_sound 6, 2, SFX_MENU
 	anim_obj BATTLE_ANIM_OBJ_BIND1, 132, 48, $0
-	anim_wait 64
+	anim_wait 8
 	anim_sound 0, 1, SFX_BIND
 	anim_incobj 1
 	anim_incobj 2
 	anim_incobj 3
-	anim_wait 96
+	anim_wait 64
 	anim_ret
 
 BattleAnim_Confusion:
@@ -1809,15 +1806,24 @@ BattleAnim_Confusion:
 
 BattleAnim_Constrict:
 	anim_1gfx BATTLE_ANIM_GFX_ROPE
-	anim_sound 0, 1, SFX_BIND
+	anim_sound 6, 2, SFX_MENU
 	anim_obj BATTLE_ANIM_OBJ_BIND2, 132, 64, $0
-	anim_wait 8
+	anim_wait 6
+	anim_sound 6, 2, SFX_MENU
 	anim_obj BATTLE_ANIM_OBJ_BIND1, 132, 48, $0
-	anim_wait 8
+	anim_wait 6
+	anim_sound 6, 2, SFX_MENU
 	anim_obj BATTLE_ANIM_OBJ_BIND2, 132, 40, $0
-	anim_wait 8
+	anim_wait 6
+	anim_sound 0, 1, SFX_MENU
 	anim_obj BATTLE_ANIM_OBJ_BIND1, 132, 56, $0
-	anim_wait 64
+	anim_wait 8
+	anim_sound 0, 1, SFX_BIND
+	anim_incobj 1
+	anim_incobj 2
+	anim_incobj 3
+	anim_incobj 4
+	anim_wait 56
 	anim_ret
 
 BattleAnim_Earthquake:
@@ -2785,8 +2791,7 @@ BattleAnim_LeechLife:
 BattleAnim_Harden:
 	anim_1gfx BATTLE_ANIM_GFX_REFLECT
 	anim_obp0 $0
-	anim_call BattleAnimSub_Metallic
-	anim_ret
+	anim_jump BattleAnimSub_Metallic
 
 BattleAnim_Psywave:
 	anim_1gfx BATTLE_ANIM_GFX_PSYCHIC

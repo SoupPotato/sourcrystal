@@ -9,5 +9,5 @@ PnP_Places:
 	map_id ROUTE_11                    ; ROUTE_11
 	map_id ROUTE_16                    ; ROUTE_16
 	map_id ROUTE_14                    ; ROUTE_14
-	map_id CINNABAR_POKECENTER_2F_BETA ; CINNABAR_ISLAND
+	map_id CINNABAR_POKECENTER_1F      ; CINNABAR_ISLAND
 .End

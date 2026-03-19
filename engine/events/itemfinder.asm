@@ -108,6 +108,7 @@ ItemFinderAnimation:
 	xor a
 	ld [wJumptableIndex], a
 	ld [wHiddenItemArrowSprite], a
+	farcall ClearSpriteAnims
 
 	; load gfx
 	ld de, ItemFinderGFX

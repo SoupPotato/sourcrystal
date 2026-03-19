@@ -91,6 +91,7 @@ DEF NUM_SPRITEANIMDICT_ENTRIES EQU 10
 	const SPRITE_ANIM_OBJ_PAGER_MON_GREY            ; 35
 	const SPRITE_ANIM_OBJ_FLY_MON                   ; 36
 	const SPRITE_ANIM_OBJ_SLOTS_COVER               ; 37
+	const SPRITE_ANIM_OBJ_ITEMFINDER                ; 38
 DEF NUM_SPRITE_ANIM_OBJS EQU const_value
 
 ; DoSpriteAnimFrame.Jumptable indexes (see engine/sprite_anims/functions.asm)
@@ -136,6 +137,7 @@ DEF NUM_SPRITE_ANIM_OBJS EQU const_value
 	const SPRITE_ANIM_FUNC_PC_PACK                   ; 26
 	const SPRITE_ANIM_FUNC_PAGER_MON                  ; 27
 	const SPRITE_ANIM_FUNC_COVER                     ; 28
+	const SPRITE_ANIM_FUNC_ITEMFINDER                ; 29
 DEF NUM_SPRITE_ANIM_FUNCS EQU const_value
 
 ; SpriteAnimFrameData indexes (see data/sprite_anims/framesets.asm)
@@ -219,6 +221,9 @@ DEF NUM_SPRITE_ANIM_FUNCS EQU const_value
 	const SPRITE_ANIM_FRAMESET_FLY_MON                   ; 4c
 	const SPRITE_ANIM_FRAMESET_SLOTS_COVER_WHITE         ; 4d
 	const SPRITE_ANIM_FRAMESET_SLOTS_COVER_GREEN         ; 4e
+	const SPRITE_ANIM_FRAMESET_4X4_NORMAL                ; 4f
+	const SPRITE_ANIM_FRAMESET_4X4_X_FLIP                ; 50
+	const SPRITE_ANIM_FRAMESET_4X4_Y_FLIP                ; 51
 DEF NUM_SPRITE_ANIM_FRAMESETS EQU const_value
 
 ; SpriteAnimOAMData indexes (see data/sprite_anims/oam.asm)
@@ -290,9 +295,9 @@ DEF NUM_SPRITE_ANIM_FRAMESETS EQU const_value
 	const SPRITE_ANIM_OAMSET_PARTY_MON_WITH_ITEM_2       ; 40
 	const SPRITE_ANIM_OAMSET_MAGNET_TRAIN_1              ; 41
 	const SPRITE_ANIM_OAMSET_MAGNET_TRAIN_2              ; 42
-	const SPRITE_ANIM_OAMSET_UNUSED_43                   ; 43
-	const SPRITE_ANIM_OAMSET_UNUSED_44                   ; 44
-	const SPRITE_ANIM_OAMSET_UNUSED_45                   ; 45
+	const SPRITE_ANIM_OAMSET_4X4_NORMAL                  ; 43
+	const SPRITE_ANIM_OAMSET_4X4_X_FLIP                  ; 44
+	const SPRITE_ANIM_OAMSET_4X4_Y_FLIP                  ; 45
 	const SPRITE_ANIM_OAMSET_UNUSED_46                   ; 46
 	const SPRITE_ANIM_OAMSET_UNUSED_47                   ; 47
 	const SPRITE_ANIM_OAMSET_UNUSED_48                   ; 48

@@ -201,7 +201,7 @@ HandleMapTimeAndJoypad:
 	call TimeOfDayPals
 	ret
 
-HandleMapObjects:
+HandleMapObjects::
 	farcall HandleNPCStep
 	farcall _HandlePlayerStep
 	call _CheckObjectEnteringVisibleRange

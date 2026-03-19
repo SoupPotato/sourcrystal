@@ -74,9 +74,9 @@ SpriteAnimOAMData:
 	spriteanimoam $00, .OAMData_PartyMonWithItem2        ; SPRITE_ANIM_OAMSET_PARTY_MON_WITH_ITEM_2
 	spriteanimoam $00, .OAMData_MagnetTrain              ; SPRITE_ANIM_OAMSET_MAGNET_TRAIN_RED_1
 	spriteanimoam $04, .OAMData_MagnetTrain              ; SPRITE_ANIM_OAMSET_MAGNET_TRAIN_RED_2
-	spriteanimoam $00, .OAMData_Unused43_4A              ; SPRITE_ANIM_OAMSET_UNUSED_43
-	spriteanimoam $30, .OAMData_Unused43_4A              ; SPRITE_ANIM_OAMSET_UNUSED_44
-	spriteanimoam $03, .OAMData_Unused43_4A              ; SPRITE_ANIM_OAMSET_UNUSED_45
+	spriteanimoam $00, .OAMData_RedWalk                  ; SPRITE_ANIM_OAMSET_4X4_NORMAL
+	spriteanimoam $00, .OAMData_RedWalk_XFlip            ; SPRITE_ANIM_OAMSET_4X4_X_FLIP
+	spriteanimoam $00, .OAMData_RedWalk_YFlip            ; SPRITE_ANIM_OAMSET_4X4_Y_FLIP
 	spriteanimoam $33, .OAMData_Unused43_4A              ; SPRITE_ANIM_OAMSET_UNUSED_46
 	spriteanimoam $06, .OAMData_Unused43_4A              ; SPRITE_ANIM_OAMSET_UNUSED_47
 	spriteanimoam $36, .OAMData_Unused43_4A              ; SPRITE_ANIM_OAMSET_UNUSED_48
@@ -388,6 +388,20 @@ SpriteAnimOAMData:
 	dbsprite  0, -1,  0,  0, $01, PAL_OW_RED
 	dbsprite -1,  0,  0,  0, $02, PAL_OW_RED
 	dbsprite  0,  0,  0,  0, $03, PAL_OW_RED
+
+.OAMData_RedWalk_XFlip:
+	db 4
+	dbsprite  0, -1,  0,  0, $00, PAL_OW_RED | X_FLIP
+	dbsprite -1, -1,  0,  0, $01, PAL_OW_RED | X_FLIP
+	dbsprite  0,  0,  0,  0, $02, PAL_OW_RED | X_FLIP
+	dbsprite -1,  0,  0,  0, $03, PAL_OW_RED | X_FLIP
+
+.OAMData_RedWalk_YFlip:
+	db 4
+	dbsprite -1,  0,  0,  0, $00, PAL_OW_RED | Y_FLIP
+	dbsprite  0,  0,  0,  0, $01, PAL_OW_RED | Y_FLIP
+	dbsprite -1, -1,  0,  0, $02, PAL_OW_RED | Y_FLIP
+	dbsprite  0, -1,  0,  0, $03, PAL_OW_RED | Y_FLIP
 
 .OAMData_TradeMonIcon:
 	db 4

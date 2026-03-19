@@ -80,6 +80,9 @@ SpriteAnimFrameData:
 	dw .Frameset_FlyMon
 	dw .Frameset_SlotsCoverWhite
 	dw .Frameset_SlotsCoverGreen
+	dw .Frameset_4x4_Normal
+	dw .Frameset_4x4_XFlip
+	dw .Frameset_4x4_YFlip
 	assert_table_length NUM_SPRITE_ANIM_FRAMESETS
 
 .Frameset_SlotsCoverWhite:
@@ -214,6 +217,18 @@ SpriteAnimFrameData:
 	oamframe SPRITE_ANIM_OAMSET_STILL_CURSOR, 32
 	oamend
 
+.Frameset_4x4_Normal:
+	oamframe SPRITE_ANIM_OAMSET_4X4_NORMAL, 1
+	oamend
+
+.Frameset_4x4_XFlip:
+	oamframe SPRITE_ANIM_OAMSET_4X4_X_FLIP, 1
+	oamend
+
+.Frameset_4x4_YFlip:
+	oamframe SPRITE_ANIM_OAMSET_4X4_Y_FLIP, 1
+	oamend
+
 .Frameset_TradePokeBall:
 	oamframe SPRITE_ANIM_OAMSET_TRADE_POKE_BALL_1, 32
 	oamend
@@ -260,49 +275,6 @@ SpriteAnimFrameData:
 	oamframe SPRITE_ANIM_OAMSET_MAGNET_TRAIN_2,  8
 	oamframe SPRITE_ANIM_OAMSET_MAGNET_TRAIN_1,  8
 	oamframe SPRITE_ANIM_OAMSET_MAGNET_TRAIN_2,  8, OAM_X_FLIP
-	oamrestart
-
-.Frameset_Unknown1: ; unreferenced
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_43,  8
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_44,  8
-	oamrestart
-
-.Frameset_Unknown2: ; unreferenced
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_45,  8
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_46,  8
-	oamrestart
-
-.Frameset_Unknown3: ; unreferenced
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_47,  8
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_48,  8
-	oamrestart
-
-.Frameset_Unknown4: ; unreferenced
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_49,  1
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_49,  1, OAM_X_FLIP
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_49,  1, OAM_X_FLIP, OAM_Y_FLIP
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_49,  1, OAM_Y_FLIP
-	oamrestart
-
-.Frameset_Unknown5: ; unreferenced
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_4A, 32
-	oamend
-
-.Frameset_Unknown6: ; unreferenced
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_4B, 32
-	oamend
-
-.Frameset_Unknown7: ; unreferenced
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_4C, 32
-	oamend
-
-.Frameset_Unknown8: ; unreferenced
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_4D, 32
-	oamend
-
-.Frameset_Unknown9: ; unreferenced
-	oamframe SPRITE_ANIM_OAMSET_UNUSED_4E,  3
-	oamwait 3
 	oamrestart
 
 .Frameset_Unused1C:

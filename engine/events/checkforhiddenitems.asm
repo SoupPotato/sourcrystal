@@ -1,5 +1,10 @@
-CheckForHiddenItems:
 ; Checks to see if there are hidden items on the screen that have not yet been found.  If it finds one, returns carry.
+CheckForHiddenItems:
+; Hidden items are bg_events, so don't bother checking for hidden items if there aren't any.
+	ld a, [wCurMapBGEventCount]
+	and a
+	jr z, .nobgeventitems
+; Now we can look for hidden items.
 	call GetMapScriptsBank
 	ld [wCurMapScriptBank], a
 ; Get the coordinate of the bottom right corner of the screen, and load it in wBottomRightYCoord/wBottomRightXCoord.
@@ -14,10 +19,6 @@ CheckForHiddenItems:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-; ... before even checking to see if there are any BG events on this map.
-	ld a, [wCurMapBGEventCount]
-	and a
-	jr z, .nobgeventitems
 ; For i = 1:wCurMapBGEventCount...
 .loop
 ; Store the counter in wRemainingBGEventCount, and store the bg_event pointer in the stack.
@@ -26,6 +27,7 @@ CheckForHiddenItems:
 ; Get the Y coordinate of the BG event.
 	call .GetFarByte
 	ld e, a
+	ld [wHiddenItemYDelta], a
 ; Is the Y coordinate of the BG event on the screen?  If not, go to the next BG event.
 	ld a, [wBottomRightYCoord]
 	sub e
@@ -35,6 +37,7 @@ CheckForHiddenItems:
 ; Is the X coordinate of the BG event on the screen?  If not, go to the next BG event.
 	call .GetFarByte
 	ld d, a
+	ld [wHiddenItemXDelta], a
 	ld a, [wBottomRightXCoord]
 	sub d
 	jr c, .next
@@ -72,6 +75,16 @@ CheckForHiddenItems:
 	ret
 
 .itemnearby
+	ld a, [wHiddenItemYDelta]
+	ld l, a
+	ld a, [wYCoord]
+	sub l
+	ld [wHiddenItemYDelta], a ; negative values indicate player is NORTH of the item
+	ld a, [wHiddenItemXDelta]
+	ld h, a
+	ld a, [wXCoord]
+	sub h
+	ld [wHiddenItemXDelta], a ; negative values indicate player is WEST of the item
 	pop hl
 	scf
 	ret

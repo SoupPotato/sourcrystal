@@ -2641,6 +2641,23 @@ wRemainingBGEventCount:: db
 wBottomRightYCoord:: db
 wBottomRightXCoord:: db
 
+; (engine/events/checkforhiddenitems.asm)
+; these two are initially stored with the location
+; of the bg_event, and only when a match is detected
+; they will be actually replaced with the distance between
+; the player and the bg_event.
+wHiddenItemYDelta:: db
+wHiddenItemXDelta:: db
+
+; (engine/events/itemfinder.asm)
+; stored here so we don't have to calculate the direction
+; everytime a sprite is instantiated
+
+wHiddenItemDirection:: db
+; (engine/events/itemfinder.asm)
+; sprite offset used
+wHiddenItemArrowSprite:: db
+
 NEXTU
 ; heal machine anim
 wHealMachineAnimType::  db

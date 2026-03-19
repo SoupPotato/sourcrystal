@@ -55,7 +55,99 @@ DoSpriteAnimFrame:
 	dw SpriteAnimFunc_PcPack
 	dw SpriteAnimFunc_PagerMon
 	dw SpriteAnimFunc_Cover
+	dw SpriteAnimFunc_Itemfinder
 	assert_table_length NUM_SPRITE_ANIM_FUNCS
+
+SpriteAnimFunc_Itemfinder:
+	const_def
+	const ANIMFUNC_ITEMFINDER_NORTH
+	const ANIMFUNC_ITEMFINDER_EAST
+	const ANIMFUNC_ITEMFINDER_SOUTH
+	const ANIMFUNC_ITEMFINDER_WEST
+
+	ld hl, SPRITEANIMSTRUCT_VAR2 ; Offset
+	add hl, bc
+	ld a, [hl]
+	add $80
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld [hl], a
+
+	ld hl, SPRITEANIMSTRUCT_VAR1 ; Direction
+	add hl, bc
+	ld a, [hl]
+	cp ANIMFUNC_ITEMFINDER_NORTH
+	jr z, .north
+	cp ANIMFUNC_ITEMFINDER_EAST
+	jr z, .east
+	cp ANIMFUNC_ITEMFINDER_SOUTH
+	jr z, .south
+	cp ANIMFUNC_ITEMFINDER_WEST
+	jr z, .west
+	ret
+
+.north
+	; use down arrow & Y-flip
+	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
+	add hl, bc
+	ld [hl], SPRITE_ANIM_FRAMESET_4X4_Y_FLIP
+	ld hl, SPRITEANIMSTRUCT_YOFFSET
+	add hl, bc
+	dec [hl]
+	ld a, [hl]
+	cp -18
+	ret nz
+	jp DeinitializeSprite
+
+.south
+	; use down arrow & normal flip
+	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
+	add hl, bc
+	ld [hl], SPRITE_ANIM_FRAMESET_4X4_NORMAL
+	ld hl, SPRITEANIMSTRUCT_YOFFSET
+	add hl, bc
+	inc [hl]
+	ld a, [hl]
+	cp 18
+	ret nz
+	jp DeinitializeSprite
+
+.east
+	; use left arrow and normal flip
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld a, [hl]
+	add 12
+	ld [hl], a
+	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
+	add hl, bc
+	ld [hl], SPRITE_ANIM_FRAMESET_4X4_NORMAL
+	ld hl, SPRITEANIMSTRUCT_XOFFSET
+	add hl, bc
+	dec [hl]
+	ld a, [hl]
+	cp -18
+	ret nz
+	jp DeinitializeSprite
+
+.west
+	; use left arrow and X-flip
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld a, [hl]
+	add 12
+	ld [hl], a
+	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
+	add hl, bc
+	ld [hl], SPRITE_ANIM_FRAMESET_4X4_X_FLIP
+	ld hl, SPRITEANIMSTRUCT_XOFFSET
+	add hl, bc
+	inc [hl]
+	ld a, [hl]
+	cp 18
+	ret nz
+	jp DeinitializeSprite
+
 
 SpriteAnimFunc_Null:
 	ret

@@ -116,19 +116,15 @@ CeruleanCityYoungsterScript:
 .BerserkGenePingsItemfinder:
 	waitsfx
 	playsound SFX_SECOND_PART_OF_ITEMFINDER
-	waitsfx
+	pause 6
 	playsound SFX_TRANSACTION
-	waitsfx
+	pause 8
 	playsound SFX_SECOND_PART_OF_ITEMFINDER
-	waitsfx
+	pause 6
 	playsound SFX_TRANSACTION
-	waitsfx
+	pause 8
 	playsound SFX_SECOND_PART_OF_ITEMFINDER
-	waitsfx
-	playsound SFX_TRANSACTION
-	waitsfx
-	playsound SFX_SECOND_PART_OF_ITEMFINDER
-	waitsfx
+	pause 6
 	playsound SFX_TRANSACTION
 	waitsfx
 	showemote EMOTE_SHOCK, CERULEANCITY_YOUNGSTER, 15
@@ -231,8 +227,8 @@ CeruleanCityFisherRocketTipText:
 	done
 
 CeruleanCityYoungsterText1:
-	text "There used to be a"
-	line "cave here that had"
+	text "There's a cave"
+	line "over there with"
 
 	para "horribly powerful"
 	line "#MON in it."

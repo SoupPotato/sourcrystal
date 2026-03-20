@@ -14,56 +14,38 @@ ItemFinder:
 	ret
 
 .ItemfinderSound:
-; using FR/LG's algorithm
 ; if dx == 0 && dy == 0; no direction
+; so the item is below us
 	ld a, [wHiddenItemXDelta]
 	ld b, a
 	ld a, [wHiddenItemYDelta]
 	or b
 	jr z, .skip_animation
-; if   |dx| >  |dy| { if dx < 0 East else North }
-	; b is already loaded with wHiddenItemXDelta
-	; get abs(dx)
-	bit 7, b ; absolute?
-	jr z, .positive_x
-	ld a, b
-	cpl
-	ld b, a
-.positive_x
 	ld a, [wHiddenItemYDelta]
-	bit 7, a
-	jr z, .positive_y
-	cpl
-.positive_y
-	cp b
-	jr nc, .dx_leq_dy
-	jr z, .dx_leq_dy
-	; case for |dx| > |dy|
+	and a
+	jr nz, .dy_is_not_zero
+	; b already loaded with wHiddenItemXDelta
 	bit 7, b
-	jr z, .positive_x_2
-	; dx < 0, so East
+	jr z, .east
+	; dx < 0
+	ld a, ANIMFUNC_ITEMFINDER_WEST
+	ld [wHiddenItemDirection], a
+	jr .got_direction
+.east
 	ld a, ANIMFUNC_ITEMFINDER_EAST
 	ld [wHiddenItemDirection], a
 	jr .got_direction
-.positive_x_2
-	; dx >= 0, so North
-	ld a, ANIMFUNC_ITEMFINDER_NORTH
-	ld [wHiddenItemDirection], a
-	jr .got_direction
-; else |dx| <= |dy| { if dy < 0 South else West }
-.dx_leq_dy
-	ld a, [wHiddenItemYDelta]
+.dy_is_not_zero
+	; a is already loaded with wHiddenItemYDelta
 	bit 7, a
-	jr z, .positive_y_2
-	; dy < 0, so South
+	jr z, .north
+	; dy < 0
 	ld a, ANIMFUNC_ITEMFINDER_SOUTH
 	ld [wHiddenItemDirection], a
 	jr .got_direction
-.positive_y_2
-	; dy >= 0, so West
-	ld a, ANIMFUNC_ITEMFINDER_WEST
+.north
+	ld a, ANIMFUNC_ITEMFINDER_NORTH
 	ld [wHiddenItemDirection], a
-	;jr .got_direction
 .got_direction
 	call ItemFinderAnimation
 	ret

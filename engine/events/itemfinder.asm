@@ -21,7 +21,8 @@ ItemFinder:
 	ld a, [wHiddenItemYDelta]
 	ld c, a
 	or b
-	jr z, .skip_animation
+	jr z, .got_direction ; same animation, but this condition
+	                     ; is also checked later on
 	ld a, c ; restore [wHiddenItemYDelta]
 	and a
 	jr nz, .dy_is_not_zero
@@ -48,21 +49,7 @@ ItemFinder:
 	ld a, ANIMFUNC_ITEMFINDER_NORTH
 	ld [wHiddenItemDirection], a
 .got_direction
-	call ItemFinderAnimation
-	ret
-
-.skip_animation
-	ld c, 4
-.sfx_loop
-	push bc
-	ld de, SFX_SECOND_PART_OF_ITEMFINDER
-	call WaitPlaySFX
-	ld de, SFX_TRANSACTION
-	call WaitPlaySFX
-	pop bc
-	dec c
-	jr nz, .sfx_loop
-	ret
+	jr ItemFinderAnimation
 
 .Script_FoundSomething:
 	refreshmap
@@ -93,11 +80,48 @@ ItemFinderAnimation:
 	ld [wHiddenItemArrowSprite], a
 	farcall ClearSpriteAnims
 
+
+	ld a, [wHiddenItemXDelta]
+	ld b, a
+	ld a, [wHiddenItemYDelta]
+	ld c, a
+	or b
+	jr nz, .regular_animation
+
+; "found" graphics
+; i'm lazy :(
+	ld de, ItemFinderGFX tile 24
+	ld hl, vTiles1 tile 0
+	lb bc, BANK(ItemFinderGFX), 4
+	call Request2bpp
+	ld de, ItemFinderGFX tile 24
+	ld hl, vTiles1 tile 4
+	lb bc, BANK(ItemFinderGFX), 4
+	call Request2bpp
+	ld de, ItemFinderGFX tile 24
+	ld hl, vTiles1 tile 8
+	lb bc, BANK(ItemFinderGFX), 4
+	call Request2bpp
+	ld a, ANIMFUNC_ITEMFINDER_NORTH
+	ld [wHiddenItemDirection], a
+	ld hl, .FoundPalette
+	jr .setup_animation
+
+.regular_animation
 	; load gfx
 	ld de, ItemFinderGFX
 	ld hl, vTiles1 tile 0
 	lb bc, BANK(ItemFinderGFX), 24
 	call Request2bpp
+	ld hl, .NormalPalette
+
+.setup_animation
+	ld de, wOBPals2 palette 7
+	ld bc, 1 palettes
+	call FarCopyColorWRAM
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	call DelayFrame
 
 	ld hl, wWeatherFlags
 	res OW_WEATHER_DISABLED_F, [hl]
@@ -130,6 +154,18 @@ ItemFinderAnimation:
 	call DelayFrame
 	call LoadStandardFont
 	ret
+
+.NormalPalette:
+	RGB 31,31,31
+	RGB 31,31,31
+	RGB 31,31,31
+	RGB 00,00,00
+
+.FoundPalette:
+	RGB 31,31,31
+	RGB 31,00,00
+	RGB 31,00,00
+	RGB 00,00,00
 
 ; from the subroutine from cut:
 ;   1. update the overworld sprites (every frame)

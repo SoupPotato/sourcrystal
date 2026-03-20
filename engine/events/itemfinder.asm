@@ -19,12 +19,13 @@ ItemFinder:
 	ld a, [wHiddenItemXDelta]
 	ld b, a
 	ld a, [wHiddenItemYDelta]
+	ld c, a
 	or b
 	jr z, .skip_animation
-	ld a, [wHiddenItemYDelta]
+	ld a, c ; restore [wHiddenItemYDelta]
 	and a
 	jr nz, .dy_is_not_zero
-	; b already loaded with wHiddenItemXDelta
+	; b already loaded with [wHiddenItemXDelta]
 	bit 7, b
 	jr z, .east
 	; dx < 0
@@ -36,7 +37,7 @@ ItemFinder:
 	ld [wHiddenItemDirection], a
 	jr .got_direction
 .dy_is_not_zero
-	; a is already loaded with wHiddenItemYDelta
+	; a is already loaded with [wHiddenItemYDelta]
 	bit 7, a
 	jr z, .north
 	; dy < 0

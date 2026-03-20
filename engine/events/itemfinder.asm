@@ -157,15 +157,15 @@ ItemFinderAnimation:
 
 .NormalPalette:
 	RGB 31,31,31
-	RGB 31,31,31
-	RGB 31,31,31
-	RGB 00,00,00
+	RGB 31,30,00
+	RGB 31,18,00
+	RGB 26,03,04
 
 .FoundPalette:
 	RGB 31,31,31
-	RGB 31,00,00
-	RGB 31,00,00
-	RGB 00,00,00
+	RGB 31,30,23
+	RGB 31,30,00
+	RGB 31,18,00
 
 ; from the subroutine from cut:
 ;   1. update the overworld sprites (every frame)

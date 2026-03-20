@@ -134,12 +134,7 @@ ItemFinderAnimation:
 
 	; prevent from going too fast
 	call DelayFrame
-
-	ld a, [wOverworldRunTimer]
-	and %1
-	jr z, .skip_weather
 	farcall DoOverworldWeather
-.skip_weather
 	ld hl, wOverworldRunTimer
 	inc [hl]
 	call .Jumptable
@@ -147,10 +142,10 @@ ItemFinderAnimation:
 	jr .loop
 
 .finish
+	call .FinishSprites
 	call BufferScreen
 	call DelayFrame
 	call LoadStandardFont
-	call ClearSprites
 	ret
 
 ; from the subroutine from cut:
@@ -160,16 +155,18 @@ ItemFinderAnimation:
 	farcall HandleMapObjects
 	farcall _UpdateSprites
 	; shift all sprites left in OAM by 8 slots
-	; hl = source, de = destination, bc = length
-	ldh a, [hUsedOAMIndex]
 	; a = (NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH) - a
+	ldh a, [hUsedOAMIndex]
 	cpl
 	add NUM_SPRITE_OAM_STRUCTS * SPRITEOAMSTRUCT_LENGTH + 1
+	; hl = source
 	ld h, HIGH(wShadowOAM)
 	ld l, a
+	; de = destination
 	sub (8 * SPRITEOAMSTRUCT_LENGTH)
 	ld e, a
 	ld d, h
+	; bc = length
 	ld b, 0
 	ldh a, [hUsedOAMIndex]
 	ld c, a
@@ -181,6 +178,25 @@ ItemFinderAnimation:
 	jr nz, .copy_loop
 	ret
 
+; from the subroutine from cut:
+;   1. shift ALL sprites right by 8 slots to ensure the weather thing affects what it's
+;      supposed to
+.FinishSprites:
+	; hl = source
+	ld hl, wShadowOAMSprite31 + 3
+	; de = destination
+	ld de, wShadowOAMSprite39 + 3
+	; bc = length
+	ld bc, SPRITEOAMSTRUCT_LENGTH * (40-8)
+.copy_done_loop
+	ld a, [hld]
+	ld [de], a
+	dec de
+	dec bc
+	ld a, c
+	or b
+	jr nz, .copy_done_loop
+	ret
 
 .Jumptable:
 	jumptable .dw, wJumptableIndex

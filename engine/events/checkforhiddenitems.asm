@@ -1,10 +1,5 @@
 ; Checks to see if there are hidden items on the screen that have not yet been found.  If it finds one, returns carry.
 CheckForHiddenItems:
-; Hidden items are bg_events, so don't bother checking for hidden items if there aren't any.
-	ld a, [wCurMapBGEventCount]
-	and a
-	jr z, .nobgeventitems
-; Now we can look for hidden items.
 	call GetMapScriptsBank
 	ld [wCurMapScriptBank], a
 ; Get the coordinate of the bottom right corner of the screen, and load it in wBottomRightYCoord/wBottomRightXCoord.
@@ -19,6 +14,9 @@ CheckForHiddenItems:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
+	ld a, [wCurMapBGEventCount]
+	and a
+	jr z, .nobgeventitems
 ; For i = 1:wCurMapBGEventCount...
 .loop
 ; Store the counter in wRemainingBGEventCount, and store the bg_event pointer in the stack.

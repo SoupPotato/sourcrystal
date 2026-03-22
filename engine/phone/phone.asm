@@ -722,6 +722,7 @@ GetCallerName_Gear:
 			call .print
 			ld e, c
 		pop bc
+		; second nybble = time of day
 		ld a, c
 		and a, %00001111
 		dec a
@@ -799,9 +800,7 @@ GetCallerName_Gear:
 	pop bc
 	pop hl
 	push hl
-; we have a maximum of 4 tiles per phone entry
-; × 4 entries on-screen, out of a 16 tile row in
-; VRAM.
+; print the tiles we just made
 	ld a, 10
 	add l
 	ld l, a

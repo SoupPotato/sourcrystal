@@ -491,6 +491,10 @@ PokegearJumptable:
 	dw PokegearPager_Joypad
 
 PokegearPager_Init:
+	ld hl, PokegearGFX
+	ld de, vTiles2 tile $30
+	lb bc, BANK(PokegearGFX), $3D
+	call DecompressRequest2bpp
 	ld hl, wJumptableIndex
 	inc [hl]
 	xor a
@@ -1802,7 +1806,7 @@ PokegearPhone_UpdateDisplayList:
 	ld e, l
 	pop af
 	ld b, a
-	call GetCallerClassAndName
+	call GetCallerClassAndName_Gear
 	pop hl
 	ld a, [wPokegearPhoneDisplayPosition]
 	inc a

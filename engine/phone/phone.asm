@@ -604,6 +604,16 @@ GetCallerClassAndName:
 	call GetCallerName
 	ret
 
+GetCallerClassAndName_Gear:
+	ld h, d
+	ld l, e
+	ld a, b
+	push af ; a = phone contact ID
+	call GetCallerTrainerClass
+	pop af
+	call GetCallerName_Gear
+	ret
+
 CheckCanDeletePhoneNumber:
 	ld a, c
 	call GetCallerTrainerClass
@@ -664,6 +674,195 @@ GetCallerName:
 
 INCLUDE "data/phone/non_trainer_names.asm"
 
+GetCallerName_Gear:
+	; standard check
+	push af
+		ld a, c
+		and a
+		jp z, .not_trainer
+
+		; move WRAM to scratch space
+		ldh a, [rSVBK]
+		ldh [hTempBank], a ; is this safe to use?
+		ld a, BANK(wScratchPokegearPhoneVWF)
+		ldh [rSVBK], a
+	pop af
+	
+	; render vwf
+	push hl
+	push bc
+		ld hl, PhoneTimesOfDay
+		add a, l
+		ld l, a
+		ld a, h
+		adc 0
+		ld h, a
+		ld a, [hl]
+		and a
+		jr z, .no_time_specified
+		; first nybble = day of week
+		ld c, a
+		push bc
+			and a, %11110000
+			swap a
+			dec a
+			add a
+			ld hl, .StringTable1
+			add l
+			ld l, a
+			ld a, h
+			adc 0
+			ld h, a
+			ld a, [hli]
+			ld e, a
+			ld d, [hl]
+			; de = string to be printed
+			call .clear_scratch
+			ld hl, wScratchPokegearPhoneVWF
+			call .print
+			ld e, c
+		pop bc
+		ld a, c
+		and a, %00001111
+		dec a
+		add a
+		ld hl, .StringTable2
+		add l
+		ld l, a
+		ld a, h
+		adc 0
+		ld h, a
+		ld a, [hli]
+		ld c, e
+		ld e, a
+		ld d, [hl]
+		ld hl, wScratchPokegearPhoneVWF
+		call .print
+	; actually transfer to VRAM
+.transfer_vram
+		push de
+			ld a, [wPokegearPhoneDisplayPosition]
+			; switch-case, that seems less error-prone
+			; than calculation...
+			and a
+			jr z, .zero
+			cp 1
+			jr z, .one
+			cp 2
+			jr z, .two
+			; 3+
+			ld hl, vTiles2 tile ($60 + (6 * 3))
+			jr .got_location
+.two
+			ld hl, vTiles2 tile ($60 + (6 * 2))
+			jr .got_location
+.one
+			ld hl, vTiles2 tile ($60 + 6)
+			jr .got_location
+.zero
+			ld hl, vTiles2 tile $60
+			; hl = location to print
+			;      0x9600 + ([wPokegearPhoneDisplayPosition] * 6)
+.got_location
+			ld c, 6 ; occupy this many tiles
+			ld de, wScratchPokegearPhoneVWF
+			call Request2bpp
+		pop de
+	pop bc
+	pop hl
+	ldh a, [hTempBank]
+	ldh [rSVBK], a
+	jr .print_everything
+
+.no_time_specified
+	call .clear_scratch
+	jr .transfer_vram
+
+.clear_scratch
+		ld hl, wScratchPokegearPhoneVWF
+		ld c, 6 tiles
+		xor a
+.clear_set
+		ld [hli], a
+		dec c
+		ret z
+		jr .clear_set
+
+.print_everything
+	ld a, c
+	call Phone_GetTrainerName
+	push hl
+	push bc
+	call PlaceString
+	ld a, ":"
+	ld [bc], a
+	pop bc
+	pop hl
+	push hl
+; we have a maximum of 4 tiles per phone entry
+; × 4 entries on-screen, out of a 16 tile row in
+; VRAM.
+	ld a, 10
+	add l
+	ld l, a
+	ld a, h
+	adc 0
+	ld h, a
+	; a <- a * 6 + $60
+	ld a, [wPokegearPhoneDisplayPosition]
+	ld e, a
+	add a
+	add a
+	add e
+	add e
+	add $60
+rept 6
+	ld [hli], a
+	inc a
+endr
+	pop hl
+	ld de, SCREEN_WIDTH + 3
+	add hl, de
+	call Phone_GetTrainerClassName
+	call PlaceString
+	ret
+
+.not_trainer
+	pop af
+	jp GetCallerName.NotTrainer
+
+.print
+	ld a, [de]
+	call PokegearPlaceNextVWFChar
+	ret z
+	jr .print
+
+.StringTable1:
+	dw .Sun
+	dw .Mon
+	dw .Tue
+	dw .Wed
+	dw .Thu
+	dw .Fri
+	dw .Sat
+.Sun: db "[Sun]@"
+.Mon: db "[Mon]@"
+.Tue: db "[Tue]@"
+.Wed: db "[Wed]@"
+.Thu: db "[Thu]@"
+.Fri: db "[Fri]@"
+.Sat: db "[Sat]@"
+
+.StringTable2:
+	dw .Morn
+	dw .Day
+	dw .Nite
+	dw .Eve
+.Morn: db "[Morn]@"
+.Day: db "[Noon]@"
+.Nite: db "[Nite]@"
+.Eve: db "[Eve]@"
+
 Phone_GetTrainerName:
 	push hl
 	push bc
@@ -704,6 +903,9 @@ GetCallerLocation:
 INCLUDE "data/phone/phone_contacts.asm"
 
 INCLUDE "data/phone/special_calls.asm"
+
+PhoneTimesOfDay:
+INCLUDE "data/phone/phone_times_of_day.asm"
 
 PhoneOutOfAreaScript:
 	writetext PhoneOutOfAreaText

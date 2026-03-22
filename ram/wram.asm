@@ -3823,6 +3823,9 @@ w6_d000:: ds $1000
 
 NEXTU
 wWeatherScratch:: ds SCREEN_HEIGHT_PX
+
+NEXTU
+wScratchPokegearPhoneVWF:: ds 6 tiles
 ENDU
 
 

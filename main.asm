@@ -343,6 +343,7 @@ SECTION "bank24", ROMX
 INCLUDE "engine/phone/phone.asm"
 INCLUDE "engine/rtc/timeset.asm"
 INCLUDE "engine/pokegear/pokegear.asm"
+INCLUDE "engine/pokegear/pokegear_vwf.asm"
 INCLUDE "engine/events/fish.asm"
 
 

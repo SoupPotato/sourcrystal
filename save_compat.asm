@@ -6,22 +6,71 @@
 ; Loading a newer save file should either error out or be unstable,
 ; since we don't know what that newer version contains.
 
+DEF GAME_VERSION EQU 2
 ; 00 = v6.1
 ; 01 = v6.2
 ;      * Add the save file version.
+; 02 = v7.0?
+;      * Adjustments for new phone contact system.
 
-DEF GAME_VERSION EQU 1
 
 ; Anything between these lines should be the ones updated when making a breaking
 ; change to the save format.
 ; ------------------------------------------------------------------------------
-; version 00 -> 01: simply update the save version
+; version 01 -> 02: shift the weather variables due to Pokegear expansion
+DEF MIGRATION_wPlayerData EQU $d47e
+DEF MIGRATION_OLD_wWeatherRandomDay EQU $dc8a
+DEF MIGRATION_NEW_wWeatherRandomDay EQU $dc92
+DEF MIGRATION_OLD_sGSBallFlagBackup EQU $be14
+DEF MIGRATION_NEW_sGSBallFlagBackup EQU $be12
 
 MigrateSaveFile:
+	ld a, BANK(sPlayerData)
+	call OpenSRAM
+; the weather stuff has shifted, so deal with that
+	ld de, MIGRATION_NEW_wWeatherRandomDay + 8 - wPlayerData + sPlayerData
+	ld hl, MIGRATION_OLD_wWeatherRandomDay + 8 - wPlayerData + sPlayerData
+	call MigrateSaveFileCommon
+; attempt to compensate for the slight decimation of crystal data
+	ld a, BANK(sGSBallFlagBackup)
+	call OpenSRAM
+	ld de, MIGRATION_OLD_sGSBallFlagBackup
+	ld hl, MIGRATION_NEW_sGSBallFlagBackup
+	ld c, sBTMonPrevPrevTrainer3-sGSBallFlagBackup
+.shift_tower_data
+	ld a, [de]
+	ld [hli], a
+	inc de
+	dec c
+	jr nz, .shift_tower_data
 	jp ApplySaveVersion
 
 MigrateBackupSaveFile:
+	ld a, BANK(sBackupPlayerData)
+	call OpenSRAM
+; the weather stuff has shifted, so deal with that
+	ld de, MIGRATION_NEW_wWeatherRandomDay + 8 - wPlayerData + sBackupPlayerData
+	ld hl, MIGRATION_OLD_wWeatherRandomDay + 8 - wPlayerData + sBackupPlayerData
+	call MigrateSaveFileCommon
 	jp ApplyBackupSaveVersion
+
+MigrateSaveFileCommon:
+	ld c, 9
+.shift_weather_stuff
+	ld a, [hld]
+	ld [de], a
+	dec de
+	dec c
+	jr nz, .shift_weather_stuff
+; prevent borking of the pokegear as well
+	ld c, 8
+	xor a
+.shift_pokegear
+	ld [de], a
+	dec de
+	dec c
+	jr nz, .shift_pokegear
+	ret
 
 ;-------------------------------------------------------------------------------
 
@@ -53,6 +102,10 @@ ApplyBackupSaveVersion:
 ;    a = MIGRATION_*
 ;    f = may be affected
 SaveCanBeMigrated::
+	cp -1 ; treat this as version 0
+	jr nz, .do_compare
+	xor a
+.do_compare
 	sub a, GAME_VERSION
 	jr z, .no
 	jr nc, .unknown
@@ -81,7 +134,7 @@ InitiateBackupMigration:
 	cp MIGRATION_CANNOT_MIGRATE
 	jr z, MigrationCannotMigrate
 	cp MIGRATION_SHOULD_MIGRATE
-	jr z, MigrateBackupSaveFile
+	jp z, MigrateBackupSaveFile
 	jr MigrationUnknown
 .done
 	call CloseSRAM
@@ -97,7 +150,7 @@ InitiateMigration:
 	cp MIGRATION_CANNOT_MIGRATE
 	jr z, MigrationCannotMigrate
 	cp MIGRATION_SHOULD_MIGRATE
-	jr z, MigrateSaveFile
+	jp z, MigrateSaveFile
 	jr MigrationUnknown
 .done
 	call CloseSRAM

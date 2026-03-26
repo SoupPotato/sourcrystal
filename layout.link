@@ -361,11 +361,31 @@ VRAM $01
 SRAM $00
 	"Scratch"
 	org $a600
-	"SRAM Bank 0"
+	"Party Mail Saves"
+	"Party Mail Saves (Backup)"
+	"Mailbox Saves"
+	"Mailbox Saves (Backup)"
+	"Misc Saves"
 	org $b200
-	"Backup Save"
+	"Save Options (Backup)"
+	org $b208
+	"Save Check Value (Backup)"
+	"Save Game Data (Backup)"
+	org $bf0d
+	"Save Checksum (Backup)"
+	org $bf0f
+	"Save Check Value 2 (Backup)"
 SRAM $01
-	"Save"
+	org $a000
+	"Save Options"
+	org $a008
+	"Save Check Value"
+	"Save Game Data"
+	org $ad0d
+	"Save Checksum"
+	org $ad0f
+	"Save Check Value 2"
+	org $ad10
 	"Box Metadata"
 	"Link Battle Data"
 	"SRAM Hall of Fame"

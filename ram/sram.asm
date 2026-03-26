@@ -8,20 +8,21 @@ sEnemyFrontpicTileCount:: db
 sPaddedEnemyFrontpic:: ds 7 * 7 tiles
 ENDU
 
-SECTION "SRAM Bank 0", SRAM
-
+SECTION "Party Mail Saves", SRAM
 sPartyMail::
 ; sPartyMon1Mail - sPartyMon6Mail
 for n, 1, PARTY_LENGTH + 1
 sPartyMon{d:n}Mail:: mailmsg sPartyMon{d:n}Mail
 endr
 
+SECTION "Party Mail Saves (Backup)", SRAM
 sPartyMailBackup::
 ; sPartyMon1MailBackup - sPartyMon6MailBackup
 for n, 1, PARTY_LENGTH + 1
 sPartyMon{d:n}MailBackup:: mailmsg sPartyMon{d:n}MailBackup
 endr
 
+SECTION "Mailbox Saves", SRAM
 sMailboxCount:: db
 sMailboxes::
 ; sMailbox1 - sMailbox10
@@ -29,6 +30,7 @@ for n, 1, MAILBOX_CAPACITY + 1
 sMailbox{d:n}:: mailmsg sMailbox{d:n}
 endr
 
+SECTION "Mailbox Saves (Backup)", SRAM
 sMailboxCountBackup:: db
 sMailboxesBackup::
 ; sMailbox1Backup - sMailbox10Backup
@@ -36,6 +38,7 @@ for n, 1, MAILBOX_CAPACITY + 1
 sMailbox{d:n}Backup:: mailmsg sMailbox{d:n}Backup
 endr
 
+SECTION "Misc Saves", SRAM
 sMysteryGiftData::
 sMysteryGiftItem:: db
 sMysteryGiftUnlocked:: db
@@ -60,22 +63,23 @@ sLuckyNumberDay:: db
 sLuckyIDNumber::  dw
 
 
-SECTION "Backup Save", SRAM
-
+SECTION "Save Options (Backup)", SRAM
 sBackupOptions:: ds wOptionsEnd - wOptions
 
+SECTION "Save Check Value (Backup)", SRAM
 sBackupCheckValue1:: db ; loaded with SAVE_CHECK_VALUE_1, used to check save corruption
 
+SECTION "Save Game Data (Backup)", SRAM
 sBackupGameData::
 sBackupPlayerData::  ds wPlayerDataEnd - wPlayerData
 sBackupCurMapData::  ds wCurMapDataEnd - wCurMapData
 sBackupPokemonData:: ds wPokemonDataEnd - wPokemonData
 sBackupGameDataEnd::
 
-	ds $18a
-
+SECTION "Save Checksum (Backup)", SRAM
 sBackupChecksum:: dw
 
+SECTION "Save Check Value 2 (Backup)", SRAM
 sBackupCheckValue2:: db ; loaded with SAVE_CHECK_VALUE_2, used to check save corruption
 
 sStackTop:: dw
@@ -88,23 +92,25 @@ sOpenedInvalidSRAM:: db
 sIsBugMon:: db
 endc
 
+; main save data
 
-SECTION "Save", SRAM
-
+SECTION "Save Options", SRAM
 sOptions:: ds wOptionsEnd - wOptions
 
+SECTION "Save Check Value", SRAM
 sCheckValue1:: db ; loaded with SAVE_CHECK_VALUE_1, used to check save corruption
 
+SECTION "Save Game Data", SRAM
 sGameData::
 sPlayerData::  ds wPlayerDataEnd - wPlayerData
 sCurMapData::  ds wCurMapDataEnd - wCurMapData
 sPokemonData:: ds wPokemonDataEnd - wPokemonData
 sGameDataEnd::
 
-	ds $18a
-
+SECTION "Save Checksum", SRAM
 sChecksum:: dw
 
+SECTION "Save Check Value 2", SRAM
 sCheckValue2:: db ; loaded with SAVE_CHECK_VALUE_2, used to check save corruption
 
 

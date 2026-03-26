@@ -160,6 +160,7 @@ SaveGameData:
 	ld [wSaveFileExists], a
 	farcall StageRTCTimeForSave
 	call ValidateSave
+	call ApplySaveVersion
 	call SaveOptions
 	call SavePlayerData
 	call SavePokemonData
@@ -197,6 +198,7 @@ WriteBackupSave:
 
 	; Save the backup copy of game data.
 	call ValidateBackupSave
+	call ApplyBackupSaveVersion
 	call SaveBackupOptions
 	call SaveBackupPlayerData
 	call SaveBackupPokemonData
@@ -517,6 +519,8 @@ SetSavePhase:
 TryLoadSaveFile:
 	call VerifyChecksum
 	jr nz, .backup
+	call InitiateMigration
+	ret c
 	call LoadPlayerData
 	call LoadPokemonData
 	; If a mid-save was aborted but main save data is good, finish it.
@@ -535,6 +539,8 @@ TryLoadSaveFile:
 .backup
 	call VerifyBackupChecksum
 	jr nz, .corrupt
+	call InitiateBackupMigration
+	ret c
 	call LoadBackupPlayerData
 	call LoadBackupPokemonData
 	farcall RestorePartyMonMail

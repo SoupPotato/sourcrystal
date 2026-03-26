@@ -371,6 +371,8 @@ SRAM $00
 	org $b208
 	"Save Check Value (Backup)"
 	"Save Game Data (Backup)"
+	org $bf0c
+	"Save File Version (Backup)"
 	org $bf0d
 	"Save Checksum (Backup)"
 	org $bf0f
@@ -381,6 +383,8 @@ SRAM $01
 	org $a008
 	"Save Check Value"
 	"Save Game Data"
+	org $ad0c
+	"Save File Version"
 	org $ad0d
 	"Save Checksum"
 	org $ad0f

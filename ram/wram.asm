@@ -2995,11 +2995,12 @@ wPlayerGender::
 wd473:: ds 1
 wd474:: ds 1
 wd475:: ds 1
-wd476:: 
-wd477:: 
-wd478::
-wd479:: ds 1
+wd476:: ds 1
+wd477:: ds 1
+wd478:: ds 1
 wCrystalDataEnd::
+
+wd479:: ds 2
 
 wGameData::
 wPlayerData::
@@ -3415,7 +3416,7 @@ wWeatherRandomMapNumberKanto:: ds NUM_WEATHER_MAPS_PER_DAY
 assert NUM_WEATHER_MAPS_PER_DAY == 2, \
 	"If you change NUM_WEATHER_MAPS_PER_DAY, you must ensure you don't break save compatibility."
 
-	ds 5
+	ds 13
 
 wLuckyNumberShowFlag:: db
 wRepelType:: db

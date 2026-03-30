@@ -193,7 +193,7 @@ MountMortar1FOutside_MapEvents:
 	warp_event 37, 33, ROUTE_42, 5
 	warp_event 17,  5, MOUNT_MORTAR_2F_INSIDE, 1
 	warp_event 11, 21, MOUNT_MORTAR_1F_INSIDE, 1
-	warp_event 29, 21, MOUNT_MORTAR_1F_INSIDE, 2
+	warp_event 27, 21, MOUNT_MORTAR_1F_INSIDE, 2
 	warp_event 17, 29, MOUNT_MORTAR_B1F, 2
 	warp_event  7, 13, MOUNT_MORTAR_1F_INSIDE, 3
 	warp_event 33, 13, MOUNT_MORTAR_1F_INSIDE, 4
@@ -201,7 +201,7 @@ MountMortar1FOutside_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 25, 22, BGEVENT_ITEM, MountMortar1FOutsideHiddenHyperPotion
+	bg_event 24, 22, BGEVENT_ITEM, MountMortar1FOutsideHiddenHyperPotion
 
 	def_object_events
 	object_event 13, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar1FOutsideEther, EVENT_MOUNT_MORTAR_1F_OUTSIDE_ETHER

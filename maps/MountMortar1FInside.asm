@@ -118,7 +118,7 @@ MountMortar1FInside_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 11, 47, MOUNT_MORTAR_1F_OUTSIDE, 5
+	warp_event 13, 47, MOUNT_MORTAR_1F_OUTSIDE, 5
 	warp_event 29, 47, MOUNT_MORTAR_1F_OUTSIDE, 6
 	warp_event  5, 39, MOUNT_MORTAR_1F_OUTSIDE, 8
 	warp_event 33, 41, MOUNT_MORTAR_1F_OUTSIDE, 9

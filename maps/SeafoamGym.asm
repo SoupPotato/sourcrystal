@@ -374,7 +374,7 @@ SeafoamGymGuideText:
 	para "in the way from"
 	line "the rebuilding."
 
-	para "It sure wont be"
+	para "It sure won't be"
 	line "easy to get to"
 	cont "BLAINE!"
 

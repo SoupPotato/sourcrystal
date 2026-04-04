@@ -100,7 +100,11 @@ WateredWeirdTreeScript:: ; export (for when you use Squirtbottle from pack)
 	iffalse .nocatch
 	setflag ENGINE_PLAYER_CAUGHT_SUDOWOODO
 .nocatch
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .post_E4
 	sjump Route36FloriaFinishScript
+.post_E4
+	end
 
 DidntUseSquirtbottleScript:
 	closetext

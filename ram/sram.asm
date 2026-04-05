@@ -76,6 +76,9 @@ sBackupCurMapData::  ds wCurMapDataEnd - wCurMapData
 sBackupPokemonData:: ds wPokemonDataEnd - wPokemonData
 sBackupGameDataEnd::
 
+SECTION "Save File Version (Backup)", SRAM
+sBackupGameVersion:: db
+	
 SECTION "Save Checksum (Backup)", SRAM
 sBackupChecksum:: dw
 
@@ -106,6 +109,9 @@ sPlayerData::  ds wPlayerDataEnd - wPlayerData
 sCurMapData::  ds wCurMapDataEnd - wCurMapData
 sPokemonData:: ds wPokemonDataEnd - wPokemonData
 sGameDataEnd::
+
+SECTION "Save File Version", SRAM
+sGameVersion:: db
 
 SECTION "Save Checksum", SRAM
 sChecksum:: dw

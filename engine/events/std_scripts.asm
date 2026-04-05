@@ -680,6 +680,8 @@ InitializeEventsScript:
 	setevent EVENT_POKEMON_MANSION_B1F_MEW
 	setevent EVENT_MT_MOON_OBTAINED_FOSSIL
 	setevent EVENT_NEW_BARK_TOWN_PACKAGE
+	setevent EVENT_FUCHSIA_CITY_OMANYTE
+	setevent EVENT_FUCHSIA_CITY_KABUTO
 	endcallback
 
 AskNumber1MScript:

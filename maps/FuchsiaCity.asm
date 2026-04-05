@@ -9,8 +9,9 @@
 	const FUCHSIACITY_CHANSEY
 	const FUCHSIACITY_VOLTORB
 	const FUCHSIACITY_KANGASKHAN
-	const FUCHSIACITY_KABUTO
 	const FUCHSIACITY_LAPRAS
+	const FUCHSIACITY_OMANYTE
+	const FUCHSIACITY_KABUTO
 
 FuchsiaCity_MapScripts:
 	def_scene_scripts
@@ -36,6 +37,7 @@ FuchsiaCityFruittrees:
 	iftrue .NoApricorn
 	appear FUCHSIACITY_APRICORN
 .NoApricorn:
+	;fallthrough
 	endcallback
 
 FuchsiaCityYoungster:
@@ -125,7 +127,30 @@ FuchsiaCityKangaskhanSign:
 	closetext
 	end
 
-FuchsiaCityKabutoSign:
+FuchsiaCityFossilSign:
+	checkevent EVENT_MT_MORTAR_OBTAINED_DOME_FOSSIL
+	iftrue .omanyte
+	checkevent EVENT_MT_MORTAR_OBTAINED_HELIX_FOSSIL
+	iftrue .kabuto
+	opentext
+	writetext FuchsiaCityEmptyPenSignText
+	waitbutton
+	closetext
+	end
+
+.omanyte
+	reanchormap
+	pokepic OMANYTE
+	cry OMANYTE
+	waitbutton
+	closepokepic
+	opentext
+	writetext FuchsiaCityOmanyteSignText
+	waitbutton
+	closetext
+	end
+
+.kabuto
 	reanchormap
 	pokepic KABUTO
 	cry KABUTO
@@ -265,6 +290,22 @@ SafariZoneKantoSignText:
 	line "#MON-U-CATCH!"
 	done
 
+FuchsiaCityEmptyPenSignText:
+	text "NOTICE"
+
+	para "A rare #MON"
+	line "is comming to this"
+	cont "pen soon!"
+	done
+
+FuchsiaCityOmanyteSignText:
+	text "Name: OMANYTE"
+
+	para "A #MON that"
+	line "was resurrected"
+	cont "from a fossil."
+	done
+
 FuchsiaCityKabutoSignText:
 	text "Name: KABUTO"
 
@@ -367,7 +408,7 @@ FuchsiaCity_MapEvents:
 	bg_event  6, 13, BGEVENT_READ, FuchsiaCityMartSign
 	bg_event 17, 17, BGEVENT_READ, FuchsiaCityNoBerry
 	bg_event 15, 17, BGEVENT_READ, FuchsiaCityNoApricorn
-	bg_event  7,  7, BGEVENT_READ, FuchsiaCityKabutoSign
+	bg_event  7,  7, BGEVENT_READ, FuchsiaCityFossilSign
 	bg_event 13,  7, BGEVENT_READ, FuchsiaCityKangaskhanSign
 	bg_event 27,  7, BGEVENT_READ, FuchsiaCityVoltorbSign
 	bg_event 33,  7, BGEVENT_READ, FuchsiaCityChanseySign
@@ -384,5 +425,6 @@ FuchsiaCity_MapEvents:
 	object_event 31,  5, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
 	object_event 25,  6, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
 	object_event 12,  6, SPRITE_KANGASKHAN, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
-	object_event  6,  5, SPRITE_KABUTO, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
-	object_event  8, 17, SPRITE_LAPRAS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
+	object_event  9, 17, SPRITE_LAPRAS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, 0
+	object_event  6,  5, SPRITE_OMANYTE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_FUCHSIA_CITY_OMANYTE
+	object_event  6,  5, SPRITE_KABUTO, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_FUCHSIA_CITY_KABUTO

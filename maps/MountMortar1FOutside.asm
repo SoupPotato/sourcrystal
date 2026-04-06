@@ -28,6 +28,7 @@ MountMortar1FHelixFossil:
 	setevent EVENT_DOME_FOSSIL_AT_MT_MOON
 	setevent EVENT_MT_MORTAR_OBTAINED_FOSSIL
 	clearevent EVENT_MT_MOON_OBTAINED_FOSSIL
+	clearevent EVENT_FUCHSIA_CITY_KABUTO
 	verbosegiveitem HELIX_FOSSIL
 	closetext
 rept 6
@@ -79,6 +80,7 @@ MountMortar1FDomeFossil:
 	setevent EVENT_HELIX_FOSSIL_AT_MT_MOON
 	setevent EVENT_MT_MORTAR_OBTAINED_FOSSIL
 	clearevent EVENT_MT_MOON_OBTAINED_FOSSIL
+	clearevent EVENT_FUCHSIA_CITY_OMANYTE
 	verbosegiveitem DOME_FOSSIL
 	closetext
 rept 6

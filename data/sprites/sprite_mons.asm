@@ -62,4 +62,5 @@ SpriteMons:
 	db CHANSEY
 	db KABUTO
 	db AIPOM
+	db OMANYTE
 	assert_table_length NUM_POKEMON_SPRITES

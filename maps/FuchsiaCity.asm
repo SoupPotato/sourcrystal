@@ -38,6 +38,23 @@ FuchsiaCityFruittrees:
 	appear FUCHSIACITY_APRICORN
 .NoApricorn:
 	;fallthrough
+
+;Helix
+	setevent EVENT_FUCHSIA_CITY_KABUTO
+	setevent EVENT_FUCHSIA_CITY_OMANYTE
+	checkevent EVENT_MT_MOON_OBTAINED_FOSSIL
+	iftrue .GotFossil
+	endcallback
+
+.GotFossil:
+	checkevent EVENT_MT_MORTAR_OBTAINED_HELIX_FOSSIL
+	iftrue .ShowOmanyte
+; show kabuto
+	clearevent EVENT_FUCHSIA_CITY_KABUTO
+	endcallback
+
+.ShowOmanyte:
+	clearevent EVENT_FUCHSIA_CITY_OMANYTE
 	endcallback
 
 FuchsiaCityYoungster:

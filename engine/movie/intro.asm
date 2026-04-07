@@ -736,6 +736,8 @@ IntroScene14:
 IntroScene15:
 ; Transition to a new scene.
 	call Intro_ClearBGPals
+	ld c, 45
+	call DelayFrames
 	call ClearSprites
 	call ClearTilemap
 	xor a
@@ -869,7 +871,7 @@ IntroScene18:
 	ld hl, wIntroSceneFrameCounter
 	ld a, [hl]
 	inc [hl]
-	cp $60
+	cp $80
 	jr nc, .done
 	ldh a, [hSCX]
 	cp $60
@@ -951,7 +953,7 @@ IntroScene20:
 	ld hl, wIntroSceneFrameCounter
 	ld a, [hl]
 	inc [hl]
-	cp $98
+	cp $C8
 	jr nc, .finished
 	cp $58
 	ret nc
@@ -1042,7 +1044,7 @@ IntroScene24:
 	ret
 
 .done
-	ld a, $40
+	ld a, $60
 	ld [wIntroSceneFrameCounter], a
 	call NextIntroScene
 	ret
@@ -1129,7 +1131,7 @@ IntroScene27:
 
 .done
 	call NextIntroScene
-	ld a, $80
+	ld a, $90
 	ld [wIntroSceneFrameCounter], a
 	ret
 

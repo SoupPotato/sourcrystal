@@ -1386,19 +1386,19 @@ BattleAnim_Acid:
 
 BattleAnim_RockThrow:
 	anim_1gfx BATTLE_ANIM_GFX_ROCKS
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 136, 64, $40
+	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 135, 64, $40
 	anim_wait 6
-	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 120, 68, $30
+	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 144, 68, $30
 	anim_wait 6
 	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $30, $1, $0
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 156, 68, $30
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 124, 68, $30
 	anim_wait 6
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 144, 64, $40
+	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 128, 64, $40
 	anim_wait 6
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 108, 68, $30
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 144, 68, $30
 	anim_wait 6
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
 	anim_wait 6

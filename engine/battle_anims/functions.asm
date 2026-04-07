@@ -493,6 +493,8 @@ BattleAnimFunc_Drop:
 	ld [hl], $30
 	inc hl
 	ld [hl], $48
+	inc hl
+	ld [hl], $00
 .one
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
@@ -502,6 +504,19 @@ BattleAnimFunc_Drop:
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a
+; apply x vel
+	ld hl, BATTLEANIMSTRUCT_VAR3
+	add hl, bc
+	ld a, [hl]
+	and a
+	jr z, .skip_apply_x
+	ld d, a
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld a, [hl]
+	add d
+	ld [hl], a
+.skip_apply_x
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	inc [hl]
@@ -511,6 +526,24 @@ BattleAnimFunc_Drop:
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	ld [hl], $20
+; set x velocity based on initial X pos
+	ld hl, BATTLEANIMSTRUCT_XCOORD
+	add hl, bc
+	ld a, [hl]
+	cp 136
+	jr c, .left
+	ld d, 1
+	jr .got_vel
+.left
+	ld d, -1
+.got_vel
+	ld hl, BATTLEANIMSTRUCT_VAR3
+	add hl, bc
+	ld a, [hl]
+	and a
+	jr nz, .next
+	ld [hl], d
+.next
 	ld hl, BATTLEANIMSTRUCT_VAR2
 	add hl, bc
 	ld a, [hl]
@@ -1854,9 +1887,9 @@ BattleAnimFunc_Wrap:
 	inc a
 	call ReinitBattleAnimFrameset
 	call BattleAnim_IncAnonJumptableIndex
-	ld hl, BATTLEANIMSTRUCT_VAR1 ; Unused?
-	add hl, bc
-	ld [hl], $8
+	;ld hl, BATTLEANIMSTRUCT_VAR1 ; Unused?
+	;add hl, bc
+	;ld [hl], $8
 .zero
 .two
 	ret
@@ -3326,9 +3359,9 @@ BattleAnimFunc_Shiny:
 	ld hl, BATTLEANIMSTRUCT_XOFFSET
 	add hl, bc
 	ld [hl], a
-	ld hl, BATTLEANIMSTRUCT_VAR2 ; unused?
-	add hl, bc
-	ld [hl], $f
+	;ld hl, BATTLEANIMSTRUCT_VAR2 ; unused?
+	;add hl, bc
+	;ld [hl], $f
 .one:
 	ret
 

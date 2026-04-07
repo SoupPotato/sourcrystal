@@ -18,7 +18,8 @@ DEF BATTLEANIMSTRUCT_FRAME           rb ; 0d
 DEF BATTLEANIMSTRUCT_JUMPTABLE_INDEX rb ; 0e
 DEF BATTLEANIMSTRUCT_VAR1            rb ; 0f
 DEF BATTLEANIMSTRUCT_VAR2            rb ; 10
-                                     rb_skip 7
+DEF BATTLEANIMSTRUCT_VAR3            rb ; 11
+                                     rb_skip 6
 DEF BATTLEANIMSTRUCT_LENGTH EQU _RS
 DEF NUM_BATTLE_ANIM_STRUCTS EQU 10 ; see wActiveAnimObjects
 

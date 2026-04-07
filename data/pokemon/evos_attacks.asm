@@ -459,7 +459,7 @@ NidoqueenEvosAttacks:
 	db 1, POISON_STING
 	db 36, BODY_SLAM
 	db 45, EARTHQUAKE
-	db 58, SUBMISSION
+	db 58, CROSS_CHOP
 	db 0 ; no more level-up moves
 
 NidoranMEvosAttacks:
@@ -3357,10 +3357,11 @@ PiloswineEvosAttacks:
 CorsolaEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 6, HARDEN
-	db 11, BUBBLE
-	db 15, RECOVER
-	db 20, ENDURE
+	db 1, HARDEN
+	db 6, BUBBLE
+	db 11, ENDURE
+	db 15, ROLLOUT
+	db 20, RECOVER
 	db 25, BUBBLEBEAM
 	db 29, BARRIER
 	db 34, ANCIENTPOWER

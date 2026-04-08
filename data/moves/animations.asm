@@ -1386,7 +1386,7 @@ BattleAnim_Acid:
 
 BattleAnim_RockThrow:
 	anim_1gfx BATTLE_ANIM_GFX_ROCKS
-	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 135, 64, $40
+	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 136, 64, $40
 	anim_wait 6
 	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 144, 68, $30
 	anim_wait 6

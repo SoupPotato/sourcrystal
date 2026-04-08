@@ -457,6 +457,8 @@ BattleAnimFunc_Drop:
 	ld [hl], $48
 	inc hl
 	ld [hl], $00
+	inc hl
+	ld [hl], $00
 .one
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
@@ -470,15 +472,17 @@ BattleAnimFunc_Drop:
 	ld hl, BATTLEANIMSTRUCT_VAR3
 	add hl, bc
 	ld a, [hl]
-	and a
-	jr z, .skip_apply_x
 	ld d, a
-	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	ld hl, BATTLEANIMSTRUCT_VAR4
 	add hl, bc
 	ld a, [hl]
 	add d
 	ld [hl], a
-.skip_apply_x
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	sra a
+	sra a
+	ld [hl], a
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	inc [hl]
@@ -493,11 +497,15 @@ BattleAnimFunc_Drop:
 	add hl, bc
 	ld a, [hl]
 	cp 136
+	jr z, .none ; exactly centered
 	jr c, .left
-	ld d, 1
+	ld d, 3
+	jr .got_vel
+.none
+	ld d, 0
 	jr .got_vel
 .left
-	ld d, -1
+	ld d, -3
 .got_vel
 	ld hl, BATTLEANIMSTRUCT_VAR3
 	add hl, bc

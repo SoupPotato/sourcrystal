@@ -496,7 +496,7 @@ BattleAnimFunc_Drop:
 	ld hl, BATTLEANIMSTRUCT_XCOORD
 	add hl, bc
 	ld a, [hl]
-	cp 136
+	cp 132
 	jr z, .none ; exactly centered
 	jr c, .left
 	ld d, 3

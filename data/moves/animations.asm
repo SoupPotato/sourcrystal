@@ -1386,19 +1386,19 @@ BattleAnim_Acid:
 
 BattleAnim_RockThrow:
 	anim_1gfx BATTLE_ANIM_GFX_ROCKS
-	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 136, 64, $40
+	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 132, 64, $40
 	anim_wait 6
-	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 144, 68, $30
+	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 140, 68, $30
 	anim_wait 6
 	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $30, $1, $0
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 124, 68, $30
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 120, 68, $30
 	anim_wait 6
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 128, 64, $40
+	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 124, 64, $40
 	anim_wait 6
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 144, 68, $30
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 140, 68, $30
 	anim_wait 6
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
 	anim_wait 6
@@ -1408,43 +1408,28 @@ BattleAnim_RockThrow:
 
 BattleAnim_RockSlide:
 	anim_1gfx BATTLE_ANIM_GFX_ROCKS
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 132, 64, $40
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 129, 64, $40
 	anim_wait 4
-	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 122, 68, $30
+	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 141, 68, $30
 	anim_wait 4
-	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $c0, $1, $0
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $80, $1, $0
 .loop
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 152, 68, $30
+	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 123, 68, $30
 	anim_wait 4
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 140, 64, $40
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 147, 64, $40
 	anim_wait 4
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 104, 68, $30
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 117, 68, $30
 	anim_wait 4
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 158, 68, $30
+	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 129, 64, $40
 	anim_wait 4
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 124, 68, $30
+	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 141, 68, $30
 	anim_wait 4
-	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 112, 64, $40
-	anim_wait 4
-	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 148, 68, $30
-	anim_wait 4
-	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 138, 64, $40
-	anim_wait 4
-	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 132, 64, $40
-	anim_wait 4
-	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
-	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 122, 68, $30
-	anim_wait 4
-	anim_loop 2, .loop
+	anim_loop 4, .loop
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
 	anim_wait 4
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN

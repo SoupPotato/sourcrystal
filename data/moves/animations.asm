@@ -1836,21 +1836,19 @@ BattleAnim_Constrict:
 	anim_ret
 
 BattleAnim_Earthquake:
-	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $60, $4, $10
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $4, $3
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $a0, $4, $10
 .loop
 	anim_sound 0, 1, SFX_EMBER
 	anim_wait 24
 	anim_loop 4, .loop
+	anim_wait 36
 	anim_ret
 
 BattleAnim_Fissure:
-	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $8, $40
-	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $60, $4, $0
-.loop
-	anim_sound 0, 1, SFX_EMBER
-	anim_wait 24
-	anim_loop 4, .loop
-	anim_ret
+	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $8, $10
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $a0, $4, $0
+	anim_jump BattleAnim_Earthquake.loop
 
 BattleAnim_Growl:
 	anim_1gfx BATTLE_ANIM_GFX_NOISE
@@ -4122,22 +4120,23 @@ BattleAnim_SacredFire:
 	anim_jump BattleAnim_FlameWheel.hit
 
 BattleAnim_Magnitude:
-	anim_1gfx BATTLE_ANIM_GFX_ROCKS
-.loop
-	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $e, $4, $0
-	anim_sound 0, 1, SFX_STRENGTH
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 128, 64, $40
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 120, 68, $30
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 152, 68, $30
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 144, 64, $40
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_SMALL_ROCK, 136, 68, $30
-	anim_wait 2
-	anim_jumpuntil .loop
+	anim_if_param_equal 4, .Magnitude4_5
+	anim_if_param_equal 5, .Magnitude4_5
+	anim_if_param_equal 9, BattleAnim_Earthquake
+	anim_if_param_equal 10, BattleAnim_Earthquake
+;fallthrough
+;.Magnitude6_7_8
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $60, $3, $0
+	anim_sound 0, 1, SFX_EMBER
 	anim_wait 96
+	anim_ret
+
+.Magnitude4_5
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_X, $50, $2, $0
+.loop
+	anim_sound 0, 1, SFX_SPARK
+	anim_wait 6
+	anim_loop 12, .loop
 	anim_ret
 
 BattleAnim_Dynamicpunch:

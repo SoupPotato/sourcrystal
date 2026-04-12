@@ -869,10 +869,19 @@ String_Egg:
 
 RemoveMonFromParty:
 	ld hl, wPartyCount
-
 	ld a, [hl]
+; first, ensure the list is terminated properly
+	assert wPartySpecies == wPartyCount + 1
+	push hl
+		inc hl
+		ld c, a
+		ld b, 0
+		add hl, bc
+		ld [hl], -1
+	pop hl
 	dec a
 	ld [hli], a
+; then, perform the species shift
 	ld a, [wCurPartyMon]
 	ld c, a
 	ld b, 0

@@ -1225,7 +1225,7 @@ BattleAnim_Thunderbolt:
 .loop
 	anim_sound 0, 1, SFX_THUNDERBOLT
 	anim_bgeffect BATTLE_BG_EFFECT_FLASH_INVERTED, $0, $7, $6
-	anim_wait 66
+	anim_wait 68
 	anim_loop 2, .loop
 	anim_ret
 

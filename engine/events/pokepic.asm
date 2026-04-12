@@ -76,8 +76,9 @@ Trainerpic::
 	call MenuBox
 	call UpdateSprites
 	call ApplyTilemap
-	ld b, SCGB_POKEPIC
-	call GetSGBLayout
+	ld de, wBGPals1 palette PAL_BG_TEXT color 1
+	farcall LoadTrainerPalette
+	call UpdateTimePals
 	xor a
 	ld [hBGMapMode], a
 	ld a, [wTrainerClass]
@@ -115,6 +116,6 @@ ClosePokepic::
 
 PokepicMenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 6, 4, 14, 13
+	menu_coords 6, 4, 14, 12
 	dw NULL
 	db 1 ; default option

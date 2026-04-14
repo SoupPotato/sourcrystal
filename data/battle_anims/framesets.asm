@@ -198,6 +198,7 @@ BattleAnimFrameData:
 	dw .Frameset_GrowingBall             ; BATTLE_ANIM_FRAMESET_GROWING_BALL
 	dw .Frameset_WaterBall               ; BATTLE_ANIM_FRAMESET_WATER_BALL
 	dw .Frameset_GrowingBubble           ; BATTLE_ANIM_FRAMESET_GROWING_BUBBLE
+	dw .Frameset_FireBlastImpact         ; BATTLE_ANIM_FRAMESET_FIRE_BLAST_IMPACT
 	assert_table_length NUM_BATTLE_ANIM_FRAMESETS
 
 .Frameset_HitBig:
@@ -1317,3 +1318,11 @@ BattleAnimFrameData:
 	oamframe BATTLE_ANIM_OAMSET_7F,  2
 	oamframe BATTLE_ANIM_OAMSET_01,  2 ; HIT
 	oamrestart
+
+.Frameset_FireBlastImpact:
+	oamframe BATTLE_ANIM_OAMSET_0F,  3
+	oamframe BATTLE_ANIM_OAMSET_0E,  2
+	oamframe BATTLE_ANIM_OAMSET_0A,  3
+	oamframe BATTLE_ANIM_OAMSET_0E,  4
+	oamframe BATTLE_ANIM_OAMSET_0A,  4
+	oamdelete

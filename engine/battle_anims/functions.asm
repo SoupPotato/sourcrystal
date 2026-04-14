@@ -701,14 +701,14 @@ BattleAnimFunc_FireBlast:
 	ld [hl], a
 	cp $7
 	jr z, .seven
-	ld a, BATTLE_ANIM_FRAMESET_BURNED
+	ld a, BATTLE_ANIM_FRAMESET_FIRE_BLAST_IMPACT
 	jp ReinitBattleAnimFrameset
 
 .seven
 	ld hl, BATTLEANIMSTRUCT_XCOORD
 	add hl, bc
 	ld a, [hl]
-	cp $88
+	cp $84
 	jr nc, .set_up_eight
 	add $2
 	ld [hl], a
@@ -748,6 +748,7 @@ BattleAnimFunc_FireBlast:
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc
 	dec [hl]
+	dec [hl]
 	ret
 
 .four
@@ -755,10 +756,12 @@ BattleAnimFunc_FireBlast:
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc
 	inc [hl]
+	inc [hl]
 .two
 	; Flame that moves left
 	ld hl, BATTLEANIMSTRUCT_XOFFSET
 	add hl, bc
+	dec [hl]
 	dec [hl]
 	ret
 
@@ -767,10 +770,12 @@ BattleAnimFunc_FireBlast:
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc
 	inc [hl]
+	inc [hl]
 .three
 	; Flame that moves right
 	ld hl, BATTLEANIMSTRUCT_XOFFSET
 	add hl, bc
+	inc [hl]
 	inc [hl]
 	ret
 

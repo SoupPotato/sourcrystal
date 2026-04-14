@@ -890,7 +890,7 @@ BattleAnim_FireBlast:
 	anim_1gfx BATTLE_ANIM_GFX_FIRE
 .loop1
 	anim_sound 6, 2, SFX_EMBER
-	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 64, 92, $7
+	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 64, 88, $7
 	anim_wait 6
 	anim_loop 10, .loop1
 .loop2
@@ -908,15 +908,15 @@ BattleAnim_FireBlast:
 	anim_incobj 9
 	anim_incobj 10
 	anim_wait 2
-.loop3
 	anim_sound 0, 1, SFX_EMBER
-	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 136, 56, $1
-	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 136, 56, $2
-	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 136, 56, $3
-	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 136, 56, $4
-	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 136, 56, $5
-	anim_wait 16
-	anim_loop 2, .loop3
+.loop3
+	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 132, 52, $1
+	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 132, 52, $2
+	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 132, 52, $3
+	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 132, 52, $4
+	anim_obj BATTLE_ANIM_OBJ_FIRE_BLAST, 132, 52, $5
+	anim_wait 10
+	anim_loop 6, .loop3
 	anim_wait 32
 	anim_ret
 

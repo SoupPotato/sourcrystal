@@ -531,6 +531,7 @@ DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 	const BATTLE_ANIM_FRAMESET_GROWING_BALL               ; c2
 	const BATTLE_ANIM_FRAMESET_WATER_BALL                 ; c3
 	const BATTLE_ANIM_FRAMESET_GROWING_BUBBLE             ; c4
+	const BATTLE_ANIM_FRAMESET_FIRE_BLAST_IMPACT          ; c5
 DEF NUM_BATTLE_ANIM_FRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)

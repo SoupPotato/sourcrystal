@@ -330,6 +330,7 @@ DEF NUM_BATTLE_ANIM_OBJS EQU const_value
 	const BATTLE_ANIM_FUNC_RADIAL_MOVE_OUT           ; 4f
 	const BATTLE_ANIM_FUNC_RADIAL_MOVE_OUT_SLOW      ; 50
 	const BATTLE_ANIM_FUNC_FALL_AND_STOP             ; 51
+	const BATTLE_ANIM_FUNC_FLAMETHROWER
 DEF NUM_BATTLE_ANIM_FUNCS EQU const_value
 
 ; BattleAnimFrameData indexes (see data/battle_anims/framesets.asm)

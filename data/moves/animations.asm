@@ -862,26 +862,13 @@ BattleAnim_Flamethrower:
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
 	anim_1gfx BATTLE_ANIM_GFX_FIRE
 	anim_sound 6, 2, SFX_EMBER
-	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER, 64, 92, $3
+	anim_setvar 10 ; starting Y sine phase
+.ff
+	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER, 64, 92, 11
 	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER, 75, 86, $5
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER, 85, 81, $7
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER, 96, 76, $9
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER, 106, 71, $b
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER, 116, 66, $c
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER, 126, 61, $a
-	anim_wait 2
-	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER, 136, 56, $8
-	anim_wait 16
-.loop
-	anim_sound 0, 1, SFX_EMBER
-	anim_wait 16
-	anim_loop 6, .loop
+	anim_incvar
+	anim_incvar
+	anim_loop 32, .ff
 	anim_wait 16
 	anim_ret
 

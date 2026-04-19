@@ -200,7 +200,7 @@ BattleAnimFunc_Flamethrower:
 	ld hl, BATTLEANIMSTRUCT_XCOORD
 	add hl, bc
 	ld a, [hl]
-	cp $88
+	cp $84
 	jp nc, DeinitBattleAnimation
 	add 4
 	ld [hl], a

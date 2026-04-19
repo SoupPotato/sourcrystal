@@ -864,7 +864,7 @@ BattleAnim_Flamethrower:
 	anim_sound 6, 2, SFX_EMBER
 	anim_setvar 10 ; starting Y sine phase
 .ff
-	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER, 64, 92, 11
+	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER, 64, 88, 11
 	anim_wait 2
 	anim_incvar
 	anim_incvar

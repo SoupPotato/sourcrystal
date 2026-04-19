@@ -114,6 +114,7 @@ ZubatEggMoves:
 
 OddishEggMoves:
 	db FLAIL
+	db LEECH_SEED
 	db RAZOR_LEAF
 	db SYNTHESIS
 	db SWORDS_DANCE
@@ -357,6 +358,7 @@ TangelaEggMoves:
 	db AMNESIA
 	db CONFUSION
 	db FLAIL
+	db LEECH_SEED
 	db REFLECT
 	db -1 ; end
 

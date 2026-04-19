@@ -347,8 +347,8 @@ BattleAnimFrameData:
 	oamend
 
 .Frameset_Flamethrower:
-	oamframe BATTLE_ANIM_OAMSET_0A,  4
 	oamframe BATTLE_ANIM_OAMSET_0E,  4
+	oamframe BATTLE_ANIM_OAMSET_0A,  4
 	oamrestart
 
 .Frameset_Ember:

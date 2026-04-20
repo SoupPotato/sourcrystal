@@ -232,7 +232,7 @@ BattleAnimFunc_Flamethrower:
 	inc [hl]
 	inc [hl]
 	ld a, [hl]
-	ld d, $10
+	ld d, $0c
 	call BattleAnim_Sine
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc

@@ -868,14 +868,12 @@ BattleAnim_Flamethrower:
 	anim_wait 3
 	anim_incvar
 	anim_incvar
-	anim_loop 24, .loop
-.loop2
 	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER, 64, 82, $0
 	anim_wait 3
 	anim_incvar
 	anim_incvar
-	anim_loop 4, .loop2
-	anim_wait 28
+	anim_loop 16, .loop
+	anim_wait 16
 	anim_ret
 
 BattleAnim_FireBlast:

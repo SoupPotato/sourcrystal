@@ -53,6 +53,26 @@ ApplyBackupSaveVersion:
 ;    a = MIGRATION_*
 ;    f = may be affected
 SaveCanBeMigrated::
+; Saves that have not been tagged yet MAY have another value already written on it, due
+; to not being explicitly written.
+
+; If the save file has a random value written on it, AND the player is sure they are
+; updating from a version prior to the save tagging, the player may force a migration
+; to happen, like so:
+	push af
+		ldh a, [hJoypadDown] ; press RIGHT while selecting "CONTINUE"
+		and D_RIGHT
+		cp D_RIGHT
+		jr z, .force_migration
+	pop af
+
+; On some emulators, this value will be $ff. Assuming that's the majority of cases,
+; we can simply detect that here:
+	assert GAME_VERSION < $ff
+	cp -1
+	jr z, .yes
+
+; Otherwise, the check can proceed as normal.
 	sub a, GAME_VERSION
 	jr z, .no
 	jr nc, .unknown
@@ -70,6 +90,9 @@ SaveCanBeMigrated::
 .unknown ; save file version is greater, don't know what to do
 	ld a, MIGRATION_UNKNOWN
 	ret
+.force_migration
+	pop af
+	jr .yes
 
 InitiateBackupMigration:
 	ld a, BANK(sBackupGameVersion)

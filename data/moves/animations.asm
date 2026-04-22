@@ -861,19 +861,19 @@ BattleAnim_DragonRage:
 BattleAnim_Flamethrower:
 	anim_setobjpal PAL_BATTLE_OB_RED, PAL_BTLCUSTOM_FIRE
 	anim_1gfx BATTLE_ANIM_GFX_FIRE
-	anim_setvar 10 ; starting Y sine phase
+	anim_setvar 5 ; starting Y sine phase
 .loop
 	anim_sound 6, 2, SFX_EMBER
-	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER, 64, 82, $0
+	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER_ALT, 60, 86, $0
 	anim_wait 3
 	anim_incvar
 	anim_incvar
-	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER, 64, 82, $0
+	anim_obj BATTLE_ANIM_OBJ_FLAMETHROWER_ALT, 60, 86, $0
 	anim_wait 3
 	anim_incvar
 	anim_incvar
 	anim_loop 16, .loop
-	anim_wait 16
+	anim_wait 24
 	anim_ret
 
 BattleAnim_FireBlast:

@@ -195,28 +195,12 @@ BattleAnimFunc_Flamethrower:
 	ld [hl], a
 	call BattleAnim_IncAnonJumptableIndex
 
-; If it's the opponent's turn, adjust the X here... (necessary?)
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .run
-	ld hl, BATTLEANIMSTRUCT_XOFFSET
-	add hl, bc
-	ld a, [hl]
-	adc -10
-	ld [hl], a
-
-	ld hl, BATTLEANIMSTRUCT_VAR1
-	add hl, bc
-	ld a, [hl]
-	adc -16
-	ld [hl], a
-
 .run
 ; Modified BattleAnimFunc_MoveWaveToTarget.
 	ld hl, BATTLEANIMSTRUCT_XCOORD
 	add hl, bc
 	ld a, [hl]
-	cp $88
+	cp $84
 	jp nc, DeinitBattleAnimation
 	add 4
 	ld [hl], a
@@ -232,7 +216,7 @@ BattleAnimFunc_Flamethrower:
 	inc [hl]
 	inc [hl]
 	ld a, [hl]
-	ld d, $0c
+	ld d, $a
 	call BattleAnim_Sine
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc

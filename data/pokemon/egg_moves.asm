@@ -762,7 +762,6 @@ SkarmoryEggMoves:
 	db -1 ; end
 
 HoundourEggMoves:
-	db BEAT_UP
 	db COUNTER
 	db DESTINY_BOND
 	db FIRE_SPIN

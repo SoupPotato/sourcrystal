@@ -1,123 +1,103 @@
+
 # FAQ
 
+If you have a question about playing SourCrystal, or think you've found a bug, please read this FAQ first.
 
-## Questions
+If there is somthing here that is not answered in the FAQ or need furthur assistance, feel free to join the [Discord Server](https://discord.gg/edctS3hHfQ)
+### Contents
 
-- [What is pokecrystal11.gbc?](#what-is-pokecrystal11gbc)
-- [What is pokecrystal_au.gbc?](#what-is-pokecrystal_augbc)
-- [I can't build the ROM, `make` just prints an error!](#i-cant-build-the-rom-make-just-prints-an-error)
-  - [`gcc`: command not found](#gcc-command-not-found)
-  - ["ERROR: `UNION` already defined"](#error-union-already-defined)
-  - ["ERROR: Macro not defined"](#error-macro-not-defined)
-  - ["Expression must be 8-bit"](#expression-must-be-8-bit)
-  - ["Segmentation fault" from `rgbgfx`](#segmentation-fault-from-rgbgfx)
-  - ["Section is too big" or "Unable to place section in bank"](#section-is-too-big-or-unable-to-place-section-in-bank)
-  - ["Invalid file or object file version"](#invalid-file-or-object-file-version)
-  - ["Syntax error"](#syntax-error)
-- [How do I edit maps?](#how-do-i-edit-maps)
-- [How do I edit the colors of an image?](#how-do-i-edit-the-colors-of-an-image)
-- [How do I write new features?](#how-do-i-write-new-features)
-- [How do I share code on Discord?](#how-do-i-share-code-on-discord)
-- [I need more help!](#i-need-more-help)
+* [Which emulator should I use?](#which-emulator-should-i-use)
+* [Are there cheat codes?](#are-there-cheat-codes)
+* [Is there documentation for all the {Pokémon, items, moves, etc}?](#is-there-documentation-for-all-the-pokémon-items-moves-etc)
+* [What are the options at the start of a new game?](#what-are-the-options-at-the-start-of-a-new-game)
+* [How can I change the current time?](#how-can-i-change-the-current-time)
+* [How do I evolve my Pokémon?](#how-do-i-evolve-my-pokémon)
+* [Where do I get the legendary Pokémon?](#where-do-i-get-the-legendary-pokémon)
+* [Where do I get this item?](#where-do-i-get-this-item)
 
 
-## What is pokecrystal11.gbc?
+### Which emulator should I use?
 
-Version 1.1 of Pokémon Crystal, which fixed some issues with the initial international release. `make crystal11` defines `_CRYSTAL11` so the assembly builds the changed version.
+Not every emulator is compatible with SourCrystal. With the exception of the Virtual Console emulator, we do not offer any support if an emulator has a bug that isn't reproducible on official hardware. As such, we recommend the following emulators to limit compatibility issues:
 
+#### PC:
+* [mGBA](https://mgba.io/) - most popular emulator, no known incompatiblities, can also conveniently play GBA games
+* [SameBoy](https://sameboy.github.io/) - one of the most accurate emulators, also has an iOS release
+* [BGB](https://bgb.bircd.org/) - more accurate than mGBA, powerful debugger
 
-## What is pokecrystal_au.gbc?
+#### Android:
+* [RetroArch](https://www.retroarch.com/) - use SameBoy, mGBA or Gambatte core, **do not use VBA-M core**
 
-The Australian release of Pokémon Crystal, which is based on the international 1.1 release but censors gambling references from the Game Corners. `make crystal_au` defines `_CRYSTAL11` and `_CRYSTAL_AU` so the assembly builds the changed version.
+#### iOS:
+* [SameBoy](https://sameboy.github.io/) - see PC section
 
+Conversely, the following emulators are known to have issues and **should not be used** to play SourCrystal:
 
-## I can't build the ROM, `make` just prints an error!
+#### PC:
+* VBA - this emulator has not been updated since 2004, do not ever use
+* VBA-M - despite being actively updated, still is a very inaccurate emulator, use mGBA instead
 
-Reread [INSTALL.md](INSTALL.md) carefully, and make sure you're following all its steps.
+#### iOS:
+* Delta - while we have had a higher incidence rate of issues with Delta, there is presently no evidence that the emulator itself has any issues. We do still strongly recommend using SameBoy on iOS, as we still are awaiting evidence of any unusual issues with this emulator and save states
 
-### `gcc`: command not found
+#### Android:
+* MyOldBoy - while most of the game is playable, it is incompatible with the Real-Time Clock in SourCrystal.
+* JohnGBC - is confirmed to cause rendering issues and possibly more.
 
-You need to install `gcc`. If you're using Cygwin, re-run its setup, and at "Select Packages", choose to install `gcc-core`.
+#### Other:
+* Goomba Color - used to play GB/C games from a GBA flashcart, this emulator can't even run vanilla Crystal
 
-### "ERROR: `UNION` already defined"
-
-Download [**rgbds 0.9.0**][rgbds] or newer. Older versions will not work.
-
-### "ERROR: Macro not defined"
-
-Download [**rgbds 0.9.0**][rgbds] or newer. Older versions will not work.
-
-### "Expression must be 8-bit"
-
-Download [**rgbds 0.9.0**][rgbds] or newer. Older versions will not work.
-
-### "Segmentation fault" from `rgbgfx`
-
-If you are using 64-bit Windows, download [**64-bit Cygwin**][cygwin] and [**64-bit rgbds**][rgbds].
-
-### "Section is too big" or "Unable to place section in bank"
-
-If you have not changed any of the asm, make sure you have the latest version of pokecrystal and the correct version of rgbds (see [INSTALL.md](INSTALL.md)).
-
-If you added or changed any code, it has to fit in the **memory banks**. The 2MB ROM is divided into 128 banks of 4KB ($4000 bytes) each, numbered $00 to $7F. The linkerscript [layout.link](layout.link) lists which `SECTION`s go in which banks. Try moving some code into a new section.
-
-### "Invalid file or object file version"
-
-Run `make clean` to remove all the old `o` files, then re-run `make`.
-
-### "Syntax error"
-
-If you have not changed any of the asm, make sure you have the latest version of pokecrystal and the correct version of rgbds (see [INSTALL.md](INSTALL.md)).
-
-If you added or changed any code, you've made a mistake while writing some of it. Re-read the modifications you've made to the file it complains about and try to compare them with other code.
+If you have a preferred emulator that isn't listed above, using it should be fine. Most modern emulators can indeed run SourCrystal just fine. Be aware, though, that if you're consistently having an issue that isn't reproduced on either official hardware or the most accurate emulators, you will not be provided any support.
 
 
-## How do I edit maps?
+### Are there cheat codes?
 
-For `asm` scripts, read [docs/map_event_scripts.md](https://pret.github.io/pokecrystal/map_event_scripts). For `blk` layouts, use [Polished Map][polished-map].
+Cheat codes are *not* officially supported: new updates may change or break old codes, which can lead to irreversible save corruption. There is instead [**Sour Editor**](https://soureditor.vercel.app/), an **unofficial** online save editor for *Pokémon SourCrystal*, created and maintained by [Rev3lation (@rev3lation)](https://github.com/KohKaiSern).
 
-
-## How do I edit the colors of an image?
-
-Most `.png` images are paletted PNGs. You can edit these with any program that supports creating PNGs with palette information. These palettes should consist of exactly 4 colors. Additionally, for Pokémon images, the first color should be white, and the last black. Tools such as Paint and [GIMP](gimp) will do the right job, while other tools such as [paint.net](paintdotnet) or Photoshop might mess it up and output palettes of 255 colors even though only using 4. You may try using tools like [GraphicsGale](graphicsgale) or [IrfanView](irfanview) to fix this, or sometimes resaving the image in Paint seems to help.
-
-Some image `.png` files are grayscale. This indicates that even though these images do have proper colors in-game, they're shared with something else, and as such changing them will affect other things as well. Don't try opening the `.2bpp` files, these only contain the image data as well, not the palettes.
-
-It really depends on what image you're trying to change the colors of, where these colors are specified. Try looking for related files or `.pal` files.
+If you decide to use cheat codes anyway, note that cheat codes are easily misused - as such, **please disable cheats before complaining that there's a bug in the game, and don't ask for pre-made cheat codes**.
 
 
-## How do I write new features?
-
-There are a number of special-purpose scripting languages, as described in [docs](https://pret.github.io/pokecrystal/). For more general features, you'll need to code directly in [assembly language][asm]. Some of the [tutorials][tutorials] for specific features may also be helpful.
+### Is there documentation for all the {Pokémon, items, moves, etc}?
 
 
-## How do I share code on Discord?
-
-If you're looking for help on Discord, you'll probably need to share your code. How to do this:
-
-- Post *short* pieces of code in Discord messages, surrounded with three <code>\`\`\`backticks\`\`\`</code> to make a [code block][markdown].
-- Post longer pieces of code by linking to [GitHub Gist][gist], [Pastebin][pastebin], [Hastebin][hastebin], or other such sites.
-- Share your entire pokecrystal project at once by hosting it on GitHub as a fork of this repository. Read the [GitHub Help][forkhelp] for details.
-
-If your code is on GitHub, you can [link to specific lines][snippethelp]. Put "`#L42`" at the end of a URL to link to line 42, or "`#L10-L20`" to link to lines 10-20. For example: [https://github.com/pret/pokecrystal/blob/master/main.asm#L21-L26](https://github.com/pret/pokecrystal/blob/master/main.asm#L21-L26)
+Yes, there is a [Document](https://docs.google.com/spreadsheets/d/1LXVkFYS97_iKz9ntWZ8rsM1BQtRuorREHABNVLRwJ3M/edit?gid=78535282#gid=78535282) that labels all pokemon information and well as items, move tutors, mon locations and more.
 
 
-## I need more help!
+### How can I change the current time?
 
-Try asking on Discord or IRC (see [README.md](README.md)).
+Press Down+B at the title screen (the screen of the running Suicune) to reset the clock.
 
-[cygwin]: https://cygwin.com/install.html
-[rgbds]: https://github.com/gbdev/rgbds/releases
-[polished-map]: https://github.com/Rangi42/polished-map
-[gimp]: https://www.gimp.org/
-[paintdotnet]: https://www.getpaint.net/
-[graphicsgale]: https://graphicsgale.com/us/
-[irfanview]: https://www.irfanview.com/
-[asm]: https://github.com/pret/pokecrystal/wiki/Assembly-programming
-[tutorials]: https://github.com/pret/pokecrystal/wiki/Tutorials
-[markdown]: https://support.discordapp.com/hc/en-us/articles/210298617
-[gist]: https://gist.github.com/
-[pastebin]: https://pastebin.com/
-[hastebin]: https://hastebin.com/
-[forkhelp]: https://help.github.com/en/github/getting-started-with-github/fork-a-repo
-[snippethelp]: https://help.github.com/en/github/managing-your-work-on-github/creating-a-permanent-link-to-a-code-snippet
+
+### How do I evolve my Pokémon?
+
+* Gen 1's trade evolutions now evolve by using the Linking Cord item.
+* Item trade evolutions (like Seadra into Kingdra while holding a Dragon Scale) now evolve when simply 'using' the item on them.
+
+
+### Where do I get the legendary Pokémon?
+
+* Articuno is in the Seafoam Islands.
+* Zapdos is outside of the Kanto Powder Plant.
+* Moltres is inside Mt.Silver.
+* Raikou and Entei are roaming Johto after you awaken them.
+* Suicune is in the Tin Tower after you get the Clear Bell.
+* Lugia is in the Whirl Islands after you visit Pewter City and then get the Silver Wing there.
+* Ho-Oh is atop the Tin Tower after you catch all three legendary beasts and then get the Rainbow Wing in Tin Tower.
+* Mewtwo is in Cerulean Cave.
+* Mew is a secret; look around Cinnabar Island!
+* Celebi is obtainved via the GS Ball event that is now triggered once you defeat the Elite Four.
+
+
+### Where do I get this item?
+
+* Exp Share is given by Baoba on Route 39.
+* Linking Cord is obtained in Dark Cave (Blachtorn Side). Additionally can be purchased at the game corner.
+* Lucky Egg is given by Mr.Pokemon in exchange for the Red Scale. A second one can be found in the Kanto Safari Zone.
+* Helix Fossil and Dome Fossil are in Mt. Mortar. The one you do not pick can be obtained at Mt. Moon later on.
+* Old Amber is in Pewter City Museum.
+* Upgrade is given to you in Silph Co. after fixing the Power Plant generator. Additionally can be purchased at the game corner.
+* King's Rock is in Slowpoke Well, or held by wild Slowpoke or Poliwhirl. Additionally can be purchased at the game corner.
+* Metal Coat obtained on the SS.Aqua or held by wild Magnemite. Additionally can be purchased at the game corner.
+* Dragon Scale is in Mt. Mortar, or held by wild Horsea family and Dratini family. Additionally can be purchased at the game corner.
+* Fire, Water, Leaf and Thunder Stones can be obtained from Bill's grandpa in Kanto or can be purchased at the game corner. Also, certain trainers will call you up to give you stones, just like in regular Crystal. [Hidden 
+

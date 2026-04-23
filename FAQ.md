@@ -3,7 +3,7 @@
 
 If you have a question about playing SourCrystal, or think you've found a bug, please read this FAQ first.
 
-If there is somthing here that is not answered in the FAQ or need furthur assistance, feel free to join the [Discord Server](https://discord.gg/edctS3hHfQ)
+If there is something here that is not answered in the FAQ or need furthur assistance, feel free to join the [Discord Server](https://discord.gg/edctS3hHfQ)
 ### Contents
 
 * [Which emulator should I use?](#which-emulator-should-i-use)
@@ -14,6 +14,10 @@ If there is somthing here that is not answered in the FAQ or need furthur assist
 * [How do I evolve my Pokémon?](#how-do-i-evolve-my-pokémon)
 * [Where do I get the legendary Pokémon?](#where-do-i-get-the-legendary-pokémon)
 * [Where do I get this item?](#where-do-i-get-this-item)
+* [Why does the game need "save tagging"?](#what-is-the-save-tagging-system-and-why-does-this-game-need-it)
+* ["This save file is from a NEWER version..."](#this-save-file-is-from-a-newer-version-of-the-game)
+* ["This save file is from an OLDER version..."](#this-save-file-is-from-an-older-version-of-the-game)
+
 
 
 ### Which emulator should I use?
@@ -99,5 +103,52 @@ Press Down+B at the title screen (the screen of the running Suicune) to reset th
 * King's Rock is in Slowpoke Well, or held by wild Slowpoke or Poliwhirl. Additionally can be purchased at the game corner.
 * Metal Coat obtained on the SS.Aqua or held by wild Magnemite. Additionally can be purchased at the game corner.
 * Dragon Scale is in Mt. Mortar, or held by wild Horsea family and Dratini family. Additionally can be purchased at the game corner.
-* Fire, Water, Leaf and Thunder Stones can be obtained from Bill's grandpa in Kanto or can be purchased at the game corner. Also, certain trainers will call you up to give you stones, just like in regular Crystal. [Hidden 
+* Fire, Water, Leaf and Thunder Stones can be obtained from Bill's grandpa in Kanto or can be purchased at the game corner. Also, certain trainers will call you up to give you stones, just like in regular Crystal.
 
+### What is the "save tagging" system, and why does this game need it?
+
+The save tagging system was built to better handle save incompatibilities,
+should an update to the game introduce breaking changes that would otherwise
+require you to restart your game.
+
+How it works is that the game will compare a specific number—the *save version*—in
+your save file with the *save version* registered in the game's code. This number,
+of course, increasing whenever we introduce a save-breaking change.
+
+Please note however, that updates to **game version** does not necessarily mean
+an update to the **save version**. If an update to the **save version** occurs,
+it will be noted in the change logs, and as an entry in the **[save versions list](SAVE-VERSIONS.md)**.
+
+If the number in your save file is **one less** than the number in the game's
+code, *the game itself can automatically update your save*. After it has
+updated your save file, the game will immediately **re-save** the game, so no
+additional action is needed from you.
+
+This means that if a recent version of the game has save version 03, **you cannot,
+for example, update a game from save version 01 straight to it**. You would need
+to load the save file in a prior version with save version 02, and *then* load
+the save file in the more recent version.
+
+However, it is possible for external tools to directly update your save file in
+such a manner. Though as of writing, such tools are yet to be made.
+
+### "This save file is from a NEWER version of the game…"
+
+One of the following might have happened:
+
+1. **You updated from before v6.2.** This can happen in some emulators. If that
+   is the case, you can force the game to load your save file by **pressing right as you select CONTINUE**.
+
+2. **You accidentally loaded in a save from a future version.** Unfortunately,
+   it is best you play the game using the newer version anyway to avoid any
+   save corruption.
+
+### "This save file is from an OLDER version of the game…"
+
+The game's automated save-updating system can't handle skipping versions. As
+explained, you should, in order:
+
+1. Find a slightly older patch.
+2. Load the save file using that version.
+3. Update the game.
+4. Reload the save file using the newer version.

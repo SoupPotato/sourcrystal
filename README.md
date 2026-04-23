@@ -1,3 +1,5 @@
+# Sour Crystal
+
 This is a custom Pokémon game based on the Pokémon Crystal disassembly.
 
 Its goal is not to change, but build upon the original game with many bug fixes, graphical tweaks and quality of life changes. In addition, features have been visually altered to make better use of the GBC's stronger hardware.

@@ -6,6 +6,10 @@ sScratch:: ds $60 tiles
 NEXTU
 sEnemyFrontpicTileCount:: db
 sPaddedEnemyFrontpic:: ds 7 * 7 tiles
+
+NEXTU
+sSortedPhoneContacts:: ds NUM_PHONE_CONTACTS
+
 ENDU
 
 SECTION "Party Mail Saves", SRAM

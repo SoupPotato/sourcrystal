@@ -36,7 +36,7 @@ FlagAction::
 ; b: function
 ;    0  RESET_FLAG  clear bit
 ;    1  SET_FLAG    set bit
-;    2  CHECK_FLAG  check bit
+;    2  CHECK_FLAG  check bit; result will be in c
 ; de: bit number
 ; hl: pointer to the flag array
 

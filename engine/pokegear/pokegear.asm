@@ -1787,10 +1787,13 @@ PokegearPhone_UpdateDisplayList:
 	inc hl
 	dec b
 	jr nz, .row
+	ld a, BANK(sSortedPhoneContacts)
+	call OpenSRAM
+	call SortPhoneContacts
 	ld a, [wPokegearPhoneScrollPosition]
 	ld e, a
 	ld d, 0
-	ld hl, wPhoneList
+	ld hl, sSortedPhoneContacts
 	add hl, de
 	xor a
 	ld [wPokegearPhoneDisplayPosition], a
@@ -1814,7 +1817,59 @@ PokegearPhone_UpdateDisplayList:
 	cp PHONE_DISPLAY_HEIGHT
 	jr c, .loop
 	call PokegearPhone_UpdateCursor
+	call CloseSRAM
 	ret
+
+; wPhoneList is now a bitflag to essentially allow for every phone contact
+; to be obtained. However, if we use it directly, it would end up being like
+; the Pokedex where there'd be gaps in between each contact.
+;
+; What this does is sort whatever is in there to sSortedPhoneContacts.
+; SRAM must already be opened to BANK(sSortedPhoneContacts).
+SortPhoneContacts:
+	; First, clear the sorted phone contact list
+	ld hl, sSortedPhoneContacts
+	ld c, NUM_PHONE_CONTACTS
+	xor a
+.clear
+	ld [hli], a
+	dec c
+	jr nz, .clear
+	; Seems better to just reload `hl` than doing a push/pop ?
+	ld hl, sSortedPhoneContacts
+	
+	; Now we can start filling it in.
+	ld de, 0 ; de = phone contact index
+	; The sorted list will be output beginning at `hl`.
+.keep_going
+	push de
+	push hl
+		ld hl, wPhoneList
+		ld b, CHECK_FLAG
+		call FlagAction
+	pop hl
+	pop de
+	; After FlagAction `c` will either be zero or some bitmasked
+	; flag which I don't really care about.
+	ld a, c
+	and a
+	; Since everything has been cleared to 00 prior, it should be safe
+	; for display. And there'll be no gaps in the contact list.
+	jr z, .skip
+	; `de` contains the phone contact index because
+	; we restored it.
+	assert NUM_PHONE_CONTACTS < $100
+	ld a, e
+	; Index 0 now signifies the first contact in phone_constants.asm.
+	; Well, the one after PHONE_00.
+	inc a
+	ld [hli], a
+.skip
+	inc e
+	ld a, e
+	cp NUM_PHONE_CONTACTS
+	ret z
+	jr .keep_going
 
 PokegearPhone_DeletePhoneNumber:
 	ld hl, wPhoneList

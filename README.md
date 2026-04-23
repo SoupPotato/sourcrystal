@@ -2,6 +2,7 @@ This is a custom Pokémon game based on the Pokémon Crystal disassembly.
 
 Its goal is not to change, but build upon the original game with many bug fixes, graphical tweaks and quality of life changes. In addition, features have been visually altered to make better use of the GBC's stronger hardware.
 
+
 ## __What’s New in v6.2:__
 
 ###### __Updates:__
@@ -62,6 +63,21 @@ Its goal is not to change, but build upon the original game with many bug fixes,
 - **Trade Evolutions can now also be obtained by using a new item** called the Linking Cord or by simply using the item required for trading on the Pokémon. (King’s Rock, Metal Coat, etc.)
 - **A Move Reminder**
 - **And many other small goodies to find!**
+
+
+## __Screenshots:__
+
+![title-screen](https://images.hackdex.app/pokemon-sour-crystal/1766472527623-0.png)
+![overworld-rain](https://images.hackdex.app/pokemon-sour-crystal/1766472529843-1.gif)
+![pager-system](https://images.hackdex.app/pokemon-sour-crystal/1766472532141-2.png)
+![new-move-animations](https://images.hackdex.app/pokemon-sour-crystal/1766472533595-3.gif)
+![visible-berries](https://images.hackdex.app/pokemon-sour-crystal/1766472535276-4.png)
+![safari-zone](https://images.hackdex.app/pokemon-sour-crystal/1766472536758-5.png)
+![safari-biomes](https://images.hackdex.app/pokemon-sour-crystal/1766472538206-6.png)
+![safari-game](https://images.hackdex.app/pokemon-sour-crystal/1766472539263-7.png)
+![overworld-snow](https://images.hackdex.app/pokemon-sour-crystal/1766472540707-8.gif)
+![new-trade-screen](https://images.hackdex.app/pokemon-sour-crystal/1766472542327-9.gif)
+
 
 ## __Credits:__
 

@@ -83,4 +83,6 @@ DEF PHONE_CONTACT_SCRIPT2_ADDR   rw
 DEF PHONE_CONTACT_SIZE EQU _RS
 
 ; maximum number of pokegear contacts
+; SC: no longer effective; max pokegear contacts are now just NUM_PHONE_CONTACTS
+;     due to the phone list being a bit flag now.
 DEF CONTACT_LIST_SIZE EQU 10

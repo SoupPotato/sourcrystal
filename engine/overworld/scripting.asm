@@ -1918,7 +1918,7 @@ Script_delcellnum:
 Script_checkcellnum:
 ; returns false if the cell number is not in your phone
 
-	xor a
+	xor a ; FALSE
 	ld [wScriptVar], a
 	call GetScriptByte
 	ld c, a

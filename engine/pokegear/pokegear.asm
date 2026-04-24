@@ -1632,9 +1632,8 @@ PokegearPhone_Joypad:
 	call CloseSRAM
 	and a
 	ret z
+	; Index stored here starts with PHONE_00.
 	ld [wPokegearPhoneSelectedPerson], a
-	; The index stored here is the one that does not start with PHONE_00
-	dec a
 	hlcoord 1, 4
 	ld a, [wPokegearPhoneCursorPosition]
 	ld bc, SCREEN_WIDTH * 2
@@ -1669,10 +1668,10 @@ PokegearPhone_MakePhoneCall:
 	ld hl, .GearEllipseText
 	call PrintText
 	call WaitSFX
+	; Index stored here starts with PHONE_00...
 	ld a, [wPokegearPhoneSelectedPerson]
-	; The index used here is the one that starts with PHONE_00
-	inc a
 	ld b, a
+	; ...and this function assumes the index that starts with PHONE_00. All good
 	call MakePhoneCallFromPokegear
 	ld c, 10
 	call DelayFrames
@@ -1751,7 +1750,7 @@ PokegearPhone_GetDPad:
 .scroll_page_down
 	ld hl, wPokegearPhoneScrollPosition
 	ld a, [hl]
-	cp CONTACT_LIST_SIZE - PHONE_DISPLAY_HEIGHT
+	cp NUM_PHONE_CONTACTS - PHONE_DISPLAY_HEIGHT
 	ret nc
 	inc [hl]
 	jr .done_joypad_update_page
@@ -1842,7 +1841,7 @@ SortPhoneContacts:
 	; First, clear the sorted phone contact list
 	ld hl, sSortedPhoneContacts
 	ld c, NUM_PHONE_CONTACTS
-	xor a
+	xor a ; PHONE_00
 .clear
 	ld [hli], a
 	dec c
@@ -1872,9 +1871,11 @@ SortPhoneContacts:
 	; `de` contains the phone contact index because
 	; we restored it.
 	assert NUM_PHONE_CONTACTS < $100
+
 	ld a, e
-	; Index 0 now signifies the first contact in phone_constants.asm.
-	; Well, the one after PHONE_00.
+	; in wPhoneList, flag 0 is the first phone constant after PHONE_00.
+	; However in sSortedPhoneContacts, PHONE_00 remains the "empty" signifier,
+	; so we need to adjust.
 	inc a
 	ld [hli], a
 .skip
@@ -1886,11 +1887,13 @@ SortPhoneContacts:
 
 PokegearPhone_DeletePhoneNumber:
 	; Rather than calculating the contact's position again, we just
-	; use what's been selected instead
+	; use what's been selected instead.
 	ld a, [wPokegearPhoneSelectedPerson]
+	; Index here starts from PHONE_00, while bit flags does not start from
+	; PHONE_00, so adjust.
+	dec a
 	; Assuming this is called from a valid contact selection, no
-	; zero check is done here--besides, the index is the one that
-	; doesn't start with PHONE_00
+	; zero check is done here.
 	ld e, a
 	ld d, 0
 	ld b, RESET_FLAG
@@ -1900,10 +1903,11 @@ PokegearPhone_DeletePhoneNumber:
 	; should handle that
 
 PokegearPhoneContactSubmenu:
+	; Index here starts with PHONE_00
 	ld a, [wPokegearPhoneSelectedPerson]
-	; The index used is the one that starts with PHONE_00
-	inc a
 	ld c, a
+	; This function assumes an index starting from PHONE_00
+	; so again, all good
 	farcall CheckCanDeletePhoneNumber
 	ld a, c
 	and a

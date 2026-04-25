@@ -191,7 +191,7 @@ InitiateBackupMigration:
 	cp MIGRATION_CANNOT_MIGRATE
 	jr z, MigrationCannotMigrate
 	cp MIGRATION_SHOULD_MIGRATE
-	jr z, MigrateBackupSaveFile
+	jp z, MigrateBackupSaveFile
 	jr MigrationUnknown
 .done
 	call CloseSRAM

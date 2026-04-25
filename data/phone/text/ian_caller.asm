@@ -23,6 +23,66 @@ IanInShortsText:
 	line "battle again soon!"
 	done
 
+IanLearnedALotText:
+	text "You know, I've"
+	line "learned a lot from"
+	
+	para "seeing you battle,"
+	line "and I've been"
+	
+	para "practicing with my"
+	line "@"
+	text_ram wStringBuffer4 
+	text "."
+	
+	para "We've improved a"
+	line "whole lot!"
+	
+	para "But you probably"
+	line "have too… so…"
+
+	para "I guess we'll see"
+	line "next battle!"
+	done
+
+IanLostAMonText:
+	text "Hey, listen up!"
+	
+	para "I tried to catch a"
+	line "wild @"
+	text_ram wStringBuffer4
+	text "…"
+
+	para "We went down to"
+	line "the wire, but it"
+
+	para "ended up getting"
+	line "away!"
+
+	para "I should have had"
+	line "more # BALLS…"
+	done
+
+IanDefeatedMonText:
+	text "I used the tips I"
+	line "learned from you"
+
+	para "to take down a"
+	line "wild @"
+	text_ram wStringBuffer4
+	text "!"
+
+	para "Thanks to you, my"
+	line "#MON are much"
+	cont "stronger!"
+
+	para "If we can meet up"
+	line "again, I hope you"
+
+	para "can show me some"
+	line "more tricks!"
+	done
+
 IanBattleRematchText:
 	text "Lately I've been"
 	line "wanting to battle"

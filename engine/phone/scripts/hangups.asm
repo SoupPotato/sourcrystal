@@ -58,6 +58,11 @@ KyleFishingTips:
 	promptbutton
 	sjump PhoneScript_KyleConnectionLostText
 
+KylerFishingTips:
+	farwritetext KylerFishingTipsText
+	promptbutton
+	sjump PhoneScript_HangUpText_Male
+
 TannerCamping:
 	farwritetext TannerCampingText
 	promptbutton

@@ -394,6 +394,7 @@ INCLUDE "data/phone/text/kenji_overworld.asm"
 INCLUDE "data/phone/text/kenny_overworld.asm" ; new
 INCLUDE "data/phone/text/krise_overworld.asm" ; new
 INCLUDE "data/phone/text/kyle_overworld.asm" ; new
+INCLUDE "data/phone/text/kyler_overworld.asm" ; new
 INCLUDE "data/phone/text/parry_overworld.asm"
 INCLUDE "data/phone/text/reese_overworld.asm" ; new
 INCLUDE "data/phone/text/rob_overworld.asm" ; new
@@ -454,6 +455,7 @@ INCLUDE "engine/phone/scripts/kenji.asm"
 INCLUDE "engine/phone/scripts/kenny.asm"
 INCLUDE "engine/phone/scripts/krise.asm"
 INCLUDE "engine/phone/scripts/kyle.asm"
+INCLUDE "engine/phone/scripts/kyler.asm"
 INCLUDE "engine/phone/scripts/liz.asm"
 INCLUDE "engine/phone/scripts/mom.asm"
 INCLUDE "engine/phone/scripts/parry.asm"
@@ -638,8 +640,10 @@ INCLUDE "data/phone/text/timandsue_caller.asm" ; new
 INCLUDE "data/phone/text/todd_caller.asm"
 INCLUDE "data/phone/text/torin_caller.asm" ; new
 INCLUDE "data/phone/text/wade_caller.asm"
-INCLUDE "data/phone/text/walt_caller.asm" ; new
 
+SECTION "Crystal Phone Text 3", ROMX
+
+INCLUDE "data/phone/text/walt_caller.asm" ; new
 
 SECTION "UpdateBattleHUDs", ROMX
 
@@ -725,6 +729,7 @@ INCLUDE "data/phone/text/kenny_callee.asm" ; new
 INCLUDE "data/phone/text/reese_callee.asm" ; new
 INCLUDE "data/phone/text/timandsue_callee.asm" ; new
 INCLUDE "data/phone/text/wilton_callee.asm"
+INCLUDE "data/phone/text/kyler_callee.asm" ; new
 
 
 SECTION "Miscellaneous Text", ROMX

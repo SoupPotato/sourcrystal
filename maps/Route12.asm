@@ -26,40 +26,40 @@ TrainerFisherKyle:
 	writetext FisherKyleAfterBattleText
 	promptbutton
 	setevent EVENT_KYLE_ASKED_FOR_PHONE_NUMBER
-	scall .AskNumber1
+	scall Route12AskNumberM1
 	jump .AskForNumber
 
 .AskedBefore:
-	scall .AskNumber2
+	scall Route12AskNumberM2
 .AskForNumber:
 	askforphonenumber PHONE_FISHER_KYLE
-	ifequal PHONE_CONTACTS_FULL, .PhoneFull
-	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	ifequal PHONE_CONTACTS_FULL, Route12PhoneFullM
+	ifequal PHONE_CONTACT_REFUSED, Route12NumberDeclinedM
 	gettrainername STRING_BUFFER_3, FISHER, KYLE1
-	scall .RegisteredNumber
-	jump .NumberAccepted
+	scall Route12RegisteredNumberM
+	jump Route12NumberAcceptedM
 
 .WantsBattle:
-	scall .Rematch
+	scall Route12RematchM
 	winlosstext FisherKyleBeatenText, 0
 	checkevent EVENT_BEAT_BLUE
-	iftrue .LoadFight2
+	iftrue .LoadFight3
 	checkevent ENGINE_FLYPOINT_PEWTER
-	iftrue .LoadFight1
+	iftrue .LoadFight2
 	loadtrainer FISHER, KYLE1
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_KYLE_READY_FOR_REMATCH
 	end
 
-.LoadFight1:
+.LoadFight2:
 	loadtrainer FISHER, KYLE2
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_KYLE_READY_FOR_REMATCH
 	end
 
-.LoadFight2:
+.LoadFight3:
 	loadtrainer FISHER, KYLE3
 	startbattle
 	reloadmapafterbattle
@@ -72,42 +72,101 @@ TrainerFisherKyle:
 	closetext
 	end
 
-.AskNumber1:
+Route12AskNumberM1:
 	jumpstd AskNumber1MScript
 	end
 
-.AskNumber2:
+Route12AskNumberM2:
 	jumpstd AskNumber2MScript
 	end
 
-.RegisteredNumber:
+Route12RegisteredNumberM:
 	jumpstd RegisteredNumberMScript
 	end
 
-.NumberAccepted:
+Route12NumberAcceptedM:
 	jumpstd NumberAcceptedMScript
 	end
 
-.NumberDeclined:
+Route12NumberDeclinedM:
 	jumpstd NumberDeclinedMScript
 	end
 
-.PhoneFull:
+Route12PhoneFullM:
 	jumpstd PhoneFullMScript
 	end
 
-.Rematch:
+Route12RematchM:
 	jumpstd RematchMScript
 	end
 
 TrainerFisherKyler:
-	trainer FISHER, KYLER, EVENT_BEAT_FISHER_KYLER, FisherKylerSeenText, FisherKylerBeatenText, 0, .Script
+	trainer FISHER, KYLER1, EVENT_BEAT_FISHER_KYLER, FisherKylerSeenText, FisherKylerBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
+	loadvar VAR_CALLERID, PHONE_FISHER_KYLER
 	opentext
+	checkflag ENGINE_KYLER_READY_FOR_REMATCH
+	iftrue .WantsBattle
+	checkcellnum PHONE_FISHER_KYLER
+	iftrue .KylerDefeated
+	checkevent EVENT_KYLER_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedBefore
 	writetext FisherKylerAfterBattleText
-	waitbutton
+	promptbutton
+	setevent EVENT_KYLER_ASKED_FOR_PHONE_NUMBER
+	scall Route12AskNumberM1
+	jump .AskForNumber
+
+.AskedBefore:
+	scall Route12AskNumberM2
+.AskForNumber:
+	askforphonenumber PHONE_FISHER_KYLER
+	ifequal PHONE_CONTACTS_FULL, Route12PhoneFullM
+	ifequal PHONE_CONTACT_REFUSED, Route12NumberDeclinedM
+	gettrainername STRING_BUFFER_3, FISHER, KYLER1
+	scall Route12RegisteredNumberM
+	jump Route12NumberAcceptedM
+
+.WantsBattle:
+	scall Route12RematchM
+	winlosstext FisherKylerBeatenText, 0
+	checkevent EVENT_BEAT_BLUE
+	iftrue .LoadFight4
+	checkevent ENGINE_FLYPOINT_CINNABAR
+	iftrue .LoadFight3
+	checkevent ENGINE_FLYPOINT_PEWTER
+	iftrue .LoadFight2
+	loadtrainer FISHER, KYLER1
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KYLER_READY_FOR_REMATCH
+	end
+
+.LoadFight2:
+	loadtrainer FISHER, KYLER2
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KYLER_READY_FOR_REMATCH
+	end
+
+.LoadFight3:
+	loadtrainer FISHER, KYLER3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KYLER_READY_FOR_REMATCH
+	end
+
+.LoadFight4:
+	loadtrainer FISHER, KYLER4
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_KYLER_READY_FOR_REMATCH
+	end
+
+.KylerDefeated:
+	writetext FisherKylerAfterBattleText
+	promptbutton
 	closetext
 	end
 
@@ -274,7 +333,6 @@ FisherKylerAfterBattleText:
 	cont "ing new #MON,"
 	cont "it's good to train"
 	cont "them?"
-
 	done
 
 FisherBarneySeenText:

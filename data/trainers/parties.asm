@@ -5147,11 +5147,21 @@ FisherGroup:
 	db 61, QWILFISH,   ROLLOUT, SURF, PIN_MISSILE, TAKE_DOWN
 	db -1 ; end
 
-	; FISHER (26) ; does not change between Normal & Challenge Mode
-	db "KYLER@", TRAINERTYPE_NORMAL
-	db 18, MAGIKARP
-	db 18, MAGIKARP
-	db 18, MAGIKARP
+	; FISHER (26) ; shiny joke
+	db "KYLER@", TRAINERTYPE_VARIABLE
+
+	;Normal Mode
+	db TRAINERTYPE_DVS
+	db 18, MAGIKARP,    $5a,        $aa
+	db 18, MAGIKARP,    $5a,        $aa
+	db 18, MAGIKARP,    $aa,        $aa
+	db $fe ; delimiter
+
+	;Challenge Mode
+	db TRAINERTYPE_DVS
+	db 30, MAGIKARP,    $5a,        $aa
+	db 30, MAGIKARP,    $5a,        $aa
+	db 30, MAGIKARP,    $aa,        $aa
 	db -1 ; end
 
 	; FISHER (27)
@@ -5201,7 +5211,7 @@ FisherGroup:
 	db 52, MANTINE
 	db -1 ; end
 
-	; FISHER (4)
+	; FISHER (30)
 	db "KYLE@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -5220,7 +5230,7 @@ FisherGroup:
 	db 49, KRABBY
 	db -1 ; end
 
-	; FISHER (4)
+	; FISHER (31)
 	db "KYLE@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
@@ -5237,6 +5247,69 @@ FisherGroup:
 	db 62, SEAKING,    MEGAHORN, RAIN_DANCE, WATERFALL, FLAIL
 	db 59, QWILFISH,   PIN_MISSILE, RAIN_DANCE, SURF, SLUDGE_BOMB
 	db 61, KINGLER,    CRABHAMMER, SWORDS_DANCE, DIG, STOMP
+	db -1 ; end
+
+	; FISHER (32) ; shiny joke
+	db "KYLER@", TRAINERTYPE_VARIABLE
+
+	;Normal Mode
+	db TRAINERTYPE_DVS
+	db 38, MAGIKARP,    $5a,        $aa
+	db 38, MAGIKARP,    $5a,        $aa
+	db 38, MAGIKARP,    $5a,        $aa
+	db 38, MAGIKARP,    $aa,        $aa
+	db $fe ; delimiter
+
+	;Challenge Mode
+	db TRAINERTYPE_DVS
+	db 55, MAGIKARP,    $5a,        $aa
+	db 55, MAGIKARP,    $5a,        $aa
+	db 55, MAGIKARP,    $5a,        $aa
+	db 55, MAGIKARP,    $aa,        $aa
+	db -1 ; end
+
+	; FISHER (33) ; shiny joke
+	db "KYLER@", TRAINERTYPE_VARIABLE
+
+	;Normal Mode
+	db TRAINERTYPE_DVS
+	db 54, MAGIKARP,    $5a,        $aa
+	db 54, MAGIKARP,    $5a,        $aa
+	db 54, MAGIKARP,    $5a,        $aa
+	db 54, MAGIKARP,    $5a,        $aa
+	db 54, MAGIKARP,    $aa,        $aa
+	db $fe ; delimiter
+
+	;Challenge Mode
+	db TRAINERTYPE_DVS
+	db 80, MAGIKARP,    $5a,        $aa
+	db 80, MAGIKARP,    $5a,        $aa
+	db 80, MAGIKARP,    $5a,        $aa
+	db 80, MAGIKARP,    $5a,        $aa
+	db 80, MAGIKARP,    $aa,        $aa
+	db -1 ; end
+
+	; FISHER (34) ; shiny joke
+	db "KYLER@", TRAINERTYPE_VARIABLE
+
+	;Normal Mode
+	db TRAINERTYPE_DVS
+	db 78, MAGIKARP,    $5a,        $aa
+	db 78, MAGIKARP,    $5a,        $aa
+	db 78, MAGIKARP,    $5a,        $aa
+	db 78, MAGIKARP,    $5a,        $aa
+	db 78, MAGIKARP,    $5a,        $aa
+	db 78, MAGIKARP,    $aa,        $aa
+	db $fe ; delimiter
+
+	;Challenge Mode
+	db TRAINERTYPE_DVS
+	db 99, MAGIKARP,    $5a,        $aa
+	db 99, MAGIKARP,    $5a,        $aa
+	db 99, MAGIKARP,    $5a,        $aa
+	db 99, MAGIKARP,    $5a,        $aa
+	db 99, MAGIKARP,    $5a,        $aa
+	db 99, MAGIKARP,    $aa,        $aa
 	db -1 ; end
 
 

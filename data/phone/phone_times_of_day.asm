@@ -5,56 +5,57 @@ ENDM
 DEF no_time EQUS "tr_rematch_time -1, -1"
 
 	table_width 1
-	no_time ; 00 PHONE_00
-	no_time ; 01 PHONE_MOM
-	no_time ; 02 PHONE_OAK
-	no_time ; 03 PHONE_BILL
-	no_time ; 04 PHONE_ELM
-	tr_rematch_time MONDAY, MORN_F ; 05 PHONE_SCHOOLBOY_JACK
-	no_time ; 06 PHONE_POKEFAN_BEVERLY
-	tr_rematch_time WEDNESDAY, NITE_F ; 07 PHONE_SAILOR_HUEY
-	tr_rematch_time SATURDAY, MORN_F ; 08 PHONE_YOUNGSTER_IAN
-	tr_rematch_time MONDAY, DAY_F ; 09 PHONE_FIREBREATHER_WALT
-	tr_rematch_time SUNDAY, MORN_F ; 0A PHONE_LASS_KRISE
-	tr_rematch_time THURSDAY, MORN_F ; 0B PHONE_COOLTRAINERM_GAVEN
-	tr_rematch_time FRIDAY, DAY_F ; 0C PHONE_COOLTRAINERF_BETH
-	tr_rematch_time SATURDAY, NITE_F ; 0D PHONE_BIRDKEEPER_JOSE
-	tr_rematch_time SUNDAY, MORN_F ; 0E PHONE_COOLTRAINERF_REENA
-	tr_rematch_time MONDAY, DAY_F ; 0F PHONE_YOUNGSTER_JOEY
-	tr_rematch_time TUESDAY, NITE_F ; 10 PHONE_BUG_CATCHER_WADE
-	tr_rematch_time WEDNESDAY, MORN_F ; 11 PHONE_FISHER_RALPH
-	tr_rematch_time THURSDAY, DAY_F ; 12 PHONE_PICNICKER_LIZ
-	tr_rematch_time FRIDAY, NITE_F ; 13 PHONE_HIKER_ANTHONY
-	tr_rematch_time SATURDAY, MORN_F ; 14 PHONE_CAMPER_TODD
-	tr_rematch_time SUNDAY, DAY_F ; 15 PHONE_PICNICKER_GINA
-	no_time ; 16 PHONE_JUGGLER_IRWIN
-	tr_rematch_time TUESDAY, MORN_F ; 17 PHONE_BUG_CATCHER_ARNIE
-	tr_rematch_time WEDNESDAY, DAY_F ; 18 PHONE_SCHOOLBOY_ALAN
-	tr_rematch_time TUESDAY, DAY_F ; 19 PHONE_GENTLEMAN_ALFRED
-	tr_rematch_time THURSDAY, NITE_F ; 1A PHONE_LASS_DANA
-	tr_rematch_time FRIDAY, MORN_F ; 1B PHONE_SCHOOLBOY_CHAD
-	no_time ; 1C PHONE_POKEFANM_DEREK
-	tr_rematch_time SUNDAY, NITE_F ; 1D PHONE_FISHER_TULLY
-	tr_rematch_time MONDAY, MORN_F ; 1E PHONE_POKEMANIAC_BRENT
-	tr_rematch_time TUESDAY, DAY_F ; 1F PHONE_PICNICKER_TIFFANY
-	tr_rematch_time WEDNESDAY, NITE_F ; 20 PHONE_BIRDKEEPER_VANCE
-	tr_rematch_time THURSDAY, MORN_F ; 21 PHONE_FISHER_WILTON
-	no_time ; 22 PHONE_BLACKBELT_KENJI
-	tr_rematch_time FRIDAY, DAY_F ; 23 PHONE_HIKER_PARRY
-	tr_rematch_time SATURDAY, NITE_F ; 24 PHONE_PICNICKER_ERIN
-	tr_rematch_time WEDNESDAY, MORN_F ; 25 PHONE_BUG_CATCHER_DOUG
-	tr_rematch_time FRIDAY, MORN_F ; 26 PHONE_BUG_CATCHER_ROB
-	tr_rematch_time WEDNESDAY, DAY_F ; 27 PHONE_FISHER_KYLE
-	tr_rematch_time MONDAY, NITE_F ; 28 PHONE_CAMPER_TANNER
-	tr_rematch_time SUNDAY, DAY_F ; 29 PHONE_HIKER_KENNY
-	tr_rematch_time FRIDAY, DAY_F ; 2A PHONE_COUPLE_TIM_AND_SUE
-	tr_rematch_time TUESDAY, NITE_F ; 2B PHONE_BIRDKEEPER_JAMIE
-	tr_rematch_time WEDNESDAY, NITE_F ; 2C PHONE_SCHOOLBOY_TORIN
-	tr_rematch_time FRIDAY, NITE_F ; 2D PHONE_SCHOOLBOY_BILLY
-	tr_rematch_time THURSDAY, NITE_F ; 2E PHONE_TEACHER_HILLARY
-	tr_rematch_time SATURDAY, NITE_F ; 2F PHONE_TWINS_KAY_AND_TIA
-	tr_rematch_time MONDAY, MORN_F ; 30 PHONE_BIKER_AIDEN
-	tr_rematch_time SUNDAY, DAY_F ; 31 PHONE_BIKER_EOIN
-	tr_rematch_time SUNDAY, NITE_F ; 32 PHONE_BIKER_REESE
+	no_time                               ; 00 PHONE_00
+	no_time                               ; 01 PHONE_MOM
+	no_time                               ; 02 PHONE_OAK
+	no_time                               ; 03 PHONE_BILL
+	no_time                               ; 04 PHONE_ELM
+	tr_rematch_time MONDAY, MORN_F        ; 05 PHONE_SCHOOLBOY_JACK
+	no_time                               ; 06 PHONE_POKEFAN_BEVERLY
+	tr_rematch_time WEDNESDAY, NITE_F     ; 07 PHONE_SAILOR_HUEY
+	tr_rematch_time SATURDAY, MORN_F      ; 08 PHONE_YOUNGSTER_IAN
+	tr_rematch_time MONDAY, DAY_F         ; 09 PHONE_FIREBREATHER_WALT
+	tr_rematch_time SUNDAY, MORN_F        ; 0A PHONE_LASS_KRISE
+	tr_rematch_time THURSDAY, MORN_F      ; 0B PHONE_COOLTRAINERM_GAVEN
+	tr_rematch_time FRIDAY, DAY_F         ; 0C PHONE_COOLTRAINERF_BETH
+	tr_rematch_time SATURDAY, NITE_F      ; 0D PHONE_BIRDKEEPER_JOSE
+	tr_rematch_time SUNDAY, MORN_F        ; 0E PHONE_COOLTRAINERF_REENA
+	tr_rematch_time MONDAY, DAY_F         ; 0F PHONE_YOUNGSTER_JOEY
+	tr_rematch_time TUESDAY, NITE_F       ; 10 PHONE_BUG_CATCHER_WADE
+	tr_rematch_time WEDNESDAY, MORN_F     ; 11 PHONE_FISHER_RALPH
+	tr_rematch_time THURSDAY, DAY_F       ; 12 PHONE_PICNICKER_LIZ
+	tr_rematch_time FRIDAY, NITE_F        ; 13 PHONE_HIKER_ANTHONY
+	tr_rematch_time SATURDAY, MORN_F      ; 14 PHONE_CAMPER_TODD
+	tr_rematch_time SUNDAY, DAY_F         ; 15 PHONE_PICNICKER_GINA
+	no_time                               ; 16 PHONE_JUGGLER_IRWIN
+	tr_rematch_time TUESDAY, MORN_F       ; 17 PHONE_BUG_CATCHER_ARNIE
+	tr_rematch_time WEDNESDAY, DAY_F      ; 18 PHONE_SCHOOLBOY_ALAN
+	tr_rematch_time TUESDAY, DAY_F        ; 19 PHONE_GENTLEMAN_ALFRED
+	tr_rematch_time THURSDAY, NITE_F      ; 1A PHONE_LASS_DANA
+	tr_rematch_time FRIDAY, MORN_F        ; 1B PHONE_SCHOOLBOY_CHAD
+	no_time                               ; 1C PHONE_POKEFANM_DEREK
+	tr_rematch_time SUNDAY, NITE_F        ; 1D PHONE_FISHER_TULLY
+	tr_rematch_time MONDAY, MORN_F        ; 1E PHONE_POKEMANIAC_BRENT
+	tr_rematch_time TUESDAY, DAY_F        ; 1F PHONE_PICNICKER_TIFFANY
+	tr_rematch_time WEDNESDAY, NITE_F     ; 20 PHONE_BIRDKEEPER_VANCE
+	tr_rematch_time THURSDAY, MORN_F      ; 21 PHONE_FISHER_WILTON
+	no_time                               ; 22 PHONE_BLACKBELT_KENJI
+	tr_rematch_time FRIDAY, DAY_F         ; 23 PHONE_HIKER_PARRY
+	tr_rematch_time SATURDAY, NITE_F      ; 24 PHONE_PICNICKER_ERIN
+	tr_rematch_time WEDNESDAY, MORN_F     ; 25 PHONE_BUG_CATCHER_DOUG
+	tr_rematch_time FRIDAY, MORN_F        ; 26 PHONE_BUG_CATCHER_ROB
+	tr_rematch_time WEDNESDAY, DAY_F      ; 27 PHONE_FISHER_KYLE
+	tr_rematch_time MONDAY, NITE_F        ; 28 PHONE_CAMPER_TANNER
+	tr_rematch_time SUNDAY, DAY_F         ; 29 PHONE_HIKER_KENNY
+	tr_rematch_time FRIDAY, DAY_F         ; 2A PHONE_COUPLE_TIM_AND_SUE
+	tr_rematch_time TUESDAY, NITE_F       ; 2B PHONE_BIRDKEEPER_JAMIE
+	tr_rematch_time WEDNESDAY, NITE_F     ; 2C PHONE_SCHOOLBOY_TORIN
+	tr_rematch_time FRIDAY, NITE_F        ; 2D PHONE_SCHOOLBOY_BILLY
+	tr_rematch_time THURSDAY, NITE_F      ; 2E PHONE_TEACHER_HILLARY
+	tr_rematch_time SATURDAY, NITE_F      ; 2F PHONE_TWINS_KAY_AND_TIA
+	tr_rematch_time MONDAY, MORN_F        ; 30 PHONE_BIKER_AIDEN
+	tr_rematch_time SUNDAY, DAY_F         ; 31 PHONE_BIKER_EOIN
+	tr_rematch_time SUNDAY, NITE_F        ; 32 PHONE_BIKER_REESE
+	tr_rematch_time THURSDAY, DAY_F       ; 33 PHONE_FISHER_KYLER
 	no_time ; 33 PHONE_BUENA
 	assert_table_length NUM_PHONE_CONTACTS + 1

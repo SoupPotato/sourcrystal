@@ -721,6 +721,7 @@ AskNumber1MScript:
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
 	ifequal PHONE_BIKER_REESE, .Reese
+	ifequal PHONE_FISHER_KYLER, .Kyler
 
 .Jack:
 	farwritetext JackAskNumber1Text
@@ -824,6 +825,9 @@ AskNumber1MScript:
 .Reese:
 	farwritetext ReeseAskNumber1Text
 	end
+.Kyler:
+	farwritetext KylerAskNumber1Text
+	end
 
 AskNumber2MScript:
 	special RandomPhoneMon
@@ -862,6 +866,7 @@ AskNumber2MScript:
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
 	ifequal PHONE_BIKER_REESE, .Reese
+	ifequal PHONE_FISHER_KYLER, .Kyler
 
 .Jack:
 	farwritetext JackAskNumber2Text
@@ -965,6 +970,9 @@ AskNumber2MScript:
 .Reese:
 	farwritetext ReeseAskNumber2Text
 	end
+.Kyler:
+	farwritetext KylerAskNumber2Text
+	end
 
 RegisteredNumberMScript:
 	farwritetext RegisteredNumber1Text
@@ -1009,6 +1017,7 @@ NumberAcceptedMScript:
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
 	ifequal PHONE_BIKER_REESE, .Reese
+	ifequal PHONE_FISHER_KYLER, .Kyler
 
 
 .Jack:
@@ -1181,6 +1190,11 @@ NumberAcceptedMScript:
 	waitbutton
 	closetext
 	end
+.Kyler:
+	farwritetext KylerNumberAcceptedText
+	waitbutton
+	closetext
+	end
 
 NumberDeclinedMScript:
 	readvar VAR_CALLERID
@@ -1218,6 +1232,7 @@ NumberDeclinedMScript:
 	ifequal PHONE_BIKER_AIDEN, .Aiden
 	ifequal PHONE_BIKER_EOIN, .Eoin
 	ifequal PHONE_BIKER_REESE, .Reese
+	ifequal PHONE_FISHER_KYLER, .Kyler
 
 .Jack:
 	farwritetext JackNumberDeclinedText
@@ -1386,6 +1401,11 @@ NumberDeclinedMScript:
 	end
 .Reese:
 	farwritetext ReeseNumberDeclinedText
+	waitbutton
+	closetext
+	end
+.Kyler:
+	farwritetext KylerNumberDeclinedText
 	waitbutton
 	closetext
 	end

@@ -102,6 +102,10 @@ KyleReminderScript:
 	farwritetext KyleReminderText
 	end
 
+KylerReminderScript:
+	farwritetext KylerReminderText
+	end
+
 LizReminderScript:
 	farwritetext LizReminderText
 	end

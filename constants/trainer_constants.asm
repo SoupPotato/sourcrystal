@@ -424,12 +424,15 @@ DEF KRIS EQU __trainer_class__
 	const RALPH4
 	const RALPH5
 	const TULLY4
-	const KYLER
+	const KYLER1
 	const MURPHY
 	const LIAM
 	const GIDEON
 	const KYLE2
 	const KYLE3
+	const KYLER2
+	const KYLER3
+	const KYLER4
 
 	trainerclass SWIMMERM ; 26
 	const HAROLD

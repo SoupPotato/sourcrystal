@@ -1,5 +1,7 @@
 WaltReminderText:
-	text "I'm all ready, and"
+	text "Hey, <PLAY_G>!"
+
+	para "I'm all ready, and"
 	line "waiting for you on"
 	cont "@"
 	text_from_ram wStringBuffer5
@@ -7,23 +9,18 @@ WaltReminderText:
 	cont "so hurry up!"
 	done
 
-WaltTypesOfPokemonText:
-	text "You know how there"
-	line "are so many diff-"
-	cont "erent types of"
-	cont "#MON right?"
-	
-	para "Each type has good"
-	line "and bad points,"
+WaltJustAHobbyText:
+	text "You know, lots of"
+	line "people get the"
 
-	para "so it's not easy"
-	line "to say which type"
-	cont "is the best."
+	para "wrong idea about"
+	line "me."
 
-	para "However…"
+	para "Isn't that right,"
+	line "@"
+	text_ram wStringBuffer4 
+	text "?"
 
-	para "My choice has to"
-	line "be the FIRE-type!"
-
-	para "Fwoooom!"
+	para "Breathing fire is"
+	line "just a hobby!"
 	done

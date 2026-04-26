@@ -12,6 +12,18 @@ WaltNewTechniqueText:
 	cont "phone…"
 	done
 
+WaltTypesOfPokemonText:
+	text "You know how there"
+	line "are so many diff-"
+	cont "erent types of"
+	cont "#MON right?"
+
+	para "My choice has to"
+	line "be the FIRE-type!"
+
+	para "Fwoooom!"
+	done
+
 WaltCaughtMonText:
 	text "Nevermind that…"
 

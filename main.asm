@@ -730,7 +730,7 @@ INCLUDE "data/phone/text/reese_callee.asm" ; new
 INCLUDE "data/phone/text/timandsue_callee.asm" ; new
 INCLUDE "data/phone/text/wilton_callee.asm"
 INCLUDE "data/phone/text/kyler_callee.asm" ; new
-
+INCLUDE "data/phone/text/ian_callee.asm" ; new
 
 SECTION "Miscellaneous Text", ROMX
 

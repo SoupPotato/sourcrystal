@@ -1133,14 +1133,21 @@ PhoneScript_Generic_Male:
 	ifequal PHONE_BIRDKEEPER_VANCE, .Vance
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
+	ifequal PHONE_FIREBREATHER_WALT, .Walt
+	ifequal PHONE_YOUNGSTER_IAN, .Ian
 
 .Jack:
 	farwritetext JackGenericText
 	promptbutton
 	end
 
-.Unknown: ; unreferenced
-	farwritetext UnknownGenericText
+.Walt:
+	farwritetext WaltJustAHobbyText
+	promptbutton
+	end
+
+.Ian:
+	farwritetext IanImprovedALotText
 	promptbutton
 	end
 

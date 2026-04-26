@@ -3,6 +3,7 @@
 	const MOUNTMORTAR1FOUTSIDE_POKE_BALL2
 	const MOUNTMORTAR1FOUTSIDE_HELIX_FOSSIL
 	const MOUNTMORTAR1FOUTSIDE_DOME_FOSSIL
+	const MOUNTMORTAR1FOUTSIDE_POKEFAN_M
 
 MountMortar1FOutside_MapScripts:
 	def_scene_scripts
@@ -120,6 +121,24 @@ endr
 	closetext
 	end
 
+MountMortar1FOutsidePokefanMScript:
+	faceplayer
+	opentext
+	checkevent EVENT_MT_MORTAR_OBTAINED_FOSSIL
+	iftrue .gotfossil
+	writetext MountMortar1FOutsidePokefanMText
+	waitbutton
+	closetext
+	turnobject MOUNTMORTAR1FOUTSIDE_POKEFAN_M, UP
+	end
+
+.gotfossil
+	writetext MountMortar1FOutsidePokefanMGotFossilText
+	waitbutton
+	closetext
+	turnobject MOUNTMORTAR1FOUTSIDE_POKEFAN_M, UP
+	end
+
 MountMortar1FOutsideEther:
 	itemball ETHER
 
@@ -167,6 +186,29 @@ MountMortar1FDomeFossilWashedAwayText:
 	line "was washed away…"
 	done
 
+MountMortar1FOutsidePokefanMText:
+	text "I heard fossils"
+	line "could be found in"
+
+	para "this cave, so I"
+	line "started digging."
+
+	para "I'll make big cash"
+	line "if I find one!"
+	done
+
+MountMortar1FOutsidePokefanMGotFossilText:
+	text "Wha?… You found a"
+	line "fossil!?"
+
+	para "I knew it! I'll"
+	line "just keep digging"
+	cont "'till I find one…"
+
+	para "Then I'll be rich,"
+	line "rich, rich!"
+	done
+
 MovementData_DomeFossil:
 	step DOWN
 	slow_step DOWN
@@ -208,3 +250,4 @@ MountMortar1FOutside_MapEvents:
 	object_event 31, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar1FOutsideRevive, EVENT_MOUNT_MORTAR_1F_OUTSIDE_REVIVE
 	object_event 20, 23, SPRITE_FOSSIL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MountMortar1FHelixFossil, EVENT_MT_MORTAR_OBTAINED_FOSSIL
 	object_event 21, 23, SPRITE_FOSSIL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MountMortar1FDomeFossil, EVENT_MT_MORTAR_OBTAINED_FOSSIL
+	object_event  6, 22, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MountMortar1FOutsidePokefanMScript, -1

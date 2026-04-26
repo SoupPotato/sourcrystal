@@ -250,6 +250,10 @@ Phone_WhoDefeatedMon_Male:
 	end
 
 .Walt:
+	farwritetext WaltCaughtMonText
+	promptbutton
+	end
+
 .Gaven:
 	farwritetext GavenDefeatedMonText
 	promptbutton
@@ -578,9 +582,15 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
 	ifequal PHONE_FISHER_KYLE, .Kyle
 	ifequal PHONE_FISHER_KYLER, .Kyler
+	ifequal PHONE_FIREBREATHER_WALT, .Walt
 
 .Jack:
 	farwritetext JackBattleRematchText
+	promptbutton
+	end
+
+.Walt:
+	farwritetext WaltBattleRematchText
 	promptbutton
 	end
 

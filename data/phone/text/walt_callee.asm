@@ -1,7 +1,5 @@
 WaltReminderText:
-	text "Hey, <PLAY_G>!"
-
-	para "I'm all ready, and"
+	text "I'm all ready, and"
 	line "waiting for you on"
 	cont "@"
 	text_from_ram wStringBuffer5

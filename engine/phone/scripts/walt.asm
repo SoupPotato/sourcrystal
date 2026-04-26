@@ -32,7 +32,7 @@ WaltPhoneCallerScript: ; Calls you
 	ifequal SATURDAY, WaltContestToday
 	farscall PhoneScript_Random3
 	ifequal 0, WaltFoundRare
-	farjump WaltNewTechnique
+	farjump Phone_GenericCall_Male
 
 WaltWantsToBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_35

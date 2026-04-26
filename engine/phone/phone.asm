@@ -145,35 +145,41 @@ ChooseRandomCaller:
 	ld a, c
 	ld [wCheckedTime], a
 
+; Get the list of all contacts we have. wAvailableCallers is available but we're
+; not gonna use that.
+	ld a, BANK(sSortedPhoneContacts)
+	call OpenSRAM
+	call SortPhoneContacts
+; Right now sSortedPhoneContacts starts at 00 so we can use this to avoid
+; subtracting 16 bit numbers or whatever. `hl` is at the end of the list plus one.
+	assert LOW(sSortedPhoneContacts) == $00
+; So getting the length is as simple as:
+	ld c, l
+
 ; Sample a random number.
 	call Random
-; Get the modulo (at `a`) of this over *all* phone contacts.
+; Get the modulo (at `a`) of this over how many contacts we actually have
+; (already loaded at `c`).
 	ldh a, [hRandomAdd]
-	ld c, NUM_PHONE_CONTACTS
 	call SimpleDivide
-; If we landed on PHONE_00, we can't do anything.
-	and a
-	ret z
 
-; Do we have this number saved?
-	ld e, a
-	dec e
-	ld d, 0
-	ld b, CHECK_FLAG
-	ld hl, wPhoneList
-	push de
-		call FlagAction
-	pop de
-	ld a, c
-	and a
-; No we don't
-	ret z
+	assert LOW(sSortedPhoneContacts) == $00
+	ld l, a
+	ld h, HIGH(sSortedPhoneContacts)
 
-; We do, so get the info for this contact
-	ld a, e
+; Well we got a contact ID...
+; and one that starts with PHONE_00 too
+; Received phone contact will be in `e` because that's what the vanilla code
+; asks for or something.
+	ld e, [hl]
+
+; ...So we're done with accessing SRAM
+	call CloseSRAM
+
 ; Check if it's the right time of day for them to be calling us
 	ld hl, PhoneContacts + PHONE_CONTACT_SCRIPT2_TIME
 	ld bc, PHONE_CONTACT_SIZE
+	ld a, e
 	call AddNTimes
 	ld a, [wCheckedTime]
 	and [hl]

@@ -1882,6 +1882,9 @@ SortPhoneContacts:
 	inc e
 	ld a, e
 	cp NUM_PHONE_CONTACTS
+	; After this, `hl` will contain the last address of the sorted phone
+	; contacts list (plus 1) which can be used to count the number of contacts
+	; that we have?
 	ret z
 	jr .keep_going
 

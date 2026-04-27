@@ -1241,6 +1241,7 @@ PhoneScript_Generic_Female:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_LASS_KRISE, .Krise
 
 .Beverly:
 	farwritetext BeverlyGenericText
@@ -1249,6 +1250,11 @@ PhoneScript_Generic_Female:
 
 .Beth:
 	farwritetext BethGenericText
+	promptbutton
+	end
+
+.Krise:
+	farwritetext KrisePCBoxesText
 	promptbutton
 	end
 

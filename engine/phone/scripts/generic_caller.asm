@@ -181,9 +181,15 @@ Phone_WhosBragging_Female:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_LASS_KRISE, .Krise
 
 .Beverly:
 	farwritetext BeverlyMadeMonEvenCuterText
+	promptbutton
+	end
+
+.Krise:
+	farwritetext KriseMonLikeBestText
 	promptbutton
 	end
 
@@ -869,6 +875,14 @@ PhoneScript_HangUpText_Female:
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 
+.Dana:
+	farwritetext DanaHangUpText
+	end
+
+.Liz:
+	farwritetext LizHangUpText
+	end
+
 .Beverly:
 	farwritetext BeverlyHangUpText
 	end
@@ -881,16 +895,8 @@ PhoneScript_HangUpText_Female:
 	farwritetext ReenaHangUpText
 	end
 
-.Liz:
-	farwritetext LizHangUpText
-	end
-
 .Gina:
 	farwritetext GinaHangUpText
-	end
-
-.Dana:
-	farwritetext DanaHangUpText
 	end
 
 .Tiffany:

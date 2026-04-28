@@ -1,37 +1,77 @@
-AlfredNoctowlTradeText:
-	text "It's kind of dis-"
-	line "appointing."
+AlfredNotSameNoctowlText:
+	text "Recently, I got"
+	line "another NOCTOWL in"
+	cont "a trade…"
 
-	para "A few days ago, I"
-	line "received a NOCTOWL"
+	para "and yet, I thought"
+	line "it was the same"
+
+	para "NOCTOWL I trained"
+	line "years ago!"
+
+	para "But I soon came to"
+	line "realize, it wasn't"
+	cont "after all…"
+
+	para "How perplexing…"
+	done
+
+AlfredSameNoctowlText:
+	text "Recently, I got"
+	line "another NOCTOWL in"
+	cont "a trade…"
+
+	para "Except this one"
+	line "was the very same"
+
+	para "NOCTOWL I trained"
+	line "so many years ago!"
+
+	para "The world really"
+	line "is a small place…"
+	done
+
+AlfredLostAMonText:
+	text "Oh, thats right…"
 	
-	para "when I traded with"
-	line "someone."
+	para "A few days ago a"
+	line "RATTATA got away"
+	cont "from me…"
 
-	para "It was such a"
-	line "familiar NOCTOWL…"
+	para "I tipped my hat to"
+	line "it, and it fled."
 
-	para "I thought it was"
-	line "the NOCTOWL that I"
-	cont "had originally"
-	cont "trained!"
+	para "RATTATA are such"
+	line "impolite rodents…"
+	done
 
-	para "It'd somehow found"
-	line "its way back…"
-
-	para "I was so moved…"
+AlfredDefeatedMonText:
+	text "Oh, thats right…"
 	
-	para "But when I looked"
-	line "closer, I saw that"
+	para "A few days ago I"
+	line "managed to catch"
+	cont "a PIDGEY."
 
-	para "it wasn't the"
-	line "NOCTOWL I thought"
-	cont "it was."
+	para "My NOCTOWL seems"
+	line "to have taken a"
+	cont "liking to it."
 
-	para "That kind of thing"
-	line "can't truly happen"
-	cont "in this world,"
-	cont "right?"
+	para "Perhaps I shall"
+	line "train it too…"
+	done
+
+AlfredBattleRematchText:
+	text "Ha ha, would you"
+	line "like to battle me"
+	cont "once again?"
+	
+	para "I think that's a"
+	line "fine idea!"
+
+	para "I'll meet you at"
+	line "@"
+	text_from_ram wStringBuffer5
+	text "."
 	done
 
 AlfredHangUpText:

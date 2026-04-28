@@ -23,13 +23,8 @@ KriseMiniSkirt:
 	promptbutton
 	sjump PhoneScript_HangUpText_Female
 
-AlfredNoctowlTrade:
-	farwritetext AlfredNoctowlTradeText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
-AlfredPokemonBlurb:
-	farwritetext AlfredPokemonBlurbText
+AlfredExtraordinaryBeings:
+	farwritetext AlfredExtraordinaryBeingsText
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 

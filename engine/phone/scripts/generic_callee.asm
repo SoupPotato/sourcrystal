@@ -1135,6 +1135,7 @@ PhoneScript_Generic_Male:
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_FIREBREATHER_WALT, .Walt
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
+	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 
 .Jack:
 	farwritetext JackGenericText
@@ -1148,6 +1149,11 @@ PhoneScript_Generic_Male:
 
 .Ian:
 	farwritetext IanImprovedALotText
+	promptbutton
+	end
+
+.Alfred:
+	farwritetext AlfredNotSameNoctowlText
 	promptbutton
 	end
 

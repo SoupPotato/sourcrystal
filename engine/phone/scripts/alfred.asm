@@ -11,7 +11,7 @@ AlfredPhoneCalleeScript: ; You call Alfred
 	iftrue AlfredWantsBattle
 
 .NotTuesday:
-	farjump AlfredPokemonBlurb
+	farjump AlfredExtraordinaryBeings
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_LIGHTHOUSE
@@ -24,7 +24,7 @@ AlfredPhoneCallerScript: ; Calls you
 	ifequal 0, AlfredWantsBattle
 
 .Generic:
-	farjump AlfredNoctowlTrade
+	farjump Phone_GenericCall_Male
 
 AlfredWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_LIGHTHOUSE

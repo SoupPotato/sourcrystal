@@ -11,13 +11,16 @@ IanLearnedALotText:
 	text "."
 	done
 
-IanInShortsText:
-	text "Hey, you know why"
-	line "I'm always wearing"
-	cont "shorts?"
-	
-	para "It's because"
-	line "shorts are cool!"
+IanImprovedALotText:
+	text "Thanks to you,"
+	line "we've improved a"
+	cont "whole lot!"
+
+	para "But even though"
+	line "we are getting"
+
+	para "stronger, you"
+	line "probably are too…"
 	done
 
 IanLostAMonText:

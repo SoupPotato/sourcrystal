@@ -60,7 +60,7 @@ AlfredGreetNiteText:
 	done
 
 AlfredReminderText:
-	text "Oh, hey, good"
+	text "Oh, hello, good"
 	line "afternoon."
 
 	para "Is everything all"
@@ -79,15 +79,12 @@ AlfredReminderText:
 	line "there!"
 	done
 
-AlfredPokemonBlurbText:
-	text "Just like this,"
-	line "when calling a"
+AlfredExtraordinaryBeingsText:
+	text "Just by calling an"
+	line "-other individual,"
 
-	para "young person such"
-	line "as yourself, you"
-	
-	para "can trade in-"
-	line "formation."
+	para "you can trade in"
+	line "-formation."
 
 	para "Just like this,"
 	line "#MON bring"

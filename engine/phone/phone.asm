@@ -145,8 +145,7 @@ ChooseRandomCaller:
 	ld a, c
 	ld [wCheckedTime], a
 
-; Get the list of all contacts we have. wAvailableCallers is available but we're
-; not gonna use that.
+; Get the list of all contacts we have.
 	ld a, BANK(sSortedPhoneContacts)
 	call OpenSRAM
 	call SortPhoneContacts

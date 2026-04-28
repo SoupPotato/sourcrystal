@@ -2314,8 +2314,10 @@ NEXTU
 ; phone script data
 wCheckedTime:: db
 wPhoneListIndex:: db
-wNumAvailableCallers:: db
-wAvailableCallers:: ds CONTACT_LIST_SIZE
+;wNumAvailableCallers::
+	db
+;wAvailableCallers::
+	ds CONTACT_LIST_SIZE
 
 NEXTU
 ; phone caller contact

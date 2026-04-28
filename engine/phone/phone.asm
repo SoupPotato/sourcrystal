@@ -186,20 +186,23 @@ ChooseRandomCaller:
 ; Not the right time
 	ret z
 
-; If we're at the right place
+; Check the map group
 	ld bc, PHONE_CONTACT_MAP_GROUP - PHONE_CONTACT_SCRIPT2_TIME
 	add hl, bc
 	ld a, [wMapGroup]
 	cp [hl]
-	jr nz, .no_call
+; If the contact is in a different map group, there isn't a chance they can be
+; in the same map as us...
+	jr nz, .different_group
 
+; If the contact is in the exact same map as us, don't call.
 	inc hl ; PHONE_CONTACT_MAP_NUMBER
 	ld a, [wMapNumber]
 	cp [hl]
-; Almost the right place that is... calls initiate in the same map group
-; but not the map number itself, because that'd be kind of pointless?
 	jr z, .no_call
 
+; ...so they should always be able to call us.
+.different_group
 ; `e` should remain intact here, which is the caller ID we got.
 	ld a, e
 	scf

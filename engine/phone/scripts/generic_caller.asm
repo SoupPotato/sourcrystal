@@ -355,6 +355,7 @@ Phone_WhoDefeatedMon_Female:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_LASS_KRISE, .Krise
 
 .Beverly:
 	farwritetext BeverlyDefeatedMonText
@@ -363,6 +364,11 @@ Phone_WhoDefeatedMon_Female:
 
 .Beth:
 	farwritetext BethDefeatedMonText
+	promptbutton
+	end
+
+.Krise
+	farwritetext KriseDefeatedMonText
 	promptbutton
 	end
 
@@ -517,6 +523,7 @@ Phone_WhoLostAMon_Female:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_LASS_KRISE, .Krise
 
 .Beverly:
 	farwritetext BeverlyLostAMonText
@@ -525,6 +532,11 @@ Phone_WhoLostAMon_Female:
 
 .Beth:
 	farwritetext BethLostAMonText
+	promptbutton
+	end
+
+.Krise:
+	farwritetext KriseLostAMonText
 	promptbutton
 	end
 

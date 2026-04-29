@@ -1,12 +1,10 @@
-AlanPhoneCalleeScript:
+AlanPhoneCalleeScript: ; You call
 	gettrainername STRING_BUFFER_3, SCHOOLBOY, ALAN1
-	checkflag ENGINE_ALAN_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	farscall PhoneScript_AnswerPhone_Male
-	checkflag ENGINE_ALAN_WEDNESDAY_AFTERNOON
-	iftrue .NotWednesday
 	checkflag ENGINE_ALAN_HAS_FIRE_STONE
-	iftrue .FireStone
+	iftrue AlanFireStoneReminder
+	checkflag ENGINE_ALAN_READY_FOR_REMATCH
+	iftrue AlanBattleReminder
+	farscall PhoneScript_AnswerPhone_Male
 	readvar VAR_WEEKDAY
 	ifnotequal WEDNESDAY, .NotWednesday
 	checktime DAY
@@ -15,31 +13,33 @@ AlanPhoneCalleeScript:
 	iftrue AlanWantsBattle
 
 .NotWednesday:
+	checkflag ENGINE_ALAN_GAVE_FIRE_STONE
+	iftrue .skipFireStone
+	farscall PhoneScript_Random11 ; 9% chance when you call them
+	ifequal 0, AlanHasFireStone
+.skipFireStone
 	farsjump AlanHangUpScript
 
-.WantsBattle:
+AlanBattleReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_36
 	farsjump AlanReminderScript
 
-.FireStone:
+AlanFireStoneReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_36
 	farsjump AlanComePickUpScript
 
-AlanPhoneCallerScript:
+AlanPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, SCHOOLBOY, ALAN1
-	farscall PhoneScript_GreetPhone_Male
-	checkflag ENGINE_ALAN_READY_FOR_REMATCH
-	iftrue .Generic
-	checkflag ENGINE_ALAN_WEDNESDAY_AFTERNOON
-	iftrue .Generic
 	checkflag ENGINE_ALAN_HAS_FIRE_STONE
-	iftrue .Generic
-	farscall PhoneScript_Random11
+	iftrue AlanFireStoneReminder
+	checkflag ENGINE_ALAN_READY_FOR_REMATCH
+	iftrue AlanBattleReminder
+	farscall PhoneScript_GreetPhone_Male
+	farscall PhoneScript_Random3 ; 25% chance when they call you
 	ifequal 0, AlanHasFireStone
-
-.Generic:
+	setflag ENGINE_ALAN_GAVE_FIRE_STONE
 	farscall PhoneScript_Random2
-	ifequal 0, AlanWantsBattle
+	ifequal 0, AlanWantsBattle ; 33% chance for a rematch
 	farsjump Phone_GenericCall_Male
 
 AlanWantsBattle:

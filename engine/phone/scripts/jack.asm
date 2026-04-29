@@ -6,7 +6,7 @@ JackPhoneCalleeScript:
 	readvar VAR_WEEKDAY
 	ifnotequal MONDAY, .NotMonday
 	checktime MORN
-	iftrue JackWantsToBattle
+	iftrue JackWantsBattle
 
 .NotMonday:
 	farsjump JackPhoneTipsScript
@@ -21,13 +21,13 @@ JackPhoneCallerScript:
 	iftrue JackBattleReminder
 	farscall PhoneScript_GreetPhone_Male
 	farscall PhoneScript_Random2
-	ifequal 0, JackWantsToBattle
+	ifequal 0, JackWantsBattle ; 33% chance for a rematch
 	farscall PhoneScript_Random4
 	ifequal 0, JackFindsRare
 	ifequal 1, JackBattleTrivia
 	farsjump Phone_GenericCall_Male
 
-JackWantsToBattle:
+JackWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_NATIONAL_PARK
 	setflag ENGINE_JACK_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Male

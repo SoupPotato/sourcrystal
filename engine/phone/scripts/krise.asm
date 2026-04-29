@@ -21,7 +21,7 @@ KrisePhoneCallerScript:
 	iftrue KriseBattleReminder
 	farscall PhoneScript_GreetPhone_Female
 	farscall PhoneScript_Random2
-	ifequal 0, KriseWantsToBattle
+	ifequal 0, KriseWantsToBattle ; 33% chance for a rematch
 	farscall PhoneScript_Random3
 	ifequal 0, KriseFoundRare
 	farjump Phone_GenericCall_Female

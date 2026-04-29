@@ -1,10 +1,8 @@
-ChadPhoneCalleeScript:
+ChadPhoneCalleeScript: ; You call
 	gettrainername STRING_BUFFER_3, SCHOOLBOY, CHAD1
 	checkflag ENGINE_CHAD_READY_FOR_REMATCH
-	iftrue .WantsBattle
+	iftrue ChadBattleReminder
 	farscall PhoneScript_AnswerPhone_Male
-	checkflag ENGINE_CHAD_FRIDAY_MORNING
-	iftrue .NotFriday
 	readvar VAR_WEEKDAY
 	ifnotequal FRIDAY, .NotFriday
 	checktime MORN
@@ -13,23 +11,19 @@ ChadPhoneCalleeScript:
 .NotFriday:
 	farsjump ChadHangUpScript
 
-.WantsBattle:
+ChadBattleReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_38
 	farsjump ChadReminderScript
 
-ChadPhoneCallerScript:
+ChadPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, SCHOOLBOY, CHAD1
+	checkflag ENGINE_CHAD_READY_FOR_REMATCH
+	iftrue ChadBattleReminder
 	farscall PhoneScript_GreetPhone_Male
 	farscall PhoneScript_Random2
-	ifequal 0, ChadOakGossip
-	checkflag ENGINE_CHAD_READY_FOR_REMATCH
-	iftrue .Generic
-	checkflag ENGINE_CHAD_FRIDAY_MORNING
-	iftrue .Generic
+	ifequal 0, ChadWantsBattle ; 33% chance for a rematch
 	farscall PhoneScript_Random2
-	ifequal 0, ChadWantsBattle
-
-.Generic:
+	ifequal 0, ChadOakGossip
 	farscall PhoneScript_Random3
 	ifequal 0, ChadFoundRare
 	farsjump Phone_GenericCall_Male

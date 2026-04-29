@@ -1,12 +1,10 @@
-TiffanyPhoneCalleeScript:
+TiffanyPhoneCalleeScript: ; You call
 	gettrainername STRING_BUFFER_3, PICNICKER, TIFFANY3
-	checkflag ENGINE_TIFFANY_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	farscall PhoneScript_AnswerPhone_Female
-	checkflag ENGINE_TIFFANY_TUESDAY_AFTERNOON
-	iftrue .NotTuesday
 	checkflag ENGINE_TIFFANY_HAS_POKE_DOLL
-	iftrue .HasItem
+	iftrue TiffanyPokeDollReminder
+	checkflag ENGINE_TIFFANY_READY_FOR_REMATCH
+	iftrue TiffanyBattleReminder
+	farscall PhoneScript_AnswerPhone_Female
 	readvar VAR_WEEKDAY
 	ifnotequal TUESDAY, .NotTuesday
 	checktime DAY
@@ -15,33 +13,35 @@ TiffanyPhoneCalleeScript:
 	iftrue TiffanyWantsBattle
 
 .NotTuesday:
+	checkflag ENGINE_TIFFANY_GAVE_POKE_DOLL
+	iftrue .skipPokeDoll
+	farscall PhoneScript_Random2 ; 33% chance when you call them
+	ifequal 0, TiffanyHasPokeDoll
+.skipPokeDoll
 	farsjump TiffanyNoItemScript
 
-.WantsBattle:
+TiffanyBattleReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_43
 	farsjump TiffanyReminderScript
 
-.HasItem:
+TiffanyPokeDollReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_43
 	farsjump TiffanyHurryScript
 
-TiffanyPhoneCallerScript:
+TiffanyPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, PICNICKER, TIFFANY3
+	checkflag ENGINE_TIFFANY_HAS_POKE_DOLL
+	iftrue TiffanyPokeDollReminder
+	checkflag ENGINE_TIFFANY_READY_FOR_REMATCH
+	iftrue TiffanyBattleReminder
 	farscall PhoneScript_Random4
 	ifequal 0, TiffanysFamilyMembers
 	farscall PhoneScript_GreetPhone_Female
-	checkflag ENGINE_TIFFANY_READY_FOR_REMATCH
-	iftrue .Generic
-	checkflag ENGINE_TIFFANY_TUESDAY_AFTERNOON
-	iftrue .Generic
-	checkflag ENGINE_TIFFANY_HAS_POKE_DOLL
-	iftrue .Generic
-	farscall PhoneScript_Random11
-	ifequal 0, TiffanyHasSilkScarf
-
-.Generic:
+	farscall PhoneScript_Random2 ; 33% chance when they call you
+	ifequal 0, TiffanyHasPokeDoll
+	setflag ENGINE_TIFFANY_GAVE_POKE_DOLL
 	farscall PhoneScript_Random2
-	ifequal 0, TiffanyWantsBattle
+	ifequal 0, TiffanyWantsBattle ; 33% chance for a rematch
 	farsjump Phone_GenericCall_Female
 
 TiffanyWantsBattle:
@@ -85,7 +85,7 @@ TiffanysFamilyMembers:
 .PoorClefairy:
 	farsjump TiffanyItsAwful
 
-TiffanyHasSilkScarf:
+TiffanyHasPokeDoll:
 	setflag ENGINE_TIFFANY_HAS_POKE_DOLL
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_43
 	farsjump PhoneScript_FoundItem_Female

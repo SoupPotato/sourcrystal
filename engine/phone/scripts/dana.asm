@@ -1,43 +1,43 @@
-DanaPhoneCalleeScript:
+DanaPhoneCalleeScript: ; You call
 	gettrainername STRING_BUFFER_3, LASS, DANA1
-	checkflag ENGINE_DANA_READY_FOR_REMATCH
-	iftrue .WantsBattle
-	farscall PhoneScript_AnswerPhone_Female
-	checkflag ENGINE_DANA_THURSDAY_NIGHT
-	iftrue .NotThursday
 	checkflag ENGINE_DANA_HAS_THUNDERSTONE
-	iftrue .HasThunderstone
+	iftrue DanaThunderstoneReminder
+	checkflag ENGINE_DANA_READY_FOR_REMATCH
+	iftrue DanaBattleReminder
+	farscall PhoneScript_AnswerPhone_Female
 	readvar VAR_WEEKDAY
 	ifnotequal THURSDAY, .NotThursday
 	checktime NITE
 	iftrue DanaWantsBattle
 
 .NotThursday:
+	checkflag ENGINE_DANA_GAVE_THUNDERSTONE
+	iftrue .skipThunderStone
+	farscall PhoneScript_Random11 ; 9% chance when you call them
+	ifequal 0, DanaHasThunderstone
+.skipThunderStone
 	farsjump DanaHangUpScript
 
-.WantsBattle:
+DanaBattleReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_38
 	farsjump DanaReminderScript
 
-.HasThunderstone:
+DanaThunderstoneReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_38
 	farsjump DanaComePickUpScript
 
-DanaPhoneCallerScript:
+DanaPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, LASS, DANA1
-	farscall PhoneScript_GreetPhone_Female
-	checkflag ENGINE_DANA_READY_FOR_REMATCH
-	iftrue .Generic
-	checkflag ENGINE_DANA_THURSDAY_NIGHT
-	iftrue .Generic
 	checkflag ENGINE_DANA_HAS_THUNDERSTONE
-	iftrue .Generic
-	farscall PhoneScript_Random11
+	iftrue DanaThunderstoneReminder
+	checkflag ENGINE_DANA_READY_FOR_REMATCH
+	iftrue DanaBattleReminder
+	farscall PhoneScript_GreetPhone_Female
+	farscall PhoneScript_Random3 ; 25% chance when they call you
 	ifequal 0, DanaHasThunderstone
-
-.Generic:
+	setflag ENGINE_DANA_GAVE_THUNDERSTONE
 	farscall PhoneScript_Random2
-	ifequal 0, DanaWantsBattle
+	ifequal 0, DanaWantsBattle ; 33% chance for a rematch
 	farscall PhoneScript_Random3
 	ifequal 0, DanaFoundRare
 	farsjump Phone_GenericCall_Female

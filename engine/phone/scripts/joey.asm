@@ -24,7 +24,7 @@ JoeyPhoneCallerScript: ; Calls you
 	iftrue JoeyBattleReminder
 	farscall PhoneScript_GreetPhone_Male
 	farscall PhoneScript_Random2
-	ifequal 0, JoeyWantsBattle
+	ifequal 0, JoeyWantsBattle ; 33% chance for a rematch
 	farsjump Phone_GenericCall_Male
 
 JoeyWantsBattle:

@@ -38,7 +38,7 @@ WiltonPhoneCallerScript: ; Calls you
 	farscall PhoneScript_Random2 ; 33% chance when you call them
 	ifequal 0, WiltonHasItem
 	farscall PhoneScript_Random2
-	ifequal 0, WiltonWantsBattle
+	ifequal 0, WiltonWantsBattle ; 33% chance for a rematch
 	farsjump Phone_GenericCall_Male
 
 WiltonWantsBattle:

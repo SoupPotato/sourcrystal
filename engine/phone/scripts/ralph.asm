@@ -21,7 +21,7 @@ RalphPhoneCallerScript: ; Calls you
 	iftrue RalphBattleReminder
 	farscall PhoneScript_GreetPhone_Male
 	farscall PhoneScript_Random2
-	ifequal 0, RalphWantsBattle
+	ifequal 0, RalphWantsBattle ; 33% chance for a rematch
 	farsjump Phone_GenericCall_Male
 
 RalphWantsBattle:

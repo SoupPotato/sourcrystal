@@ -1,10 +1,8 @@
-HueyPhoneCalleeScript:
+HueyPhoneCalleeScript: ; You call
 	gettrainername STRING_BUFFER_3, SAILOR, HUEY1
 	checkflag ENGINE_HUEY_READY_FOR_REMATCH
-	iftrue .WantsBattle
+	iftrue HueyBattleReminder
 	farscall PhoneScript_AnswerPhone_Male
-	checkflag ENGINE_HUEY_WEDNESDAY_NIGHT
-	iftrue .NotWednesday
 	readvar VAR_WEEKDAY
 	ifnotequal WEDNESDAY, .NotWednesday
 	checktime NITE
@@ -14,22 +12,17 @@ HueyPhoneCalleeScript:
 	special RandomPhoneMon
 	farsjump HueyHangUpScript
 
-.WantsBattle:
+HueyBattleReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_LIGHTHOUSE
 	farsjump HueyReminderScript
 
-HueyPhoneCallerScript:
+HueyPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, SAILOR, HUEY1
-	farscall PhoneScript_GreetPhone_Male
 	checkflag ENGINE_HUEY_READY_FOR_REMATCH
-	iftrue .Flavor
-	checkflag ENGINE_HUEY_WEDNESDAY_NIGHT
-	iftrue .Flavor
-	farscall PhoneScript_Random3
-	ifequal 0, HueyWantsBattle
-	ifequal 1, HueyWantsBattle
-
-.Flavor:
+	iftrue HueyBattleReminder
+	farscall PhoneScript_GreetPhone_Male
+	farscall PhoneScript_Random2
+	ifequal 0, HueyWantsBattle ; 33% chance for a rematch
 	farsjump PhoneScript_MonFlavorText
 
 HueyWantsBattle:

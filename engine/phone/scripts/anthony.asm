@@ -21,7 +21,7 @@ AnthonyPhoneCallerScript:
 	iftrue AnthonyBattleReminder
 	farscall PhoneScript_GreetPhone_Male
 	farscall PhoneScript_Random2
-	ifequal 0, AnthonyWantsBattle
+	ifequal 0, AnthonyWantsBattle ; 33% chance for a rematch
 	farsjump Phone_GenericCall_Male
 
 AnthonyWantsBattle:

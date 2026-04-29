@@ -27,20 +27,10 @@ LizPhoneCallerScript:
 	farscall PhoneScript_Random4 ;20% chance to wrong number
 	ifequal 0, LizWrongNumber
 	farscall PhoneScript_GreetPhone_Female
-	checkflag ENGINE_LIZ_READY_FOR_REMATCH
-	iftrue .next
-	checkflag ENGINE_LIZ_THURSDAY_AFTERNOON
-	iftrue .next
-
-.next:
+	farscall PhoneScript_Random2
+	ifequal 0, LizWantsBattle ; 33% chance for a rematch
 	farscall PhoneScript_Random2
 	ifequal 0, LizGossip
-	checkflag ENGINE_FLYPOINT_GOLDENROD
-	iffalse .Generic
-	farscall PhoneScript_Random2
-	ifequal 0, LizWantsBattle
-
-.Generic:
 	farsjump Phone_GenericCall_Female
 
 LizWantsBattle:

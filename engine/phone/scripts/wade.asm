@@ -54,7 +54,7 @@ WadePhoneCallerScript: ; Calls you
 	ifequal 0, WadeHasBerry
 	setflag ENGINE_WADE_GAVE_BERRY
 	farscall PhoneScript_Random2
-	ifequal 0, WadeWantsBattle
+	ifequal 0, WadeWantsBattle ; 33% chance for a rematch
 	farscall PhoneScript_Random3
 	ifequal 0, WadeFoundRare
 	farjump Phone_GenericCall_Male

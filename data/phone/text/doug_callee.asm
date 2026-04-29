@@ -1,26 +1,13 @@
-DougStoryText:
+DougDadStoryText:
 	text "You know, my dad"
-	line "was a researcher"
-	
-	para "studying BUG-type"
-	line "#MON."
+	line "studied BUG-type"
+	cont "#MON."
 
-	para "Ever since I was"
-	line "young, there's"
+	para "That's why I like"
+	line "them too!"
 
-	para "always been BUG-"
-	line "type #MON scat-"
-	cont "tered all over my"
-	cont "house."
-
-	para "That's why I"
-	line "started to like"
-	cont "BUG-type #MON"
-	cont "so much."
-
-	para "My mom…"
-	line "Well, she screamed"
-	cont "a lot."
+	para "My mom… Well, she"
+	line "screamed a lot."
 	done
 
 DougReminderText:

@@ -9,7 +9,7 @@ AidenPhoneCalleeScript: ; You call Aiden
 	iftrue AidenWantsBattle
 
 .NotMonday:
-	farjump AidenTalkOnBike
+	farjump AidenTalkOnBikeScript
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_17

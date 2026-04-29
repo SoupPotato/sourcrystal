@@ -11,7 +11,7 @@ KylerPhoneCalleeScript: ; You call Kyler
 	iftrue KylerWantsBattle
 
 .NotWednesday:
-	farjump KylerFishingTips
+	farjump KylerFishingTipsScript
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_12

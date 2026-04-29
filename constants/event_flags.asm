@@ -676,13 +676,13 @@
 	const EVENT_WALL_OPENED_IN_OMANYTE_CHAMBER
 	const EVENT_WALL_OPENED_IN_AERODACTYL_CHAMBER
 	const EVENT_WELCOMED_TO_POKECOM_CENTER
-	const EVENT_WADE_HAS_ORAN_BERRY
-	const EVENT_WADE_HAS_PECHA_BERRY
-	const EVENT_WADE_HAS_CHERI_BERRY
-	const EVENT_WADE_HAS_PERSIM_BERRY
-	const EVENT_WILTON_HAS_ULTRA_BALL
-	const EVENT_WILTON_HAS_GREAT_BALL
-	const EVENT_WILTON_HAS_POKE_BALL
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
 	const EVENT_HOLE_IN_BURNED_TOWER
 	const EVENT_FOUGHT_EUSINE
 	const EVENT_KOJI_ALLOWS_YOU_PASSAGE_TO_TIN_TOWER

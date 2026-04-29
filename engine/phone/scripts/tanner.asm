@@ -20,7 +20,7 @@ TannerPhoneCalleeScript: ; You call Tanner
 	setflag ENGINE_TANNER_GAVE_SUN_STONE
 
 .Generic:
-	farjump TannerCamping
+	farjump TannerCampingScript
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_13

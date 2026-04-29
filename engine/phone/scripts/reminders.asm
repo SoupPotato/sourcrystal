@@ -70,6 +70,10 @@ IanReminderScript:
 	farwritetext IanReminderText
 	end
 
+DougRematchAndBerryReminderScript:
+	farwritetext DougRematchAndBerryReminderText
+	end
+
 JackReminderScript:
 	farwritetext JackReminderText
 	end

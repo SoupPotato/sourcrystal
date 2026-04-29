@@ -1,7 +1,7 @@
 LizPhoneCalleeScript:
 	gettrainername STRING_BUFFER_3, PICNICKER, LIZ1
 	checkflag ENGINE_LIZ_READY_FOR_REMATCH
-	iftrue .WantsBattle
+	iftrue LizBattleReminder
 	farscall PhoneScript_AnswerPhone_Female
 	checkflag ENGINE_LIZ_THURSDAY_AFTERNOON
 	iftrue .NotThursday
@@ -16,13 +16,15 @@ LizPhoneCalleeScript:
 	special RandomPhoneMon
 	farsjump LizHangUpScript
 
-.WantsBattle:
+LizBattleReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_32
 	farsjump LizReminderScript
 
 LizPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, PICNICKER, LIZ1
-	farscall PhoneScript_Random4
+	checkflag ENGINE_LIZ_READY_FOR_REMATCH
+	iftrue LizBattleReminder
+	farscall PhoneScript_Random4 ;20% chance to wrong number
 	ifequal 0, LizWrongNumber
 	farscall PhoneScript_GreetPhone_Female
 	checkflag ENGINE_LIZ_READY_FOR_REMATCH

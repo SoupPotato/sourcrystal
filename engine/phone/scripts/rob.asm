@@ -20,7 +20,7 @@ RobPhoneCalleeScript: ; You call Rob
 	setflag ENGINE_ROB_GAVE_BERRY
 
 .Generic:
-	farjump RobStory
+	farjump RobStoryScript
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2

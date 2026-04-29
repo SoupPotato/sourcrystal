@@ -20,7 +20,7 @@ JamiePhoneCalleeScript: ; You call Jamie
 	setflag ENGINE_JAMIE_GAVE_MOON_STONE
 
 .Generic:
-	farjump JamieSneezing
+	farjump JamieSneezingScript
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_14

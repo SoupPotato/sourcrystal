@@ -9,7 +9,7 @@ ReesePhoneCalleeScript: ; You call Reese
 	iftrue ReeseWantsBattle
 
 .NotSunday:
-	farjump ReeseBikers
+	farjump ReeseBikersScript
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_17

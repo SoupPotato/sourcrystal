@@ -9,7 +9,7 @@ TorinPhoneCalleeScript: ; You call Torin
 	iftrue TorinWantsBattle
 
 .NotWednesday:
-	farjump TorinSchool
+	farjump TorinSchoolScript
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_14

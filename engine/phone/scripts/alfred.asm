@@ -11,7 +11,7 @@ AlfredPhoneCalleeScript: ; You call Alfred
 	iftrue AlfredWantsBattle
 
 .NotTuesday:
-	farjump AlfredExtraordinaryBeings
+	farjump AlfredExtraordinaryBeingsScript
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_LIGHTHOUSE

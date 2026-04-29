@@ -9,7 +9,7 @@ KayAndTiaPhoneCalleeScript: ; You call Kay & Tia
 	iftrue KayAndTiaWantsBattle
 
 .NotSaturday:
-	farjump KayAndTiaQuiz
+	farjump KayAndTiaQuizScript
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_15

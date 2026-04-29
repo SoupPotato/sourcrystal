@@ -57,3 +57,16 @@ RalphGenericText:
 	line "to be good to your"
 	cont "partners!"
 	done
+
+RalphWonderfulFishingText:
+	text "Hey, how are you"
+	line "doing?"
+
+	para "I'm doing wonder"
+	line "-ful of course!"
+
+	para "That is, when it"
+	line "comes to fishing!"
+
+	para "Ha ha ha!"
+	done

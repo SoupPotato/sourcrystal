@@ -11,7 +11,7 @@ KennyPhoneCalleeScript: ; You call Kenny
 	iftrue KennyWantsBattle
 
 .NotSaturday:
-	farjump KennyBaths
+	farjump KennyBathsScript
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_13

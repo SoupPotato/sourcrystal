@@ -127,25 +127,21 @@ TrainerBugCatcherWade1:
 	ifequal 3, .persimberry
 
 .oranberry:
-	setflag ENGINE_WADE_HAS_BERRY
 	verbosegiveitem ORAN_BERRY
 	iffalse .PackFull
 	sjump .Done
 
 .pechaberry:
-	setflag ENGINE_WADE_HAS_BERRY
 	verbosegiveitem PECHA_BERRY
 	iffalse .PackFull
 	sjump .Done
 
 .cheriberry:
-	setflag ENGINE_WADE_HAS_BERRY
 	verbosegiveitem CHERI_BERRY
 	iffalse .PackFull
 	sjump .Done
 
 .persimberry:
-	setflag ENGINE_WADE_HAS_BERRY
 	verbosegiveitem PERSIM_BERRY
 	iffalse .PackFull
 

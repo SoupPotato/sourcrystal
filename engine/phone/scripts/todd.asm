@@ -1,7 +1,7 @@
-ToddPhoneCalleeScript:
+ToddPhoneCalleeScript: ; You call
 	gettrainername STRING_BUFFER_3, CAMPER, TODD1
 	checkflag ENGINE_TODD_READY_FOR_REMATCH
-	iftrue .WantsBattle
+	iftrue ToddBattleReminder
 	farscall PhoneScript_AnswerPhone_Male
 	checkflag ENGINE_TODD_SATURDAY_MORNING
 	iftrue .NotSaturday
@@ -15,32 +15,29 @@ ToddPhoneCalleeScript:
 	iftrue .SaleOn
 	farsjump ToddNoItemScript
 
-.WantsBattle:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_34
-	farsjump ToddReminderScript
-
 .SaleOn:
 	farsjump ToddHurryScript
 
-ToddPhoneCallerScript:
+ToddBattleReminder:
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_34
+	farsjump ToddReminderScript
+
+ToddPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, CAMPER, TODD1
-	farscall PhoneScript_GreetPhone_Male
 	checkflag ENGINE_TODD_READY_FOR_REMATCH
-	iftrue .TryForSale
+	iftrue ToddBattleReminder
+	farscall PhoneScript_GreetPhone_Male
 	checkflag ENGINE_TODD_SATURDAY_MORNING
 	iftrue .TryForSale
-	checkflag ENGINE_FLYPOINT_GOLDENROD
-	iffalse .NoGoldenrod
 	farscall PhoneScript_Random2
 	ifequal 0, ToddWantsBattle
+	farscall PhoneScript_Random3
+	ifequal 0, ToddFoundRare
+	farsjump Phone_GenericCall_Male
 
 .TryForSale:
 	farscall PhoneScript_Random2
 	ifequal 0, ToddDeptStoreSale
-
-.NoGoldenrod:
-	farscall PhoneScript_Random3
-	ifequal 0, ToddFoundRare
 	farsjump Phone_GenericCall_Male
 
 ToddWantsBattle:
@@ -48,9 +45,9 @@ ToddWantsBattle:
 	setflag ENGINE_TODD_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Male
 
-ToddFoundRare:
-	farsjump Phone_CheckIfUnseenRare_Male
-
 ToddDeptStoreSale:
 	setflag ENGINE_GOLDENROD_DEPT_STORE_SALE_IS_ON
 	farsjump ToddItemScript
+
+ToddFoundRare:
+	farjump Phone_CheckIfUnseenRare_Male

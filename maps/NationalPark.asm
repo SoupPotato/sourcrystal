@@ -196,6 +196,7 @@ TrainerPokefanfBeverly:
 	verbosegiveitem NUGGET
 	iffalse .NoRoom
 	clearflag ENGINE_BEVERLY_HAS_NUGGET
+	setflag ENGINE_BEVERLY_GAVE_NUGGET
 	sjump NationalParkNumberAcceptedF
 
 .NoRoom:

@@ -1136,9 +1136,15 @@ PhoneScript_Generic_Male:
 	ifequal PHONE_FIREBREATHER_WALT, .Walt
 	ifequal PHONE_YOUNGSTER_IAN, .Ian
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
+	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 
 .Jack:
 	farwritetext JackGenericText
+	promptbutton
+	end
+
+.Doug:
+	farwritetext DougJumpedAtMeText
 	promptbutton
 	end
 

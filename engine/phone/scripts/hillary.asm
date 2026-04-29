@@ -9,7 +9,7 @@ HillaryPhoneCalleeScript: ; You call Hillary
 	iftrue HillaryWantsBattle
 
 .NotFriday:
-	farjump HillaryCutestThing
+	farjump HillaryCutestThingScript
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_15

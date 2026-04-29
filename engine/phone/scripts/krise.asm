@@ -1,7 +1,7 @@
 KrisePhoneCalleeScript:
 	gettrainername STRING_BUFFER_3, LASS, KRISE1
 	checkflag ENGINE_KRISE_READY_FOR_REMATCH
-	iftrue .WaitingForBattle
+	iftrue KriseBattleReminder
 	farscall PhoneScript_AnswerPhone_Female
 	checkcode VAR_WEEKDAY
 	ifnotequal SUNDAY, .NotSunday
@@ -9,19 +9,19 @@ KrisePhoneCalleeScript:
 	iftrue KriseWantsToBattle
 
 .NotSunday:
-	farjump KriseMiniSkirt
+	farjump KriseMiniSkirtScript
 
-.WaitingForBattle:
+KriseBattleReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_NATIONAL_PARK
 	farjump KriseReminderScript
 
 KrisePhoneCallerScript:
 	gettrainername STRING_BUFFER_3, LASS, KRISE1
+	checkflag ENGINE_KRISE_READY_FOR_REMATCH
+	iftrue KriseBattleReminder
 	farscall PhoneScript_GreetPhone_Female
 	farscall PhoneScript_Random2
 	ifequal 0, KriseWantsToBattle
-
-.GenericKriseCall:
 	farscall PhoneScript_Random3
 	ifequal 0, KriseFoundRare
 	farjump Phone_GenericCall_Female

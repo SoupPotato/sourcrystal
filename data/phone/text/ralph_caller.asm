@@ -18,10 +18,7 @@ RalphDefeatedMonText:
 	text "."
 
 	para "I told my kid, but"
-	line "he scoffed that he"
-
-	para "could do the same"
-	line "thing easily."
+	line "he scoffed at me."
 
 	para "Boy, has he gotten"
 	line "cocky…"
@@ -67,35 +64,6 @@ RalphHangUpText:
 	line "sometimes too!"
 	done
 
-RalphItemText:
-	text "Listen, I… Yowch!"
-
-	para "Uh, sorry! See,"
-	line "@"
-	text_ram wStringBuffer4
-	text " are"
-
-	para "biting like there"
-	line "is no tomorrow"
-
-	para "over here on"
-	line "@"
-	text_ram wStringBuffer5
-	text "!"
-
-	para "Aiyee! Ouch!"
-	line "One jabbed me!"
-
-	para "Heh, they're some"
-	line "kind of feisty!"
-
-	para "<PLAY_G>, you have"
-	line "to see this rare"
-
-	para "sight! Get ready"
-	line "to fish!"
-	done
-
 RalphReminderText:
 	text "So where are you?"
 	line "I'm waiting for"
@@ -107,16 +75,4 @@ RalphReminderText:
 
 	para "You shouldn't make"
 	line "your elders wait!"
-	done
-
-RalphHurryText:
-	text "Hey, what's the"
-	line "matter with you?"
-
-	para "Aren't you coming"
-	line "over to fish for"
-	cont "QWILFISH?"
-
-	para "I'm on ROUTE 32,"
-	line "so hurry up!"
 	done

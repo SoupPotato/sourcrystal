@@ -9,7 +9,7 @@ BillyPhoneCalleeScript: ; You call Billy
 	iftrue BillyWantsBattle
 
 .NotFriday:
-	farjump BillyResearch
+	farjump BillyResearchScript
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_15

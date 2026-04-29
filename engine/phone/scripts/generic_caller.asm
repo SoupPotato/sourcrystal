@@ -76,9 +76,15 @@ Phone_WhosBragging_Male:
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_FIREBREATHER_WALT, .Walt
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
+	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 
 .Jack:
 	farwritetext JackIntelligenceKeepsRisingText
+	promptbutton
+	end
+
+.Doug:
+	farwritetext DougGrowingUpWellText
 	promptbutton
 	end
 
@@ -256,9 +262,15 @@ Phone_WhoDefeatedMon_Male:
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_FIREBREATHER_WALT, .Walt
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
+	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 
 .Jack:
 	farwritetext JackDefeatedMonText
+	promptbutton
+	end
+
+.Doug:
+	farwritetext DougDefeatedMonText
 	promptbutton
 	end
 
@@ -435,9 +447,15 @@ Phone_WhoLostAMon_Male:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
+	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 
 .Jack:
 	farwritetext JackLostAMonText
+	promptbutton
+	end
+
+.Doug:
+	farwritetext DougLostAMonText
 	promptbutton
 	end
 
@@ -620,9 +638,15 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_FISHER_KYLER, .Kyler
 	ifequal PHONE_FIREBREATHER_WALT, .Walt
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
+	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 
 .Jack:
 	farwritetext JackBattleRematchText
+	promptbutton
+	end
+
+.Doug:
+	farwritetext DougBattleRematchText
 	promptbutton
 	end
 
@@ -987,11 +1011,6 @@ GinaRocketRumorScript:
 	farwritetext GinaRocketTakeoverRumorText
 	promptbutton
 	sjump PhoneScript_HangUpText_Female
-
-RalphItemScript:
-	farwritetext RalphItemText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
 
 PhoneScript_FoundItem_Male:
 	readvar VAR_CALLERID

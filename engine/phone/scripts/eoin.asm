@@ -11,7 +11,7 @@ EoinPhoneCalleeScript: ; You call Eoin
 	iftrue EoinWantsBattle
 
 .NotSunday:
-	farjump EoinBikerMons
+	farjump EoinBikerMonsScript
 
 .WaitingForBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_17

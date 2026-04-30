@@ -2314,10 +2314,7 @@ NEXTU
 ; phone script data
 wCheckedTime:: db
 wPhoneListIndex:: db
-;wNumAvailableCallers::
-	db
-;wAvailableCallers::
-	ds CONTACT_LIST_SIZE
+	ds 11
 
 NEXTU
 ; phone caller contact
@@ -3376,7 +3373,7 @@ wBuenasPassword:: db
 wBlueCardBalance:: db
 wDailyRematchFlags:: ds 6
 wDailyPhoneItemFlags:: ds 4
-wDailyPhoneTimeOfDayFlags:: ds 4
+	ds 4
 wKenjiBreakTimer:: ds 2 ; Kenji
 wYanmaMapGroup:: db
 wYanmaMapNumber:: db
@@ -3408,7 +3405,7 @@ wParkBallsRemaining::
 wSafariBallsRemaining:: db
 wSafariTimeRemaining:: dw
 
-wPhoneList:: ds CONTACT_LIST_SIZE + 1
+wPhoneList:: ds 11 ; CONTACT_LIST_SIZE + 1
 
 wWeatherRandomDay:: db
 wWeatherRandomMapGroupJohto:: ds NUM_WEATHER_MAPS_PER_DAY

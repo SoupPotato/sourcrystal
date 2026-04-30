@@ -298,30 +298,30 @@ EngineFlags:
 	engine_flag wDailyPhoneItemFlags, 28 ; ian has berry
 	engine_flag wDailyPhoneItemFlags, 29 ; ian gave a berry today
 
-	engine_flag wDailyPhoneTimeOfDayFlags,  0 ; jack
-	engine_flag wDailyPhoneTimeOfDayFlags,  1 ; huey
-	engine_flag wDailyPhoneTimeOfDayFlags,  2 ; gaven
-	engine_flag wDailyPhoneTimeOfDayFlags,  3 ; beth
-	engine_flag wDailyPhoneTimeOfDayFlags,  4 ; jose
-	engine_flag wDailyPhoneTimeOfDayFlags,  5 ; reena
-	engine_flag wDailyPhoneTimeOfDayFlags,  6 ; joey
-	engine_flag wDailyPhoneTimeOfDayFlags,  7 ; wade
-	engine_flag wDailyPhoneTimeOfDayFlags,  8 ; ralph
-	engine_flag wDailyPhoneTimeOfDayFlags,  9 ; liz
-	engine_flag wDailyPhoneTimeOfDayFlags, 10 ; anthony
-	engine_flag wDailyPhoneTimeOfDayFlags, 11 ; todd
-	engine_flag wDailyPhoneTimeOfDayFlags, 12 ; gina
-	engine_flag wDailyPhoneTimeOfDayFlags, 13 ; arnie
-	engine_flag wDailyPhoneTimeOfDayFlags, 14 ; alan
-	engine_flag wDailyPhoneTimeOfDayFlags, 15 ; dana
-	engine_flag wDailyPhoneTimeOfDayFlags, 16 ; chad
-	engine_flag wDailyPhoneTimeOfDayFlags, 17 ; tully
-	engine_flag wDailyPhoneTimeOfDayFlags, 18 ; brent
-	engine_flag wDailyPhoneTimeOfDayFlags, 19 ; tiffany
-	engine_flag wDailyPhoneTimeOfDayFlags, 20 ; vance
-	engine_flag wDailyPhoneTimeOfDayFlags, 21 ; wilton
-	engine_flag wDailyPhoneTimeOfDayFlags, 22 ; parry
-	engine_flag wDailyPhoneTimeOfDayFlags, 23 ; erin
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
+	engine_flag wUnusedTwoDayTimerOn, 0 ; unused
 
 	engine_flag wPlayerSpriteSetupFlags, PLAYERSPRITESETUP_FEMALE_TO_MALE_F
 

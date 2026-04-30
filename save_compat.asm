@@ -44,7 +44,7 @@ MigrateSaveFile:
 	inc de
 	inc c
 	ld a, c
-	cp CONTACT_LIST_SIZE + 1
+	cp 10 + 1 ; CONTACT_LIST_SIZE + 1
 	jr nz, .continue_memmove
 
 ; Now let's iterate over the thing we moved to generate the new bitflag array.
@@ -87,7 +87,7 @@ MigrateBackupSaveFile:
 	inc de
 	inc c
 	ld a, c
-	cp CONTACT_LIST_SIZE + 1
+	cp 10 + 1 ; CONTACT_LIST_SIZE + 1
 	jr nz, .continue_memmove
 	ld hl, wPhoneList
 	ld d, 0

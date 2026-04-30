@@ -1,4 +1,17 @@
-RobStoryText:
+RobRematchAndBerryReminderText:
+	text "How come you're"
+	line "not here yet?"
+
+	para "@"
+	text_from_ram wStringBuffer5
+	text " is where "
+	line "I am."
+
+	para "Please get here as"
+	line "soon as you can!"
+	done
+
+RobCutFingerText:
 	text "While I was walk-"
 	line "ing around the"
 	
@@ -12,15 +25,7 @@ RobStoryText:
 	line "but I'm fine."
 	done
 
-RobReminderText:
-	text "Where are you now?"
 
-	para "Close to"
-	line "@"
-	text_from_ram wStringBuffer5
-	text "?"
 
-	para "Don't tell me you"
-	line "forgot we were"
-	cont "going to battle?"
-	done
+
+

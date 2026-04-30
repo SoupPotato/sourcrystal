@@ -1,9 +1,9 @@
 DougPhoneCalleeScript: ; You call
 	gettrainername STRING_BUFFER_3, BUG_CATCHER, DOUG1
 	checkflag ENGINE_DOUG_HAS_BERRY
-	iftrue DougBerryReminder
+	iftrue DougRematchAndBerryReminder
 	checkflag ENGINE_DOUG_READY_FOR_REMATCH
-	iftrue DougBattleReminder
+	iftrue DougRematchAndBerryReminder
 	farscall PhoneScript_AnswerPhone_Male
 	checkcode VAR_WEEKDAY
 	ifnotequal WEDNESDAY, .NotWednesday
@@ -20,16 +20,16 @@ DougPhoneCalleeScript: ; You call
 .Generic:
 	farjump DougDadStoryScript
 
-DougBattleReminder:
+DougRematchAndBerryReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2
 	farjump DougRematchAndBerryReminderScript
 
 DougPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, BUG_CATCHER, DOUG1
 	checkflag ENGINE_DOUG_HAS_BERRY
-	iftrue DougBerryReminder
+	iftrue DougRematchAndBerryReminder
 	checkflag ENGINE_DOUG_READY_FOR_REMATCH
-	iftrue DougBattleReminder
+	iftrue DougRematchAndBerryReminder
 	farscall PhoneScript_GreetPhone_Male
 	farscall PhoneScript_Random2 ; 33% chance when they call you
 	ifequal 0, DougHasBerry
@@ -37,10 +37,6 @@ DougPhoneCallerScript: ; Calls you
 	farscall PhoneScript_Random2
 	ifequal 0, DougWantsBattle
 	farsjump Phone_GenericCall_Male
-
-DougBerryReminder:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2
-	farjump DougRematchAndBerryReminderScript
 
 DougWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2
@@ -51,4 +47,3 @@ DougHasBerry:
 	setflag ENGINE_DOUG_HAS_BERRY
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2
 	farjump PhoneScript_FoundItem_Male
-

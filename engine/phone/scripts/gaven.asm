@@ -1,10 +1,8 @@
-GavenPhoneCalleeScript:
+GavenPhoneCalleeScript: ; You call
 	gettrainername STRING_BUFFER_3, COOLTRAINERM, GAVEN3
 	checkflag ENGINE_GAVEN_READY_FOR_REMATCH
-	iftrue .WantsBattle
+	iftrue GavenBattleReminder
 	farscall PhoneScript_AnswerPhone_Male
-	checkflag ENGINE_GAVEN_THURSDAY_MORNING
-	iftrue .NotThursday
 	readvar VAR_WEEKDAY
 	ifnotequal THURSDAY, .NotThursday
 	checktime MORN
@@ -13,21 +11,17 @@ GavenPhoneCalleeScript:
 .NotThursday:
 	farsjump GavenHangUpNotThursdayScript
 
-.WantsBattle:
+GavenBattleReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_26
 	farsjump GavenReminderScript
 
-GavenPhoneCallerScript:
+GavenPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, COOLTRAINERM, GAVEN3
-	farscall PhoneScript_GreetPhone_Male
 	checkflag ENGINE_GAVEN_READY_FOR_REMATCH
-	iftrue .WaitingForBattle
-	checkflag ENGINE_GAVEN_THURSDAY_MORNING
-	iftrue .WaitingForBattle
-	farscall PhoneScript_Random2
+	iftrue GavenBattleReminder
+	farscall PhoneScript_GreetPhone_Male
+	farscall PhoneScript_Random2 ; 33% chance for a rematch
 	ifequal 0, GavenWantsRematch
-
-.WaitingForBattle:
 	farscall PhoneScript_Random3
 	ifequal 0, GavenFoundRare
 	farsjump Phone_GenericCall_Male

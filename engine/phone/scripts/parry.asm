@@ -1,36 +1,29 @@
-ParryPhoneCalleeScript:
+ParryPhoneCalleeScript: ; You call
 	gettrainername STRING_BUFFER_3, HIKER, PARRY1
 	checkflag ENGINE_PARRY_READY_FOR_REMATCH
-	iftrue .WantsBattle
+	iftrue ParryBattleReminder
 	farscall PhoneScript_AnswerPhone_Male
-	checkflag ENGINE_PARRY_FRIDAY_AFTERNOON
-	iftrue .WantsRematch
 	readvar VAR_WEEKDAY
-	ifnotequal FRIDAY, .WantsRematch
+	ifnotequal FRIDAY, .NotFriday
 	checktime DAY
 	iftrue ParryWantsBattle
 	checktime EVE
 	iftrue ParryWantsBattle
 
-.WantsRematch:
-	farsjump ParryBattleWithMeScript
+.NotFriday:
+	farsjump ParryBattleWithMeScript ; not a rematch request
 
-.WantsBattle:
+ParryBattleReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_45
 	farsjump ParryReminderScript
 
-ParryPhoneCallerScript:
+ParryPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, HIKER, PARRY1
-	farscall PhoneScript_GreetPhone_Male
 	checkflag ENGINE_PARRY_READY_FOR_REMATCH
-	iftrue .GenericCall
-	checkflag ENGINE_PARRY_FRIDAY_AFTERNOON
-	iftrue .GenericCall
+	iftrue ParryBattleReminder
+	farscall PhoneScript_GreetPhone_Male
 	farscall PhoneScript_Random2
-	ifequal 0, ParryWantsBattle
-	ifequal 1, ParryWantsBattle
-
-.GenericCall:
+	ifequal 0, ParryWantsBattle ; 33% chance for a rematch
 	farsjump Phone_GenericCall_Male
 
 ParryWantsBattle:

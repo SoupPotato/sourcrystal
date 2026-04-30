@@ -77,9 +77,15 @@ Phone_WhosBragging_Male:
 	ifequal PHONE_FIREBREATHER_WALT, .Walt
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
+	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 
 .Jack:
 	farwritetext JackIntelligenceKeepsRisingText
+	promptbutton
+	end
+
+.Rob:
+	farwritetext RobMyMonWontLoseText
 	promptbutton
 	end
 
@@ -263,9 +269,15 @@ Phone_WhoDefeatedMon_Male:
 	ifequal PHONE_FIREBREATHER_WALT, .Walt
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
+	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 
 .Jack:
 	farwritetext JackDefeatedMonText
+	promptbutton
+	end
+
+.Rob:
+	farwritetext RobDefeatedMonText
 	promptbutton
 	end
 
@@ -448,9 +460,15 @@ Phone_WhoLostAMon_Male:
 	ifequal PHONE_HIKER_PARRY, .Parry
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
+	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 
 .Jack:
 	farwritetext JackLostAMonText
+	promptbutton
+	end
+
+.Rob:
+	farwritetext RobLostAMonText
 	promptbutton
 	end
 
@@ -639,9 +657,15 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_FIREBREATHER_WALT, .Walt
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
+	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 
 .Jack:
 	farwritetext JackBattleRematchText
+	promptbutton
+	end
+
+.Rob:
+	farwritetext RobBattleRematchText
 	promptbutton
 	end
 

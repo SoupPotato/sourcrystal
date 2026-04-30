@@ -130,8 +130,8 @@ ReeseReminderScript:
 	farwritetext ReeseReminderText
 	end
 
-RobReminderScript:
-	farwritetext RobReminderText
+RobRematchAndBerryReminderScript:
+	farwritetext RobRematchAndBerryReminderText
 	end
 
 TannerReminderScript:

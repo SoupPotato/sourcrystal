@@ -1,64 +1,42 @@
-RobPhoneCalleeScript: ; You call Rob
+RobPhoneCalleeScript: ; You call
 	gettrainername STRING_BUFFER_3, BUG_CATCHER, ROB1
+	checkflag ENGINE_ROB_HAS_BERRY
+	iftrue RobRematchAndBerryReminder
 	checkflag ENGINE_ROB_READY_FOR_REMATCH
-	iftrue .WaitingForBattle
+	iftrue RobRematchAndBerryReminder
 	farscall PhoneScript_AnswerPhone_Male
-	checkflag ENGINE_ROB_HAS_BERRY
-	iftrue .HasBerry
 	checkcode VAR_WEEKDAY
-	ifnotequal FRIDAY, .CheckRobBerryNotFriday1
+	ifnotequal FRIDAY, .NotFriday
 	checktime MORN
-	iftrue RobCheckBerry
+	iftrue RobWantsBattle
 
-.CheckRobBerryNotFriday1
-	checkflag ENGINE_ROB_HAS_BERRY
-	iftrue .HasBerry
+.NotFriday:
 	checkflag ENGINE_ROB_GAVE_BERRY
 	iftrue .Generic
-	farscall PhoneScript_Random5
+	farscall PhoneScript_Random2 ; 33% chance when you call them
 	ifequal 0, RobHasBerry
 	setflag ENGINE_ROB_GAVE_BERRY
 
 .Generic:
-	farjump RobStoryScript
+	farjump RobCutFingerScript
 
-.WaitingForBattle:
+RobRematchAndBerryReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2
-	farjump RobReminderScript
-
-.HasBerry:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2
-	farjump RobBerryReminderScript
+	farjump RobRematchAndBerryReminderScript
 
 RobPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, BUG_CATCHER, ROB1
-	farscall PhoneScript_GreetPhone_Male
 	checkflag ENGINE_ROB_HAS_BERRY
-	iftrue .HasBerry
-	checkcode VAR_WEEKDAY
-	ifnotequal FRIDAY, CheckRobBerryNotFriday2
-	checktime MORN
-	iftrue RobCheckBerry
-	jump CheckRobBerryNotFriday2
-
-.HasBerry:
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2
-	farjump RobBerryReminderScript
-
-CheckRobBerryNotFriday2:
-	checkflag ENGINE_ROB_GAVE_BERRY
-	iftrue GenericRobCall
-	farscall PhoneScript_Random5
+	iftrue RobRematchAndBerryReminder
+	checkflag ENGINE_ROB_READY_FOR_REMATCH
+	iftrue RobRematchAndBerryReminder
+	farscall PhoneScript_GreetPhone_Male
+	farscall PhoneScript_Random2 ; 33% chance when you call them
 	ifequal 0, RobHasBerry
 	setflag ENGINE_ROB_GAVE_BERRY
-	jump GenericRobCall
-
-RobCheckBerry:
-	checkflag ENGINE_ROB_GAVE_BERRY
-	iftrue RobWantsBattle
-	farscall PhoneScript_Random5
-	ifequal 0, RobHasBerry
-	setflag ENGINE_ROB_GAVE_BERRY
+	farscall PhoneScript_Random2
+	ifequal 0, RobWantsBattle
+	farsjump Phone_GenericCall_Male
 
 RobWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2
@@ -69,6 +47,3 @@ RobHasBerry:
 	setflag ENGINE_ROB_HAS_BERRY
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2
 	farjump PhoneScript_FoundItem_Male
-
-GenericRobCall:
-	farjump Phone_GenericCall_Male

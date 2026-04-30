@@ -33,13 +33,8 @@ DougDadStoryScript:
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 
-RobStoryScript:
-	farwritetext RobStoryText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
-RobBerryReminderScript:
-	farwritetext RobBerryReminderText
+RobCutFingerScript:
+	farwritetext RobCutFingerText
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 

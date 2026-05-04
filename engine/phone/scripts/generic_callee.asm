@@ -1138,9 +1138,27 @@ PhoneScript_Generic_Male:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
+	ifequal PHONE_FISHER_KYLE, .Kyle
+	ifequal PHONE_FISHER_KYLER, .Kyler
+	ifequal PHONE_CAMPER_TANNER, .Tanner
 
 .Jack:
 	farwritetext JackGenericText
+	promptbutton
+	end
+
+.Tanner:
+	farwritetext TannerPreferCampingWithText
+	promptbutton
+	end
+
+.Kyle:
+	farwritetext KyleWorksHardText
+	promptbutton
+	end
+
+.Kyler:
+	farwritetext KylerFavouriteBaitText
 	promptbutton
 	end
 

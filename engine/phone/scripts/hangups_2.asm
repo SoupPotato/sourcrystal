@@ -8,6 +8,11 @@ JoseComePickUpScript: ; unreferenced
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 
+TannerComePickUpScript:
+	farwritetext TannerComePickUpText
+	promptbutton
+	sjump PhoneScript_HangUpText_Male
+
 WadeComeQuickScript:
 	farwritetext WadeComeQuickText
 	promptbutton

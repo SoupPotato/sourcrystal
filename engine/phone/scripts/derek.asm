@@ -32,6 +32,7 @@ DerekPhoneCallerScript: ; Calls you
 	farscall PhoneScript_GreetPhone_Male
 	farscall PhoneScript_Random4 ; 20% chance when you call them
 	ifequal 0, DerekFoundNugget
+	setflag ENGINE_DEREK_GAVE_NUGGET
 	farscall PhoneScript_Random2
 	ifequal 0, .NoContestCaller
 	checkflag ENGINE_DAILY_BUG_CONTEST

@@ -15,7 +15,8 @@ DanaPhoneCalleeScript: ; You call
 	iftrue .skipThunderStone
 	farscall PhoneScript_Random11 ; 9% chance when you call them
 	ifequal 0, DanaHasThunderstone
-.skipThunderStone
+	setflag ENGINE_DANA_GAVE_THUNDERSTONE
+.skipThunderStone:
 	farsjump DanaHangUpScript
 
 DanaBattleReminder:

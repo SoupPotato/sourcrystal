@@ -15,6 +15,7 @@ TullyPhoneCalleeScript: ; You call
 	iftrue .skipWaterStone
 	farscall PhoneScript_Random11 ; 9% chance when you call them
 	ifequal 0, TullyHasWaterStone
+	setflag ENGINE_TULLY_GAVE_WATER_STONE
 .skipWaterStone
 	farsjump TullyNoItemScript
 

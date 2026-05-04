@@ -1,7 +1,7 @@
-KylerPhoneCalleeScript: ; You call Kyler
+KylerPhoneCalleeScript: ; You call
 	gettrainername STRING_BUFFER_3, FISHER, KYLER1
 	checkflag ENGINE_KYLER_READY_FOR_REMATCH
-	iftrue .WaitingForBattle
+	iftrue KylerBattleReminder
 	farscall PhoneScript_AnswerPhone_Male
 	checkcode VAR_WEEKDAY
 	ifnotequal THURSDAY, .NotWednesday
@@ -13,22 +13,17 @@ KylerPhoneCalleeScript: ; You call Kyler
 .NotWednesday:
 	farjump KylerFishingTipsScript
 
-.WaitingForBattle:
+KylerBattleReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_12
 	farjump KylerReminderScript
 
 KylerPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, FISHER, KYLER1
+	checkflag ENGINE_KYLER_READY_FOR_REMATCH
+	iftrue KylerBattleReminder
 	farscall PhoneScript_GreetPhone_Male
-	checkcode VAR_WEEKDAY
-	ifnotequal THURSDAY, .GenericKylerCall
-	checktime DAY
-	iftrue KylerWantsBattle
-	checktime EVE
-	iftrue KylerWantsBattle
-	jump .GenericKylerCall
-
-.GenericKylerCall:
+	farscall PhoneScript_Random2
+	ifequal 0, KylerWantsBattle ; 33% chance for a rematch
 	farjump Phone_GenericCall_Male
 
 KylerWantsBattle:

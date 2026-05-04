@@ -22,6 +22,7 @@ BeverlyPhoneCallerScript: ; Calls you
 	iftrue BeverlyNuggetReminder
 	farscall PhoneScript_Random4 ; 20% chance when they call you
 	ifequal 0, BeverlyFoundNugget
+	setflag ENGINE_BEVERLY_GAVE_NUGGET
 	farsjump Phone_GenericCall_Female
 
 BeverlyFoundNugget:

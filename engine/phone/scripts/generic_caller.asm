@@ -78,9 +78,27 @@ Phone_WhosBragging_Male:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
+	ifequal PHONE_FISHER_KYLE, .Kyle
+	ifequal PHONE_FISHER_KYLER, .Kyler
+	ifequal PHONE_CAMPER_TANNER, .Tanner
 
 .Jack:
 	farwritetext JackIntelligenceKeepsRisingText
+	promptbutton
+	end
+
+.Tanner:
+	farwritetext TannerPreferCampingWithText
+	promptbutton
+	end
+
+.Kyle:
+	farwritetext KyleWorksHardText
+	promptbutton
+	end
+
+.Kyler:
+	farwritetext KylerFavouriteBaitText
 	promptbutton
 	end
 
@@ -270,9 +288,27 @@ Phone_WhoDefeatedMon_Male:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
+	ifequal PHONE_FISHER_KYLE, .Kyle
+	ifequal PHONE_FISHER_KYLER, .Kyler
+	ifequal PHONE_CAMPER_TANNER, .Tanner
 
 .Jack:
 	farwritetext JackDefeatedMonText
+	promptbutton
+	end
+
+.Tanner:
+	farwritetext TannerDefeatedMonText
+	promptbutton
+	end
+
+.Kyle:
+	farwritetext KyleDefeatedMonText
+	promptbutton
+	end
+
+.Kyler:
+	farwritetext KylerDefeatedMonText
 	promptbutton
 	end
 
@@ -461,9 +497,27 @@ Phone_WhoLostAMon_Male:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
+	ifequal PHONE_FISHER_KYLE, .Kyle
+	ifequal PHONE_FISHER_KYLER, .Kyler
+	ifequal PHONE_CAMPER_TANNER, .Tanner
 
 .Jack:
 	farwritetext JackLostAMonText
+	promptbutton
+	end
+
+.Tanner:
+	farwritetext TannerLostAMonText
+	promptbutton
+	end
+
+.Kyle:
+	farwritetext KyleLostAMonText
+	promptbutton
+	end
+
+.Kyler:
+	farwritetext KylerLostAMonText
 	promptbutton
 	end
 
@@ -658,9 +712,25 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_GENTLEMAN_ALFRED, .Alfred
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
+	ifequal PHONE_CAMPER_TANNER, .Tanner
 
 .Jack:
 	farwritetext JackBattleRematchText
+	promptbutton
+	end
+
+.Tanner:
+	farwritetext TannerBattleRematchText
+	promptbutton
+	end
+
+.Kyle:
+	farwritetext KyleBattleRematchText
+	promptbutton
+	end
+
+.Kyler:
+	farwritetext KylerBattleRematchText
 	promptbutton
 	end
 
@@ -714,8 +784,6 @@ PhoneScript_RematchText_Male:
 	promptbutton
 	end
 
-.Kyle:
-.Kyler:
 .Ralph:
 	farwritetext RalphBattleRematchText
 	promptbutton
@@ -1046,9 +1114,14 @@ PhoneScript_FoundItem_Male:
 	ifequal PHONE_FISHER_WILTON, .Wilton
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
+	ifequal PHONE_CAMPER_TANNER, .Tanner
 
 .Jose:
 	farwritetext JoseFoundItemText
+	end
+
+.Tanner:
+	farwritetext TannerFoundItemText
 	end
 
 .Doug:

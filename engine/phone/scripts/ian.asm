@@ -1,4 +1,4 @@
-IanPhoneCalleeScript:
+IanPhoneCalleeScript: ; You call
 	gettrainername STRING_BUFFER_3, YOUNGSTER, IAN1
 	checkflag ENGINE_IAN_READY_FOR_REMATCH
 	iftrue IanBattleReminder
@@ -15,7 +15,7 @@ IanBattleReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_34
 	farjump IanReminderScript
 
-IanPhoneCallerScript:
+IanPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, YOUNGSTER, IAN1
 	checkflag ENGINE_IAN_READY_FOR_REMATCH
 	iftrue IanBattleReminder

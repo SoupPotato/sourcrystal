@@ -634,7 +634,6 @@ INCLUDE "data/phone/text/liz_caller.asm"
 INCLUDE "data/phone/text/ralph_caller.asm"
 INCLUDE "data/phone/text/reena_caller.asm"
 INCLUDE "data/phone/text/rob_caller.asm" ; new
-INCLUDE "data/phone/text/tanner_caller.asm" ; new
 INCLUDE "data/phone/text/timandsue_caller.asm" ; new
 INCLUDE "data/phone/text/todd_caller.asm"
 INCLUDE "data/phone/text/torin_caller.asm" ; new
@@ -645,6 +644,9 @@ SECTION "Crystal Phone Text 3", ROMX
 INCLUDE "data/phone/text/walt_caller.asm" ; new
 INCLUDE "data/phone/text/krise_caller.asm" ; new
 INCLUDE "data/phone/text/doug_caller.asm" ; new
+INCLUDE "data/phone/text/kyle_caller.asm" ; new
+INCLUDE "data/phone/text/kyler_caller.asm" ; new
+INCLUDE "data/phone/text/tanner_caller.asm" ; new
 
 
 SECTION "UpdateBattleHUDs", ROMX

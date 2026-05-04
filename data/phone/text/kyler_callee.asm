@@ -1,25 +1,17 @@
-KylerFishingTipsText:
+KylerHookLegendaryTipsText:
 	text "The real draw of"
 	line "fishing is that"
-	
+
 	para "you never know"
-	line "what you'll catch"
+	line "what you'll catch."
 
-	para "until you act-"
-	line "ually pull it up"
-	cont "out of the water."
-
-	para "Someday maybe I'll"
-	line "pull up on the"
+	para "Maybe someday I'll"
+	line "hook a legendary"
 	
-	para "fishing Rod and"
-	line "there will be a"
+	para "#MON on the"
+	line "line!"
 	
-	para "legendary #MON"
-	line "on the other end"
-
-	para "of my line..."
-	line "Yeah, right."
+	para "Yeah, right…"
 	done
 
 KylerReminderText:

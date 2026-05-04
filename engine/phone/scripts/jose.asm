@@ -15,6 +15,7 @@ JosePhoneCalleeScript: ; You call
 	iftrue .skipStarPiece
 	farscall PhoneScript_Random11 ; 9% chance when you call them
 	ifequal 0, JoseHasStarPiece
+	setflag ENGINE_JOSE_GAVE_STAR_PIECE
 .skipStarPiece
 	farsjump JoseHangUpScript
 

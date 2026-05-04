@@ -1,27 +1,12 @@
-TannerCampingText:
-	text "Do you know the"
-	line "difference between"
+TannerCampingDifferenceText:
+	text "Do you know what's"
+	line "different between"
 
-	para "going on a picnic"
-	line "and camping?"
+	para "picnics and going"
+	line "camping?"
 
-	para "When you're going"
-	line "on a picnic, you"
-
-	para "sing a happy, up-"
-	line "beat little tune"
-
-	para "as you hike over"
-	line "hills and fields."
-
-	para "When you're camp-"
-	line "ing, you sing"
-
-	para "quiet, mournful"
-	line "songs of grief and"
-
-	para "loss while staring"
-	line "at the campfire."
+	para "It's the kind of"
+	line "songs you sing!"
 
 	para "What? You don't "
 	line "belive me?"
@@ -35,10 +20,7 @@ TannerCampingText:
 	done
 
 TannerReminderText:
-	text "Huh?"
-	line "What's going on?"
-
-	para "Did you get lost"
+	text "Did you get lost"
 	line "or something?"
 
 	para "Stay calm…"
@@ -47,7 +29,6 @@ TannerReminderText:
 	text_from_ram wStringBuffer5
 	text ","
 
-	para "so you should have"
-	line "no trouble find-"
-	cont "ing me!"
+	para "so let's have that"
+	line "rematch!"
 	done

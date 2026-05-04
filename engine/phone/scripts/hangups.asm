@@ -44,17 +44,12 @@ KyleFishingTipsScript:
 	sjump PhoneScript_KyleConnectionLostText
 
 KylerFishingTipsScript:
-	farwritetext KylerFishingTipsText
+	farwritetext KylerHookLegendaryTipsText
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 
-TannerCampingScript:
-	farwritetext TannerCampingText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
-TannerGiftReminderScript:
-	farwritetext TannerGiftReminderText
+TannerCampingDifferenceScript:
+	farwritetext TannerCampingDifferenceText
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 

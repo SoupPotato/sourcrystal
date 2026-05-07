@@ -423,9 +423,15 @@ PhoneScript_AnswerPhone_Female:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beverly:
 	farwritetext BeverlyAnswerPhoneText
+	promptbutton
+	end
+
+.TimAndSue:
+	farwritetext TimAndSueAnswerPhoneText
 	promptbutton
 	end
 
@@ -474,9 +480,15 @@ PhoneScript_AnswerPhone_Female_Day:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beverly:
 	farwritetext BeverlyAnswerPhoneDayText
+	promptbutton
+	end
+
+.TimAndSue:
+	farwritetext TimAndSueAnswerPhoneDayText
 	promptbutton
 	end
 
@@ -525,9 +537,15 @@ PhoneScript_AnswerPhone_Female_Nite:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beverly:
 	farwritetext BeverlyAnswerPhoneNiteText
+	promptbutton
+	end
+
+.TimAndSue:
+	farwritetext TimAndSueAnswerPhoneNiteText
 	promptbutton
 	end
 
@@ -971,9 +989,15 @@ PhoneScript_GreetPhone_Female:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beverly:
 	farwritetext BeverlyGreetText
+	promptbutton
+	end
+
+.TimAndSue:
+	farwritetext TimAndSueGreetText
 	promptbutton
 	end
 
@@ -1022,9 +1046,15 @@ PhoneScript_GreetPhone_Female_Day:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beverly:
 	farwritetext BeverlyGreetDayText
+	promptbutton
+	end
+
+.TimAndSue:
+	farwritetext TimAndSueGreetDayText
 	promptbutton
 	end
 
@@ -1073,9 +1103,15 @@ PhoneScript_GreetPhone_Female_Nite:
 	ifequal PHONE_LASS_DANA, .Dana
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beverly:
 	farwritetext BeverlyGreetNiteText
+	promptbutton
+	end
+
+.TimAndSue:
+	farwritetext TimAndSueGreetNiteText
 	promptbutton
 	end
 
@@ -1141,9 +1177,15 @@ PhoneScript_Generic_Male:
 	ifequal PHONE_FISHER_KYLE, .Kyle
 	ifequal PHONE_FISHER_KYLER, .Kyler
 	ifequal PHONE_CAMPER_TANNER, .Tanner
+	ifequal PHONE_HIKER_KENNY, .Kenny
 
 .Jack:
 	farwritetext JackGenericText
+	promptbutton
+	end
+
+.Kenny:
+	farwritetext KennyNeverDisobeysText
 	promptbutton
 	end
 
@@ -1278,9 +1320,15 @@ PhoneScript_Generic_Female:
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beverly:
 	farwritetext BeverlyGenericText
+	promptbutton
+	end
+
+.TimAndSue:
+	farwritetext TimAndSueWorkingHardText
 	promptbutton
 	end
 

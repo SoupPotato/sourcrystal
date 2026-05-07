@@ -3,7 +3,7 @@ IanPhoneCalleeScript: ; You call
 	checkflag ENGINE_IAN_READY_FOR_REMATCH
 	iftrue IanBattleReminder
 	farscall PhoneScript_AnswerPhone_Male
-	readvar VAR_WEEKDAY
+	checkcode VAR_WEEKDAY
 	ifnotequal SATURDAY, .NotSaturday
 	checktime MORN
 	iftrue IanWantsBattle

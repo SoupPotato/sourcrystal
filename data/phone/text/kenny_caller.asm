@@ -10,17 +10,46 @@ KennyBathsText:
 	cont "mountain!"
 
 	para "Instead, I just"
-	line "look for a river,"
+	line "bath in a river."
+	done
 
-	para "and wash myself"
-	line "off in that."
+KennyLostAMonText:
+	text "And, listen up!"
 
-	para "That's right!"
+	para "A few days ago, a"
+	line "wild @"
+	text_ram wStringBuffer4
+	text ""
+	cont "jumped out at me."
 
-	para "A few days ago,"
-	line "when I was bathing"
-	cont "in the river,"
+	para "I was caught off"
+	line "guard and it fled."
 
-	para "someone mistook me"
-	line "for a SWIMMER!"
+	para "Such a failure on"
+	line "my part."
+	done
+
+KennyDefeatedMonText:
+	text "And, listen up!"
+
+	para "I ran into a wild"
+	line "@"
+	text_ram wStringBuffer4
+	text "!"
+
+	para "My #MON managed"
+	line "to beat it."
+
+	para "It was great!"
+	done
+
+KennyBattleRematchText:
+	text "We must have an"
+	line "-other battle!"
+	cont "Am I right?"
+
+	para "I'll be waiting on"
+	line "@"
+	text_from_ram wStringBuffer5
+	text "!"
 	done

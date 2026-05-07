@@ -1,59 +1,43 @@
-TimAndSueWildMonText:
-	text "This is SUE!"
+TimAndSueWorkingHardText:
+	text "We've been doing"
+	line "great lately!"
 
-	para "How have you been"
-	line "feeling since our"
-	cont "last talk?"
+	para "@"
+	text_ram wStringBuffer4 
+	text " is"
+	line "working hard!"
 
-	para "I've got many"
-	line "#MON… Ah!"
+	para "It's taking out"
+	line "wild #MON"
+	cont "left and right!"
+	done
 
-	para "Hello?"
-	line "This is TIM!"
-
-	para "Let me talk on the"
-	line "phone… Wah!"
-
-	para "Anyway, TIM let a"
+TimAndSueLostAMonText:
+	text "Anyway, TIM let a"
 	line "wild @"
 	text_from_ram wStringBuffer4
 	text_start
 	cont "get way recently!"
 
-	para "He sometimes says"
-	line "the strangest… Ah!"
+	para "I really wish he'd"
+	line "pay attention…"
 
-	para "Hello?"
-	line "This is TIM!"
-
-	para "She is so… Wah!"
-
-	para "Yeah, that's just"
-	line "how it is, isn't"
-	cont "it?"
-
-	para "I'll leave it at"
-	line "that."
-
-	para "We'll call you"
-	line "again later."
+	para "Still, he tries so"
+	line "hard I can't get"
+	cont "angry at him."
 	done
 
-TimAndSueReminderText:
-	text "Hey, did you for-"
-	line "get our promise?"
+TimAndSueDefeatedMonText:
+	text "We even beat a"
+	line "wild @"
+	text_ram wStringBuffer4
+	text "."
 
-	para "I'm here with TIM,"
-	line "so I'm not getting"
+	para "TIM is really try"
+	line "-ing his best!"
 
-	para "too bored, but"
-	line "still…"
-
-	para "We're waiting on"
-	line "@"
-	text_from_ram wStringBuffer5
-	text ","
-	cont "so please hurry."
+	para "It reminds me why"
+	line "love him so much!"
 	done
 
 TimAndSueBattleRematchText:
@@ -62,10 +46,9 @@ TimAndSueBattleRematchText:
 
 	para "Sounds good?"
 
-	para "We're waiting on"
-	line "@"
+	para "We'll be waiting"
+	line "on @"
 	text_from_ram wStringBuffer5
-	text ","
-
-	para "See you there!"
+	text " for"
+	cont "you."
 	done

@@ -81,9 +81,15 @@ Phone_WhosBragging_Male:
 	ifequal PHONE_FISHER_KYLE, .Kyle
 	ifequal PHONE_FISHER_KYLER, .Kyler
 	ifequal PHONE_CAMPER_TANNER, .Tanner
+	ifequal PHONE_HIKER_KENNY, .Kenny
 
 .Jack:
 	farwritetext JackIntelligenceKeepsRisingText
+	promptbutton
+	end
+
+.Kenny:
+	farwritetext KennyNeverDisobeysText
 	promptbutton
 	end
 
@@ -218,9 +224,15 @@ Phone_WhosBragging_Female:
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beverly:
 	farwritetext BeverlyMadeMonEvenCuterText
+	promptbutton
+	end
+
+.TimAndSue:
+	farwritetext TimAndSueWorkingHardText
 	promptbutton
 	end
 
@@ -291,9 +303,15 @@ Phone_WhoDefeatedMon_Male:
 	ifequal PHONE_FISHER_KYLE, .Kyle
 	ifequal PHONE_FISHER_KYLER, .Kyler
 	ifequal PHONE_CAMPER_TANNER, .Tanner
+	ifequal PHONE_HIKER_KENNY, .Kenny
 
 .Jack:
 	farwritetext JackDefeatedMonText
+	promptbutton
+	end
+
+.Kenny:
+	farwritetext KennyDefeatedMonText
 	promptbutton
 	end
 
@@ -428,9 +446,15 @@ Phone_WhoDefeatedMon_Female:
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beverly:
 	farwritetext BeverlyDefeatedMonText
+	promptbutton
+	end
+
+.TimAndSue:
+	farwritetext TimAndSueDefeatedMonText
 	promptbutton
 	end
 
@@ -500,9 +524,15 @@ Phone_WhoLostAMon_Male:
 	ifequal PHONE_FISHER_KYLE, .Kyle
 	ifequal PHONE_FISHER_KYLER, .Kyler
 	ifequal PHONE_CAMPER_TANNER, .Tanner
+	ifequal PHONE_HIKER_KENNY, .Kenny
 
 .Jack:
 	farwritetext JackLostAMonText
+	promptbutton
+	end
+
+.Kenny:
+	farwritetext KennyLostAMonText
 	promptbutton
 	end
 
@@ -632,9 +662,15 @@ Phone_WhoLostAMon_Female:
 	ifequal PHONE_PICNICKER_TIFFANY, .Tiffany
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
+	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
 
 .Beverly:
 	farwritetext BeverlyLostAMonText
+	promptbutton
+	end
+
+.TimAndSue:
+	farwritetext TimAndSueLostAMonText
 	promptbutton
 	end
 
@@ -713,9 +749,15 @@ PhoneScript_RematchText_Male:
 	ifequal PHONE_BUG_CATCHER_DOUG, .Doug
 	ifequal PHONE_BUG_CATCHER_ROB, .Rob
 	ifequal PHONE_CAMPER_TANNER, .Tanner
+	ifequal PHONE_HIKER_KENNY, .Kenny
 
 .Jack:
 	farwritetext JackBattleRematchText
+	promptbutton
+	end
+
+.Kenny:
+	farwritetext KennyBattleRematchText
 	promptbutton
 	end
 

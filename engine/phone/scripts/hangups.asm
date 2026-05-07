@@ -58,9 +58,8 @@ KennyBathsScript:
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 
-TimAndSueWildMon:
-	special RandomPhoneWildMon
-	farwritetext TimAndSueWildMonText
+TimAndSueThatsHowItIsScript:
+	farwritetext TimAndSueThatsHowItIsText
 	promptbutton
 	sjump PhoneScript_HangUpText_Female
 

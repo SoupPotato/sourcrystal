@@ -38,8 +38,6 @@ TrainerBirdKeeperJamie:
 	opentext
 	checkflag ENGINE_JAMIE_READY_FOR_REMATCH
 	iftrue .ChooseRematch
-	checkflag ENGINE_JAMIE_HAS_MOON_STONE
-	iftrue .GiveMoonStone
 	checkcellnum PHONE_BIRDKEEPER_JAMIE
 	iftrue .JamieDefeated
 	checkevent EVENT_JAMIE_ASKED_FOR_PHONE_NUMBER
@@ -85,25 +83,6 @@ TrainerBirdKeeperJamie:
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_JAMIE_READY_FOR_REMATCH
-	end
-
-.GiveMoonStone:
-	scall .Gift
-	verbosegiveitem MOON_STONE
-	iffalse .BagFull
-	clearflag ENGINE_JAMIE_HAS_MOON_STONE
-	setevent ENGINE_JAMIE_GAVE_MOON_STONE
-	jump Route14NumberAccepted
-
-.BagFull:
-	jump .PackFull
-
-.Gift:
-	jumpstd GiftMScript
-	end
-
-.PackFull:
-	jumpstd PackFullMScript
 	end
 
 .JamieDefeated:

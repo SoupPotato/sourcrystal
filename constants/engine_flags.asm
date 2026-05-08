@@ -282,10 +282,10 @@
 	const ENGINE_DOUG_GAVE_BERRY
 	const ENGINE_ROB_HAS_BERRY
 	const ENGINE_ROB_GAVE_BERRY
-	const ENGINE_TANNER_HAS_SUN_STONE
-	const ENGINE_TANNER_GAVE_SUN_STONE
-	const ENGINE_JAMIE_HAS_MOON_STONE
-	const ENGINE_JAMIE_GAVE_MOON_STONE
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
+	const_skip ; unused
 	const ENGINE_IAN_HAS_BERRY
 	const ENGINE_IAN_GAVE_BERRY
 ; wDailyPhoneTimeOfDayFlags

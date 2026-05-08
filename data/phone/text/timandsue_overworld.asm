@@ -30,8 +30,6 @@ TimAndSueRematchText:
 	para "we became much"
 	line "stronger!"
 
-	para "Well, she did."
-
 	para "SUE: A woman in"
 	line "love is impatient."
 	

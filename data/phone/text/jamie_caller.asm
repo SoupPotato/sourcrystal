@@ -1,43 +1,55 @@
-JamieSneezingText:
-	text "Ah… Ah… Achoo!"
+JamieStillANoviceText:
+	text "I'm still a novice"
+	line "as usual…"
 
-	para "Oh, it's nothing."
+	para "My @"
+	text_ram wStringBuffer4 
+	text ""
+	line "is training hard!"
 
-	para "It's just that my"
-	line "bird #MON sud-"
-
-	para "denly began flap-"
-	line "ping its wings…"
-
-	para "so there's dust"
-	line "and stuff from"
-
-	para "their wings float-"
-	line "ing near my face…"
-
-	para "Ah… Ah… Now my"
-	line "nose is itchy…"
-
-	para "Achoooo!"
+	para "I need to keep up"
+	line "with it so we can"
+	cont "stay in sync."
 	done
 
-JamieReminderText:
-	text "I'm waiting on"
+JamieLostAMonText:
+	text "That reminds me…"
+
+	para "It was so strong"
+	line "it scared away a"
+	cont "wild @"
+	text_ram wStringBuffer4
+	text "…"
+
+	para "I suppose being"
+	line "strong has it's"
+	cont "downsides…"
+	done
+
+JamieDefeatedMonText:
+	text "That reminds me…"
+
+	para "It even defeated a"
+	line "@"
+	text_ram wStringBuffer4
+	text " in"
+	cont "under 2 seconds!"
+
+	para "…"
+
+	para "…Ok, it was really"
+	line "around 5 minutes…"
+	done
+
+JamieBattleRematchText:
+	text "What do you think"
+	line "about having an"
+	cont "-other battle?"
+
+	para "I'll be on"
 	line "@"
 	text_from_ram wStringBuffer5
-	text "."
-
-	para "Don't forget!"
+	text " if you're"
+	cont "interested."
 	done
 
-JamieGiftReminderText:
-	text "You still want"
-	line "this item, right?"
-
-	para "I'm on"
-	line "@"
-	text_from_ram wStringBuffer5
-	text "."
-
-	para "Come get it!"
-	done

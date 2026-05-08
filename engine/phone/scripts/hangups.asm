@@ -68,11 +68,6 @@ JamieSneezingScript:
 	promptbutton
 	sjump PhoneScript_HangUpText_Male
 
-JamieGiftReminderScript:
-	farwritetext JamieGiftReminderText
-	promptbutton
-	sjump PhoneScript_HangUpText_Male
-
 TorinSchoolScript:
 	farwritetext TorinSchoolText
 	promptbutton

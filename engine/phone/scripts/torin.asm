@@ -1,7 +1,7 @@
-TorinPhoneCalleeScript: ; You call Torin
+TorinPhoneCalleeScript: ; You call
 	gettrainername STRING_BUFFER_3, SCHOOLBOY, TORIN1
 	checkflag ENGINE_TORIN_READY_FOR_REMATCH
-	iftrue .WaitingForBattle
+	iftrue TorinBattleReminder
 	farscall PhoneScript_AnswerPhone_Male
 	checkcode VAR_WEEKDAY
 	ifnotequal WEDNESDAY, .NotWednesday
@@ -11,20 +11,17 @@ TorinPhoneCalleeScript: ; You call Torin
 .NotWednesday:
 	farjump TorinSchoolScript
 
-.WaitingForBattle:
+TorinBattleReminder:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_14
 	farjump TorinReminderScript
 
 TorinPhoneCallerScript: ; Calls you
 	gettrainername STRING_BUFFER_3, SCHOOLBOY, TORIN1
+	checkflag ENGINE_TORIN_READY_FOR_REMATCH
+	iftrue TorinBattleReminder
 	farscall PhoneScript_GreetPhone_Male
-	checkcode VAR_WEEKDAY
-	ifnotequal WEDNESDAY, .GenericTorinCall
-	checktime NITE
-	iftrue TorinWantsBattle
-	jump .GenericTorinCall
-
-.GenericTorinCall:
+	farscall PhoneScript_Random2
+	ifequal 0, TorinWantsBattle ; 33% chance for a rematch
 	farjump Phone_GenericCall_Male
 
 TorinWantsBattle:

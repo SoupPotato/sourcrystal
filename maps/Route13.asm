@@ -169,8 +169,6 @@ TrainerCamperTanner:
 	opentext
 	checkflag ENGINE_TANNER_READY_FOR_REMATCH
 	iftrue .ChooseRematch
-	checkflag ENGINE_TANNER_HAS_SUN_STONE
-	iftrue .GiveSunStone
 	checkcellnum PHONE_CAMPER_TANNER
 	iftrue .TannerDefeated
 	checkevent EVENT_TANNER_ASKED_FOR_PHONE_NUMBER
@@ -216,25 +214,6 @@ TrainerCamperTanner:
 	startbattle
 	reloadmapafterbattle
 	clearflag ENGINE_TANNER_READY_FOR_REMATCH
-	end
-
-.GiveSunStone:
-	scall .Gift
-	verbosegiveitem SUN_STONE
-	iffalse .BagFull
-	clearflag ENGINE_TANNER_HAS_SUN_STONE
-	setevent ENGINE_TANNER_GAVE_SUN_STONE
-	jump Route13NumberAccepted
-
-.BagFull:
-	jump .PackFull
-
-.Gift:
-	jumpstd GiftMScript
-	end
-
-.PackFull:
-	jumpstd PackFullMScript
 	end
 
 .TannerDefeated:

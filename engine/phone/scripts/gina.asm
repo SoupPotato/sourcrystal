@@ -20,7 +20,7 @@ GinaPhoneCalleeScript: ; You call
 	farscall PhoneScript_Random11 ; 9% chance when you call them
 	ifequal 0, GinaHasLeafStone
 	setflag ENGINE_GINA_GAVE_LEAF_STONE
-.skipLeafStone
+.skipLeafStone:
 	farsjump GinaHangUpScript
 
 GinaLeafStoneReminder:

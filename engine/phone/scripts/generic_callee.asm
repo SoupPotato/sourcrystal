@@ -1178,9 +1178,27 @@ PhoneScript_Generic_Male:
 	ifequal PHONE_FISHER_KYLER, .Kyler
 	ifequal PHONE_CAMPER_TANNER, .Tanner
 	ifequal PHONE_HIKER_KENNY, .Kenny
+	ifequal PHONE_BIRDKEEPER_JAMIE, .Jamie
+	ifequal PHONE_SCHOOLBOY_TORIN, .Torin
+	ifequal PHONE_SCHOOLBOY_BILLY, .Billy
 
 .Jack:
 	farwritetext JackGenericText
+	promptbutton
+	end
+
+.Billy:
+	farwritetext BillyStudiedALotText
+	promptbutton
+	end
+
+.Torin:
+	farwritetext TorinHelpsRepeatText
+	promptbutton
+	end
+
+.Jamie:
+	farwritetext JamieStillANoviceText
 	promptbutton
 	end
 
@@ -1321,9 +1339,16 @@ PhoneScript_Generic_Female:
 	ifequal PHONE_PICNICKER_ERIN, .Erin
 	ifequal PHONE_LASS_KRISE, .Krise
 	ifequal PHONE_COUPLE_TIM_AND_SUE, .TimAndSue
+	ifequal PHONE_TEACHER_HILLARY, .Hillary
+
 
 .Beverly:
 	farwritetext BeverlyGenericText
+	promptbutton
+	end
+
+.Hillary:
+	farwritetext HillaryFavouriteMonText
 	promptbutton
 	end
 

@@ -620,7 +620,6 @@ INCLUDE "data/phone/text/anthony_caller.asm"
 INCLUDE "data/phone/text/beth_caller.asm"
 INCLUDE "data/phone/text/beverly_caller.asm"
 INCLUDE "data/phone/text/bike_shop.asm"
-INCLUDE "data/phone/text/billy_caller.asm" ; new
 INCLUDE "data/phone/text/gaven_caller.asm"
 INCLUDE "data/phone/text/gina_caller.asm"
 INCLUDE "data/phone/text/huey_caller.asm"
@@ -647,6 +646,8 @@ INCLUDE "data/phone/text/doug_caller.asm" ; new
 INCLUDE "data/phone/text/kyle_caller.asm" ; new
 INCLUDE "data/phone/text/kyler_caller.asm" ; new
 INCLUDE "data/phone/text/tanner_caller.asm" ; new
+INCLUDE "data/phone/text/billy_caller.asm" ; new
+INCLUDE "data/phone/text/hillary_caller.asm" ; new
 
 
 SECTION "UpdateBattleHUDs", ROMX
@@ -735,6 +736,9 @@ INCLUDE "data/phone/text/timandsue_callee.asm" ; new
 INCLUDE "data/phone/text/wilton_callee.asm"
 INCLUDE "data/phone/text/kyler_callee.asm" ; new
 INCLUDE "data/phone/text/ian_callee.asm" ; new
+INCLUDE "data/phone/text/jamie_callee.asm" ; new
+INCLUDE "data/phone/text/torin_callee.asm" ; new
+INCLUDE "data/phone/text/billy_callee.asm" ; new
 
 SECTION "Miscellaneous Text", ROMX
 

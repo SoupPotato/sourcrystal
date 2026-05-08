@@ -117,7 +117,7 @@ of course, increasing whenever we introduce a save-breaking change.
 
 Please note however, that updates to **game version** does not necessarily mean
 an update to the **save version**. If an update to the **save version** occurs,
-it will be noted in the change logs, and as an entry in the **[save versions list](SAVE-VERSIONS.md)**.
+it will be noted in the change logs, and as an entry in the **[save versions list](save_migrations/README.md)**.
 
 If the number in your save file is **one less** than the number in the game's
 code, *the game itself can automatically update your save*. After it has

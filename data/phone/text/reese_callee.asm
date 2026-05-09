@@ -1,39 +1,29 @@
 ReeseBikersText:
 	text "After my BIKER"
-	line "gang showed up on"
-	cont "CYCLING ROAD,"
+	line "gang showed up,"
 
 	para "the atmosphere"
 	line "soured…"
 
-	para "At least, that's"
-	line "what some people"
-	cont "have been saying."
-
 	para "All we're doing is"
-	line "challenging strong"
+	line "battling strong"
+	cont "trainers!"
 
-	para "Trainers to"
-	line "#MON battles,"
-	cont "that's it!"
+	para "That's it!"
 
 	para "People like you,"
 	line "for example!"
 	done
 
 ReeseReminderText:
-	text "What's up with"
-	line "that?!"
-	
+	text "What's up?"
+
 	para "Didn't you say you"
-	line "were going to come"
-	
-	para "out here and get"
-	line "schooled?!"
-	
+	line "were comming here"
+	cont "to get schooled?!"
+
 	para "Come on! I'm wait-"
-	line "ing on"
-	cont "@"
+	line "ing on @"
 	text_from_ram wStringBuffer5
 	text ","
 	cont "so hurry up!"

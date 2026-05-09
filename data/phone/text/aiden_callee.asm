@@ -3,10 +3,7 @@ AidenTalkOnBikeText:
 	line "talk on the phone"
 
 	para "while riding on"
-	line "a bike,"
-
-	para "but sometimes I've"
-	line "got no choice!"
+	line "a bike!"
 
 	para "Make sure you"
 	line "don't!"
@@ -23,24 +20,16 @@ AidenTalkOnBikeText:
 	done
 
 AidenReminderText:
-	text "Listen!"
-	
-	para "Here I wait on"
-	line "good old"
-	cont "@"
+	text "Hey!"
+
+	para "Right now, I'm"
+	line "on @"
 	text_from_ram wStringBuffer5
 	text "!"
-	
-	para "Time for us to"
-	line "have another"
 
-	para "battle, fair and"
-	line "square, so come"
-	cont "alone!"
+	para "Don't run, don't"
+	line "hide, just get"
 
-	para "Wait… Bring your"
-	line "#MON with you!"
-
-	para "Without a #MON,"
-	line "we can't battle!"
+	para "over here and"
+	line "fight me!"
 	done

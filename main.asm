@@ -648,6 +648,10 @@ INCLUDE "data/phone/text/kyler_caller.asm" ; new
 INCLUDE "data/phone/text/tanner_caller.asm" ; new
 INCLUDE "data/phone/text/billy_caller.asm" ; new
 INCLUDE "data/phone/text/hillary_caller.asm" ; new
+INCLUDE "data/phone/text/kayandtia_caller.asm" ; new
+INCLUDE "data/phone/text/aiden_caller.asm" ; new
+INCLUDE "data/phone/text/eoin_caller.asm" ; new
+INCLUDE "data/phone/text/reese_caller.asm" ; new
 
 
 SECTION "UpdateBattleHUDs", ROMX

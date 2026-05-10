@@ -391,12 +391,24 @@ WrongNumber:
 	text_far _PhoneWrongNumberText
 	text_end
 
+	const_def
+	const CALL_DEFAULT_ACTION ; hangup
+	const CALL_EXPLICITLY_PICKUP ; A pressed
+	const CALL_EXPLICITLY_HANGUP ; B pressed
 Script_ReceivePhoneCall:
 	reanchormap
+	setval CALL_DEFAULT_ACTION
 	callasm RingTwice_StartCall
+	ifequal CALL_DEFAULT_ACTION, .hangup
+	ifequal CALL_EXPLICITLY_HANGUP, .hangup
 	memcall wCallerContact + PHONE_CONTACT_SCRIPT2_BANK
 	waitbutton
 	callasm HangUp
+	closetext
+	callasm InitCallReceiveDelay
+	end
+.hangup
+	callasm HangUp_ShutDown
 	closetext
 	callasm InitCallReceiveDelay
 	end
@@ -409,29 +421,66 @@ Script_SpecialBillCall::
 	ld e, PHONE_BILL
 	jp LoadCallerScript
 
-Script_SpecialElmCall: ; unreferenced
-	callasm .LoadElmScript
-	pause 30
-	sjump Script_ReceivePhoneCall
-
-.LoadElmScript:
-	ld e, PHONE_ELM
-	jp LoadCallerScript
-
 RingTwice_StartCall:
-	call .Ring
-	call .Ring
+	call WaitSFX
+	call Phone_StartRinging
+	ld c, 20
+	call DelayFrames
+
+	ld c, 10 ; how many times to ring
+	push bc
+; Keep ringing the phone until the player presses a button,
+; or the number of times it's ringing have been exhausted.
+; Whichever comes first.
+.loop
+		call .CallerTextboxWithName
+		call Phone_PickupHangupIndicator
+		call .AcceptInputWhileWaiting
+		jr c, .done ; early exit if a button is pressed
+		call Phone_StartRinging
+		call Phone_CallerTextbox
+		call .AcceptInputWhileWaiting
+		jr c, .done ; early exit if a button is pressed
+	pop bc
+	dec c
+	jr z, .done
+	push bc
+	jr .loop
+.done
+	pop bc
+	call .CallerTextboxWithName
+	call WaitSFX
 	farcall StubbedTrainerRankings_PhoneCalls
 	ret
 
-.Ring:
-	call Phone_StartRinging
-	call Phone_Wait20Frames
-	call .CallerTextboxWithName
-	call Phone_Wait20Frames
-	call Phone_CallerTextbox
-	call Phone_Wait20Frames
-	call .CallerTextboxWithName
+; set carry when a button is pressed
+.AcceptInputWhileWaiting:
+	farcall PhoneRing_CopyTilemapAtOnce
+	ld c, 20
+.accept_input_loop
+	call DelayFrame
+	push bc
+		call JoyTextDelay
+		ldh a, [hJoyPressed]
+		bit B_BUTTON_F, a
+		jr nz, .b_pressed
+		bit A_BUTTON_F, a
+		jr nz, .a_pressed
+	pop bc
+	dec c
+	ret z
+	jr .accept_input_loop
+.a_pressed
+	pop bc
+	ld a, CALL_EXPLICITLY_PICKUP
+	ld [wScriptVar], a
+	scf
+	ret
+.b_pressed
+	pop bc
+	ld a, CALL_EXPLICITLY_HANGUP
+	ld [wScriptVar], a
+	scf
 	ret
 
 .CallerTextboxWithName:
@@ -453,6 +502,7 @@ PhoneCall::
 	ret
 
 .Ring:
+	call WaitSFX
 	call Phone_StartRinging
 	call Phone_Wait20Frames
 	call .CallerTextboxWithName
@@ -501,7 +551,7 @@ Phone_CallEnd:
 	call HangUp_Wait20Frames
 	ret
 
-HangUp_ShutDown: ; unreferenced
+HangUp_ShutDown:
 	ld de, SFX_SHUT_DOWN_PC
 	call PlaySFX
 	ret
@@ -531,7 +581,6 @@ HangUp_BoopOff:
 	ret
 
 Phone_StartRinging:
-	call WaitSFX
 	ld de, SFX_CALL
 	call PlaySFX
 	call Phone_CallerTextbox
@@ -568,6 +617,43 @@ Phone_CallerTextbox:
 	ld c, SCREEN_WIDTH - 2
 	call Textbox
 	ret
+
+Phone_PickupHangupIndicator:
+	hlcoord 0, SCREEN_HEIGHT-3
+	lb bc, 1, SCREEN_WIDTH-2
+	call Textbox
+	hlcoord 1, SCREEN_HEIGHT-2
+	ld de, .PressAText
+	call PlaceString
+; ClearSpritesUnderPhoneCallIndicator
+	ld de, wShadowOAM
+	ld h, d
+	ld l, e
+	ld c, NUM_SPRITE_OAM_STRUCTS
+.loop
+	ld a, [hl]
+	cp (SCREEN_HEIGHT-3) * TILE_WIDTH
+	jr nc, .clear_sprite
+.next
+	ld hl, SPRITEOAMSTRUCT_LENGTH
+	add hl, de
+	ld e, l
+	dec c
+	jr nz, .loop
+	ldh a, [hOAMUpdate]
+	push af
+	ld a, TRUE
+	ldh [hOAMUpdate], a
+	call DelayFrame
+	pop af
+	ldh [hOAMUpdate], a
+	ret
+.clear_sprite
+	ld [hl], OAM_YCOORD_HIDDEN
+	jr .next
+
+.PressAText:
+	db "A▶PICKUP B▶HANGUP@"
 
 GetCallerClassAndName:
 	ld h, d

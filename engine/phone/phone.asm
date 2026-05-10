@@ -436,18 +436,19 @@ RingTwice_StartCall:
 		call .CallerTextboxWithName
 		call Phone_PickupHangupIndicator
 		call .AcceptInputWhileWaiting
-		jr c, .done ; early exit if a button is pressed
+		jr c, .done_pop ; early exit if a button is pressed
 		call Phone_StartRinging
 		call Phone_CallerTextbox
 		call .AcceptInputWhileWaiting
-		jr c, .done ; early exit if a button is pressed
+		jr c, .done_pop ; early exit if a button is pressed
 	pop bc
 	dec c
 	jr z, .done
 	push bc
 	jr .loop
-.done
+.done_pop
 	pop bc
+.done
 	call .CallerTextboxWithName
 	call WaitSFX
 	farcall StubbedTrainerRankings_PhoneCalls

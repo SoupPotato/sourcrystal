@@ -441,7 +441,7 @@ RingTwice_StartCall:
 ; the player to shut it off.
 	call WaitSFX
 	call Phone_StartRinging
-	ld c, 20
+	ld c, 30
 	call DelayFrames
 
 	ld c, 10 ; how many times to ring
@@ -476,7 +476,7 @@ RingTwice_StartCall:
 ; Also set wScriptVar, since this is where the input is read.
 .AcceptInputWhileWaiting:
 	farcall PhoneRing_CopyTilemapAtOnce
-	ld c, 20
+	ld c, 30
 .accept_input_loop
 	call DelayFrame
 	push bc

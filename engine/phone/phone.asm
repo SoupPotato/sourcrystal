@@ -421,7 +421,24 @@ Script_SpecialBillCall::
 	ld e, PHONE_BILL
 	jp LoadCallerScript
 
+; As this is used by ScriptReceivePhoneCall--and the actual
+; jump to the phone dialog is governed by said script--this
+; means the script has to access something that this function
+; can manipulate. Well that happens to be [wScriptVar].
+;
+; Depending on the player's actions, that variable changes
+; to one of the CALL_* constants to be read by the script.
 RingTwice_StartCall:
+; A slightly cleaner solution would be to add whether/not the player
+; could even shut off these contacts *in* the phone contact data.
+; But then I realize that'd mess with WRAM and I'd need to build up
+; another save migration routine for version 02 on top of the one
+; already in place. So no.
+	call .IsForcedCaller
+	jp c, PhoneCall
+
+; For "regular" phone contacts however, we give the option for
+; the player to shut it off.
 	call WaitSFX
 	call Phone_StartRinging
 	ld c, 20
@@ -436,16 +453,17 @@ RingTwice_StartCall:
 		call .CallerTextboxWithName
 		call Phone_PickupHangupIndicator
 		call .AcceptInputWhileWaiting
-		jr c, .done_pop ; early exit if a button is pressed
+		jr c, .done_pop 
 		call Phone_StartRinging
 		call Phone_CallerTextbox
 		call .AcceptInputWhileWaiting
-		jr c, .done_pop ; early exit if a button is pressed
+		jr c, .done_pop
 	pop bc
 	dec c
 	jr z, .done
 	push bc
 	jr .loop
+; early exit if a button is pressed
 .done_pop
 	pop bc
 .done
@@ -454,7 +472,8 @@ RingTwice_StartCall:
 	farcall StubbedTrainerRankings_PhoneCalls
 	ret
 
-; set carry when a button is pressed
+; Set carry when a button is pressed.
+; Also set wScriptVar, since this is where the input is read.
 .AcceptInputWhileWaiting:
 	farcall PhoneRing_CopyTilemapAtOnce
 	ld c, 20
@@ -490,13 +509,46 @@ RingTwice_StartCall:
 	call Phone_TextboxWithName
 	ret
 
+; Sets carry flag if the current caller is indeed a "forced" one
+.IsForcedCaller:
+	ld a, [wCurCaller]
+	ld hl, .ForcedCallerList
+	ld c, NUM_FORCED_CALLERS
+.compare
+	cp [hl]
+	jr z, .yes
+	inc hl
+	dec c
+	jr z, .no
+	jr .compare
+.yes
+; Set the ScriptVar to automatically *pick up* the phone here
+; just to avoid any pains later
+	ld a, CALL_EXPLICITLY_PICKUP
+	ld [wScriptVar], a
+	scf
+	ret
+.no
+	and a
+	ret
+
+.ForcedCallerList:
+	db PHONE_MOM
+	db PHONE_OAK
+	db PHONE_BILL
+	db PHONE_ELM
+	DEF NUM_FORCED_CALLERS EQU @-.ForcedCallerList
+
+; In the original this appears to be unused. Since 99% of it's like the
+; same thing anyway, wouldn't hurt to reuse it for the case where you
+; *couldn't* shut the phone off :p
 PhoneCall::
-	ld a, b
-	ld [wPhoneScriptBank], a
-	ld a, e
-	ld [wPhoneCaller], a
-	ld a, d
-	ld [wPhoneCaller + 1], a
+	; ld a, b
+	; ld [wPhoneScriptBank], a
+	; ld a, e
+	; ld [wPhoneCaller], a
+	; ld a, d
+	; ld [wPhoneCaller + 1], a
 	call .Ring
 	call .Ring
 	farcall StubbedTrainerRankings_PhoneCalls
@@ -514,20 +566,20 @@ PhoneCall::
 	ret
 
 .CallerTextboxWithName:
-	call Phone_CallerTextbox
-	hlcoord 1, 2
-	ld [hl], "☎"
-	inc hl
-	inc hl
-; BUG: The unused phonecall script command may crash (see docs/bugs_and_glitches.md)
-	ld a, [wPhoneScriptBank]
+	; call Phone_CallerTextbox
+	; hlcoord 1, 2
+	; ld [hl], "☎"
+	; inc hl
+	; inc hl
+	; ld a, [wPhoneCaller]
+	; ld e, a
+	; ld a, [wPhoneCaller + 1]
+	; ld d, a
+	; ld a, [wPhoneScriptBank]
+	; call PlaceFarString
+	ld a, [wCurCaller]
 	ld b, a
-	ld a, [wPhoneCaller]
-	ld e, a
-	ld a, [wPhoneCaller + 1]
-	ld d, a
-	call BrokenPlaceFarString
-	ret
+	jp Phone_TextboxWithName
 
 Phone_NoSignal:
 	ld de, SFX_NO_SIGNAL

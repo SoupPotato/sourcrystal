@@ -57,6 +57,7 @@ Phone_GotAwayCall_Female:
 Phone_WhosBragging_Male:
 	readvar VAR_CALLERID
 	ifequal PHONE_SCHOOLBOY_JACK, .Jack
+	ifequal PHONE_SAILOR_HUEY, .Huey
 	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
@@ -92,6 +93,11 @@ Phone_WhosBragging_Male:
 
 .Jack:
 	farwritetext JackIntelligenceKeepsRisingText
+	promptbutton
+	end
+
+.Huey:
+	farwritetext HueyEnergenicText
 	promptbutton
 	end
 
@@ -328,6 +334,7 @@ Phone_WhosBragging_Female:
 Phone_WhoDefeatedMon_Male:
 	readvar VAR_CALLERID
 	ifequal PHONE_SCHOOLBOY_JACK, .Jack
+	ifequal PHONE_SAILOR_HUEY, .Huey
 	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
@@ -362,6 +369,11 @@ Phone_WhoDefeatedMon_Male:
 
 .Jack:
 	farwritetext JackDefeatedMonText
+	promptbutton
+	end
+
+.Huey:
+	farwritetext HueyDefeatedMonText
 	promptbutton
 	end
 
@@ -598,6 +610,7 @@ Phone_WhoDefeatedMon_Female:
 Phone_WhoLostAMon_Male:
 	readvar VAR_CALLERID
 	ifequal PHONE_SCHOOLBOY_JACK, .Jack
+	ifequal PHONE_SAILOR_HUEY, .Huey
 	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
@@ -631,6 +644,11 @@ Phone_WhoLostAMon_Male:
 
 .Jack:
 	farwritetext JackLostAMonText
+	promptbutton
+	end
+
+.Huey:
+	farwritetext HueyLostAMonText
 	promptbutton
 	end
 

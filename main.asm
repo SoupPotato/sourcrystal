@@ -622,7 +622,6 @@ INCLUDE "data/phone/text/beverly_caller.asm"
 INCLUDE "data/phone/text/bike_shop.asm"
 INCLUDE "data/phone/text/gaven_caller.asm"
 INCLUDE "data/phone/text/gina_caller.asm"
-INCLUDE "data/phone/text/huey_caller.asm"
 INCLUDE "data/phone/text/ian_caller.asm" ; new
 INCLUDE "data/phone/text/jack_caller.asm"
 INCLUDE "data/phone/text/jamie_caller.asm" ; new
@@ -652,6 +651,7 @@ INCLUDE "data/phone/text/kayandtia_caller.asm" ; new
 INCLUDE "data/phone/text/aiden_caller.asm" ; new
 INCLUDE "data/phone/text/eoin_caller.asm" ; new
 INCLUDE "data/phone/text/reese_caller.asm" ; new
+INCLUDE "data/phone/text/huey_caller.asm"
 
 
 SECTION "UpdateBattleHUDs", ROMX

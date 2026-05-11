@@ -1153,6 +1153,7 @@ PhoneScript_GreetPhone_Female_Nite:
 PhoneScript_Generic_Male:
 	readvar VAR_CALLERID
 	ifequal PHONE_SCHOOLBOY_JACK, .Jack
+	ifequal PHONE_SAILOR_HUEY, .Huey
 	ifequal PHONE_COOLTRAINERM_GAVEN, .Gaven
 	ifequal PHONE_BIRDKEEPER_JOSE, .Jose
 	ifequal PHONE_YOUNGSTER_JOEY, .Joey
@@ -1187,6 +1188,11 @@ PhoneScript_Generic_Male:
 
 .Jack:
 	farwritetext JackGenericText
+	promptbutton
+	end
+
+.Huey:
+	farwritetext HueyEnergenicText
 	promptbutton
 	end
 

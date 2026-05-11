@@ -9,7 +9,6 @@ HueyPhoneCalleeScript: ; You call
 	iftrue HueyWantsBattle
 
 .NotWednesday:
-	special RandomPhoneMon
 	farsjump HueyHangUpScript
 
 HueyBattleReminder:
@@ -23,7 +22,7 @@ HueyPhoneCallerScript: ; Calls you
 	farscall PhoneScript_GreetPhone_Male
 	farscall PhoneScript_Random2
 	ifequal 0, HueyWantsBattle ; 33% chance for a rematch
-	farsjump PhoneScript_MonFlavorText
+	farsjump Phone_GenericCall_Male
 
 HueyWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_LIGHTHOUSE

@@ -182,6 +182,10 @@
 	charmap "8",         $fe
 	charmap "9",         $ff
 
+; Buttons for Pokegear phone call prompt
+	charmap "<A>", $c0
+	charmap "<B>", $c1
+
 ; Japanese control characters (see home/text.asm)
 
 	charmap "<JP_18>",   $18 ; "ノ゛" (ungrammatical)

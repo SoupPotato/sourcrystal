@@ -441,6 +441,13 @@ RingTwice_StartCall:
 ; the player to shut it off.
 	call WaitSFX
 	call Phone_StartRinging
+
+; Load the A/B button graphics
+	ld de, .ABButtonGFX
+	ld hl, vTiles0 tile $C0
+	lb bc, BANK(.ABButtonGFX), 2
+	call Get1bpp
+
 	ld c, 30
 	call DelayFrames
 
@@ -538,6 +545,8 @@ RingTwice_StartCall:
 	db PHONE_BILL
 	db PHONE_ELM
 	DEF NUM_FORCED_CALLERS EQU @-.ForcedCallerList
+
+.ABButtonGFX: INCBIN "gfx/font/ab_button.1bpp"
 
 ; In the original this appears to be unused. Since 99% of it's like the
 ; same thing anyway, wouldn't hurt to reuse it for the case where you
@@ -706,7 +715,7 @@ Phone_PickupHangupIndicator:
 	jr .next
 
 .PressAText:
-	db "A▶PICKUP B▶HANGUP@"
+	db "<A><COLON>ANSWER <B><COLON>DECLINE@"
 
 GetCallerClassAndName:
 	ld h, d

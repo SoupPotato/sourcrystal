@@ -796,7 +796,6 @@ Bide:
 	usedmovetext
 	unleashenergy
 	resettypematchup
-	checkhit
 	moveanim
 	bidefailtext
 	applydamage
@@ -934,7 +933,6 @@ Struggle:
 	damagestats
 	damagecalc
 	damagevariation
-	checkhit
 	moveanim
 	failuretext
 	applydamage
@@ -1170,7 +1168,6 @@ Mimic:
 	checkobedience
 	usedmovetext
 	doturn
-	checkhit
 	mimic
 	endmove
 
@@ -1329,7 +1326,6 @@ PainSplit:
 	checkobedience
 	usedmovetext
 	doturn
-	checkhit
 	painsplit
 	endmove
 
@@ -1360,7 +1356,6 @@ Conversion2:
 	checkobedience
 	usedmovetext
 	doturn
-	checkhit
 	conversion2
 	endmove
 
@@ -1368,7 +1363,6 @@ LockOn:
 	checkobedience
 	usedmovetext
 	doturn
-	checkhit
 	lockon
 	endmove
 
@@ -1546,7 +1540,6 @@ Foresight:
 	checkobedience
 	usedmovetext
 	doturn
-	checkhit
 	foresight
 	endmove
 

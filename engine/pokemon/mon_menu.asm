@@ -1228,6 +1228,8 @@ PlaceMoveData:
 	call AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
+	and a
+	jr z, .no_accuracy
 	ld [wTextDecimalByte], a
 ; convert 0-255 to 0-100 range
 ; x * 100
@@ -1248,6 +1250,14 @@ PlaceMoveData:
 	hlcoord 16, 13
 	lb bc, 1, 3
 	call PrintNum
+	jr .power
+
+.no_accuracy
+	ld de, String_MoveNoAccuracy
+	hlcoord 16, 13
+	call PlaceString
+
+.power
 	ld a, [wCurSpecies]
 	dec a
 	ld hl, Moves + MOVE_POWER
@@ -1340,6 +1350,7 @@ String_MoveAtk:
 	db "ATK/@"
 String_MoveAcc:
 	db "ACC/@"
+String_MoveNoAccuracy:
 String_MoveNoPower:
 	db "---@"
 

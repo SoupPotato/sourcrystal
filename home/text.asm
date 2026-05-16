@@ -213,26 +213,6 @@ NextChar::
 	jp PlaceNextChar
 
 CheckDict::
-MACRO dict
-	assert CHARLEN(\1) == 1
-	if \1 == 0
-		and a
-	else
-		cp \1
-	endc
-	if ISCONST(\2)
-		; Replace a character with another one
-		jr nz, .not\@
-		ld a, \2
-	.not\@:
-	elif !STRCMP(STRSUB("\2", 1, 1), ".")
-		; Locals can use a short jump
-		jr z, \2
-	else
-		jp z, \2
-	endc
-ENDM
-
 	dict "<MOBILE>",  MobileScriptChar
 	dict "<LINE>",    LineChar
 	dict "<NEXT>",    NextLineChar
@@ -286,24 +266,24 @@ MACRO print_name
 	jp PlaceCommandCharacter
 ENDM
 
-PrintMomsName:   print_name wMomsName
-PrintPlayerName: print_name wPlayerName
-PrintRivalName:  print_name wRivalName
-PrintRedsName:   print_name wRedsName
-PrintGreensName: print_name wGreensName
+PrintMomsName::   print_name wMomsName
+PrintPlayerName:: print_name wPlayerName
+PrintRivalName::  print_name wRivalName
+PrintRedsName::   print_name wRedsName
+PrintGreensName:: print_name wGreensName
 
-TrainerChar:  print_name TrainerCharText
-TMChar:       print_name TMCharText
-PCChar:       print_name PCCharText
-RocketChar:   print_name RocketCharText
-PlacePOKe:    print_name PlacePOKeText
-PlaceKougeki: print_name KougekiText
-SixDotsChar:  print_name SixDotsCharText
-PlacePKMN:    print_name PlacePKMNText
-PlacePOKE:    print_name PlacePOKEText
-PlaceJPRoute: print_name PlaceJPRouteText
-PlaceWatashi: print_name PlaceWatashiText
-PlaceKokoWa:  print_name PlaceKokoWaText
+TrainerChar::  print_name TrainerCharText
+TMChar::       print_name TMCharText
+PCChar::       print_name PCCharText
+RocketChar::   print_name RocketCharText
+PlacePOKe::    print_name PlacePOKeText
+PlaceKougeki:: print_name KougekiText
+SixDotsChar::  print_name SixDotsCharText
+PlacePKMN::    print_name PlacePKMNText
+PlacePOKE::    print_name PlacePOKEText
+PlaceJPRoute:: print_name PlaceJPRouteText
+PlaceWatashi:: print_name PlaceWatashiText
+PlaceKokoWa::  print_name PlaceKokoWaText
 
 PlaceMoveTargetsName::
 	ldh a, [hBattleTurn]

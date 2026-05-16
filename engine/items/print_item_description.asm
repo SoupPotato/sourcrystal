@@ -11,8 +11,9 @@ PrintItemDescription:
 	pop hl
 	ld a, [wTempTMHM]
 	ld [wCurSpecies], a
-	predef PrintMoveDescription
-	ret
+	predef PrintMoveDescriptionToScratch
+	call PlaceString
+	jp CloseSRAM
 
 .not_a_tm
 	push de

@@ -327,7 +327,9 @@ ChooseMoveToLearn:
 	dec a
 	ld [wCurSpecies], a
 	hlcoord 1, 14
-	predef PrintMoveDescription
+	predef PrintMoveDescriptionToScratch
+	call PlaceString
+	call CloseSRAM
 
 .print_move_type
 	ld a, [wCurSpecies]

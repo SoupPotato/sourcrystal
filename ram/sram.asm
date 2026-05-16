@@ -10,6 +10,9 @@ sPaddedEnemyFrontpic:: ds 7 * 7 tiles
 NEXTU
 sSortedPhoneContacts:: ds NUM_PHONE_CONTACTS
 
+NEXTU
+sMoveDescriptionScratch:: ds (SCREEN_WIDTH * 2) + 5 ; ballpark estimate for text length
+
 ENDU
 
 SECTION "Party Mail Saves", SRAM

@@ -23,7 +23,7 @@ PredefPointers::
 	add_predef CanLearnTMHMMove
 	add_predef GetTMHMMove
 	add_predef LinkTextboxAtHL
-	add_predef PrintMoveDescription
+	add_predef PrintMoveDescriptionToScratch
 	add_predef UpdatePlayerHUD
 	add_predef PlaceGraphic
 	add_predef CheckPlayerPartyForFitMon

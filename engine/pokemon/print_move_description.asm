@@ -1,5 +1,11 @@
-PrintMoveDescription:
+; Does not print to screen by default.
+; Auto-sets `de` to sMoveDescriptionScratch.
+; Keeps SRAM open so the routine after it can immediately print or do whatever.
+; Caller must CloseSRAM themselves.
+PrintMoveDescriptionToScratch:
 	push hl
+	xor a ; BANK(sMoveDescriptionScratch)
+	call OpenSRAM
 	ld hl, MoveDescriptions
 	ld a, [wCurSpecies]
 	dec a
@@ -10,7 +16,15 @@ PrintMoveDescription:
 	ld a, [hli]
 	ld e, a
 	ld d, [hl]
+	ld hl, sMoveDescriptionScratch
+.keep_copying
+	ld a, [de]
+	inc de
+	ld [hli], a
+	cp "@"
+	jr nz, .keep_copying
+	ld de, sMoveDescriptionScratch
 	pop hl
-	jp PlaceString
+	ret
 
 INCLUDE "data/moves/descriptions.asm"

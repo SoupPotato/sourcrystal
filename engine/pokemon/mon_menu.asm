@@ -1208,19 +1208,47 @@ PrepareToPlaceMoveData:
 PlaceMoveData:
 	xor a
 	ldh [hBGMapMode], a
-	hlcoord 0, 10
-	ld de, String_MoveType_Top
-	call PlaceString
-	hlcoord 0, 11
+	hlcoord 1, 12
 	ld de, String_MoveType_Bottom
 	call PlaceString
 	hlcoord 12, 12
 	ld de, String_MoveAtk
 	call PlaceString
+	hlcoord 12, 13
+	ld de, String_MoveAcc
+	call PlaceString
 	ld a, [wCurSpecies]
 	ld b, a
-	hlcoord 2, 12
+	hlcoord 2, 13
 	predef PrintMoveType
+	ld a, [wCurSpecies]
+	dec a
+	ld hl, Moves + MOVE_ACC
+	ld bc, MOVE_LENGTH
+	call AddNTimes
+	ld a, BANK(Moves)
+	call GetFarByte
+	inc a ; attempt to round up
+	ld [wTextDecimalByte], a
+; convert 0-255 to 0-100 range
+; x * 100
+	ldh [hMultiplicand + 2], a
+	xor a
+	ldh [hMultiplicand + 0], a
+	ldh [hMultiplicand + 1], a
+	ld a, 100
+	ldh [hMultiplier], a
+	call Multiply
+; x / 255
+	ld b, 4
+	ld a, 255
+	ldh [hDivisor], a
+	assert hProduct == hDividend
+	call Divide
+	ld de, hQuotient + 3
+	hlcoord 16, 13
+	lb bc, 1, 3
+	call PrintNum
 	ld a, [wCurSpecies]
 	dec a
 	ld hl, Moves + MOVE_POWER
@@ -1242,18 +1270,77 @@ PlaceMoveData:
 	call PlaceString
 
 .description
-	hlcoord 1, 14
-	predef PrintMoveDescription
+	hlcoord 1, 15
+	predef PrintMoveDescriptionToScratch
+	call MonMenu_PlaceString
+	call CloseSRAM
 	ld a, $1
 	ldh [hBGMapMode], a
 	ret
 
-String_MoveType_Top:
-	db "┌─────┐@"
+; Modified version of PlaceString
+; MoveDescriptions is also used for TM/HM descriptions, so they couldn't be
+; changed nor must they be duplicated.
+MonMenu_PlaceString::
+	push hl
+.place_next
+	ld a, [de]
+	cp "@"
+	jr nz, .CheckDict
+	ld b, h
+	ld c, l
+	pop hl
+	ret
+.next
+	inc de
+	jp .place_next
+.CheckDict:
+	dict "<MOBILE>",  MobileScriptChar
+	dict "<LINE>",    LineChar
+	dict "<NEXT>",    LineFeedChar
+	dict "<CR>",      CarriageReturnChar
+	dict "<NULL>",    NullChar
+	dict "<SCROLL>",  _ContTextNoPause
+	dict "<_CONT>",   _ContText
+	dict "<PARA>",    Paragraph
+	dict "<MOM>",     PrintMomsName
+	dict "<PLAYER>",  PrintPlayerName
+	dict "<RIVAL>",   PrintRivalName
+	dict "<ROUTE>",   PlaceJPRoute
+	dict "<WATASHI>", PlaceWatashi
+	dict "<KOKO_WA>", PlaceKokoWa
+	dict "<RED>",     PrintRedsName
+	dict "<GREEN>",   PrintGreensName
+	dict "#",         PlacePOKe
+	dict "<PC>",      PCChar
+	dict "<ROCKET>",  RocketChar
+	dict "<TM>",      TMChar
+	dict "<TRAINER>", TrainerChar
+	dict "<KOUGEKI>", PlaceKougeki
+	dict "<LF>",      LineFeedChar
+	dict "<CONT>",    ContText
+	dict "<……>",      SixDotsChar
+	dict "<DONE>",    DoneText
+	dict "<PROMPT>",  PromptText
+	dict "<PKMN>",    PlacePKMN
+	dict "<POKE>",    PlacePOKE
+	dict "<WBR>",     NextChar
+	dict "<BSP>",     " "
+	dict "<DEXEND>",  PlaceDexEnd
+	dict "<TARGET>",  PlaceMoveTargetsName
+	dict "<USER>",    PlaceMoveUsersName
+	dict "<ENEMY>",   PlaceEnemysName
+	dict "<PLAY_G>",  PlaceGenderedPlayerName
+	ld [hli], a
+	call PrintLetterDelay
+	jp .next
+
 String_MoveType_Bottom:
-	db "│TYPE/└@"
+	db "TYPE/@"
 String_MoveAtk:
 	db "ATK/@"
+String_MoveAcc:
+	db "ACC/@"
 String_MoveNoPower:
 	db "---@"
 

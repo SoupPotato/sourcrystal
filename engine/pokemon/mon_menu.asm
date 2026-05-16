@@ -1228,7 +1228,6 @@ PlaceMoveData:
 	call AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
-	inc a ; attempt to round up
 	ld [wTextDecimalByte], a
 ; convert 0-255 to 0-100 range
 ; x * 100
@@ -1239,9 +1238,9 @@ PlaceMoveData:
 	ld a, 100
 	ldh [hMultiplier], a
 	call Multiply
-; x / 255
+; x / 255 (?)
 	ld b, 4
-	ld a, 255
+	ld a, 254
 	ldh [hDivisor], a
 	assert hProduct == hDividend
 	call Divide

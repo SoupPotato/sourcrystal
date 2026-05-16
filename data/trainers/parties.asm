@@ -5990,13 +5990,13 @@ SailorGroup:
 	db "HARRY@", TRAINERTYPE_VARIABLE
 	
 	;Normal Mode
-	db TRAINERTYPE_NORMAL
-	db 20, WOOPER
+	db TRAINERTYPE_MOVES
+	db 20, WOOPER,     WATER_GUN, TAIL_WHIP, MIST, SLAM
 	db $fe ; delimiter
 	
 	;Challenge Mode
-	db TRAINERTYPE_NORMAL
-	db 23, WOOPER
+	db TRAINERTYPE_MOVES
+	db 23, WOOPER,     WHIRLPOOL, HAZE, MIST, SLAM
 	db -1 ; end
 
 	; SAILOR (11)

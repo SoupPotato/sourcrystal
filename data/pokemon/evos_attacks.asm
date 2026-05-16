@@ -2934,12 +2934,13 @@ WooperEvosAttacks:
 	db 7, MUD_SLAP
 	db 12, MIST
 	db 12, HAZE
-	db 15, SLAM
-	db 21, RAIN_DANCE
-	db 26, AMNESIA
-	db 29, SURF
-	db 35, TOXIC
-	db 40, EARTHQUAKE
+	db 16, SLAM
+	db 21, WHIRLPOOL
+	db 25, RAIN_DANCE
+	db 30, AMNESIA
+	db 34, EARTHQUAKE
+	db 39, TOXIC
+	db 43, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 QuagsireEvosAttacks:
@@ -2949,12 +2950,13 @@ QuagsireEvosAttacks:
 	db 1, MUD_SLAP
 	db 12, MIST
 	db 12, HAZE
-	db 15, SLAM
-	db 21, RAIN_DANCE
-	db 27, AMNESIA
-	db 32, SURF
-	db 39, TOXIC
-	db 47, EARTHQUAKE
+	db 16, SLAM
+	db 22, WHIRLPOOL
+	db 27, RAIN_DANCE
+	db 33, AMNESIA
+	db 38, EARTHQUAKE
+	db 44, TOXIC
+	db 49, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 EspeonEvosAttacks:

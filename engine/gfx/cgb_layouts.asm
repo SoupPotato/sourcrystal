@@ -457,7 +457,7 @@ _CGB_PokedexUnownMode:
 	call GetMonPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
 	call WipeAttrmap
-	hlcoord 7, 5, wAttrmap
+	hlcoord 1, 4, wAttrmap
 	lb bc, 7, 7
 	ld a, $1 ; mon palette
 	call FillBoxCGB

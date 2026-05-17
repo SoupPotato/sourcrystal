@@ -189,10 +189,12 @@ SECTION "New Base EXP", ROMX
 
 INCLUDE "engine/pokemon/new_base_exp.asm"
 
+SECTION "Pokedex", ROMX
+
+INCLUDE "engine/pokedex/pokedex.asm"
 
 SECTION "bank10", ROMX
 
-INCLUDE "engine/pokedex/pokedex.asm"
 INCLUDE "data/moves/moves.asm"
 INCLUDE "engine/pokemon/evolve.asm"
 

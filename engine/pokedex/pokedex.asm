@@ -1300,17 +1300,28 @@ Pokedex_PlaceSearchResultsTypeStrings:
 
 Pokedex_DrawUnownModeBG:
 	call Pokedex_FillBackgroundColor2
-	hlcoord 2, 1
-	lb bc, 10, 13
+	hlcoord 8, 1
+	lb bc, 11, 10
+	call Pokedex_PlaceBorder
+	hlcoord 0, 3
+	lb bc, 7, 7
 	call Pokedex_PlaceBorder
 	hlcoord 2, 14
 	lb bc, 1, 13
 	call Pokedex_PlaceBorder
+	hlcoord 8, 4
+	ld b, 7
+	ld a, $5a
+	call Pokedex_FillColumn
+	hlcoord 8, 3
+	ld [hl], $53
+	hlcoord 8, 11
+	ld [hl], $54
 	hlcoord 2, 15
 	ld [hl], $3d
 	hlcoord 16, 15
 	ld [hl], $3e
-	hlcoord 6, 5
+	hlcoord 1, 4
 	call PlaceFrontpicAtHL
 	ld de, 0
 	ld b, 0
@@ -1344,32 +1355,32 @@ endr
 UnownModeLetterAndCursorCoords:
 ; entries correspond to Unown forms
 ;           letter, cursor
-	dwcoord   4,11,   3,11 ; A
-	dwcoord   4,10,   3,10 ; B
-	dwcoord   4, 9,   3, 9 ; C
-	dwcoord   4, 8,   3, 8 ; D
-	dwcoord   4, 7,   3, 7 ; E
-	dwcoord   4, 6,   3, 6 ; F
-	dwcoord   4, 5,   3, 5 ; G
-	dwcoord   4, 4,   3, 4 ; H
-	dwcoord   4, 3,   3, 2 ; I
-	dwcoord   5, 3,   5, 2 ; J
-	dwcoord   6, 3,   6, 2 ; K
-	dwcoord   7, 3,   7, 2 ; L
-	dwcoord   8, 3,   8, 2 ; M
-	dwcoord   9, 3,   9, 2 ; N
-	dwcoord  10, 3,  10, 2 ; O
-	dwcoord  11, 3,  11, 2 ; P
-	dwcoord  12, 3,  12, 2 ; Q
-	dwcoord  13, 3,  13, 2 ; R
-	dwcoord  14, 3,  15, 2 ; S
-	dwcoord  14, 4,  15, 4 ; T
-	dwcoord  14, 5,  15, 5 ; U
-	dwcoord  14, 6,  15, 6 ; V
-	dwcoord  14, 7,  15, 7 ; W
-	dwcoord  14, 8,  15, 8 ; X
-	dwcoord  14, 9,  15, 9 ; Y
-	dwcoord  14,10,  15,10 ; Z
+	dwcoord  10, 2,  9, 2; A
+	dwcoord  10, 4,  9, 4; B
+	dwcoord  10, 6,  9, 6; C
+	dwcoord  10, 8,  9, 8; D
+	dwcoord  10,10,  9,10; E
+	dwcoord  10,12,  9,12; F
+	dwcoord  12, 2, 11, 2; G
+	dwcoord  12, 4, 11, 4; H
+	dwcoord  12, 6, 11, 6; I
+	dwcoord  12, 8, 11, 8; J
+	dwcoord  12,10, 11,10; K
+	dwcoord  12,12, 11,12; L
+	dwcoord  14, 2, 13, 2; M
+	dwcoord  14, 4, 13, 4; N
+	dwcoord  14, 6, 13, 6; O
+	dwcoord  14, 8, 13, 8; P
+	dwcoord  14,10, 13,10; Q
+	dwcoord  14,12, 13,12; R
+	dwcoord  16, 2, 15, 2; S
+	dwcoord  16, 4, 15, 4; T
+	dwcoord  16, 6, 15, 6; U
+	dwcoord  16, 8, 15, 8; V
+	dwcoord  16,10, 15,10; W
+	dwcoord  16,12, 15,12; X
+	dwcoord  18, 2, 17, 2; Y
+	dwcoord  18, 4, 17, 4; Z
 
 Pokedex_FillBackgroundColor2:
 	hlcoord 0, 0

@@ -1104,18 +1104,18 @@ Pokedex_DrawMainScreenBG:
 	call Pokedex_PlaceString
 	hlcoord 8, 1
 	ld b, 7
-	ld a, $5a
+	ld a, $65
 	call Pokedex_FillColumn
 	hlcoord 8, 10
 	ld b, 6
-	ld a, $5a
+	ld a, $65
 	call Pokedex_FillColumn
 	hlcoord 8, 0
-	ld [hl], $59
+	ld [hl], $64
 	hlcoord 8, 8
-	ld [hl], $53
+	ld [hl], $62
 	hlcoord 8, 9
-	ld [hl], $54
+	ld [hl], $63
 	hlcoord 8, 16
 	ld [hl], $5b
 	call Pokedex_PlaceFrontpicTopLeftCorner
@@ -1130,6 +1130,10 @@ String_SELECT_OPTION:
 	; fallthrough
 String_START_SEARCH:
 	db $3c, $3b, $41, $42, $43, $4b, $4c, $4d, $4e, $3c, -1 ; START > SEARCH
+String_UNOWN:
+	db "UNOWN", -1
+String_OutOf26:
+	db "/26", -1
 
 Pokedex_DrawDexEntryScreenBG:
 	call Pokedex_FillBackgroundColor2
@@ -1260,13 +1264,13 @@ Pokedex_DrawSearchResultsScreenBG:
 	lb bc, 1, 3
 	call PrintNum
 	hlcoord 8, 0
-	ld [hl], $59
+	ld [hl], $64
 	hlcoord 8, 1
 	ld b, 7
-	ld a, $5a
+	ld a, $65
 	call Pokedex_FillColumn
 	hlcoord 8, 8
-	ld [hl], $53
+	ld [hl], $62
 	hlcoord 8, 9
 	ld [hl], $69
 	hlcoord 8, 10
@@ -1303,25 +1307,42 @@ Pokedex_DrawUnownModeBG:
 	hlcoord 8, 1
 	lb bc, 11, 10
 	call Pokedex_PlaceBorder
-	hlcoord 0, 3
+	hlcoord 0, 1
 	lb bc, 7, 7
 	call Pokedex_PlaceBorder
 	hlcoord 2, 14
 	lb bc, 1, 13
 	call Pokedex_PlaceBorder
-	hlcoord 8, 4
+	hlcoord 0, 10
+	lb bc, 2, 7
+	call Pokedex_PlaceBorder
+	hlcoord 8, 2
 	ld b, 7
-	ld a, $5a
+	ld a, $65
 	call Pokedex_FillColumn
-	hlcoord 8, 3
-	ld [hl], $53
-	hlcoord 8, 11
-	ld [hl], $54
+	hlcoord 8, 1
+	ld [hl], $64
+	hlcoord 8, 9
+	ld [hl], $62
 	hlcoord 2, 15
 	ld [hl], $3d
 	hlcoord 16, 15
 	ld [hl], $3e
-	hlcoord 1, 4
+	hlcoord 8, 10
+	ld [hl], $63
+	hlcoord 8, 13
+	ld [hl], $5b
+	hlcoord 8, 11
+	ld b, 2
+	ld a, $65
+	call Pokedex_FillColumn
+	hlcoord 1, 11
+	ld de, String_UNOWN
+	call Pokedex_PlaceString
+	hlcoord 5, 12
+	ld de, String_OutOf26
+	call Pokedex_PlaceString
+	hlcoord 1, 2
 	call PlaceFrontpicAtHL
 	ld de, 0
 	ld b, 0
@@ -1571,12 +1592,12 @@ Pokedex_PlaceDefaultStringIfNotSeen:
 
 Pokedex_DrawFootprint:
 	hlcoord 18, 1
-	ld a, $62
+	ld a, $53
 	ld [hli], a
 	inc a
 	ld [hl], a
 	hlcoord 18, 2
-	ld a, $64
+	ld a, $59
 	ld [hli], a
 	inc a
 	ld [hl], a
@@ -2407,7 +2428,7 @@ Pokedex_LoadAnyFootprint:
 	push hl
 	ld e, l
 	ld d, h
-	ld hl, vTiles2 tile $62
+	ld hl, vTiles2 tile $53 ; upper half of foot
 	lb bc, BANK(Footprints), 2
 	call Request1bpp
 	pop hl
@@ -2419,7 +2440,7 @@ Pokedex_LoadAnyFootprint:
 
 	ld e, l
 	ld d, h
-	ld hl, vTiles2 tile $64
+	ld hl, vTiles2 tile $59 ; lower half of foot
 	lb bc, BANK(Footprints), 2
 	call Request1bpp
 

@@ -1260,6 +1260,14 @@ PlaceMoveData:
 .power
 	ld a, [wCurSpecies]
 	dec a
+	; Specifically these shouldn't have POWER displays
+	; The other method would be to change the move data
+	; themselves but I don't feel like checking for side
+	; effects for that one
+	cp SONICBOOM
+	jr z, .no_power
+	cp DRAGON_RAGE
+	jr z, .no_power
 	ld hl, Moves + MOVE_POWER
 	ld bc, MOVE_LENGTH
 	call AddNTimes

@@ -1342,6 +1342,7 @@ Pokedex_DrawUnownModeBG:
 	hlcoord 5, 12
 	ld de, String_OutOf26
 	call Pokedex_PlaceString
+	call PrintUnownCaught
 	hlcoord 1, 2
 	call PlaceFrontpicAtHL
 	ld de, 0
@@ -1372,6 +1373,26 @@ endr
 	ld a, b
 	ld [wDexUnownCount], a
 	ret
+
+PrintUnownCaught:
+	ld hl, wUnownDex
+	ld b, 0
+.loop
+	ld a, [hli]
+	and a
+	jr z, .print
+	inc b
+	ld a, b
+	cp NUM_UNOWN
+	jr c, .loop
+.print
+	hlcoord 3, 12
+	ld de, wStringBuffer2
+	ld a, b
+	ld [de], a
+	ld b, 1
+	ld c, 2
+	jp PrintNum
 
 UnownModeLetterAndCursorCoords:
 ; entries correspond to Unown forms

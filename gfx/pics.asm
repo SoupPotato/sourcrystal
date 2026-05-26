@@ -34,6 +34,7 @@ ChinchouFrontpic:    INCBIN "gfx/pokemon/chinchou/front.animated.2bpp.lz"
 PoliwrathFrontpic:   INCBIN "gfx/pokemon/poliwrath/front.animated.2bpp.lz"
 UnownDBackpic:       INCBIN "gfx/pokemon/unown_d/back.2bpp.lz"
 PiloswineBackpic:    INCBIN "gfx/pokemon/piloswine/back.2bpp.lz"
+ArbokBackpic:        INCBIN "gfx/pokemon/arbok/back.2bpp.lz"
 
 
 SECTION "Pics 2", ROMX
@@ -575,7 +576,6 @@ LugiaBackpic:        INCBIN "gfx/pokemon/lugia/back.2bpp.lz"
 PrycePic:            INCBIN "gfx/trainers/pryce.2bpp.lz"
 BrockPic:            INCBIN "gfx/trainers/brock.2bpp.lz"
 UnownGFrontpic:      INCBIN "gfx/pokemon/unown_g/front.animated.2bpp.lz"
-ArbokBackpic:        INCBIN "gfx/pokemon/arbok/back.2bpp.lz"
 PolitoedBackpic:     INCBIN "gfx/pokemon/politoed/back.2bpp.lz"
 DragoniteBackpic:    INCBIN "gfx/pokemon/dragonite/back.2bpp.lz"
 HitmonleeBackpic:    INCBIN "gfx/pokemon/hitmonlee/back.2bpp.lz"

@@ -18,18 +18,20 @@ UpdateUnownDex:
 	ld [hl], c
 	ret
 
+IsUnownCaught:
+INCLUDE "engine/pokedex/is_unown_caught.asm"
+
 PrintUnownWord:
 	hlcoord 4, 15
 	ld bc, 12
 	ld a, " "
 	call ByteFill
 	ld a, [wDexCurUnownIndex]
-	ld e, a
-	ld d, 0
-	ld hl, wUnownDex
-	add hl, de
-	ld a, [hl]
-	ld e, a
+	ld b, a
+	call IsUnownCaught
+	ret nc
+	inc b
+	ld e, b
 	ld d, 0
 	ld hl, UnownWords
 	add hl, de

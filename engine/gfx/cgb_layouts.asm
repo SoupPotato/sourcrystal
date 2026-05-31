@@ -453,7 +453,7 @@ _CGB_PokedexUnownMode:
 	ld a, PREDEFPAL_POKEDEX
 	call GetPredefPal
 	call LoadHLPaletteIntoDE
-	ld a, [wCurPartySpecies]
+	ld a, UNOWN
 	call GetMonPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
 	call WipeAttrmap

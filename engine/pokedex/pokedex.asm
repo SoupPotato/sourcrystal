@@ -806,6 +806,12 @@ Pokedex_InitUnownMode:
 	call Pokedex_IncrementDexPointer
 	ret
 
+; DexCurUnownIndex previously points to UnownDex + [DexCurUnownIndex]
+; now repurposed as an alphabetical index
+
+Pokedex_IsUnownCaught:
+INCLUDE "engine/pokedex/is_unown_caught.asm"
+
 Pokedex_UpdateUnownMode:
 	ld hl, hJoyPressed
 	ld a, [hl]
@@ -844,12 +850,10 @@ Pokedex_UnownModeHandleDPadInput:
 	ret
 
 .right
-	ld a, [wDexUnownCount]
-	ld e, a
 	ld hl, wDexCurUnownIndex
 	ld a, [hl]
 	inc a
-	cp e
+	cp 26
 	ret nc
 	ld a, [hl]
 	inc [hl]
@@ -1345,15 +1349,35 @@ Pokedex_DrawUnownModeBG:
 	call PrintUnownCaught
 	hlcoord 1, 2
 	call PlaceFrontpicAtHL
-	ld de, 0
-	ld b, 0
+; print dashes
 	ld c, NUM_UNOWN
-.loop
+	ld hl, UnownModeLetterAndCursorCoords
+.loop_dashes
+	push hl
+		ld a, [hli]
+		ld h, [hl]
+		ld l, a
+		; got position at hl
+		ld [hl], "-"
+	pop hl
+	rept 4
+		inc hl
+	endr
+	dec c
+	jr nz, .loop_dashes
+; print letter
+	; b = count of unown
+	; c = loop bound
+	lb bc, 0, NUM_UNOWN
 	ld hl, wUnownDex
-	add hl, de
-	ld a, [hl]
+.loop
+	ld a, [hli]
 	and a
 	jr z, .done
+	dec a
+	ld e, a
+	ld d, 0
+	push hl
 	push af
 	ld hl, UnownModeLetterAndCursorCoords
 rept 4
@@ -1362,10 +1386,11 @@ endr
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
+	; got position at hl
 	pop af
-	add FIRST_UNOWN_CHAR - 1 ; Unown A
+	add FIRST_UNOWN_CHAR ; Unown A
 	ld [hl], a
-	inc de
+	pop hl
 	inc b
 	dec c
 	jr nz, .loop
@@ -2550,17 +2575,21 @@ Pokedex_LoadUnownFrontpicTiles:
 	ld a, [wUnownLetter]
 	push af
 	ld a, [wDexCurUnownIndex]
-	ld e, a
-	ld d, 0
-	ld hl, wUnownDex
-	add hl, de
-	ld a, [hl]
+	ld b, a
+	call Pokedex_IsUnownCaught
+	jr nc, .no_show
+	ld a, b
+	inc a
 	ld [wUnownLetter], a
 	ld a, UNOWN
 	ld [wCurPartySpecies], a
 	call GetBaseData
 	ld de, vTiles2 tile $00
 	predef GetMonFrontpic
+	jr .done
+.no_show
+	call Pokedex_LoadSelectedMonTiles.QuestionMark
+.done
 	pop af
 	ld [wUnownLetter], a
 	ret

@@ -1259,7 +1259,6 @@ PlaceMoveData:
 
 .power
 	ld a, [wCurSpecies]
-	dec a
 
 	; Specifically these shouldn't have POWER displays
 	; The other method would be to change the move data
@@ -1271,21 +1270,24 @@ PlaceMoveData:
 	cp DRAGON_RAGE
 	jr z, .no_power
 
+	dec a
+
 	ld hl, Moves + MOVE_POWER
 	ld bc, MOVE_LENGTH
 	call AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
-	hlcoord 16, 12
 	cp 2
 	jr c, .no_power
 	ld [wTextDecimalByte], a
+	hlcoord 16, 12
 	ld de, wTextDecimalByte
 	lb bc, 1, 3
 	call PrintNum
 	jr .description
 
 .no_power
+	hlcoord 16, 12
 	ld de, String_MoveNoPower
 	call PlaceString
 

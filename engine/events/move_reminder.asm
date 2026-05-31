@@ -384,6 +384,8 @@ ChooseMoveToLearn:
 	call AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
+	and a
+	jr z, .no_accuracy
 ; see also mon_menu.asm
 	ldh [hMultiplicand + 2], a
 	xor a
@@ -402,6 +404,11 @@ ChooseMoveToLearn:
 	lb bc, 1, 3
 	jp PrintNum
 
+.no_accuracy
+	ld de, MoveNoAccuracy
+	hlcoord 16, 13
+	jp PlaceString
+
 MoveReminder_PlaceString:
 INCLUDE "engine/move_menu_print_text.asm"
 
@@ -414,6 +421,7 @@ MoveAttack:
 MoveAccuracy:
 	db "ACC/@"
 
+MoveNoAccuracy:
 MoveNoAttack:
 	db "---@"
 

@@ -807,7 +807,7 @@ Pokedex_InitUnownMode:
 	ret
 
 ; DexCurUnownIndex previously points to UnownDex + [DexCurUnownIndex]
-; now repurposed as an alphabetical index
+; now repurposed as an alphabetical index starting at A=00
 
 Pokedex_IsUnownCaught:
 INCLUDE "engine/pokedex/is_unown_caught.asm"
@@ -842,12 +842,41 @@ Pokedex_UpdateUnownMode:
 Pokedex_UnownModeHandleDPadInput:
 	ld hl, hJoyLast
 	ld a, [hl]
-	and D_RIGHT
+	bit D_RIGHT_F, a
 	jr nz, .right
-	ld a, [hl]
-	and D_LEFT
+	bit D_LEFT_F, a
 	jr nz, .left
+	bit D_DOWN_F, a
+	jr nz, .down
+	bit D_UP_F, a
+	jr nz, .up
 	ret
+
+.up
+	ld hl, wDexCurUnownIndex
+	ld a, [hl]
+	push af
+	sub 5
+	jr nc, .apply_cur_unown_index
+	xor a
+	jr .apply_cur_unown_index
+
+.down
+	ld hl, wDexCurUnownIndex
+	ld a, [hl]
+	push af
+	add 5
+	cp 25
+	jr nc, .maxed
+	jr .apply_cur_unown_index
+
+.maxed
+	ld a, 25
+
+.apply_cur_unown_index
+	ld [hl], a
+	pop af
+	jr .update
 
 .right
 	ld hl, wDexCurUnownIndex

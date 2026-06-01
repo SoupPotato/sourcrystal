@@ -207,6 +207,13 @@ ChooseMoveToLearn:
 	lb bc,  9, 18
 	call TextboxBorder
 
+	hlcoord 2, 1
+	ld [hl], " "
+	inc hl
+	ld [hl], " "
+	inc hl
+	ld [hl], " "
+
 	ld de, FontBattleExtra + 14 tiles
 	ld hl, vTiles2 tile $6e
 	lb bc, BANK(FontBattleExtra), 1
@@ -221,10 +228,23 @@ ChooseMoveToLearn:
 	hlcoord  5, 1
 	call PlaceString
 
+	farcall ClearSpriteAnims2
+	ld a, [wCurPartyMon]
+	ld e, a
+	ld d, 0
+	ld hl, wPartySpecies
+	add hl, de
+	ld a, [hl]
+	ld [wTempIconSpecies], a
+	ld e, MONICON_MOVES
+	farcall LoadMenuMonIcon
+
 	push bc
 	farcall CopyMonToTempMon
 	pop hl
 	call PrintLevel
+
+	farcall PlaySpriteAnimations
 
 	call ScrollingMenu
 	ld a, [wMenuJoypad]

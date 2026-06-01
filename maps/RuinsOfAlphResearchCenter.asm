@@ -845,10 +845,6 @@ RuinsOfAlphResearchCenterModifiedDexText:
 
 	para "to store UNOWN"
 	line "data."
-
-	para "It records them in"
-	line "the sequence that"
-	cont "they were caught."
 	done
 
 RuinsOfAlphResearchCenterDexUpgradedText:

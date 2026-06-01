@@ -1847,7 +1847,7 @@ Pokedex_DisplayModeDescription:
 
 .UnownMode:
 	db   "UNOWN are listed"
-	next "in catching order.@"
+	next "by forms.@"
 
 Pokedex_DisplayChangingModesMessage:
 	xor a

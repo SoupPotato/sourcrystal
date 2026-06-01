@@ -13,7 +13,7 @@ Only the latest migration is `INCLUDE`'d inside of `save_compat.asm`.
 
 ## Save versions summary
 
-### v6.3 (save version 02)
+### v7.0 (save version 02)
 
 * Change how the Pokegear stores contacts. This results in the phone essentially having
   maximum capacity.

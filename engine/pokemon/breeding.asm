@@ -150,10 +150,47 @@ CheckBreedmonCompatibility:
 	scf
 	ret
 
+; IN
+;   wPartySpecies = list of species, $FF terminated
+; OUT
+;   wBase*      = (replaced)
+;   wCurSpecies = (replaced)
+;   hl          = (replaced)
+;   f           = CARRY if there's at least one
+;                 fire type in the party
+CheckAnyFireTypes:
+	ld hl, wPartySpecies
+.loop
+	ld a, [hli]
+	cp -1
+	jr z, .not_found
+	ld [wCurSpecies], a
+	call GetBaseData
+	ld a, [wBaseType1]
+	cp FIRE
+	jr z, .found
+	ld a, [wBaseType2]
+	cp FIRE
+	jr z, .found
+	jr .loop
+.found
+	and a
+	scf
+	ret
+.not_found
+	and a
+	ret
+
 DoEggStep::
+	call CheckAnyFireTypes
+	jr nc, .zero_c
+	ld c, 1
+	jr .start
+.zero_c
+	ld c, 0
+.start
 	ld de, wPartySpecies
 	ld hl, wPartyMon1Happiness
-	ld c, 0
 .loop
 	ld a, [de]
 	inc de
@@ -161,11 +198,22 @@ DoEggStep::
 	ret z
 	cp EGG
 	jr nz, .next
-	dec [hl]
-	jr nz, .next
-	ld a, 1
+	ld a, c
 	and a
-	ret
+	jr nz, .decrease_two
+	ld a, [hl]
+	sub 1
+	jr z, .ok_to_hatch
+	ld [hl], a
+	jr .next
+
+.decrease_two
+	ld a, [hl]
+	sub 2
+	jr z, .ok_to_hatch
+	jr c, .ok_to_hatch
+	ld [hl], a
+	; jr .next
 
 .next
 	push de
@@ -173,6 +221,13 @@ DoEggStep::
 	add hl, de
 	pop de
 	jr .loop
+
+.ok_to_hatch
+	xor a
+	ld [hl], a
+	ld a, 1
+	and a
+	ret
 
 OverworldHatchEgg::
 	call BackupSprites

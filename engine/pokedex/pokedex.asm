@@ -469,16 +469,16 @@ DexEntryScreen_MenuActionJumptable:
 	ret
 
 .Print:
-	call Pokedex_ApplyPrintPals
-	xor a
-	ldh [hSCX], a
+	; call Pokedex_ApplyPrintPals
+	; xor a
+	; ldh [hSCX], a
 	ld a, [wPrevDexEntryBackup]
 	push af
 	ld a, [wPrevDexEntryJumptableIndex]
 	push af
 	ld a, [wJumptableIndex]
 	push af
-	farcall PrintDexEntry
+	farcall Pokedex_FormMode
 	pop af
 	ld [wJumptableIndex], a
 	pop af

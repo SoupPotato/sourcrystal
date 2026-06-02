@@ -779,6 +779,8 @@ if DEF(_DEBUG)
 INCLUDE "engine/debug/debug_room.asm"
 endc
 
+SECTION "Pokedex Show Form Mode", ROMX
+INCLUDE "engine/pokedex/form_pic.asm"
 
 SECTION "Battle Weather Images", ROMX
 

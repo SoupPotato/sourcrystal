@@ -53,6 +53,17 @@ Pokedex_FormMode:
 	hlcoord 5, 12
 	call PlaceString
 
+	; color tiles
+	hlcoord 10, 4
+	ld [hl], $6B ; light gray
+	inc hl
+	ld [hl], $6B ; light gray
+
+	; hlcoord 10, 9
+	; ld [hl], $32 ; dark gray
+	; inc hl
+	; ld [hl], $32 ; dark gray
+
     call CopyTilemapAtOnce
     
     ; curtain up
@@ -158,6 +169,14 @@ __CGB_PokedexFormPage:
 	lb bc, 7, 7
 	ld a, VRAM_BANK_1 | 1
 	newfarcall FillBoxCGB
+	; color squares
+	ld a, 1
+	hlcoord 10, 4, wAttrmap
+	ld [hli], a
+	ld [hl], a
+	hlcoord 10, 9, wAttrmap
+	ld [hli], a
+	ld [hl], a
 	newfarcall InitPartyMenuOBPals
 	ld hl, PokedexCursorPalette
 	ld de, wOBPals1 palette 7 ; green cursor palette

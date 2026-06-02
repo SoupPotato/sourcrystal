@@ -35,9 +35,18 @@ Pokedex_FormMode:
 	hlcoord 2, 4
 	newfarcall PlaceFrontpicAtHL
 
-    ; TODO: backpic
-	hlcoord 13, 4
-	newfarcall PlaceFrontpicAtHL
+	hlcoord 13, 5
+	call PlaceBackpicAtHL
+
+	ldh a, [rVBK]
+	push af
+		; backpic to VRAM bank 1
+		ld a, 1
+		ldh [rVBK], a
+		ld de, vTiles2
+		predef GetMonBackpic
+	pop af
+	ldh [rVBK], a
 
     ; print mon species
 	call GetPokemonName
@@ -123,6 +132,7 @@ Pokedex_FormMode:
 
 __CGB_PokedexFormPage:
 ; dupe of _CGB_Pokedex
+; linked to from cgb_layouts.asm
 	ld de, wBGPals1
 	ld a, PREDEFPAL_POKEDEX
 	newfarcall GetPredefPal
@@ -138,13 +148,15 @@ __CGB_PokedexFormPage:
 	newfarcall LoadPalette_White_Col1_Col2_Black ; mon palette
 .got_palette
 	newfarcall WipeAttrmap
+	; front pic
 	hlcoord 2, 4, wAttrmap
 	lb bc, 7, 7
 	ld a, 1
 	newfarcall FillBoxCGB
+	; backpic
 	hlcoord 13, 4, wAttrmap
 	lb bc, 7, 7
-	ld a, 1
+	ld a, VRAM_BANK_1 | 1
 	newfarcall FillBoxCGB
 	newfarcall InitPartyMenuOBPals
 	ld hl, PokedexCursorPalette
@@ -157,3 +169,25 @@ __CGB_PokedexFormPage:
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
     ret
+
+PlaceBackpicAtHL:
+; copy of PlaceFrontpicAtHL
+	xor a
+	ld b, $6
+.row
+	ld c, $6
+	push af
+	push hl
+.col
+	ld [hli], a
+	add $6
+	dec c
+	jr nz, .col
+	pop hl
+	ld de, SCREEN_WIDTH
+	add hl, de
+	pop af
+	inc a
+	dec b
+	jr nz, .row
+	ret

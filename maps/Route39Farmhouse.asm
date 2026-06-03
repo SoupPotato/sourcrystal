@@ -39,7 +39,7 @@ FarmerMScript_SellMilk:
 
 .Buy1Bottle:
 	checkmoney YOUR_MONEY, ROUTE_39FARMHOUSE_1_BOTTLE_PRICE
-	ifequal HAVE_LESS, FarmerMText_NoMoney
+	ifequal HAVE_LESS, FarmerMScript_NoMoney
 	verbosegiveitem MOOMOO_MILK
 	iffalse FarmerMScript_NoRoom
 	takemoney YOUR_MONEY, 500
@@ -55,7 +55,7 @@ FarmerMScript_SellMilk:
 
 .Buy1Dozen:
 	checkmoney YOUR_MONEY, ROUTE_39FARMHOUSE_1_DOZEN_PRICE
-	ifequal HAVE_LESS, FarmerMText_NoMoney
+	ifequal HAVE_LESS, FarmerMScript_NoMoney
 	verbosegiveitem MOOMOO_MILK, 12
 	iffalse FarmerMScript_NoRoom
 	takemoney YOUR_MONEY, 6000

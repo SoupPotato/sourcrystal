@@ -10,10 +10,9 @@ Pokedex_FormMode:
     ld [hl], "T" ; last character of action menu (should be FORM but is PRNT for now)
 
     ; now do the main screen
-    ld a, $32
-	hlcoord 0, 0
-	ld bc, SCREEN_WIDTH * (SCREEN_HEIGHT-1)
-	call ByteFill
+	decoord 0, 0
+	ld hl, FormBackgroundTilemap
+	call Decompress
 
     hlcoord 3, 2
     ld de, .FrontText
@@ -52,17 +51,6 @@ Pokedex_FormMode:
 	call GetPokemonName
 	hlcoord 5, 12
 	call PlaceString
-
-	; color tiles
-	hlcoord 10, 4
-	ld [hl], $6B ; light gray
-	inc hl
-	ld [hl], $6B ; light gray
-
-	; hlcoord 10, 9
-	; ld [hl], $32 ; dark gray
-	; inc hl
-	; ld [hl], $32 ; dark gray
 
     call CopyTilemapAtOnce
     
@@ -210,3 +198,6 @@ PlaceBackpicAtHL:
 	dec b
 	jr nz, .row
 	ret
+
+FormBackgroundTilemap:
+INCBIN "gfx/pokedex/form_bg.tilemap.lz"

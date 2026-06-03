@@ -53,6 +53,10 @@ Pokedex_FormMode:
 	call PlaceString
 
     call CopyTilemapAtOnce
+
+	; TODO: load proper mon palettes as well
+	ld e, MONICON_DEXFORM
+	newfarcall LoadMenuMonIcon
     
     ; curtain up
 	ld b, SCGB_POKEDEX_FORM_PAGE
@@ -64,7 +68,7 @@ Pokedex_FormMode:
 	call DmgToCgbObjPal0
 
 .wait_input
-	call DelayFrame
+	newfarcall PlaySpriteAnimationsAndDelayFrame
 	ld hl, hJoypadDown
 	ld a, [hl]
 	bit B_BUTTON_F, a
@@ -74,6 +78,8 @@ Pokedex_FormMode:
 	jr .wait_input
 .b
 	; TODO: fix the screen going back somehow
+	newfarcall ClearSpriteAnims
+	call ClearSprites
     ret
 .select
 	; TODO: switch normal/shiny colors

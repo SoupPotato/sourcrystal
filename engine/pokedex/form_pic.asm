@@ -63,12 +63,21 @@ Pokedex_FormMode:
 	ld a, $e0
 	call DmgToCgbObjPal0
 
-; WIP: FREEZE
-.hlt
-    halt
-    nop
-    jr .hlt
+.wait_input
+	call DelayFrame
+	ld hl, hJoypadDown
+	ld a, [hl]
+	bit B_BUTTON_F, a
+	jr nz, .b
+	bit SELECT_F, a
+	jr nz, .select
+	jr .wait_input
+.b
+	; TODO: fix the screen going back somehow
     ret
+.select
+	; TODO: switch normal/shiny colors
+	jr .wait_input
 
 .FrontText:
     db "FRONT@"

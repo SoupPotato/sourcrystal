@@ -10,7 +10,7 @@ Pokedex_FormMode:
 	call .DrawRHS
 
 	hlcoord 19, 17
-	ld [hl], "T" ; last character of action menu (should be FORM but is PRNT for now)
+	ld [hl], "M" ; last character of action menu
 
 	; now do the main screen
 	decoord 0, 0

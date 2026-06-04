@@ -232,7 +232,7 @@ LoadMenuMonIcon:
 PokedexFormPage_InitMonIcon:
 	; ld a, MON_DVS
 	; call GetPartyParamLocation
-	; call SetMenuMonIconColor
+	call SetMenuMonIconColor
 	ld a, [wTempIconSpecies]
 	push hl
 	pop de

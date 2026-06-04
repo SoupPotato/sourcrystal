@@ -1,35 +1,35 @@
 Pokedex_FormMode:
-    ; curtain down to hide the fact we're rendering TWICE
-    newfarcall Pokedex_BlackOutBG
+	; curtain down to hide the fact we're rendering TWICE
+	newfarcall Pokedex_BlackOutBG
 
-    ; draw right hand straggler portion of the screen first
-    ; since that isn't reached by the normal wTilemap transfer routine
-    call .DrawRHS
+	; draw right hand straggler portion of the screen first
+	; since that isn't reached by the normal wTilemap transfer routine
+	call .DrawRHS
 
-    hlcoord 19, 17
-    ld [hl], "T" ; last character of action menu (should be FORM but is PRNT for now)
+	hlcoord 19, 17
+	ld [hl], "T" ; last character of action menu (should be FORM but is PRNT for now)
 
-    ; now do the main screen
+	; now do the main screen
 	decoord 0, 0
 	ld hl, FormBackgroundTilemap
 	call Decompress
 
-    hlcoord 3, 2
-    ld de, .FrontText
-    call PlaceString
+	hlcoord 3, 2
+	ld de, .FrontText
+	call PlaceString
 
-    hlcoord 14, 2
-    ld de, .BackText
-    call PlaceString
+	hlcoord 14, 2
+	ld de, .BackText
+	call PlaceString
 
-    hlcoord 3, 15
-    ld de, .SelectText
-    call PlaceString
+	hlcoord 3, 15
+	ld de, .SelectText
+	call PlaceString
 
-    ; NORMAL / SHINY
-    hlcoord 11, 15
-    ld de, .NormalText
-    call PlaceString
+	; NORMAL / SHINY
+	hlcoord 11, 15
+	ld de, .NormalText
+	call PlaceString
 
 	hlcoord 2, 4
 	newfarcall PlaceFrontpicAtHL
@@ -53,25 +53,20 @@ Pokedex_FormMode:
 	pop af
 	ldh [rVBK], a
 
-    ; print mon species
+	; print mon species
 	call GetPokemonName
 	hlcoord 5, 12
 	call PlaceString
 
-    call CopyTilemapAtOnce
+	call CopyTilemapAtOnce
 
-	; TODO: load proper mon palettes as well
 	ld e, MONICON_DEXFORM
 	newfarcall LoadMenuMonIcon
-    
-    ; curtain up
+	
+	; curtain up
+	; runs `__CGB_PokedexFormPage` which is in this file
 	ld b, SCGB_POKEDEX_FORM_PAGE
-    ;newfarcall Pokedex_GetSGBLayout
 	call GetSGBLayout
-	ld a, $e4
-	call DmgToCgbBGPals
-	ld a, $e0
-	call DmgToCgbObjPal0
 
 .wait_input
 	newfarcall PlaySpriteAnimationsAndDelayFrame
@@ -86,7 +81,7 @@ Pokedex_FormMode:
 	; TODO: fix the screen going back somehow
 	newfarcall ClearSpriteAnims
 	call ClearSprites
-    ret
+	ret
 .select
 	; TODO: switch normal/shiny colors
 	jr .wait_input
@@ -97,19 +92,19 @@ rept 8
 endr
 
 .FrontText:
-    db "FRONT@"
+	db "FRONT@"
 
 .BackText:
-    db "BACK@"
+	db "BACK@"
 
 .SelectText:
-    db "SELECT: @"
+	db "SELECT: @"
 
 .NormalText:
-    db "NORMAL@"
+	db "NORMAL@"
 
 .ShinyText:
-    db "SHINY@"
+	db "SHINY@"
 
 .DrawRHS:
 	ldh a, [hBGMapAddress]
@@ -117,26 +112,47 @@ endr
 	ldh a, [hBGMapAddress + 1]
 	ld h, a
 	push hl
-    ; shift target bgmap address by one row
-        inc hl
-        ld a, l
-        ldh [hBGMapAddress], a
-        ld a, h
-        ldh [hBGMapAddress + 1], a
-        hlcoord 19, 0
-        ld a, $32 ; blank tile
-        ld b, 17
-        call .fill_column
-        hlcoord 19, 3
-        ld [hl], $66 ; top right
-        hlcoord 19, 4
-        ld a, $67 ; right
-        ld b, 7
-        call .fill_column
-        ld [hl], $68 ; bottom right
-	    hlcoord 19, 17
-	    ld [hl], $3c ; right edge of action menu
-        call WaitBGMap2
+	; shift target bgmap address by one row
+		inc hl
+		ld a, l
+		ldh [hBGMapAddress], a
+		ld a, h
+		ldh [hBGMapAddress + 1], a
+
+		; blank tile column
+		hlcoord 19, 0
+		ld a, $32
+		ld b, 17
+		call .fill_column
+		hlcoord 19, 0, wAttrmap
+		xor a
+		ld b, 17
+		call .fill_column
+
+		; top right
+		hlcoord 19, 3
+		ld [hl], $66
+		hlcoord 19, 3, wAttrmap
+		ld [hl], 0
+	
+		; right
+		hlcoord 19, 4
+		ld a, $67 ; right
+		ld b, 7
+		call .fill_column
+		ld [hl], $68 ; bottom right
+		hlcoord 19, 4, wAttrmap
+		xor a
+		ld b, 7
+		call .fill_column
+		ld [hl], 0 ; bottom right
+
+		; right edge of action menu
+		hlcoord 19, 17
+		ld [hl], $3c
+		hlcoord 19, 17, wAttrmap
+		ld [hl], 0
+		call WaitBGMap2
 	pop hl
 	ld a, l
 	ldh [hBGMapAddress], a
@@ -165,12 +181,12 @@ __CGB_PokedexFormPage:
 	ld a, [wCurPartySpecies]
 	cp $ff
 	jr nz, .is_pokemon
-	ld hl, PokedexQuestionMarkPalette
-	newfarcall LoadHLPaletteIntoDE ; green question mark palette
+	ld hl, .QuestionMarkPaletteDupe ; green question mark palette
+	newfarcall LoadHLPaletteIntoDE
 	jr .got_palette
 .is_pokemon
-	newfarcall GetMonPalettePointer
-	newfarcall LoadPalette_White_Col1_Col2_Black ; mon palette
+	newfarcall _GetMonPalettePointer
+	newfarcall LoadPalette_White_Col1_Col2_Black
 .got_palette
 	newfarcall WipeAttrmap
 	; front pic
@@ -192,16 +208,13 @@ __CGB_PokedexFormPage:
 	ld [hli], a
 	ld [hl], a
 	newfarcall InitPartyMenuOBPals
-	ld hl, PokedexCursorPalette
-	ld de, wOBPals1 palette 7 ; green cursor palette
-	ld bc, 1 palettes
-	ld a, BANK(wOBPals1)
-	call FarCopyWRAM
 	newfarcall ApplyAttrmap
 	newfarcall ApplyPals
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
-    ret
+	ret
+.QuestionMarkPaletteDupe:
+INCLUDE "gfx/pokedex/question_mark.pal"
 
 PlaceBackpicAtHL:
 ; copy of PlaceFrontpicAtHL

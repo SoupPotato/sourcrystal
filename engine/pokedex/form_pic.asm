@@ -44,6 +44,12 @@ Pokedex_FormMode:
 		ldh [rVBK], a
 		ld de, vTiles2
 		predef GetMonBackpic
+
+		; also ensure blank tile is cleared
+		ld hl, vTiles2 tile $30
+		ld de, .BlankTile
+		lb bc, BANK(.BlankTile), 1
+		call Request1bpp
 	pop af
 	ldh [rVBK], a
 
@@ -84,6 +90,11 @@ Pokedex_FormMode:
 .select
 	; TODO: switch normal/shiny colors
 	jr .wait_input
+
+.BlankTile:
+rept 8
+	db 0
+endr
 
 .FrontText:
     db "FRONT@"

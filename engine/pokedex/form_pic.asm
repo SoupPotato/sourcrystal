@@ -45,7 +45,7 @@ Pokedex_FormMode:
 		; backpic to VRAM bank 1
 		ld a, 1
 		ldh [rVBK], a
-		ld de, vTiles2
+		ld de, vTiles1
 		predef GetMonBackpic
 
 		; also ensure blank tile is cleared
@@ -71,14 +71,19 @@ Pokedex_FormMode:
 	ld b, SCGB_POKEDEX_FORM_PAGE
 	call GetSGBLayout
 
+	call .reinit_anim
+
 .wait_input
 	newfarcall PlaySpriteAnimationsAndDelayFrame
+	newfarcall SetUpPokeAnim
+	call c, .reinit_anim
 	ld hl, hJoypadPressed
 	ld a, [hl]
 	bit B_BUTTON_F, a
 	jr nz, .b
 	bit SELECT_F, a
 	jr nz, .select
+	newfarcall HDMATransferTilemapToWRAMBank3
 	jr .wait_input
 .b
 	; TODO: fix the screen going back somehow
@@ -129,6 +134,20 @@ Pokedex_FormMode:
 	; TODO: what to do for the icon? shinies don't have unique icon colors
 	;       do they?
 	jr .wait_input
+
+; TODO: uhhhhhh
+.reinit_anim
+	ld a, [wCurPartySpecies]
+	hlcoord 2, 4
+	call _PrepMonFrontpic
+	ld a, [wCurPartySpecies]
+	ld de, vTiles2 tile $00
+	predef GetAnimatedFrontpic
+	hlcoord 2, 4
+	ld d, $0
+	ld e, ANIM_MON_MENU
+	predef LoadMonAnimation
+	ret
 
 .BlankTile:
 rept 8
@@ -262,7 +281,7 @@ INCLUDE "gfx/pokedex/question_mark.pal"
 
 PlaceBackpicAtHL:
 ; copy of PlaceFrontpicAtHL
-	xor a
+	ld a, $80 ; vTiles1
 	ld b, $6
 .row
 	ld c, $6

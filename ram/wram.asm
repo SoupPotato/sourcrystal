@@ -766,7 +766,8 @@ else
 wPokedexDataEnd::
 	ds 1
 endc
-	ds 2
+wPokedexFormShiny:: db
+	ds 1
 
 NEXTU
 ; pokegear

@@ -1,4 +1,7 @@
 Pokedex_FormMode:
+	xor a
+	ld [wPokedexFormShiny], a
+
 	; curtain down to hide the fact we're rendering TWICE
 	newfarcall Pokedex_BlackOutBG
 
@@ -70,7 +73,7 @@ Pokedex_FormMode:
 
 .wait_input
 	newfarcall PlaySpriteAnimationsAndDelayFrame
-	ld hl, hJoypadDown
+	ld hl, hJoypadPressed
 	ld a, [hl]
 	bit B_BUTTON_F, a
 	jr nz, .b
@@ -83,7 +86,48 @@ Pokedex_FormMode:
 	call ClearSprites
 	ret
 .select
-	; TODO: switch normal/shiny colors
+	ld a, [wCurPartySpecies]
+	cp -1
+	jr z, .wait_input
+
+	; show NORMAL text at first
+	hlcoord 11, 15
+	ld de, .NormalText
+	call PlaceString
+
+	ld hl, wPokedexFormShiny
+	ld a, 1
+	xor [hl]
+	ld [hl], a
+	and a
+	
+	push af
+		ld a, [wCurPartySpecies]
+		newfarcall _GetMonPalettePointer
+	pop af
+	jr z, .normal
+
+	; get shiny color
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+
+	; render SHINY indicator
+	push hl
+		hlcoord 11, 15
+		ld de, .ShinyText
+		call PlaceString
+	pop hl
+.normal
+	ld de, wBGPals2 palette 1
+	newfarcall LoadPalette_White_Col1_Col2_Black
+	call ApplyPals
+	ld a, 1
+	ldh [hCGBPalUpdate], a
+
+	; TODO: what to do for the icon? shinies don't have unique icon colors
+	;       do they?
 	jr .wait_input
 
 .BlankTile:
@@ -104,7 +148,7 @@ endr
 	db "NORMAL@"
 
 .ShinyText:
-	db "SHINY@"
+	db "SHINY @"
 
 .DrawRHS:
 	ldh a, [hBGMapAddress]

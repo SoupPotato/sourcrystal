@@ -1905,6 +1905,7 @@ wSpriteOverlapCount:: db
 wWeatherFlags:: db
 wPrevWeather:: db
 wCurWeather:: db
+wSunlightTimer:: dw
 wPrevOvercastIndex:: db
 
 

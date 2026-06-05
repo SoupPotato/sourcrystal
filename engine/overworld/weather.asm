@@ -66,6 +66,7 @@ DoOverworldWeather::
 	dw DoOverworldSnow
 	dw DoOverworldRain
 	dw DoOverworldSandstorm
+	dw DoOverworldSunlight
 	assert_table_length NUM_OW_WEATHERS + 1
 
 .on_cooldown
@@ -79,6 +80,7 @@ DoOverworldWeather::
 	dw .snow_cooldown
 	dw .rain_cooldown
 	dw .sand_cooldown
+	dw .sun_cooldown
 	assert_table_length NUM_OW_WEATHERS + 1
 
 .sand_cooldown
@@ -90,6 +92,8 @@ DoOverworldWeather::
 .rain_cooldown
 	call DoRainFall
 	call RainSplashCleanup
+; The sun cooldown doesn't really have much as the logic is inside of it, but this exists for the jumptable to behave.
+.sun_cooldown
 .cooldown_cleanup
 	; decrement the weather cooldown until it is 0
 	ld a, [wOverworldWeatherCooldown]
@@ -911,6 +915,66 @@ Lightning:
 	set NO_DYN_PAL_APPLY_UNTIL_RESET_F, [hl]
 	farcall CheckForUsedObjPals
 	farcall OWFadePalettesInit
+	ret
+
+DoOverworldSunlight:
+; first clear the timer
+	xor a
+	ld [wSunlightTimer], a
+	ld [wSunlightTimer + 1], a
+	ld hl, wSunlightTimer
+; Slowly inc the palette over 300 frames every 60 frames
+.bright_loop
+	inc hl
+	ld a, [wSunlightTimer]
+	cp LOW(60)
+	jr nz, .bright_loop
+	call Sunlight_IncPals
+	ld a, [wSunlightTimer + 1]
+	cp HIGH(300)
+	jr nz, .bright_loop
+	xor a
+	ld [wSunlightTimer], a
+	ld [wSunlightTimer + 1], a
+	ld hl, wSunlightTimer
+; Hold for 150 frames
+.peak_loop
+	inc hl
+	ld a, [wSunlightTimer]
+	cp 150
+	jr nz, .peak_loop
+	xor a
+	ld [wSunlightTimer], a
+	ld [wSunlightTimer + 1], a
+	ld hl, wSunlightTimer
+; Slowly bring the exposure down over 300 frames every 60 frames
+.dark_loop
+	inc hl
+	ld a, [wSunlightTimer]
+	cp LOW(60)
+	jr nz, .dark_loop
+	call Sunlight_DecPals
+	ld a, [wSunlightTimer + 1]
+	cp HIGH(300)
+	jr nz, .dark_loop
+	xor a
+	ld [wSunlightTimer], a
+	ld [wSunlightTimer + 1], a
+	ld hl, wSunlightTimer
+; Hold for 150 frames
+.base_loop
+	inc hl
+	ld a, [wSunlightTimer]
+	cp 150
+	jr nz, .base_loop
+	ret
+
+; Currently stubbed for testing
+Sunlight_IncPals:
+	ret
+
+; Currently stubbed for testing
+Sunlight_DecPals:
 	ret
 
 LoadWeatherGraphics::

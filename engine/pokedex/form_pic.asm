@@ -75,7 +75,8 @@ Pokedex_FormMode:
 	call .reinit_anim
 
 .wait_input
-	newfarcall PlaySpriteAnimationsAndDelayFrame
+	call .refresh
+	newfarcall PlaySpriteAnimations
 	newfarcall SetUpPokeAnim
 	call c, .reinit_anim
 	ld hl, hJoypadPressed
@@ -84,8 +85,6 @@ Pokedex_FormMode:
 	jr nz, .b
 	bit SELECT_F, a
 	jr nz, .select
-; update on no input yet
-	call .refresh
 	jr .wait_input
 .b
 	; TODO: fix the screen going back somehow

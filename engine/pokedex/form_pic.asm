@@ -2,12 +2,10 @@ Pokedex_FormMode:
 	xor a
 	ld [wPokedexFormShiny], a
 
-	; curtain down to hide the fact we're rendering TWICE
-	newfarcall Pokedex_BlackOutBG
+	newfarcall ClearSpriteAnims
 
-	; draw right hand straggler portion of the screen first
-	; since that isn't reached by the normal wTilemap transfer routine
-	call .DrawRHS
+	; curtain down
+	newfarcall Pokedex_BlackOutBG
 
 	hlcoord 19, 17
 	ld [hl], "M" ; last character of action menu
@@ -49,7 +47,7 @@ Pokedex_FormMode:
 		predef GetMonBackpic
 
 		; also ensure blank tile is cleared
-		ld hl, vTiles2 tile $30
+		ld hl, vTiles2 tile 0
 		ld de, .BlankTile
 		lb bc, BANK(.BlankTile), 1
 		call Request1bpp
@@ -62,6 +60,9 @@ Pokedex_FormMode:
 	call PlaceString
 
 	call CopyTilemapAtOnce
+
+	; right hand side is drawn here
+	call .refresh
 
 	ld e, MONICON_DEXFORM
 	newfarcall LoadMenuMonIcon
@@ -83,7 +84,8 @@ Pokedex_FormMode:
 	jr nz, .b
 	bit SELECT_F, a
 	jr nz, .select
-	newfarcall HDMATransferTilemapToWRAMBank3
+; update on no input yet
+	call .refresh
 	jr .wait_input
 .b
 	; TODO: fix the screen going back somehow
@@ -144,9 +146,28 @@ Pokedex_FormMode:
 	ld de, vTiles2 tile $00
 	predef GetAnimatedFrontpic
 	hlcoord 2, 4
-	ld d, $0
-	ld e, ANIM_MON_MENU
+	lb de, 0, ANIM_MON_DEX_FORM
 	predef LoadMonAnimation
+	ret
+
+.refresh
+	ldh a, [rSVBK]
+	push af
+		ld a, BANK(wScratchAttrmap)
+		ldh [rSVBK], a
+
+		ld hl, wScratchAttrmap
+		ld de, .RightHandSideColumn
+		ld c, SCREEN_HEIGHT
+		.simple_loop
+			ld a, [de]
+			ld [hli], a
+			inc de
+			dec c
+			jr nz, .simple_loop
+	pop af
+	ldh [rSVBK], a
+	newfarcall HDMATransferDexTilemapToWRAMBank3
 	ret
 
 .BlankTile:
@@ -169,70 +190,12 @@ endr
 .ShinyText:
 	db "SHINY @"
 
-.DrawRHS:
-	ldh a, [hBGMapAddress]
-	ld l, a
-	ldh a, [hBGMapAddress + 1]
-	ld h, a
-	push hl
-	; shift target bgmap address by one row
-		inc hl
-		ld a, l
-		ldh [hBGMapAddress], a
-		ld a, h
-		ldh [hBGMapAddress + 1], a
-
-		; blank tile column
-		hlcoord 19, 0
-		ld a, $32
-		ld b, 17
-		call .fill_column
-		hlcoord 19, 0, wAttrmap
-		xor a
-		ld b, 17
-		call .fill_column
-
-		; top right
-		hlcoord 19, 3
-		ld [hl], $66
-		hlcoord 19, 3, wAttrmap
-		ld [hl], 0
-	
-		; right
-		hlcoord 19, 4
-		ld a, $67 ; right
-		ld b, 7
-		call .fill_column
-		ld [hl], $68 ; bottom right
-		hlcoord 19, 4, wAttrmap
-		xor a
-		ld b, 7
-		call .fill_column
-		ld [hl], 0 ; bottom right
-
-		; right edge of action menu
-		hlcoord 19, 17
-		ld [hl], $3c
-		hlcoord 19, 17, wAttrmap
-		ld [hl], 0
-		call WaitBGMap2
-	pop hl
-	ld a, l
-	ldh [hBGMapAddress], a
-	ld a, h
-	ldh [hBGMapAddress + 1], a
-	ret
-.fill_column
-; Another local duplicate of Pokedex_FillColumn
-	push de
-	ld de, SCREEN_WIDTH
-.loop
-	ld [hl], a
-	add hl, de
-	dec b
-	jr nz, .loop
-	pop de
-	ret
+.RightHandSideColumn:
+	db $32, $32, $32
+	db $66, $67, $67, $67, $67, $67, $67, $67, $68
+	db $32, $32, $32, $32, $32
+	db $3c
+	assert @-.RightHandSideColumn == SCREEN_HEIGHT
 
 __CGB_PokedexFormPage:
 ; dupe of _CGB_Pokedex

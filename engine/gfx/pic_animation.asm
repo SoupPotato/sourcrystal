@@ -51,7 +51,6 @@ MACRO pokeanim
 		db (PokeAnim_\1_SetupCommand - PokeAnim_SetupCommands) / 2
 		shift
 	endr
-	db (PokeAnim_Finish_SetupCommand - PokeAnim_SetupCommands) / 2
 ENDM
 
 PokeAnims:
@@ -65,16 +64,18 @@ PokeAnims:
 	dw .HOF
 	dw .Egg1
 	dw .Egg2
+	dw .DexForm
 
-.Slow:   pokeanim StereoCry, Setup2, Play
-.Normal: pokeanim StereoCry, Setup, Play
-.Menu:   pokeanim CryNoWait, Setup, Play, SetWait, Wait, Idle, Play
-.Trade:  pokeanim Idle, Play2, Idle, Play, SetWait, Wait, Cry, Setup, Play
-.Evolve: pokeanim Idle, Play, SetWait, Wait, CryNoWait, Setup, Play
-.Hatch:  pokeanim Idle, Play, CryNoWait, Setup, Play, SetWait, Wait, Idle, Play
-.HOF:    pokeanim CryNoWait, Setup, Play, SetWait, Wait, Idle, Play
-.Egg1:   pokeanim Setup, Play
-.Egg2:   pokeanim Idle, Play
+.Slow:   pokeanim StereoCry, Setup2, Play, Finish
+.Normal: pokeanim StereoCry, Setup, Play, Finish
+.Menu:   pokeanim CryNoWait, Setup, Play, SetWait, Wait, Idle, Play, Finish
+.Trade:  pokeanim Idle, Play2, Idle, Play, SetWait, Wait, Cry, Setup, Play, Finish
+.Evolve: pokeanim Idle, Play, SetWait, Wait, CryNoWait, Setup, Play, Finish
+.Hatch:  pokeanim Idle, Play, CryNoWait, Setup, Play, SetWait, Wait, Idle, Play, Finish
+.HOF:    pokeanim CryNoWait, Setup, Play, SetWait, Wait, Idle, Play, Finish
+.Egg1:   pokeanim Setup, Play, Finish
+.Egg2:   pokeanim Idle, Play, Finish
+.DexForm:pokeanim Setup, Play, SetWait, Wait, Idle, Finish2
 
 AnimateFrontpic:
 	call AnimateMon_CheckIfPokemon
@@ -146,6 +147,7 @@ PokeAnim_SetupCommands:
 	add_setup_command PokeAnim_Cry
 	add_setup_command PokeAnim_CryNoWait
 	add_setup_command PokeAnim_StereoCry
+	add_setup_command PokeAnim_Finish2
 
 PokeAnim_SetWait:
 	ld a, 18
@@ -223,6 +225,11 @@ PokeAnim_BasePic:
 
 PokeAnim_Finish:
 	call PokeAnim_DeinitFrames
+	ld hl, wPokeAnimSceneIndex
+	set JUMPTABLE_EXIT_F, [hl]
+	ret
+
+PokeAnim_Finish2:
 	ld hl, wPokeAnimSceneIndex
 	set JUMPTABLE_EXIT_F, [hl]
 	ret

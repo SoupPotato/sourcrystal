@@ -33,6 +33,42 @@ HDMATransferTilemapToWRAMBank3::
 	call HDMATransferToWRAMBank3
 	ret
 
+; Copy of HDMATransferTilemapToWRAMBank3.
+; Pokedex frippery that uses ONE additional column for
+; some reason.
+; Therefore this uses wScratchAttrmap as the buffer for that
+; additional column
+HDMATransferDexTilemapToWRAMBank3::
+	ld hl, .f
+	jp CallInSafeGFXMode
+.f
+	decoord 0, 0
+	ld hl, wScratchTilemap
+	call PadTilemapForHDMATransfer
+	call .AddColumn
+	ld a, $0
+	ldh [rVBK], a
+	ld hl, wScratchTilemap
+	jp HDMATransferToWRAMBank3
+.AddColumn:
+	; start just out of X bounds
+	debgcoord 20, 0, wScratchTilemap
+	ld hl, wScratchAttrmap
+	ld c, SCREEN_HEIGHT
+	.loop
+		ld a, [hli]
+		ld [de], a
+		push hl
+			ld hl, BG_MAP_WIDTH
+			add hl, de
+			ld d, h
+			ld e, l
+		pop hl
+		dec c
+		ret z
+		jr .loop
+
+
 HDMATransferAttrmapToWRAMBank3:
 	ld hl, .Function
 	jp CallInSafeGFXMode

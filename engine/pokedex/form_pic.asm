@@ -72,6 +72,12 @@ Pokedex_FormMode:
 	ld b, SCGB_POKEDEX_FORM_PAGE
 	call GetSGBLayout
 
+	ld a, [wCurPartySpecies]
+	hlcoord 2, 4
+	call _PrepMonFrontpic
+	ld a, [wCurPartySpecies]
+	ld de, vTiles2 tile $00
+	predef GetAnimatedFrontpic
 	call .reinit_anim
 
 ; The form page here takes control of the Pokedex loop,
@@ -162,14 +168,8 @@ Pokedex_FormMode:
 	;       do they?
 	jp .wait_input
 
-; TODO: uhhhhhh
+
 .reinit_anim
-	ld a, [wCurPartySpecies]
-	hlcoord 2, 4
-	call _PrepMonFrontpic
-	ld a, [wCurPartySpecies]
-	ld de, vTiles2 tile $00
-	predef GetAnimatedFrontpic
 	hlcoord 2, 4
 	lb de, 0, ANIM_MON_DEX_FORM
 	predef LoadMonAnimation

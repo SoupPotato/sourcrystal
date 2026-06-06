@@ -348,6 +348,12 @@ Pokedex_InitDexEntryScreen:
 	call Pokedex_IncrementDexPointer
 	ret
 
+Pokedex_DoDexEntryScreenAction:
+	ld a, [wDexArrowCursorPosIndex]
+	ld hl, DexEntryScreen_MenuActionJumptable
+	call Pokedex_LoadPointer
+	jp hl
+
 Pokedex_UpdateDexEntryScreen:
 	ld de, DexEntryScreen_ArrowCursorData
 	call Pokedex_MoveArrowCursor
@@ -358,17 +364,11 @@ Pokedex_UpdateDexEntryScreen:
 	vc_hook Forbid_printing_Pokedex
 	ld a, [hl]
 	and A_BUTTON
-	jr nz, .do_menu_action
+	jr nz, Pokedex_DoDexEntryScreenAction
 	call Pokedex_NextOrPreviousDexEntry
 	ret nc
 	call Pokedex_IncrementDexPointer
 	ret
-
-.do_menu_action
-	ld a, [wDexArrowCursorPosIndex]
-	ld hl, DexEntryScreen_MenuActionJumptable
-	call Pokedex_LoadPointer
-	jp hl
 
 .return_to_prev_screen
 	ld a, [wLastVolume]
@@ -426,6 +426,49 @@ DexEntryScreen_ArrowCursorData:
 	dwcoord 11, 17 ; CRY
 	dwcoord 15, 17 ; PRNT
 
+Pokedex_DoFormScreenAction:
+	ld a, [wDexArrowCursorPosIndex]
+	ld hl, FormScreen_MenuActionJumptable
+	call Pokedex_LoadPointer
+	jp hl
+
+FormScreen_MenuActionJumptable:
+	dw 0      ; PAGE (same as pressing B, shouldn't be reached)
+	dw .Area
+	dw .Cry
+	dw 0      ; FORM (shouldn't be reached)
+
+.Area:
+	call Pokedex_BlackOutBG
+	xor a
+	ldh [hSCX], a
+	call DelayFrame
+	ld a, $7
+	ldh [hWX], a
+	ld a, $90
+	ldh [hWY], a
+	call Pokedex_GetSelectedMon
+	ld a, [wDexCurLocation]
+	ld e, a
+	predef Pokedex_GetArea
+	call Pokedex_BlackOutBG
+	call DelayFrame
+	xor a
+	ldh [hBGMapMode], a
+	ld a, $90
+	ldh [hWY], a
+	ld a, POKEDEX_SCX
+	ldh [hSCX], a
+	call Pokedex_RedisplayDexEntry
+	call Pokedex_LoadSelectedMonTiles
+	call DelayFrame
+	newfarjp Pokedex_FormMode
+
+.Cry:
+	ld a, [wCurPartySpecies]
+	call PlayMonCry
+	newfarjp Pokedex_FormMode.wait_input
+
 DexEntryScreen_MenuActionJumptable:
 	dw Pokedex_Page
 	dw .Area
@@ -469,32 +512,7 @@ DexEntryScreen_MenuActionJumptable:
 	ret
 
 .Print:
-	; call Pokedex_ApplyPrintPals
-	; xor a
-	; ldh [hSCX], a
-	ld a, [wPrevDexEntryBackup]
-	push af
-	ld a, [wPrevDexEntryJumptableIndex]
-	push af
-	ld a, [wJumptableIndex]
-	push af
-	farcall Pokedex_FormMode
-	pop af
-	ld [wJumptableIndex], a
-	pop af
-	ld [wPrevDexEntryJumptableIndex], a
-	pop af
-	ld [wPrevDexEntryBackup], a
-	call ClearBGPalettes
-	call DisableLCD
-	call Pokedex_LoadInvertedFont
-	call Pokedex_RedisplayDexEntry
-	call EnableLCD
-	call WaitBGMap
-	ld a, POKEDEX_SCX
-	ldh [hSCX], a
-	call Pokedex_ApplyUsualPals
-	ret
+	newfarjp Pokedex_FormMode
 
 Pokedex_RedisplayDexEntry:
 	call Pokedex_DrawDexEntryScreenBG
@@ -2297,7 +2315,7 @@ Pokedex_MoveArrowCursor:
 	inc de
 	call Pokedex_BlinkArrowCursor
 
-	ld hl, hJoyPressed
+	ld hl, hJoypadPressed
 	ld a, [hl]
 	and D_LEFT | D_UP
 	and b
@@ -2420,14 +2438,11 @@ Pokedex_BlackOutBG:
 	call ByteFill
 	pop af
 	ldh [rSVBK], a
-
-Pokedex_ApplyPrintPals:
 	ld a, $ff
 	call DmgToCgbBGPals
 	ld a, $ff
 	call DmgToCgbObjPal0
-	call DelayFrame
-	ret
+	jp DelayFrame
 
 Pokedex_GetSGBLayout:
 	ld b, a

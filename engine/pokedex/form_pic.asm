@@ -74,23 +74,49 @@ Pokedex_FormMode:
 
 	call .reinit_anim
 
+; The form page here takes control of the Pokedex loop,
+; since it has to update its own sprites.
+; Which also means it has to handle the menu thing itself
+; as well.
 .wait_input
 	call .refresh
 	newfarcall PlaySpriteAnimations
 	newfarcall SetUpPokeAnim
 	call c, .reinit_anim
+
+	assert BANK(DexEntryScreen_ArrowCursorData) == BANK(Pokedex_MoveArrowCursor)
+	ld de, DexEntryScreen_ArrowCursorData
+	newfarcall Pokedex_MoveArrowCursor
+
 	ld hl, hJoypadPressed
 	ld a, [hl]
 	bit B_BUTTON_F, a
 	jr nz, .b
+	bit A_BUTTON_F, a
+	jr nz, .a
 	bit SELECT_F, a
 	jr nz, .select
 	jr .wait_input
+
+.a
+	ld a, [wDexArrowCursorPosIndex]
+	and a
+	jr z, .b
+	cp 3 ; FORM
+	jr z, .wait_input
+	newfarjp Pokedex_DoFormScreenAction
+
 .b
-	; TODO: fix the screen going back somehow
+	xor a
+	ld [wDexArrowCursorPosIndex], a
+	newfarcall Pokedex_BlackOutBG
 	newfarcall ClearSpriteAnims
 	call ClearSprites
-	ret
+	newfarcall DrawDexEntryScreenRightEdge
+	ld a, DEXSTATE_REINIT_DEX_ENTRY_SCR
+	ld [wJumptableIndex], a
+	newfarjp Pokedex_ReinitDexEntryScreen
+
 .select
 	ld a, [wCurPartySpecies]
 	cp -1
@@ -134,7 +160,7 @@ Pokedex_FormMode:
 
 	; TODO: what to do for the icon? shinies don't have unique icon colors
 	;       do they?
-	jr .wait_input
+	jp .wait_input
 
 ; TODO: uhhhhhh
 .reinit_anim

@@ -113,6 +113,7 @@ Pokedex_FormMode:
 	jr .wait_input
 
 .a
+	call .stop_anim
 	ld a, [wDexArrowCursorPosIndex]
 	and a
 	jr z, .b
@@ -121,6 +122,7 @@ Pokedex_FormMode:
 	newfarjp Pokedex_DoFormScreenAction
 
 .b
+	call .stop_anim
 	xor a
 	ld [wDexArrowCursorPosIndex], a
 	newfarcall Pokedex_BlackOutBG

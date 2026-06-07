@@ -30,7 +30,7 @@ Pokedex_FormMode:
 		predef GetMonBackpic
 
 		; also ensure blank tile is cleared
-		ld hl, vTiles2 tile 0
+		ld hl, vTiles1 tile $7f
 		ld de, .BlankTile
 		lb bc, BANK(.BlankTile), 1
 		call Request1bpp

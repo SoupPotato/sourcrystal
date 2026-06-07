@@ -41,7 +41,7 @@ SetMenuMonIconColor:
 	ld hl, wShadowOAMSprite00Attributes
 	jr _ApplyMenuMonIconColor
 
-SetMenuMonIconColor_NoShiny:
+SetMenuMonIconColor_PredeterminedShininess:
 	push hl
 	push de
 	push bc
@@ -49,7 +49,6 @@ SetMenuMonIconColor_NoShiny:
 
 	ld a, [wTempIconSpecies]
 	ld [wCurPartySpecies], a
-	and a
 	call GetMenuMonIconPalette_PredeterminedShininess
 	ld hl, wShadowOAMSprite00Attributes
 	jr _ApplyMenuMonIconColor
@@ -230,9 +229,12 @@ LoadMenuMonIcon:
 	dw PokedexFormPage_InitMonIcon      ; MONICON_DEXFORM
 
 PokedexFormPage_InitMonIcon:
-	; ld a, MON_DVS
-	; call GetPartyParamLocation
-	call SetMenuMonIconColor
+	ld a, [wPokedexFormShiny]
+	and a
+	jr z, .skip_shiny
+	scf
+.skip_shiny
+	call SetMenuMonIconColor_PredeterminedShininess
 	ld a, [wTempIconSpecies]
 	push hl
 	pop de

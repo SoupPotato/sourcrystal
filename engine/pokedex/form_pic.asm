@@ -129,6 +129,12 @@ Pokedex_FormMode:
 	newfarcall DrawDexEntryScreenRightEdge
 	ld a, DEXSTATE_UPDATE_DEX_ENTRY_SCR
 	ld [wJumptableIndex], a
+	; reload overwritten gfx
+	lb bc, BANK(PokedexSlowpokeLZ), 10
+	ld de, vTiles0
+	ld hl, PokedexSlowpokeLZ
+	call DecompressRequest2bpp
+	;
 	newfarcall Pokedex_RedisplayDexEntry
 	newfarcall Pokedex_LoadSelectedMonTiles
 	call WaitBGMap
@@ -177,10 +183,11 @@ Pokedex_FormMode:
 	ld a, 1
 	ldh [hCGBPalUpdate], a
 
-	; TODO: what to do for the icon? shinies don't have unique icon colors
-	;       do they?
+	; oh and also update the mon icon
+	newfarcall ClearSpriteAnims
+	ld e, MONICON_DEXFORM
+	newfarcall LoadMenuMonIcon
 	jp .wait_input
-
 
 .reinit_anim
 	hlcoord 2, 4

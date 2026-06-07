@@ -925,7 +925,7 @@ SunFlash:
 	ld hl, wWeatherFlags
 	bit OW_WEATHER_DO_FLY_F, [hl]
 	ret nz
-	call SetWhitePals
+	call SetSunnyPals
 	farcall ApplyPals
 	call DelayFrame
 	farcall LoadMapPals
@@ -968,7 +968,7 @@ DoOverworldSunlight:
 	ld hl, wSunlightTimer
 	ld a, [wOverworldWeatherInternalTimer]
 	sub a, [hl]
-	cp 120
+	cp 60
 	jr nz, .done
 	call SunFlash
 	xor a
@@ -1022,3 +1022,40 @@ RainGFX:   INCBIN "gfx/overworld/rain.2bpp"
 SplashGFX: INCBIN "gfx/overworld/rain_splash.2bpp"
 SnowGFX:   INCBIN "gfx/overworld/snow.2bpp"
 SandGFX:   INCBIN "gfx/overworld/sand.2bpp"
+
+SetSunnyPals:
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+
+	ld hl, wBGPals1
+	ld bc, SunnyWeatherBGPal
+	ld de, 7 palettes
+	call SunnyByteFill
+
+	ld hl, wOBPals1
+	ld bc, SunnyWeatherOBPal
+	ld de, 19 palettes
+	call SunnyByteFill
+
+	pop af
+	ldh [rSVBK], a
+	ret
+
+SunnyByteFill:
+.load
+	ld a, [bc]
+	inc bc
+	ld [hli], a
+	dec de
+	ld a, d
+	or e
+	jr nz, .load
+	ret
+
+SunnyWeatherBGPal:
+	INCLUDE "gfx/tilesets/sunny_bg_tiles.pal"
+
+SunnyWeatherOBPal:
+	INCLUDE "gfx/tilesets/sunny_ob_tiles.pal"

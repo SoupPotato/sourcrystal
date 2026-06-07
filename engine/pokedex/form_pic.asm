@@ -224,7 +224,7 @@ endr
 
 .RightHandSideColumn:
 	db $32, $32, $32
-	db $66, $67, $67, $67, $67, $67, $67, $67, $68
+	db $7a, $7c, $7c, $7c, $7c, $7c, $7c, $7c, $7e
 	db $32, $32, $32, $32, $32
 	db $3c
 	assert @-.RightHandSideColumn == SCREEN_HEIGHT

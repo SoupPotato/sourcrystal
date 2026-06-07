@@ -477,6 +477,9 @@ ClearWeather:
 	; doing this will cause _UpdateSprites to hide all weather sprites.
 	xor a
 	ldh [hUsedWeatherSpriteIndex], a
+	ld [wSunlightTimer], a
+	ld [wSunlightTimer + 1], a
+.finish_clearing
 	ret
 
 DoRainFall:
@@ -917,64 +920,65 @@ Lightning:
 	farcall OWFadePalettesInit
 	ret
 
+; Currently a proof of concept, this will be removed in the final product.
+SunFlash:
+	ld hl, wWeatherFlags
+	bit OW_WEATHER_DO_FLY_F, [hl]
+	ret nz
+	call SetWhitePals
+	farcall ApplyPals
+	call DelayFrame
+	farcall LoadMapPals
+	farcall ClearSavedObjPals
+	ld hl, wPalFlags
+	set NO_DYN_PAL_APPLY_UNTIL_RESET_F, [hl]
+	farcall CheckForUsedObjPals
+	farcall OWFadePalettesInit
+	ret
+
 DoOverworldSunlight:
-; first clear the timer
-	xor a
-	ld [wSunlightTimer], a
-	ld [wSunlightTimer + 1], a
-	ld hl, wSunlightTimer
-; Slowly inc the palette over 300 frames every 60 frames
-.bright_loop
-	inc hl
+	; First check if there is a value in the SunlightTimer.
 	ld a, [wSunlightTimer]
-	cp LOW(60)
-	jr nz, .bright_loop
+	and a
+	jr nz, .check1
+	; We utilize the highest bit of wSunlightTimer as a flag to see if we've actually loaded a value yet
+	ld a, [wSunlightTimer + 1]
+	cp %10000000
+	jr z, .check1
+	; Load up the value
+	ld a, [wOverworldWeatherInternalTimer]
+	ld [wSunlightTimer], a
+	; Set the flag
+	ld a, %10000000
+	ld [wSunlightTimer + 1], a
+	; Nothing occurs on the first cycle, so we're done here
+	jr .done
+
+.check1
+	ld hl, wSunlightTimer
+	ld a, [wOverworldWeatherInternalTimer]
+	sub a, [hl]
+.mod_loop
+	sub a, 30
+	jr z, .increment
+	jr c, .done
+	jr .mod_loop
+.increment
 	call Sunlight_IncPals
-	ld a, [wSunlightTimer + 1]
-	cp HIGH(300)
-	jr nz, .bright_loop
+	ld hl, wSunlightTimer
+	ld a, [wOverworldWeatherInternalTimer]
+	sub a, [hl]
+	cp 120
+	jr nz, .done
+	call SunFlash
 	xor a
 	ld [wSunlightTimer], a
 	ld [wSunlightTimer + 1], a
-	ld hl, wSunlightTimer
-; Hold for 150 frames
-.peak_loop
-	inc hl
-	ld a, [wSunlightTimer]
-	cp 150
-	jr nz, .peak_loop
-	xor a
-	ld [wSunlightTimer], a
-	ld [wSunlightTimer + 1], a
-	ld hl, wSunlightTimer
-; Slowly bring the exposure down over 300 frames every 60 frames
-.dark_loop
-	inc hl
-	ld a, [wSunlightTimer]
-	cp LOW(60)
-	jr nz, .dark_loop
-	call Sunlight_DecPals
-	ld a, [wSunlightTimer + 1]
-	cp HIGH(300)
-	jr nz, .dark_loop
-	xor a
-	ld [wSunlightTimer], a
-	ld [wSunlightTimer + 1], a
-	ld hl, wSunlightTimer
-; Hold for 150 frames
-.base_loop
-	inc hl
-	ld a, [wSunlightTimer]
-	cp 150
-	jr nz, .base_loop
+.done
 	ret
 
 ; Currently stubbed for testing
 Sunlight_IncPals:
-	ret
-
-; Currently stubbed for testing
-Sunlight_DecPals:
 	ret
 
 LoadWeatherGraphics::
@@ -992,7 +996,13 @@ LoadWeatherGraphics::
 	dec a
 	jr z, .rain
 	assert OW_WEATHER_SANDSTORM == 4
-; standstorm
+	dec a
+	jr z, .sandstorm
+	assert OW_WEATHER_SUNLIGHT == 5
+	; We don't actually load any GFX for sun
+	ret
+
+.sandstorm
 	lb bc, BANK(SandGFX), 1
 	ld de, SandGFX
 	jr .continue

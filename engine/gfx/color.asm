@@ -1096,6 +1096,9 @@ LoadMapPals:
 	ld a, [wCurWeather]
 	and a
 	jr z, .got_bg_pals
+	; Not all weather requires the overcast palette anymore
+	cp OW_WEATHER_SUNLIGHT
+	jr z, .got_bg_pals
 	ld de, OvercastTilesetBGPalette
 .got_bg_pals
 	add hl, de

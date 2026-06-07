@@ -144,6 +144,11 @@ SetCurrentWeather::
 	ld a, OW_WEATHER_SNOW
 	jr .set_weather
 
+; To do - populate whatever jumps here.
+.sun
+	ld a, OW_WEATHER_SUNLIGHT
+	jr .set_weather
+
 GenerateNewRandomRainMap:
 	; sorry, just kinda hacked this in
 	assert NUM_WEATHER_MAPS_PER_DAY == 2

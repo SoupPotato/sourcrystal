@@ -15,23 +15,6 @@ Pokedex_FormMode:
 	ld hl, FormBackgroundTilemap
 	call Decompress
 
-	hlcoord 3, 2
-	ld de, .FrontText
-	call PlaceString
-
-	hlcoord 14, 2
-	ld de, .BackText
-	call PlaceString
-
-	hlcoord 3, 15
-	ld de, .SelectText
-	call PlaceString
-
-	; NORMAL / SHINY
-	hlcoord 11, 15
-	ld de, .NormalText
-	call PlaceString
-
 	hlcoord 2, 4
 	newfarcall PlaceFrontpicAtHL
 
@@ -78,7 +61,6 @@ Pokedex_FormMode:
 	ld a, [wCurPartySpecies]
 	ld de, vTiles2 tile $00
 	predef GetAnimatedFrontpic
-	call .reinit_anim
 
 ; The form page here takes control of the Pokedex loop,
 ; since it has to update its own sprites.
@@ -87,21 +69,47 @@ Pokedex_FormMode:
 .wait_input
 	call .refresh
 	newfarcall PlaySpriteAnimations
-	newfarcall SetUpPokeAnim
-	call c, .reinit_anim
 
+	ld a, [wFormMenuAnimationFlags]
+	bit STATS_SCREEN_ANIMATE_MON, a
+	jr z, .skip_anim
+
+	newfarcall SetUpPokeAnim
+	call c, .stop_anim
+
+.skip_anim
 	assert BANK(DexEntryScreen_ArrowCursorData) == BANK(Pokedex_MoveArrowCursor)
 	ld de, DexEntryScreen_ArrowCursorData
 	newfarcall Pokedex_MoveArrowCursor
 
 	ld hl, hJoypadPressed
 	ld a, [hl]
+
 	bit B_BUTTON_F, a
 	jr nz, .b
+
 	bit A_BUTTON_F, a
 	jr nz, .a
+
 	bit SELECT_F, a
 	jr nz, .select
+
+	bit START_F, a
+	jr nz, .start
+
+	jr .wait_input
+
+.stop_anim
+	ld a, [wFormMenuAnimationFlags]
+	res STATS_SCREEN_ANIMATE_MON, a
+	ld [wFormMenuAnimationFlags], a
+	ret
+
+.start
+	ld a, [wFormMenuAnimationFlags]
+	set STATS_SCREEN_ANIMATE_MON, a
+	ld [wFormMenuAnimationFlags], a
+	call .reinit_anim
 	jr .wait_input
 
 .a
@@ -119,17 +127,22 @@ Pokedex_FormMode:
 	newfarcall ClearSpriteAnims
 	call ClearSprites
 	newfarcall DrawDexEntryScreenRightEdge
-	ld a, DEXSTATE_REINIT_DEX_ENTRY_SCR
+	ld a, DEXSTATE_UPDATE_DEX_ENTRY_SCR
 	ld [wJumptableIndex], a
-	newfarjp Pokedex_ReinitDexEntryScreen
+	newfarcall Pokedex_RedisplayDexEntry
+	newfarcall Pokedex_LoadSelectedMonTiles
+	call WaitBGMap
+	ld a, SCGB_POKEDEX
+	newfarcall Pokedex_GetSGBLayout
+	jp DelayFrame
 
 .select
 	ld a, [wCurPartySpecies]
 	cp -1
-	jr z, .wait_input
+	jp z, .wait_input
 
 	; show NORMAL text at first
-	hlcoord 11, 15
+	hlcoord 10, 15
 	ld de, .NormalText
 	call PlaceString
 
@@ -153,7 +166,7 @@ Pokedex_FormMode:
 
 	; render SHINY indicator
 	push hl
-		hlcoord 11, 15
+		hlcoord 10, 15
 		ld de, .ShinyText
 		call PlaceString
 	pop hl
@@ -199,12 +212,6 @@ Pokedex_FormMode:
 rept 8
 	db 0
 endr
-
-.FrontText:
-	db "FRONT@"
-
-.BackText:
-	db "BACK@"
 
 .SelectText:
 	db "SELECT: @"

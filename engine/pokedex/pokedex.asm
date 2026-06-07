@@ -439,28 +439,7 @@ FormScreen_MenuActionJumptable:
 	dw 0      ; FORM (shouldn't be reached)
 
 .Area:
-	call Pokedex_BlackOutBG
-	xor a
-	ldh [hSCX], a
-	call DelayFrame
-	ld a, $7
-	ldh [hWX], a
-	ld a, $90
-	ldh [hWY], a
-	call Pokedex_GetSelectedMon
-	ld a, [wDexCurLocation]
-	ld e, a
-	predef Pokedex_GetArea
-	call Pokedex_BlackOutBG
-	call DelayFrame
-	xor a
-	ldh [hBGMapMode], a
-	ld a, $90
-	ldh [hWY], a
-	ld a, POKEDEX_SCX
-	ldh [hSCX], a
-	call Pokedex_RedisplayDexEntry
-	call Pokedex_LoadSelectedMonTiles
+	call Pokedex_ShowAreaCommon
 	call DelayFrame
 	newfarjp Pokedex_FormMode
 
@@ -476,6 +455,23 @@ DexEntryScreen_MenuActionJumptable:
 	dw .Print
 
 .Area:
+	call Pokedex_ShowAreaCommon
+	call WaitBGMap
+	call Pokedex_GetSelectedMon
+	ld [wCurPartySpecies], a
+	ld a, SCGB_POKEDEX
+	call Pokedex_GetSGBLayout
+	ret
+
+.Cry:
+	ld a, [wCurPartySpecies]
+	call PlayMonCry
+	ret
+
+.Print:
+	newfarjp Pokedex_FormMode
+
+Pokedex_ShowAreaCommon:
 	call Pokedex_BlackOutBG
 	xor a
 	ldh [hSCX], a
@@ -498,21 +494,7 @@ DexEntryScreen_MenuActionJumptable:
 	ldh [hSCX], a
 	call DelayFrame
 	call Pokedex_RedisplayDexEntry
-	call Pokedex_LoadSelectedMonTiles
-	call WaitBGMap
-	call Pokedex_GetSelectedMon
-	ld [wCurPartySpecies], a
-	ld a, SCGB_POKEDEX
-	call Pokedex_GetSGBLayout
-	ret
-
-.Cry:
-	ld a, [wCurPartySpecies]
-	call PlayMonCry
-	ret
-
-.Print:
-	newfarjp Pokedex_FormMode
+	jp Pokedex_LoadSelectedMonTiles
 
 Pokedex_RedisplayDexEntry:
 	call Pokedex_DrawDexEntryScreenBG

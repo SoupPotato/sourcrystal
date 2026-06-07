@@ -1688,6 +1688,7 @@ wDebugTilesetCurColor:: db
 
 NEXTU
 ; stats screen
+wFormMenuAnimationFlags::
 wStatsScreenFlags:: db
 
 NEXTU

@@ -75,7 +75,7 @@ PokeAnims:
 .HOF:    pokeanim CryNoWait, Setup, Play, SetWait, Wait, Idle, Play, Finish
 .Egg1:   pokeanim Setup, Play, Finish
 .Egg2:   pokeanim Idle, Play, Finish
-.DexForm:pokeanim Setup, Play, SetWait, Wait, Idle, Finish2
+.DexForm:pokeanim Setup, Play, SetWait, Wait, Idle, Play, Finish2
 
 AnimateFrontpic:
 	call AnimateMon_CheckIfPokemon

@@ -26,7 +26,7 @@ Pokedex_FormMode:
 		; backpic to VRAM bank 1
 		ld a, 1
 		ldh [rVBK], a
-		ld de, vTiles1
+		ld de, vTiles1 tile $50
 		predef GetMonBackpic
 
 		; also ensure blank tile is cleared
@@ -283,7 +283,7 @@ INCLUDE "gfx/pokedex/question_mark.pal"
 
 PlaceBackpicAtHL:
 ; copy of PlaceFrontpicAtHL
-	ld a, $80 ; vTiles1
+	ld a, $80 + $50
 	ld b, $6
 .row
 	ld c, $6

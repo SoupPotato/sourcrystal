@@ -55,7 +55,6 @@ Pokedex_FormMode:
 	ld b, SCGB_POKEDEX_FORM_PAGE
 	call GetSGBLayout
 
-; TODO: get mon icon ALWAYS overwrites wUnownLetter
 ; ensure unown matches the one in the dex page
 	ld a, [wFirstUnownSeen]
 	ld [wUnownLetter], a
@@ -196,7 +195,7 @@ Pokedex_FormMode:
 	ld e, MONICON_DEXFORM
 	newfarcall LoadMenuMonIcon
 
-; again, correct unown here
+; also correct unown here just in case
 	ld a, [wFirstUnownSeen]
 	ld [wUnownLetter], a
 	jp .wait_input

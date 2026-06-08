@@ -361,13 +361,15 @@ InitPartyMenuIcon:
 	ld d, 0
 	add hl, de
 	ld a, [hl]
-	push hl
 	ld [wCurIcon], a
-	pop hl
-	ld a, MON_DVS
-	call GetPartyParamLocation
+	push af
+		ld a, MON_DVS
+		call GetPartyParamLocation
+	pop af
 	ld e, l
 	ld d, h
+	cp ICON_UNOWN
+	call z, .get_unown_icon
 	call GetMemIconGFX
 	ldh a, [hObjectStructIndex]
 ; y coord
@@ -386,6 +388,12 @@ InitPartyMenuIcon:
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
 	ld [hl], a
+	ret
+
+.get_unown_icon
+	push hl
+	predef GetUnownLetter
+	pop hl
 	ret
 
 SetPartyMonIconAnimSpeed:
@@ -616,9 +624,6 @@ endr
 	ld a, [wCurIcon]
 	cp ICON_UNOWN
 	jr nz, .not_unown
-	ld l, e
-	ld h, d
-	predef GetUnownLetter
 	ld a, [wUnownLetter]
 	ld l, a
 	ld h, 0

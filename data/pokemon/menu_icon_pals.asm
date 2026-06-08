@@ -24,7 +24,7 @@ MonMenuIconPals:
 	icon_pals BROWN,  YELLOW   ; PIDGEY
 	icon_pals BROWN,  YELLOW   ; PIDGEOTTO
 	icon_pals RED,    YELLOW   ; PIDGEOT
-	icon_pals PURPLE, BROWN    ; RATTATA
+	icon_pals PURPLE, GREEN    ; RATTATA
 	icon_pals BROWN,  RED      ; RATICATE
 	icon_pals BROWN,  YELLOW   ; SPEAROW
 	icon_pals BROWN,  YELLOW   ; FEAROW
@@ -57,10 +57,10 @@ MonMenuIconPals:
 	icon_pals PURPLE, BLUE     ; VENOMOTH
 	icon_pals BROWN,  BLUE     ; DIGLETT
 	icon_pals BROWN,  BLUE     ; DUGTRIO
-	icon_pals BROWN,  RED      ; MEOWTH
+	icon_pals BROWN,  PINK     ; MEOWTH
 	icon_pals BROWN,  PINK     ; PERSIAN
 	icon_pals YELLOW, BLUE     ; PSYDUCK
-	icon_pals BLUE,   PINK     ; GOLDUCK
+	icon_pals BLUE,   GRAY     ; GOLDUCK
 	icon_pals BROWN,  GREEN    ; MANKEY
 	icon_pals BROWN,  GREEN    ; PRIMEAPE
 	icon_pals RED,    YELLOW   ; GROWLITHE

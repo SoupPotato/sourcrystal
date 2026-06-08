@@ -55,10 +55,16 @@ Pokedex_FormMode:
 	ld b, SCGB_POKEDEX_FORM_PAGE
 	call GetSGBLayout
 
+; TODO: get mon icon ALWAYS overwrites wUnownLetter
+; ensure unown matches the one in the dex page
+	ld a, [wFirstUnownSeen]
+	ld [wUnownLetter], a
+
 	ld a, [wCurPartySpecies]
 	hlcoord 2, 4
 	call _PrepMonFrontpic
 	ld a, [wCurPartySpecies]
+
 	ld de, vTiles2 tile $00
 	predef GetAnimatedFrontpic
 
@@ -189,6 +195,10 @@ Pokedex_FormMode:
 	newfarcall ClearSpriteAnims
 	ld e, MONICON_DEXFORM
 	newfarcall LoadMenuMonIcon
+
+; again, correct unown here
+	ld a, [wFirstUnownSeen]
+	ld [wUnownLetter], a
 	jp .wait_input
 
 .reinit_anim

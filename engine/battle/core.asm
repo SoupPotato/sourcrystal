@@ -6342,11 +6342,16 @@ LoadEnemyMon:
 ; Forced shiny battle type
 ; Used by Red Gyarados at Lake of Rage
 	cp BATTLETYPE_FORCESHINY
-	jr nz, .GenerateDVs
+	jr z, .ForceShiny
 
-	ld b, ATKDEFDV_SHINY ; $ea
-	ld c, SPDSPCDV_SHINY ; $aa
-	jr .UpdateDVs
+; See if a SHINY CHARM is in the bag.
+; TODO: debugging -> ALWAYS result in a shiny.
+; TODO: changed: AF HL wCurItem.
+	ld a, SHINY_CHARM
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr c, .ForceShiny
 
 .GenerateDVs:
 ;checkswarm
@@ -6355,6 +6360,10 @@ LoadEnemyMon:
 	jr z, .check_alt_swarm
 	farcall GenerateSwarmShiny
 	jr .next
+
+.ForceShiny:
+	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY
+	jr .UpdateDVs
 
 .check_alt_swarm
 	ld hl, wSwarmFlags
@@ -6437,7 +6446,7 @@ LoadEnemyMon:
 ; Try again if length >= 1600 mm (i.e. if LOW(length) >= 3 inches)
 	ld a, [wMagikarpLength + 1]
 	cp 3
-	jr nc, .GenerateDVs
+	jp nc, .GenerateDVs
 
 .CheckMagikarpArea:
 	ld a, [wMapGroup]

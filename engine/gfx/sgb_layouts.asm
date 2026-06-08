@@ -49,6 +49,7 @@ SGBLayoutJumptable:
 	dw .SGB_TradeTube
 	dw .SGB_TrainerOrMonFrontpicPals
 	dw .SGB_MysteryGift
+	dw .SGB_MysteryGift ; dummy
 	assert_table_length NUM_SCGB_LAYOUTS
 
 .SGB_BattleGrayscale:

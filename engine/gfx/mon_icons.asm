@@ -41,7 +41,7 @@ SetMenuMonIconColor:
 	ld hl, wShadowOAMSprite00Attributes
 	jr _ApplyMenuMonIconColor
 
-SetMenuMonIconColor_NoShiny:
+SetMenuMonIconColor_PredeterminedShininess:
 	push hl
 	push de
 	push bc
@@ -49,7 +49,6 @@ SetMenuMonIconColor_NoShiny:
 
 	ld a, [wTempIconSpecies]
 	ld [wCurPartySpecies], a
-	and a
 	call GetMenuMonIconPalette_PredeterminedShininess
 	ld hl, wShadowOAMSprite00Attributes
 	jr _ApplyMenuMonIconColor
@@ -227,12 +226,27 @@ LoadMenuMonIcon:
 	dw Trade_LoadMonIconGFX             ; MONICON_TRADE
 	dw Mobile_InitAnimatedMonIcon       ; MONICON_MOBILE1
 	dw Mobile_InitPartyMenuBGPal71      ; MONICON_MOBILE2
-	dw Unused_GetPartyMenuMonIcon       ; MONICON_UNUSED
+	dw PokedexFormPage_InitMonIcon      ; MONICON_DEXFORM
 
-Unused_GetPartyMenuMonIcon:
-	call InitPartyMenuIcon
-	call .GetPartyMonItemGFX
-	call SetPartyMonIconAnimSpeed
+PokedexFormPage_InitMonIcon:
+	ld a, [wPokedexFormShiny]
+	and a
+	jr z, .skip_shiny
+	scf
+.skip_shiny
+	call SetMenuMonIconColor_PredeterminedShininess
+	ld a, [wTempIconSpecies]
+	push hl
+	pop de
+	ld [wCurIcon], a
+	xor a
+	call GetIconGFX
+	ld de, $485b ; TODO: wtf is depixel grahhhhh
+	ld a, SPRITE_ANIM_OBJ_PARTY_MON
+	call _InitSpriteAnimStruct
+	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
+	add hl, bc
+	ld [hl], SPRITE_ANIM_FUNC_NULL
 	ret
 
 .GetPartyMonItemGFX:
@@ -347,13 +361,15 @@ InitPartyMenuIcon:
 	ld d, 0
 	add hl, de
 	ld a, [hl]
-	push hl
 	ld [wCurIcon], a
-	pop hl
-	ld a, MON_DVS
-	call GetPartyParamLocation
+	push af
+		ld a, MON_DVS
+		call GetPartyParamLocation
+	pop af
 	ld e, l
 	ld d, h
+	cp ICON_UNOWN
+	call z, .get_unown_icon
 	call GetMemIconGFX
 	ldh a, [hObjectStructIndex]
 ; y coord
@@ -372,6 +388,12 @@ InitPartyMenuIcon:
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
 	ld [hl], a
+	ret
+
+.get_unown_icon
+	push hl
+	predef GetUnownLetter
+	pop hl
 	ret
 
 SetPartyMonIconAnimSpeed:
@@ -602,9 +624,6 @@ endr
 	ld a, [wCurIcon]
 	cp ICON_UNOWN
 	jr nz, .not_unown
-	ld l, e
-	ld h, d
-	predef GetUnownLetter
 	ld a, [wUnownLetter]
 	ld l, a
 	ld h, 0

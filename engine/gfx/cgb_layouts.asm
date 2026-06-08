@@ -56,6 +56,7 @@ CGBLayoutJumptable:
 	dw _CGB_TradeTube
 	dw _CGB_TrainerOrMonFrontpicPals
 	dw _CGB_MysteryGift
+	dw _CGB_PokedexFormPage
 	assert_table_length NUM_SCGB_LAYOUTS
 
 _CGB_BattleGrayscale:
@@ -337,6 +338,11 @@ _CGB_Pokedex:
 	call ApplyPals
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
+	ret
+
+_CGB_PokedexFormPage:
+	; Section 'bank2' grew too big
+	newfarcall __CGB_PokedexFormPage
 	ret
 
 PokedexQuestionMarkPalette:

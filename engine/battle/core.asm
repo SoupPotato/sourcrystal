@@ -6291,7 +6291,7 @@ LoadEnemyMon:
 	ld b, [hl]
 	inc hl
 	ld c, [hl]
-	jr .UpdateDVs
+	jp .UpdateDVs
 
 .WildDVs:
 ; Wild DVs
@@ -6350,7 +6350,7 @@ LoadEnemyMon:
 	ld [wCurItem], a
 	ld hl, wNumItems
 	call CheckItem
-	jr c, .DoubleShiny
+	jr c, .IncreaseShiny
 
 .GenerateDVs:
 ;checkswarm
@@ -6364,9 +6364,9 @@ LoadEnemyMon:
 	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY
 	jr .UpdateDVs
 
-.DoubleShiny:
-; Try to roll a shiny twice in succession.
-; If I understand probability correctly, this SHOULD double
+.IncreaseShiny:
+; Try to roll a shiny thrice in succession.
+; If I understand probability correctly, this SHOULD triple
 ; the chances of rolling a shiny.
 	call BattleRandom
 	ld b, a
@@ -6376,7 +6376,15 @@ LoadEnemyMon:
 ; Got a shiny, use that
 	jr c, .UpdateDVs
 
-; Roll again if it isn't.
+; Roll once more
+	call BattleRandom
+	ld b, a
+	call BattleRandom
+	ld c, a
+	newfarcall CheckShininess
+	jr c, .UpdateDVs
+
+; Roll a final time
 	jr .skipshine
 
 .check_alt_swarm

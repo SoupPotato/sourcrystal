@@ -1762,8 +1762,9 @@
 	const EVENT_SAFARI_ZONE_KANTO_SECRET_HOUSE_GOT_PRIZE
 	const EVENT_FUCHSIA_CITY_OMANYTE
 	const EVENT_FUCHSIA_CITY_KABUTO
+	const EVENT_GOT_SHINY_CHARM
 
-; Unused: next 6 events
+; Unused: next 5 events
 
 	const_next 2048
 DEF NUM_EVENTS EQU const_value ; 800

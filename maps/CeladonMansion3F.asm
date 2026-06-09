@@ -28,6 +28,15 @@ GameFreakGameDesignerScript:
 	promptbutton
 	special Diploma
 	writetext GameFreakGameDesignerAfterDiplomaText
+	checkevent EVENT_GOT_SHINY_CHARM
+	iftrue .GotShinyCharmAlready
+	waitbutton
+	writetext GameFreakGameDesignerShinyCharmText
+	promptbutton
+	verbosegiveitem SHINY_CHARM
+	setevent EVENT_GOT_SHINY_CHARM
+	writetext GameFreakGameDesignerShinyCharmExplainText
+.GotShinyCharmAlready
 	waitbutton
 	closetext
 	setevent EVENT_ENABLE_DIPLOMA_PRINTING
@@ -111,6 +120,23 @@ GameFreakGameDesignerAfterDiplomaText:
 
 	para "You should go show"
 	line "it off."
+	done
+
+GameFreakGameDesignerShinyCharmText:
+	text "For all that hard"
+	line "work, you deserve"
+	cont "a reward!"
+	done
+
+GameFreakGameDesignerShinyCharmExplainText:
+	text "Rumors say, that"
+	line "charm can make"
+
+	para "Shiny #MON"
+	line "appear more often!"
+
+	para "At least, that's"
+	line "what I've heard…"
 	done
 
 GameFreakGraphicArtistText:

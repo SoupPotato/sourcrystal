@@ -49,11 +49,6 @@ Pokedex_FormMode:
 
 	ld e, MONICON_DEXFORM
 	newfarcall LoadMenuMonIcon
-	
-	; curtain up
-	; runs `__CGB_PokedexFormPage` which is in this file
-	ld b, SCGB_POKEDEX_FORM_PAGE
-	call GetSGBLayout
 
 ; ensure unown matches the one in the dex page
 	ld a, [wFirstUnownSeen]
@@ -66,6 +61,11 @@ Pokedex_FormMode:
 
 	ld de, vTiles2 tile $00
 	predef GetAnimatedFrontpic
+
+	; curtain up
+	; runs `__CGB_PokedexFormPage` which is in this file
+	ld b, SCGB_POKEDEX_FORM_PAGE
+	call GetSGBLayout
 
 ; The form page here takes control of the Pokedex loop,
 ; since it has to update its own sprites.

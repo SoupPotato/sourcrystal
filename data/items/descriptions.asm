@@ -355,8 +355,8 @@ WaterStoneDesc:
 	next "kinds of #MON.@"
 
 ShinyCharmDesc:
-	db   "Raises wild shiny"
-	next "#MON encounters@"
+	db   "Makes Shiny #-"
+	next "MON appear more.@"
 
 HPUpDesc:
 	db   "Raises the HP of"

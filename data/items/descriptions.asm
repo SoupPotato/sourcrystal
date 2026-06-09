@@ -25,7 +25,7 @@ ItemDescriptions:
 	dw FireStoneDesc
 	dw ThunderStoneDesc
 	dw WaterStoneDesc
-	dw ShinyCharmDesc
+	dw TeruSama11Desc
 	dw HPUpDesc
 	dw ProteinDesc
 	dw IronDesc
@@ -137,7 +137,7 @@ ItemDescriptions:
 	dw PassDesc
 	dw SafariBallDesc
 	dw LinkingCordDesc
-	dw TeruSama11Desc
+	dw ShinyCharmDesc
 	dw CharcoalDesc
 	dw BerryJuiceDesc
 	dw ScopeLensDesc

@@ -6345,13 +6345,12 @@ LoadEnemyMon:
 	jr z, .ForceShiny
 
 ; See if a SHINY CHARM is in the bag.
-; TODO: debugging -> ALWAYS result in a shiny.
 ; TODO: changed: AF HL wCurItem.
 	ld a, SHINY_CHARM
 	ld [wCurItem], a
 	ld hl, wNumItems
 	call CheckItem
-	jr c, .ForceShiny
+	jr c, .DoubleShiny
 
 .GenerateDVs:
 ;checkswarm
@@ -6364,6 +6363,21 @@ LoadEnemyMon:
 .ForceShiny:
 	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY
 	jr .UpdateDVs
+
+.DoubleShiny:
+; Try to roll a shiny twice in succession.
+; If I understand probability correctly, this SHOULD double
+; the chances of rolling a shiny.
+	call BattleRandom
+	ld b, a
+	call BattleRandom
+	ld c, a
+	newfarcall CheckShininess
+; Got a shiny, use that
+	jr c, .UpdateDVs
+
+; Roll again if it isn't.
+	jr .skipshine
 
 .check_alt_swarm
 	ld hl, wSwarmFlags
@@ -6437,7 +6451,7 @@ LoadEnemyMon:
 ; Try again if length >= 1616 mm (i.e. if LOW(length) >= 4 inches)
 	ld a, [wMagikarpLength + 1]
 	cp 4
-	jr nc, .GenerateDVs
+	jp nc, .GenerateDVs
 
 ; 20% chance of skipping this check
 	call Random

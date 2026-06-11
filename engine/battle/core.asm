@@ -6365,6 +6365,12 @@ LoadEnemyMon:
 	jr .UpdateDVs
 
 .IncreaseShiny:
+if DEF(_DEBUG)
+	ldh a, [hJoypadDown]
+	bit B_BUTTON_F, a
+	jr nz, .ForceShiny
+endc
+
 ; Try to roll a shiny thrice in succession.
 ; If I understand probability correctly, this SHOULD triple
 ; the chances of rolling a shiny.

@@ -6344,6 +6344,26 @@ LoadEnemyMon:
 	cp BATTLETYPE_FORCESHINY
 	jr z, .ForceShiny
 
+.GenerateDVs:
+; Swarms have their own shiny calculations, and so wants
+; to be prioritized.
+	ld hl, wDailyFlags1
+	bit DAILYFLAGS1_SWARM_F, [hl]
+	jr z, .check_alt_swarm
+	farcall GenerateSwarmShiny
+	; Got DVs here, must skip normal shiny roll and other calculations
+	jr .next
+
+.check_alt_swarm
+	ld hl, wSwarmFlags
+	bit SWARMFLAGS_ALT_SWARM_F, [hl]
+	jr z, .check_charm
+	farcall GenerateAltSwarmShiny
+	; Skip; same here
+	jr .next
+
+; Normal shiny calculations etc.
+.check_charm
 ; See if a SHINY CHARM is in the bag.
 ; TODO: changed: AF HL wCurItem.
 	ld a, SHINY_CHARM
@@ -6351,21 +6371,12 @@ LoadEnemyMon:
 	ld hl, wNumItems
 	call CheckItem
 	jr c, .IncreaseShiny
-
-.GenerateDVs:
-;checkswarm
-	ld hl, wDailyFlags1
-	bit DAILYFLAGS1_SWARM_F, [hl]
-	jr z, .check_alt_swarm
-	farcall GenerateSwarmShiny
 	jr .next
-
-.ForceShiny:
-	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY
-	jr .UpdateDVs
 
 .IncreaseShiny:
 if DEF(_DEBUG)
+; Hold down B during the battle transition to force a shiny
+; with SHINY CHARM present.
 	ldh a, [hJoypadDown]
 	bit B_BUTTON_F, a
 	jr nz, .ForceShiny
@@ -6393,12 +6404,9 @@ endc
 ; Roll a final time
 	jr .skipshine
 
-.check_alt_swarm
-	ld hl, wSwarmFlags
-	bit SWARMFLAGS_ALT_SWARM_F, [hl]
-	jr z, .skipshine
-	farcall GenerateAltSwarmShiny
-	jr .next
+.ForceShiny:
+	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY
+	jr .UpdateDVs
 
 .skipshine:
 ; Generate new random DVs

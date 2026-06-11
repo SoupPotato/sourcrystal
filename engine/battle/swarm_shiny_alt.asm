@@ -285,14 +285,29 @@ GenerateAltSwarmShiny:
 	ld b, ATKDEFDV_SHINY
 	ld c, SPDSPCDV_SHINY
 	jr .UpdateDVs
-.trynext:
+.trynext
+	call Random
+	cp 2 ; adjust to desired percentage
+	jr nc, .trynext2
+	ld b, ATKDEFDV_SHINYF
+	ld c, SPDSPCDV_SHINY
+	jr .UpdateDVs
+.trynext2
+	call CheckShinyCharm
+	jr nc, .skipshine
+	call Random
+	cp 2 ; adjust to desired percentage
+	jr nc, .trynext3
+	ld b, ATKDEFDV_SHINY
+	ld c, SPDSPCDV_SHINY
+	jr .UpdateDVs
+.trynext3
 	call Random
 	cp 2 ; adjust to desired percentage
 	jr nc, .skipshine
 	ld b, ATKDEFDV_SHINYF
 	ld c, SPDSPCDV_SHINY
 	jr .UpdateDVs
-
 .skipshine:
 ; Generate new random DVs
 	call BattleRandom

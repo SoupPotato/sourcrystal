@@ -72,3 +72,22 @@ TestBitAInHL::
 	ld a, $c9 ; 'ret' opcode
 	ldh [hCodeBuffer+2], a
 	jp hCodeBuffer
+
+SECTION "Misc Home", ROM0
+
+CheckShinyCharm::
+; Preserve: wCurItem BC DE HL
+; Return: CARRY if found
+	push bc
+		ld a, [wCurItem]
+		ld b, a
+			ld a, SHINY_CHARM
+			ld [wCurItem], a
+			push hl
+				ld hl, wNumItems
+				call CheckItem
+			pop hl
+		ld a, b
+		ld [wCurItem], a
+	pop bc
+	ret

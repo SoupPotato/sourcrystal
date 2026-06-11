@@ -6365,11 +6365,7 @@ LoadEnemyMon:
 ; Normal shiny calculations etc.
 .check_charm
 ; See if a SHINY CHARM is in the bag.
-; TODO: changed: AF HL wCurItem.
-	ld a, SHINY_CHARM
-	ld [wCurItem], a
-	ld hl, wNumItems
-	call CheckItem
+	call CheckShinyCharm
 	jr c, .IncreaseShiny
 	jr .next
 

@@ -920,22 +920,6 @@ Lightning:
 	farcall OWFadePalettesInit
 	ret
 
-; Currently a proof of concept, this will be removed in the final product.
-SunFlash:
-	ld hl, wWeatherFlags
-	bit OW_WEATHER_DO_FLY_F, [hl]
-	ret nz
-	call SetSunnyPals
-	farcall ApplyPals
-	call DelayFrame
-	farcall LoadMapPals
-	farcall ClearSavedObjPals
-	ld hl, wPalFlags
-	set NO_DYN_PAL_APPLY_UNTIL_RESET_F, [hl]
-	farcall CheckForUsedObjPals
-	farcall OWFadePalettesInit
-	ret
-
 DoOverworldSunlight:
 	; First check if there is a value in the SunlightTimer.
 	ld a, [wSunlightTimer]
@@ -964,21 +948,113 @@ DoOverworldSunlight:
 	jr c, .done
 	jr .mod_loop
 .increment
-	call Sunlight_IncPals
 	ld hl, wSunlightTimer
 	ld a, [wOverworldWeatherInternalTimer]
 	sub a, [hl]
-	cp 60
-	jr nz, .done
-	call SunFlash
+	cp 120
+	jr c, .inc_pals
+	jr z, .inc_pals
+	jr .dec_check
+
+.inc_pals
+	call Sunlight_IncPals
+	jr .done
+
+.dec_pals
+	call Sunlight_DecPals
+	jr .done
+
+.dec_check
+	ld hl, wSunlightTimer
+	ld a, [wOverworldWeatherInternalTimer]
+	sub a, [hl]
+.mod_loop2
+	sub a, 30
+	jr z, .decrement
+	jr c, .done
+	jr .mod_loop2
+.decrement
+	ld hl, wSunlightTimer
+	ld a, [wOverworldWeatherInternalTimer]
+	sub a, [hl]
+	cp 240
+	jr c, .dec_pals
+.clear_timers
+	; Resets this
+	call Sunlight_DecPals
 	xor a
 	ld [wSunlightTimer], a
 	ld [wSunlightTimer + 1], a
 .done
 	ret
 
-; Currently stubbed for testing
 Sunlight_IncPals:
+	
+	ret
+
+Sunlight_DecPals:
+	
+	ret
+
+UnpackColor:
+    ; Input:
+    ;   hl -> An RGB555 color in a palette
+    ; Outputs:
+    ;   b = red   (0-31)
+    ;   c = green (0-31)
+    ;   d = blue  (0-31)
+    ; On return:
+    ;   hl points to the next color in the palette
+
+    ld a, [hl]    ; 1/2; a = %gggRRRRR
+    and %00011111 ; 2/2; a = %000RRRRR
+    ld b, a       ; 1/1; b = %000RRRRR (b <- R done)
+
+    ld a, [hli]   ; 1/2; a = %gggRRRRR
+    and %11100000 ; 2/2; a = %ggg00000
+    ld c, a       ; 1/1; c = %ggg00000
+
+    ld a, [hl]    ; 1/2; a = %0BBBBBGG
+    and %00000011 ; 2/2; a = %000000GG
+    or c          ; 1/1; a = %ggg000GG
+    rlca          ; 1/1; a = %gg000GGg
+    rlca          ; 1/1; a = %g000GGgg
+    rlca          ; 1/1; a = %000GGggg
+    ld c, a       ; 1/1; c = %000GGggg (c <- G done)
+
+    ld a, [hli]   ; 1/2; a = %0BBBBBGG
+    and %01111100 ; 2/2; a = %0BBBBB00
+    rrca          ; 1/1; a = %00BBBBB0
+    rrca          ; 1/1; a = %000BBBBB
+    ld d, a       ; 1/1; d = %000BBBBB (d <- B done)
+
+    ret           ; 22/26 total
+
+PackColor:
+	; Input:
+	;   hl -> An RGB555 color in a palette
+	;   b = a 5-bit R value (0-31)
+	;   c = a 5-bit G value (0-31)
+	;   d = a 5-bit B value (0-31)
+	; Operation:
+	;   Packs the new RGB555 color into the color in a palette pointed to by hl
+	; Clobbers:
+	;   a, e
+	; On return:
+	;   hl points to the next color in the palette
+	swap c        ; %Gggg000G
+	ld a, c       ; %Gggg000G
+	rlca          ; %ggg000GG
+	and %11100000 ; %GGG00000
+	or b          ; %GGGRRRRR
+	ld [hli], a
+	ld a, c       ; %Gggg000G
+	rrca          ; %GGggg000
+	and %00000011 ; %GG000000
+	or d          ; %GG0BBBBB
+	rlca          ; %G0BBBBBG
+	rlca          ; %0BBBBBGG
+	ld [hli], a
 	ret
 
 LoadWeatherGraphics::
@@ -1022,40 +1098,3 @@ RainGFX:   INCBIN "gfx/overworld/rain.2bpp"
 SplashGFX: INCBIN "gfx/overworld/rain_splash.2bpp"
 SnowGFX:   INCBIN "gfx/overworld/snow.2bpp"
 SandGFX:   INCBIN "gfx/overworld/sand.2bpp"
-
-SetSunnyPals:
-	ldh a, [rSVBK]
-	push af
-	ld a, BANK(wBGPals1)
-	ldh [rSVBK], a
-
-	ld hl, wBGPals1
-	ld bc, SunnyWeatherBGPal
-	ld de, 7 palettes
-	call SunnyByteFill
-
-	ld hl, wOBPals1
-	ld bc, SunnyWeatherOBPal
-	ld de, 19 palettes
-	call SunnyByteFill
-
-	pop af
-	ldh [rSVBK], a
-	ret
-
-SunnyByteFill:
-.load
-	ld a, [bc]
-	inc bc
-	ld [hli], a
-	dec de
-	ld a, d
-	or e
-	jr nz, .load
-	ret
-
-SunnyWeatherBGPal:
-	INCLUDE "gfx/tilesets/sunny_bg_tiles.pal"
-
-SunnyWeatherOBPal:
-	INCLUDE "gfx/tilesets/sunny_ob_tiles.pal"

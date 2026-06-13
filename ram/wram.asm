@@ -1905,7 +1905,13 @@ wSpriteOverlapCount:: db
 wWeatherFlags:: db
 wPrevWeather:: db
 wCurWeather:: db
+; SunlightTimerBits:
+;  -    15: Timer Status
+;  - 14-10: Unused
+;  -   9-8: Calculates the current step of the pal increment or decrement
+;  -   7-0: Timer
 wSunlightTimer:: ds 2
+wSunlightIncCounter::
 wPrevOvercastIndex:: db
 
 

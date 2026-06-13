@@ -5,6 +5,17 @@ MACRO weather_map
 ENDM
 
 SetCurrentWeather::
+; Debug
+	ld a, [wMapGroup]
+	cp GROUP_ROUTE_29
+	jr nz, .not_r29
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_29
+	jr nz, .not_r29
+	jp .sun
+
+.not_r29
+; End Debug
 	; check for mandatory snow maps
 	ld a, [wMapGroup]
 	cp GROUP_SILVER_CAVE_UPPER_MOUNTAINSIDE
@@ -146,6 +157,7 @@ SetCurrentWeather::
 
 ; To do - populate whatever jumps here.
 .sun
+	call PreserveOriginalPals
 	ld a, OW_WEATHER_SUNLIGHT
 	jr .set_weather
 
@@ -200,6 +212,37 @@ GenerateNewRandomRainMap:
 	ld [wWeatherRandomMapGroupKanto + 1], a
 	ld a, [hl]
 	ld [wWeatherRandomMapNumberKanto + 1], a
+	ret
+
+PreserveOriginalPals:
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+
+	ld hl, wBGPals1
+	ld bc, wBGPals2
+	ld de, 7 palettes
+	call PreservePalCopy
+
+	ld hl, wOBPals1
+	ld bc, wOBPals2
+	ld de, 19 palettes
+	call PreservePalCopy
+
+	pop af
+	ldh [rSVBK], a
+	ret
+
+PreservePalCopy:
+.load
+	ld a, [bc]
+	inc bc
+	ld [hli], a
+	dec de
+	ld a, d
+	or e
+	jr nz, .load
 	ret
 
 RandomRainMapsJohto:

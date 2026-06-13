@@ -220,13 +220,13 @@ PreserveOriginalPals:
 	ld a, BANK(wBGPals1)
 	ldh [rSVBK], a
 
-	ld hl, wBGPals1
-	ld bc, wBGPals2
+	ld hl, wBGPals2
+	ld bc, wBGPals1
 	ld de, 7 palettes
 	call PreservePalCopy
 
-	ld hl, wOBPals1
-	ld bc, wOBPals2
+	ld hl, wOBPals2
+	ld bc, wOBPals1
 	ld de, 19 palettes
 	call PreservePalCopy
 

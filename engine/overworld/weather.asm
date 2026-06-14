@@ -943,7 +943,7 @@ DoOverworldSunlight:
 	ld a, [wOverworldWeatherInternalTimer]
 	sub a, [hl]
 .mod_loop
-	sub a, 30
+	sub a, 20
 	jr z, .increment
 	jr c, .done
 	jr .mod_loop
@@ -969,7 +969,7 @@ DoOverworldSunlight:
 	ld a, [wOverworldWeatherInternalTimer]
 	sub a, [hl]
 .mod_loop2
-	sub a, 30
+	sub a, 20
 	jr z, .decrement
 	jr c, .done
 	jr .mod_loop2
@@ -989,11 +989,69 @@ DoOverworldSunlight:
 	ret
 
 Sunlight_IncPals:
-	
+	; Input:
+	;   N/A
+	; Operation:
+	;   Attempts to slightly increment the overworld palettes
+	; Output:
+	;   N/A
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+
+	; Let's get to business... first we need to load the bg palettes
+	; and e, which stores our value of 7 * 4 palettes
+	ld hl, wBGPals1
+	ld e, 28
+.attempt_inc_bg
+	call UnpackColor
+	call TrySaturateColor
+	call PackColor
+	dec e
+	jr nz, .attempt_inc_bg
+
+	; Restore the original bank
+	pop af
+	ldh [rSVBK], a
+
+	; Update the pals
+	farcall ApplyPals
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	call DelayFrame
 	ret
 
 Sunlight_DecPals:
-	
+	; Input:
+	;   N/A
+	; Operation:
+	;   Attempts to slightly decrement the overworld palettes
+	; Output:
+	;   N/A
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+
+	; Same logic as above.
+	ld hl, wBGPals1
+	ld e, 28
+.attempt_dec_bg
+	call UnpackColor
+	call TryDesaturateColor
+	call PackColor
+	dec e
+	jr nz, .attempt_dec_bg
+	; Restore the bank
+	pop af
+	ldh [rSVBK], a
+
+	; Update the pals
+	farcall ApplyPals
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	call DelayFrame
 	ret
 
 UnpackColor:
@@ -1004,7 +1062,7 @@ UnpackColor:
     ;   c = green (0-31)
     ;   d = blue  (0-31)
     ; On return:
-    ;   hl points to the next color in the palette
+    ;   hl points to the head of the color again
 
     ld a, [hl]    ; 1/2; a = %gggRRRRR
     and %00011111 ; 2/2; a = %000RRRRR
@@ -1022,13 +1080,14 @@ UnpackColor:
     rlca          ; 1/1; a = %000GGggg
     ld c, a       ; 1/1; c = %000GGggg (c <- G done)
 
-    ld a, [hli]   ; 1/2; a = %0BBBBBGG
+    ld a, [hl]   ; 1/2; a = %0BBBBBGG
     and %01111100 ; 2/2; a = %0BBBBB00
     rrca          ; 1/1; a = %00BBBBB0
     rrca          ; 1/1; a = %000BBBBB
     ld d, a       ; 1/1; d = %000BBBBB (d <- B done)
 
-    ret           ; 22/26 total
+	dec hl
+    ret
 
 PackColor:
 	; Input:
@@ -1050,11 +1109,72 @@ PackColor:
 	ld [hli], a
 	ld a, c       ; %Gggg000G
 	rrca          ; %GGggg000
-	and %00000011 ; %GG000000
+	and %11000000 ; %GG000000
 	or d          ; %GG0BBBBB
 	rlca          ; %G0BBBBBG
 	rlca          ; %0BBBBBGG
 	ld [hli], a
+	ret
+
+TrySaturateColor:
+	; Input:
+	;   b = a 5-bit R value (0-31)
+	;   c = a 5-bit G value (0-31)
+	;   d = a 5-bit B value (0-31)
+	; Operation:
+	;   Attempts to brighten the palette by adding 2 to each value of an RGB555 color
+	ld a, b
+	call TrySaturateChannel
+	ld b, a
+	ld a, c
+	call TrySaturateChannel
+	ld c, a
+	ld a, d
+	call TrySaturateChannel
+	ld d, a
+	ret
+
+TryDesaturateColor:
+	; Input:
+	;   b = a 5-bit R value (0-31)
+	;   c = a 5-bit G value (0-31)
+	;   d = a 5-bit B value (0-31)
+	; Operation:
+	;   Attempts to darken the palette by subtracting 2 from each value of an RGB555 color
+	ld a, b
+	call TryDesaturateChannel
+	ld b, a
+	ld a, c
+	call TryDesaturateChannel
+	ld c, a
+	ld a, d
+	call TryDesaturateChannel
+	ld d, a
+	ret
+
+TrySaturateChannel:
+	; Input:
+	;   a = a 5-bit RGB value (0-31)
+	; Operation:
+	;   Saturates and RGB value by 2
+	; Output:
+	;   a = a 5-bit RGB value, where 2 <= a <= 31
+	inc a
+	cp 32
+	ret c
+	ld a, 31
+	ret
+
+TryDesaturateChannel:
+	; Input:
+	;   a = a 5-bit RGB value (0-31)
+	; Operation:
+	;   Desatures an RGB value by 2
+	; Output:
+	;   a = a 5-bit RGB value, where 0 <= a <= 29
+	sub 1
+	ret nc
+	xor a
 	ret
 
 LoadWeatherGraphics::

@@ -157,7 +157,7 @@ SetCurrentWeather::
 
 ; To do - populate whatever jumps here.
 .sun
-	call PreserveOriginalPals
+;	call PreserveOriginalPals
 	ld a, OW_WEATHER_SUNLIGHT
 	jr .set_weather
 
@@ -214,25 +214,25 @@ GenerateNewRandomRainMap:
 	ld [wWeatherRandomMapNumberKanto + 1], a
 	ret
 
-PreserveOriginalPals:
-	ldh a, [rSVBK]
-	push af
-	ld a, BANK(wBGPals1)
-	ldh [rSVBK], a
-
-	ld hl, wBGPals2
-	ld bc, wBGPals1
-	ld de, 7 palettes
-	call PreservePalCopy
-
-	ld hl, wOBPals2
-	ld bc, wOBPals1
-	ld de, 19 palettes
-	call PreservePalCopy
-
-	pop af
-	ldh [rSVBK], a
-	ret
+;PreserveOriginalPals:
+;	ldh a, [rSVBK]
+;	push af
+;	ld a, BANK(wBGPals1)
+;	ldh [rSVBK], a
+;
+;	ld hl, wBGPals2
+;	ld bc, wBGPals1
+;	ld de, 7 palettes
+;	call PreservePalCopy
+;
+;	ld hl, wOBPals2
+;	ld bc, wOBPals1
+;	ld de, 19 palettes
+;	call PreservePalCopy
+;
+;	pop af
+;	ldh [rSVBK], a
+;	ret
 
 PreservePalCopy:
 .load

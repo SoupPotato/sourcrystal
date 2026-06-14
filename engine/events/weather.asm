@@ -5,17 +5,6 @@ MACRO weather_map
 ENDM
 
 SetCurrentWeather::
-; Debug
-	ld a, [wMapGroup]
-	cp GROUP_ROUTE_29
-	jr nz, .not_r29
-	ld a, [wMapNumber]
-	cp MAP_ROUTE_29
-	jr nz, .not_r29
-	jp .sun
-
-.not_r29
-; End Debug
 	; check for mandatory snow maps
 	ld a, [wMapGroup]
 	cp GROUP_SILVER_CAVE_UPPER_MOUNTAINSIDE

@@ -2729,9 +2729,8 @@ _UseWaterfallText::
 
 SECTION "_UseWaterfallPagerText", ROMX
 _UseWaterfallPagerText::
-	text "<PLAYER> summoned a"
-	line "LAPRAS to use"
-	cont "WATERFALL!"
+	text "LAPRAS used"
+	line "WATERFALL!"
 	done
 
 SECTION "_HugeWaterfallText", ROMX

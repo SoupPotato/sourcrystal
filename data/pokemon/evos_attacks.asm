@@ -1033,31 +1033,31 @@ TentacoolEvosAttacks:
 	db EVOLVE_LEVEL, 30, TENTACRUEL
 	db 0 ; no more evolutions
 	db 1, POISON_STING
-	db 1, WATER_GUN
-	db 6, CONSTRICT
-	db 12, SUPERSONIC
-	db 17, ACID
-	db 23, BUBBLEBEAM
-	db 28, WRAP
-	db 34, BARRIER
-	db 39, SLUDGE_BOMB
-	db 45, SCREECH
-	db 50, HYDRO_PUMP
+	db 1, CONSTRICT
+	db 6, WATER_GUN
+	db 10, SUPERSONIC
+	db 16, ACID
+	db 21, WRAP
+	db 25, BUBBLEBEAM
+	db 31, BARRIER
+	db 36, SLUDGE_BOMB
+	db 40, SCREECH
+	db 46, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 TentacruelEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_STING
-	db 1, WATER_GUN
 	db 1, CONSTRICT
+	db 1, WATER_GUN
 	db 1, SUPERSONIC
-	db 17, ACID
-	db 23, BUBBLEBEAM
-	db 28, WRAP
-	db 37, BARRIER
-	db 43, SLUDGE_BOMB
-	db 50, SCREECH
-	db 56, HYDRO_PUMP
+	db 16, ACID
+	db 21, WRAP
+	db 25, BUBBLEBEAM
+	db 33, BARRIER
+	db 40, SLUDGE_BOMB
+	db 46, SCREECH
+	db 54, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 GeodudeEvosAttacks:

@@ -3415,10 +3415,9 @@ wSafariTimeRemaining:: dw
 wPhoneList:: ds 11 ; CONTACT_LIST_SIZE + 1
 
 wWeatherRandomDay:: db
-wWeatherRandomMapGroupJohto:: ds NUM_WEATHER_MAPS_PER_DAY
-wWeatherRandomMapNumberJohto:: ds NUM_WEATHER_MAPS_PER_DAY
-wWeatherRandomMapGroupKanto:: ds NUM_WEATHER_MAPS_PER_DAY
-wWeatherRandomMapNumberKanto:: ds NUM_WEATHER_MAPS_PER_DAY
+; map group, map number
+wWeatherRandomMapJohto:: ds NUM_WEATHER_MAPS_PER_DAY * 2
+wWeatherRandomMapKanto:: ds NUM_WEATHER_MAPS_PER_DAY * 2
 assert NUM_WEATHER_MAPS_PER_DAY == 2, \
 	"If you change NUM_WEATHER_MAPS_PER_DAY, you must ensure you don't break save compatibility."
 

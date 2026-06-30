@@ -570,7 +570,11 @@ ReadObjectEvents::
 	res MAPSETUP_CONNECTION_F, [hl]
 	call ClearObjectAssociations
 	pop de
-	ld hl, wMap1Object
+; reserve follower at slot 1 -> wMap1Object
+	ld a, -1
+	ld [wMap1Object], a
+; object events therefore start at slot 2
+	ld hl, wMap2Object
 	ld a, [de]
 	inc de
 	ld [wCurMapObjectEventCount], a
@@ -582,10 +586,10 @@ ReadObjectEvents::
 	ld a, [wCurMapObjectEventCount]
 	call CopyMapObjectEvents
 
-; get NUM_OBJECTS - [wCurMapObjectEventCount] - 1
+; get NUM_OBJECTS - [wCurMapObjectEventCount] - 2
 	ld a, [wCurMapObjectEventCount]
 	ld c, a
-	ld a, NUM_OBJECTS - 1
+	ld a, NUM_OBJECTS - 2
 	sub c
 	jr z, .skip
 	jr c, .skip
@@ -635,15 +639,15 @@ CopyMapObjectEvents::
 	ret
 
 ClearObjectStructs::
-	ld hl, wObject1Struct
-	ld bc, OBJECT_LENGTH * (NUM_OBJECT_STRUCTS - 1)
+	ld hl, wObject2Struct
+	ld bc, OBJECT_LENGTH * (NUM_OBJECT_STRUCTS - 2)
 	xor a
 	call ByteFill
 
 ; Just to make sure (this is rather pointless)
-	ld hl, wObject1Struct
+	ld hl, wObject2Struct
 	ld de, OBJECT_LENGTH
-	ld c, NUM_OBJECT_STRUCTS - 1
+	ld c, NUM_OBJECT_STRUCTS - 2
 	xor a
 .loop
 	ld [hl], a
@@ -654,9 +658,9 @@ ClearObjectStructs::
 
 ClearObjectAssociations::
 	push de
-	ld hl, wObject1Struct + OBJECT_MAP_OBJECT_INDEX
+	ld hl, wObject2Struct + OBJECT_MAP_OBJECT_INDEX
 	ld de, OBJECT_LENGTH
-	ld b, NUM_OBJECT_STRUCTS - 1
+	ld b, NUM_OBJECT_STRUCTS - 2
 	ld a, UNASSOCIATED_OBJECT
 .loop
 	ld [hl], a

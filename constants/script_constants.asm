@@ -1,5 +1,6 @@
 ; object constants
 DEF PLAYER      EQU  0
+DEF FOLLOWER    EQU  1
 DEF LAST_TALKED EQU -2
 
 ; string buffer constants

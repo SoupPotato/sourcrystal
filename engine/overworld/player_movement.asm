@@ -681,6 +681,14 @@ ENDM
 	ld bc, wObjectStructs ; redundant
 	farcall IsNPCAtCoord
 	jr nc, .no_npc
+
+; NPC in front of the player is the follower = should be passable
+	ld hl, OBJECT_MAP_OBJECT_INDEX
+	add hl, bc
+	ld a, [hl]
+	cp FOLLOWER
+	jr z, .no_npc
+
 	call .CheckStrengthBoulder
 	jr c, .no_bump
 

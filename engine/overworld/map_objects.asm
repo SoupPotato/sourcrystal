@@ -560,6 +560,7 @@ StepFunction_FromMovement:
 	dw MovementFunction_SpinCounterclockwise ; 19
 	dw MovementFunction_BoulderDust          ; 1a
 	dw MovementFunction_ShakingGrass         ; 1b
+	dw MovementFunction_FollowerObject       ; 1c
 	assert_table_length NUM_SPRITEMOVEFN
 
 MovementFunction_Null:
@@ -648,6 +649,86 @@ MovementFunction_0d:
 MovementFunction_0e:
 	jp _GetMovementObject
 
+MovementFunction_FollowerObject:
+; TODO: skip moving if follower is heing held
+	call DoFollowNotExact
+	ret nc
+	push af
+		ld a, [wFollowerNextMovement]
+		cp FOLLOWERMOVE_NUM_TYPES
+		jr c, .run_step_func
+	; fallback here if we get an invalid type.
+		assert FOLLOWERMOVE_NORMAL == 0
+		xor a ; FOLLOWERMOVE_NORMAL
+.run_step_func
+		ld e, a
+		ld d, 0
+		ld hl, .Funcs
+		add hl, de
+		add hl, de
+		add hl, de
+	; queue follower's next move
+		ld a, [hli]
+		ld [wFollowerNextMovement], a
+	; run the follower's currently-pending move
+		ld a, [hli]
+		ld h, [hl]
+		ld l, a
+	pop af
+	jp hl
+
+.Funcs:
+	table_width 3
+; \1 = value to set after the step
+; \2 = step movement function to execute
+	dbw FOLLOWERMOVE_NORMAL, NormalStep  ; _NORMAL
+	dbw FOLLOWERMOVE_NORMAL, SlideStep   ; _SLIDE      (set in movement.asm)
+	dbw FOLLOWERMOVE_NORMAL, .BigStep    ; _BIG_STEP
+	dbw FOLLOWERMOVE_STILL, .TurnHead    ; _STILL
+	dbw FOLLOWERMOVE_BIG_STEP, .TurnHead ; _PREPARE_JUMP
+	assert_table_length FOLLOWERMOVE_NUM_TYPES
+
+.TurnHead:
+; modify arguments for TurnHead
+	and %11
+	add a
+	add a
+	jp TurnHead
+
+.BigStep:
+; save movement direction
+	ld e, a
+
+; let's see what brought us here
+	ld a, [wPlayerStepType]
+	cp STEP_TYPE_PLAYER_JUMP ; jump prepared
+	jr z, .jump
+	
+	ld a, [wPlayerState]
+	cp PLAYER_BIKE
+	jr z, .bike
+
+	ld a, [wPlayerTileCollision]
+	cp COLL_ICE
+	jr z, .ice
+
+.jump
+; reload movement direction
+	ld a, e
+	ld de, SFX_JUMP_OVER_LEDGE
+	call PlaySFX
+	and %011
+	or STEP_BIKE << 2
+	jp JumpStep
+
+.ice
+.bike
+	ld a, e
+	and %11
+	or %1100 ; big step
+	jp JumpStep
+
+
 MovementFunction_Follow:
 	ld hl, GetFollowerNextMovementIndex
 	jp HandleMovementData
@@ -707,6 +788,16 @@ MovementFunction_Strength:
 	ret
 
 MovementFunction_FollowNotExact:
+	call DoFollowNotExact
+	ret nc
+	jp NormalStep
+
+; FollowNotExact is now used by the o.g. MovementFunction
+; as well as the Follower MovementFunction, the latter
+; needing to continue to process that special follower
+; object logic, instead of stopping at NormalStep.
+
+DoFollowNotExact:
 	ld hl, OBJECT_MAP_X
 	add hl, bc
 	ld d, [hl]
@@ -756,7 +847,8 @@ MovementFunction_FollowNotExact:
 	and %00001100
 	or d
 	pop bc
-	jp NormalStep
+	scf ; indicate a move
+	ret
 
 .standing
 	pop bc
@@ -766,6 +858,7 @@ MovementFunction_FollowNotExact:
 	ld hl, OBJECT_ACTION
 	add hl, bc
 	ld [hl], OBJECT_ACTION_STAND
+	and a ; no move
 	ret
 
 MovementFunction_BigStanding:
@@ -1198,6 +1291,10 @@ StepFunction_PlayerJump:
 	ret
 
 .initland
+; stay on top of the ledge
+	ld a, FOLLOWERMOVE_STILL
+	ld [wFollowerNextMovement], a
+
 	call GetNextTile
 	ld hl, wPlayerStepFlags
 	set PLAYERSTEP_START_F, [hl]
@@ -1209,6 +1306,11 @@ StepFunction_PlayerJump:
 	add hl, bc
 	dec [hl]
 	ret nz
+
+; remain on the ledge until the player steps one ahead of it
+	ld a, FOLLOWERMOVE_PREPARE_JUMP
+	ld [wFollowerNextMovement], a
+
 	ld hl, wPlayerStepFlags
 	set PLAYERSTEP_STOP_F, [hl]
 	call CopyCoordsTileToLastCoordsTile
@@ -2642,6 +2744,18 @@ FreezeAllObjects:
 	ret
 
 _UnfreezeFollowerObject::
+; ALWAYS unfreeze persistent follower, so it doesn't stay
+; when the player is being walked
+	push bc
+		ld a, FOLLOWER
+		call GetObjectStruct
+
+		ld hl, OBJECT_FLAGS2
+		add hl, bc
+		res FROZEN_F, [hl]
+	pop bc
+
+; IF EXISTS unfreeze event-specific follower
 	ld a, [wObjectFollow_Leader]
 	cp -1
 	ret z

@@ -61,6 +61,18 @@ PlayerObjectTemplate:
 ; Said bytes seem to be unused.
 	object_event -4, -4, SPRITE_CHRIS, SPRITEMOVEDATA_PLAYER, 15, 15, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, 0, -1
 
+SpawnFollower:
+	xor a
+	ld [wFollowerNextMovement], a
+	ld a, FOLLOWER
+	ld hl, FollowerObjectTemplate
+	call CopyPlayerObjectTemplate
+	ld b, FOLLOWER
+	jp PlayerSpawn_ConvertCoords
+
+FollowerObjectTemplate:
+	object_event -4, -4, SPRITE_CHRIS, SPRITEMOVEDATA_FOLLOWEROBJ, 15, 15, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
+
 CopyDECoordsToMapObject::
 	push de
 	ld a, b
@@ -137,8 +149,16 @@ CopyObjectStruct::
 	and a
 	ret nz ; masked
 
-	ld hl, wObjectStructs + OBJECT_LENGTH + OBJECT_MAP_OBJECT_INDEX
-	ld a, 1
+; Force the follower into slot 1 (player's on slot 0)
+; enables the loading behavior to be predictable
+	ldh a, [hMapObjectIndex]
+	cp FOLLOWER
+	jr z, .follower
+
+; Because the follower is forced onto slot 1, that means
+; the rest of the objects will have to occupy slot 2+
+	ld hl, wObject2Struct + OBJECT_MAP_OBJECT_INDEX
+	ld a, 2
 	ld de, OBJECT_LENGTH
 .loop
 	ldh [hObjectStructIndex], a
@@ -153,6 +173,12 @@ CopyObjectStruct::
 	jr nz, .loop
 	scf
 	ret ; overflow
+
+.follower
+; And yes it has to be OBJECT_MAP_OBJECT_INDEX
+	ld hl, wObject1Struct + OBJECT_MAP_OBJECT_INDEX
+	ld a, FOLLOWER
+	ldh [hObjectStructIndex], a
 
 .done
 	ld d, h

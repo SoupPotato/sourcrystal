@@ -743,6 +743,14 @@ SlideStep:
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
 	ld [hl], STEP_TYPE_PLAYER_WALK
+
+; make the follower also slide, except if they are *already* moving
+	ld a, [wFollowerNextMovement]
+	and a
+	ret nz
+
+	ld a, FOLLOWERMOVE_SLIDE
+	ld [wFollowerNextMovement], a
 	ret
 
 JumpStep:

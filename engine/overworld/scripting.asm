@@ -800,9 +800,9 @@ Script_cry:
 GetScriptObject:
 	and a ; PLAYER?
 	ret z
+; no object constant adjustment here, but callers rely on
+; this check
 	cp LAST_TALKED
-	ret z
-	dec a
 	ret
 
 Script_setlasttalked:
@@ -1026,7 +1026,6 @@ Script_stopfollow:
 
 Script_setobjectpriority:
 	call GetScriptByte
-	dec a
 	call GetMapObject
 	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
 	add hl, bc

@@ -154,7 +154,11 @@ wScriptVar:: db
 wPlayerNextMovement:: db
 wPlayerMovement:: db
 
-	ds 2
+; pending movement for player follower, processed
+; in SPRITEMOVEFN_FOLLOWER_OBJ
+wFollowerNextMovement:: db
+
+	ds 1
 
 wMovementObject::
 	db

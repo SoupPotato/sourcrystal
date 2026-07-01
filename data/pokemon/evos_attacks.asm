@@ -2556,6 +2556,7 @@ SpinarakEvosAttacks:
 
 AriadosEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, FOCUS_ENERGY
 	db 1, POISON_STING
 	db 1, STRING_SHOT
 	db 1, CONSTRICT
@@ -2996,11 +2997,12 @@ MurkrowEvosAttacks:
 	db 11, HAZE
 	db 15, WING_ATTACK
 	db 21, NIGHT_SHADE
-	db 25, MEAN_LOOK
-	db 31, FEINT_ATTACK
+	db 25, FEINT_ATTACK
+	db 31, MEAN_LOOK
 	db 35, SCREECH
 	db 41, DRILL_PECK
-	db 45, PERISH_SONG
+	db 45, BEAT_UP
+	db 51, PERISH_SONG
 	db 0 ; no more level-up moves
 
 SlowkingEvosAttacks:

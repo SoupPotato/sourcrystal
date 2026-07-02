@@ -81,8 +81,6 @@ LoadMapObjects:
 	ld a, MAPCALLBACK_OBJECTS
 	call RunMapCallback
 	farcall LoadObjectMasks
-; spawn a follower on every map change
-	farcall SpawnFollower
 	farcall InitializeVisibleSprites
 	ret
 

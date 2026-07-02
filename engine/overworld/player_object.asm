@@ -138,10 +138,82 @@ RefreshPlayerCoords:
 	ld hl, wPlayerLastMapY
 	ld [hl], e
 	ld e, a
-; the next three lines are useless
-	ld a, [wObjectFollow_Leader]
-	cp PLAYER
-	ret nz
+
+RefreshFollowerCoords:
+	lb bc, PLAYER, FOLLOWER
+	call CopyObjectPosition
+
+; move follower backwards based on the player's current direction
+	assert FOLLOWER == 1
+	ld a, [wMap1Object + MAPOBJECT_X_COORD]
+	ld b, a
+	ld a, [wMap1Object + MAPOBJECT_Y_COORD]
+	ld c, a
+	ld a, [wPlayerStepDirection]
+	cp DOWN
+	jr z, .is_down
+	cp UP
+	jr z, .is_up
+	cp LEFT
+	jr z, .is_left
+	cp RIGHT
+	jr z, .is_right
+	; standing = no change; re-apply coordinates
+.done
+	; apply new calculated coordinates
+	assert FOLLOWER == 1
+	ld a, b
+	ld [wMap1Object + MAPOBJECT_X_COORD], a
+	ld a, c
+	ld [wMap1Object + MAPOBJECT_Y_COORD], a
+	ret
+.is_down
+	dec c
+	jr .done
+.is_up
+	inc c
+	jr .done
+.is_left
+	inc b
+	jr .done
+.is_right
+	dec b
+	jr .done
+
+; INPUT
+;	c = who's moving
+;	b = whose position to target
+; OUTPUT
+;	map object `c` pos. <- map object `b` pos.
+CopyObjectPosition:
+	; de = address of `c` object
+	push bc
+		ld a, c
+		call GetMapObject
+		ld d, b
+		ld e, c
+	pop bc
+
+	; bc = address of `b` object
+	ld a, b
+	call GetMapObject
+
+	; set `c`s position to where `b` is
+	ld hl, MAPOBJECT_X_COORD
+	push hl
+		add hl, bc
+		ld a, [hl]
+	pop hl
+	add hl, de
+	ld [hl], a
+
+	ld hl, MAPOBJECT_Y_COORD
+	push hl
+		add hl, bc
+		ld a, [hl]
+	pop hl
+	add hl, de
+	ld [hl], a
 	ret
 
 CopyObjectStruct::

@@ -3186,7 +3186,7 @@ InitSprites:
 
 .Addresses:
 	dw wPlayerStruct
-	dw wObject1Struct
+	dw wFollowerStruct
 	dw wObject2Struct
 	dw wObject3Struct
 	dw wObject4Struct

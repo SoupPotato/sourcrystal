@@ -3055,9 +3055,10 @@ wFollowerMovementQueueLength:: db
 wFollowMovementQueue:: ds 5
 
 wObjectStructs::
-wPlayerStruct:: object_struct wPlayer ; player is object struct 0
-; wObjectStruct1 - wObjectStruct12
-for n, 1, NUM_OBJECT_STRUCTS
+wPlayerStruct:: object_struct wPlayer ; obj struct 0
+wFollowerStruct:: object_struct wFollower ; obj struct 1
+; wObjectStruct2 - wObjectStruct12
+for n, 2, NUM_OBJECT_STRUCTS
 wObject{d:n}Struct:: object_struct wObject{d:n}
 endr
 
@@ -3077,9 +3078,10 @@ wNumBerries:: db
 wBerries:: ds MAX_BERRIES * 2 + 1
 
 wMapObjects::
-wPlayerObject:: map_object wPlayer ; player is map object 0
-; wMap1Object - wMap15Object
-for n, 1, NUM_OBJECTS
+wPlayerObject:: map_object wPlayer ; map object 0
+wFollowerObject:: map_object wFollower ; map object 1
+; wMap2Object - wMap15Object
+for n, 2, NUM_OBJECTS
 wMap{d:n}Object:: map_object wMap{d:n}
 endr
 wMapObjectsEnd::

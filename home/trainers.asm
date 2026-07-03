@@ -14,8 +14,8 @@ _CheckTrainerBattle::
 ; Check if any trainer on the map sees the player and wants to battle.
 
 ; Skip the player object.
-	ld a, 1
-	ld de, wMap1Object
+	ld a, 2
+	ld de, wMap2Object
 
 .loop
 

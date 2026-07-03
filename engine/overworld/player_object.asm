@@ -139,15 +139,16 @@ RefreshPlayerCoords:
 	ld [hl], e
 	ld e, a
 
+; fallthrough
+
 RefreshFollowerCoords:
 	lb bc, PLAYER, FOLLOWER
 	call CopyObjectPosition
 
 ; move follower backwards based on the player's current direction
-	assert FOLLOWER == 1
-	ld a, [wMap1Object + MAPOBJECT_X_COORD]
+	ld a, [wFollowerObject + MAPOBJECT_X_COORD]
 	ld b, a
-	ld a, [wMap1Object + MAPOBJECT_Y_COORD]
+	ld a, [wFollowerObject + MAPOBJECT_Y_COORD]
 	ld c, a
 	ld a, [wPlayerStepDirection]
 	cp DOWN
@@ -161,11 +162,13 @@ RefreshFollowerCoords:
 	; standing = no change; re-apply coordinates
 .done
 	; apply new calculated coordinates
-	assert FOLLOWER == 1
 	ld a, b
-	ld [wMap1Object + MAPOBJECT_X_COORD], a
+	ld [wFollowerObject + MAPOBJECT_X_COORD], a
 	ld a, c
-	ld [wMap1Object + MAPOBJECT_Y_COORD], a
+	ld [wFollowerObject + MAPOBJECT_Y_COORD], a
+	; and ensure it's the same facing as the player
+	ld a, [wPlayerFacing]
+	ld [wFollowerFacing], a
 	ret
 .is_down
 	dec c
@@ -248,7 +251,7 @@ CopyObjectStruct::
 
 .follower
 ; And yes it has to be OBJECT_MAP_OBJECT_INDEX
-	ld hl, wObject1Struct + OBJECT_MAP_OBJECT_INDEX
+	ld hl, wFollowerStruct + OBJECT_MAP_OBJECT_INDEX
 	ld a, FOLLOWER
 	ldh [hObjectStructIndex], a
 
@@ -329,7 +332,7 @@ CopyMapObjectToObjectStruct:
 	ret
 
 InitializeVisibleSprites:
-	ld bc, wMap1Object
+	ld bc, wFollowerObject
 	ld a, 1
 .loop
 	ldh [hMapObjectIndex], a
@@ -415,7 +418,7 @@ CheckObjectEnteringVisibleRange::
 	ld d, a
 	ld a, [wXCoord]
 	ld e, a
-	ld bc, wMap1Object
+	ld bc, wFollowerObject
 	ld a, 1
 .loop_v
 	ldh [hMapObjectIndex], a
@@ -471,7 +474,7 @@ CheckObjectEnteringVisibleRange::
 	ld e, a
 	ld a, [wYCoord]
 	ld d, a
-	ld bc, wMap1Object
+	ld bc, wFollowerObject
 	ld a, 1
 .loop_h
 	ldh [hMapObjectIndex], a

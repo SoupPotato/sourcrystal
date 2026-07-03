@@ -572,7 +572,7 @@ ReadObjectEvents::
 	pop de
 ; reserve follower at slot 1 -> wMap1Object
 	ld a, -1
-	ld [wMap1Object], a
+	ld [wFollowerObject], a
 ; object events therefore start at slot 2
 	ld hl, wMap2Object
 	ld a, [de]

@@ -473,6 +473,7 @@ DEF NO_DYN_PAL_APPLY EQU (1 << NO_DYN_PAL_APPLY_ONCE_F) | (1 << NO_DYN_PAL_APPLY
 ; wMapSetupFlags
 	const_def
 	const MAPSETUP_CONNECTION_F ; 0
+	const MAPSETUP_SKIP_FOLLOWER_F ; 1
 
 ; wPalFadeMode::
 DEF PALFADE_WHICH        EQU %11

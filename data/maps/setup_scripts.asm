@@ -113,6 +113,7 @@ MapSetupScript_Connection:
 
 MapSetupScript_Fall:
 	mapsetup ResetPlayerObjectAction
+	mapsetup SkipFollowerSpawning
 MapSetupScript_Door:
 	mapsetup FadeOutToWhite
 MapSetupScript_Train:

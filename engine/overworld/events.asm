@@ -1052,19 +1052,21 @@ WarpToNewMapScript:
 
 FallIntoMapScript:
 	newloadmap MAPSETUP_FALL
+	disappear FOLLOWER
 	playsound SFX_KINESIS
 	applymovement PLAYER, .SkyfallMovement
 	playsound SFX_STRENGTH
-	scall LandAfterPitfallScript
+	earthquake 4
+	playsound SFX_KINESIS
+	special ReappearFollower
+	applymovement FOLLOWER, .SkyfallMovement
+	playsound SFX_STRENGTH
+	earthquake 16
 	end
 
 .SkyfallMovement:
 	skyfall
 	step_end
-
-LandAfterPitfallScript:
-	earthquake 16
-	end
 
 EdgeWarpScript:
 	reloadend MAPSETUP_CONNECTION

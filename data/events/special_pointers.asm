@@ -186,3 +186,4 @@ SpecialsPointers::
 	add_special MoveReminder
 	add_special FadeInPalettes_EnableDynNoApply
 	add_special MoveTutor2
+	add_special ReappearFollower ; to be used in place of `appear FOLLOWER`

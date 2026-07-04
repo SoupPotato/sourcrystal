@@ -68,3 +68,4 @@ MapSetupCommands:
 	add_mapsetup LoadMapAttributes_Connection ; 36
 	add_mapsetup RepositionFollowerAtCarpet ; 37
 	add_mapsetup AdjustFollowerFacing ; 38
+	add_mapsetup SkipFollowerSpawning ; 39

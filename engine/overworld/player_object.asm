@@ -211,6 +211,12 @@ AdjustFollowerFacing:
 	ld bc, wFollowerStruct
 	jp SetSpriteDirection
 
+SkipFollowerSpawning:
+	ld a, [wMapSetupFlags]
+	set MAPSETUP_SKIP_FOLLOWER_F, a
+	ld [wMapSetupFlags], a
+	ret
+
 RefreshPlayerCoords:
 	ld a, [wXCoord]
 	add 4
@@ -548,10 +554,17 @@ CopyMapObjectToObjectStruct:
 InitializeVisibleSprites:
 ; this special case is for the bike/surf status, lets
 ; the engine know not to make the follower reappear here
+	ld a, [wMapSetupFlags]
+	bit MAPSETUP_SKIP_FOLLOWER_F, a
+	jr nz, .no_follow
 	ld a, [wPlayerState]
 	assert PLAYER_NORMAL == 0
 	and a ; PLAYER_NORMAL
 	jr z, .follower
+.no_follow
+	ld a, [wMapSetupFlags]
+	res MAPSETUP_SKIP_FOLLOWER_F, a
+	ld [wMapSetupFlags], a
 	ld bc, wMap2Object
 	ld a, 2
 	jr .loop

@@ -2323,6 +2323,8 @@ RespawnPlayerAndOpponent:
 	call HideAllObjects
 	ld a, PLAYER
 	call RespawnObject
+	ld a, FOLLOWER
+	call RespawnObject
 	ld a, [wBattleScriptFlags]
 	bit BATTLESCRIPT_SCRIPTED_F, a
 	jr z, .skip_opponent

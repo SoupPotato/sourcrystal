@@ -44,8 +44,10 @@ MapSetupScript_Warp:
 	mapsetup LoadBlockData
 	mapsetup BufferScreen
 	mapsetup LoadMapGraphics
+	mapsetup RepositionFollowerAtCarpet
 	mapsetup LoadMapTimeOfDay
 	mapsetup LoadMapObjects
+	mapsetup AdjustFollowerFacing
 	mapsetup EnableLCD
 	mapsetup LoadMapPalettes
 	mapsetup SpawnInFacingDown
@@ -72,10 +74,12 @@ MapSetupScript_BadWarp:
 	mapsetup DisableLCD
 	mapsetup DisableDynPalUpdates
 	mapsetup LoadMapGraphics
+	mapsetup RepositionFollowerAtCarpet
 	mapsetup LoadMapTimeOfDay
 	mapsetup FadeOutMapMusic
 	mapsetup EnableLCD
 	mapsetup LoadMapObjects
+	mapsetup AdjustFollowerFacing
 	mapsetup LoadMapPalettes
 	mapsetup SpawnInFacingDown
 	mapsetup EnableDynPalUpdatesNoApply
@@ -124,10 +128,12 @@ MapSetupScript_Train:
 	mapsetup DisableLCD
 	mapsetup DisableDynPalUpdates
 	mapsetup LoadMapGraphics
+	mapsetup RepositionFollowerAtCarpet
 	mapsetup LoadMapTimeOfDay
 	mapsetup FadeOutMapMusic
 	mapsetup EnableLCD
 	mapsetup LoadMapObjects
+	mapsetup AdjustFollowerFacing
 	mapsetup LoadMapPalettes
 	mapsetup EnableDynPalUpdatesNoApply
 	mapsetup RefreshMapSprites

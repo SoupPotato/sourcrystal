@@ -570,7 +570,7 @@ ReadObjectEvents::
 	res MAPSETUP_CONNECTION_F, [hl]
 	call ClearObjectAssociations
 	pop de
-; reserve follower at slot 1 -> wMap1Object
+; reserve follower object
 	ld a, -1
 	ld [wFollowerObject], a
 ; object events therefore start at slot 2

@@ -735,6 +735,7 @@ FlyFunction:
 	ret
 
 .FlyScript:
+	disappear FOLLOWER
 	refreshmap
 	callasm FlyPagerFunction.StopPalFading
 	callasm ClearSavedObjPals
@@ -824,11 +825,12 @@ FlyPagerFunction:
 	ret
 
 .FlyPagerScript:
-	refreshmap
 	writetext UsedFlyPagerText ; "used FLY!"
 	cry PIDGEOT
 	waitbutton
 	closetext
+	disappear FOLLOWER
+	refreshmap
 	callasm .StopPalFading
 	callasm ClearSavedObjPals
 	callasm CopyBGGreenToOBPal7
@@ -2169,6 +2171,7 @@ BikeFunction:
 	ld a, e
 	ld [wMapMusic], a
 	call PlayMusic
+	newfarcall DeleteFollower
 	ld a, $1
 	ret
 
@@ -2176,6 +2179,7 @@ BikeFunction:
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
 	jr nz, .CantGetOffBike
+	newfarcall ReappearFollower
 	ld hl, Script_GetOffBike
 	ld de, Script_GetOffBike_Register
 	call .CheckIfRegistered

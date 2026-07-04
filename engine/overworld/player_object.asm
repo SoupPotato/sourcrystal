@@ -73,6 +73,33 @@ SpawnFollower:
 FollowerObjectTemplate:
 	object_event -4, -4, SPRITE_CHRIS, SPRITEMOVEDATA_FOLLOWEROBJ, 15, 15, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
 
+DeleteFollower::
+	ld a, FOLLOWER
+	jp DeleteObjectStruct
+
+ReappearFollower::
+	xor a
+	ld [wFollowerNextMovement], a
+	call RefreshPlayerCoords
+	call RepositionFollowerIfAtNPC
+	call RepositionFollowerIfLedge
+	ld a, FOLLOWER
+	call UnmaskCopyMapObjectStruct
+	call AdjustFollowerFacing
+	jp InitializeVisibleSprites
+
+; force spawning atop the player, really for the surf case
+ReappearFollowerInPlace::
+	xor a
+	ld [wFollowerNextMovement], a
+	call RefreshPlayerCoords
+	lb bc, PLAYER, FOLLOWER
+	call CopyObjectPosition
+	ld a, FOLLOWER
+	call UnmaskCopyMapObjectStruct
+	call AdjustFollowerFacing
+	jp InitializeVisibleSprites
+
 CopyDECoordsToMapObject::
 	push de
 	ld a, b
@@ -115,6 +142,75 @@ WriteObjectXY::
 	and a
 	ret
 
+RepositionFollowerAtCarpet:
+; fetch the player's position into de
+	ld a, [wPlayerMapX]
+	ld d, a
+	ld a, [wPlayerMapY]
+	ld e, a
+; save position
+	push de
+	call GetCoordTileCollision
+	pop de
+; determine how to move the follower
+; it should spawn beside the player, but that depends on
+; what kind of tile the player is currently standing in.
+	cp COLL_WARP_CARPET_UP
+	jr z, .up_down
+	cp COLL_WARP_CARPET_DOWN
+	jr z, .up_down
+	cp COLL_WARP_CARPET_LEFT
+	jr z, .left_right
+	cp COLL_WARP_CARPET_RIGHT
+	jr z, .left_right
+; anything else redirects to player's pos.
+	jr .move_follower
+.left_right
+	inc e
+	push de
+	push af
+	dec e
+	dec e
+	jr .check
+.up_down
+	inc d
+	push de
+	push af
+	dec d
+	dec d
+.check
+	push de
+	call GetCoordTileCollision
+	pop de
+	ld b, a
+	pop af
+	cp b
+	jr z, .move_follower_1
+	pop de
+	push af
+	push de
+	call GetCoordTileCollision
+	pop de
+	ld b, a
+	pop af
+	cp b
+	jr z, .move_follower
+	ret
+.move_follower_1
+	pop bc
+.move_follower
+	ld a, d
+	ld [wFollowerObjectXCoord], a
+	ld a, e
+	ld [wFollowerObjectYCoord], a
+	ret
+
+AdjustFollowerFacing:
+	ld bc, wPlayerStruct
+	call GetSpriteDirection
+	ld bc, wFollowerStruct
+	jp SetSpriteDirection
+
 RefreshPlayerCoords:
 	ld a, [wXCoord]
 	add 4
@@ -141,16 +237,48 @@ RefreshPlayerCoords:
 
 ; fallthrough
 
+; This is the "base" follower repositioning, solely for positioning
+; it exactly one tile behind the player. Other checks like *IsAtNPC
+; or *IfLedge add to this.
 RefreshFollowerCoords:
 	lb bc, PLAYER, FOLLOWER
 	call CopyObjectPosition
 
 ; move follower backwards based on the player's current direction
 	ld a, [wFollowerObject + MAPOBJECT_X_COORD]
-	ld b, a
+	ld d, a
 	ld a, [wFollowerObject + MAPOBJECT_Y_COORD]
-	ld c, a
+	ld e, a
+
+; there's two sources:
+; PlayerStepDirection is the one used when *walking*
 	ld a, [wPlayerStepDirection]
+	cp STANDING
+	jr nz, .got_direction
+; PlayerDirection is when the player is still
+	ld a, [wPlayerDirection]
+	srl a
+	srl a
+
+.got_direction
+	call GetOneStepBehind
+
+; fallthrough
+
+ApplyFollowerCoords:
+	; apply new calculated coordinates
+	ld a, d
+	ld [wFollowerObject + MAPOBJECT_X_COORD], a
+	ld a, e
+	ld [wFollowerObject + MAPOBJECT_Y_COORD], a
+	ret
+
+; INPUT
+;	a = direction
+;	de = object position
+; OUTPUT
+;	de = one step behind
+GetOneStepBehind:
 	cp DOWN
 	jr z, .is_down
 	cp UP
@@ -159,29 +287,20 @@ RefreshFollowerCoords:
 	jr z, .is_left
 	cp RIGHT
 	jr z, .is_right
-	; standing = no change; re-apply coordinates
-.done
-	; apply new calculated coordinates
-	ld a, b
-	ld [wFollowerObject + MAPOBJECT_X_COORD], a
-	ld a, c
-	ld [wFollowerObject + MAPOBJECT_Y_COORD], a
-	; and ensure it's the same facing as the player
-	ld a, [wPlayerFacing]
-	ld [wFollowerFacing], a
+	; standing = no change
 	ret
 .is_down
-	dec c
-	jr .done
+	dec e
+	ret
 .is_up
-	inc c
-	jr .done
+	inc e
+	ret
 .is_left
-	inc b
-	jr .done
+	inc d
+	ret
 .is_right
-	dec b
-	jr .done
+	dec d
+	ret
 
 ; INPUT
 ;	c = who's moving
@@ -218,6 +337,101 @@ CopyObjectPosition:
 	add hl, de
 	ld [hl], a
 	ret
+
+; should be called right after repositioning/reappearing a follower
+;
+; here we check if someone's already spawned where the
+; follower wants to spawn.
+; 
+; XXX: IF THE PLAYER IS SURROUNDED, THIS WILL BE AN INFINITE LOOP!
+; 
+RepositionFollowerIfAtNPC:
+; if where the follower spawns is free, don't do anything
+	ld a, [wFollowerObject + MAPOBJECT_X_COORD]
+	ld d, a
+	ld a, [wFollowerObject + MAPOBJECT_Y_COORD]
+	ld e, a
+	newfarcall IsNPCAtCoord
+	ret nc
+
+; reroll anew if it's taken
+	ld a, [wPlayerObject + MAPOBJECT_X_COORD]
+	ld d, a
+	ld a, [wPlayerObject + MAPOBJECT_Y_COORD]
+	ld e, a
+; repeat the directional check from before
+	ld a, [wPlayerStepDirection]
+	cp STANDING
+	jr nz, .got_dir
+	ld a, [wPlayerDirection]
+	srl a
+	srl a
+; duplicates GetOneStepBehind, but with checks
+.got_dir
+	cp DOWN
+	jr z, .is_down
+	cp UP
+	jr z, .is_up
+	cp LEFT
+	jr z, .is_left
+	cp RIGHT
+	jr z, .is_right
+	; standing = no change; re-apply coordinates
+.is_down
+	dec e
+	newfarcall IsNPCAtCoord
+	jr nc, ApplyFollowerCoords
+; restore the player's position so we can
+; calculate the next available direction
+	inc e
+.is_up
+	inc e
+	newfarcall IsNPCAtCoord
+	jp nc, ApplyFollowerCoords
+	dec e
+.is_left
+	inc d
+	newfarcall IsNPCAtCoord
+	jp nc, ApplyFollowerCoords
+	dec d
+.is_right
+	dec d
+	newfarcall IsNPCAtCoord
+	jp nc, ApplyFollowerCoords
+	inc d
+; infinite loop here, because I don't really want odd
+; edge cases where "the follower doesn't spawn in sometimes"
+; and it should be unlikely that the player is surrounded, anyway.
+	jr .is_down
+
+; pushes the follower further away if the player has just jumped
+; from a ledge, so as not to spawn ON the ledge itself.
+RepositionFollowerIfLedge:
+	ld a, [wFollowerObject + MAPOBJECT_X_COORD]
+	ld d, a
+	ld a, [wFollowerObject + MAPOBJECT_Y_COORD]
+	ld e, a
+; repeat the directional check YET AGAIN
+	ld a, [wPlayerStepDirection]
+	cp STANDING
+	jp nz, .got_dir
+	ld a, [wPlayerDirection]
+	srl a
+	srl a
+.got_dir
+	call GetOneStepBehind
+	push de
+	call GetCoordTileCollision
+	pop de
+	and $f0
+	cp HI_NYBBLE_LEDGES
+; if it isn't, no need to do anything
+	ret nz
+; prepare the follower for a jump
+	ld a, FOLLOWERMOVE_PREPARE_JUMP
+	ld [wFollowerNextMovement], a
+	jp ApplyFollowerCoords
+
 
 CopyObjectStruct::
 	call CheckObjectMask
@@ -332,6 +546,16 @@ CopyMapObjectToObjectStruct:
 	ret
 
 InitializeVisibleSprites:
+; this special case is for the bike/surf status, lets
+; the engine know not to make the follower reappear here
+	ld a, [wPlayerState]
+	assert PLAYER_NORMAL == 0
+	and a ; PLAYER_NORMAL
+	jr z, .follower
+	ld bc, wMap2Object
+	ld a, 2
+	jr .loop
+.follower
 	ld bc, wFollowerObject
 	ld a, 1
 .loop
@@ -685,6 +909,7 @@ TrainerWalkToPlayer:
 	ret
 
 SurfStartStep:
+	newfarcall DeleteFollower
 	ld a, [wPlayerDirection]
 	srl a
 	srl a

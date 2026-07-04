@@ -66,3 +66,5 @@ MapSetupCommands:
 	add_mapsetup MapConnOWFadePalettesInit ; 33
 	add_mapsetup LoadMapObjects_Connection ; 35
 	add_mapsetup LoadMapAttributes_Connection ; 36
+	add_mapsetup RepositionFollowerAtCarpet ; 37
+	add_mapsetup AdjustFollowerFacing ; 38

@@ -835,6 +835,7 @@ ENDM
 	push bc
 	ld a, PLAYER_NORMAL
 	ld [wPlayerState], a
+	newfarcall ReappearFollowerInPlace
 	call UpdatePlayerSprite ; UpdateSprites
 	pop bc
 	ret

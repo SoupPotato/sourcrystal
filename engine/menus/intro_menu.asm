@@ -271,7 +271,7 @@ InitializeNPCNames:
 
 InitializeWorld:
 	call ShrinkPlayer
-	farcall SpawnPlayer
+	; farcall SpawnPlayer
 	farcall _InitializeStartDay
 	ret
 

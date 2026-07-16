@@ -61,7 +61,7 @@ PlayerObjectTemplate:
 ; Said bytes seem to be unused.
 	object_event -4, -4, SPRITE_CHRIS, SPRITEMOVEDATA_PLAYER, 15, 15, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, 0, -1
 
-SpawnFollower:
+SpawnFollower::
 	xor a
 	ld [wFollowerNextMovement], a
 	ld a, FOLLOWER
@@ -71,7 +71,7 @@ SpawnFollower:
 	jp PlayerSpawn_ConvertCoords
 
 FollowerObjectTemplate:
-	object_event -4, -4, SPRITE_CHRIS, SPRITEMOVEDATA_FOLLOWEROBJ, 15, 15, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
+	object_event -4, -4, SPRITE_FOLLOWER, SPRITEMOVEDATA_FOLLOWEROBJ, 15, 15, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
 
 DeleteFollower::
 	ld a, FOLLOWER
@@ -552,6 +552,9 @@ CopyMapObjectToObjectStruct:
 	ret
 
 InitializeVisibleSprites:
+	ld a, [wPartyFollower]
+	and a
+	jr z, .no_follow
 ; this special case is for the bike/surf status, lets
 ; the engine know not to make the follower reappear here
 	ld a, [wMapSetupFlags]

@@ -117,6 +117,7 @@
 	const SPRITE_UNOWN_DOLL             ; 73
 	const SPRITE_PACKAGE                ; 74
 	const SPRITE_SAFARI_WORKER          ; 75
+	const SPRITE_FOLLOWER               ; 76
 DEF NUM_OVERWORLD_SPRITES EQU const_value - 1
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)

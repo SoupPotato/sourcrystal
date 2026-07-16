@@ -3046,7 +3046,10 @@ wOtherTrainerType:: db
 
 wCurDay:: db
 
-	ds 1
+; index of which party mon follows you
+;   0  = disabled
+;   1+ = enabled
+wPartyFollower:: db
 
 wObjectFollow_Leader:: db
 wObjectFollow_Follower:: db

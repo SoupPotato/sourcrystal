@@ -162,6 +162,10 @@ SafeGetSprite:
 	ret
 
 GetSprite::
+	cp SPRITE_FOLLOWER
+	jr z, GetFollowerSprite
+
+GetRegularSprite:
 	call GetMonSprite
 	ret c
 
@@ -187,6 +191,11 @@ GetSprite::
 	ld l, [hl]
 	ld h, a
 	ret
+
+GetFollowerSprite:
+; placeholder
+	ld a, SPRITE_RIVAL
+	jr GetRegularSprite
 
 GetMonSprite:
 ; Return carry if a monster sprite was loaded.

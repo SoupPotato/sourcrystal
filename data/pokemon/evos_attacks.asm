@@ -1635,15 +1635,15 @@ KoffingEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_GAS
 	db 1, TACKLE
-	db 5, SMOG
+	db 6, SMOG
 	db 10, SMOKESCREEN
-	db 14, FEINT_ATTACK
+	db 15, FEINT_ATTACK
 	db 19, SLUDGE
-	db 23, SELFDESTRUCT
+	db 24, SELFDESTRUCT
 	db 28, HAZE
-	db 32, TOXIC
+	db 33, TOXIC
 	db 37, SLUDGE_BOMB
-	db 41, EXPLOSION
+	db 42, EXPLOSION
 	db 46, DESTINY_BOND
 	db 0 ; no more level-up moves
 
@@ -1653,11 +1653,11 @@ WeezingEvosAttacks:
 	db 1, TACKLE
 	db 1, SMOG
 	db 1, SMOKESCREEN
-	db 14, FEINT_ATTACK
+	db 15, FEINT_ATTACK
 	db 19, SLUDGE
-	db 23, SELFDESTRUCT
+	db 24, SELFDESTRUCT
 	db 28, HAZE
-	db 32, TOXIC
+	db 33, TOXIC
 	db 38, SLUDGE_BOMB
 	db 44, EXPLOSION
 	db 50, DESTINY_BOND

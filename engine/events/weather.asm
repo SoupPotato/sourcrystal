@@ -5,96 +5,76 @@ MACRO weather_map
 ENDM
 
 SetCurrentWeather::
-	; check for mandatory snow maps
+; check for mandatory snow maps
 	ld a, [wMapGroup]
 	cp GROUP_SILVER_CAVE_UPPER_MOUNTAINSIDE
-	jr nz, .not_silver_cave_upper_mountainside
+	jr nz, .check_ragelake_rain
 	ld a, [wMapNumber]
 	cp MAP_SILVER_CAVE_UPPER_MOUNTAINSIDE
 	jp z, .snow
-.not_silver_cave_upper_mountainside
-	; check for mandatory rain maps
+
+.check_ragelake_rain
 	ld a, [wMapGroup]
 	cp GROUP_LAKE_OF_RAGE
-	jr nz, .not_lake_of_rage
+	jr nz, .check_r33_rain
 	ld a, [wMapNumber]
 	cp MAP_LAKE_OF_RAGE
 	jr z, .rain
-.not_lake_of_rage
+
+.check_r33_rain
 	ld a, [wMapGroup]
 	cp GROUP_ROUTE_33
-	jr nz, .not_route_33
+	jr nz, .general_weather
 	ld a, [wMapNumber]
 	cp MAP_ROUTE_33
 	jr z, .rain
-.not_route_33
-	; if we are here, then we are not in a mandatory rain map
+
+.general_weather
 	ld a, [wWeatherRandomDay]
 	ld b, a
 	ld a, [hRTCDayLo]
 	cp b
 	ld [wWeatherRandomDay], a
-	call nz, GenerateNewRandomRainMap
+	call nz, GenerateNewRandomWeatherMap
 
-	; check Johto maps
-	ld a, [wWeatherRandomMapGroupJohto]
-	ld b, a
-	ld a, [wWeatherRandomMapNumberJohto]
-	ld c, a
-	ld a, [wMapGroup]
-	cp b
-	jr nz, .check_johto_next_rain
-	ld a, [wMapNumber]
-	cp c
-	jr z, .rain
+; assumes the following layout:
+;    [map group][map number]...
+	assert wWeatherRandomMapKanto == wWeatherRandomMapJohto + (NUM_WEATHER_MAPS_PER_DAY * 2)
+	ld hl, wWeatherRandomMapJohto
+REPT NUM_WEATHER_MAPS_PER_DAY * 2
+	ld b, [hl]
+	inc hl
+	ld c, [hl]
+	inc hl
+	call .IsMapEqual
+	jr c, .any_weather
+ENDR
 
-.check_johto_next_rain
-	ld a, [wWeatherRandomMapGroupJohto + 1]
-	ld b, a
-	ld a, [wWeatherRandomMapNumberJohto + 1]
-	ld c, a
-	ld a, [wMapGroup]
-	cp b
-	jr nz, .check_kanto_rain
-	ld a, [wMapNumber]
-	cp c
-	jr z, .rain
-
-.check_kanto_rain
-	ld a, [wWeatherRandomMapGroupKanto]
-	ld b, a
-	ld a, [wWeatherRandomMapNumberKanto]
-	ld c, a
-	ld a, [wMapGroup]
-	cp b
-	jr nz, .check_kanto_next_rain
-	ld a, [wMapNumber]
-	cp c
-	jr z, .rain
-
-.check_kanto_next_rain
-	ld a, [wWeatherRandomMapGroupKanto + 1]
-	ld b, a
-	ld a, [wWeatherRandomMapNumberKanto + 1]
-	ld c, a
-	ld a, [wMapGroup]
-	cp b
-	jr nz, .not_raining
-	ld a, [wMapNumber]
-	cp c
-	jr z, .rain
-
-.not_raining
 	ld a, OW_WEATHER_NONE
 	jr .set_weather
 
 .rain
+; for rain specifically there's two possible intensities
 	call Random
 	cp 25 percent
 	; a = carry ? OW_WEATHER_THUNDERSTORM : OW_WEATHER_RAIN
 	sbc a
 	and OW_WEATHER_THUNDERSTORM - OW_WEATHER_RAIN
 	add OW_WEATHER_RAIN
+	jr .set_weather
+
+.any_weather
+; rains half the time while it is currently DAY
+	call Random
+	cp 50 percent
+	jr c, .rain
+
+; otherwise, rain anyway
+	ld a, [wTimeOfDay]
+	cp DAY_F
+	jr nz, .rain
+
+	ld a, OW_WEATHER_SUNLIGHT
 .set_weather
 	ld b, a
 	ld a, [wWeatherFlags]
@@ -144,62 +124,59 @@ SetCurrentWeather::
 	ld a, OW_WEATHER_SNOW
 	jr .set_weather
 
-; To do - populate whatever jumps here.
-.sun
-	ld a, OW_WEATHER_SUNLIGHT
-	jr .set_weather
+; Set carry if b/c == wMapGroup/wMapNumber
+.IsMapEqual:
+	ld a, [wMapGroup]
+	cp b
+	jr nz, .neq
+	ld a, [wMapNumber]
+	cp c
+	jr nz, .neq
+	and a
+	scf
+	ret
+.neq
+	and a
+	ret
 
-GenerateNewRandomRainMap:
-	; sorry, just kinda hacked this in
-	assert NUM_WEATHER_MAPS_PER_DAY == 2
-
+GenerateNewRandomWeatherMap:
+	ld de, wWeatherRandomMapJohto
+REPT NUM_WEATHER_MAPS_PER_DAY
 	ld a, NUM_JOHTO_WEATHER_MAPS
 	call RandomRange
 	ld h, 0
 	ld l, a
 	add hl, hl
-	ld de, RandomRainMapsJohto
-	add hl, de
+	push de
+		ld de, RandomRainMapsJohto
+		add hl, de
+	pop de
 	ld a, [hli]
-	ld [wWeatherRandomMapGroupJohto], a
+	ld [de], a
+	inc de
 	ld a, [hl]
-	ld [wWeatherRandomMapNumberJohto], a
+	ld [de], a
+	inc de
+ENDR
 
-	ld a, NUM_JOHTO_WEATHER_MAPS
-	call RandomRange
-	ld h, 0
-	ld l, a
-	add hl, hl
-	ld de, RandomRainMapsJohto
-	add hl, de
-	ld a, [hli]
-	ld [wWeatherRandomMapGroupJohto + 1], a
-	ld a, [hl]
-	ld [wWeatherRandomMapNumberJohto + 1], a
-
+	ld de, wWeatherRandomMapKanto
+REPT NUM_WEATHER_MAPS_PER_DAY
 	ld a, NUM_KANTO_WEATHER_MAPS
 	call RandomRange
 	ld h, 0
 	ld l, a
 	add hl, hl
-	ld de, RandomRainMapsKanto
-	add hl, de
+	push de
+		ld de, RandomRainMapsKanto
+		add hl, de
+	pop de
 	ld a, [hli]
-	ld [wWeatherRandomMapGroupKanto], a
+	ld [de], a
+	inc de
 	ld a, [hl]
-	ld [wWeatherRandomMapNumberKanto], a
-
-	ld a, NUM_KANTO_WEATHER_MAPS
-	call RandomRange
-	ld h, 0
-	ld l, a
-	add hl, hl
-	ld de, RandomRainMapsKanto
-	add hl, de
-	ld a, [hli]
-	ld [wWeatherRandomMapGroupKanto + 1], a
-	ld a, [hl]
-	ld [wWeatherRandomMapNumberKanto + 1], a
+	ld [de], a
+	inc de
+ENDR
 	ret
 
 RandomRainMapsJohto:

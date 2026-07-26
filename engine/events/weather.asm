@@ -73,7 +73,7 @@ ENDR
 	ld a, [wTimeOfDay]
 	cp DAY_F
 	jr nz, .rain
-
+.sun
 	ld a, OW_WEATHER_SUNLIGHT
 .set_weather
 	ld b, a

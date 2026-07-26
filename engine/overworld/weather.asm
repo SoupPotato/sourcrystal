@@ -477,8 +477,9 @@ ClearWeather:
 	; doing this will cause _UpdateSprites to hide all weather sprites.
 	xor a
 	ldh [hUsedWeatherSpriteIndex], a
+	; We clear these as well, just since we should at this point to avoid trouble later.
 	ld [wSunlightTimer], a
-	ld [wSunlightTimer + 1], a
+	ld [wSunlightIncCounter], a
 .finish_clearing
 	ret
 
@@ -921,12 +922,12 @@ Lightning:
 	ret
 
 DoOverworldSunlight:
-	; First check if there is a value in the SunlightTimer.
+	; First check if there is a value in the Sunlight Timer.
 	ld a, [wSunlightTimer]
 	and a
 	jr nz, .check1
-	; We utilize the highest bit of wSunlightTimer as a flag to see if we've actually loaded a value yet
-	ld a, [wSunlightTimer + 1]
+	; We utilize the highest bit of wSunlightIncCounter as a flag to see if we've actually loaded a value yet
+	ld a, [wSunlightIncCounter]
 	cp %10000000
 	jr z, .check1
 	; Load up the value
@@ -934,7 +935,7 @@ DoOverworldSunlight:
 	ld [wSunlightTimer], a
 	; Set the flag
 	ld a, %10000000
-	ld [wSunlightTimer + 1], a
+	ld [wSunlightIncCounter], a
 	; Nothing occurs on the first cycle, so we're done here
 	jr .done
 
@@ -943,7 +944,7 @@ DoOverworldSunlight:
 	ld a, [wOverworldWeatherInternalTimer]
 	sub a, [hl]
 .mod_loop
-	sub a, 20
+	sub a, 3
 	jr z, .increment
 	jr c, .done
 	jr .mod_loop
@@ -951,16 +952,22 @@ DoOverworldSunlight:
 	ld hl, wSunlightTimer
 	ld a, [wOverworldWeatherInternalTimer]
 	sub a, [hl]
-	cp 120
+	cp 15
 	jr c, .inc_pals
 	jr z, .inc_pals
 	jr .dec_check
 
 .inc_pals
+	ld a, [wSunlightIncCounter]
+	add 1
+	ld [wSunlightIncCounter], a
 	call Sunlight_IncPals
 	jr .done
 
 .dec_pals
+	ld a, [wSunlightIncCounter]
+	sub 1
+	ld [wSunlightIncCounter], a
 	call Sunlight_DecPals
 	jr .done
 
@@ -969,7 +976,7 @@ DoOverworldSunlight:
 	ld a, [wOverworldWeatherInternalTimer]
 	sub a, [hl]
 .mod_loop2
-	sub a, 20
+	sub a, 3
 	jr z, .decrement
 	jr c, .done
 	jr .mod_loop2
@@ -977,14 +984,14 @@ DoOverworldSunlight:
 	ld hl, wSunlightTimer
 	ld a, [wOverworldWeatherInternalTimer]
 	sub a, [hl]
-	cp 240
+	cp 30
 	jr c, .dec_pals
 .clear_timers
 	; Resets this
 	call Sunlight_DecPals
 	xor a
 	ld [wSunlightTimer], a
-	ld [wSunlightTimer + 1], a
+	ld [wSunlightIncCounter], a
 .done
 	ret
 
@@ -1005,6 +1012,7 @@ Sunlight_IncPals:
 	ld hl, wBGPals1
 	ld e, 28
 .attempt_inc_bg
+	call SunTogglePreserveBlueGreen
 	call UnpackColor
 	call TrySaturateColor
 	call PackColor
@@ -1019,7 +1027,6 @@ Sunlight_IncPals:
 	farcall ApplyPals
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
-	call DelayFrame
 	ret
 
 Sunlight_DecPals:
@@ -1038,11 +1045,13 @@ Sunlight_DecPals:
 	ld hl, wBGPals1
 	ld e, 28
 .attempt_dec_bg
+	call SunTogglePreserveBlueGreen
 	call UnpackColor
 	call TryDesaturateColor
 	call PackColor
 	dec e
 	jr nz, .attempt_dec_bg
+
 	; Restore the bank
 	pop af
 	ldh [rSVBK], a
@@ -1051,7 +1060,6 @@ Sunlight_DecPals:
 	farcall ApplyPals
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
-	call DelayFrame
 	ret
 
 UnpackColor:
@@ -1123,12 +1131,23 @@ TrySaturateColor:
 	;   d = a 5-bit B value (0-31)
 	; Operation:
 	;   Attempts to brighten the palette by adding 2 to each value of an RGB555 color
+	ld a, [wSunlightPreserveRed]
+	and %00010000
+	jr nz, .green
 	ld a, b
 	call TrySaturateChannel
 	ld b, a
+.green
+	ld a, [wSunlightPreserveGreen]
+	and %00100000
+	jr nz, .blue
 	ld a, c
 	call TrySaturateChannel
 	ld c, a
+.blue
+	ld a, [wSunlightPreserveBlue]
+	and %01000000
+	ret nz
 	ld a, d
 	call TrySaturateChannel
 	ld d, a
@@ -1141,12 +1160,23 @@ TryDesaturateColor:
 	;   d = a 5-bit B value (0-31)
 	; Operation:
 	;   Attempts to darken the palette by subtracting 2 from each value of an RGB555 color
+	ld a, [wSunlightPreserveRed]
+	and %00010000
+	jr nz, .green
 	ld a, b
 	call TryDesaturateChannel
 	ld b, a
+.green
+	ld a, [wSunlightPreserveGreen]
+	and %00100000
+	jr nz, .blue
 	ld a, c
 	call TryDesaturateChannel
 	ld c, a
+.blue
+	ld a, [wSunlightPreserveBlue]
+	and %01000000
+	ret nz
 	ld a, d
 	call TryDesaturateChannel
 	ld d, a
@@ -1175,6 +1205,97 @@ TryDesaturateChannel:
 	sub 1
 	ret nc
 	xor a
+	ret
+
+SunTogglePreserveBlueGreen:
+	; Input:
+	;   N/A
+	; Operation:
+	;   Modifies wSunlightIncCounters bits 6 and 5.
+	;
+	;   Only triggers when it is not nighttime, as the moon
+	;   glows white, not reddish like the sun beating down
+	;   on you does.
+	;
+	;   Sets bits to preserve the (B)lue and (G)reen values
+	;   on cycles 2 and 4. Unsets the bits on all other
+	;   cycles.
+	push hl
+	farcall GetTimeOfDay
+	ld a, [wTimeOfDay]
+	cp NITE_F
+	pop hl
+	ret z
+
+	ld a, [wSunlightIncCounter]
+	and %00001111
+	cp 2
+	jr z, .preserve_BG
+	cp 4
+	ld a, [wSunlightIncCounter]
+	jr nz, .unset_BG
+.preserve_BG
+	or %01100000
+	jr .done
+.unset_BG
+	and %10011111
+.done
+	ld [wSunlightIncCounter], a
+	ret
+
+
+TogglePreserveRed:
+	; Input:
+	;   N/A
+	; Operation:
+	;   Sets the 4th bit of wSunlightPreserveRed if it't unset, or unsets it if it's set.
+	ld a, [wSunlightPreserveRed]
+	and %00010000
+	ld a, [wSunlightPreserveRed]
+	jr nz, .unset
+	or %00010000
+	jr .done
+
+.unset
+	and %11101111
+.done
+	ld [wSunlightPreserveRed], a
+	ret
+
+TogglePreserveGreen:
+	; Input:
+	;   N/A
+	; Operation:
+	;   Sets the 5th bit of wSunlightPreserveGreen if it't unset, or unsets it if it's set.
+	ld a, [wSunlightPreserveGreen]
+	and %00100000
+	ld a, [wSunlightPreserveGreen]
+	jr nz, .unset
+	or %00100000
+	jr .done
+
+.unset
+	and %11011111
+.done
+	ld [wSunlightPreserveGreen], a
+	ret
+
+TogglePreserveBlue:
+	; Input:
+	;   N/A
+	; Operation:
+	;   Sets the 6th bit of wSunlightPreserveBlue if it't unset, or unsets it if it's set.
+	ld a, [wSunlightPreserveBlue]
+	and %01000000
+	ld a, [wSunlightPreserveBlue]
+	jr nz, .unset
+	or %01000000
+	jr .done
+
+.unset
+	and %10111111
+.done
+	ld [wSunlightPreserveBlue], a
 	ret
 
 LoadWeatherGraphics::

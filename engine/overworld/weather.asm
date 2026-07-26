@@ -66,6 +66,7 @@ DoOverworldWeather::
 	dw DoOverworldSnow
 	dw DoOverworldRain
 	dw DoOverworldSandstorm
+	dw DoOverworldSunlight
 	assert_table_length NUM_OW_WEATHERS + 1
 
 .on_cooldown
@@ -79,6 +80,7 @@ DoOverworldWeather::
 	dw .snow_cooldown
 	dw .rain_cooldown
 	dw .sand_cooldown
+	dw .sun_cooldown
 	assert_table_length NUM_OW_WEATHERS + 1
 
 .sand_cooldown
@@ -90,6 +92,8 @@ DoOverworldWeather::
 .rain_cooldown
 	call DoRainFall
 	call RainSplashCleanup
+; The sun cooldown doesn't really have much as the logic is inside of it, but this exists for the jumptable to behave.
+.sun_cooldown
 .cooldown_cleanup
 	; decrement the weather cooldown until it is 0
 	ld a, [wOverworldWeatherCooldown]
@@ -473,6 +477,10 @@ ClearWeather:
 	; doing this will cause _UpdateSprites to hide all weather sprites.
 	xor a
 	ldh [hUsedWeatherSpriteIndex], a
+	; We clear these as well, just since we should at this point to avoid trouble later.
+	ld [wSunlightTimer], a
+	ld [wSunlightIncCounter], a
+.finish_clearing
 	ret
 
 DoRainFall:
@@ -913,6 +921,383 @@ Lightning:
 	farcall OWFadePalettesInit
 	ret
 
+DoOverworldSunlight:
+	; First check if there is a value in the Sunlight Timer.
+	ld a, [wSunlightTimer]
+	and a
+	jr nz, .check1
+	; We utilize the highest bit of wSunlightIncCounter as a flag to see if we've actually loaded a value yet
+	ld a, [wSunlightIncCounter]
+	cp %10000000
+	jr z, .check1
+	; Load up the value
+	ld a, [wOverworldWeatherInternalTimer]
+	ld [wSunlightTimer], a
+	; Set the flag
+	ld a, %10000000
+	ld [wSunlightIncCounter], a
+	; Nothing occurs on the first cycle, so we're done here
+	jr .done
+
+.check1
+	ld hl, wSunlightTimer
+	ld a, [wOverworldWeatherInternalTimer]
+	sub a, [hl]
+.mod_loop
+	sub a, 3
+	jr z, .increment
+	jr c, .done
+	jr .mod_loop
+.increment
+	ld hl, wSunlightTimer
+	ld a, [wOverworldWeatherInternalTimer]
+	sub a, [hl]
+	cp 15
+	jr c, .inc_pals
+	jr z, .inc_pals
+	jr .dec_check
+
+.inc_pals
+	ld a, [wSunlightIncCounter]
+	add 1
+	ld [wSunlightIncCounter], a
+	call Sunlight_IncPals
+	jr .done
+
+.dec_pals
+	ld a, [wSunlightIncCounter]
+	sub 1
+	ld [wSunlightIncCounter], a
+	call Sunlight_DecPals
+	jr .done
+
+.dec_check
+	ld hl, wSunlightTimer
+	ld a, [wOverworldWeatherInternalTimer]
+	sub a, [hl]
+.mod_loop2
+	sub a, 3
+	jr z, .decrement
+	jr c, .done
+	jr .mod_loop2
+.decrement
+	ld hl, wSunlightTimer
+	ld a, [wOverworldWeatherInternalTimer]
+	sub a, [hl]
+	cp 30
+	jr c, .dec_pals
+.clear_timers
+	; Resets this
+	call Sunlight_DecPals
+	xor a
+	ld [wSunlightTimer], a
+	ld [wSunlightIncCounter], a
+.done
+	ret
+
+Sunlight_IncPals:
+	; Input:
+	;   N/A
+	; Operation:
+	;   Attempts to slightly increment the overworld palettes
+	; Output:
+	;   N/A
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+
+	; Let's get to business... first we need to load the bg palettes
+	; and e, which stores our value of 7 * 4 palettes
+	ld hl, wBGPals1
+	ld e, 28
+.attempt_inc_bg
+	call SunTogglePreserveBlueGreen
+	call UnpackColor
+	call TrySaturateColor
+	call PackColor
+	dec e
+	jr nz, .attempt_inc_bg
+
+	; Restore the original bank
+	pop af
+	ldh [rSVBK], a
+
+	; Update the pals
+	farcall ApplyPals
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	ret
+
+Sunlight_DecPals:
+	; Input:
+	;   N/A
+	; Operation:
+	;   Attempts to slightly decrement the overworld palettes
+	; Output:
+	;   N/A
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+
+	; Same logic as above.
+	ld hl, wBGPals1
+	ld e, 28
+.attempt_dec_bg
+	call SunTogglePreserveBlueGreen
+	call UnpackColor
+	call TryDesaturateColor
+	call PackColor
+	dec e
+	jr nz, .attempt_dec_bg
+
+	; Restore the bank
+	pop af
+	ldh [rSVBK], a
+
+	; Update the pals
+	farcall ApplyPals
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	ret
+
+UnpackColor:
+    ; Input:
+    ;   hl -> An RGB555 color in a palette
+    ; Outputs:
+    ;   b = red   (0-31)
+    ;   c = green (0-31)
+    ;   d = blue  (0-31)
+    ; On return:
+    ;   hl points to the head of the color again
+
+    ld a, [hl]    ; 1/2; a = %gggRRRRR
+    and %00011111 ; 2/2; a = %000RRRRR
+    ld b, a       ; 1/1; b = %000RRRRR (b <- R done)
+
+    ld a, [hli]   ; 1/2; a = %gggRRRRR
+    and %11100000 ; 2/2; a = %ggg00000
+    ld c, a       ; 1/1; c = %ggg00000
+
+    ld a, [hl]    ; 1/2; a = %0BBBBBGG
+    and %00000011 ; 2/2; a = %000000GG
+    or c          ; 1/1; a = %ggg000GG
+    rlca          ; 1/1; a = %gg000GGg
+    rlca          ; 1/1; a = %g000GGgg
+    rlca          ; 1/1; a = %000GGggg
+    ld c, a       ; 1/1; c = %000GGggg (c <- G done)
+
+    ld a, [hl]   ; 1/2; a = %0BBBBBGG
+    and %01111100 ; 2/2; a = %0BBBBB00
+    rrca          ; 1/1; a = %00BBBBB0
+    rrca          ; 1/1; a = %000BBBBB
+    ld d, a       ; 1/1; d = %000BBBBB (d <- B done)
+
+	dec hl
+    ret
+
+PackColor:
+	; Input:
+	;   hl -> An RGB555 color in a palette
+	;   b = a 5-bit R value (0-31)
+	;   c = a 5-bit G value (0-31)
+	;   d = a 5-bit B value (0-31)
+	; Operation:
+	;   Packs the new RGB555 color into the color in a palette pointed to by hl
+	; Clobbers:
+	;   a, e
+	; On return:
+	;   hl points to the next color in the palette
+	swap c        ; %Gggg000G
+	ld a, c       ; %Gggg000G
+	rlca          ; %ggg000GG
+	and %11100000 ; %GGG00000
+	or b          ; %GGGRRRRR
+	ld [hli], a
+	ld a, c       ; %Gggg000G
+	rrca          ; %GGggg000
+	and %11000000 ; %GG000000
+	or d          ; %GG0BBBBB
+	rlca          ; %G0BBBBBG
+	rlca          ; %0BBBBBGG
+	ld [hli], a
+	ret
+
+TrySaturateColor:
+	; Input:
+	;   b = a 5-bit R value (0-31)
+	;   c = a 5-bit G value (0-31)
+	;   d = a 5-bit B value (0-31)
+	; Operation:
+	;   Attempts to brighten the palette by adding 2 to each value of an RGB555 color
+	ld a, [wSunlightPreserveRed]
+	and %00010000
+	jr nz, .green
+	ld a, b
+	call TrySaturateChannel
+	ld b, a
+.green
+	ld a, [wSunlightPreserveGreen]
+	and %00100000
+	jr nz, .blue
+	ld a, c
+	call TrySaturateChannel
+	ld c, a
+.blue
+	ld a, [wSunlightPreserveBlue]
+	and %01000000
+	ret nz
+	ld a, d
+	call TrySaturateChannel
+	ld d, a
+	ret
+
+TryDesaturateColor:
+	; Input:
+	;   b = a 5-bit R value (0-31)
+	;   c = a 5-bit G value (0-31)
+	;   d = a 5-bit B value (0-31)
+	; Operation:
+	;   Attempts to darken the palette by subtracting 2 from each value of an RGB555 color
+	ld a, [wSunlightPreserveRed]
+	and %00010000
+	jr nz, .green
+	ld a, b
+	call TryDesaturateChannel
+	ld b, a
+.green
+	ld a, [wSunlightPreserveGreen]
+	and %00100000
+	jr nz, .blue
+	ld a, c
+	call TryDesaturateChannel
+	ld c, a
+.blue
+	ld a, [wSunlightPreserveBlue]
+	and %01000000
+	ret nz
+	ld a, d
+	call TryDesaturateChannel
+	ld d, a
+	ret
+
+TrySaturateChannel:
+	; Input:
+	;   a = a 5-bit RGB value (0-31)
+	; Operation:
+	;   Saturates and RGB value by 2
+	; Output:
+	;   a = a 5-bit RGB value, where 2 <= a <= 31
+	inc a
+	cp 32
+	ret c
+	ld a, 31
+	ret
+
+TryDesaturateChannel:
+	; Input:
+	;   a = a 5-bit RGB value (0-31)
+	; Operation:
+	;   Desatures an RGB value by 2
+	; Output:
+	;   a = a 5-bit RGB value, where 0 <= a <= 29
+	sub 1
+	ret nc
+	xor a
+	ret
+
+SunTogglePreserveBlueGreen:
+	; Input:
+	;   N/A
+	; Operation:
+	;   Modifies wSunlightIncCounters bits 6 and 5.
+	;
+	;   Only triggers when it is not nighttime, as the moon
+	;   glows white, not reddish like the sun beating down
+	;   on you does.
+	;
+	;   Sets bits to preserve the (B)lue and (G)reen values
+	;   on cycles 2 and 4. Unsets the bits on all other
+	;   cycles.
+	push hl
+	farcall GetTimeOfDay
+	ld a, [wTimeOfDay]
+	cp NITE_F
+	pop hl
+	ret z
+
+	ld a, [wSunlightIncCounter]
+	and %00001111
+	cp 2
+	jr z, .preserve_BG
+	cp 4
+	ld a, [wSunlightIncCounter]
+	jr nz, .unset_BG
+.preserve_BG
+	or %01100000
+	jr .done
+.unset_BG
+	and %10011111
+.done
+	ld [wSunlightIncCounter], a
+	ret
+
+
+TogglePreserveRed:
+	; Input:
+	;   N/A
+	; Operation:
+	;   Sets the 4th bit of wSunlightPreserveRed if it't unset, or unsets it if it's set.
+	ld a, [wSunlightPreserveRed]
+	and %00010000
+	ld a, [wSunlightPreserveRed]
+	jr nz, .unset
+	or %00010000
+	jr .done
+
+.unset
+	and %11101111
+.done
+	ld [wSunlightPreserveRed], a
+	ret
+
+TogglePreserveGreen:
+	; Input:
+	;   N/A
+	; Operation:
+	;   Sets the 5th bit of wSunlightPreserveGreen if it't unset, or unsets it if it's set.
+	ld a, [wSunlightPreserveGreen]
+	and %00100000
+	ld a, [wSunlightPreserveGreen]
+	jr nz, .unset
+	or %00100000
+	jr .done
+
+.unset
+	and %11011111
+.done
+	ld [wSunlightPreserveGreen], a
+	ret
+
+TogglePreserveBlue:
+	; Input:
+	;   N/A
+	; Operation:
+	;   Sets the 6th bit of wSunlightPreserveBlue if it't unset, or unsets it if it's set.
+	ld a, [wSunlightPreserveBlue]
+	and %01000000
+	ld a, [wSunlightPreserveBlue]
+	jr nz, .unset
+	or %01000000
+	jr .done
+
+.unset
+	and %10111111
+.done
+	ld [wSunlightPreserveBlue], a
+	ret
+
 LoadWeatherGraphics::
 	ld a, [wCurWeather]
 	assert OW_WEATHER_NONE == 0
@@ -928,7 +1313,13 @@ LoadWeatherGraphics::
 	dec a
 	jr z, .rain
 	assert OW_WEATHER_SANDSTORM == 4
-; standstorm
+	dec a
+	jr z, .sandstorm
+	assert OW_WEATHER_SUNLIGHT == 5
+	; We don't actually load any GFX for sun
+	ret
+
+.sandstorm
 	lb bc, BANK(SandGFX), 1
 	ld de, SandGFX
 	jr .continue

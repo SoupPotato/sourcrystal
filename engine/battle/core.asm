@@ -124,6 +124,8 @@ StartAutomaticBattleWeather:
 	ld a, [wCurWeather]
 	and a
 	ret z
+	cp OW_WEATHER_SUNLIGHT
+	jr z, .sunlight
 	cp OW_WEATHER_RAIN
 	jr z, .raining
 	cp OW_WEATHER_THUNDERSTORM
@@ -136,6 +138,17 @@ StartAutomaticBattleWeather:
 	ld [wWeatherCount], a
 	call Call_PlayBattleAnim
 	ld hl, StartedToRainText
+	call StdBattleTextbox
+	jp EmptyBattleTextbox
+
+.sunlight
+	ld a, WEATHER_SUN
+	ld [wBattleWeather], a
+	ld de, SUNNY_DAY
+	ld a, 255
+	ld [wWeatherCount], a
+	call Call_PlayBattleAnim
+	ld hl, SunTurnedHarshText
 	call StdBattleTextbox
 	jp EmptyBattleTextbox
 

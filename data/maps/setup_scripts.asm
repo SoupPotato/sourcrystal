@@ -39,6 +39,8 @@ MapSetupScript_Warp:
 	mapsetup ClearWeather
 	mapsetup SetCurrentWeather
 	mapsetup SpawnPlayer
+	mapsetup SpawnFollower
+	mapsetup UnloadFollowerIfNeeded
 	mapsetup RefreshPlayerCoords
 	mapsetup GetMapScreenCoords
 	mapsetup LoadBlockData
@@ -67,6 +69,8 @@ MapSetupScript_BadWarp:
 	mapsetup ClearWeather
 	mapsetup SetCurrentWeather
 	mapsetup SpawnPlayer
+	mapsetup SpawnFollower
+	mapsetup UnloadFollowerIfNeeded
 	mapsetup RefreshPlayerCoords
 	mapsetup GetMapScreenCoords
 	mapsetup LoadBlockData

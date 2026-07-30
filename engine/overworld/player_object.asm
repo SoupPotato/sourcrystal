@@ -83,6 +83,7 @@ ReappearFollower::
 	call RefreshPlayerCoords
 	call RepositionFollowerIfAtNPC
 	call RepositionFollowerIfLedge
+.load_follower
 	ld a, FOLLOWER
 	call UnmaskCopyMapObjectStruct
 	call AdjustFollowerFacing
@@ -95,10 +96,7 @@ ReappearFollowerInPlace::
 	call RefreshPlayerCoords
 	lb bc, PLAYER, FOLLOWER
 	call CopyObjectPosition
-	ld a, FOLLOWER
-	call UnmaskCopyMapObjectStruct
-	call AdjustFollowerFacing
-	jp InitializeVisibleSprites
+	jp ReappearFollower.load_follower
 
 CopyDECoordsToMapObject::
 	push de
@@ -211,11 +209,30 @@ AdjustFollowerFacing:
 	ld bc, wFollowerStruct
 	jp SetSpriteDirection
 
+; Temporarily skip spawning the follower, this is an
+; additional special case for the falling animation that
+; is then reset on InitializeVisibleSprites
 SkipFollowerSpawning:
 	ld a, [wMapSetupFlags]
 	set MAPSETUP_SKIP_FOLLOWER_F, a
 	ld [wMapSetupFlags], a
 	ret
+
+; this is a separate step in map setups for concern-separation purposes
+UnloadFollowerIfNeeded::
+	ld a, [wPartyFollower]
+	and a
+	ret nz
+	; follower is already in the wMapObjects (loaded stores) entry
+	; but object structs aren't loaded in yet, so DeleteFollower
+	; is useless here
+	; tried to mask but doesn't work here too
+	ld a, UNASSOCIATED_MAPOBJECT
+	ld [wFollowerObject], a
+	; this also deletes the wMapObjects (loaded stores) entry
+	; so it couldn't just be `appear`ed by a script; it will
+	; need to actually be reinstantiated
+	jp DeleteFollower
 
 RefreshPlayerCoords:
 	ld a, [wXCoord]
@@ -552,9 +569,6 @@ CopyMapObjectToObjectStruct:
 	ret
 
 InitializeVisibleSprites:
-	ld a, [wPartyFollower]
-	and a
-	jr z, .no_follow
 ; this special case is for the bike/surf status, lets
 ; the engine know not to make the follower reappear here
 	ld a, [wMapSetupFlags]
@@ -568,10 +582,12 @@ InitializeVisibleSprites:
 	ld a, [wMapSetupFlags]
 	res MAPSETUP_SKIP_FOLLOWER_F, a
 	ld [wMapSetupFlags], a
+; skip over the follower
 	ld bc, wMap2Object
 	ld a, 2
 	jr .loop
 .follower
+; start from the follower
 	ld bc, wFollowerObject
 	ld a, 1
 .loop
@@ -925,7 +941,7 @@ TrainerWalkToPlayer:
 	ret
 
 SurfStartStep:
-	newfarcall DeleteFollower
+	call DeleteFollower
 	ld a, [wPlayerDirection]
 	srl a
 	srl a

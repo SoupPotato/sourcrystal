@@ -6386,7 +6386,8 @@ LoadEnemyMon:
 ; See if a SHINY CHARM is in the bag.
 	call CheckShinyCharm
 	jr c, .IncreaseShiny
-	jr .next
+	; go to normal shiny roll
+	jr .normalcalc
 
 .IncreaseShiny:
 if DEF(_DEBUG)
@@ -6417,13 +6418,13 @@ endc
 	jr c, .UpdateDVs
 
 ; Roll a final time
-	jr .skipshine
+	jr .normalcalc
 
 .ForceShiny:
 	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY
 	jr .UpdateDVs
 
-.skipshine:
+.normalcalc:
 ; Generate new random DVs
 	call BattleRandom
 	ld b, a

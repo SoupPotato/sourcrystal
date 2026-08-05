@@ -1220,12 +1220,8 @@ SunTogglePreserveBlueGreen:
 	;   Sets bits to preserve the (B)lue and (G)reen values
 	;   on cycles 2 and 4. Unsets the bits on all other
 	;   cycles.
-	push hl
-	farcall GetTimeOfDay
-	ld a, [wTimeOfDay]
-	cp NITE_F
-	pop hl
-	ret z
+
+	; night check already handled in SetCurrentWeather
 
 	ld a, [wSunlightIncCounter]
 	and %00001111

@@ -71,9 +71,9 @@ ENDR
 
 ; otherwise, rain anyway
 	ld a, [wTimeOfDay]
-	cp DAY_F
-	jr nz, .rain
-.sun
+	cp NITE_F
+	jr z, .rain
+; Sunlight
 	ld a, OW_WEATHER_SUNLIGHT
 .set_weather
 	ld b, a

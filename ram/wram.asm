@@ -1907,6 +1907,18 @@ wSpriteOverlapCount:: db
 wWeatherFlags:: db
 wPrevWeather:: db
 wCurWeather:: db
+wSunlightTimer:: db
+
+; SunlightIncCounter:
+;  -     7: Timer Status
+;  -     6: Preserve blue flag
+;  -     5: Preserve green flag
+;  -     4: Preserve red flag
+;  -   3-0: Calculates the current step of the pal increment or decrement
+wSunlightPreserveRed::
+wSunlightPreserveGreen::
+wSunlightPreserveBlue::
+wSunlightIncCounter:: db
 wPrevOvercastIndex:: db
 
 
@@ -3410,14 +3422,14 @@ wSafariTimeRemaining:: dw
 wPhoneList:: ds 11 ; CONTACT_LIST_SIZE + 1
 
 wWeatherRandomDay:: db
-wWeatherRandomMapGroupJohto:: ds NUM_WEATHER_MAPS_PER_DAY
-wWeatherRandomMapNumberJohto:: ds NUM_WEATHER_MAPS_PER_DAY
-wWeatherRandomMapGroupKanto:: ds NUM_WEATHER_MAPS_PER_DAY
-wWeatherRandomMapNumberKanto:: ds NUM_WEATHER_MAPS_PER_DAY
+; map group, map number
+wWeatherRandomMapJohto:: ds NUM_WEATHER_MAPS_PER_DAY * 2
+wWeatherRandomMapKanto:: ds NUM_WEATHER_MAPS_PER_DAY * 2
 assert NUM_WEATHER_MAPS_PER_DAY == 2, \
 	"If you change NUM_WEATHER_MAPS_PER_DAY, you must ensure you don't break save compatibility."
-
-	ds 13
+wWeatherRandomSunJohto:: ds NUM_WEATHER_MAPS_PER_DAY * 2
+wWeatherRandomSunKanto:: ds NUM_WEATHER_MAPS_PER_DAY * 2
+	ds 5
 
 wLuckyNumberShowFlag:: db
 wRepelType:: db

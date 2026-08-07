@@ -1945,8 +1945,6 @@ FishFunction:
 
 .TryFish:
 	ld a, [wPlayerState]
-	cp PLAYER_SURF
-	jr z, .fail
 	cp PLAYER_SURF_PIKA
 	jr z, .fail
 	call GetFacingTileCoord

@@ -124,6 +124,8 @@ StartAutomaticBattleWeather:
 	ld a, [wCurWeather]
 	and a
 	ret z
+	cp OW_WEATHER_SUNLIGHT
+	jr z, .sunlight
 	cp OW_WEATHER_RAIN
 	jr z, .raining
 	cp OW_WEATHER_THUNDERSTORM
@@ -136,6 +138,17 @@ StartAutomaticBattleWeather:
 	ld [wWeatherCount], a
 	call Call_PlayBattleAnim
 	ld hl, StartedToRainText
+	call StdBattleTextbox
+	jp EmptyBattleTextbox
+
+.sunlight
+	ld a, WEATHER_SUN
+	ld [wBattleWeather], a
+	ld de, SUNNY_DAY
+	ld a, 255
+	ld [wWeatherCount], a
+	call Call_PlayBattleAnim
+	ld hl, SunTurnedHarshText
 	call StdBattleTextbox
 	jp EmptyBattleTextbox
 
@@ -6229,9 +6242,15 @@ LoadEnemyMon:
 ; In a wild battle, we pull from the item slots in BaseData
 
 ; Force Item1
-; Used for Ho-Oh, Lugia and Snorlax encounters
+; Used for Snorlax encounter
 	ld a, [wBattleType]
 	cp BATTLETYPE_FORCEITEM
+	ld a, [wBaseItem1]
+	jr z, .UpdateItem
+
+; Used for Ho-Oh encounter
+	ld a, [wBattleType]
+	cp BATTLETYPE_HO_OH
 	ld a, [wBaseItem1]
 	jr z, .UpdateItem
 
@@ -6367,7 +6386,8 @@ LoadEnemyMon:
 ; See if a SHINY CHARM is in the bag.
 	call CheckShinyCharm
 	jr c, .IncreaseShiny
-	jr .next
+	; go to normal shiny roll
+	jr .normalcalc
 
 .IncreaseShiny:
 if DEF(_DEBUG)
@@ -6398,13 +6418,13 @@ endc
 	jr c, .UpdateDVs
 
 ; Roll a final time
-	jr .skipshine
+	jr .normalcalc
 
 .ForceShiny:
 	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY
 	jr .UpdateDVs
 
-.skipshine:
+.normalcalc:
 ; Generate new random DVs
 	call BattleRandom
 	ld b, a

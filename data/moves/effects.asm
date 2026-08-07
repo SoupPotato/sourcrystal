@@ -1974,9 +1974,9 @@ FutureSight:
 	moveanimnosub
 	failuretext
 	applydamage
-	checkfaint
 	criticaltext
 	supereffectivetext
+	checkfaint
 	buildopponentrage
 	endmove
 

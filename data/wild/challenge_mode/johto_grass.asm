@@ -1845,8 +1845,8 @@ JohtoGrassWildMonsChallenge:
 	db 26, GLOOM
 	db 24, FEAROW
 	db 23, DIGLETT
-	db 27, HOUNDOUR
-	db 23, NOCTOWL
+	db 27, NOCTOWL
+	db 23, HOPPIP
 	db 25, GIRAFARIG
 	end_grass_wildmons
 

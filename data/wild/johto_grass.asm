@@ -1829,7 +1829,7 @@ JohtoGrassWildMons:
 	db 24, GLOOM
 	db 21, FEAROW
 	db 20, DIGLETT
-	db 21, FARFETCH_D
+	db 25, FARFETCH_D
 	db 22, HOPPIP
 	db 20, GIRAFARIG
 	; day
@@ -1837,7 +1837,7 @@ JohtoGrassWildMons:
 	db 24, GLOOM
 	db 21, FEAROW
 	db 20, DIGLETT
-	db 21, FARFETCH_D
+	db 25, FARFETCH_D
 	db 22, HOPPIP
 	db 20, GIRAFARIG
 	; nite
@@ -1845,8 +1845,8 @@ JohtoGrassWildMons:
 	db 24, GLOOM
 	db 21, FEAROW
 	db 22, DIGLETT
-	db 21, HOUNDOUR
-	db 22, NOCTOWL
+	db 25, NOCTOWL
+	db 22, HOPPIP
 	db 20, GIRAFARIG
 	end_grass_wildmons
 

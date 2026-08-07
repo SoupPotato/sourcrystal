@@ -1033,31 +1033,31 @@ TentacoolEvosAttacks:
 	db EVOLVE_LEVEL, 30, TENTACRUEL
 	db 0 ; no more evolutions
 	db 1, POISON_STING
-	db 1, WATER_GUN
-	db 6, CONSTRICT
-	db 12, SUPERSONIC
-	db 17, ACID
-	db 23, BUBBLEBEAM
-	db 28, WRAP
-	db 34, BARRIER
-	db 39, SLUDGE_BOMB
-	db 45, SCREECH
-	db 50, HYDRO_PUMP
+	db 1, CONSTRICT
+	db 6, WATER_GUN
+	db 10, SUPERSONIC
+	db 16, ACID
+	db 21, WRAP
+	db 25, BUBBLEBEAM
+	db 31, BARRIER
+	db 36, SLUDGE_BOMB
+	db 40, SCREECH
+	db 46, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 TentacruelEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_STING
-	db 1, WATER_GUN
 	db 1, CONSTRICT
+	db 1, WATER_GUN
 	db 1, SUPERSONIC
-	db 17, ACID
-	db 23, BUBBLEBEAM
-	db 28, WRAP
-	db 37, BARRIER
-	db 43, SLUDGE_BOMB
-	db 50, SCREECH
-	db 56, HYDRO_PUMP
+	db 16, ACID
+	db 21, WRAP
+	db 25, BUBBLEBEAM
+	db 33, BARRIER
+	db 40, SLUDGE_BOMB
+	db 46, SCREECH
+	db 54, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 GeodudeEvosAttacks:
@@ -1635,15 +1635,15 @@ KoffingEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_GAS
 	db 1, TACKLE
-	db 5, SMOG
+	db 6, SMOG
 	db 10, SMOKESCREEN
-	db 14, FEINT_ATTACK
+	db 15, FEINT_ATTACK
 	db 19, SLUDGE
-	db 23, SELFDESTRUCT
+	db 24, SELFDESTRUCT
 	db 28, HAZE
-	db 32, TOXIC
+	db 33, TOXIC
 	db 37, SLUDGE_BOMB
-	db 41, EXPLOSION
+	db 42, EXPLOSION
 	db 46, DESTINY_BOND
 	db 0 ; no more level-up moves
 
@@ -1653,11 +1653,11 @@ WeezingEvosAttacks:
 	db 1, TACKLE
 	db 1, SMOG
 	db 1, SMOKESCREEN
-	db 14, FEINT_ATTACK
+	db 15, FEINT_ATTACK
 	db 19, SLUDGE
-	db 23, SELFDESTRUCT
+	db 24, SELFDESTRUCT
 	db 28, HAZE
-	db 32, TOXIC
+	db 33, TOXIC
 	db 38, SLUDGE_BOMB
 	db 44, EXPLOSION
 	db 50, DESTINY_BOND
@@ -2556,6 +2556,7 @@ SpinarakEvosAttacks:
 
 AriadosEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, FOCUS_ENERGY
 	db 1, POISON_STING
 	db 1, STRING_SHOT
 	db 1, CONSTRICT
@@ -2577,33 +2578,31 @@ ChinchouEvosAttacks:
 	db EVOLVE_LEVEL, 27, LANTURN
 	db 0 ; no more evolutions
 	db 1, BUBBLE
-	db 1, SUPERSONIC
-	db 6, THUNDER_WAVE
-	db 10, THUNDERSHOCK
-	db 14, WATER_GUN
-	db 19, CONFUSE_RAY
-	db 23, SPARK
-	db 27, BUBBLEBEAM
-	db 32, FLAIL
-	db 36, TAKE_DOWN
-	db 40, THUNDERBOLT
-	db 45, HYDRO_PUMP
+	db 1, THUNDER_WAVE
+	db 6, SUPERSONIC
+	db 12, WATER_GUN
+	db 17, FLAIL
+	db 22, SPARK
+	db 28, BUBBLEBEAM
+	db 33, CONFUSE_RAY
+	db 38, TAKE_DOWN
+	db 44, THUNDERBOLT
+	db 49, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 LanturnEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BUBBLE
-	db 1, SUPERSONIC
 	db 1, THUNDER_WAVE
-	db 10, THUNDERSHOCK
-	db 14, WATER_GUN
-	db 19, CONFUSE_RAY
-	db 23, SPARK
+	db 1, SUPERSONIC
+	db 1, WATER_GUN
+	db 17, FLAIL
+	db 22, SPARK
 	db 29, BUBBLEBEAM
-	db 35, FLAIL
-	db 41, TAKE_DOWN
-	db 47, THUNDERBOLT
-	db 53, HYDRO_PUMP
+	db 36, CONFUSE_RAY
+	db 43, TAKE_DOWN
+	db 50, THUNDERBOLT
+	db 57, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 PichuEvosAttacks:
@@ -2996,11 +2995,12 @@ MurkrowEvosAttacks:
 	db 11, HAZE
 	db 15, WING_ATTACK
 	db 21, NIGHT_SHADE
-	db 25, MEAN_LOOK
-	db 31, FEINT_ATTACK
+	db 25, FEINT_ATTACK
+	db 31, MEAN_LOOK
 	db 35, SCREECH
 	db 41, DRILL_PECK
-	db 45, PERISH_SONG
+	db 45, BEAT_UP
+	db 51, PERISH_SONG
 	db 0 ; no more level-up moves
 
 SlowkingEvosAttacks:

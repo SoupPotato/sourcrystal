@@ -3427,8 +3427,9 @@ wWeatherRandomMapJohto:: ds NUM_WEATHER_MAPS_PER_DAY * 2
 wWeatherRandomMapKanto:: ds NUM_WEATHER_MAPS_PER_DAY * 2
 assert NUM_WEATHER_MAPS_PER_DAY == 2, \
 	"If you change NUM_WEATHER_MAPS_PER_DAY, you must ensure you don't break save compatibility."
-
-	ds 13
+wWeatherRandomSunJohto:: ds NUM_WEATHER_MAPS_PER_DAY * 2
+wWeatherRandomSunKanto:: ds NUM_WEATHER_MAPS_PER_DAY * 2
+	ds 5
 
 wLuckyNumberShowFlag:: db
 wRepelType:: db

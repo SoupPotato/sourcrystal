@@ -41,15 +41,29 @@ SetCurrentWeather::
 ;    [map group][map number]...
 	assert wWeatherRandomMapKanto == wWeatherRandomMapJohto + (NUM_WEATHER_MAPS_PER_DAY * 2)
 	ld hl, wWeatherRandomMapJohto
+; check rain maps first
 REPT NUM_WEATHER_MAPS_PER_DAY * 2
 	ld b, [hl]
 	inc hl
 	ld c, [hl]
 	inc hl
 	call .IsMapEqual
-	jr c, .any_weather
+	jr c, .rain
+ENDR
+; then sun maps
+	assert wWeatherRandomSunJohto == wWeatherRandomMapKanto + (NUM_WEATHER_MAPS_PER_DAY * 2)
+	assert wWeatherRandomSunKanto == wWeatherRandomSunJohto + (NUM_WEATHER_MAPS_PER_DAY * 2)
+REPT NUM_WEATHER_MAPS_PER_DAY * 2
+	ld b, [hl]
+	inc hl
+	ld c, [hl]
+	inc hl
+	call .IsMapEqual
+	jr c, .sun
 ENDR
 
+; nothing going on
+.none
 	ld a, OW_WEATHER_NONE
 	jr .set_weather
 
@@ -63,18 +77,13 @@ ENDR
 	add OW_WEATHER_RAIN
 	jr .set_weather
 
-.any_weather
-; rains half the time while it is currently DAY
-	call Random
-	cp 50 percent
-	jr c, .rain
-
-; otherwise, rain anyway
+.sun
+; gate nighttime, just to be safe
 	ld a, [wTimeOfDay]
 	cp NITE_F
-	jr z, .rain
-; Sunlight
+	jr z, .none
 	ld a, OW_WEATHER_SUNLIGHT
+
 .set_weather
 	ld b, a
 	ld a, [wWeatherFlags]
@@ -144,13 +153,12 @@ GenerateNewRandomWeatherMap:
 REPT NUM_WEATHER_MAPS_PER_DAY
 	ld a, NUM_JOHTO_WEATHER_MAPS
 	call RandomRange
-	ld h, 0
+	assert NUM_JOHTO_WEATHER_MAPS < 127 ; `add a,a` instead of `add hl,hl`
+	add a, a
 	ld l, a
-	add hl, hl
-	push de
-		ld de, RandomRainMapsJohto
-		add hl, de
-	pop de
+	ld h, 0
+	ld bc, RandomRainMapsJohto
+	add hl, bc
 	ld a, [hli]
 	ld [de], a
 	inc de
@@ -163,13 +171,12 @@ ENDR
 REPT NUM_WEATHER_MAPS_PER_DAY
 	ld a, NUM_KANTO_WEATHER_MAPS
 	call RandomRange
-	ld h, 0
+	assert NUM_KANTO_WEATHER_MAPS < 127
+	add a, a
 	ld l, a
-	add hl, hl
-	push de
-		ld de, RandomRainMapsKanto
-		add hl, de
-	pop de
+	ld h, 0
+	ld bc, RandomRainMapsKanto
+	add hl, bc
 	ld a, [hli]
 	ld [de], a
 	inc de
@@ -177,6 +184,44 @@ REPT NUM_WEATHER_MAPS_PER_DAY
 	ld [de], a
 	inc de
 ENDR
+
+; alright
+	ld de, wWeatherRandomSunJohto
+REPT NUM_WEATHER_MAPS_PER_DAY
+	ld a, NUM_JOHTO_SUN_MAPS
+	call RandomRange
+	assert NUM_JOHTO_SUN_MAPS < 127
+	add a, a
+	ld l, a
+	ld h, 0
+	ld bc, SunMapsJohto
+	add hl, bc
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hl]
+	ld [de], a
+	inc de
+ENDR
+
+	ld de, wWeatherRandomSunKanto
+REPT NUM_WEATHER_MAPS_PER_DAY
+	ld a, NUM_KANTO_SUN_MAPS
+	call RandomRange
+	assert NUM_KANTO_SUN_MAPS < 127
+	add a, a
+	ld l, a
+	ld h, 0
+	ld bc, SunMapsKanto
+	add hl, bc
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hl]
+	ld [de], a
+	inc de
+ENDR
+
 	ret
 
 RandomRainMapsJohto:
@@ -188,3 +233,13 @@ RandomRainMapsKanto:
 	const_def
 	INCLUDE "data/maps/kanto_rain.asm"
 	DEF NUM_KANTO_WEATHER_MAPS EQU const_value
+
+SunMapsJohto:
+	const_def
+	INCLUDE "data/maps/johto_sun.asm"
+	DEF NUM_JOHTO_SUN_MAPS EQU const_value
+
+SunMapsKanto:
+	const_def
+	INCLUDE "data/maps/kanto_sun.asm"
+	DEF NUM_KANTO_SUN_MAPS EQU const_value

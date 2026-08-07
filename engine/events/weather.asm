@@ -52,7 +52,6 @@ REPT NUM_WEATHER_MAPS_PER_DAY * 2
 ENDR
 ; then sun maps
 	assert wWeatherRandomSunJohto == wWeatherRandomMapKanto + (NUM_WEATHER_MAPS_PER_DAY * 2)
-	assert wWeatherRandomSunKanto == wWeatherRandomSunJohto + (NUM_WEATHER_MAPS_PER_DAY * 2)
 REPT NUM_WEATHER_MAPS_PER_DAY * 2
 	ld b, [hl]
 	inc hl

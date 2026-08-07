@@ -1,3 +1,19 @@
 	weather_map ROUTE_29
 	weather_map ROUTE_30
+	weather_map ROUTE_31
+	weather_map ROUTE_32
+	weather_map ROUTE_34
+	weather_map ROUTE_35
+	weather_map ROUTE_36
+	weather_map ROUTE_37
+	weather_map ROUTE_38
+	weather_map ROUTE_39
+	weather_map ROUTE_40
+	weather_map ROUTE_41
+	weather_map ROUTE_42
+	weather_map ROUTE_44
+	weather_map ROUTE_45
+	weather_map ROUTE_46
+	weather_map ROUTE_47
+	weather_map ROUTE_48
 	db -1

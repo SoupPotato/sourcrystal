@@ -284,7 +284,7 @@ SageLiFlashExplanationText:
 	para "But to use it out"
 	line "of battle, or to"
 
-	para "even used the"
+	para "even use the"
 	line "PAGER, you will"
 
 	para "need the BADGE"

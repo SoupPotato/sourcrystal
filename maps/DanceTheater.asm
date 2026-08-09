@@ -105,15 +105,13 @@ DanceTheaterSurfGuy:
 .GetSurf:
 	writetext SurfGuyLikeADanceText
 	promptbutton
-	stringtotext .pagercardname, MEM_BUFFER_1
-	scall .JumpstdReceiveItem
-	setflag ENGINE_PAGER_SURF
-	writetext GotSurfPagerText
-	promptbutton
-	writetext SurfGuyPagerExplanationText
-	promptbutton
 	verbosegiveitem HM_SURF
 	setevent EVENT_GOT_HM03_SURF
+	setflag ENGINE_PAGER_SURF
+	writetext GotSurfPagerText
+	playsound SFX_DEX_FANFARE_80_109
+	waitsfx
+	waitbutton
 	writetext SurfGuySurfExplanationText
 	waitbutton
 	closetext
@@ -296,28 +294,16 @@ SurfGuyLikeADanceText:
 	cont "--take it!"
 	done
 
-SurfGuyPagerExplanationText:
-	text "That's a "
-	line "SURF PAGER."
-
-	para "It will summon a"
-	line "#MON to ferry"
-	cont "you across water."
-
-	para "Please have this"
-	line "as well."
-	done
-
 SurfGuySurfExplanationText:
 	text "That's SURF."
 
 	para "It's a move that"
-	line "creates a giant"
-	cont "wave to attack."
-	
-	para "It will also let"
-	line "your #MON swim"
+	line "lets #MON swim"
 	cont "across water."
+
+	para "SURF can also be"
+	line "used from the PPS"
+	cont "in your #GEAR."
 	done
 
 SurfGuyElegantKimonoGirlsText:

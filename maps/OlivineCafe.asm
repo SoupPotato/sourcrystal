@@ -15,15 +15,13 @@ OlivineCafeStrengthSailorScript:
 	iftrue .GotStrength
 	writetext OlivineCafeStrengthSailorText
 	promptbutton
-	stringtotext .pagercardname, MEM_BUFFER_1
-	scall .JumpstdReceiveItem
-	setflag ENGINE_PAGER_STRENGTH
-	writetext GotStrengthPagerText
-	promptbutton
-	writetext OlivineCafeStrengthSailorTeachStrengthText
-	promptbutton
 	verbosegiveitem HM_STRENGTH
 	setevent EVENT_GOT_HM04_STRENGTH
+	setflag ENGINE_PAGER_STRENGTH
+	writetext GotStrengthPagerText
+	playsound SFX_DEX_FANFARE_80_109
+	waitsfx
+	waitbutton
 .GotStrength:
 	writetext OlivineCafeStrengthSailorText_GotStrength
 	waitbutton
@@ -57,22 +55,9 @@ OlivineCafeStrengthSailorText:
 	line "the power to move"
 	cont "boulders aside."
 
-	para "Here, use this and"
-	line "gain some muscle!"
-	done
-
-OlivineCafeStrengthSailorTeachStrengthText:
-	text "That's a STRENGTH"
-	line "PAGER."
-
-	para "With that you can"
-	line "move boulders!"
-
-	para "You can also use"
-	line "this to teach"
-
-	para "your #MON"
-	line "STRENGTH too!"
+	para "Here, use this"
+	line "and teach them"
+	cont "STRENGTH!"
 	done
 
 OlivineCafeStrengthSailorText_GotStrength:

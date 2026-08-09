@@ -97,16 +97,13 @@ CianwoodCityChucksWife:
 .BeatChuck:
 	writetext ChucksWifeGiveHMText
 	promptbutton
-	stringtotext .pagercardname, MEM_BUFFER_1
-	scall .JumpstdReceiveItem
+	verbosegiveitem HM_FLY
+	setevent EVENT_GOT_HM02_FLY
 	setflag ENGINE_PAGER_FLY
 	writetext GotFlyPagerText
-	promptbutton
-	writetext ChucksWifeFlyPagerSpeechText
-	promptbutton
-	verbosegiveitem HM_FLY
-	iffalse .Done
-	setevent EVENT_GOT_HM02_FLY
+	playsound SFX_DEX_FANFARE_80_109
+	waitsfx
+	waitbutton
 	writetext ChucksWifeFlySpeechText
 	promptbutton
 .GotFly:
@@ -231,33 +228,22 @@ ChucksWifeGiveHMText:
 	line "GYM BADGE!"
 
 	para "Then you should"
-	line "take this PAGER."
+	line "take this HM."
 	done
 
-ChucksWifeFlyPagerSpeechText:
-	text "When using the"
-	line "FLY PAGER,"
+ChucksWifeFlySpeechText:
+	text "Teach FLY to your"
+	line "#MON."
 
 	para "You will be able"
 	line "to FLY instantly"
 
-	para "to anywhere you"
+	para "to anywhere you "
 	line "have visited."
 
-	para "You should take"
-	line "this too!"
-	done
-
-ChucksWifeFlySpeechText:
-	text "That HM will"
-	line "teach FLY to your"
-	cont "#MON."
-
-	para "Either way, you"
-	line "should be able to"
-
-	para "travel much easier"
-	line "by flying!"
+	para "You can also use"
+	line "FLY from the PPS"
+	cont "on your #GEAR."
 	done
 
 ChucksWifeChubbyText:

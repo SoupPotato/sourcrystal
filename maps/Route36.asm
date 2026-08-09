@@ -181,15 +181,13 @@ Route36RockSmashGuyScript:
 	verbosegiveitem TM_ROCK_SMASH
 	iffalse .NoRoomForTM
 	setevent EVENT_GOT_TM08_ROCK_SMASH
-	writetext RockSmashGuyText3
-	promptbutton
-	stringtotext .pagercardname, MEM_BUFFER_1
-	scall .JumpstdReceiveItem
 	setflag ENGINE_PAGER_ROCK_SMASH
 	writetext GotRockSmashPagerText
-	promptbutton
+	playsound SFX_DEX_FANFARE_80_109
+	waitsfx
+	waitbutton
 .AlreadyGotRockSmash:
-	writetext RockSmashGuyText4
+	writetext RockSmashGuyText3
 	waitbutton
 .NoRoomForTM:
 	closetext
@@ -614,20 +612,15 @@ RockSmashGuyText3:
 	text "That happens to be"
 	line "ROCK SMASH."
 
-	para "You can have this"
-	line "too!"
-	done
+	para "You can shatter"
+	line "rocks with just a"
 
-RockSmashGuyText4:
-	text "That's a PAGER for"
-	line "using ROCK SMASH."
+	para "single well-aimed"
+	line "smack."
 
-	para "With ROCK SMASH"
-	line "you can shatter"
-
-	para "rocks with just a"
-	line "single well-aimed"
-	cont "smack."
+	para "Your #GEAR's"
+	line "PPS will even let"
+	cont "you use it."
 
 	para "If any rocks are"
 	line "in your way, just"

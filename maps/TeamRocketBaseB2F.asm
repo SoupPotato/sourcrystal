@@ -304,15 +304,13 @@ RocketBaseElectrodeScript:
 	opentext
 	writetext RocketBaseLanceElectrodeDoneText
 	promptbutton
-	stringtotext .pagercardname, MEM_BUFFER_1
-	scall .JumpstdReceiveItem
-	setflag ENGINE_PAGER_WHIRLPOOL
-	writetext GotWhirlpoolPagerText
-	promptbutton
-	writetext RocketBaseLanceWhirlpoolPagerText
-	promptbutton
 	verbosegiveitem HM_WHIRLPOOL
 	setevent EVENT_GOT_HM06_WHIRLPOOL
+	setflag ENGINE_PAGER_WHIRLPOOL
+	writetext GotWhirlpoolPagerText
+	playsound SFX_DEX_FANFARE_80_109
+	waitsfx
+	waitbutton
 	writetext RocketBaseLanceTeachesWhirlpoolText
 	waitbutton
 	closetext
@@ -762,40 +760,32 @@ RocketBaseLanceElectrodeDoneText:
 	line "the #MON."
 
 	para "Oh, yes. You"
-	line "should take these."
+	line "should take this."
 
-	para "I found them here,"
+	para "I found it here,"
 	line "but I don't have"
-	cont "any need for them."
+	cont "any need for it."
 	done
 
 RocketBaseLanceTeachesWhirlpoolText:
-	text "That HM teaches"
-	line "WHIRLPOOL."
+	text "That's WHIRLPOOL."
+	line "Teach it to a"
 
-	para "It's a move that"
-	line "traps the foe"
+	para "#MON to get"
+	line "across wild water."
 
-	para "in a raging"
-	line "WHIRLPOOL."
-	done
-
-RocketBaseLanceWhirlpoolPagerText:
-	text "That's a WHIRLPOOL"
-	line "PAGER."
-
-	para "It summons a"
-	line "#MON to get"
-	cont "across wild water."
+	para "Or you can use it"
+	line "from the PPS on"
+	cont "your #GEAR."
 
 	para "But keep this in"
 	line "mind."
 
-	para "You can only use"
-	line "that with the"
+	para "You can use that"
+	line "out of battle only"
 
-	para "BADGE from"
-	line "MAHOGANY GYM."
+	para "with the BADGE"
+	line "from MAHOGANY GYM."
 	done
 
 RocketBaseLanceMonMasterText:

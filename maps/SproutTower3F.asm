@@ -74,16 +74,14 @@ SageLiScript:
 	startbattle
 	reloadmapafterbattle
 	opentext
-	writetext SageLiPagerText
-	promptbutton
-	stringtotext .pagercardname, MEM_BUFFER_1
-	scall .JumpstdReceiveItem
-	setflag ENGINE_PAGER_FLASH
-	writetext GotFlashPagerText
-	promptbutton
 	writetext SageLiTakeThisFlashText
 	promptbutton
 	verbosegiveitem HM_FLASH
+	setflag ENGINE_PAGER_FLASH
+	writetext GotFlashPagerText
+	playsound SFX_DEX_FANFARE_80_109
+	waitsfx
+	waitbutton
 	setevent EVENT_GOT_HM05_FLASH
 	setevent EVENT_BEAT_SAGE_LI
 	writetext SageLiFlashExplanationText
@@ -249,31 +247,15 @@ SageLiBeatenText:
 	text "Ah, excellent!"
 	done
 
-SageLiPagerText:
-	text "The trust between"
-	line "you and your #-"
-	cont "MON is strong."
-
-	para "You deserve this,"
-	line "please take it."
-	done
-
 SageLiTakeThisFlashText:
-	text "That is a"
-	line "FLASH PAGER."
+	text "You and your #-"
+	line "MON should have"
 
-	para "A PAGER lets you"
-	line "summon a #MON"
+	para "no problem using"
+	line "this move."
 
-	para "that will use a"
-	line "certain move out"
-	cont "of battle."
-
-	para "In this case, it"
-	line "would use FLASH."
-
-	para "Please take this"
-	line "FLASH HM too."
+	para "Take this FLASH"
+	line "HM."
 	done
 
 SageLiFlashExplanationText:
@@ -281,11 +263,12 @@ SageLiFlashExplanationText:
 	line "even the darkest"
 	cont "of all places."
 
-	para "But to use it out"
-	line "of battle, or to"
+	para "You can also use"
+	line "FLASH from your"
+	cont "#GEAR's PPS."
 
-	para "even use the"
-	line "PAGER, you will"
+	para "But to use it out"
+	line "of battle, you"
 
 	para "need the BADGE"
 	line "from VIOLET's GYM."

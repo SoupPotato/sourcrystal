@@ -53,7 +53,6 @@ BattleCommand_FutureSight:
 	ld [wNumHits], a
 	ld de, ANIM_FUTURE_SIGHT_FORESAW
 	call PlayFXAnimID
-	call BattleCommand_MoveDelay
 	ld hl, ForesawAttackText
 	call StdBattleTextbox
 	call BattleCommand_RaiseSub

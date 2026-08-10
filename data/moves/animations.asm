@@ -395,7 +395,6 @@ BattleAnim_ThrowRock:
 	anim_wait 24
 	anim_ret
 
-BattleAnim_FutureSightForesaw: ; TODO, aliased here
 BattleAnim_ThrowBait:
 	anim_1gfx BATTLE_ANIM_GFX_MISC_2
 	anim_sound 6, 2, SFX_BONE_CLUB
@@ -4651,6 +4650,17 @@ BattleAnim_ShadowBall:
 	anim_wait 32
 	anim_obj BATTLE_ANIM_OBJ_BALL_POOF, 132, 56, $10
 	anim_wait 24
+	anim_ret
+
+BattleAnim_FutureSightForesaw:
+	anim_1gfx BATTLE_ANIM_GFX_SHINE
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj BATTLE_ANIM_OBJ_FORESIGHT, 64, 88, $0
+	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $30
+	anim_wait 64
+	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING
+	anim_wait 8
 	anim_ret
 
 BattleAnim_FutureSight:

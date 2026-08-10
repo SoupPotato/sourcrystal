@@ -286,6 +286,7 @@ BattleAnimations::
 	dw BattleAnim_InSun
 	dw BattleAnim_ThrowRock
 	dw BattleAnim_ThrowBait
+	dw BattleAnim_FutureSightForesaw
 	assert_table_length NUM_BATTLE_ANIMS + 1
 
 BattleAnim_Dummy:
@@ -394,6 +395,7 @@ BattleAnim_ThrowRock:
 	anim_wait 24
 	anim_ret
 
+BattleAnim_FutureSightForesaw: ; TODO, aliased here
 BattleAnim_ThrowBait:
 	anim_1gfx BATTLE_ANIM_GFX_MISC_2
 	anim_sound 6, 2, SFX_BONE_CLUB

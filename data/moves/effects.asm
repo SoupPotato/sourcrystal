@@ -1964,6 +1964,7 @@ FutureSight:
 	checkobedience
 	usedmovetext
 	doturn
+	moveanim
 	futuresight
 	critical
 	damagestats

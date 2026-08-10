@@ -48,11 +48,13 @@ BattleCommand_FutureSight:
 	ld a, 4
 	ld [hl], a
 	call BattleCommand_LowerSub
+	newfarcall BattleAnimClearHud
 	; ensure one-shot anim
 	xor a
 	ld [wNumHits], a
 	ld de, ANIM_FUTURE_SIGHT_FORESAW
 	call PlayFXAnimID
+	call RefreshBattleHuds
 	ld hl, ForesawAttackText
 	call StdBattleTextbox
 	call BattleCommand_RaiseSub

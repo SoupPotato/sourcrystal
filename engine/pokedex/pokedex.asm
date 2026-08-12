@@ -445,7 +445,7 @@ FormScreen_MenuActionJumptable:
 
 .Cry:
 	ld a, [wCurPartySpecies]
-	call PlayMonCry2
+	call PlayMonCry
 	newfarjp Pokedex_FormMode.wait_input
 
 DexEntryScreen_MenuActionJumptable:

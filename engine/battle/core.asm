@@ -133,7 +133,7 @@ StartAutomaticBattleWeather:
 .raining
 	ld a, WEATHER_RAIN
 	ld [wBattleWeather], a
-	ld de, RAIN_DANCE
+	ld de, ANIM_IN_RAIN
 	ld a, 255
 	ld [wWeatherCount], a
 	call Call_PlayBattleAnim
@@ -144,7 +144,7 @@ StartAutomaticBattleWeather:
 .sunlight
 	ld a, WEATHER_SUN
 	ld [wBattleWeather], a
-	ld de, SUNNY_DAY
+	ld de, ANIM_IN_SUN
 	ld a, 255
 	ld [wWeatherCount], a
 	call Call_PlayBattleAnim

@@ -118,10 +118,11 @@ Pokedex_FormMode:
 	jr .wait_input
 
 .a
-	call .stop_anim
 	ld a, [wDexArrowCursorPosIndex]
-	and a
+	and a ; PAGE
 	jr z, .b
+	cp 1 ; AREA
+	call z, .stop_anim
 	cp 3 ; FORM
 	jr z, .wait_input
 	newfarjp Pokedex_DoFormScreenAction

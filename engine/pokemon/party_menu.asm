@@ -300,6 +300,8 @@ PlacePartyMonTMHMCompatibility:
 	and a
 	ret z
 	ld c, a
+	ld a, [wCurPartyMon]
+	push af
 	ld b, 0
 	hlcoord 12, 2
 .loop
@@ -314,6 +316,8 @@ PlacePartyMonTMHMCompatibility:
 	add hl, de
 	ld a, [hl]
 	ld [wCurPartySpecies], a
+	ld a, b
+	ld [wCurPartyMon], a
 	predef CanLearnTMHMMove
 	pop hl
 	call .PlaceAbleNotAble
@@ -327,6 +331,8 @@ PlacePartyMonTMHMCompatibility:
 	inc b
 	dec c
 	jr nz, .loop
+	pop af
+	ld [wCurPartyMon], a
 	ret
 
 .PlaceAbleNotAble:
@@ -337,14 +343,40 @@ PlacePartyMonTMHMCompatibility:
 	ret
 
 .able
+	push hl
+	push bc
+	ld hl, wPartyMon1Moves
+	ld a, [wCurPartyMon]
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld b, NUM_MOVES
+	ld a, [wPutativeTMHMMove]
+	ld c, a
+.CheckKnownMove
+	ld a, [hl]
+	and a
+	jr z, .NotLearned
+	cp c
+	jr z, .AlreadyLearned
+	inc hl
+	dec b
+	jr nz, .CheckKnownMove
+.NotLearned
+	pop bc
+	pop hl
 	ld de, .string_able
 	ret
-
+.AlreadyLearned
+	pop bc
+	pop hl
+	ld de, .string_learned
+	ret
 .string_able
 	db "ABLE@"
-
 .string_not_able
 	db "NOT ABLE@"
+.string_learned
+	db "LEARNED@"
 
 PlacePartyMonEvoStoneCompatibility:
 	ld a, [wPartyCount]

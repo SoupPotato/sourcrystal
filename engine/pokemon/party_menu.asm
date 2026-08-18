@@ -300,9 +300,8 @@ PlacePartyMonTMHMCompatibility:
 	and a
 	ret z
 	ld c, a
-	ld a, [wCurPartyMon]
-	push af
 	ld b, 0
+	; bc iterates over party
 	hlcoord 12, 2
 .loop
 	push bc
@@ -331,8 +330,6 @@ PlacePartyMonTMHMCompatibility:
 	inc b
 	dec c
 	jr nz, .loop
-	pop af
-	ld [wCurPartyMon], a
 	ret
 
 .PlaceAbleNotAble:
@@ -343,12 +340,11 @@ PlacePartyMonTMHMCompatibility:
 	ret
 
 .able
+	; additional check if the mon already has that move
 	push hl
-	push bc
-	ld hl, wPartyMon1Moves
-	ld a, [wCurPartyMon]
-	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
+	ld a, MON_MOVES
+	call GetPartyParamLocation
+	; b iterates over move list
 	ld b, NUM_MOVES
 	ld a, [wPutativeTMHMMove]
 	ld c, a
@@ -358,23 +354,26 @@ PlacePartyMonTMHMCompatibility:
 	jr z, .NotLearned
 	cp c
 	jr z, .AlreadyLearned
-	inc hl
+	inc hl ; moves still take a byte each
 	dec b
 	jr nz, .CheckKnownMove
+
 .NotLearned
-	pop bc
 	pop hl
 	ld de, .string_able
 	ret
+
 .AlreadyLearned
-	pop bc
 	pop hl
 	ld de, .string_learned
 	ret
+
 .string_able
 	db "ABLE@"
+
 .string_not_able
 	db "NOT ABLE@"
+
 .string_learned
 	db "LEARNED@"
 

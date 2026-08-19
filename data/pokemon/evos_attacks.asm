@@ -2549,8 +2549,8 @@ SpinarakEvosAttacks:
 	db 20, FURY_SWIPES
 	db 23, FEINT_ATTACK
 	db 27, SPIDER_WEB
-	db 31, AGILITY
-	db 34, PIN_MISSILE
+	db 31, PIN_MISSILE
+	db 34, AGILITY
 	db 38, PSYCHIC_M
 	db 0 ; no more level-up moves
 
@@ -2567,8 +2567,8 @@ AriadosEvosAttacks:
 	db 22, SWORDS_DANCE
 	db 25, FEINT_ATTACK
 	db 30, SPIDER_WEB
-	db 34, AGILITY
-	db 39, PIN_MISSILE
+	db 34, PIN_MISSILE
+	db 39, AGILITY
 	db 44, PSYCHIC_M
 	db 0 ; no more level-up moves
 

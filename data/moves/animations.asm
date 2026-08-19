@@ -1404,7 +1404,7 @@ BattleAnim_RockSlide:
 	anim_wait 4
 	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 141, 68, $30
 	anim_wait 4
-	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $80, $1, $0
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $90, $1, $0
 .loop
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
 	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 123, 68, $30
@@ -1421,7 +1421,7 @@ BattleAnim_RockSlide:
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
 	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 141, 68, $30
 	anim_wait 4
-	anim_loop 4, .loop
+	anim_loop 5, .loop
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
 	anim_wait 4
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN

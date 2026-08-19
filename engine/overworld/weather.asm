@@ -600,7 +600,7 @@ DoRainFall:
 
 	; double the player's step vector
 	ld a, [wPlayerStepVectorY]
-;	add a
+;	add a ; not needed for SourCrystal
 	ld c, a
 
 	; get the sprite's y coord and subtract the player's doubled step vector
@@ -616,7 +616,7 @@ DoRainFall:
 
 	; double the player's step vector
 	ld a, [wPlayerStepVectorX]
-;	add a
+;	add a ; not needed for SourCrystal
 	ld c, a
 
 	; get the sprite's x coord and subtract the player's doubled step vector
@@ -1062,40 +1062,53 @@ Sunlight_DecPals:
 	ldh [hCGBPalUpdate], a
 	ret
 
+
+ResetSunlightPals::
+	; Call this whenever the overworld's base palette gets reloaded
+	; (e.g. returning from the Pokedex/Bag/Party menu) while sunlight
+	; weather is active. Without this, wSunlightIncCounter keeps
+	; counting from before the palette was reset, causing Sunlight_DecPals
+	; to subtract from an already-base palette and overshoot into
+	; colors darker than intended.
+	xor a
+	ld [wSunlightTimer], a
+	ld [wSunlightIncCounter], a
+	ret
+
 UnpackColor:
-    ; Input:
-    ;   hl -> An RGB555 color in a palette
-    ; Outputs:
-    ;   b = red   (0-31)
-    ;   c = green (0-31)
-    ;   d = blue  (0-31)
-    ; On return:
-    ;   hl points to the head of the color again
-
-    ld a, [hl]    ; 1/2; a = %gggRRRRR
-    and %00011111 ; 2/2; a = %000RRRRR
-    ld b, a       ; 1/1; b = %000RRRRR (b <- R done)
-
-    ld a, [hli]   ; 1/2; a = %gggRRRRR
-    and %11100000 ; 2/2; a = %ggg00000
-    ld c, a       ; 1/1; c = %ggg00000
-
-    ld a, [hl]    ; 1/2; a = %0BBBBBGG
-    and %00000011 ; 2/2; a = %000000GG
-    or c          ; 1/1; a = %ggg000GG
-    rlca          ; 1/1; a = %gg000GGg
-    rlca          ; 1/1; a = %g000GGgg
-    rlca          ; 1/1; a = %000GGggg
-    ld c, a       ; 1/1; c = %000GGggg (c <- G done)
-
-    ld a, [hl]   ; 1/2; a = %0BBBBBGG
-    and %01111100 ; 2/2; a = %0BBBBB00
-    rrca          ; 1/1; a = %00BBBBB0
-    rrca          ; 1/1; a = %000BBBBB
-    ld d, a       ; 1/1; d = %000BBBBB (d <- B done)
-
+	; Input:
+	;   hl -> An RGB555 color in a palette
+	; Outputs:
+	;   b = red   (0-31)
+	;   c = green (0-31)
+	;   d = blue  (0-31)
+	; On return:
+	;   hl points to the head of the color again
+	
+	ld a, [hl]    ; 1/2; a = %gggRRRRR
+	and %00011111 ; 2/2; a = %000RRRRR
+	ld b, a       ; 1/1; b = %000RRRRR (b <- R done)
+	
+	ld a, [hli]   ; 1/2; a = %gggRRRRR
+	and %11100000 ; 2/2; a = %ggg00000
+	ld c, a       ; 1/1; c = %ggg00000
+	
+	ld a, [hl]    ; 1/2; a = %0BBBBBGG
+	and %00000011 ; 2/2; a = %000000GG
+	or c          ; 1/1; a = %ggg000GG
+	rlca          ; 1/1; a = %gg000GGg
+	rlca          ; 1/1; a = %g000GGgg
+	rlca          ; 1/1; a = %000GGggg
+	ld c, a       ; 1/1; c = %000GGggg (c <- G done)
+	
+	ld a, [hl]   ; 1/2; a = %0BBBBBGG
+	and %01111100 ; 2/2; a = %0BBBBB00
+	rrca          ; 1/1; a = %00BBBBB0
+	rrca          ; 1/1; a = %000BBBBB
+	ld d, a       ; 1/1; d = %000BBBBB (d <- B done)
+	
 	dec hl
-    ret
+	ret
 
 PackColor:
 	; Input:
@@ -1329,6 +1342,7 @@ LoadWeatherGraphics::
 .continue
 	ld hl, vTiles0 tile WEATHER_TILE_1
 	jmp Get2bpp
+
 
 
 RainGFX:   INCBIN "gfx/overworld/rain.2bpp"

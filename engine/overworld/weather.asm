@@ -337,20 +337,24 @@ endr
 	call DoRainFall
 ; fallthrough
 RainSplashCleanup:
-	; we leave rain splashs on screen for approx 3.75fps.
-	; we have to ignore the LSB as we only run weather every odd frame.
-	ld a, [wOverworldWeatherInternalTimer]
-	and %111
-	ret nz
-
+	; we leave rain splashes on screen for approx 3.75fps, staggered
+	; per OAM slot instead of clearing every splash on screen at once.
 	ld de, wShadowOAM
 	ld b, NUM_SPRITE_OAM_STRUCTS
+	ld c, 0
 .loop ; for (wShadowOAM -> wShadowOAMEnd)
 	; if sprite tile is not a rain splash, skip it
 	ld hl, SPRITEOAMSTRUCT_TILE_ID
 	add hl, de
 	ld a, [hli]
 	cp RAINSPLASH_TILE
+	jr nz, .next
+
+	; only this slot's assigned tick (based on its OAM index) clears it,
+	; spreading clears for all splashes evenly across the 8-tick window
+	ld a, [wOverworldWeatherInternalTimer]
+	and %111
+	cp c
 	jr nz, .next
 
 	; hide the rain splash
@@ -362,6 +366,10 @@ RainSplashCleanup:
 	add hl, de
 	ld d, h
 	ld e, l
+	inc c
+	ld a, c
+	and %111
+	ld c, a
 	dec b
 	jr nz, .loop
 	ret
@@ -516,17 +524,10 @@ DoRainFall:
 	cp 5 percent
 	jr c, .splash
 
-	; quadruple the player's step vector (may be positive or negative)
-	ld a, [wPlayerStepVectorY]
-	add a
-;	add a
-
-	; get the sprite's y coord and subtract the player's quadrupled step vector
-	ld c, a
+	; raindrops fall independently of player movement.
 	ld hl, SPRITEOAMSTRUCT_YCOORD
 	add hl, de
 	ld a, [hl]
-	sub c
 	ld c, a
 
 	; sprites with an even index move down 2 faster.
@@ -544,17 +545,9 @@ DoRainFall:
 	ld [hl], a
 	jr nc, .despawn
 
-	; quadruple the player's step vector (may be positive or negative)
-	ld a, [wPlayerStepVectorX]
-	add a
-;	add a
-	ld c, a
-
-	; get the sprite's x coord and subtract the player's quadrupled step vector
 	ld hl, SPRITEOAMSTRUCT_XCOORD
 	add hl, de
 	ld a, [hl]
-	sub c
 	ld c, a
 
 	; sprites with an even index move left 2 faster.

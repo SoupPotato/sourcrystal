@@ -994,19 +994,16 @@ AnimateWaterPalette:
 	ld hl, wBGPals1 palette PAL_BG_WATER color 2
 
 .apply
-; Copy the selected source color to hardware as before, AND mirror it into
-; wBGPals2's hardware-visible slot (color 0, the only hardware color this
-; routine ever targets). Without this, any blanket wBGPals1->wBGPals2 sync
-; (e.g. ApplyPals) leaves wBGPals2 holding a stale value, and the next
-; VBlank's palette DMA stomps this frame's shimmer color right back out.
 	ld a, [hli]
 	ld b, a
 	ld a, [hl]
 	ld c, a
+
 	ld a, b
 	ldh [rBGPD], a
 	ld a, c
 	ldh [rBGPD], a
+
 	ld hl, wBGPals2 palette PAL_BG_WATER color 0
 	ld [hl], b
 	inc hl

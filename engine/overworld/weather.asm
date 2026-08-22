@@ -1021,13 +1021,6 @@ Sunlight_IncPals:
 
 	; Update the pals
 	farcall ApplyPals
-	; ApplyPals just copied wBGPals1's freshly-tinted colors into wBGPals2,
-	; including the water palette's colors 0-2 -- but AnimateWaterPalette
-	; is the only thing allowed to write the water palette's actual hardware
-	; slot (color 0) and its own mirror in wBGPals2. Call it now so it picks
-	; up the newly-tinted source colors and re-asserts the correct shimmer
-	; frame on top of them, instead of leaving a raw untouched value in
-	; hardware until its next natural tick.
 	farcall AnimateWaterPalette
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a

@@ -35,6 +35,7 @@ ReanchorBGMap_NoOAMUpdate::
 	call HDMATransferTilemapAndAttrmap_Menu
 	farcall LoadOW_BGPal7
 	farcall ApplyPals
+	farcall Sunlight_ReapplyTint
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 	xor a

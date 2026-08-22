@@ -990,13 +990,6 @@ Sunlight_ApplyTint:
 	ldh [rSVBK], a
 	ret
 
-; Conditionally reapply sunlight tint, called from UpdateTimePals and elsewhere
-Sunlight_ReapplyTint::
-	ld a, [wCurWeather]
-	cp OW_WEATHER_SUNLIGHT
-	ret nz
-	jr Sunlight_ApplyTint
-
 SunlightRamp:
 	table_width 1, SunlightRamp
 	;  R_delta    GB_delta

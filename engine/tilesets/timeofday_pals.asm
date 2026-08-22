@@ -111,7 +111,6 @@ _UpdateTimePals::
 	ld c, $9 ; normal
 	call GetTimePalFade
 	call DmgToCgbTimePals
-	farcall Sunlight_ReapplyTint
 	ret
 
 FadeInPalettes_EnableDynNoApply::

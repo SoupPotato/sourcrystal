@@ -982,6 +982,9 @@ DoOverworldSunlight:
 .clear_timers
 	; Resets this
 	call Sunlight_DecPals
+	farcall LoadMapPals   ; force an exact resync to the true untinted colors,
+	                      ; correcting any clamp-induced drift from this cycle
+	                      ; before the next one begins
 	xor a
 	ld [wSunlightTimer], a
 	ld [wSunlightIncCounter], a
@@ -1018,6 +1021,14 @@ Sunlight_IncPals:
 
 	; Update the pals
 	farcall ApplyPals
+	; ApplyPals just copied wBGPals1's freshly-tinted colors into wBGPals2,
+	; including the water palette's colors 0-2 -- but AnimateWaterPalette
+	; is the only thing allowed to write the water palette's actual hardware
+	; slot (color 0) and its own mirror in wBGPals2. Call it now so it picks
+	; up the newly-tinted source colors and re-asserts the correct shimmer
+	; frame on top of them, instead of leaving a raw untouched value in
+	; hardware until its next natural tick.
+	farcall AnimateWaterPalette
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 	ret
@@ -1051,6 +1062,10 @@ Sunlight_DecPals:
 
 	; Update the pals
 	farcall ApplyPals
+	; Same reasoning as Sunlight_IncPals: re-assert the water shimmer's
+	; current frame (now picking up the newly-detinted source colors)
+	; immediately after ApplyPals overwrites it.
+	farcall AnimateWaterPalette
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 	ret

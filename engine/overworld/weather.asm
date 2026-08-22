@@ -951,10 +951,7 @@ DoOverworldSunlight:
 	ld hl, SunlightRamp
 	add hl, bc
 	ld a, [hl]
-	ld hl, wSunlightRampStep
-	cp [hl]
-	ret z
-	ld [hl], a
+	ld [wSunlightRampStep], a
 ; fallthrough
 
 Sunlight_ApplyTint:

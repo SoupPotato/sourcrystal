@@ -1908,17 +1908,7 @@ wWeatherFlags:: db
 wPrevWeather:: db
 wCurWeather:: db
 wSunlightTimer:: db
-
-; SunlightIncCounter:
-;  -     7: Timer Status
-;  -     6: Preserve blue flag
-;  -     5: Preserve green flag
-;  -     4: Preserve red flag
-;  -   3-0: Calculates the current step of the pal increment or decrement
-wSunlightPreserveRed::
-wSunlightPreserveGreen::
-wSunlightPreserveBlue::
-wSunlightIncCounter:: db
+wSunlightRampStep:: db
 wPrevOvercastIndex:: db
 
 

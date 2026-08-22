@@ -47,7 +47,6 @@ StartMenu::
 .Reopen:
 	call RestoreSprites
 	farcall LoadWeatherPal
-	farcall ResetSunlightPals
 	call ClearSpritesUnderStartMenu
 	call UpdateSprites
 	call UpdateTimePals

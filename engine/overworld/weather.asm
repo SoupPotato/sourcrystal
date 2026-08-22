@@ -980,16 +980,6 @@ Sunlight_ApplyTint:
 		ld hl, wBGPals2
 		ld e, SUNLIT_BG_PALS * NUM_PAL_COLORS
 	.tint_loop
-	; water palette?
-		ld a, e
-		cp (SUNLIT_BG_PALS - PAL_BG_WATER) * NUM_PAL_COLORS
-		jr nz, .tint_color
-	; skip water palette
-		ld bc, 1 palettes
-		add hl, bc
-		sub NUM_PAL_COLORS
-		ld e, a
-	.tint_color
 		call UnpackColor
 		call SunTintColor
 		call PackColor

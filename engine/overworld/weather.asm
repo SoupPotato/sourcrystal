@@ -982,6 +982,9 @@ DoOverworldSunlight:
 .clear_timers
 	; Resets this
 	call Sunlight_DecPals
+	farcall LoadMapPals   ; force an exact resync to the true untinted colors,
+	                      ; correcting any clamp-induced drift from this cycle
+	                      ; before the next one begins
 	xor a
 	ld [wSunlightTimer], a
 	ld [wSunlightIncCounter], a
@@ -1018,6 +1021,7 @@ Sunlight_IncPals:
 
 	; Update the pals
 	farcall ApplyPals
+	farcall AnimateWaterPalette
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 	ret
@@ -1051,6 +1055,10 @@ Sunlight_DecPals:
 
 	; Update the pals
 	farcall ApplyPals
+	; Same reasoning as Sunlight_IncPals: re-assert the water shimmer's
+	; current frame (now picking up the newly-detinted source colors)
+	; immediately after ApplyPals overwrites it.
+	farcall AnimateWaterPalette
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 	ret

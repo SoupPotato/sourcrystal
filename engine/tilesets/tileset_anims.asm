@@ -982,32 +982,33 @@ AnimateWaterPalette:
 	cp %100
 	jr z, .color2
 
-; Copy one color from hl to rBGPI via rBGPD
-
 ; color1
 	ld hl, wBGPals1 palette PAL_BG_WATER color 1
-	ld a, [hli]
-	ldh [rBGPD], a
-	ld a, [hli]
-	ldh [rBGPD], a
-	jr .end
+	jr .apply
 
 .color0
 	ld hl, wBGPals1 palette PAL_BG_WATER color 0
-	ld a, [hli]
-	ldh [rBGPD], a
-	ld a, [hli]
-	ldh [rBGPD], a
-	jr .end
+	jr .apply
 
 .color2
 	ld hl, wBGPals1 palette PAL_BG_WATER color 2
+
+.apply
 	ld a, [hli]
+	ld b, a
+	ld a, [hl]
+	ld c, a
+
+	ld a, b
 	ldh [rBGPD], a
-	ld a, [hli]
+	ld a, c
 	ldh [rBGPD], a
 
-.end
+	ld hl, wBGPals2 palette PAL_BG_WATER color 0
+	ld [hl], b
+	inc hl
+	ld [hl], c
+
 	pop af
 	ldh [rSVBK], a
 	ret

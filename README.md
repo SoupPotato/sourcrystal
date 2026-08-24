@@ -47,10 +47,11 @@ Its goal is not to change, but build upon the original game with many bug fixes,
 - **Updated Move properties:** Base Power, Accuracy, effects, etc
 - **Updated Movepools**
 - **Upgraded trainer rematch system** to make grinding more enjoyable and rewarding
+- **Expanded Phone Contacts** which can hold all 50 contacts at once
 - **A complete overhaul of the PC Box** which now functions like Gen3. No more saving between boxes required
 - **Some post-game Pokémon are now available in Johto** such as Houndour and Slugma
 - **Upgraded battle color system** for more dynamic attack animations
-- **Updated attack animations** for some moves
+- **Updated attack animations** for many moves
 - **All 251 Pokémon obtainable**
 - **Instant Apricorn Balls**
 - **Visible Berries and Apricorns on the overworld.** Each tree respawns at 12:00am each day
@@ -65,6 +66,7 @@ Its goal is not to change, but build upon the original game with many bug fixes,
 - **All HGSS-exclusive routes and trainers have been ported**
 - **Trade Evolutions can now also be obtained by using a new item** called the Linking Cord or by simply using the item required for trading on the Pokémon. (King’s Rock, Metal Coat, etc.)
 - **A Move Reminder**
+- **Postgame Gym Leader Rematches and E4 Round 2** can be triggered after defeating Red for the first time.
 - **And many other small goodies to find!**
 
 

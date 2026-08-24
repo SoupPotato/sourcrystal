@@ -5,35 +5,36 @@ This is a custom Pokémon game based on the Pokémon Crystal disassembly.
 Its goal is not to change, but build upon the original game with many bug fixes, graphical tweaks and quality of life changes. In addition, features have been visually altered to make better use of the GBC's stronger hardware.
 
 
-## __What’s New in v6.2:__
+## __What’s New in v7.0:__
 
 ###### __Updates:__
-- The game now 'Tags' your save file for future updates. This will allow save files to be updated in-game with the next update.
-- The ITEMFINDER has been reworked to function like in FRLG. Arrows will appear showing you the direction of nearby hidden items.
-- The Pokegear now displays the day + time for trainers that can be re-fought.
-- The Fossils are slightly easier to notice when moving through the Mt.Mortar.
-- The fossils in Pewter City Museum are now colored.
-- Updated the sprites for the following pokemon:
-  - Drowzee (back)
-  - Kingler (back)
-  - Vaporeon (front + palette)
-  - Kabutops (back)
-  - Dratini (front + palette)
-  - Dragonair (front + back + palette)
-  - Sunflora (front + palette)
-  - Mareep (palette)
-- Updated the animations for the following attacks:
-  - Rock Throw
-  - Rock Slide
-  - Magnitude
-  - Flamethrower
-  - Fire Blast
+- The Pokegear's PHONE contact list has been extended to hold all 50 contacts at once.
+- Incoming phone calls from other trainers can now be 'Answered' or Declined' at will.
+- When a Fire-type is in your party, EGGs will now hatch twice as fast. This effect does not stack if you have more than one Fire-type in your party.
+- The UNOWN dex has been redesigned to better keep track of the different forms of UNOWN the player has.
+- A new 'FORM' mode has been added to the Pokedex that will allow you to check a Pokemon's front and back sprites as well as their animation, shiny colors, and party icon.
+- The PRINT function for the Pokedex has been removed.
+- Added a Shiny Charm to the game which doubles your chance of finding a shiny in the wild. This effect also applies to swarms.
+- Harsh Sunlight weather can now occur in the overworld, just like Rain. However, it cannot be active at NITE.
+- Players now have unique sprites for surfing.
+- Players can now FISH while surfing.
+- An NPC has been added to Mt.Mortar to inform the player that fossils can be found there.
+- When teaching a move via TM/HM or tutor, Pokemon that know the move already will display 'LEARNED' on the party screen.
+- Updated the sprites for the following Pokemon:
+  - Charmeleon (front + animated)
+  - Pidgeotto (back)
+  - Arbok (back)
+  - Slowbro (shiny palette)
+  - Koffing (back)
+  - Magmar (palette)
+  - Umbreon (front)
+  - Kingdra (front + animated)
 
 ###### __Bugfixes:__
-- Depositing a Pokemon in the Daycare will no longer corrupt your party on rare occasions.
-- Battling Sudowoodo after the E4 wont trigger Floria's script again.
-- MetalPowder now works correctly on Ditto.
-- Corrected spelling errors and grammar across the game.
+- The Game will no longer crash if you attempt to buy Moomoo Milk without having enough money.
+- When Future Sight deals damage, the textbox will now correctly state if the damage was Super/Not Very Effective or a Critical Hit.
+- The Player's HP bar will no longer be hidden at the start of battle when there is an active weather in the overworld.
+- Rain splashes will no longer pile up at the bottom of the screen if the player walks south during rainy weather.
 
 ## __Features:__
 
@@ -48,7 +49,7 @@ Its goal is not to change, but build upon the original game with many bug fixes,
 - **Upgraded trainer rematch system** to make grinding more enjoyable and rewarding
 - **A complete overhaul of the PC Box** which now functions like Gen3. No more saving between boxes required
 - **Some post-game Pokémon are now available in Johto** such as Houndour and Slugma
-- **Upgraded battle color system **for more dynamic attack animations
+- **Upgraded battle color system** for more dynamic attack animations
 - **Updated attack animations** for some moves
 - **All 251 Pokémon obtainable**
 - **Instant Apricorn Balls**

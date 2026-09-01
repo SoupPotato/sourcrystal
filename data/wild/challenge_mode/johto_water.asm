@@ -69,7 +69,7 @@ JohtoWaterWildMonsChallenge:
 	db 10 percent ; encounter rate
 	db 23, TENTACOOL
 	db 23, KRABBY
-	db 23, LAPRAS
+	db 23, HORSEA
 	end_water_wildmons
 
 	def_water_wildmons MOUNT_MORTAR_1F_OUTSIDE

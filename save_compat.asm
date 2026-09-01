@@ -24,8 +24,7 @@ ApplySaveVersion:
 	call OpenSRAM
 	ld hl, sGameVersion
 	ld [hl], GAME_VERSION
-	and a ; clear carry
-	ret
+	jp SaveChecksum
 
 ApplyBackupSaveVersion:
 	ld a, BANK(sBackupGameVersion)
@@ -33,6 +32,7 @@ ApplyBackupSaveVersion:
 	ld hl, sBackupGameVersion
 	ld [hl], GAME_VERSION
 	call CloseSRAM
+	call SaveBackupChecksum
 	and a ; clear carry
 	ret
 

@@ -52,8 +52,31 @@ MigrateSaveFile:
 	dec c
 	jr nz, .continue_convert
 
+; **HOTFIX**
+; Saved weather map group format changed between 6.2 and 7.0, but the migration
+; code did not account for it, leading to things like raining indoors. This
+; self-corrects within the day, but it is still odd.
+;
+; old format: group1, group2, mapId1, mapId2
+; new format: group1, mapId1, group2, mapId2
+;
+; A swap operation between the middle bits should suffice here.
+	ld hl, sPlayerData + (wWeatherRandomMapJohto+1 - wPlayerData)
+	call .do_swap
+	ld hl, sPlayerData + (wWeatherRandomMapKanto+1 - wPlayerData)
+	call .do_swap
+
 ; Finish migration
 	jp ApplySaveVersion
+
+.do_swap
+	ld a, [hli]
+	ld b, a
+	ld a, [hl]
+	dec hl
+	ld [hli], a
+	ld [hl], b
+	ret
 
 MigrateBackupSaveFile:
 ; eh same code as above. should I like make a macro or something for these?
@@ -89,4 +112,8 @@ MigrateBackupSaveFile:
 	inc hl
 	dec c
 	jr nz, .continue_convert
+	ld hl, sBackupPlayerData + (wWeatherRandomMapJohto+1 - wPlayerData)
+	call MigrateSaveFile.do_swap
+	ld hl, sBackupPlayerData + (wWeatherRandomMapKanto+1 - wPlayerData)
+	call MigrateSaveFile.do_swap
 	jp ApplyBackupSaveVersion

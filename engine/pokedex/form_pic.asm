@@ -187,7 +187,7 @@ Pokedex_FormMode:
 .normal
 	ld de, wBGPals2 palette 1
 	newfarcall LoadPalette_White_Col1_Col2_Black
-	call ApplyPals
+	newfarcall ApplyPals
 	ld a, 1
 	ldh [hCGBPalUpdate], a
 

@@ -185,7 +185,7 @@ Pokedex_FormMode:
 		call PlaceString
 	pop hl
 .normal
-	ld de, wBGPals2 palette 1
+	ld de, wBGPals1 palette 1
 	newfarcall LoadPalette_White_Col1_Col2_Black
 	newfarcall ApplyPals
 	ld a, 1

@@ -459,7 +459,14 @@ TradeAnim_InitTubeAnim:
 	set OAM_Y_FLIP, [hl]
 	xor a
 	ldh [rVBK], a
+
+	call TradeAnim_PrepareOTGB
+	jr .finish
+
 .from_player
+	call TradeAnim_PreparePlayerGB
+
+.finish
 	call EnableLCD
 	call TradeAnim_IncrementJumptableIndex
 
@@ -474,22 +481,22 @@ TradeAnim_InitTubeAnim:
 	RGB $0B, $10, $1E
 	RGB $07, $0B, $16
 	RGB $05, $06, $12
-; BGP1 bg shade 1
+; BGP1 bg shade 1 + arrow
 	RGB $1F, $1F, $1F
 	RGB $14, $1A, $1F
 	RGB $0D, $18, $1D
-	RGB $0B, $10, $1E
+	RGB $0B, $10, $1E ; [THIS COLOR SHOULD FLASH]
 ; BGP2 cable (white bg)
 	RGB 31, 31, 31
 	RGB 31, 31, 00 ; v [THESE COLORS SHOULD ALTERNATE]
 	RGB 31, 15, 00 ; ^ [THESE COLORS SHOULD ALTERNATE]
 	RGB 00, 00, 00
-; BGP3 game boy
+; BGP3 game boy (screen)
 	RGB 31, 15, 00 ; [THIS COLOR SHOULD FLASH]
 	RGB 17, 00, 31
 	RGB 04, 00, 10
 	RGB 00, 00, 00
-; BGP4 game boy (white bg)
+; BGP4 game boy (player, white bg)
 	RGB 31, 31, 31
 	RGB 17, 00, 31
 	RGB 04, 00, 10
@@ -504,10 +511,10 @@ TradeAnim_InitTubeAnim:
 	RGB 31, 31, 00 ; v [THESE COLORS SHOULD ALTERNATE]
 	RGB 31, 15, 00 ; ^ [THESE COLORS SHOULD ALTERNATE]
 	RGB 00, 00, 00
-; BGP7 arrow
+; BGP7 game boy (OT, white bg)
 	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 31, 15, 00 ; [THIS COLOR SHOULD FLASH]
+	RGB 31, 07, 16
+	RGB 22, 01, 08
 	RGB 00, 00, 00
 
 .BubblePalette:
@@ -562,6 +569,8 @@ TradeAnim_TubeToOT3:
 	ldh a, [hSCY]
 	inc a
 	ldh [hSCY], a
+	cp $30
+	call z, TradeAnim_PrepareOTGB
 	cp $70
 	ret nz
 ; setup for next wait
@@ -594,6 +603,8 @@ TradeAnim_TubeToPlayer3:
 	ldh a, [hSCY]
 	dec a
 	ldh [hSCY], a
+	cp $30
+	call z, TradeAnim_PreparePlayerGB
 	and a
 	ret nz
 	call TradeAnim_IncrementJumptableIndex
@@ -1451,7 +1462,7 @@ TradeAnim_FlashBGPals:
 		inc hl
 		ld [hl], b
 		; arrow
-		ld hl, wBGPals2 palette 7 color 2
+		ld hl, wBGPals2 palette 1 color 3
 		ld bc, palred (31) + palgreen (20) + palblue (08)
 		ld [hl], c
 		inc hl
@@ -1493,7 +1504,7 @@ TradeAnim_FlashBGPals:
 		inc hl
 		ld [hl], b
 		; arrow
-		ld hl, wBGPals2 palette 7 color 2
+		ld hl, wBGPals2 palette 1 color 3
 		ld bc, palred (31) + palgreen (15) + palblue (00)
 		ld [hl], c
 		inc hl
@@ -1501,6 +1512,50 @@ TradeAnim_FlashBGPals:
 	pop af
 	ldh [rSVBK], a
 .done
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	ret
+
+TradeAnim_PrepareOTGB:
+	ld hl, wBGPals2 palette 7 color 1 ; OT game boy
+	jr TradeAnim_PrepareGBCorners
+
+TradeAnim_PreparePlayerGB:
+	ld hl, wBGPals2 palette 4 color 1 ; player game boy
+TradeAnim_PrepareGBCorners:
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals2)
+	ldh [rSVBK], a
+
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld d, a
+	ld e, [hl]
+
+	ld hl, wBGPals2 palette 5 color 1 ; game boy corners
+	ld a, c
+	ld [hli], a
+	ld a, b
+	ld [hli], a
+	ld a, e
+	ld [hli], a
+	ld [hl], d
+
+	ld hl, wBGPals2 palette 3 color 1 ; game boy screens
+	ld a, c
+	ld [hli], a
+	ld a, b
+	ld [hli], a
+	ld a, e
+	ld [hli], a
+	ld [hl], d
+
+	pop af
+	ldh [rSVBK], a
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 	ret

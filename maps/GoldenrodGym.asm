@@ -41,6 +41,7 @@ GoldenrodGymWhitneyScript:
 	setevent EVENT_BEAT_BEAUTY_SAMANTHA
 	setevent EVENT_BEAT_LASS_CARRIE
 	setevent EVENT_BEAT_LASS_BRIDGET
+	specialphonecall SPECIALCALL_OAKSTALKSHOWSWARMS
 .FightDone:
 	opentext
 	checkevent EVENT_MADE_WHITNEY_CRY

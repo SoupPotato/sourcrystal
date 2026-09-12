@@ -1200,16 +1200,10 @@ VitalThrowDescription:
 	next "that never misses.@"
 
 MorningSunDescription:
-	db   "Restores HP"
-	next "(varies by time).@"
-
 SynthesisDescription:
-	db   "Restores HP"
-	next "(varies by time).@"
-
 MoonlightDescription:
-	db   "Restores HP"
-	next "(varies by time).@"
+	db   "Restores HP based"
+	next "on weather.@"
 
 HiddenPowerDescription:
 	db   "The type varies"

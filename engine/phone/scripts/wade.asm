@@ -70,7 +70,7 @@ WadeWantsBattle:
 
 WadeHasBerry:
 	setflag ENGINE_WADE_HAS_BERRY
-	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_2
+	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_31
 	farjump PhoneScript_FoundItem_Male
 
 WadeFoundRare:

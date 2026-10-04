@@ -218,6 +218,13 @@ gfx/pokemon/unown_%/front.2bpp: rgbgfx += --colors gbc:$(word 2,$^)
 gfx/pokemon/unown/normal.gbcpal: $(subst .png,.gbcpal,$(unown_pngs))
 	tools/gbcpal $(tools/gbcpal) $@ $^
 
+# Icons hold 5 follower walk frames in addition to the existing party icon frames
+
+gfx/icons/%.party.2bpp: gfx/icons/%.png
+	$(RGBGFX) $(rgbgfx) --slice 0,0:2,4 -o $@ $<
+
+gfx/icons/%.follow.2bpp: gfx/icons/%.png
+	$(RGBGFX) $(rgbgfx) --slice 0,32:2,10 -o $@ $<
 
 ### Misc file-specific graphics rules
 

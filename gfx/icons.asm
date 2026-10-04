@@ -291,7 +291,6 @@ UnownZIcon::     INCBIN "gfx/icons/unown_z.party.2bpp"
 
 SECTION "Follower Sprites", ROMX
 
-; ponytail: one section; split it when the drawn art passes one bank
 FollowerSprites::
 ; a null entry (db 0, 0, 0) means the species refuses to tag along
 	table_width 3

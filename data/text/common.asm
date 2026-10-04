@@ -6028,3 +6028,18 @@ _RecallFirstText::
 	text_ram wStringBuffer1
 	text " first!"
 	prompt
+
+SECTION "_FollowerRefusedText", ROMX
+_FollowerRefusedText::
+	text_ram wStringBuffer1
+	text ""
+	line "refused to tag"
+	cont "along<……>"
+	prompt
+
+SECTION "_FollowerCantFollowText", ROMX
+_FollowerCantFollowText::
+	text_ram wStringBuffer1
+	text " can't"
+	line "follow you!"
+	prompt

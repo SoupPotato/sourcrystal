@@ -1,4 +1,28 @@
 _SetPartyFollowerAction::
+; refuse if the species has no follower sprite
+	ld a, [wCurPartyMon]
+	ld e, a
+	ld d, 0
+	ld hl, wPartySpecies
+	add hl, de
+	ld a, [hl]
+	cp NUM_POKEMON + 1
+	jr nc, .refused
+	dec a
+	ld hl, FollowerSprites
+	ld bc, 3
+	call AddNTimes
+	ld a, BANK(FollowerSprites)
+	call GetFarByte
+	and a
+	jr z, .refused
+; fainted mons can't follow
+	ld a, MON_HP
+	call GetPartyParamLocation
+	ld a, [hli]
+	or [hl]
+	jr z, .fainted
+
 	ld a, [wPartyFollower]
 	and a
 	jr z, .no_previous
@@ -34,6 +58,28 @@ _SetPartyFollowerAction::
 
 .TagAlongText:
 	text_far _TagAlongText
+	text_end
+
+.refused
+	ld hl, .RefusedText
+	jr .print_with_nickname
+
+.fainted
+	ld hl, .CantFollowText
+.print_with_nickname
+	push hl
+		ld a, [wCurPartyMon]
+		ld hl, wPartyMonNicknames
+		call GetNickname
+	pop hl
+	jp PrintText
+
+.RefusedText:
+	text_far _FollowerRefusedText
+	text_end
+
+.CantFollowText:
+	text_far _FollowerCantFollowText
 	text_end
 
 _ClearPartyFollowerAction::

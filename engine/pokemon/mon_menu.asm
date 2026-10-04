@@ -101,9 +101,26 @@ PartyMonItemName:
 	call CopyName1
 	ret
 
+SetPartyFollowerAction:
+	ld a, [wCurPartyMon]
+	inc a ; 1-index
+	; TODO: X != Y -> "Put X back in its ball"
+	ld [wPartyFollower], a
+	newfarcall SpawnFollower     ; reinit follower
+	newfarcall ReappearFollower  ; actually place it
+	; TODO: "Y is following you around"
+	jr CancelPokemonAction
+
+ClearPartyFollowerAction:
+	xor a
+	ld [wPartyFollower], a
+	newfarcall UnloadFollowerIfNeeded
+	; TODO: "Put Y back in its ball"
+	;jr CancelPokemonAction
+
 CancelPokemonAction:
-	farcall InitPartyMenuWithCancel
-	farcall UnfreezeMonIcons
+	newfarcall InitPartyMenuWithCancel
+	newfarcall UnfreezeMonIcons
 	ld a, 1
 	ret
 
@@ -150,6 +167,8 @@ PokemonActionSubmenu:
 	dbw MONMENUITEM_CANCEL,     CancelPokemonAction
 	dbw MONMENUITEM_MOVE,       ManagePokemonMoves
 	dbw MONMENUITEM_MAIL,       MonMailAction
+	dbw MONMENUITEM_TAG_ALONG,  SetPartyFollowerAction
+	dbw MONMENUITEM_RECALL,     ClearPartyFollowerAction
 
 SwitchPartyMons:
 ; Don't try if there's nothing to switch!

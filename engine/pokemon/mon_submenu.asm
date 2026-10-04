@@ -153,6 +153,22 @@ GetMonSubmenuItems:
 	call AddMonMenuItem
 	ld a, MONMENUITEM_MOVE
 	call AddMonMenuItem
+	ld a, [wPartyFollower]
+	ld d, a
+	and a
+	ld a, MONMENUITEM_TAG_ALONG
+	jr z, .got_foll_status
+; is the same mon?
+	dec d
+	ld a, [wCurPartyMon]
+	cp d
+	ld a, MONMENUITEM_TAG_ALONG
+	jr nz, .got_foll_status
+.recall
+	ld a, MONMENUITEM_RECALL
+.got_foll_status
+	call AddMonMenuItem
+.skip_add
 	ld a, [wLinkMode]
 	and a
 	jr nz, .skip2

@@ -864,6 +864,10 @@ SECTION "Polished Fade System", ROMX
 
 INCLUDE "engine/gfx/fade.asm"
 
+SECTION "Follower Party Actions", ROMX
+
+INCLUDE "engine/pokemon/mon_follow_script.asm"
+
 
 SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$7F]
 

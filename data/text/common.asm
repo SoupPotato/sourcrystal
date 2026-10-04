@@ -6005,3 +6005,18 @@ _MomLostGearBookletText::
 	para "Come back again in"
 	line "a while."
 	prompt
+
+SECTION "_TagAlongText", ROMX
+_TagAlongText::
+	text_ram wStringBuffer1
+	text " tags"
+	line "along with you!"
+	prompt
+
+SECTION "_RecalledText", ROMX
+_RecalledText::
+	text "Recalled"
+	line "@"
+	text_ram wStringBuffer1
+	text "!"
+	prompt

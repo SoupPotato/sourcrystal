@@ -102,20 +102,11 @@ PartyMonItemName:
 	ret
 
 SetPartyFollowerAction:
-	ld a, [wCurPartyMon]
-	inc a ; 1-index
-	; TODO: X != Y -> "Put X back in its ball"
-	ld [wPartyFollower], a
-	newfarcall SpawnFollower     ; reinit follower
-	newfarcall ReappearFollower  ; actually place it
-	; TODO: "Y is following you around"
+	newfarcall _SetPartyFollowerAction
 	jr CancelPokemonAction
 
 ClearPartyFollowerAction:
-	xor a
-	ld [wPartyFollower], a
-	newfarcall UnloadFollowerIfNeeded
-	; TODO: "Put Y back in its ball"
+	newfarcall _ClearPartyFollowerAction
 	;jr CancelPokemonAction
 
 CancelPokemonAction:

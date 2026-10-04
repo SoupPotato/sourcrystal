@@ -197,15 +197,9 @@ GetFollowerSprite:
 	and a
 	ret z
 
-; Each sprite is the first frame of its pokemon party sprite PLUS 
-; 5 additional frames:
-;    face up
-;    face left
-;    walk down
-;    walk up
-;    walk left
-
-; decompress the walking frames first
+; Each sprite is a whole LZ-compressed walking sprite (24 tiles):
+;    face down, face up, face left
+;    walk down, walk up, walk left
 
 	call .GetFollowerSpecies
 	dec a
@@ -219,6 +213,29 @@ GetFollowerSprite:
 	ret z
 
 	ld b, a
+
+; Unown has one sprite per letter
+	push hl
+		call .GetFollowerSpecies
+		cp UNOWN
+	pop hl
+	jr nz, .got_entry
+
+	ld a, [wPartyFollower]
+	dec a
+	ld hl, wPartyMon1DVs
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	dec a
+	ld hl, UnownFollowerSprites
+	ld bc, 3
+	call AddNTimes
+	ld a, BANK(UnownFollowerSprites)
+	call GetFarByte
+	ld b, a
+.got_entry
 	inc hl
 	ld a, BANK(FollowerSprites)
 	call GetFarWord
@@ -227,37 +244,8 @@ GetFollowerSprite:
 		ld a, BANK(wDecompressScratch)
 		ldh [rSVBK], a
 		ld a, b
-		ld de, wDecompressScratch + 4 tiles
-		call FarDecompress
-	pop af
-	ldh [rSVBK], a
-
-; next up, the first frame of the icon
-
-; handle unown
-	ld a, [wPartyFollower]
-	dec a
-	ld hl, wPartyMon1DVs
-	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
-	predef GetUnownLetter
-	ld a, [wUnownLetter]
-	ld [wCurIconForm], a
-
-; simply calculate which one we need and copy it over
-	call .GetFollowerSpecies
-	ld e, a
-	farcall LoadOverworldMonIcon
-	ld h, d
-	ld l, e
-	ldh a, [rSVBK]
-	push af
-		ld a, BANK(wDecompressScratch)
-		ldh [rSVBK], a
-		ld a, b
 		ld de, wDecompressScratch
-		ld bc, 4 tiles
-		call FarCopyBytes
+		call FarDecompress
 	pop af
 	ldh [rSVBK], a
 

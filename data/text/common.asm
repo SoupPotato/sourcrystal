@@ -6020,3 +6020,11 @@ _RecalledText::
 	text_ram wStringBuffer1
 	text "!"
 	prompt
+
+SECTION "_RecallFirstText", ROMX
+_RecallFirstText::
+	text "Recall"
+	line "@"
+	text_ram wStringBuffer1
+	text " first!"
+	prompt

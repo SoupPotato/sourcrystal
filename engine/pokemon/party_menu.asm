@@ -9,7 +9,30 @@ SelectMonFromParty:
 	call DelayFrame
 	call PartyMenuSelect
 	call ReturnToMapWithSpeechTextbox
+	ret c
+; the follower can't be given away; treat as cancelled
+	ld a, [wPartyFollower]
+	and a
+	ret z
+	dec a
+	ld hl, wCurPartyMon
+	cp [hl]
+	jr z, .is_follower
+	and a
 	ret
+
+.is_follower
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMonNicknames
+	call GetNickname
+	ld hl, .RecallFirstText
+	call PrintText
+	scf
+	ret
+
+.RecallFirstText:
+	text_far _RecallFirstText
+	text_end
 
 SelectTradeOrDayCareMon:
 	ld a, b

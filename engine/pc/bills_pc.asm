@@ -37,6 +37,7 @@ SwapStorageBoxSlots:
 ; 3: The box is full
 ; 4: Doing this would remove the last healthy mon in party
 ; 5: Can't move partymon to Box, because they're holding Mail.
+; 10: Can't move the follower out of the party.
 	; Compare source->dest to see if we're "moving" something with itself.
 	ld h, -1
 	ld a, b
@@ -132,6 +133,18 @@ SwapStorageBoxSlots:
 	call GetStorageBoxMon
 	jr z, .not_last_healthy
 
+	; The follower can't be stored. Keep its nickname for the error text.
+	ld a, [wPartyFollower]
+	cp c
+	jr nz, .not_follower
+	ld hl, wBufferMonNickname
+	ld de, wStringBuffer1
+	ld bc, MON_NAME_LENGTH
+	call CopyBytes
+	ld a, 10
+	jr .pop_bcde_and_return
+
+.not_follower
 	; Check if the partymon is holding Mail. We can't store Mail in a Box.
 	ld a, [wBufferMonItem]
 	call ItemIsMail_a
@@ -244,6 +257,19 @@ SwapPartyMons:
 	push hl
 	push de
 	push bc
+; keep the follower attached to its mon
+	ld a, [wPartyFollower]
+	cp c
+	jr nz, .not_c
+	ld a, e
+	jr .set_follower
+.not_c
+	cp e
+	jr nz, .follower_done
+	ld a, c
+.set_follower
+	ld [wPartyFollower], a
+.follower_done
 	dec c
 	dec e
 	ld d, c

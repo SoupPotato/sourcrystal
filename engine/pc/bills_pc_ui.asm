@@ -2625,6 +2625,7 @@ BillsPC_CanReleaseMon:
 ; 2: Can't release Egg
 ; 3: Can't release mon knowing HMs
 ; 4: Empty slot
+; 5: Can't release the follower
 	; Is there even anything there?
 	call GetStorageBoxMon
 	ld a, 4
@@ -2646,7 +2647,23 @@ BillsPC_CanReleaseMon:
 	pop hl
 	ld a, 1
 	jr c, .done
-	; fallthrough
+
+	; The follower can't be released. Keep its nickname for the error text.
+	ld a, [wPartyFollower]
+	cp c
+	jr nz, .not_last_healthy
+	push hl
+	push de
+	push bc
+	ld hl, wBufferMonNickname
+	ld de, wStringBuffer1
+	ld bc, MON_NAME_LENGTH
+	call CopyBytes
+	pop bc
+	pop de
+	pop hl
+	ld a, 5
+	jr .done
 .not_last_healthy
 	; Can't release Eggs.
 	ld a, [wBufferMonAltSpecies]
@@ -2770,6 +2787,9 @@ BillsPC_Release:
 	jr z, .print
 	ld hl, .CantReleaseHMMons
 	dec a
+	jr z, .print
+	ld hl, BillsPC_RecallFirstText
+	sub 2
 	jr z, .print
 
 	; We don't need to check for error 4 (empty slot) since we can't get to this
@@ -3187,6 +3207,9 @@ BillsPC_SwapStorage:
 	dec a
 	jr z, .swap_failed
 	ld hl, BillsPC_PackFullText
+	dec a
+	jr z, .swap_failed
+	ld hl, BillsPC_RecallFirstText
 	; fallthrough
 .swap_failed
 	; Print error message
@@ -3241,6 +3264,10 @@ BillsPC_LastPartyMon:
 	text "That's your last"
 	line "healthy #MON!"
 	prompt
+
+BillsPC_RecallFirstText:
+	text_far _RecallFirstText
+	text_end
 
 BillsPC_MustSaveToContinue:
 	text "Save the game to"

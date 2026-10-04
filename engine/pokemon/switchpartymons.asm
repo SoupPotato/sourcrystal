@@ -14,6 +14,22 @@ _SwitchPartyMons:
 	ld a, [wSwitchMonTo]
 	call .ClearSprite
 .skip
+; keep the follower attached to its mon (wPartyFollower is 1-indexed)
+	ld a, [wPartyFollower]
+	and a
+	ret z
+	dec a
+	ld b, a
+	ld a, [wSwitchMonFrom]
+	cp b
+	ld a, [wSwitchMonTo]
+	jr z, .set_follower
+	cp b
+	ret nz
+	ld a, [wSwitchMonFrom]
+.set_follower
+	inc a
+	ld [wPartyFollower], a
 	ret
 
 .ClearSprite:

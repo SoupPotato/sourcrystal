@@ -78,6 +78,9 @@ DeleteFollower::
 	jp DeleteObjectStruct
 
 ReappearFollower::
+	ld a, [wPartyFollower]
+	and a
+	ret z
 	xor a
 	ld [wFollowerNextMovement], a
 	call RefreshPlayerCoords
@@ -91,6 +94,9 @@ ReappearFollower::
 
 ; force spawning atop the player, really for the surf case
 ReappearFollowerInPlace::
+	ld a, [wPartyFollower]
+	and a
+	ret z
 	xor a
 	ld [wFollowerNextMovement], a
 	call RefreshPlayerCoords
@@ -223,16 +229,18 @@ UnloadFollowerIfNeeded::
 	ld a, [wPartyFollower]
 	and a
 	ret nz
-	; follower is already in the wMapObjects (loaded stores) entry
-	; but object structs aren't loaded in yet, so DeleteFollower
-	; is useless here
-	; tried to mask but doesn't work here too
-	ld a, UNASSOCIATED_MAPOBJECT
-	ld [wFollowerObject], a
-	; this also deletes the wMapObjects (loaded stores) entry
-	; so it couldn't just be `appear`ed by a script; it will
-	; need to actually be reinstantiated
-	jp DeleteFollower
+	; Remove the fixed follower map_objects entry, so
+	; that warp setups skip it. Masks still remain
+	; If follower wants to be turned on again, it'll have
+	; to be reinstantiated.
+	xor a
+	ld [wFollowerObjectSprite], a
+
+	; And just in case we still have any stragglers, clear the
+	; live object_struct just in case.
+	ld hl, wFollowerStruct
+	ld bc, OBJECT_LENGTH
+	jp ByteFill
 
 RefreshPlayerCoords:
 	ld a, [wXCoord]

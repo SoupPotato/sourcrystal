@@ -193,9 +193,93 @@ GetRegularSprite:
 	ret
 
 GetFollowerSprite:
-; placeholder
-	ld a, SPRITE_RIVAL
-	jr GetRegularSprite
+	ld a, [wPartyFollower]
+	and a
+	ret z
+
+; Each sprite is the first frame of its pokemon party sprite PLUS 
+; 5 additional frames:
+;    face up
+;    face left
+;    walk down
+;    walk up
+;    walk left
+
+; decompress the walking frames first
+
+	call .GetFollowerSpecies
+	dec a
+	ld hl, FollowerSprites
+	ld bc, 3
+	call AddNTimes
+	ld a, BANK(FollowerSprites)
+	call GetFarByte
+; pointer is 00 XX XX if sprite is undefined
+	and a
+	ret z
+
+	ld b, a
+	inc hl
+	ld a, BANK(FollowerSprites)
+	call GetFarWord
+	ldh a, [rSVBK]
+	push af
+		ld a, BANK(wDecompressScratch)
+		ldh [rSVBK], a
+		ld a, b
+		ld de, wDecompressScratch + 4 tiles
+		call FarDecompress
+	pop af
+	ldh [rSVBK], a
+
+; next up, the first frame of the icon
+
+; handle unown
+	ld a, [wPartyFollower]
+	dec a
+	ld hl, wPartyMon1DVs
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	ld [wCurIconForm], a
+
+; simply calculate which one we need and copy it over
+	call .GetFollowerSpecies
+	ld e, a
+	farcall LoadOverworldMonIcon
+	ld h, d
+	ld l, e
+	ldh a, [rSVBK]
+	push af
+		ld a, BANK(wDecompressScratch)
+		ldh [rSVBK], a
+		ld a, b
+		ld de, wDecompressScratch
+		ld bc, 4 tiles
+		call FarCopyBytes
+	pop af
+	ldh [rSVBK], a
+
+; done, return state tells GetSprite which kind of
+; sprite we have and what kind it is.
+	ld de, wDecompressScratch
+	ld c, 12
+	ld a, BANK(@)
+	ld b, a
+	ld h, a
+	ld l, WALKING_SPRITE
+	ret
+
+.GetFollowerSpecies:
+	ld a, [wPartyFollower]
+	dec a
+	ld e, a
+	ld d, 0
+	ld hl, wPartySpecies
+	add hl, de
+	ld a, [hl]
+	ret
 
 GetMonSprite:
 ; Return carry if a monster sprite was loaded.
@@ -299,6 +383,13 @@ _DoesSpriteHaveFacings::
 
 _GetSpritePalette::
 	ld a, c
+	cp SPRITE_FOLLOWER
+	jr nz, .not_follower
+	ld a, [wPartyFollower]
+	and a
+	jr nz, .is_follower
+	ld a, c
+.not_follower
 	cp SPRITE_DAY_CARE_MON_1
 	jr z, .is_breedmon
 	cp SPRITE_DAY_CARE_MON_2
@@ -349,6 +440,32 @@ _GetSpritePalette::
 	ld bc, wBreedMon1DVs
 	jr z, .check_shiny
 	ld bc, wBreedMon2DVs
+	jr .check_shiny
+
+; Really just load the mon pals and determine
+; if the one loaded is a shiny.
+.is_follower
+	push de
+	dec a
+	push af
+		ld e, a
+		ld d, 0
+		ld hl, wPartySpecies
+		add hl, de
+		ld a, [hl]
+		dec a
+		ld e, a
+		ld hl, MonMenuIconPals
+		add hl, de
+		ld a, BANK(MonMenuIconPals)
+		call GetFarByte
+		ld d, a
+	pop af
+	ld hl, wPartyMon1DVs
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld b, h
+	ld c, l
 .check_shiny
 	farcall CheckShininess
 	ld a, d
@@ -535,7 +652,18 @@ endr
 
 .bankswitch
 	ldh [rVBK], a
-	call Get2bpp
+; all of the follower's tiles are in wDecompressScratch
+	ldh a, [rSVBK]
+	push af
+		ldh a, [hUsedSpriteIndex]
+		cp SPRITE_FOLLOWER
+		jr nz, .copy
+		ld a, BANK(wDecompressScratch)
+		ldh [rSVBK], a
+.copy
+		call Get2bpp
+	pop af
+	ldh [rSVBK], a
 	pop af
 	ldh [rVBK], a
 	;farcall CopySpritePal

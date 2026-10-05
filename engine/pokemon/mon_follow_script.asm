@@ -29,6 +29,7 @@ _SetPartyFollowerAction::
 ; "Recalled X"
 	dec a
 	call RecallPartyFollowerText
+	newfarcall DeleteFollower ; else its live struct blocks the spawn tile
 .no_previous
 	ld a, [wCurPartyMon]
 	inc a ; 1-index

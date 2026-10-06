@@ -1,14 +1,18 @@
 _SetPartyFollowerAction::
-; refuse if the species has no follower sprite
+; preload old mon's nickname for "refused"/"fainted" txt
 	ld a, [wCurPartyMon]
-	ld e, a
-	ld d, 0
+	ld hl, wPartyMonNicknames
+	call GetNickname
+
 	ld hl, wPartySpecies
-	add hl, de
+	assert HIGH(wPartySpecies) == HIGH(wPartySpecies+PARTY_LENGTH)
+	ld a, [wCurPartyMon]
+	add l
+	ld l, a
 	ld a, [hl]
-	cp NUM_POKEMON + 1
-	jr nc, .refused
 	dec a
+
+; refuse if pokemon has no follower sprite
 	ld hl, FollowerSprites
 	ld bc, 3
 	call AddNTimes
@@ -16,6 +20,7 @@ _SetPartyFollowerAction::
 	call GetFarByte
 	and a
 	jr z, .refused
+
 ; fainted mons can't follow
 	ld a, MON_HP
 	call GetPartyParamLocation
@@ -23,13 +28,17 @@ _SetPartyFollowerAction::
 	or [hl]
 	jr z, .fainted
 
+; "Recalled X"
 	ld a, [wPartyFollower]
 	and a
 	jr z, .no_previous
-; "Recalled X"
 	dec a
 	call RecallPartyFollowerText
-	newfarcall DeleteFollower ; else its live struct blocks the spawn tile
+; ensure old follower is deleted, otherwise the respawned
+; follower may appear somewhere else due to the old follower
+; blocking the spot
+	newfarcall DeleteFollower
+
 .no_previous
 	ld a, [wCurPartyMon]
 	inc a ; 1-index
@@ -37,7 +46,7 @@ _SetPartyFollowerAction::
 	newfarcall SpawnFollower     ; reinit follower
 	newfarcall ReappearFollower  ; actually place it
 
-; "X follows you"
+; load new mon's nickname ("X follows you")
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonNicknames
 	call GetNickname
@@ -46,11 +55,10 @@ _SetPartyFollowerAction::
 	call PlaySFX
 
 ; cry
-	ld a, [wCurPartyMon]
 	ld hl, wPartySpecies
-	ld c, a
-	ld b, 0
-	add hl, bc
+	ld a, [wCurPartyMon]
+	add l
+	ld l, a
 	ld a, [hl]
 	call PlayMonCry2
 
@@ -63,16 +71,10 @@ _SetPartyFollowerAction::
 
 .refused
 	ld hl, .RefusedText
-	jr .print_with_nickname
+	jp PrintText
 
 .fainted
 	ld hl, .CantFollowText
-.print_with_nickname
-	push hl
-		ld a, [wCurPartyMon]
-		ld hl, wPartyMonNicknames
-		call GetNickname
-	pop hl
 	jp PrintText
 
 .RefusedText:
@@ -94,9 +96,9 @@ _ClearPartyFollowerAction::
 
 RecallPartyFollowerText:
 ; a = 0-indexed party mon
+	call WaitSFX
 	ld hl, wPartyMonNicknames
 	call GetNickname
-  call WaitSFX
 	ld de, SFX_BALL_POOF
 	call PlaySFX
 	ld hl, .RecalledText

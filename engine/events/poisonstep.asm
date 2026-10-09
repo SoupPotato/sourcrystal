@@ -132,6 +132,19 @@ DoPoisonStep::
 	ld hl, .PoisonFaintText
 	call PrintText
 
+	ld a, [wCurPartyMon]
+	inc a
+	ld hl, wPartyFollower
+	cp [hl]
+	jr nz, .mon_not_fainted
+	xor a
+	ld [hl], a
+	newfarcall DeleteFollower
+	newfarcall UnloadFollowerIfNeeded
+
+	ld de, SFX_BALL_POOF
+	call WaitPlaySFX
+
 .mon_not_fainted
 	pop de
 	inc de

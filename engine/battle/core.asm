@@ -4108,8 +4108,28 @@ SendOutPlayerMon:
 	xor a
 	ld [wNumHits], a
 	ld [wBattleAnimParam], a
+
+; follower slides in instead
+	ld a, [wPartyFollower]
+	and a
+	jr z, .normal_battle_anim
+
+	dec a
+	ld c, a
+	ld a, [wCurPartyMon]
+	cp c
+	jr nz, .normal_battle_anim
+
+	ld a, 1
+	ldh [hBGMapMode], a
+	newfarcall SlidePlayerPicIn
+	jr .check_shiny
+
+.normal_battle_anim
 	ld de, ANIM_SEND_OUT_MON
 	call Call_PlayBattleAnim
+
+.check_shiny
 	call BattleCheckPlayerShininess
 	jr nc, .not_shiny
 	ld a, 1
@@ -4316,8 +4336,27 @@ RecallPlayerMon:
 	xor a
 	ldh [hBattleTurn], a
 	ld [wNumHits], a
+
+; follower slides out
+	ld a, [wPartyFollower]
+	and a
+	jr z, .normal_battle_anim
+
+	dec a
+	ld c, a
+	ld a, [wLastPlayerMon]
+	cp c
+	jr nz, .normal_battle_anim
+
+	ld a, 1
+	ldh [hBGMapMode], a
+	newfarcall SlidePlayerPicOut
+	jr .done
+
+.normal_battle_anim
 	ld de, ANIM_RETURN_MON
 	call Call_PlayBattleAnim
+.done
 	pop af
 	ldh [hBattleTurn], a
 	ret
@@ -8630,6 +8669,7 @@ FillEnemyMovesFromMoveIndicesBuffer: ; unreferenced
 ExitBattle:
 	call RestoreBattleItems
 	call .HandleEndOfBattle
+	newfarcall UnloadFaintedFollower
 	jp CleanUpBattleRAM
 
 .HandleEndOfBattle:

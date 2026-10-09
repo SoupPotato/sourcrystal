@@ -868,6 +868,10 @@ SECTION "Follower Party Actions", ROMX
 
 INCLUDE "engine/pokemon/mon_follow_script.asm"
 
+SECTION "Follower Battle", ROMX
+
+INCLUDE "engine/battle/follower.asm"
+
 
 SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$7F]
 

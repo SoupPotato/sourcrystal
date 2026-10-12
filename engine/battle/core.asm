@@ -4123,18 +4123,12 @@ SendOutPlayerMon:
 	ld [wBattleAnimParam], a
 
 ; follower slides in instead
-	ld a, [wPartyFollower]
-	and a
-	jr z, .normal_battle_anim
-
-	dec a
-	ld c, a
 	ld a, [wCurPartyMon]
-	cp c
+	inc a
+	ld hl, wPartyFollower
+	cp [hl]
 	jr nz, .normal_battle_anim
 
-	ld a, 1
-	ldh [hBGMapMode], a
 	newfarcall SlidePlayerPicIn
 	jr .check_shiny
 
@@ -4351,18 +4345,12 @@ RecallPlayerMon:
 	ld [wNumHits], a
 
 ; follower slides out
-	ld a, [wPartyFollower]
-	and a
-	jr z, .normal_battle_anim
-
-	dec a
-	ld c, a
 	ld a, [wLastPlayerMon]
-	cp c
+	inc a
+	ld hl, wPartyFollower
+	cp [hl]
 	jr nz, .normal_battle_anim
 
-	ld a, 1
-	ldh [hBGMapMode], a
 	newfarcall SlidePlayerPicOut
 	jr .done
 

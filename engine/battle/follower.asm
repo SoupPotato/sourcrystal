@@ -1,4 +1,6 @@
 SlidePlayerPicIn::
+	ld a, 1
+	ldh [hBGMapMode], a
 	ld a, 7
 	ldh [hMapObjectIndex], a
 	hlcoord 0, 6
@@ -65,6 +67,8 @@ SlidePlayerPicIn::
 	ret
 
 SlidePlayerPicOut::
+	ld a, 1
+	ldh [hBGMapMode], a
 	hlcoord 1, 6
 	ld a, 8
 	ldh [hMapObjectIndex], a

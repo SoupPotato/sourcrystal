@@ -303,7 +303,7 @@ SpriteMovementData::
 	db DOWN ; facing
 	db OBJECT_ACTION_STAND ; action
 	db WONT_DELETE ; flags1
-	db 0 ; flags2
+	db LOW_PRIORITY ; flags2
 	db 0 ; palette flags
 
 	assert_table_length NUM_SPRITEMOVEDATA

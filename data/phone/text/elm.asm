@@ -197,15 +197,32 @@ ElmPhoneGiftText:
 	para "See you later!"
 	done
 
-ElmPhoneGotAholdOfSomethingNeatText:
+ElmPhoneOaksTalkShowSwarmsText:
 	text "Hello, <PLAY_G>?"
 	line "How's it going?"
 
-	para "I got ahold of"
-	line "something neat."
+	para "Did you know that"
+	line "PROF.OAK's talk"
 
-	para "Swing by my LAB"
-	line "and pick it up!"
+	para "show is reporting"
+	line "#MON swarms all"
+	cont "over JOHTO?"
 
-	para "See you later!"
+	para "I've even heard"
+	line "that different"
+
+	para "colored #MON"
+	line "are appearing in"
+	cont "these swarms!"
+
+	para "If true, that's an"
+	line "incredible find!"
+
+	para "Be sure to get a"
+	line "RADIO CARD at the"
+
+	para "GOLDENROD RADIO"
+	line "TOWER and tune in!"
+
+	para "Good luck!"
 	done

@@ -83,33 +83,33 @@ ContestSafariMonsNormal:
 ; morning
 	db 20, NIDORAN_M,      19, 19
 	db 20, NIDORAN_F,      19, 19
-	db 15, SANDSHREW,      20, 20
-	db 10, PONYTA,         18, 18
+	db 15, PONYTA,         17, 17
+	db 10, SANDSHREW,      20, 20
 	db 10, CUBONE,         20, 20
 	db 10, SLUGMA,         23, 23
-	db  5, SANDSLASH,      21, 21
+	db  5, SANDSLASH,      22, 22
 	db  5, NATU,           20, 20
 	db  4, MAROWAK,        23, 23
 	db  1, RAPIDASH,       24, 24
 ; day/eve  
 	db 20, NIDORAN_M,      19, 19
 	db 20, NIDORAN_F,      19, 19
-	db 15, SANDSHREW,      20, 20
-	db 10, PONYTA,         18, 18
+	db 15, PONYTA,         17, 17
+	db 10, SANDSHREW,      20, 20
 	db 10, CUBONE,         20, 20
 	db 10, SLUGMA,         23, 23
-	db  5, SANDSLASH,      21, 21
+	db  5, SANDSLASH,      22, 22
 	db  5, NATU,           20, 20
 	db  4, MAROWAK,        23, 23
 	db  1, RAPIDASH,       24, 24
 ; nite     
 	db 20, NIDORINO,       19, 19
 	db 20, NIDORINA,       19, 19
-	db 15, SANDSHREW,      20, 20
-	db 10, HOUNDOUR,       20, 20
+	db 15, HOUNDOUR,       17, 17
+	db 10, SANDSHREW,      20, 20
 	db 10, NOCTOWL,        20, 20
 	db 10, SLUGMA,         23, 23
-	db  5, SANDSLASH,      21, 21
+	db  5, SANDSLASH,      22, 22
 	db  5, NATU,           20, 20
 	db  4, CUBONE,         23, 23
 	db  1, HOUNDOOM,       24, 24
@@ -121,7 +121,7 @@ ContestSafariMonsNormal:
 ; morning
 	db 20, EKANS,         18, 18
 	db 20, BELLSPROUT,    21, 21
-	db 15, MARILL,        19, 19
+	db 15, MARILL,        17, 17
 	db 10, GRIMER,        21, 21
 	db 10, YANMA,         19, 19
 	db 10, TANGELA,       20, 20
@@ -132,7 +132,7 @@ ContestSafariMonsNormal:
 ; day/eve
 	db 20, EKANS,         18, 18
 	db 20, BELLSPROUT,    21, 21
-	db 15, MARILL,        19, 19
+	db 15, MARILL,        17, 17
 	db 10, GRIMER,        21, 21
 	db 10, YANMA,         19, 19
 	db 10, TANGELA,       20, 20
@@ -143,7 +143,7 @@ ContestSafariMonsNormal:
 ; nite
 	db 20, WOOPER,        18, 18
 	db 20, ODDISH,        21, 21
-	db 15, MARILL,        19, 19
+	db 15, MARILL,        17, 17
 	db 10, GRIMER,        21, 21
 	db 10, YANMA,         19, 19
 	db 10, MISDREAVUS,    20, 20

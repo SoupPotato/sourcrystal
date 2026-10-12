@@ -406,17 +406,15 @@ IlexForestCharcoalMasterScript:
 	iftrue .AlreadyGotCut
 	writetext Text_CharcoalMasterIntro
 	promptbutton
-	stringtotext .pagercardname, MEM_BUFFER_1
-	scall .JumpstdReceiveItem
-	setflag ENGINE_PAGER_CUT
-	writetext GotCutPagerText
-	promptbutton
-	writetext Text_CharcoalMasterMid
-	promptbutton
 	verbosegiveitem HM_CUT
 	setevent EVENT_GOT_HM01_CUT
-	writetext Text_CharcoalMasterOutro
+	setflag ENGINE_PAGER_CUT
+	writetext GotCutPagerText
+	playsound SFX_DEX_FANFARE_80_109
+	waitsfx
 	waitbutton
+	writetext Text_CharcoalMasterOutro
+	promptbutton
 	closetext
 	setevent EVENT_ILEX_FOREST_FARFETCHD
 	setevent EVENT_ILEX_FOREST_APPRENTICE
@@ -987,35 +985,22 @@ Text_CharcoalMasterIntro:
 	line "this."
 	done
 
-Text_CharcoalMasterMid:
-	text "That's the"
-	line "CUT PAGER."
-
-	para "It lets you"
-	line "summon a #MON"
-
-	para "to use CUT out of"
-	line "battle."
-
-	para "Oh here take this"
-	line "too!"
-	done
-
 Text_CharcoalMasterOutro:
 	text "That's the CUT HM."
 	line "Teach that to a"
 
-	para "#MON to use"
-	line "CUT in battle."
+	para "#MON to clear"
+	line "small trees."
+
+	para "You can even use"
+	line "CUT from the PPS"
+	cont "on your #GEAR."
 
 	para "Of course, you"
 	line "have to have the"
 
 	para "GYM BADGE from"
-	line "AZALEA to use it,"
-
-	para "or the PAGER to"
-	line "cut small trees."
+	line "AZALEA to use it."
 	done
 
 Text_CharcoalMasterTalkAfter:

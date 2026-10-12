@@ -83,8 +83,8 @@ ContestSafariMonsChallenge:
 ; morning
 	db 20, NIDORAN_M,      22, 22
 	db 20, NIDORAN_F,      22, 22
-	db 15, SANDSHREW,      23, 23
-	db 10, PONYTA,         23, 23
+	db 15, PONYTA,         20, 20
+	db 10, SANDSHREW,      23, 23
 	db 10, CUBONE,         21, 21
 	db 10, SLUGMA,         24, 24
 	db  5, SANDSLASH,      26, 26
@@ -94,8 +94,8 @@ ContestSafariMonsChallenge:
 ; day/eve  
 	db 20, NIDORAN_M,      22, 22
 	db 20, NIDORAN_F,      22, 22
-	db 15, SANDSHREW,      23, 23
-	db 10, PONYTA,         23, 23
+	db 15, PONYTA,         20, 20
+	db 10, SANDSHREW,      23, 23
 	db 10, CUBONE,         21, 21
 	db 10, SLUGMA,         24, 24
 	db  5, SANDSLASH,      26, 26
@@ -105,8 +105,8 @@ ContestSafariMonsChallenge:
 ; nite     
 	db 20, NIDORINO,       22, 22
 	db 20, NIDORINA,       22, 22
-	db 15, SANDSHREW,      23, 23
-	db 10, HOUNDOUR,       23, 23
+	db 15, HOUNDOUR,       20, 20
+	db 10, SANDSHREW,      23, 23
 	db 10, NOCTOWL,        23, 23
 	db 10, SLUGMA,         24, 24
 	db  5, SANDSLASH,      26, 26
@@ -121,7 +121,7 @@ ContestSafariMonsChallenge:
 ; morning
 	db 20, EKANS,         21, 21
 	db 20, BELLSPROUT,    24, 24
-	db 15, MARILL,        22, 22
+	db 15, MARILL,        20, 20
 	db 10, GRIMER,        24, 24
 	db 10, YANMA,         25, 25
 	db 10, TANGELA,       22, 22
@@ -132,7 +132,7 @@ ContestSafariMonsChallenge:
 ; day/eve  
 	db 20, EKANS,         21, 21
 	db 20, BELLSPROUT,    24, 24
-	db 15, MARILL,        22, 22
+	db 15, MARILL,        20, 20
 	db 10, GRIMER,        24, 24
 	db 10, YANMA,         25, 25
 	db 10, TANGELA,       22, 22
@@ -143,7 +143,7 @@ ContestSafariMonsChallenge:
 ; nite     
 	db 20, WOOPER,        21, 21
 	db 20, ODDISH,        24, 24
-	db 15, MARILL,        22, 22
+	db 15, MARILL,        20, 20
 	db 10, GRIMER,        24, 24
 	db 10, YANMA,         25, 25
 	db 10, MISDREAVUS,    22, 22

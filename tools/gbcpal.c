@@ -53,10 +53,21 @@ double luminance(struct Color color) {
 }
 
 int compare_luminance(const void *color1, const void *color2) {
-	double lum1 = luminance(*(const struct Color *)color1);
-	double lum2 = luminance(*(const struct Color *)color2);
-	// sort lightest to darkest, or darkest to lightest if reversed
-	return ((lum1 < lum2) - (lum1 > lum2)) * (reverse ? -1 : 1);
+	const struct Color *c1;
+	const struct Color *c2;
+	double lum1;
+	double lum2;
+	c1 = color1;
+	c2 = color2;
+	int by_luminance;
+	lum1 = luminance(*c1);
+	lum2 = luminance(*c2);
+	by_luminance = ((lum1 < lum2) - (lum1 > lum2)) * (reverse ? -1 : 1);
+	if (by_luminance) return by_luminance;
+
+	/* what if by_luminance ties (=0)? called from qsort, which isn't stable.
+	   improve determinism by tie-breaking on packed color values */
+	return (pack_color(*c1) > pack_color(*c2)) - (pack_color(*c1) < pack_color(*c2));
 }
 
 void read_gbcpal(const char *filename, struct Color **colors, size_t *num_colors) {

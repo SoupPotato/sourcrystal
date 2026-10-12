@@ -286,6 +286,7 @@ BattleAnimations::
 	dw BattleAnim_InSun
 	dw BattleAnim_ThrowRock
 	dw BattleAnim_ThrowBait
+	dw BattleAnim_FutureSightForesaw
 	assert_table_length NUM_BATTLE_ANIMS + 1
 
 BattleAnim_Dummy:
@@ -1403,7 +1404,7 @@ BattleAnim_RockSlide:
 	anim_wait 4
 	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 141, 68, $30
 	anim_wait 4
-	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $80, $1, $0
+	anim_bgeffect BATTLE_BG_EFFECT_SHAKE_SCREEN_Y, $90, $1, $0
 .loop
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
 	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 123, 68, $30
@@ -1420,7 +1421,7 @@ BattleAnim_RockSlide:
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
 	anim_obj BATTLE_ANIM_OBJ_BIG_ROCK, 141, 68, $30
 	anim_wait 4
-	anim_loop 4, .loop
+	anim_loop 5, .loop
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
 	anim_wait 4
 	anim_sound 0, 1, SFX_PLACE_PUZZLE_PIECE_DOWN
@@ -4306,7 +4307,6 @@ BattleAnim_MorningSun:
 BattleAnim_Synthesis:
 	anim_1gfx BATTLE_ANIM_GFX_SHINE
 	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $40
-	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
 	anim_sound 0, 0, SFX_OUTRAGE
 	anim_wait 72
 	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING
@@ -4649,6 +4649,17 @@ BattleAnim_ShadowBall:
 	anim_wait 32
 	anim_obj BATTLE_ANIM_OBJ_BALL_POOF, 132, 56, $10
 	anim_wait 24
+	anim_ret
+
+BattleAnim_FutureSightForesaw:
+	anim_1gfx BATTLE_ANIM_GFX_SHINE
+	anim_bgeffect BATTLE_BG_EFFECT_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $0, $0
+	anim_sound 0, 0, SFX_RAGE
+	anim_obj BATTLE_ANIM_OBJ_FORESIGHT, 64, 88, $0
+	anim_bgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $30
+	anim_wait 64
+	anim_incbgeffect BATTLE_BG_EFFECT_FADE_MON_TO_LIGHT_REPEATING
+	anim_wait 8
 	anim_ret
 
 BattleAnim_FutureSight:

@@ -65,6 +65,7 @@ ElmPhoneCallerScript:
 	readvar VAR_SPECIALPHONECALL
 	ifequal SPECIALCALL_ROBBED, .disaster
 	ifequal SPECIALCALL_ASSISTANT, .assistant
+	ifequal SPECIALCALL_OAKSTALKSHOWSWARMS, .oaks_talk_show_swarms
 	ifequal SPECIALCALL_WEIRDBROADCAST, .rocket
 	ifequal SPECIALCALL_SSTICKET, .gift
 	ifequal SPECIALCALL_MASTERBALL, .gift
@@ -95,7 +96,7 @@ ElmPhoneCallerScript:
 	specialphonecall SPECIALCALL_NONE
 	end
 
-.neat ; unreferenced
-	farwritetext ElmPhoneGotAholdOfSomethingNeatText
+.oaks_talk_show_swarms
+	farwritetext ElmPhoneOaksTalkShowSwarmsText
 	specialphonecall SPECIALCALL_NONE
 	end

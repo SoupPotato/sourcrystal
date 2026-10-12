@@ -599,6 +599,11 @@ SECTION "mobile46", ROMX
 INCLUDE "mobile/mobile_46.asm"
 
 
+SECTION "Link Trade", ROMX
+
+INCLUDE "engine/link/link_trade.asm"
+
+
 SECTION "Battle Tower", ROMX
 
 INCLUDE "engine/events/battle_tower/trainer_text.asm"
@@ -607,7 +612,6 @@ INCLUDE "engine/events/battle_tower/trainer_text.asm"
 SECTION "bank5B", ROMX
 
 INCLUDE "mobile/mobile_5b.asm"
-INCLUDE "engine/link/link_trade.asm"
 
 
 SECTION "mobile5C", ROMX

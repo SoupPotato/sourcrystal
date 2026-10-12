@@ -118,10 +118,11 @@ Pokedex_FormMode:
 	jr .wait_input
 
 .a
-	call .stop_anim
 	ld a, [wDexArrowCursorPosIndex]
-	and a
+	and a ; PAGE
 	jr z, .b
+	cp 1 ; AREA
+	call z, .stop_anim
 	cp 3 ; FORM
 	jr z, .wait_input
 	newfarjp Pokedex_DoFormScreenAction
@@ -184,9 +185,9 @@ Pokedex_FormMode:
 		call PlaceString
 	pop hl
 .normal
-	ld de, wBGPals2 palette 1
+	ld de, wBGPals1 palette 1
 	newfarcall LoadPalette_White_Col1_Col2_Black
-	call ApplyPals
+	newfarcall ApplyPals
 	ld a, 1
 	ldh [hCGBPalUpdate], a
 

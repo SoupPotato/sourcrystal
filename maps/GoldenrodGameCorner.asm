@@ -12,6 +12,7 @@ DEF GOLDENRODGAMECORNER_UP_GRADE_COINS        EQU 3000
 DEF GOLDENRODGAMECORNER_LINKING_CORD_COINS    EQU 3000
 DEF GOLDENRODGAMECORNER_ABRA_COINS            EQU 100
 DEF GOLDENRODGAMECORNER_CUBONE_COINS          EQU 800
+DEF GOLDENRODGAMECORNER_DRATINI_COINS         EQU 2100
 DEF GOLDENRODGAMECORNER_PORYGON_COINS         EQU 3500
 
 	object_const_def
@@ -406,7 +407,8 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	closewindow
 	ifequal 1, .Abra
 	ifequal 2, .Cubone
-	ifequal 3, .Porygon
+	ifequal 3, .Dratini
+	ifequal 4, .Porygon
 	sjump GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
 
 .Abra:
@@ -445,6 +447,24 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	takecoins GOLDENRODGAMECORNER_CUBONE_COINS
 	sjump .loop
 
+.Dratini:
+	checkcoins GOLDENRODGAMECORNER_DRATINI_COINS
+	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
+	getmonname STRING_BUFFER_3, DRATINI
+	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
+	waitsfx
+	playsound SFX_TRANSACTION
+	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
+	waitbutton
+	setval DRATINI
+	special GameCornerPrizeMonCheckDex
+	givepoke DRATINI, 10
+	takecoins GOLDENRODGAMECORNER_DRATINI_COINS
+	sjump .loop
+
 .Porygon:
 	checkcoins GOLDENRODGAMECORNER_PORYGON_COINS
 	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
@@ -465,15 +485,16 @@ GoldenrodGameCornerPrizeMonVendorScript:
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 2, 17, TEXTBOX_Y - 1
+	menu_coords 0, 2, 19, TEXTBOX_Y - -1
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
 	db STATICMENU_CURSOR ; flags
-	db 4 ; items
+	db 5 ; items
 	db "ABRA        100@"
 	db "CUBONE      800@"
+	db "DRATINI    2100@"
 	db "PORYGON    3500@"
 	db "CANCEL@"
 

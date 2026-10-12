@@ -124,6 +124,8 @@ StartAutomaticBattleWeather:
 	ld a, [wCurWeather]
 	and a
 	ret z
+	cp OW_WEATHER_SUNLIGHT
+	jr z, .sunlight
 	cp OW_WEATHER_RAIN
 	jr z, .raining
 	cp OW_WEATHER_THUNDERSTORM
@@ -131,11 +133,22 @@ StartAutomaticBattleWeather:
 .raining
 	ld a, WEATHER_RAIN
 	ld [wBattleWeather], a
-	ld de, RAIN_DANCE
+	ld de, ANIM_IN_RAIN
 	ld a, 255
 	ld [wWeatherCount], a
 	call Call_PlayBattleAnim
 	ld hl, StartedToRainText
+	call StdBattleTextbox
+	jp EmptyBattleTextbox
+
+.sunlight
+	ld a, WEATHER_SUN
+	ld [wBattleWeather], a
+	ld de, ANIM_IN_SUN
+	ld a, 255
+	ld [wWeatherCount], a
+	call Call_PlayBattleAnim
+	ld hl, SunTurnedHarshText
 	call StdBattleTextbox
 	jp EmptyBattleTextbox
 
@@ -6412,7 +6425,8 @@ LoadEnemyMon:
 ; See if a SHINY CHARM is in the bag.
 	call CheckShinyCharm
 	jr c, .IncreaseShiny
-	jr .next
+	; go to normal shiny roll
+	jr .normalcalc
 
 .IncreaseShiny:
 if DEF(_DEBUG)
@@ -6443,13 +6457,13 @@ endc
 	jr c, .UpdateDVs
 
 ; Roll a final time
-	jr .skipshine
+	jr .normalcalc
 
 .ForceShiny:
 	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY
 	jr .UpdateDVs
 
-.skipshine:
+.normalcalc:
 ; Generate new random DVs
 	call BattleRandom
 	ld b, a

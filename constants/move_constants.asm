@@ -289,6 +289,7 @@ DEF NUM_ATTACKS EQU const_value - 1
 	const ANIM_IN_SUN            ; 117
 	const ANIM_SAFARI_THROW_ROCK ; 118
 	const ANIM_SAFARI_THROW_BAIT ; 119
+	const ANIM_FUTURE_SIGHT_FORESAW ; 11a
 DEF NUM_BATTLE_ANIMS EQU const_value - 1
 
 ; wNumHits uses offsets from ANIM_MISS

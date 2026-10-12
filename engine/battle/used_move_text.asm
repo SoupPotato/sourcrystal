@@ -271,6 +271,7 @@
 ;	farcall AnimateCurrentMove
 ;	pop de
 ;	pop hl
+;	call WaitPressAorB_BlinkCursor
 ;	jr .loop
 ;
 ;.do_it

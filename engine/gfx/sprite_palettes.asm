@@ -16,7 +16,12 @@ LoadWeatherPal::
 	dec a
 	jr z, .rain ; thunderstorm
 	assert OW_WEATHER_SANDSTORM == 4
-	jr .sandstorm
+	dec a
+	jr z, .sandstorm
+	; Sunlight doesn't have a special palette set, yet
+	assert OW_WEATHER_SUNLIGHT == 5
+	ret
+
 .snow
 	ldh a, [rSVBK]
 	push af

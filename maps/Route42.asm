@@ -128,7 +128,7 @@ TrainerFisherTully:
 	verbosegiveitem WATER_STONE
 	iffalse .NoRoom
 	clearflag ENGINE_TULLY_HAS_WATER_STONE
-	setevent ENGINE_TULLY_GAVE_WATER_STONE
+	setflag ENGINE_TULLY_GAVE_WATER_STONE
 	sjump .NumberAccepted
 
 .NoRoom:

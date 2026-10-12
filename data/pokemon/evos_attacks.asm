@@ -1635,15 +1635,15 @@ KoffingEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_GAS
 	db 1, TACKLE
-	db 5, SMOG
+	db 6, SMOG
 	db 10, SMOKESCREEN
-	db 14, FEINT_ATTACK
+	db 15, FEINT_ATTACK
 	db 19, SLUDGE
-	db 23, SELFDESTRUCT
+	db 24, SELFDESTRUCT
 	db 28, HAZE
-	db 32, TOXIC
+	db 33, TOXIC
 	db 37, SLUDGE_BOMB
-	db 41, EXPLOSION
+	db 42, EXPLOSION
 	db 46, DESTINY_BOND
 	db 0 ; no more level-up moves
 
@@ -1653,11 +1653,11 @@ WeezingEvosAttacks:
 	db 1, TACKLE
 	db 1, SMOG
 	db 1, SMOKESCREEN
-	db 14, FEINT_ATTACK
+	db 15, FEINT_ATTACK
 	db 19, SLUDGE
-	db 23, SELFDESTRUCT
+	db 24, SELFDESTRUCT
 	db 28, HAZE
-	db 32, TOXIC
+	db 33, TOXIC
 	db 38, SLUDGE_BOMB
 	db 44, EXPLOSION
 	db 50, DESTINY_BOND
@@ -2549,13 +2549,14 @@ SpinarakEvosAttacks:
 	db 20, FURY_SWIPES
 	db 23, FEINT_ATTACK
 	db 27, SPIDER_WEB
-	db 31, AGILITY
-	db 34, PIN_MISSILE
+	db 31, PIN_MISSILE
+	db 34, AGILITY
 	db 38, PSYCHIC_M
 	db 0 ; no more level-up moves
 
 AriadosEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, FOCUS_ENERGY
 	db 1, POISON_STING
 	db 1, STRING_SHOT
 	db 1, CONSTRICT
@@ -2566,8 +2567,8 @@ AriadosEvosAttacks:
 	db 22, SWORDS_DANCE
 	db 25, FEINT_ATTACK
 	db 30, SPIDER_WEB
-	db 34, AGILITY
-	db 39, PIN_MISSILE
+	db 34, PIN_MISSILE
+	db 39, AGILITY
 	db 44, PSYCHIC_M
 	db 0 ; no more level-up moves
 
@@ -2577,33 +2578,31 @@ ChinchouEvosAttacks:
 	db EVOLVE_LEVEL, 27, LANTURN
 	db 0 ; no more evolutions
 	db 1, BUBBLE
-	db 1, SUPERSONIC
-	db 6, THUNDER_WAVE
-	db 10, THUNDERSHOCK
-	db 14, WATER_GUN
-	db 19, CONFUSE_RAY
-	db 23, SPARK
-	db 27, BUBBLEBEAM
-	db 32, FLAIL
-	db 36, TAKE_DOWN
-	db 40, THUNDERBOLT
-	db 45, HYDRO_PUMP
+	db 1, THUNDER_WAVE
+	db 6, SUPERSONIC
+	db 12, WATER_GUN
+	db 17, FLAIL
+	db 22, SPARK
+	db 28, BUBBLEBEAM
+	db 33, CONFUSE_RAY
+	db 38, TAKE_DOWN
+	db 44, THUNDERBOLT
+	db 49, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 LanturnEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BUBBLE
-	db 1, SUPERSONIC
 	db 1, THUNDER_WAVE
-	db 10, THUNDERSHOCK
-	db 14, WATER_GUN
-	db 19, CONFUSE_RAY
-	db 23, SPARK
+	db 1, SUPERSONIC
+	db 1, WATER_GUN
+	db 17, FLAIL
+	db 22, SPARK
 	db 29, BUBBLEBEAM
-	db 35, FLAIL
-	db 41, TAKE_DOWN
-	db 47, THUNDERBOLT
-	db 53, HYDRO_PUMP
+	db 36, CONFUSE_RAY
+	db 43, TAKE_DOWN
+	db 50, THUNDERBOLT
+	db 57, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 PichuEvosAttacks:
@@ -2996,11 +2995,12 @@ MurkrowEvosAttacks:
 	db 11, HAZE
 	db 15, WING_ATTACK
 	db 21, NIGHT_SHADE
-	db 25, MEAN_LOOK
-	db 31, FEINT_ATTACK
+	db 25, FEINT_ATTACK
+	db 31, MEAN_LOOK
 	db 35, SCREECH
 	db 41, DRILL_PECK
-	db 45, PERISH_SONG
+	db 45, BEAT_UP
+	db 51, PERISH_SONG
 	db 0 ; no more level-up moves
 
 SlowkingEvosAttacks:

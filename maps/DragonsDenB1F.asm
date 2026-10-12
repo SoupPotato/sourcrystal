@@ -63,8 +63,9 @@ DragonsDenB1F_ClairScene:
 	writetext ClairText_DescribeDragonbreathDragonDen
 	promptbutton
 	writetext ClairText_PagerUpgrade
-	playsound SFX_ITEM
+	playsound SFX_DEX_FANFARE_80_109
 	waitsfx
+	waitbutton
 	writetext ClairText_PagerExplain
 	promptbutton
 	writetext ClairText_WhatsTheMatterDragonDen
@@ -236,16 +237,16 @@ ClairText_DescribeDragonbreathDragonDen:
 	done
 
 ClairText_PagerUpgrade:
-	text "The SURF PAGER"
-	line "was upgraded!"
+	text "LAPRAS SURF on the"
+	line "PPS was upgraded!"
 	done
 
 ClairText_PagerExplain:
 	text "With that, your"
-	line "SURF PAGER will"
+	line "PPS will now also"
 
-	para "allow you to also"
-	line "climb waterfalls."
+	para "allow you to climb"
+	line "waterfalls."
 	done
 
 ClairText_WhatsTheMatterDragonDen:

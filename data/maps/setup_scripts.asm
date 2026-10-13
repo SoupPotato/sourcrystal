@@ -49,6 +49,7 @@ MapSetupScript_Warp:
 	mapsetup RepositionFollowerAtCarpet
 	mapsetup LoadMapTimeOfDay
 	mapsetup LoadMapObjects
+	mapsetup PlaceFollowerAfterWarp
 	mapsetup AdjustFollowerFacing
 	mapsetup EnableLCD
 	mapsetup LoadMapPalettes
@@ -83,6 +84,7 @@ MapSetupScript_BadWarp:
 	mapsetup FadeOutMapMusic
 	mapsetup EnableLCD
 	mapsetup LoadMapObjects
+	mapsetup PlaceFollowerAfterWarp
 	mapsetup AdjustFollowerFacing
 	mapsetup LoadMapPalettes
 	mapsetup SpawnInFacingDown
@@ -138,6 +140,7 @@ MapSetupScript_Train:
 	mapsetup FadeOutMapMusic
 	mapsetup EnableLCD
 	mapsetup LoadMapObjects
+	mapsetup PlaceFollowerAfterWarp
 	mapsetup AdjustFollowerFacing
 	mapsetup LoadMapPalettes
 	mapsetup EnableDynPalUpdatesNoApply

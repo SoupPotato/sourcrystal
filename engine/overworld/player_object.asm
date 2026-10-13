@@ -84,8 +84,8 @@ ReappearFollower::
 	xor a
 	ld [wFollowerNextMovement], a
 	call RefreshPlayerCoords
-	call RepositionFollowerIfAtNPC
 	call RepositionFollowerIfLedge
+	call nz, RepositionFollower ; z = ledge already placed it
 .load_follower
 	ld a, FOLLOWER
 	call UnmaskCopyMapObjectStruct
@@ -369,80 +369,130 @@ CopyObjectPosition:
 	ld [hl], a
 	ret
 
-; should be called right after repositioning/reappearing a follower
-;
-; here we check if someone's already spawned where the
-; follower wants to spawn.
-; 
-; XXX: IF THE PLAYER IS SURROUNDED, THIS WILL BE AN INFINITE LOOP!
-; 
-RepositionFollowerIfAtNPC:
-; if where the follower spawns is free, don't do anything
-	ld a, [wFollowerObject + MAPOBJECT_X_COORD]
-	ld d, a
-	ld a, [wFollowerObject + MAPOBJECT_Y_COORD]
-	ld e, a
-	newfarcall IsNPCAtCoord
-	ret nc
-
-; reroll anew if it's taken
-	ld a, [wPlayerObject + MAPOBJECT_X_COORD]
-	ld d, a
-	ld a, [wPlayerObject + MAPOBJECT_Y_COORD]
-	ld e, a
-; repeat the directional check from before
-	ld a, [wPlayerStepDirection]
-	cp STANDING
-	jr nz, .got_dir
+RepositionFollower:
+; preferred ordering differs by player direction, because
+; "behind the player" needs to be prioritized
+	ld hl, .Candidates
 	ld a, [wPlayerDirection]
-	srl a
-	srl a
-; duplicates GetOneStepBehind, but with checks
-.got_dir
-	cp DOWN
-	jr z, .is_down
-	cp UP
-	jr z, .is_up
-	cp LEFT
-	jr z, .is_left
-	cp RIGHT
-	jr z, .is_right
-	; standing = no change; re-apply coordinates
-.is_down
-	dec e
-	newfarcall IsNPCAtCoord
-	jr nc, ApplyFollowerCoords
-; restore the player's position so we can
-; calculate the next available direction
-	inc e
-.is_up
-	inc e
-	newfarcall IsNPCAtCoord
-	jp nc, ApplyFollowerCoords
-	dec e
-.is_left
-	inc d
-	newfarcall IsNPCAtCoord
-	jp nc, ApplyFollowerCoords
-	dec d
-.is_right
-	dec d
-	newfarcall IsNPCAtCoord
-	jp nc, ApplyFollowerCoords
-	inc d
-; infinite loop here, because I don't really want odd
-; edge cases where "the follower doesn't spawn in sometimes"
-; and it should be unlikely that the player is surrounded, anyway.
-	jr .is_down
+	and %1100
+	add l
+	ld l, a
+	ld a, h
+	adc 0
+	ld h, a
 
+	ld c, NUM_DIRECTIONS
+.loop
+	ld a, [hli]
+	push hl
+	push bc
+		ld hl, wPlayerMapX
+		ld d, [hl]
+		inc hl ; wPlayerMapY
+		ld e, [hl]
+		call GetOneStepBehind
+		call IsFollowerSpawnTileBlocked
+	pop bc ; counter
+	pop hl ; ptr into .Candidates
+	jr nc, ApplyFollowerCoords
+	dec c
+	jr nz, .loop
+
+; nothing matches, so follower is forced to take up
+; the same tile as the player
+	lb bc, PLAYER, FOLLOWER
+	jr CopyObjectPosition
+
+.Candidates:
+	table_width NUM_DIRECTIONS
+;      behind side   side  in-front
+	db DOWN,  RIGHT, LEFT, UP    ; DOWN
+	db UP,    RIGHT, LEFT, DOWN  ; UP
+	db LEFT,  DOWN,  UP,   RIGHT ; LEFT
+	db RIGHT, DOWN,  UP,   LEFT  ; RIGHT
+	assert_table_length NUM_DIRECTIONS
+
+; INPUT
+;	de = map object coords
+; OUTPUT
+;	carry if the follower can't stand at that coordinate
+IsFollowerSpawnTileBlocked:
+	push de
+		call GetCoordTileCollision
+	pop de
+	ld b, a
+	and $f0
+
+	cp HI_NYBBLE_WARPS
+	jr z, .blocked
+
+	cp HI_NYBBLE_SIDE_WALLS
+	jr z, .blocked
+
+	ld a, b
+	call GetTilePermission
+	and a ; LAND_TILE
+	jr nz, .blocked
+
+; continue to NPC check
+	ld a, FOLLOWER
+	ldh [hMapObjectIndex], a
+	newfarjp IsNPCAtCoord
+
+.blocked
+	scf
+	ret
+
+PlaceFollowerAfterWarp:
+	ld a, [wFollowerStruct + OBJECT_SPRITE]
+	and a
+	ret z
+
+; check if the follower's is already where it should be
+; determined via list of collision tiles to exclude
+	ld hl, wPlayerMapX
+	ld a, [hli]
+	ld d, a
+	ld e, [hl] ; wPlayerMapY
+	call GetCoordTileCollision
+	ld hl, .ExcludeTiles
+	ld de, 1
+	call IsInArray
+	ret c
+
+; otherwise, reposition the follower
+	xor a
+	ld [wFollowerNextMovement], a
+	call DeleteFollower
+	call RepositionFollower
+	ld a, FOLLOWER
+	jp UnmaskCopyMapObjectStruct
+
+.ExcludeTiles:
+; carpets, assuming the follower is already placed correctly
+	db COLL_WARP_CARPET_DOWN
+	db COLL_WARP_CARPET_UP
+	db COLL_WARP_CARPET_LEFT
+	db COLL_WARP_CARPET_RIGHT
+; ladders, followers should be in the same place as the player
+	db COLL_LADDER
+; entry ways, same assumption as carpets
+	db COLL_DOOR
+	db COLL_DOOR_79
+	db COLL_STAIRCASE
+	db COLL_CAVE
+	db -1
+
+; called on respawn follower from mon menu etc.
 ; pushes the follower further away if the player has just jumped
-; from a ledge, so as not to spawn ON the ledge itself.
+; from a ledge, so as not to spawn ON the ledge itself
+; return z if follower is repositioned
 RepositionFollowerIfLedge:
 	ld a, [wFollowerObject + MAPOBJECT_X_COORD]
 	ld d, a
 	ld a, [wFollowerObject + MAPOBJECT_Y_COORD]
 	ld e, a
-; repeat the directional check YET AGAIN
+; directional check
 	ld a, [wPlayerStepDirection]
 	cp STANDING
 	jp nz, .got_dir

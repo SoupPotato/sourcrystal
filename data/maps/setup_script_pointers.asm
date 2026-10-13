@@ -71,3 +71,4 @@ MapSetupCommands:
 	add_mapsetup SkipFollowerSpawning ; 39
 	add_mapsetup SpawnFollower ; 3a
 	add_mapsetup UnloadFollowerIfNeeded ; 3b
+	add_mapsetup PlaceFollowerAfterWarp ; 3c

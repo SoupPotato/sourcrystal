@@ -1721,6 +1721,9 @@ PokegearPhone_GetDPad:
 	ld a, [hl]
 	and D_DOWN
 	jr nz, .down
+	ld a, [hl]
+	and SELECT
+	jr nz, .scroll_page_down
 	ret
 
 .up
@@ -1732,27 +1735,53 @@ PokegearPhone_GetDPad:
 	jr .done_joypad_same_page
 
 .scroll_page_up
-	ld hl, wPokegearPhoneScrollPosition
-	ld a, [hl]
+	; show the previous page with the cursor on its last row
+	ld a, [wPokegearPhoneScrollPosition]
 	and a
 	ret z
-	dec [hl]
+	ld [hl], PHONE_DISPLAY_HEIGHT - 1
+	sub PHONE_DISPLAY_HEIGHT
+	ld [wPokegearPhoneScrollPosition], a
 	jr .done_joypad_update_page
 
 .down
+	ld a, [wPokegearPhoneScrollPosition]
+	inc a
+	ld hl, wPokegearPhoneCursorPosition
+	add [hl]
+
+	; stop at the last contact
+	; it's either the last phone contact...
+	cp NUM_PHONE_CONTACTS
+	ret nc
+
+	; ...or the amount of contacts there are.
+	ld e, a
+	ld d, 0
+	ld hl, sSortedPhoneContacts
+	add hl, de
+	ld a, BANK(sSortedPhoneContacts)
+	call OpenSRAM
+		ld a, [hl]
+	call CloseSRAM
+	and a
+	ret z
+
 	ld hl, wPokegearPhoneCursorPosition
 	ld a, [hl]
 	cp PHONE_DISPLAY_HEIGHT - 1
 	jr nc, .scroll_page_down
+
 	inc [hl]
 	jr .done_joypad_same_page
 
 .scroll_page_down
+	; show the next page with the cursor on its first row
+	ld [hl], 0
 	ld hl, wPokegearPhoneScrollPosition
 	ld a, [hl]
-	cp NUM_PHONE_CONTACTS - PHONE_DISPLAY_HEIGHT
-	ret nc
-	inc [hl]
+	add PHONE_DISPLAY_HEIGHT
+	ld [hl], a
 	jr .done_joypad_update_page
 
 .done_joypad_same_page
@@ -1799,6 +1828,52 @@ PokegearPhone_UpdateDisplayList:
 	ld a, BANK(sSortedPhoneContacts)
 	call OpenSRAM
 	call SortPhoneContacts
+	; b = number of contacts
+	ld a, l
+	sub LOW(sSortedPhoneContacts)
+	ld b, a
+	; keep the cursor on a contact (e.g. after deleting one)
+	ld hl, wPokegearPhoneCursorPosition
+	ld a, [wPokegearPhoneScrollPosition]
+	add [hl]
+	cp b
+	jr c, .cursor_ok
+	ld a, b
+	dec a
+.cursor_ok
+	ld c, a
+	; lock to PHONE_DISPLAY_HEIGHT
+	and %11111100 ; ~(PHONE_DISPLAY_HEIGHT - 1)
+	ld [wPokegearPhoneScrollPosition], a
+	ld a, c
+	and PHONE_DISPLAY_HEIGHT - 1
+	ld [hl], a
+
+	; total page number
+	ld a, b
+	add PHONE_DISPLAY_HEIGHT - 1
+	; is calculated by division by 4
+	srl a
+	srl a
+	hlcoord 18, 3
+	call .PlacePageNumber
+	ld [hl], "/"
+	dec hl
+
+	; current page number
+	ld a, [wPokegearPhoneScrollPosition]
+	srl a
+	srl a
+	inc a
+	call .PlacePageNumber
+
+	; place the "PAGE" word
+	ld a, l
+	sub 4
+	ld l, a
+	ld de, .PageText
+	call PlaceString
+
 	ld a, [wPokegearPhoneScrollPosition]
 	ld e, a
 	ld d, 0
@@ -1827,6 +1902,25 @@ PokegearPhone_UpdateDisplayList:
 	jr c, .loop
 	call PokegearPhone_UpdateCursor
 	call CloseSRAM
+	ret
+
+.PageText:
+	db "PAGE@"
+
+; writes from the right
+.PlacePageNumber:
+	cp 10
+	jr c, .ones
+	sub 10
+	add "0"
+	ld [hld], a
+	ld a, "1"
+	ld [hld], a
+	ret
+
+.ones
+	add "0"
+	ld [hld], a
 	ret
 
 ; wPhoneList is now a bitflag to essentially allow for every phone contact

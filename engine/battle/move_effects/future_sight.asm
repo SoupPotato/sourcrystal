@@ -65,19 +65,21 @@ BattleCommand_FutureSight:
 	ld de, wEnemyFutureSightDamage
 .StoreDamage:
 	ld hl, wCurDamage
-	ld a, [hl]
+	ld a, [hli]
 	ld [de], a
-	ld [hl], 0
-	inc hl
 	inc de
-	ld a, [hl]
+	ld a, [hli]
 	ld [de], a
-	ld [hl], 0
-	jp EndMoveEffect
+	call ResetDamage
+	jr .finished
 
 .failed
 	pop bc
 	call ResetDamage
 	call AnimateFailedMove
 	call PrintButItFailed
+
+.finished
+	xor a
+	ld [wCriticalHit], a
 	jp EndMoveEffect

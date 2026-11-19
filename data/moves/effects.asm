@@ -1964,12 +1964,12 @@ FutureSight:
 	checkobedience
 	usedmovetext
 	doturn
-	futuresight
 	critical
 	damagestats
 	damagecalc
 	stab
 	damagevariation
+	futuresight
 	checkhit
 	moveanimnosub
 	failuretext
